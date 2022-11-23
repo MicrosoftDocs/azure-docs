@@ -3,7 +3,7 @@ title: Azure Dedicated Host SKU Retirement Migration Guide
 description: Walkthrough on how to migrate a retiring Dedicated Host SKU
 author: brittanyrowe
 ms.author: brittanyrowe
-ms.reviewer: mimckitt
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: how-to
@@ -142,8 +142,8 @@ On Azure portal, go through the following steps:
 
 #### Delete the old Dedicated Host
 
-Once all VMs have been migrated from your old Dedicated Host to the target Dedicated Host, [delete the old Dedicated Host](dedicated-hosts-how-to.md#deleting-hosts).
+Once all VMs have been migrated from your old Dedicated Host to the target Dedicated Host, [delete the old Dedicated Host](dedicated-hosts-how-to.md#deleting-a-host).
 
 ## Help and support
 
-If you have questions, ask community experts in [Microsoft Q&A](https://aka.ms/azure-dedicated-host-qa).
+If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-dedicated-host.html).

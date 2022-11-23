@@ -1,24 +1,15 @@
 ---
-title: IT Service Management Connector - Secure Export in Azure Monitor - Azure Configurations 
-description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
+title: IT Service Management Connector - Secure Webhook in Azure Monitor - Azure Configurations 
+description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 04/28/2022
+ms.reviewer: nolavime
 
 ---
 
-# Configure Azure to connect ITSM tools using Secure Export
+# Configure Azure to connect ITSM tools using Secure Webhook
 
-This article provides information about how to configure the Azure in order to use "Secure Export".
-In order to use "Secure Export", follow these steps:
-
-1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
-1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
-1. [Create a Secure Webhook action group.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
-1. Configure your partner environment.
-    Secure Export supports connections with the following ITSM tools:
-    * [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
-    * [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
-
+This article describes the required Azure configurations for using Secure Webhook.
 ## Register with Azure Active Directory
 
 Follow these steps to register the application with Azure AD:
@@ -32,7 +23,7 @@ Follow these steps to register the application with Azure AD:
 
 ## Define service principal
 
-The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with Service now.
+The Action group service is a first party application, and has permission to acquire authentication tokens from your Azure AD application in order to authenticate with ServiceNow.
 As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal (Requires tenant admin privileges).
 
 This step can be done through the same [PowerShell commands](../alerts/action-groups.md#secure-webhook-powershell-script).
@@ -43,6 +34,9 @@ After your application is registered with Azure AD, you can create work items in
 
 Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, Activity Log alerts, and Azure Log Analytics alerts in the Azure portal.
 To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
+
+> [!NOTE]
+> If you are using a log alert, the query results must include a “Computer” column containing the configuration items list.
 
 To add a webhook to an action, follow these instructions for Secure Webhook:
 
@@ -61,13 +55,14 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
    ![Screenshot that shows a Secure Webhook action.](media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png)
 
 ## Configure the ITSM tool environment
+Secure Webhook supports connections with the following ITSM tools:
+    * [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
+    * [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
-The configuration contains two steps:
-
-1. Get the URI for the secure export definition.
-2. Definitions according to the flow of the ITSM tool.
-
+To configure the ITSM tool environment:
+1. Get the URI for the secure Webhook definition.
+2. Create definitions based on ITSM tool flow. 
 ## Next steps
 
-* [ServiceNow Secure Export Configuration](./itsmc-secure-webhook-connections-servicenow.md)
-* [BMC Secure Export Configuration](./itsmc-secure-webhook-connections-bmc.md)
+* [ServiceNow Secure Webhook Configuration](./itsmc-secure-webhook-connections-servicenow.md)
+* [BMC Secure Webhook Configuration](./itsmc-secure-webhook-connections-bmc.md)

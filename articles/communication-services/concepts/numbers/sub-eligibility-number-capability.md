@@ -10,6 +10,7 @@ ms.author: sadas
 ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Subscription eligibility and number capabilities
@@ -22,10 +23,14 @@ To acquire a phone number, you need to be on a paid Azure subscription. Phone nu
 
 Additional details on eligible subscription types are as follows:
 
-| Number Type                      | Eligible Azure Agreement Type                                                                            |
-| :------------------------------- | :------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                      |
+| Number Type                      | Eligible Azure Agreement Type                                                                             |
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
+| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement**                                       |
+
+\* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
+
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases
 
 ## Number capabilities
 
@@ -38,45 +43,96 @@ The tables below summarize current availability:
 | Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local       | Not Available        | Not Available        | General Availability | General Availability\* |
-| USA               | Short-Codes | Public Preview       | Public Preview\*     | Not Available        | Not Available          |
+| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
+| USA               | Short-Codes | Public Preview       | Public Preview\*     | -        | -          |
 
 \* Available through Azure Bot Framework and Dynamics only
 
 ## Customers with UK Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| UK                | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| UK                | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
+| :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
+| UK                 | Toll-Free      | -        | -        | Public Preview   | Public Preview\* |
+| UK                 | Local          | -        | -        | Public Preview   | Public Preview\* |
+| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | Public Preview   | Public Preview\* |
+| USA & Puerto Rico  | Local          | -        | -        | Public Preview   | Public Preview\* |
+| Canada             | Toll-Free      | Public Preview       | Public Preview       | Public Preview   | Public Preview\* |
+| Canada             | Local          | -        | -        | Public Preview   | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
 ## Customers with Ireland Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | General Availability | General Availability\* |
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
+| Ireland           | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
+| Ireland           | Local     | -        | -        | Public Preview       | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview       | Public Preview\* |
+| USA & Puerto Rico | Local     | -        | -        | Public Preview       | Public Preview\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview       | Public Preview\* |
+| Canada            | Local     | -        | -        | Public Preview       | Public Preview\* |
+| UK                | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
+| UK                | Local     | -        | -        | Public Preview       | Public Preview\* |
+
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Denmark Azure Billing Addresses
+## Customers with Denmark Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
+| UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| UK                | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Available through Azure Bot Framework and Dynamics only
+
+## Customers with Canada Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| UK                | Local     | -        | -        | Public Preview | Public Preview\* |
+
+
+\* Available through Azure Bot Framework and Dynamics only
+
+## Customers with Italy Azure billing addresses
 
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
-| Denmark | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
-| Denmark | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | Public Preview | Public Preview\* |
+| Italy   | Local**     | - | - | Public Preview | Public Preview\* |
+
+\* Available through Azure Bot Framework and Dynamics only
+
+\** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
+
+## Customers with Sweden Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Sweden            | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Sweden            | Local     | -        | -        | Public Preview | Public Preview\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
 ## Next steps
 
-For additional information about ACS' telephony options please see the following pages:
+For additional information about Azure Communication Services' telephony options please see the following pages:
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)

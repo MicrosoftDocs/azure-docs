@@ -1,8 +1,8 @@
 ---
 title: Azure Industrial IoT Overview
 description: This article provides an overview of Industrial IoT. It explains the shop floor connectivity and security components in IIoT.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: overview
 ms.date: 3/22/2021
@@ -40,7 +40,7 @@ Azure IIoT solutions are built from specific components:
 
 The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) acts as a central message hub for secure, bi-directional communications between any IoT application and the devices it manages. It's an open and flexible cloud platform as a service (PaaS) that supports open-source SDKs and multiple protocols.
 
-Gathering your industrial and business data onto an IoT Hub lets you store your data securely, perform business and efficiency analyses on it, and generate reports from it. You can also apply Microsoft Azure services and tools, such as [Power BI](https://powerbi.microsoft.com), on your combined data.
+Gathering your industrial and business data onto an IoT Hub lets you store your data securely, perform business and efficiency analyses on it, and generate reports from it. You can process your combined data with Microsoft Azure services and tools, for example [Azure Stream Analytics](../stream-analytics/index.yml), or visualize in your Business Intelligence platform of choice such as [Power BI](https://powerbi.microsoft.com).
 
 ### IoT Edge devices
 

@@ -3,8 +3,8 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 08/06/2021
-
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -19,7 +19,7 @@ Currently, using GPU-enabled node pools is only available for Linux node pools.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI][aks-quickstart].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -43,7 +43,7 @@ There are two options for adding the NVIDIA device plugin:
 
 ### Update your cluster to use the AKS GPU image (preview)
 
-AKS provides is providing a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
+AKS provides a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
 Register the `GPUDedicatedVHDPreview` feature:
 
@@ -51,13 +51,13 @@ Register the `GPUDedicatedVHDPreview` feature:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az_feature_list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az_provider_register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -93,7 +93,7 @@ az aks nodepool add \
     --max-count 3
 ```
 
-The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the nodes in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
+The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the node in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
 
 > [!NOTE]
 > A taint and VM size can only be set for node pools during node pool creation, but the autoscaler settings can be updated at any time.
@@ -408,8 +408,8 @@ For more information about running machine learning (ML) workloads on Kubernetes
 
 For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
 
-* [Deploy a model to Azure Kubernetes Service][azureml-aks].
-* [Deploy a deep learning model for inference with GPU][azureml-gpu].
+* [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
+* [Deploy a model with an online endpoint][azureml-deploy].
 * [High-performance serving with Triton Inference Server][azureml-triton].
 
 <!-- LINKS - external -->
@@ -428,11 +428,13 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[aks-quickstart]: kubernetes-walkthrough.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
-[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-aks]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
+[azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights

@@ -1,10 +1,14 @@
 ---
 title: Describing Azure Service Fabric apps and services 
 description: Describes how manifests are used to describe Service Fabric applications and services.
-
 ms.topic: conceptual
-ms.date: 8/12/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application and service manifests
 This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
@@ -60,7 +64,7 @@ The executable specified by **EntryPoint** is typically the long-running service
 
 Typical scenarios for using **SetupEntryPoint** are when you run an executable before the service starts or you perform an operation with elevated privileges. For example:
 
-* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a Node.js application.
 * Setting up access control by installing security certificates.
 
 For more information on how to configure the SetupEntryPoint, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
@@ -184,6 +188,7 @@ For more information about other features supported by application manifests, re
 - [Configure security policies for your application](service-fabric-application-runas-security.md).
 - [Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
 - [Encrypt secrets in the application manifest](service-fabric-application-secret-management.md)
+- [Azure Service Fabric security best practices](service-fabric-best-practices-security.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

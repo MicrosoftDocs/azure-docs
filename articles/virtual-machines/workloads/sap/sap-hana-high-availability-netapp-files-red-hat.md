@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/08/2021
+ms.date: 11/15/2022
 ms.author: radeltch
 ms.custom: ignite-fall-2021
 ---
@@ -22,7 +22,6 @@ ms.custom: ignite-fall-2021
 
 [anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -81,7 +80,6 @@ Read the following SAP Notes and papers first:
 - Azure-specific RHEL documentation:
 	- [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members.](https://access.redhat.com/articles/3131341)
 	- [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure.](https://access.redhat.com/articles/3252491)
-	- [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure.](https://access.redhat.com/solutions/3193782)
 	- [Configure SAP HANA scale-up system replication up Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
@@ -111,12 +109,10 @@ Mounted on node2 (**hanadb2**)
 > [!NOTE]
 > File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.   
 
-The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-- Front-end configuration: IP address 10.32.0.10 for hn1-db
-- Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-- Probe Port: Port 62503
-- Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (if using Basic Azure Load balancer)  
+- Front-end IP address: 10.32.0.10 for hn1-db
+- Probe Port: 62503 
 
 ## Set up the Azure NetApp File infrastructure
 
@@ -225,7 +221,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-8.	If using standard load balancer, follow these configuration steps:
+8.	To set up standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
@@ -253,7 +249,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Select **OK**.
 
 
-9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
 	1.	Configure the load balancer. First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
@@ -392,18 +388,15 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.32.0.5   hanadb2
    ```
 
-3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
     <pre><code>
-    vi /etc/sysctl.d/netapp-hana.conf
+    vi /etc/sysctl.d/91-NetApp-HANA.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
-    net.core.rmem_default = 16777216
-    net.core.wmem_default = 16777216
-    net.core.optmem_max = 16777216
-    net.ipv4.tcp_rmem = 65536 16777216 16777216
-    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.ipv4.tcp_rmem = 4096 131072 16777216
+    net.ipv4.tcp_wmem = 4096 16384 16777216
     net.core.netdev_max_backlog = 300000 
     net.ipv4.tcp_slow_start_after_idle=0 
     net.ipv4.tcp_no_metrics_save = 1
@@ -427,7 +420,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     > [!TIP]
     > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-5. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+5. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).    
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
@@ -507,12 +500,12 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux](./high-av
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.    
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
-   > The python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.        
 
    1. Prepare the hook as `root`.  
 
@@ -587,22 +580,26 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 2. **[1]** Create the Filesystem resources for the **hanadb1** mounts.
 
     ```
-    pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
-    pcs resource create hana_log1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
-    pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    pcs resource create hana_log1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
 3. **[2]** Create the Filesystem resources for the **hanadb2** mounts.
 
     ```
-    pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
-    pcs resource create hana_log2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
-    pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    pcs resource create hana_log2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
     ```
 
-    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the filesystem. Without this attribute, the monitor operation only verifies that the filesystem is mounted. This can be a problem because when connectivity is lost, the filesystem may remain mounted despite being inaccessible.
+   `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the filesystem. Without this attribute, the monitor operation only verifies that the filesystem is mounted. This can be a problem because when connectivity is lost, the filesystem may remain mounted despite being inaccessible.
 
-    `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource cannot stop successfully if the NFS server holding the HANA executables is inaccessible.
+   `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource cannot stop successfully if the NFS server holding the HANA executables is inaccessible.
+
+   The suggested timeouts values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals. For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf). The timeouts in the above configuration may need to be adapted to the specific SAP setup.     
+
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
 
 4. **[1]** Configuring Location Constraints
 

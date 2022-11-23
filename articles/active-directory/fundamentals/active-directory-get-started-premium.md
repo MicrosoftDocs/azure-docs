@@ -2,21 +2,22 @@
 title: Sign up for premium editions - Azure Active Directory| Microsoft Docs
 description: Instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/07/2017
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
 # Sign up for Azure Active Directory Premium editions
+
 You can purchase and associate Azure Active Directory (Azure AD) Premium editions with your Azure subscription. If you need to create a new Azure subscription, you'll also need to activate your licensing plan and Azure AD service access.
 
 Before you sign up for Active Directory Premium 1 or Premium 2, you must first determine which of your existing subscription or plan to use:
@@ -30,9 +31,11 @@ Before you sign up for Active Directory Premium 1 or Premium 2, you must first d
 Signing up using your Azure subscription with previously purchased and activated Azure AD licenses, automatically activates the licenses in the same directory. If that's not the case, you must still activate your license plan and your Azure AD access. For more information about activating your license plan, see [Activate your new license plan](#activate-your-new-license-plan). For more information about activating your Azure AD access, see [Activate your Azure AD access](#activate-your-azure-ad-access). 
 
 ## Sign up using your existing Azure or Microsoft 365 subscription
-As an Azure or Microsoft 365 subscriber, you can purchase the Azure Active Directory Premium editions online. For detailed steps, see How to Purchase Azure Active Directory Premium - New Customers.
+
+As an Azure or Microsoft 365 subscriber, you can purchase the Azure Active Directory Premium editions online. For detailed steps, see [Buy or remove licenses](/microsoft-365/commerce/licenses/buy-licenses?view=o365-worldwide&preserve-view=true).
 
 ## Sign up using your Enterprise Mobility + Security licensing plan
+
 Enterprise Mobility + Security is a suite, comprised of Azure AD Premium, Azure Information Protection, and Microsoft Intune. If you already have an EMS license, you can get started with Azure AD, using one of these licensing options:
 
 For more information about EMS, see [Enterprise Mobility + Security web site](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
@@ -44,6 +47,7 @@ For more information about EMS, see [Enterprise Mobility + Security web site](ht
 - Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
 ## Sign up using your Microsoft Volume Licensing plan
+
 Through your Microsoft Volume Licensing plan, you can sign up for Azure AD Premium using one of these two programs, based on the number of licenses you want to get:
 
 - **For 250 or more licenses.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
@@ -53,10 +57,12 @@ Through your Microsoft Volume Licensing plan, you can sign up for Azure AD Premi
 For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## Activate your new license plan
+
 If you signed up using a new Azure AD license plan, you must activate it for your organization, using the confirmation email sent after purchase.
 
 ### To activate your license plan
-- Open the confirmation email you received from Microsoft after you signed up, and then click either **Sign In** or **Sign Up**.
+
+- Open the confirmation email you received from Microsoft after you signed up, and then select either **Sign In** or **Sign Up**.
    
     ![Confirmation email with sign in and sign up links](media/active-directory-get-started-premium/MOLSEmail.png)
 
@@ -66,7 +72,7 @@ If you signed up using a new Azure AD license plan, you must activate it for you
 
         ![Create account profile page, with sample information](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
-When you're done, you will see a confirmation box thanking you for activating the license plan for your tenant.
+When you're done, you'll see a confirmation box thanking you for activating the license plan for your tenant.
 
 ![Confirmation box with thank you](media/active-directory-get-started-premium/MOLSThankYou.png)
 
@@ -80,7 +86,7 @@ After your purchased licenses are provisioned in your directory, you'll receive 
 
 ### To activate your Azure AD access
 
-1. Open the **Welcome email**, and then click **Sign In**.
+1. Open the **Welcome email**, and then select **Sign In**.
    
     ![Welcome email, with highlighted sign in link](media/active-directory-get-started-premium/AADEmail.png)
 

@@ -139,7 +139,17 @@
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
             "redirect_url": "/azure/marketplace/azure-vm-image-test",
             "redirect_document_id": false
-        },       
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/saas-go-live.md",
+            "redirect_url": "/azure/marketplace/test-publish-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
+            "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
+            "redirect_document_id": false
+        },   
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -1947,6 +1957,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/vm-images-to-managed-disks-faq.md",
+            "redirect_url": "/azure/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/preferred-solutions.md",
             "redirect_url": "/marketplace/appsource-overview#microsoft-preferred-solutions",
             "redirect_document_id": false
@@ -1999,6 +2014,21 @@
         {
             "source_path_from_root": "/articles/marketplace/toc_old.md",
             "redirect_url": "/azure/marketplace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/office-store-index.yml",
+            "redirect_url": "/azure/marketplace/why-publish",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/company-work-accounts.md",
+            "redirect_url": "/partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/sell-from-countries.md",
+            "redirect_url": "/azure/marketplace/supported-countries-regions",
             "redirect_document_id": false
         }
     ]

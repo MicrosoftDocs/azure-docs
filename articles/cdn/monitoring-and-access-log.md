@@ -87,7 +87,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
     $diagname = <your-diagnostic-setting-name>
     $days = '30'
 
-    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+    $cdn = Get-AzCdnProfile -ResourceGroupName $rsg -ProfileName $cdnprofile
 
     $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
 
@@ -153,7 +153,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -221,7 +221,10 @@ For more information, see [Azure Monitor metrics](../azure-monitor/essentials/da
 | ResponseSize | The number of bytes sent as responses from CDN edge to clients. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 | TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 
-***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+> [!NOTE]
+> If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
+
+***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 
 Scenarios excluded in bytes hit ratio calculation:
 

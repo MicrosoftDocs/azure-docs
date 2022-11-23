@@ -1,9 +1,14 @@
 ---
 title: Upgrade the configuration of an Azure Service Fabric cluster 
 description: Learn how to upgrade the configuration that runs a Service Fabric cluster in Azure using a Resource Manager template.
-ms.topic: conceptual
-ms.date: 11/09/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrade the configuration of a cluster in Azure 
 
 This article describes how to customize the various fabric settings for your Service Fabric cluster. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template.

@@ -1,16 +1,16 @@
 ---
 title: Scale with multiple instances - Azure SignalR Service
-description: In many scaling scenarios, customer often needs to provision multiple instances and configure to use them together, to create a large-scale deployment. For example, sharding requires multiple instances support.
+description: In many scaling scenarios, customers often need to create multiple instances and use them together to create a large-scale deployment. For example, sharding requires multiple instances support.
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 03/27/2019
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 # How to scale SignalR Service with multiple instances?
-The latest SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
+SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
 ## For ASP.NET Core
 
@@ -60,7 +60,7 @@ By default, the SDK uses the [DefaultEndpointRouter](https://github.com/Azure/az
 
 2. Server message routing
 
-    When *sending message to a specific **connection***, and the target connection is routed to current server, the message goes directly to that connected endpoint. Otherwise, the messages are broadcasted to every Azure SignalR endpoint.
+    When sending a message to a specific *connection* and the target connection is routed to current server, the message goes directly to that connected endpoint. Otherwise, the messages are broadcasted to every Azure SignalR endpoint.
 
 #### Customize routing algorithm
 You can create your own router when you have special knowledge to identify which endpoints the messages should go to.
@@ -209,6 +209,40 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 });
 ```
 
+## Service Endpoint Metrics
+
+To enable advanced router, SignalR server SDK provides multiple metrics to help server do smart decision. The properties are under `ServiceEndpoint.EndpointMetrics`.
+
+| Metric Name | Description |
+| -- | -- |
+| `ClientConnectionCount` | Total concurrent connected client connection count on all hubs for the service endpoint |
+| `ServerConnectionCount` | Total concurrent connected server connection count on all hubs for the service endpoint |
+| `ConnectionCapacity` | Total connection quota for the service endpoint, including client and server connections |
+
+Below is an example to customize router according to `ClientConnectionCount`.
+
+```cs
+private class CustomRouter : EndpointRouterDecorator
+{
+    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
+    {
+        return endpoints.OrderBy(x => x.EndpointMetrics.ClientConnectionCount).FirstOrDefault(x => x.Online) // Get the available endpoint with minimal clients load
+               ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
+    }
+}
+```
+
+## Dynamic Scale ServiceEndpoints
+
+From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting a default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change code, and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, refer to [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1&preserve-view=true).
+
+> [!NOTE]
+> 
+> Considering the time of connection set-up between server/service and client/service may be different, to ensure no message loss during the scale process, we have a staging period waiting for server connections be ready before open the new ServiceEndpoint to clients. Usually it takes seconds to complete and you'll be able to see log like `Succeed in adding endpoint: '{endpoint}'` which indicates the process complete. But for some unexpected reasons like cross-region network issue or configuration inconsistent on different app servers, the staging period will not be able to finish correctly. Since limited things can be done in these cases, we choose to promote the scale as it is. It's suggested to restart App Server when you find the scaling process not working correctly.
+> 
+>  The default timeout period for the scale is 5 minutes, and it can be customized by changing the value in `ServiceOptions.ServiceScaleTimeout`. If you have a lot of app servers, it's suggested to extend the value a little bit more.
+
+
 ## Configuration in cross-region scenarios
 
 The `ServiceEndpoint` object has an `EndpointType` property with value `primary` or `secondary`.
@@ -219,15 +253,15 @@ In cross-region cases, network can be unstable. For one app server located in *E
 
 ![Cross-Geo Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-When a client tries `/negotiate` with the app server, with the default router, SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint is not available, SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
+When a client tries `/negotiate` with the app server, with the default router, SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint isn't available, SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
 
-In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints are not available, the client is redirected to endpoints in other regions. Fail-over section below describes the scenario in detail.
+In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints aren't available, the client is redirected to endpoints in other regions. Fail over section below describes the scenario in detail.
 
 ![Normal Negotiate](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
 ## Fail-over
 
-When all `primary` endpoints are not available, client's `/negotiate` picks from the available `secondary` endpoints. This fail-over mechanism requires that each endpoint should serve as `primary` endpoint to at least one app server.
+When all `primary` endpoints aren't available, client's `/negotiate` picks from the available `secondary` endpoints. This fail-over mechanism requires that each endpoint should serve as `primary` endpoint to at least one app server.
 
 ![Fail-over](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 

@@ -36,7 +36,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 If you already have a device registered in your IoT hub, you can skip this section.
 
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command in Azure Cloud Shell to create the device identity.
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in Azure Cloud Shell to create the device identity.
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -46,7 +46,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -85,9 +85,9 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
-1. Open the **SimulatedDevice.py** file in a text editor of your choice.
+1. Open the **SimulatedDeviceSync.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
+    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDeviceSync.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
@@ -95,10 +95,10 @@ The simulated device application connects to a device-specific endpoint on your 
     pip install azure-iot-device
     ```
 
-1. In the local terminal window, run the following commands to run the simulated device application:
+1. In the local terminal window, run the following commands to run the simulated device application: 
 
     ```cmd/sh
-    python SimulatedDevice.py
+    python SimulatedDeviceSync.py
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:

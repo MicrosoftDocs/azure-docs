@@ -33,13 +33,23 @@ In this tutorial, you'll learn how to:
 > [!NOTE]
 > You'll be using Unity and an ASP.NET Core web app in this tutorial, but the approach here is only to provide an example of how to share Azure Spatial Anchors identifiers across other devices. You can use other languages and back-end technologies to achieve the same goal.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Download the sample project
+## Download the sample project + import SDK
+
+### Clone Samples Repo
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
+### Import ASA SDK
+
+Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the HoloLens platform.
+
 ## Deploy the Sharing Anchors service
+> [!NOTE]
+> In this tutorial we will be using the free tier of the Azure App Service. The free tier will time out after [20 min](/azure/architecture/framework/services/compute/azure-app-service/reliability#configuration-recommendations) of inactivity and reset the memory cache.
 
 ## [Visual Studio](#tab/VS)
 
@@ -85,7 +95,7 @@ To deploy the sharing service through Visual Studio Code, follow the instruction
 
 ---
 
-## Deploy the sample app
+## Configure + deploy the sample app
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 

@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
 There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
@@ -63,7 +61,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     ```kusto
     securityresources
      | where type == "microsoft.security/assessments"
-     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on subscriptions"
      | where properties.status.code == "Unhealthy"
     ```
 
@@ -73,7 +71,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
-> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
+> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
 
 ## FAQ - MFA in Defender for Cloud
@@ -104,14 +102,32 @@ Defender for Cloud's MFA recommendations refer to [Azure RBAC](../role-based-acc
 Defender for Cloud's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
 
 ### Can I exempt or dismiss some of the accounts?
-The capability to exempt some accounts that don’t use MFA isn't currently supported.  
+
+The capability to exempt some accounts that don’t use MFA is available on the new recommendations in preview:
+
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
+
+To exempt account(s), follow these steps:
+
+1. Select an MFA recommendation associated with an unhealthy account.
+1. In the Accounts tab, select an account to exempt.
+1. Select the three dots button, then select **Exempt account**.
+1. Select a scope and exemption reason. 
+
+If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
+
+> [!TIP]
+> When you exempt an account, it won't be shown as unhealthy and won't cause a subscription to appear unhealthy.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
 There are some limitations to Defender for Cloud's identity and access protections:
 
-- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
 - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
 
 
 ## Next steps

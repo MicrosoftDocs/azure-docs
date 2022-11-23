@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/02/2021
+ms.date: 10/17/2022
 ms.author: radeltch
 
 ---
@@ -79,12 +79,10 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 
 ![SAP HANA high availability overview](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-* Front-end configuration: IP address 10.0.0.13 for hn1-db
-* Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-* Probe Port: Port 62503
-* Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
+* Front-end IP address: 10.0.0.13 for hn1-db
+* Probe Port: 62503
 
 ## Deploy for Linux
 
@@ -114,10 +112,10 @@ To deploy the template, follow these steps:
 1. Create a load balancer (internal). We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).
    * Select the virtual network created in step 2.
 1. Create virtual machine 1.  
-   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the Red Hat Enterprise Linux 7.4 for SAP HANA image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>
+   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
    Select the availability set created in step 3.
 1. Create virtual machine 2.  
-   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the Red Hat Enterprise Linux 7.4 for SAP HANA image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>
+   Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
    Select the availability set created in step 3.
 1. Add data disks.
 
@@ -127,7 +125,7 @@ To deploy the template, follow these steps:
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-1. If using standard load balancer, follow these configuration steps:
+1. To set up standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -163,7 +161,7 @@ To deploy the template, follow these steps:
       1. Select **OK**.
 
 
-1. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+1. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
    1. Configure the load balancer. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -344,7 +342,8 @@ The steps in this section use the following prefixes:
 
 1. **[A]** RHEL for HANA configuration
 
-   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:  
+   Configure RHEL as described in the following notes:
+   - [2447641 - Additional packages required for installing SAP HANA SPS 12 on RHEL 7.X](https://access.redhat.com/solutions/2447641)
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
@@ -353,7 +352,7 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Install the SAP HANA
 
-   To install SAP HANA System Replication, follow <https://access.redhat.com/articles/3004101>.
+   To install SAP HANA System Replication, see [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101).
 
    * Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
    * Choose installation: Enter **1**.
@@ -558,12 +557,21 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](
 
 ## Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.
 
-1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
+1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable additional repositories, if using RHEL 8.x HA-enabled image.
+
+   ```bash
+   # Enable repository that contains SAP HANA resource agents
+   sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
+   
+   sudo yum install -y resource-agents-sap-hana
+   ```
+
+2. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.
 
    > [!TIP]
-   > The python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.
 
    1. Prepare the hook as `root`.  
 
@@ -592,7 +600,7 @@ This is important step to optimize the integration with the cluster and improve 
     ha_dr_saphanasr = info
     ```
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+3. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
     sudo visudo -f /etc/sudoers.d/20-saphana
     # Insert the following lines and then save
@@ -604,13 +612,13 @@ This is important step to optimize the integration with the cluster and improve 
     Defaults!SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL !requiretty
     ```
 
-3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+4. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
 
     ```bash
      cdtrace
@@ -620,22 +628,13 @@ This is important step to optimize the integration with the cluster and improve 
      # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
-
     ```
 
 For more details on the implementation of the SAP HANA system replication hook see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
- 
+
 ## Create SAP HANA cluster resources
 
-Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable additional repositories, if using RHEL 8.x HA-enabled image.  
-
-<pre><code># Enable repository that contains SAP HANA resource agents
-sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
-   
-sudo yum install -y resource-agents-sap-hana
-</code></pre>
-
-Next, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
+Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
 <pre><code>sudo pcs property set maintenance-mode=true
 
@@ -653,7 +652,7 @@ Next, create the HANA resources.
 If building a cluster on **RHEL 7.x**, use the following commands:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-#
+
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -674,7 +673,7 @@ sudo pcs property set maintenance-mode=false
 If building a cluster on **RHEL 8.x**, use the following commands:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-#
+
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -691,6 +690,10 @@ sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana
 
 sudo pcs property set maintenance-mode=false
 </code></pre>
+
+> [!IMPORTANT]
+> It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication can resume automatically. 
+
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 

@@ -7,6 +7,8 @@ ms.custom: ignite-fall-2021
 ---
 # Analyzing live videos without recording
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 ## Suggested pre-reading 
 
 * [Pipeline concept](pipeline.md)

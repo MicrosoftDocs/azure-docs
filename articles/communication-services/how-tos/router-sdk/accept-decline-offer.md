@@ -1,32 +1,32 @@
 ---
-title: Accept or decline an offer in Job Router
+title: How to accept or decline offers in Job Router
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to accept or decline a job offer in Job Router.
+description: Learn how to use Azure Communication Services SDKs to accept or decline job offers in Job Router.
 author: marche0133
 ms.author: marcma
 ms.service: azure-communication-services
 ms.topic: how-to 
-ms.date: 01/18/2022
-ms.custom: template-how-to
+ms.date: 06/01/2022
+ms.custom: kr2b-contr-experiment
 
-#Customer intent: As a developer, I want to accept/decline job offers when coming in.
+#Customer intent: As a developer, I want to accept/decline job offers when they come in.
 ---
 
-# Accept or decline a Job Router offer
+# Discover how to accept or decline Job Router job offers
 
-This guide outlines the steps to observe a Job Router offer, and then to accept the job offer or delete the job offer.
+This guide lays out the steps you need to take to observe a Job Router offer. It also outlines how to accept or decline job offers.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Azure Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md).
 
-## Observe the offer issued event
+## Observe worker offer-issued events
 
-After you create a job, observe the [offer issued event](subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID:
+After you create a job, observe the [worker offer-issued event](subscribe-events.md#microsoftcommunicationrouterworkerofferissued), which contains the worker ID and the job offer ID:
 
 ```csharp
 var workerId = event.data.workerId;
@@ -35,18 +35,18 @@ Console.WriteLine($"Job Offer ID: {offerId} offered to worker {workerId} ");
      
 ```
 
-## Accept a job offer
+## Accept job offers
 
-Then, the worker can accept the job offer by using the SDK:
+The worker can accept job offers by using the SDK:
 
 ```csharp
 var result = await client.AcceptJobOfferAsync(workerId, offerId);
 
 ```
 
-## Decline a job offer
+## Decline job offers
 
-Alternatively, the worker can decline the job offer by using the SDK if worker isn't willing to take the job:
+The worker can decline job offers by using the SDK:
 
 ```csharp
 var result = await client.DeclineJobOfferAsync(workerId, offerId);

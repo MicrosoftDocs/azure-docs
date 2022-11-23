@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
-author: zxue
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -27,7 +27,7 @@ Open the [Azure portal](https://portal.azure.com) and select **Create a resource
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Azure Health Data Services":::
 
 ## Create Azure API for FHIR account
 
@@ -86,3 +86,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

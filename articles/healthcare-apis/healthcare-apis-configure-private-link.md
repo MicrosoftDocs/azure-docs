@@ -2,12 +2,12 @@
 title: Private Link for Azure Health Data Services
 description: This article describes how to set up a private endpoint for Azure Health Data Services
 services: healthcare-apis
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/14/2022
-ms.author: zxue
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 
 # Configure Private Link for Azure Health Data Services
@@ -21,7 +21,7 @@ Private Link enables you to access Azure Health Data Services over a private end
 
 ## Prerequisites
 
-Before creating a private endpoint, the following Azure resources must be created first:
+Before you create a private endpoint, the following Azure resources must be created first:
 
 - **Resource Group** – The Azure resource group that will contain the virtual network and private endpoint.
 - **Workspace** – This is a logical container for FHIR and DICOM service instances.
@@ -100,3 +100,5 @@ In this article, you've learned how to configure Private Link for Azure Health D
 
 >[!div class="nextstepaction"]
 >[Overview of Azure Health Data Services](healthcare-apis-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

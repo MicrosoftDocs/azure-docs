@@ -1,13 +1,13 @@
 ---
 title: Swap between OS disks using the Azure CLI '
 description: Change the operating system disk used by an Azure virtual machine using the Azure CLI.
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: devx-track-azurecli
 ---
 # Change the OS disk used by an Azure VM using the Azure CLI
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can use the Azure CLI to swap the OS disks. You don't have to delete and recreate the VM. You can even use a managed disk in another resource group, as long as it isn't already in use.
 
-The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
+The VM does not need to be stopped\deallocated. The resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
 
 Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size).
 
@@ -33,7 +33,7 @@ az disk list \
 ```
 
 
-Use [az vm stop](/cli/azure/vm) to stop\deallocate the VM before swapping the disks.
+(Optional) Use [az vm stop](/cli/azure/vm) to stop\deallocate the VM before swapping the disks.
 
 ```azurecli-interactive
 az vm stop \
@@ -42,7 +42,7 @@ az vm stop \
 ```
 
 
-Use [az vm update](/cli/azure/vm#az_vm_update) with the full resource ID of the new disk for the `--osdisk` parameter 
+Use [az vm update](/cli/azure/vm#az-vm-update) with the full resource ID of the new disk for the `--osdisk` parameter 
 
 ```azurecli-interactive 
 az vm update \

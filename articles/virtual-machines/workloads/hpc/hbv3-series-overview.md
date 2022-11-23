@@ -17,7 +17,7 @@ author: mamccrea
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HBv3-series](../../hbv3-series.md) server features 2 * 64-core EPYC 7V13 CPUs for a total of 128 physical "Zen3" cores. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 32 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
+An [HBv3-series](../../hbv3-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -44,10 +44,10 @@ Each HBv3 VM size is similar in physical layout, features, and performance of a 
 
 | HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
-Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7713            |
+Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
 Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
-Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7543            |
-Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7313            |
+Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
+Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
 Standard_HB120r-16s_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
 
 > [!NOTE]
@@ -107,8 +107,8 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Hardware specifications          | HBv3-series VMs              |
 |----------------------------------|----------------------------------|
 | Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
-| CPU                              | AMD EPYC 7V13                   | 
-| CPU Frequency (non-AVX)          | 3.1 GHz (all cores), 3.675 GHz (up to 10 cores)    | 
+| CPU                              | AMD EPYC 7V73X                   | 
+| CPU Frequency (non-AVX)          | 3.0 GHz (all cores), 3.5 GHz (up to 10 cores)    | 
 | Memory                           | 448 GB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 960 GB NVMe (block), 480 GB SSD (page file) | 
 | Infiniband                       | 200 Gb/s Mellanox ConnectX-6 HDR InfiniBand | 

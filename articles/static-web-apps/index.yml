@@ -36,13 +36,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app
-            url: /learn/modules/publish-app-service-static-web-app-api
+            url: /training/modules/publish-app-service-static-web-app-api
           - text: Publish an API
-            url: /learn/modules/publish-static-web-app-api-preview-url
+            url: /training/modules/publish-static-web-app-api-preview-url
           - text: Create and deploy a Gatsby app 
-            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+            url: /training/modules/create-deploy-static-webapp-gatsby-app-service
           - text: Publish a Blazor WebAssembly app and .NET API
-            url: /learn/modules/publish-app-service-static-web-app-api-dotnet
+            url: /training/modules/publish-app-service-static-web-app-api-dotnet
       - linkListType: video
         links:
           - text: Build and deploy a static web app
@@ -59,8 +59,10 @@ landingContent:
             url: publish-jekyll.md
           - text: Hugo
             url: publish-hugo.md
-          - text: Next.js
-            url: deploy-nextjs.md
+          - text: Next.js Static HTML Export
+            url: deploy-nextjs-static-export.md
+          - text: Hybrid Next.js (preview)
+            url: deploy-nextjs-hybrid.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
           - text: VuePress
@@ -72,7 +74,7 @@ landingContent:
           - text: Configuration
             url: configuration-overview.md
           - text: Serverless API endpoints
-            url: apis.md
+            url: apis-overview.md
           - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Authentication and authorization

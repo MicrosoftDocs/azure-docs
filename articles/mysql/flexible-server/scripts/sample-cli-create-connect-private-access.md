@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to create a Azure Database f
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -66,12 +67,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)|Creates a subnet within the VNet.|
-|[az vm create](/cli/azure/vm#az_vm_create)|Creates an Azure Virtual Machine.|
-|[az vm open-port](/cli/azure/vm#az_vm_open_port)|Opens a VM to inbound traffic on specified ports.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)|Creates a subnet within the VNet.|
+|[az vm create](/cli/azure/vm#az-vm-create)|Creates an Azure Virtual Machine.|
+|[az vm open-port](/cli/azure/vm#az-vm-open-port)|Opens a VM to inbound traffic on specified ports.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/28/2022
-ms.custom: references_regions
+
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure Cognitive Search

@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage Azure Data Explorer'
-description: This guide describes how to connect to Azure Data Explorer in Azure Purview, and use Azure Purview's features to scan and manage your Azure Data Explorer source.
+description: This guide describes how to connect to Azure Data Explorer in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Data Explorer source.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -10,16 +10,16 @@ ms.date: 12/03/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Connect to and manage Azure Data Explorer in Azure Purview
+# Connect to and manage Azure Data Explorer in Microsoft Purview
 
 
-This article outlines how to register Azure Data Explorer, and how to authenticate and interact with Azure Data Explorer in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Azure Data Explorer, and how to authenticate and interact with Azure Data Explorer in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -27,13 +27,13 @@ This article outlines how to register Azure Data Explorer, and how to authentica
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register Azure Data Explorer in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Azure Data Explorer in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -66,7 +66,7 @@ It is required to get the Service Principal's application ID and secret:
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
-1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan
 
 #### Granting the Service Principal access to your Azure data explorer instance
@@ -77,9 +77,9 @@ It is required to get the Service Principal's application ID and secret:
 
 ### System or user assigned managed identity to register
 
-* **System-assigned managed identity** - As soon as the Azure Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. It has the same name as your Azure Purview account.
+* **System-assigned managed identity** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. It has the same name as your Microsoft Purview account.
 
-* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 To register using either of these managed identities, follow these steps:
 
@@ -95,7 +95,7 @@ To register using either of these managed identities, follow these steps:
 
 To register a new Azure Data Explorer (Kusto) account in your data catalog, follow these steps:
 
-1. Navigate to your Azure Purview account
+1. Navigate to your Microsoft Purview account
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Data Explorer**
@@ -121,7 +121,7 @@ Follow the steps below to scan Azure Data Explorer to automatically identify ass
 
 To create and run a new scan, follow these steps:
 
-1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Data Explorer source that you registered.
 
@@ -149,8 +149,8 @@ To create and run a new scan, follow these steps:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

@@ -1,279 +1,453 @@
 ---
-title: "Quickstart: Get started with Translator"
+title: "Quickstart: Azure Cognitive Services Translator"
 titleSuffix: Azure Cognitive Services
-description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
+description: "Learn to translate text with the Translator service. Examples are provided in C#, Go, Java, JavaScript and Python."
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 07/06/2021
+ms.date: 09/14/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other
-keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
-# Quickstart: Get started with Translator
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD049 -->
 
-In this quickstart, you learn to use the Translator service via REST. You start with basic examples and move onto some core configuration options that are commonly used during development, including:
+# Quickstart: Azure Cognitive Services Translator
 
-* [Translation](#translate-text)
-* [Transliteration](#transliterate-text)
-* [Language identification/detection](#detect-language)
-* [Calculate sentence length](#get-sentence-length)
-* [Get alternate translations](#dictionary-lookup-alternate-translations) and [examples of word usage in a sentence](#dictionary-examples-translations-in-context)
+In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
+
+> [!NOTE]
+>
+> * For this quickstart it is recommended that you use a Translator text single-service global resource.
+> * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+> * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+> * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+To get started, you'll need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+* Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
-* You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
-## Platform setup
+  * You need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
-# [C#](#tab/csharp)
+    :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Create a new project: `dotnet new console -o your_project_name`
-* Replace Program.cs with the C# code shown below.
-* Set the subscription key and endpoint values in Program.cs.
-* [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
-* Run the program from the project directory: ``dotnet run``
+* Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
 
+## Headers
 
-# [Go](#tab/go)
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language.
 
-* Create a new Go project in your favorite code editor.
-* Add the code provided below.
-* Replace the `subscriptionKey` value with an access key valid for your subscription.
-* Save the file with a '.go' extension.
-* Open a command prompt on a computer with Go installed.
-* Build the file, for example: 'go build example-code.go'.
-* Run the file, for example: 'example-code'.
+For more information on Translator authentication options, _see_ the [Translator v3 reference](./reference/v3-0-reference.md#authentication) guide.
 
-# [Java](#tab/java)
+Header|Value| Condition  |
+|--- |:--- |:---|
+|**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (non-global) resource.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
+|**Content-Length**|The **length of the request** body.|&bullet; ***Optional***|
 
-* Create a working directory for your project. For example: `mkdir sample-project`.
-* Initialize your project with Gradle: `gradle init --type basic`. When prompted to choose a **DSL**, select **Kotlin**.
-* Update `build.gradle.kts`. Keep in mind that you'll need to update your `mainClassName` depending on the sample.
-  ```java
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Cognitive Services [security](../cognitive-services-security.md) article.
+
+## Translate text
+
+The core operation of the Translator service is translating text. In this quickstart, you'll build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response.
+
+### [C#: Visual Studio](#tab/csharp)
+
+### Set up your Visual Studio project
+
+1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
+
+   > [!TIP]
+   >
+   > If you're new to Visual Studio, try the [Introduction to Visual Studio](/training/modules/go-get-started/) Learn module.
+
+1. Open Visual Studio.
+
+1. On the Start page, choose **Create a new project**.
+
+    :::image type="content" source="media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+
+1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
+
+    :::image type="content" source="media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+
+1. In the **Configure your new project** dialog window, enter `translator_quickstart` in the Project name box. Leave the "Place solution and project in the same directory" checkbox **unchecked** and select **Next**.
+
+    :::image type="content" source="media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
+
+1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Don't use top-level statements" checkbox **unchecked** and select **Create**.
+
+    :::image type="content" source="media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+
+### Install the Newtonsoft.json package with NuGet
+
+1. Right-click on your translator_quickstart project and select **Manage NuGet Packages...** .
+
+    :::image type="content" source="media/quickstarts/manage-nuget.png" alt-text="Screenshot of the NuGet package search box.":::
+
+1. Select the Browse tab and type Newtonsoft.json.
+
+    :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="Screenshot of the NuGet package install window.":::
+
+1. Select install from the right package manager window to add the package to your project.
+
+    :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-studio-project)
+
+### Build your C# application
+
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, _see_ [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
+1. Open the **Program.cs** file.
+
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key variable with the value from your Azure portal Translator instance:
+
+```csharp
+using System.Text;
+using Newtonsoft.Json;
+
+class Program
+{
+    private static readonly string key = "<your-translator-key>";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
+
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
+    static async Task Main(string[] args)
+    {
+        // Input and output languages are defined as parameters.
+        string route = "/translate?api-version=3.0&from=en&to=fr&to=zu";
+        string textToTranslate = "I would really like to drive your car around the block a few times!";
+        object[] body = new object[] { new { Text = textToTranslate } };
+        var requestBody = JsonConvert.SerializeObject(body);
+
+        using (var client = new HttpClient())
+        using (var request = new HttpRequestMessage())
+        {
+            // Build the request.
+            request.Method = HttpMethod.Post;
+            request.RequestUri = new Uri(endpoint + route);
+            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            // location required if you're using a multi-service or regional (not global) resource.
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
+
+            // Send the request and get response.
+            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+            // Read response as a string.
+            string result = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(result);
+        }
+    }
+}
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=build-your-c#-application)
+
+### Run your C# application
+
+Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
+
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c#-application)
+
+### [Go](#tab/go)
+
+### Set up your Go environment
+
+You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
+
+> [!TIP]
+>
+> If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
+
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
+
+    * Download the Go version for your operating system.
+    * Once the download is complete, run the installer.
+    * Open a command prompt and enter the following to confirm Go was installed:
+
+        ```console
+          go version
+        ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=set-up-your-go-environment)
+
+### Build your Go application
+
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
+
+1. Create a new GO file named **translation.go** from the **translator-app** directory.
+
+1. Copy and paste the provided code sample into your **translation.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance:
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    key := "<YOUR-TRANSLATOR-KEY>"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
+
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    location := "<YOUR-RESOURCE-LOCATION>"
+
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("from", "en")
+    q.Add("to", "fr")
+    q.Add("to", "zu")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "I would really like to drive your car around the block a few times."},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    // location required if you're using a multi-service or regional (not global) resource.
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+}
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=build-your-go-application)
+
+### Run your Go application
+
+Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
+
+```console
+ go run translation.go
+```
+
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
+
+### [Java: Gradle](#tab/java)
+
+### Set up your Java environment
+
+* You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
+
+  >[!TIP]
+  >
+  > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+  > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
+
+* If you aren't using VS Code, make sure you have the following installed in your development environment:
+
+  * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
+
+  * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=set-up-your-java-environment)
+
+### Create a new Gradle project
+
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-text-app**, and navigate to it.
+
+    ```console
+    mkdir translator-text-app && translator-text-app
+    ```
+
+   ```powershell
+    mkdir translator-text-app; cd translator-text-app
+   ```
+
+1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
+
+    ```console
+    gradle init --type basic
+    ```
+
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (translator-text-app) by selecting **Return** or **Enter**.
+
+1. Update `build.gradle.kts` with the following code:
+
+  ```kotlin
   plugins {
     java
     application
   }
   application {
-    mainClassName = "<NAME OF YOUR CLASS>"
+    mainClass.set("TranslatorText")
   }
   repositories {
     mavenCentral()
   }
   dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.google.code.gson:gson:2.8.5")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.google.code.gson:gson:2.9.0")
   }
   ```
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
-* Run the sample: `gradle run`.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-gradle-project)
 
+### Create your Java Application
 
+1. From the translator-text-app directory, run the following command:
 
-# [Node.js](#tab/nodejs)
+    ```console
+    mkdir -p src/main/java
+    ```
 
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your subscription key.
-* Run the program. For example: `node Translate.js`.
+   You'll create the following directory structure:
 
+    :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure.":::
 
+1. Navigate to the `java` directory and create a file named **`TranslatorText.java`**.
 
-# [Python](#tab/python)
+    > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item TranslatorText.java**.
+    >
+    > * You can also create a new file in your IDE named `TranslatorText.java`  and save it to the `java` directory.
 
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your subscription key.
-* Run the program. For example: `python translate.py`.
-
-
-
----
-
-## Headers 
-
-When calling the Translator service via REST, you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections. 
-
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td><em>Required request header</em>.<br/>Specifies the content type of the payload.<br/> Accepted value is <code>application/json; charset=UTF-8</code>.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td><em>Required request header</em>.<br/>The length of the request body.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td><em>Optional</em>.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named <code>ClientTraceId</code>.</td>
-  </tr>
-</table> 
-
-## Keys and endpoints
-
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
-
-## Translate text 
-
-The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response. 
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
-    static async Task Main(string[] args)
-    {
-        // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&from=en&to=de&to=it";
-        string textToTranslate = "Hello, world!";
-        object[] body = new object[] { new { Text = textToTranslate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/translate?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("from", "en")
-    q.Add("to", "de")
-    q.Add("to", "it")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Hello, world!"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-
-# [Java](#tab/java)
+1. Open the `TranslatorText.java` file in your IDE and copy then paste the following code sample into your application. **Make sure you update the key with one of the key values from your Azure portal Translator instance:**
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.IOException;
+
 import com.google.gson.*;
-import com.squareup.okhttp.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
-public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+public class TranslatorText {
+    private static String key = "<your-translator-key";
+    
+    // location, also known as region.
+   // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "de")
-        .addQueryParameter("to", "it")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -282,10 +456,13 @@ public class Translate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello World!\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
+                "[{\"Text\": \"I would really like to drive your car around the block a few times!\"}]");
+        Request request = new Request.Builder()
+                .url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&to=zu")
+                .post(body)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
+                // location required if you're using a multi-service or regional (not global) resource. 
+                .addHeader("Ocp-Apim-Subscription-Region", location) 
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -302,7 +479,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -311,59 +488,222 @@ public class Translate {
     }
 }
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
 
+### Build and run your Java application
 
-# [Node.js](#tab/nodejs)
+Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
-```Javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
+1. Build your application with the `build` command:
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+    ```console
+    gradle build
+    ```
 
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+1. Run your application with the `run` command:
 
-axios({
-    baseURL: endpoint,
-    url: '/translate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': ['de', 'it']
-    },
-    data: [{
-        'text': 'Hello World!'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
+    ```console
+    gradle run
+    ```
+
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+  {
+    "translations": [
+      {
+        "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+        "to": "fr"
+      },
+      {
+        "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+        "to": "zu"
+      }
+    ]
+  }
+]
+
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
 
+### [JavaScript: Node.js](#tab/nodejs)
 
+### Set up your Node.js Express project
 
+1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
-# [Python](#tab/python)
+    > [!TIP]
+    >
+    > If you're new to Node.js, try the [Introduction to Node.js](/training/modules/intro-to-nodejs/) Learn module.
+
+1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-app`.
+
+    ```console
+        mkdir translator-app && cd translator-app
+    ```
+
+   ```powershell
+     mkdir translator-app; cd translator-app
+   ```
+
+1. Run the npm init command to initialize the application and scaffold your project.
+
+    ```console
+       npm init
+    ```
+
+1. Specify your project's attributes using the prompts presented in the terminal.
+
+    * The most important attributes are name, version number, and entry point.
+    * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
+    * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
+    * After you've completed the prompts, a `package.json` file will be created in your translator-app directory.
+
+1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
+
+    ```console
+       npm install axios uuid
+    ```
+
+1. Create the `index.js` file in the application directory.
+
+     > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item index.js**.
+    >
+    > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-nodejs-express-project)
+
+### Build your JavaScript application
+
+1. Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
+
+```javascript
+    const axios = require('axios').default;
+    const { v4: uuidv4 } = require('uuid');
+
+    let key = "<your-translator-key>";
+    let endpoint = "https://api.cognitive.microsofttranslator.com";
+
+    // location, also known as region.
+    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+    let location = "<YOUR-RESOURCE-LOCATION>";
+
+    axios({
+        baseURL: endpoint,
+        url: '/translate',
+        method: 'post',
+        headers: {
+            'Ocp-Apim-Subscription-Key': key,
+             // location required if you're using a multi-service or regional (not global) resource.
+            'Ocp-Apim-Subscription-Region': location,
+            'Content-type': 'application/json',
+            'X-ClientTraceId': uuidv4().toString()
+        },
+        params: {
+            'api-version': '3.0',
+            'from': 'en',
+            'to': ['fr', 'zu']
+        },
+        data: [{
+            'text': 'I would really like to drive your car around the block a few times!'
+        }],
+        responseType: 'json'
+    }).then(function(response){
+        console.log(JSON.stringify(response.data, null, 4));
+    })
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
+
+### Run your JavaScript application
+
+Once you've added the code sample to your application, run your program:
+
+1. Navigate to your application directory (translator-app).
+
+1. Type the following command in your terminal:
+
+    ```console
+    node index.js
+    ```
+
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
+
+### [Python](#tab/python)
+
+### Set up your Python project
+
+1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+
+    > [!TIP]
+    >
+    > If you're new to Python, try the [Introduction to Python](/training/paths/beginner-python/) Learn module.
+
+1. Open a terminal window and use pip to install the Requests library and uuid0 package:
+
+    ```console
+       pip install requests uuid
+    ```
+
+    > [!NOTE]
+    > We will also use a Python built-in package called json. It's used to work with JSON data.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-python-project)
+
+### Build your Python application
+
+1. Create a new Python file called **translator-app.py** in your preferred editor or IDE.
+
+1. Add the following code sample to your `translator-app.py` file. **Make sure you update the key with one of the values from your Azure portal Translator instance**.
+
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "<your-translator-key>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+# location, also known as region.
+# required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
 constructed_url = endpoint + path
@@ -371,11 +711,12 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0',
     'from': 'en',
-    'to': ['de', 'it']
+    'to': ['fr', 'zu']
 }
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
+    # location required if you're using a multi-service or regional (not global) resource.
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -383,2358 +724,70 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Hello World!'
+    'text': 'I would really like to drive your car around the block a few times!'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
 response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
+
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-python-application)
 
+### Run your Python application
 
----
+Once you've added a code sample to your application, build and run your program:
 
-After a successful call, you should see the following response: 
+1. Navigate to your **translator-app.py** file.
 
-```JSON
-[
-    {
-        "translations": [
-            {
-                "text": "Hallo Welt!",
-                "to": "de"
-            },
-            {
-                "text": "Salve, mondo!",
-                "to": "it"
-            }
-        ]
-    }
-]
-```
+1. Type the following command in your console:
 
-## Detect language
+    ```console
+    python translator-app.py
+    ```
 
-If you know that you'll need translation, but don't know the language of the text that will be sent to the Translator service, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint. 
+**Translation output:**
 
-### Detect source language during translation
-
-If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there is increased confidence that the detection is correct.
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
-    static async Task Main(string[] args)
-    {
-        // Output languages are defined as parameters, input language detected.
-        string route = "/translate?api-version=3.0&to=de&to=it";
-        string textToTranslate = "Hello, world!";
-        object[] body = new object[] { new { Text = textToTranslate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/translate?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("to", "de")
-    q.Add("to", "it")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Hello, world!"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "de")
-        .addQueryParameter("to", "it")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello World!\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Translate translateRequest = new Translate();
-            String response = translateRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/translate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': ['de', 'it']
-    },
-    data: [{
-        'text': 'Hello World!'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/translate'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'to': ['de', 'it']
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'Hello World!'
-}]
-
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
-
-
----
-
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "Hallo Welt!",
-                "to": "de"
-            },
-            {
-                "text": "Salve, mondo!",
-                "to": "it"
-            }
-        ]
-    }
+  {
+    "translations": [
+      {
+        "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+        "to": "fr"
+      },
+      {
+        "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+        "to": "zu"
+      }
+    ]
+  }
 ]
+
 ```
-
-### Detect source language without translation
-
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
-    static async Task Main(string[] args)
-    {
-        // Just detect language
-        string route = "/detect?api-version=3.0";
-        string textToLangDetect = "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.";
-        object[] body = new object[] { new { Text = textToLangDetect } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
-
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/detect?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal."},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-         log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class Detect {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/detect")
-        .addQueryParameter("api-version", "3.0")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Detect detectRequest = new Detect();
-            String response = detectRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/detect',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0'
-    },
-    data: [{
-        'text': 'Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/detect'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.'
-}]
-
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
 
 ---
-
-When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
-
-```json
-[
-
-    {
-
-        "language": "de",
-
-        "score": 1.0,
-
-        "isTranslationSupported": true,
-
-        "isTransliterationSupported": false
-
-    }
-
-]
-```
-
-## Transliterate text 
-
-Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint. 
-
-### Transliterate during translation
-
-If you're translating into a language that uses a different alphabet (or phonemes) than your source, you might need a transliteration. In this example, we translate "Hello" from English to Thai. In addition to getting the translation in Thai, you'll get a transliteration of the translated phrase using the Latin alphabet.
-
-To get a transliteration from the `translate` endpoint, use the `toScript` parameter.
-
-> [!NOTE]
-> For a complete list of available languages and transliteration options, see [language support](language-support.md).
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
-    static async Task Main(string[] args)
-    {
-        // Output language defined as parameter, with toScript set to latn
-        string route = "/translate?api-version=3.0&to=th&toScript=latn";
-        string textToTransliterate = "Hello";
-        object[] body = new object[] { new { Text = textToTransliterate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/translate?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("to", "th")
-    q.Add("toScript", "latn")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Hello"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "th")
-        .addQueryParameter("toScript", "latn")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Translate translateRequest = new Translate();
-            String response = translateRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/translate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'to': 'th',
-        'toScript': 'latn'
-    },
-    data: [{
-        'text': 'Hello'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```Python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/translate'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'to': 'th',
-    'toScript': 'latn'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'Hello'
-}]
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
-
----
-
-After a successful call, you should see the following response. Keep in mind that the response from `translate` endpoint includes the detected source language with a confidence score, a translation using the alphabet of the output language, and a transliteration using the Latin alphabet.
-
-```json
-[
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "สวัสดี",
-                "to": "th",
-                "transliteration": {
-                    "script": "Latn",
-                    "text": "sawatdi"
-                }
-            }
-        ]
-    }
-]
-```
-
-### Transliterate without translation
-
-You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี. 
-
-> [!NOTE]
-> For a complete list of available languages and transliteration options, see [language support](language-support.md).
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
-    static async Task Main(string[] args)
-    {
-        // For a complete list of options, see API reference.
-        // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&to=th&toScript=latn";
-        string textToTransliterate = "Hello";
-        object[] body = new object[] { new { Text = textToTransliterate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/transliterate?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("language", "th")
-    q.Add("fromScript", "thai")
-    q.Add("toScript", "latn")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "สวัสดี"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class Transliterate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/transliterate")
-            .addQueryParameter("api-version", "3.0")
-            .addQueryParameter("language", "th")
-            .addQueryParameter("fromScript", "thai")
-            .addQueryParameter("toScript", "latn")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"สวัสดี\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Transliterate transliterateRequest = new Transliterate();
-            String response = transliterateRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/transliterate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'language': 'th',
-        'fromScript': 'thai',
-        'toScript': 'latn'
-    },
-    data: [{
-        'text': 'สวัสดี'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/transliterate'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'language': 'th',
-    'fromScript': 'thai',
-    'toScript': 'latn'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'สวัสดี'
-}]
-
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
-```
-
-
----
-
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `transliterate` only returns the `script` and the output `text`. 
-
-```json
-[
-    {
-        "script": "latn",
-        "text": "sawatdi"
-    }
-]
-```
-
-## Get sentence length
-
-With the Translator service, you can get the character count for a sentence or series of sentences. The response is returned as an array, with character counts for each sentence detected. You can get sentence lengths with the `translate` and `breaksentence` endpoints.
-
-### Get sentence length during translation
-
-You can get character counts for both source text and translation output using the `translate` endpoint. To return sentence length (`srcSenLen` and `transSenLen`) you must set the `includeSentenceLength` parameter to `True`.
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
-    static async Task Main(string[] args)
-    {
-        // Include sentence length details.
-        string route = "/translate?api-version=3.0&to=es&includeSentenceLength=true";
-        string sentencesToCount = 
-                "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
-        object[] body = new object[] { new { Text = sentencesToCount } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/translate?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("to", "es")
-    q.Add("includeSentenceLength", "true")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine."},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "es")
-        .addQueryParameter("includeSentenceLength", "true")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Translate translateRequest = new Translate();
-            String response = translateRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/translate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'to': 'es',
-        'includeSentenceLength': true
-    },
-    data: [{
-        'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/translate'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'to': 'es',
-    'includeSentenceLength': True
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
-}]
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
-
-
----
-
-After a successful call, you should see the following response. In addition to the detected source language and translation, you'll get character counts for each detected sentence for both the source (`srcSentLen`) and translation (`transSentLen`).
-
-```json
-[
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "sentLen": {
-                    "srcSentLen": [
-                        44,
-                        21,
-                        12
-                    ],
-                    "transSentLen": [
-                        48,
-                        18,
-                        10
-                    ]
-                },
-                "text": "¿Puedes decirme cómo llegar a la estación Penn? ¿No estás seguro? Está bien.",
-                "to": "es"
-            }
-        ]
-    }
-]
-```
-
-### Get sentence length without translation
-
-The Translator service also lets you request sentence length without translation using the `breaksentence` endpoint. 
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
-    static async Task Main(string[] args)
-    {
-        // Only include sentence length details.
-        string route = "/breaksentence?api-version=3.0";
-        string sentencesToCount = 
-                "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
-        object[] body = new object[] { new { Text = sentencesToCount } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/breaksentence?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine."},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class BreakSentence {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/breaksentence")
-        .addQueryParameter("api-version", "3.0")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            BreakSentence breakSentenceRequest = new BreakSentence();
-            String response = breakSentenceRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/breaksentence',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0'
-    },
-    data: [{
-        'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/breaksentence'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
-}]
-
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
-```
-
-
----
-
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `breaksentence` only returns the character counts for the source text in an array called `sentLen`. 
-
-```json
-[
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "sentLen": [
-            44,
-            21,
-            12
-        ]
-    }
-]
-```
-
-## Dictionary lookup (alternate translations)
-
-With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "shark" from `en` to `es`, this endpoint returns both "tiburón" and "escualo".
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
-    static async Task Main(string[] args)
-    {
-        // See many translation options
-        string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
-        string wordToTranslate = "shark";
-        object[] body = new object[] { new { Text = wordToTranslate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/dictionary/lookup?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("from", "en")
-    q.Add("to", "es")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "shark"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class DictionaryLookup {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/dictionary/lookup")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "es")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Shark\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            DictionaryLookup dictionaryLookupRequest = new DictionaryLookup();
-            String response = dictionaryLookupRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/dictionary/lookup',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
-    data: [{
-        'text': 'shark'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/dictionary/lookup'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'from': 'en',
-    'to': 'es'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'shark'
-}]
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
-
----
-
-After a successful call, you should see the following response. Let's break this down since the JSON is more complex than some of the other examples in this article. The `translations` array includes a list of translations. Each object in this array includes a confidence score (`confidence`), the text optimized for end-user display (`displayTarget`), the normalized text (`normalizedText`), the part of speech (`posTag`), and information about previous translation (`backTranslations`). For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-lookup.md)
-
-```json
-[
-    {
-        "displaySource": "shark",
-        "normalizedSource": "shark",
-        "translations": [
-            {
-                "backTranslations": [
-                    {
-                        "displayText": "shark",
-                        "frequencyCount": 45,
-                        "normalizedText": "shark",
-                        "numExamples": 0
-                    }
-                ],
-                "confidence": 0.8182,
-                "displayTarget": "tiburón",
-                "normalizedTarget": "tiburón",
-                "posTag": "OTHER",
-                "prefixWord": ""
-            },
-            {
-                "backTranslations": [
-                    {
-                        "displayText": "shark",
-                        "frequencyCount": 10,
-                        "normalizedText": "shark",
-                        "numExamples": 1
-                    }
-                ],
-                "confidence": 0.1818,
-                "displayTarget": "escualo",
-                "normalizedTarget": "escualo",
-                "posTag": "NOUN",
-                "prefixWord": ""
-            }
-        ]
-    }
-]
-```
-
-## Dictionary examples (translations in context)
-
-After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required. 
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-class Program
-{
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
-    static async Task Main(string[] args)
-    {
-        // See examples of terms in context
-        string route = "/dictionary/examples?api-version=3.0&from=en&to=es";
-        object[] body = new object[] { new { Text = "Shark",  Translation = "tiburón" } } ;
-        var requestBody = JsonConvert.SerializeObject(body);
-    
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/dictionary/examples?api-version=3.0"
-
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("from", "en")
-    q.Add("to", "es")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text        string
-        Translation string
-    }{
-        {
-            Text:        "Shark",
-            Translation: "tiburón",
-        },
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator Text API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-# [Java](#tab/java)
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
-
-public class DictionaryExamples {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/dictionary/examples")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "es")
-        .build();
-
-    // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
-
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Shark\", \"Translation\": \"tiburón\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
-
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            DictionaryExamples dictionaryExamplesRequest = new DictionaryExamples();
-            String response = dictionaryExamplesRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}
-```
-
-
-# [Node.js](#tab/nodejs)
-
-```javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
-
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
-
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
-
-axios({
-    baseURL: endpoint,
-    url: '/dictionary/examples',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
-    data: [{
-        'text': 'shark',
-        'translation': 'tiburón'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
-```
-
-
-# [Python](#tab/python)
-```python
-import requests, uuid, json
-
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
-
-# Add your location, also known as region. The default is global.
-# This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
-
-path = '/dictionary/examples'
-constructed_url = endpoint + path
-
-params = {
-    'api-version': '3.0',
-    'from': 'en',
-    'to': 'es'
-}
-
-headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
-    'Ocp-Apim-Subscription-Region': location,
-    'Content-type': 'application/json',
-    'X-ClientTraceId': str(uuid.uuid4())
-}
-
-# You can pass more than one object in body.
-body = [{
-    'text': 'shark',
-    'translation': 'tiburón'
-}]
-
-request = requests.post(constructed_url, params=params, headers=headers, json=body)
-response = request.json()
-
-print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-```
-
-
-
----
-
-After a successful call, you should see the following response. For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-examples.md)
-
-```json
-[
-    {
-        "examples": [
-            {
-                "sourcePrefix": "More than a match for any ",
-                "sourceSuffix": ".",
-                "sourceTerm": "shark",
-                "targetPrefix": "Más que un fósforo para cualquier ",
-                "targetSuffix": ".",
-                "targetTerm": "tiburón"
-            },
-            {
-                "sourcePrefix": "Same with the mega ",
-                "sourceSuffix": ", of course.",
-                "sourceTerm": "shark",
-                "targetPrefix": "Y con el mega ",
-                "targetSuffix": ", por supuesto.",
-                "targetTerm": "tiburón"
-            },
-            {
-                "sourcePrefix": "A ",
-                "sourceSuffix": " ate it.",
-                "sourceTerm": "shark",
-                "targetPrefix": "Te la ha comido un ",
-                "targetSuffix": ".",
-                "targetTerm": "tiburón"
-            }
-        ],
-        "normalizedSource": "shark",
-        "normalizedTarget": "tiburón"
-    }
-]
-```
-
-## Troubleshooting
-
-### Common HTTP status codes
-
-| HTTP status code | Description | Possible reason |
-|------------------|-------------|-----------------|
-| 200 | OK | The request was successful. |
-| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
-
-### Java users
-
-If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Customize and improve translation](customization.md)
+That's it, congratulations! You've learned to use the Translator service to translate text.
+
+ Explore our how-to documentation and take a deeper dive into Translation service capabilities:
+
+* [**Translate text**](translator-text-apis.md#translate-text)
+
+* [**Transliterate text**](translator-text-apis.md#transliterate-text)
+
+* [**Detect and identify language**](translator-text-apis.md#detect-language)
+
+* [**Get sentence length**](translator-text-apis.md#get-sentence-length)
+
+* [**Dictionary lookup and alternate translations**](translator-text-apis.md#dictionary-examples-translations-in-context)

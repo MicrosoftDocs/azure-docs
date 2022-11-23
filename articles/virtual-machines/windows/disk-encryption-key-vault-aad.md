@@ -35,7 +35,7 @@ See the main [Creating and configuring a key vault for Azure Disk Encryption](di
 
 
 ## Create a key vault
-Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
+Azure Disk Encryption is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
 
 
 >[!WARNING]
@@ -63,16 +63,16 @@ You can create a key vault with Azure PowerShell using the [New-AzKeyVault](/pow
 
 
 ### Create a key vault with Azure CLI
-You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/keyvault#commands) commands. To create a key vault, use [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
+You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/keyvault#commands) commands. To create a key vault, use [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
-1. Create a new resource group, if needed, with [az group create](/cli/azure/group#az_group_create). To  list locations, use [az account list-locations](/cli/azure/account#az_account_list)
+1. Create a new resource group, if needed, with [az group create](/cli/azure/group#az-group-create). To  list locations, use [az account list-locations](/cli/azure/account#az-account-list)
 
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. Create a new key vault using [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
+3. Create a new key vault using [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -114,7 +114,7 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
 1. Create a new service principal.
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor
+     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor --scopes /subscriptions/<subscription_id>
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
@@ -148,7 +148,7 @@ Your Azure AD application needs rights to access the keys or secrets in the vaul
      ```
 
 ### Set the key vault access policy for the Azure AD app with Azure CLI
-Use [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Give the service principal you created via the Azure CLI access to get secrets and wrap keys with the following command:
 
@@ -194,7 +194,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
      ```
 
 ### Set key vault advanced access policies using the Azure CLI
-Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk encryption for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk encryption for the key vault.
 
  - **Enable Key Vault for disk encryption:** Enabled-for-disk-encryption is required.
 

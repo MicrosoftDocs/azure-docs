@@ -65,10 +65,9 @@ Follow these basic steps to decommission and re-create the HPC Cache in a differ
 
    Refer to [Move an Azure Storage account to another region](../storage/common/storage-account-move.md) for help.
 
-   Keep these tips in mind:
-
-   * If you use [AzCopy](../storage/common/storage-use-azcopy-v10.md), you must use AzCopy V10 or later; earlier versions are unsupported for some types of HPC Cache storage.
-   * If you move an NFS-enabled blob container (ADLS-NFS storage target), be aware of the risk of mixing blob-style writes with NFS writes. Read more about this in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol).
+   > [!NOTE]
+   >
+   > If you move an NFS-enabled blob container (ADLS-NFS storage target), be aware of the risk of mixing blob-style writes with NFS writes. Read more about this in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol).
 
 1. Create a new cache in your target region using a convenient method. Read [Template deployment](../azure-resource-manager/templates/overview.md#template-deployment-process) to learn how to use your saved template. Read [Create an HPC Cache](hpc-cache-create.md) to learn about other methods.
 1. Wait until the cache has been created and appears in your subscription's **Resources** list with a status of **Healthy**.

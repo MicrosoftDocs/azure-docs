@@ -2,8 +2,8 @@
 title: Tutorial to enable Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
-author: KarenH444
-ms.author: celested
+author: gargi-sinha
+ms.author: gasinh
 manager: CelesteDG
 ms.reviewer: kengaderdus
 ms.service: active-directory

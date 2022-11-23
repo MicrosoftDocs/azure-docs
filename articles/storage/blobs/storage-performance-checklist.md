@@ -1,12 +1,13 @@
 ---
-title: Performance and scalability checklist for Blob storage - Azure Storage
+title: Performance and scalability checklist for Blob storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Blob storage in developing high-performance applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 04/19/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -16,7 +17,7 @@ ms.custom: devx-track-csharp
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Blob storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
 
 ## Checklist
 
@@ -104,7 +105,7 @@ Each load-balancing operation may impact the latency of storage calls during the
 
 You can follow some best practices to reduce the frequency of such operations.
 
-- If possible, use blob or block sizes greater than 4 MiB for standard storage accounts and greater than 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that is not affected by partition naming.
+- If possible, use blob or block sizes greater than 256 KiB for standard and premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that is not affected by partition naming.
 - Examine the naming convention you use for accounts, containers, blobs, tables, and queues. Consider prefixing account, container, or blob names with a three-digit hash using a hashing function that best suits your needs.
 - If you organize your data using timestamps or numerical identifiers, make sure that you are not using an append-only (or prepend-only) traffic pattern. These patterns are not suitable for a range-based partitioning system. These patterns may lead to all traffic going to a single partition and limiting the system from effectively load balancing.
 
@@ -211,6 +212,9 @@ While parallelism can be great for performance, be careful about using unbounded
 
 For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 
+> [!TIP]
+> The [ABFS driver](data-lake-storage-abfs-driver.md) was designed to overcome the inherent deficiencies of WASB. Microsoft recommends using the ABFS driver over the WASB driver, as the ABFS driver is optimized specifically for big data analytics.
+
 ## Handle service errors
 
 Azure Storage returns an error when the service cannot process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance.
@@ -229,7 +233,7 @@ For more information on Azure Storage error codes, see [Status and error codes](
 
 ## Copying and moving blobs
 
-Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json).
 
 ### Blob copy APIs
 
@@ -283,5 +287,5 @@ Page blobs are appropriate if the application needs to perform random writes on 
 ## Next steps
 
 - [Scalability and performance targets for Blob storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

@@ -1,10 +1,10 @@
 ---
-title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
+title: Azure File Sync on-premises firewall and proxy settings
 description: Understand Azure File Sync on-premises proxy and firewall settings. Review configuration details for ports, networks, and special connections to Azure.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -14,13 +14,13 @@ ms.custom: devx-track-azurepowershell
 
 Azure File Sync connects your on-premises servers to Azure Files, enabling multi-site synchronization and cloud tiering features. As such, an on-premises server must be connected to the internet. An IT admin needs to decide the best path for the server to reach into Azure cloud services.
 
-This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
+This article provides insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
 We recommend reading [Azure File Sync networking considerations](file-sync-networking-overview.md) prior to reading this how to guide.
 
 ## Overview
 
-Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
+Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you'll need to configure your servers to communicate with the following Azure services:
 
 - Azure Storage
 - Azure File Sync
@@ -28,12 +28,11 @@ Azure File Sync acts as an orchestration service between your Windows Server, yo
 - Authentication services
 
 > [!NOTE]
-> The Azure File Sync agent on Windows Server initiates all requests to cloud services which results in only having to consider outbound traffic from a firewall perspective. <br /> No Azure service initiates a connection to the Azure File Sync agent.
+> The Azure File Sync agent on Windows Server initiates all requests to cloud services which results in only having to consider outbound traffic from a firewall perspective. No Azure service initiates a connection to the Azure File Sync agent.
 
 ## Ports
 
-Azure File Sync moves file data and metadata exclusively over HTTPS and requires port 443 to be open outbound.
-As a result all traffic is encrypted.
+Azure File Sync moves file data and metadata exclusively over HTTPS and requires port 443 to be open outbound. As a result, all traffic is encrypted.
 
 ## Networks and special connections to Azure
 
@@ -139,7 +138,7 @@ The following table describes the required domains for communication:
 > When allowing traffic to &ast;.afs.azure.net, traffic is only possible to the sync service. There are no other Microsoft services using this domain.
 > When allowing traffic to &ast;.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
 
-If &ast;.afs.azure.net or &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
+If &ast;.afs.azure.net or &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure File Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
 
 For business continuity and disaster recovery (BCDR) reasons you may have created your Azure file shares in a storage account that is configured for geo-redundant storage (GRS). If that is the case, your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
@@ -203,7 +202,7 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
   - [REST API](/rest/api/virtualnetwork/servicetags/list)
   - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-  - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
+  - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Because the service tag discovery API is not updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
 
@@ -296,7 +295,7 @@ if ($found) {
 } else {
     # If the file cannot be found, that means there hasn't been an update in
     # more than a week. Please verify the download URIs are still accurate
-    # by checking https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+    # by checking https://learn.microsoft.com/azure/virtual-network/service-tags-overview
     Write-Verbose -Message "JSON service tag file not found."
     return
 }
@@ -308,7 +307,7 @@ You can then use the IP address ranges in `$ipAddressRanges` to update your fire
 
 Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine-tune proxy and firewall configurations.
 
-To run the network connectivity test, install Azure File Sync agent version 9.1 or later and run the following PowerShell commands:
+To run the network connectivity test, run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

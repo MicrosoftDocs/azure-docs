@@ -19,7 +19,6 @@ On execution, this API deletes all of the report and report execution records.
 | Method | Request URI |
 | ------------ | ------------- |
 | DELETE | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/{Report ID}` |
-|||
 
 **Request header**
 
@@ -27,7 +26,6 @@ On execution, this API deletes all of the report and report execution records.
 | ------------ | ------------- | ------------- |
 | Authorization | string | Required. The Azure AD access token in the form `Bearer <token>` |
 | Content Type | string | `Application/JSON` |
-||||
 
 **Path parameter**
 
@@ -38,7 +36,6 @@ None
 | Parameter name | Required | string | Description |
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | Yes | string | ID of the report that’s being modified |
-|||||
 
 **Glossary**
 
@@ -96,4 +93,3 @@ Response payload:
 | `RecurrenceCount` | Recurrence count provided during report creation |
 | `CallbackUrl` | Callback URL provided in the request |
 | `Format` | Format of the report files |
-|||

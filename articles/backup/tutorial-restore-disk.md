@@ -2,7 +2,7 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 01/05/2022
+ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -20,6 +20,8 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 > * Create a VM from the restored disk
 
 For information on using PowerShell to restore a disk and create a recovered VM, see [Back up and restore Azure VMs with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -39,7 +41,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery.
 
-To see a list of available recovery points, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
+To see a list of available recovery points, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -61,7 +63,7 @@ az backup recoverypoint list \
 
 If the backed-up VM has managed disks and if the intent is to restore managed disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. Then, you also provide a target resource group for the managed disks to be restored into.
 
-1. To create a storage account, use [az storage account create](/cli/azure/storage/account#az_storage_account_create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+1. To create a storage account, use [az storage account create](/cli/azure/storage/account#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
     ```azurecli-interactive
     az storage account create \
@@ -70,7 +72,7 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list) command. ***Also provide the target resource group to which the managed disks are restored into***.
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) command. ***Also provide the target resource group to which the managed disks are restored into***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -84,7 +86,7 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
     ```
 
     > [!WARNING]
-    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the parameter **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from az 3.4.0 onwards.
+    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from Azure CLI 3.4.0 onwards.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -103,7 +105,7 @@ This will restore managed disks as unmanaged disks to the given storage account 
 
 The backup data replicates to the secondary region when you enable cross-region restore on the vault you've protected your VMs. You can use the backup data to perform a restore operation.
 
-To restore disks to the secondary region, use the `--use-secondary-region` flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. Ensure that you specify a target storage account that's located in the secondary region.
+To restore disks to the secondary region, use the `--use-secondary-region` flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. Ensure that you specify a target storage account that's located in the secondary region.
 
 ```azurecli-interactive
 az backup restore restore-disks \
@@ -121,7 +123,7 @@ az backup restore restore-disks \
 
 You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
-To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command.
+To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command.
 
 ```azurecli-interactive
 az backup restore restore-disks \
@@ -149,7 +151,7 @@ If the backed-up VM has unmanaged disks and if the intent is to restore disks fr
 
 In additional steps, the restored disk is used to create a VM.
 
-1. To create a storage account, use [az storage account create](/cli/azure/storage/account#az_storage_account_create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+1. To create a storage account, use [az storage account create](/cli/azure/storage/account#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
     ```azurecli-interactive
     az storage account create \
@@ -158,7 +160,7 @@ In additional steps, the restored disk is used to create a VM.
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list) command:
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) command:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -185,7 +187,7 @@ As mentioned above, the unmanaged disks will be restored to their original stora
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job#az_backup_job_list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -210,7 +212,7 @@ When the *Status* of the restore job reports *Completed*, the necessary informat
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 ## Create a VM from the restored disk
 
@@ -304,11 +306,64 @@ az deployment group create \
   --template-uri $url?$token
 ```
 
-To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm#az_vm_list) as follows:
+To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm#az-vm-list) as follows:
 
 ```azurecli-interactive
 az vm list --resource-group myResourceGroup --output table
 ```
+
+## Restore data to virtual machine using CLI
+
+You can now directly restore data to original/alternate VM without performing multiple steps.
+
+### Restore data to original VM
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --restore-mode OriginalLocation 
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName \ 
+```
+
+```output
+Name      Operation        Status      Item Name    Start Time UTC       Duration
+--------  ---------------  ----------  -----------  -------------------  --------------
+7f2ad916  Restore          InProgress  myVM         2017-09-19T19:39:52  0:00:34.520850
+```
+
+The last command triggers an original location restore operation to restore the data in-place in the existing VM.
+ 
+
+###  Restore data to a newly created VM
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --restore-mode OriginalLocation \
+    --storage-account mystorageaccount \
+
+--target-resource-group "Target_RG" \
+    --rp-name myRecoveryPointName \
+    --target-vm-name "TargetVirtualMachineName" \
+    --target-vnet-name "Target_VNet" \
+    --target-vnet-resource-group "Target_VNet_RG" \
+    --target-subnet-name "targetSubNet"
+```
+
+```output
+Name      Operation        Status      Item Name    Start Time UTC       Duration
+--------  ---------------  ----------  -----------  -------------------  --------------
+7f2ad916  Restore          InProgress  myVM         2017-09-19T19:39:52  0:00:34.520850
+```
+
+The last command triggers an alternate location restore operation to create a new VM in *Target_RG* resource group as per the inputs specified by parameters *TargetVMName*, *TargetVNetName*, *TargetVNetResourceGroup*, *TargetSubnetName*. This ensures the data is restored in the required VM, virtual network, and subnet.
 
 ## Next steps
 

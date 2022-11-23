@@ -23,7 +23,7 @@ This article shows you how to use ConfigMaps for basic customization options of 
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 When creating a configuration like the examples below, your names in the *data* section must end in either *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS Configmap which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
@@ -43,15 +43,15 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-  <domain to be rewritten>.com:53 {
-  log
-  errors
-  rewrite stop {
-    name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
-    answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
-  }
-  forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
-}
+    <domain to be rewritten>.com:53 {
+    log
+    errors
+    rewrite stop {
+      name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+      answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
+    }
+    forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
+    }
 ```
 
 > [!IMPORTANT]
@@ -224,5 +224,6 @@ To learn more about core network concepts, see [Network concepts for application
 
 <!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md

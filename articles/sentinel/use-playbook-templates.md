@@ -119,15 +119,22 @@ You can repeat this process to create multiple playbooks on the same template.
 
 1. For each connector you chose to create a new connection for after deployment:
     1. From the navigation menu, select **API connections**.
+
     1. Select the connection name.
+        :::image type="content" source="media/use-playbook-templates/view-api-connections.png" alt-text="Screenshot showing how to view A P I connections.":::
     1. Select **Edit API connection** from the navigation menu.
+
     1. Fill in the required parameters and click **Save**.
         :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
 
     Alternatively, you can create a new connection from within the relevant steps in the Logic Apps designer:
+    
     1. For each step which appears with an error sign, select it to expand.
+
     1. Select **Add new**.
+
     1. Authenticate according to the relevant instructions.
+
     1. If there are other steps using this same connector, expand their boxes. From the list of connections that appears, select the connection you just created.
 
 1. If you have chosen to use a managed identity connection for Microsoft Sentinel (or for other supported connections), grant permissions to the new playbook on the Microsoft Sentinel workspace (or on the relevant target resources for other connectors).

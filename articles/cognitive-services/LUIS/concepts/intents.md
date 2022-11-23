@@ -1,7 +1,7 @@
 ---
 title: What are intents in LUIS
 titleSuffix: Azure Cognitive Services
-description: Learn about intents concepts and how they're used in LUIS
+description: Learn about intents and how they're used in LUIS
 services: cognitive-services
 ms.author: aahi
 author: aahill
@@ -9,10 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 07/19/2022
 
 ---
 # Intents 
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](utterances.md).
 
@@ -81,7 +84,7 @@ The  **None**  intent is not included in the balance. That intent should contain
 
 ### Intent limits
 
-Review the  [limits](../luis-limits.md#model-boundaries) to understand how many intents you can add to a model.
+Review the  [limits](../luis-limits.md) to understand how many intents you can add to a model.
 
 > [!Tip]
 > If you need more than the maximum number of intents, consider whether your system is using too many intents and determine if multiple intents be combined into single intent with entities.

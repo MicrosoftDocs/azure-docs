@@ -13,7 +13,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC) Preview. The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
 
-For information about Python SDKs, see [Azure libraries for Python usage patterns](/azure/developer/python/azure-sdk-library-usage-patterns?tabs=pip).
+For information about Python SDKs, see [Azure libraries for Python usage patterns](/azure/developer/python/sdk/azure-sdk-library-usage-patterns).
 
 In this tutorial, you learn how to:
 
@@ -95,7 +95,7 @@ In this tutorial, you learn how to:
    print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} region")
 
    # For details on the previous code, see Example: Use the Azure libraries to provision a resource group
-   # at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+   # at https://learn.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
 
    # Step 2: Provision a virtual network
 
@@ -260,7 +260,7 @@ In this tutorial, you learn how to:
 
 To use SSH to connect to the VM in the Azure public MEC, the best method is to deploy a jump box in an Azure region where your resource group was deployed in the previous section.
 
-1. Follow the steps in [Use the Azure libraries to provision a virtual machine](/azure/developer/python/azure-sdk-example-virtual-machines?tabs=cmd).
+1. Follow the steps in [Use the Azure libraries to provision a virtual machine](/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines).
 
 1. Note your own publicIpAddress in the output from the python-example-ip field of the jump server VM. Use this address to access the VM in the next section.
 

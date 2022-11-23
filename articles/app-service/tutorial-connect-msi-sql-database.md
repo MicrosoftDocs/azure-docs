@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access data with managed identity'
-description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
+description: Secure Azure SQL Database connectivity with managed identity from a sample .NET web app, and also how to apply it to other Azure services.
 
 ms.devlang: csharp
 ms.topic: tutorial
@@ -24,6 +24,7 @@ When you're finished, your sample app will connect to SQL Database securely with
 > - .NET Framework 4.8 and above
 > - .NET 6.0 and above
 >
+> For guidance for Azure Database for MySQL or Azure Database for PostgreSQL in other language frameworks (Node.js, Python, and Java), see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 What you will learn:
 
@@ -47,7 +48,7 @@ This article continues where you left off in either one of the following tutoria
 
 If you haven't already, follow one of the two tutorials first. Alternatively, you can adapt the steps for your own .NET app with SQL Database.
 
-To debug your app using SQL Database as the back end, make sure that you've allowed client connection from your computer. If not, add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+To debug your app using SQL Database as the back end, make sure that you've allowed client connection from your computer. If not, add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 Prepare your environment for the Azure CLI.
 
@@ -55,27 +56,27 @@ Prepare your environment for the Azure CLI.
 
 ## 1. Grant database access to Azure AD user
 
-First, enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+First, enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) and replace *\<user-principal-name>*. The result is saved to a variable.
+1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
     ```
 
     > [!TIP]
-    > To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
+    > To see the list of all user principal names in Azure AD, run `az ad user list --query '[].userPrincipalName'`.
     >
 
-1. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
+1. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
 
     ```azurecli-interactive
     az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
     ```
 
-For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
+For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)
 
 ## 2. Set up your dev environment
 
@@ -143,10 +144,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and update Entity Framework:
 
     ```powershell
-    Install-Package Azure.Identity -Version 1.5.0
+    Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
-
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp
@@ -197,7 +197,7 @@ Next, you configure your App Service app to connect to SQL Database with a syste
 
 ### Enable managed identity on app
 
-To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az_webapp_identity_assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
+To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
@@ -236,7 +236,7 @@ Here's an example of the output:
     sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
     ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the permissions your app needs. For example, 
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
 
     ```sql
     CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -310,6 +310,9 @@ What you learned:
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-key-vault.md)

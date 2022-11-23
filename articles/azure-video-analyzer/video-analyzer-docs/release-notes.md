@@ -7,7 +7,7 @@ ms.custom: ignite-fall-2021
 ---
 # Azure Video Analyzer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Video+Analyzer+on+IoT+Edge+release+notes%22&locale=en-us` into your RSS feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Video+Analyzer+on+IoT+Edge+release+notes%22&locale=en-us` into your RSS feed reader.
 
 This article provides you with information about:
 
@@ -17,6 +17,12 @@ This article provides you with information about:
 * Deprecated functionality
 
 <hr width=100%>
+
+## April 29, 2022
+
+We’re retiring the Video Analyzer preview service, you're advised to **transition your applications off of Video Analyzer by 01 December 2022.**  To minimize disruption to your workloads, transition your application from Video Analyzer per suggestions described in this [guide](./transition-from-video-analyzer.md) before December 01, 2022. After December 1, 2022 your Video Analyzer account will no longer function.
+
+Starting May 2, 2022 you will not be able to create new Video Analyzer accounts.
 
 ## November 2, 2021
 

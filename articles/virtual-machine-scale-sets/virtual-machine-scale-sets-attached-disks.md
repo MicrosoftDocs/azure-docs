@@ -13,8 +13,6 @@ ms.custom: mimckitt
 ---
 # Azure virtual machine scale sets and attached data disks
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 To expand your available storage, Azure [virtual machine scale sets](./index.yml) support VM instances with attached data disks. You can attach data disks when the scale set is created, or to an existing scale set.
 
 > [!NOTE]

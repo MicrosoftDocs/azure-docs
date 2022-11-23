@@ -2,17 +2,21 @@
 title: Azure Service Fabric Events 
 description: Learn about the Service Fabric events provided out of the box to help you monitor your Azure Service Fabric cluster.
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
-# Service Fabric events 
+# Service Fabric events
 
 The Service Fabric platform writes several structured events for key operational activities happening within your cluster. These range from cluster upgrades to replica placement decisions. Each event that Service Fabric exposes maps to one of the following entities in the cluster:
 * Cluster
 * Application
 * Service
 * Partition
-* Replica 
+* Replica
 * Container
 
 To see a full list of events exposed by the platform - [List of Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).

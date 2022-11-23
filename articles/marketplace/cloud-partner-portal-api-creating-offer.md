@@ -25,7 +25,6 @@ This call updates a specific offer within the publisher namespace or creates a n
 | publisherId       |  Publisher identifier, for example `contoso` |   String |
 | offerId           |  Offer identifier                     |   String        |
 | api-version       |  Latest version of the API            |   Date           |
-|  |  |  |
 
 ## Header
 
@@ -33,7 +32,6 @@ This call updates a specific offer within the publisher namespace or creates a n
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
 | Authorization    | `Bearer YOUR_TOKEN`      |
-|  |  |
 
 ## Body example
 
@@ -266,7 +264,6 @@ The following example creates an offer with offerID of `contosovirtualmachine`.
 |  403      | `Forbidden`. The client doesn't have access to the requested namespace.                     |
 |  404      | `Not found`. The entity referred to by the client does not exist.                           |
 |  412      | The server does not meet one of the preconditions that the requester specified in the request. The client should check the ETAG sent with the request. |
-|  |  |
 
 ## Uploading artifacts
 
@@ -383,7 +380,6 @@ These categories and their respective keys are applicable for Azure apps, Virtua
 | Web Apps Frameworks | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
 | Web Apps | web-apps | web-apps | web-apps |
 | Other | other | other | other |
-||||
 
 ### Microsoft AppSource categories
 
@@ -485,7 +481,6 @@ These categories and their respective keys are applicable for SaaS, Power BI app
 | Maps | maps | maps | maps |
 | News & Weather | news-and-weather | news-and-weather | news-and-weather |
 | Other | other-geolocation | other-geolocation | other-geolocation |
-||||
 
 ### Microsoft AppSource industries
 
@@ -539,4 +534,3 @@ These industries and their respective keys are applicable for SaaS, Power BI app
 | Nonprofits | Nonprofits | nonprofits |
 | ***Real Estate*** | ***RealEstate*** | ***real-estate*** |
 | Other - Unsegmented | RealEstate\_OtherUnsegmented | other-unsegmented |
-|||

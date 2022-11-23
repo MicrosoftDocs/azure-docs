@@ -22,7 +22,7 @@ If you use [Speech-to-text](speech-to-text.md) and need to open a support case, 
 
 ## Getting Session ID for Online transcription and Translation. (Speech SDK and REST API for short audio).
 
-[Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md) use either the [Speech SDK](speech-sdk.md) or the [REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
+[Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md) use either the [Speech SDK](speech-sdk.md) or the [REST API for short audio](rest-speech-to-text-short.md).
 
 To get the Session ID, when using SDK you need to:
 
@@ -31,7 +31,7 @@ To get the Session ID, when using SDK you need to:
 
 If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details [below](#get-session-id-using-speech-cli).
 
-In case of [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) you need to "inject" the session information in the requests. See details [below](#provide-session-id-using-rest-api-for-short-audio).
+In case of [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) you need to "inject" the session information in the requests. See details [below](#provide-session-id-using-rest-api-for-short-audio).
 
 ### Enable logging in the Speech SDK
 
@@ -61,7 +61,7 @@ spx help translate log
 
 ### Provide Session ID using REST API for short audio
 
-Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) does not automatically generate a Session ID. You need to generate it yourself and provide it within the REST request.
+Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) does not automatically generate a Session ID. You need to generate it yourself and provide it within the REST request.
 
 Generate a GUID inside your code or using any standard tool. Use the GUID value *without dashes or other dividers*. As an example we will use `9f4ffa5113a846eba289aa98b28e766f`.
 
@@ -71,11 +71,11 @@ https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cogn
 ```
 `9f4ffa5113a846eba289aa98b28e766f` will be your Session ID.
 
-## Getting Transcription ID for Batch transcription. (REST API v3.0).
+## Getting Transcription ID for Batch transcription
 
-[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). 
+[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API](rest-speech-to-text.md). 
 
-The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Create Transcription](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription).
+The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [CreateTranscription](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription).
 
 The example below is the Response body of a `Create Transcription` request. GUID value `537216f8-0620-4a10-ae2d-00bdb423b36f` found in the first `self` element is the Transcription ID.
 
@@ -106,7 +106,7 @@ The example below is the Response body of a `Create Transcription` request. GUID
 }
 ```
 > [!NOTE]
-> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
+> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [CreateDataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
 > [!NOTE]
-> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [Get Transcriptions](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) request.
+> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [GetTranscriptions](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) request.

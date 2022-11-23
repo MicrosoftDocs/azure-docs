@@ -17,7 +17,7 @@ ms.custom: seodec18
 Use the Optical character recognition REST API to read printed and handwritten text.
 
 > [!NOTE]
-> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST).
+> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).
 
 ## Prerequisites
 
@@ -28,7 +28,10 @@ Use the Optical character recognition REST API to read printed and handwritten t
 * [cURL](https://curl.haxx.se/) installed
 
 
-## Extract printed and handwritten text
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+## Read printed and handwritten text
 
 The OCR service can extract visible text in an image or document and convert it to a character stream. For more information on text extraction, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
@@ -39,7 +42,7 @@ To create and run the sample, do the following steps:
 
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your subscription key.
+    1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) to the URL of a different image to be analyzed.
@@ -53,11 +56,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 The response will include an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
 
 ### Optionally, specify the model version
-As an optional step, see [How to specify the model version](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models.
-
-For example, to use the model-version = `2022-01-30-preview` parameter, use the following command:
+As an optional step, see [How to specify the model version](../how-to/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, use `model-version=2022-04-30` as the parameter. Skipping the parameter or using `model-version=latest` automatically uses the most recent GA model.
 ```bash
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze?model-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze?model-version=2022-04-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
 
 ### Get Read results
@@ -72,6 +73,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```bash
 curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{body}" 
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
 
 ### Examine the response
 
@@ -135,13 +139,14 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ```
 
-
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=OCR&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Next steps
 
 In this quickstart, you learned how to call the Read REST API. Next, learn more about the Read API features.
 
 > [!div class="nextstepaction"]
->[Call the Read API](../Vision-API-How-to-Topics/call-read-api.md)
+>[Call the Read API](../how-to/call-read-api.md)
 
 * [OCR overview](../overview-ocr.md)

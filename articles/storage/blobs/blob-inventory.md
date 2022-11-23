@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 10/11/2021
+ms.date: 11/02/2022
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -23,7 +23,7 @@ The following list describes features and capabilities that are available in the
 
 - **Inventory reports for blobs and containers**
 
-  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status.
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, content length, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. 
 
 - **Custom Schema**
 
@@ -112,6 +112,7 @@ Several filters are available for customizing a blob inventory report:
 |--|--|--|--|
 | blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
 | prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
+| excludePrefix | Array of up to 10 strings for prefixes to be excluded. | Specifies the blob paths to exclude from the inventory report.<br><br>An *excludePrefix* must be a container name prefix or a container name. An empty *excludePrefix* would mean that all blobs with names matching any *prefixMatch* string will be listed.<br><br>If you want to include a certain prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. For example, if you want to include all blobs under `container-a` except those under the folder `container-a/folder`, then *prefixMatch* should be set to `container-a` and *excludePrefix* should be set to `container-a/folder`. | No |
 | includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
 | includeBlobVersions | boolean | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
 
@@ -127,6 +128,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
       "filters": {
         "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
         "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
+        "excludePrefix": ["inventorytestcontainer10", "etc/logs"],
         "includeSnapshots": false,
         "includeBlobVersions": true,
       },
@@ -159,43 +161,97 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ### Custom schema fields supported for blob inventory
 
-- Name (Required)
-- Creation-Time
-- Last-Modified
-- Content-Length
-- Content-MD5
-- BlobType
-- AccessTier
-- AccessTierChangeTime
-- Expiry-Time
-- hdi_isfolder
-- Owner
-- Group
-- Permissions
-- Acl
-- Snapshot (Available and required when you choose to include snapshots in your report)
-- VersionId (Available and required when you choose to include blob versions in your report)
-- IsCurrentVersion (Available and required when you choose to include blob versions in your report)
-- Metadata
-- LastAccessTime
+> [!NOTE]
+> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+
+| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+|---------------|-------------------|---|
+| Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Last-Access-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ETag  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-Length  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-Type  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-Encoding  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-Language  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-CRC64 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Content-MD5  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Cache-Control  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Cache-Disposition  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| BlobType  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| AccessTier  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| AccessTierChangeTime  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LeaseStatus  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LeaseState  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ServerEncrypted  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| CustomerProvidedKeySHA256  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Metadata  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Expiry-Time  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| hdi_isfolder  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Owner  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Group  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Permissions  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Acl  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Snapshot (Available and required when you choose to include snapshots in your report)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Deleted | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) |
+| DeletedId | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| DeletedTime | ![No](../media/icons/no-icon.png)| ![Yes](../media/icons/yes-icon.png) |
+| RemainingRetentionDays | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| VersionId (Available and required when you choose to include blob versions in your report)  | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| IsCurrentVersion (Available and required when you choose to include blob versions in your report)  | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| TagCount | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Tags | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| CopyId | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| CopySource | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| CopyStatus | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| CopyProgress | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| CopyCompletionTime | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| CopyStatusDescription | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| ImmutabilityPolicyUntilDate | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| ImmutabilityPolicyMode | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| LegalHold | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| RehydratePriority  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ArchiveStatus | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| EncryptionScope | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
 ### Custom schema fields supported for container inventory
 
-- Name (Required)
-- Last-Modified
-- LeaseStatus
-- LeaseState
-- LeaseDuration
-- PublicAccess
-- HasImmutabilityPolicy
-- HasLegalHold
-- Metadata
+> [!NOTE]
+> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+
+| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+|---------------|-------------------|---|
+| Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ETag | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LeaseStatus  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LeaseState  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LeaseDuration  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Metadata  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| PublicAccess  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| DefaultEncryptionScope  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| DenyEncryptionScopeOverride  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| HasImmutabilityPolicy  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| HasLegalHold  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ImmutableStorageWithVersioningEnabled  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| Deleted (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| Version (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| DeletedTime (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| RemainingRetentionDays (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+
 
 ## Inventory run
 
-A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. If a run does not complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
+If you configure a rule to run daily, then it will be scheduled to run every day. If you configure a rule to run weekly, then it will be scheduled to run each week on Sunday UTC time. 
 
-Inventory policies are read or written in full. Partial updates aren't supported.
+Most inventory runs complete within 24 hours. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. The maximum amount of time that a run can complete before it fails is six days. 
+
+Runs don't overlap so a run must complete before another run of the same rule can begin. For example, if a rule is scheduled to run daily, but the previous day's run of that same rule is still in progress, then a new run will not be initiated that day. Rules that are scheduled to run weekly will run each Sunday regardless of whether a previous run succeeds or fails. If a run does not complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
+
+Inventory policies are read or written in full. Partial updates aren't supported. Inventory rules are evaluated daily. Therefore, if you change the definition of a rule, but the rules of a policy have already been evaluated for that day, then your updates won't be evaluated until the following day.
 
 > [!IMPORTANT]
 > If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
@@ -217,7 +273,7 @@ The `BlobInventoryPolicyCompleted` event is generated when the inventory run com
     "policyRunStatus": "Succeeded",
     "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1-manifest.json"
   },
   "dataVersion": "1.0",
   "metadataVersion": "1",
@@ -229,7 +285,7 @@ The following table describes the schema of the `BlobInventoryPolicyCompleted` e
 
 |Field|Type|Description|
 |---|---|
-|scheduleDateTime|string|The time that the inventory policy was scheduled.|
+|scheduleDateTime|string|The time that the inventory rule was scheduled.|
 |accountName|string|The storage account name.|
 |ruleName|string|The rule name.|
 |policyRunStatus|string|The status of inventory run. Possible values are `Succeeded`, `PartiallySucceeded`, and `Failed`.|
@@ -326,16 +382,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png) <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
-
-<sup>2</sup> Feature is supported at the preview level.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Known issues
 

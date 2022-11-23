@@ -4,9 +4,9 @@ description: Create a Dynamics 365 Operations Apps offer on Microsoft AppSource 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 12/03/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 07/20/2022
 ---
 
 # Create a Dynamics 365 Operations Apps offer
@@ -16,6 +16,8 @@ This article describes how to create a [Dynamics 365 Operations Apps](https://dy
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish a Dynamics 365 Operations Apps offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
@@ -36,18 +38,23 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 40 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
-- This name can't be changed after you select **Create**.
+    - This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
+    - This name can't be changed after you select **Create**.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 
@@ -66,13 +73,35 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/customer-leads.md)]
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
 
-For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
+
+To configure the lead management in Partner Center:
+
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+   - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate** link.
+1. Select **Connect**.
+
+    For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+1. Select **Save draft** before continuing to the next tab in the left-nav menu.
 
 ## Business Applications ISV Program
 

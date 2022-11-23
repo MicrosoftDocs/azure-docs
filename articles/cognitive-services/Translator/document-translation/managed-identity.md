@@ -133,11 +133,11 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
 ### Headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 
 ### POST request body
@@ -243,4 +243,4 @@ The following headers are included with each Document Translator API request:
 **Tutorial**
 
 > [!div class="nextstepaction"]
-> [Access Azure Storage from a web app using managed identities](/azure/app-service/scenario-secure-app-access-storage?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json)
+> [Access Azure Storage from a web app using managed identities](../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)

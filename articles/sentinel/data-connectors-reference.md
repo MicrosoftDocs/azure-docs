@@ -1,22 +1,18 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-author: batamig
+author: cwatson-cat
 ms.topic: reference
 ms.date: 01/04/2022
-ms.author: bagol
+ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
 # Find your Microsoft Sentinel data connector
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes how to deploy data connectors in Microsoft Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors.
 
-> [!TIP]
-> Some data connectors are deployed only via solutions. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
->
+Some data connectors are deployed only via solutions. For more information, see the [Discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
 
 ## How to use this guide
 
@@ -32,7 +28,6 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
     | **Custom logs** | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
-    |
 
     > [!NOTE]
     > The **Azure service-to-service integration** data ingestion method links to three different sections of its article, depending on the connector type. Each connector's section below specifies the section within that article that it links to.
@@ -96,7 +91,7 @@ The Agari connector uses an environment variable to store log access timestamps.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Configure CEF log forwarding for AI Analyst](#configure-cef-log-forwarding-for-ai-analyst) |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Darktrace](https://customerportal.darktrace.com/) |
 
 
@@ -118,7 +113,7 @@ Configure Darktrace to forward Syslog messages in CEF format to your Azure works
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Configure CEF log forwarding for AI Vectra Detect](#configure-cef-log-forwarding-for-ai-vectra-detect)|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Vectra AI](https://www.vectra.ai/support) |
 
 
@@ -145,9 +140,9 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | AkamaiSIEMEvent |
-| **Kusto function URL:** | https://aka.ms/Sentinel-akamaisecurityevents-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Akamai%20Security%20Events/Parsers/AkamaiSIEMEvent.txt |
 | **Vendor documentation/<br>installation instructions** | [Configure Security Information and Event Management (SIEM) integration](https://developer.akamai.com/tools/integrations/siem)<br>[Set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). |
 | **Supported by** | [Akamai](https://www.akamai.com/us/en/support/) |
 
@@ -195,7 +190,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=ct)** (Top connector article) |
 | **Log Analytics table(s)** | AWSCloudTrail |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -205,7 +200,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=s3)** (Top connector article) |
 | **Log Analytics table(s)** | AWSCloudTrail<br>AWSGuardDuty<br>AWSVPCFlow |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -239,9 +234,9 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | ArubaClearPass |
-| **Kusto function URL:** | https://aka.ms/Sentinel-arubaclearpass-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Aruba%20ClearPass/Parsers/ArubaClearPass.txt |
 | **Vendor documentation/<br>installation instructions** | Follow Aruba's instructions to [configure ClearPass](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm). |
 | **Supported by** | Microsoft |
 
@@ -287,7 +282,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Microsoft Sentinel](connect-azure-active-directory.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | <li>Azure Active Directory P1 or P2 license for sign-in logs<li>Any Azure AD license (Free/O365/P1/P2) for other log types<br>Other charges may apply |
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -298,9 +293,8 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br>Other charges may apply |
 | **Log Analytics table(s)** | SecurityAlert |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
-
 
 ## Azure Activity
 
@@ -350,6 +344,8 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Recommended diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.
 
 ## Azure Defender
 
@@ -376,7 +372,11 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 
 
-For more information, see the [Azure Information Protection documentation](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
+> [!NOTE]
+> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
+>
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+>
 
 ## Azure Key Vault
 
@@ -398,11 +398,11 @@ For more information, see the [Azure Information Protection documentation](/azur
 | **Supported by** | Microsoft |
 
 
-## Azure Purview
+## Microsoft Purview
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). |
 | **Log Analytics table(s)** | PurviewDataSensitivityLogs |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
@@ -413,7 +413,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)** <br><br>Also available in the [Azure SQL and Microsoft Sentinel for SQL PaaS solutions](sentinel-solutions-catalog.md#azure)|
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)** <br><br>Also available in the Azure SQL and Microsoft Sentinel for SQL PaaS solutions|
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
@@ -458,9 +458,9 @@ You will only see the storage types that you actually have defined resources for
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | CGFWFirewallActivity |
-| **Kusto function URL:** | https://aka.ms/Sentinel-barracudacloudfirewall-function |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Barracuda%20CloudGen%20Firewall/Parsers/CGFWFirewallActivity |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/Sentinel-barracudacloudfirewall-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 
@@ -506,7 +506,7 @@ See Barracuda instructions - note the assigned facilities for the different type
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | CylancePROTECT |
 | **Kusto function URL:** | https://aka.ms/Sentinel-cylanceprotect-parser |
 | **Vendor documentation/<br>installation instructions** | [Cylance Syslog Guide](https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/syslog-guides/Cylance%20Syslog%20Guide%20v2.0%20rev12.pdf) |
@@ -519,20 +519,28 @@ See Barracuda instructions - note the assigned facilities for the different type
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | SymantecDLP |
 | **Kusto function URL:** | https://aka.ms/Sentinel-symantecdlp-parser |
 | **Vendor documentation/<br>installation instructions** | [Configuring the Log to a Syslog Server action](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) |
 | **Supported by** | Microsoft |
 
+## Common Event Format (CEF) via AMA
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **[Azure monitor Agent-based connection](connect-cef-ama.md)** |
+| **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
+| **DCR support** | Standard DCR |
+| **Supported by** | Microsoft |
 
 ## Check Point
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available from the [Check Point solution](sentinel-solutions-catalog.md#check-point)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available from the Check Point solution|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Log Exporter - Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) |
 | **Supported by** | [Check Point](https://www.checkpoint.com/support-services/contact-support/) |
 
@@ -542,9 +550,9 @@ See Barracuda instructions - note the assigned facilities for the different type
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available in the [Cisco ASA solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available in the Cisco ASA solution|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Cisco ASA Series CLI Configuration Guide](https://www.cisco.com/c/en/us/support/docs/security/pix-500-series-security-appliances/63884-config-asa-00.html) |
 | **Supported by** | Microsoft |
 
@@ -556,7 +564,7 @@ See Barracuda instructions - note the assigned facilities for the different type
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Extra configuration for Cisco Firepower eStreamer](#extra-configuration-for-cisco-firepower-estreamer)|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [eStreamer eNcore for Sentinel Operations Guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html) |
 | **Supported by** | [Cisco](https://www.cisco.com/c/en/us/support/index.html)
 
@@ -583,9 +591,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br> Available in the [Cisco ISE solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br> Available in the Cisco ISE solution|
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | CiscoMeraki |
 | **Kusto function URL:** | https://aka.ms/Sentinel-ciscomeraki-parser |
 | **Vendor documentation/<br>installation instructions** | [Meraki Device Reporting documentation](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP_and_API) |
@@ -597,7 +605,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br> Available in the [Cisco Umbrella solution](sentinel-solutions-catalog.md#cisco)|
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br> Available in the Cisco Umbrella solution|
 | **Log Analytics table(s)** | Cisco_Umbrella_dns_CL<br>Cisco_Umbrella_proxy_CL<br>Cisco_Umbrella_ip_CL<br>Cisco_Umbrella_cloudfirewall_CL |
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/Sentinel-CiscoUmbrellaConn-functionapp |
@@ -616,7 +624,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | CiscoUCS |
 | **Kusto function URL:** | https://aka.ms/Sentinel-ciscoucs-function |
 | **Vendor documentation/<br>installation instructions** | [Set up Syslog for Cisco UCS - Cisco](https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/ucs-manager/110265-setup-syslog-for-ucs.html#configsremotesyslog) |
@@ -641,7 +649,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br><br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br><br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 
@@ -662,9 +670,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
-| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md) |
-| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap-deploy-solution.md) |
+| **Data ingestion method** | Only available after installing the Continuous Threat Monitoring for SAP solution|
+| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution data reference](sap/sap-solution-log-reference.md) |
+| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap/deployment-overview.md) |
 | **Supported by** | Microsoft |
 
 
@@ -675,7 +683,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Security Information and Event Management (SIEM) Applications](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) |
 | **Supported by** | [CyberArk](https://www.cyberark.com/customer-support/) |
 
@@ -696,16 +704,16 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 ## DNS (Preview)
 
-**See [Windows DNS Server (Preview)](#windows-dns-server-preview).**
+**See [Windows DNS Events via AMA (Preview)](#windows-dns-events-via-ama-preview) or [Windows DNS Server (Preview)](#windows-dns-server-preview).**
 
 ## Dynamics 365
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** <br><br> Also available as part of the [Microsoft Sentinel 4 Dynamics 365 solution](sentinel-solutions-catalog.md#azure)|
-| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>Microsoft 365 Enterprise [E3 or E5](/power-platform/admin/enable-use-comprehensive-auditing#requirements) subscription is required to do Activity Logging.<br>Other charges may apply |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** <br><br> Also available as part of the Microsoft Sentinel 4 Dynamics 365 solution|
+| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<br>Other charges may apply |
 | **Log Analytics table(s)** | Dynamics365Activity |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -717,7 +725,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
 | **DCR support** | Not currently supported |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
-| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.6/en-US/api.html) |
 | **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
@@ -852,10 +860,10 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | ExabeamEvent |
 | **Kusto function URL:** | https://aka.ms/Sentinel-Exabeam-parser |
-| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](https://docs.exabeam.com/en/advanced-analytics/i54/advanced-analytics-administration-guide/113254-configure-advanced-analytics.html#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) |
+| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](https://docs.exabeam.com/en/advanced-analytics/i56/advanced-analytics-administration-guide/125371-configure-advanced-analytics.html#UUID-6d28da8d-6d3e-5aa7-7c12-e67dc804f894) |
 | **Supported by** | Microsoft |
 
 
@@ -865,7 +873,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [ExtraHop Detection SIEM Connector](https://aka.ms/asi-syslog-extrahop-forwarding) |
 | **Supported by** | [ExtraHop](https://www.extrahop.com/support/) |
 
@@ -887,7 +895,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Configuring Application Security Event Logging](https://aka.ms/asi-syslog-f5-forwarding) |
 | **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
 
@@ -900,7 +908,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint CASB and Microsoft Sentinel](https://forcepoint.github.io/docs/casb_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 
@@ -911,7 +919,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Cloud Security Gateway and Microsoft Sentinel](https://forcepoint.github.io/docs/csg_and_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 
@@ -933,7 +941,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Next-Gen Firewall and Microsoft Sentinel](https://forcepoint.github.io/docs/ngfw_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 
@@ -946,7 +954,7 @@ For more information, see the Eset documentation.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Install this first! ForgeRock Common Audit (CAUD) for Microsoft Sentinel](https://github.com/javaservlets/SentinelAuditEventHandler) |
 | **Supported by** | [ForgeRock](https://www.forgerock.com/support) |
 
@@ -955,9 +963,9 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br><br>Available in the [Fortinet Fortigate solution](sentinel-solutions-catalog.md#fortinet-fortigate)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br><br>Available in the Fortinet Fortigate solution)|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>Choose your version and use the *Handbook* and *Log Message Reference* PDFs. |
 | **Supported by** | [Fortinet](https://support.fortinet.com/) |
 
@@ -985,7 +993,7 @@ end
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** |[**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>Only available after installing the [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution. |
+| **Data ingestion method** |[**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>Only available after installing the Continuous Threat Monitoring for GitHub solution. |
 | **Log Analytics table(s)** | GitHubAuditLogPolling_CL |
 | **DCR support** | Not currently supported |
 | **API credentials** | GitHub access token |
@@ -1043,18 +1051,18 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Illusive Networks Admin Guide](https://support.illusivenetworks.com/hc/en-us/sections/360002292119-Documentation-by-Version) |
-| **Supported by** | [Illusive Networks](https://www.illusivenetworks.com/technical-support/) |
+| **Supported by** | [Illusive Networks](https://illusive.com/support/) |
 
 
 ## Imperva WAF Gateway (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available in the [Imperva Cloud WAF solution](sentinel-solutions-catalog.md#imperva)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available in the Imperva Cloud WAF solution|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Steps for Enabling Imperva WAF Gateway Alert Logging to Microsoft Sentinel](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) |
 | **Supported by** | [Imperva](https://www.imperva.com/support/technical-support/) |
 
@@ -1064,9 +1072,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br> available in the [InfoBlox Threat Defense solution](sentinel-solutions-catalog.md#infoblox) |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br> available in the InfoBlox Threat Defense solution |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | InfobloxNIOS |
 | **Kusto function URL:** | https://aka.ms/sentinelgithubparsersinfoblox |
 | **Vendor documentation/<br>installation instructions** | [NIOS SNMP and Syslog Deployment Guide](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-slog-and-snmp-configuration-for-nios.pdf) |
@@ -1082,7 +1090,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | JuniperSRX |
 | **Kusto function URL:** | https://aka.ms/Sentinel-junipersrx-parser |
 | **Vendor documentation/<br>installation instructions** | [Configure Traffic Logging (Security Policy Logs) for SRX Branch Devices](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16509&actp=METADATA)<br>[Configure System Logging](https://kb.juniper.net/InfoCenter/index?page=content&id=kb16502) |
@@ -1093,7 +1101,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [Lookout Mobile Threat Defense for Microsoft Sentinel](sentinel-solutions-catalog.md#lookout) solution |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the Lookout Mobile Threat Defense for Microsoft Sentinel solution |
 | **Log Analytics table(s)** | Lookout_CL |
 | **DCR support** | Not currently supported |
 | **API credentials** | <li>Lookout Application Key |
@@ -1109,19 +1117,20 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
+| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents<br>**Defender for Identity events:**<br>IdentityDirectoryEvents<br>IdentityInfo<br>IdentityLogonEvents<br>IdentityQueryEvents<br>**Defender for Cloud Apps events:**<br>CloudAppEvents<br>**Defender alerts as events:**<br>AlertInfo<br>AlertEvidence |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
 
 
-## Microsoft 365 Insider Risk Management (IRM) (Preview)
-
+## Microsoft Purview Insider Risk Management (IRM) (Preview)
+<a id="microsoft-365-insider-risk-management-irm-preview"></a>
+        
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft 365 Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
-| **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft 365 Insider risk management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft Purview Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
+| **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft Purview Insider Risk Management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
 | **Log Analytics table(s)** | SecurityAlert |
-| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft 365 Insider Risk Management"` |
+| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft Purview Insider Risk Management"` |
 | **Supported by** | Microsoft |
 
 
@@ -1153,7 +1162,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft Defender for Endpoint deployment](/microsoft-365/security/defender-endpoint/production-deployment)
 | **Log Analytics table(s)** | SecurityAlert |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1163,7 +1172,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1175,7 +1184,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1186,7 +1195,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | You must have a valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2)
 | **Log Analytics table(s)** | SecurityAlert |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1197,7 +1206,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
 | **Log Analytics table(s)** | OfficeActivity |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
      
@@ -1223,9 +1232,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functions |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1236,10 +1245,10 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | Morphisec |
-| **Kusto function URL** | https://aka.ms/Sentinel-Morphiescutpp-parser |
-| **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
+| **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/ |
+| **Supported by** | [Morphisec](https://www.morphisec.com) |
 
 
 
@@ -1252,7 +1261,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/Sentinel-netskope-functioncode |
 | **API credentials** | <li>Netskope API Token |
-| **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v2-overview.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://docs.netskope.com/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://docs.netskope.com/en/rest-api-v2-overview.html) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | Netskope |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-netskope-parser |
@@ -1268,7 +1277,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | NGINX_CL |
 | **DCR support** | Not currently supported |
 | **Kusto function alias:** | NGINXHTTPServer |
-| **Kusto function URL** | https://aka.ms/Sentinel-NGINXHTTP-parser |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/NGINX%20HTTP%20Server/Parsers/NGINXHTTPServer.txt |
 | **Vendor documentation/<br>installation instructions** | [Module ngx_http_log_module](https://nginx.org/en/docs/http/ngx_http_log_module.html) |
 | **Custom log sample file:** | access.log or error.log |
 | **Supported by** | Microsoft |
@@ -1332,9 +1341,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto lookup and enrichment function<br><br>[Configure Onapsis to send CEF logs to the log forwarder](#configure-onapsis-to-send-cef-logs-to-the-log-forwarder) |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | incident_lookup |
-| **Kusto function URL** | https://aka.ms/Sentinel-Onapsis-parser |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Onapsis%20Platform/Parsers/OnapsisLookup.txt |
 | **Supported by** | [Onapsis](https://onapsis.force.com/s/login/) |
 
 
@@ -1351,7 +1360,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [One Identity Safeguard for Privileged Sessions Administration Guide](https://aka.ms/sentinel-cef-oneidentity-forwarding) |
 | **Supported by** | [One Identity](https://support.oneidentity.com/) |
 
@@ -1390,7 +1399,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | OSSECEvent |
 | **Kusto function URL:** | https://aka.ms/Sentinel-OSSEC-parser |
 | **Vendor documentation/<br>installation instructions** | [OSSEC documentation](https://www.ossec.net/docs/)<br>[Sending alerts via syslog](https://www.ossec.net/docs/docs/manual/output/syslog-output.html) |
@@ -1402,9 +1411,9 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Also available in the [Palo Alto PAN-OS and Prisma solutions](sentinel-solutions-catalog.md#palo-alto)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Also available in the Palo Alto PAN-OS and Prisma solutions|
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Common Event Format (CEF) Configuration Guides](https://aka.ms/asi-syslog-paloalto-forwarding)<br>[Configure Syslog Monitoring](https://aka.ms/asi-syslog-paloalto-configure) |
 | **Supported by** | [Palo Alto Networks](https://www.paloaltonetworks.com/company/contact-support) |
 
@@ -1427,7 +1436,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Also available in the [Proofpoint POD solution](sentinel-solutions-catalog.md#proofpoint) |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Also available in the Proofpoint POD solution |
 | **Log Analytics table(s)** | ProofpointPOD_message_CL<br>ProofpointPOD_maillog_CL |
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/Sentinel-proofpointpod-functionapp |
@@ -1444,7 +1453,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Also available in the [Proofpoint TAP solution](sentinel-solutions-catalog.md#proofpoint) |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Also available in the Proofpoint TAP solution |
 | **Log Analytics table(s)** | ProofPointTAPClicksPermitted_CL<br>ProofPointTAPClicksBlocked_CL<br>ProofPointTAPMessagesDelivered_CL<br>ProofPointTAPMessagesBlocked_CL |
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/sentinelproofpointtapazurefunctioncode |
@@ -1461,7 +1470,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | PulseConnectSecure |
 | **Kusto function URL:** | https://aka.ms/sentinelgithubparserspulsesecurevpn |
 | **Vendor documentation/<br>installation instructions** | [Configuring Syslog](https://docs.pulsesecure.net/WebHelp/Content/PCS/PCS_AdminGuide_8.2/Configuring%20Syslog.htm) |
@@ -1473,7 +1482,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Extra configuration for the Qualys VM KB](#extra-configuration-for-the-qualys-vm-kb) <br><br>Also available in the [Qualys VM solution](sentinel-solutions-catalog.md#qualys)|
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Extra configuration for the Qualys VM KB](#extra-configuration-for-the-qualys-vm-kb) <br><br>Also available in the Qualys VM solution|
 | **Log Analytics table(s)** | QualysKB_CL |
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/Sentinel-qualyskb-functioncode |
@@ -1560,7 +1569,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1609,7 +1618,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Log > Syslog](http://help.sonicwall.com/help/sw/eng/7020/26/2/3/content/Log_Syslog.120.2.htm)<br>Select facility local4 and ArcSight as the Syslog format.  |
 | **Supported by** | [SonicWall](https://www.sonicwall.com/support/) |
 
@@ -1635,9 +1644,9 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | SophosXGFirewall |
-| **Kusto function URL:** | https://aka.ms/sentinelgithubparserssophosfirewallxg |
+| **Kusto function URL:** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Sophos%20XG%20Firewall/Parsers/SophosXGFirewall.txt |
 | **Vendor documentation/<br>installation instructions** | [Add a syslog server](https://docs.sophos.com/nsg/sophos-firewall/18.5/Help/en-us/webhelp/onlinehelp/nsg/tasks/SyslogServerAdd.html) |
 | **Supported by** | Microsoft |
 
@@ -1685,7 +1694,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | SymantecProxySG |
 | **Kusto function URL:** | https://aka.ms/sentinelgithubparserssymantecproxysg |
 | **Vendor documentation/<br>installation instructions** | [Sending Access Logs to a Syslog server](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) |
@@ -1699,7 +1708,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | SymantecVIP |
 | **Kusto function URL:** | https://aka.ms/sentinelgithubparserssymantecvip |
 | **Vendor documentation/<br>installation instructions** | [Configuring syslog](https://help.symantec.com/cs/VIP_EG_INSTALL_CONFIG/VIP/v134652108_v128483142/Configuring-syslog?locale=EN_US) |
@@ -1714,7 +1723,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Secure Syslog/CEF Logging](https://thy.center/ss/link/syslog) |
 | **Supported by** | [Thycotic](https://thycotic.force.com/support/s/) |
 
@@ -1726,7 +1735,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | TrendMicroDeepSecurity |
 | **Kusto function URL** | https://aka.ms/TrendMicroDeepSecurityFunction |
 | **Vendor documentation/<br>installation instructions** | [Forward Deep Security events to a Syslog or SIEM server](https://aka.ms/Sentinel-trendMicro-connectorInstructions) |
@@ -1739,7 +1748,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | TrendMicroTippingPoint |
 | **Kusto function URL** | https://aka.ms/Sentinel-trendmicrotippingpoint-function |
 | **Vendor documentation/<br>installation instructions** | Send Syslog messages in ArcSight CEF Format v4.2 format. |
@@ -1782,7 +1791,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | VMwareESXi |
 | **Kusto function URL:** | https://aka.ms/Sentinel-vmwareesxi-parser |
 | **Vendor documentation/<br>installation instructions** | [Enabling syslog on ESXi 3.5 and 4.x](https://kb.vmware.com/s/article/1016621)<br>[Configure Syslog on ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.monitoring.doc/GUID-9F67DB52-F469-451F-B6C8-DAE8D95976E7.html) |
@@ -1795,7 +1804,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md) |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | WatchGuardFirebox |
 | **Kusto function URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
 | **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
@@ -1808,19 +1817,28 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | Contact [WireX support](https://wirexsystems.com/contact-us/) in order to configure your NFP solution to send Syslog messages in CEF format. |
 | **Supported by** | [WireX Systems](mailto:support@wirexsystems.com) |
 
+## Windows DNS Events via AMA (Preview)
 
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure monitor Agent-based connection](connect-dns-ama.md)** |
+| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
+| **DCR support** | Standard DCR |
+| **Supported by** | Microsoft |
 
 ## Windows DNS Server (Preview)
+
+This connector uses the legacy agent. We recommend that you use the DNS over AMA connector above.
 
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
 
@@ -1870,8 +1888,9 @@ We recommend installing the [Advanced Security Information Model (ASIM)](normali
 | **DCR support** | Standard DCR |
 | **Supported by** | Microsoft |
 
-
-See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
+See also: 
+- [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md): Uses the Azure Monitor Agent to stream and filter events from Windows Domain Name System (DNS) server logs.
+- [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
 
@@ -1904,12 +1923,12 @@ Microsoft Sentinel can apply machine learning (ML) to Security events data to id
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Configure Webhooks](#configure-webhooks) <br>[Add Callback URL to Webhook configuration](#add-callback-url-to-webhook-configuration)|
 | **Log Analytics table(s)** | Workplace_Facebook_CL |
 | **DCR support** | Not currently supported |
-| **Azure Function App code** | https://aka.ms/Sentinel-WorkplaceFacebook-functionapp |
+| **Azure Function App code** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Workplace%20from%20Facebook/Data%20Connectors/WorkplaceFacebook/WorkplaceFacebookWebhooksSentinelConn.zip |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
-| **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-WorkplaceFacebook-parser |
+| **Kusto function URL/<br>Parser config instructions** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Workplace%20from%20Facebook/Parsers/Workplace_Facebook.txt |
 | **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 
@@ -1981,7 +2000,7 @@ For more information, see [Connect Zimperium to Microsoft Sentinel](#zimperium-m
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
+| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Vendor documentation/<br>installation instructions** | [Zscaler and Microsoft Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions) |
 | **Supported by** | [Zscaler](https://help.zscaler.com/submit-ticket-links) |
 
@@ -2028,5 +2047,6 @@ You can find the value of your workspace ID on the ZScaler Private Access connec
 
 For more information, see:
 
-- [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md)
+- Solutions catalog for Microsoft Sentinel in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
+- [Microsoft Sentinel solution catalog](sentinel-solutions-catalog.md)
 - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)

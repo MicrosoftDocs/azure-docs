@@ -3,7 +3,7 @@ title: Log-based and pre-aggregated metrics in Azure Application Insights | Micr
 description: Why to use log-based versus pre-aggregated metrics in Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.reviewer: mbullwin
+ms.reviewer: vitalyg
 ---
 
 # Log-based and pre-aggregated metrics in Application Insights
@@ -12,7 +12,7 @@ This article explains the difference between "traditional" Application Insights 
 
 ## Log-based Metrics
 
-In the past, the application monitoring telemetry data model in Application Insights was solely based on a small number of predefined types of events, such as requests, exceptions, dependency calls, page views, etc. Developers can use the SDK to either emit these events manually (by writing code that explicitly invokes the SDK) or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights backend stores all collected events as logs, and the Application Insights blades in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
+In the past, the application monitoring telemetry data model in Application Insights was solely based on a small number of predefined types of events, such as requests, exceptions, dependency calls, page views, etc. Developers can use the SDK to either emit these events manually (by writing code that explicitly invokes the SDK) or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights backend stores all collected events as logs, and the Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
 
 Using logs to retain a complete set of events can bring great analytical and diagnostic value. For example, you can get an exact count of requests to a particular URL with the number of distinct users who made these calls. Or you can get detailed diagnostic traces, including exceptions and dependency calls for any user session. Having this type of information can significantly improve visibility into the application health and usage, allowing to cut down the time necessary to diagnose issues with an app.
 
@@ -55,7 +55,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | Java                    | Not Supported            | Not Supported                             | [Supported](java-in-process-agent.md#metrics) |
 | Node.js                 | Not Supported            | Not Supported                             | Not Supported                           |
 
-1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
+1. ASP.NET codeless attach on VM/VMSS, and On-Premises emits standard metrics without dimensions. The same is true for App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.
 2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
 
 ## Using pre-aggregation with Application Insights custom metrics
@@ -66,7 +66,7 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 ## Custom metrics dimensions and pre-aggregation
 
-All metrics that you send using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](./pricing.md) tab by checking "Enable alerting on custom metric dimensions": 
+All metrics that you send using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by checking "Enable alerting on custom metric dimensions": 
 
 ![Usage and estimated cost](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
@@ -89,7 +89,7 @@ Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) t
 
 ## Pricing models for Application Insights metrics
 
-Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described [here](./pricing.md#pricing-model). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
+Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described in [Azure Monitor Logs pricing details](../logs/cost-logs.md#application-insights-billing). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
 
 Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dimensions-and-pre-aggregation) option to store all dimensions of the pre-aggregated metrics in the metric store, can generate **additional** costs based on [Custom Metrics pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

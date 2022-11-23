@@ -1,28 +1,28 @@
 ---
 title: DICOM access request reference guide - Azure Health Data Services
-description: This reference guide provides information about to create an Azure support ticket to request DICOM cast access.
-author: aersoy
+description: This reference guide provides information about to create an Azure support ticket to request DICOMcast access.
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/14/2022
-ms.author: aersoy
+ms.date: 06/03/2022
+ms.author: mmitrik
 ---
 
-# DICOM cast access request
+# DICOMcast access request
 
-This article describes how to request DICOM cast access.
+This article describes how to request DICOMcast access.
 
 ## Create Azure support ticket
 
-To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). 
+To enable DICOMcast for your Azure subscription, please request access for DICOMcast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). 
 
 > [!IMPORTANT]
 > Ensure that you include the **resource IDs** of your DICOM service and FHIR service when you submit a support ticket.
 
 ### Basics tab
 
-1. In the **Summary** field, enter  "Access request for DICOM cast".
+1. In the **Summary** field, enter  "Access request for DICOMcast".
  
    [ ![Screenshot of basic tab in new support request.](media/new-support-request-basic-tab.png) ](media/new-support-request-basic-tab.png#lightbox)
 
@@ -54,12 +54,14 @@ To enable DICOM cast for your Azure subscription, please request access for DICO
 
 ## Next steps
 
-This article described the steps for creating an Azure support ticket to request DICOM cast access. For more information about using the DICOM service, see
+This article described the steps for creating an Azure support ticket to request DICOMcast access. For more information about using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
-For more information about DICOM cast, see
+For more information about DICOMcast, see
 
 >[!div class="nextstepaction"]
->[DICOM cast overview](dicom-cast-overview.md)
+>[DICOMcast overview](dicom-cast-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

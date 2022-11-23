@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 01/12/2022
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
@@ -40,11 +40,12 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
     ![The new project dialog box has fields for name, description, and domains.](./media/get-started-build-detector/new-project.png)
 
-1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
+1. Enter a name and a description for the project. Then select your Custom Vision Training Resource. If your signed-in account is associated with an Azure account, the Resource dropdown will display all of your compatible Azure resources. 
 
    > [!NOTE]
-   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
+   > If no resource is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
+1. Under 
 1. Select __Object Detection__ under __Project Types__.
 
 1. Next, select one of the available domains. Each domain optimizes the detector for specific types of images, as described in the following table. You can change the domain later if you want to.
@@ -82,7 +83,7 @@ To upload another set of images, return to the top of this section and repeat th
 
 ## Train the detector
 
-To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object.
+To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object. This process can take several minutes.
 
 ![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 

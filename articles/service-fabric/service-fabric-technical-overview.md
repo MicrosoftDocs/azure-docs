@@ -1,16 +1,22 @@
 ---
 title: Learn Azure Service Fabric terminology 
 description: Learn key Service Fabric terminology and concepts used in the rest of the documentation.
-author: masnider
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Service Fabric terminology overview
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is a container and process orchestrator that allows you to [host your clusters anywhere](service-fabric-deploy-anywhere.md): on Azure, in an on-premises datacenter, or on any cloud provider. You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
 
+The related training videos mentioned below detail the application, packaging, deployment, abstractions, and terminology used by Service Fabric:
+* [<b>Service Fabric concepts:</b>](/shows/building-microservices-applications-on-azure-service-fabric/what-is-a-service-fabric-cluster)
+* [<b>Design time concepts:</b>](/shows/building-microservices-applications-on-azure-service-fabric/design-time-concepts)
+* [<b>Runtime concepts</b>](/shows/building-microservices-applications-on-azure-service-fabric/run-time-concepts)
 ## Infrastructure concepts
 
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.

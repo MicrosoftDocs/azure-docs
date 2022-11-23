@@ -151,3 +151,8 @@ A SaaS subscription can be canceled at any point in its life cycle. After a subs
 
 - [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md)
 - [SaaS fulfillment operations APIs v2](pc-saas-fulfillment-operations-api.md)
+
+**Video tutorials**
+
+- [Building a Simple SaaS Publisher Portal in .NET](https://go.microsoft.com/fwlink/?linkid=2196257)
+- [Using the SaaS Offer REST Fulfillment API](https://go.microsoft.com/fwlink/?linkid=2196320)

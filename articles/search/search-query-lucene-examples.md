@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 08/15/2022
 ---
 
 # Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
@@ -18,7 +18,7 @@ When constructing queries for Azure Cognitive Search, you can replace the defaul
 
 The Lucene parser supports complex query formats, such as field-scoped queries, fuzzy search, infix and suffix wildcard search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements so you should expect a slightly longer execution time. In this article, you can step through examples demonstrating query operations based on full syntax.
 
-> [!Note]
+> [!NOTE]
 > Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on partial query terms is lowercasing. 
 >
 
@@ -26,7 +26,7 @@ The Lucene parser supports complex query formats, such as field-scoped queries, 
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client.
 
 Request headers must have the following values:
 

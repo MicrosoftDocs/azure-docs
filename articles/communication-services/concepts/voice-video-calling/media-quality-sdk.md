@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Media Quality metrics
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the ACS media quality statics SDK.
+description: Provides an overview of the Azure Communication Services media quality statics SDK.
 author: sloanster
 ms.author: micahvivion
 manager: nmurav
@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 
 # Media quality statistics 
-When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics.
+When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an Azure Communication Services call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics.
 
 ### Media quality statistics for ongoing call
 > **NOTE**
@@ -79,7 +79,7 @@ To dispose all collectors, invoke `disposeAllCollectors` method of `mediaStatsAp
 mediaStatsFeature.disposeAllCollectors();
 ```
 ## Best practices
-If you want to collect this data for off-line inspection (after a call ends) it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during an current all you could use needed internet bandwidth that could be needed to help continue an ACS call (in cases when available bandwidth is low).
+If you want to collect this data for off-line inspection (after a call ends) it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during an current all you could use needed internet bandwidth that could be needed to help continue an Azure Communication Services call (in cases when available bandwidth is low).
 
 ### Bandwidth metrics
 | Metric Name    | Purpose              | Detailed explanation                                                    | Comments                                                                      |
@@ -98,7 +98,7 @@ If you want to collect this data for off-line inspection (after a call ends) it 
 | audioSendPacketsLost      | Sent packet loss             | The number of audio packets sent that were lost (not received) in the last second.  Results are packets per second (over the last second).                                            | Lower is better.                                             |
 | audioRecvPackets          | Received packets             | The number of audio packets received in the last second. Results are packets per second (over the last second).                                                                       | Information only.                                            |
 | audioSendCodecName        | Sent codec                   | Audio CODEC used.                                                                                                                                                                     | Information only.                                            |
-| audioSendRtt              | Send Round-Trip Time         | Round trip time between your system and ACS server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
+| audioSendRtt              | Send Round-Trip Time         | Round trip time between your system and Azure Communication Services server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
 | audioSendPairRtt          | Send Pair Round-Trip Time    | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
 | audioRecvPairRtt          | Receive Pair Round-Trip Time | Round trip time for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
 | audioSendAudioInputLevel  | Input level for microphone   | Sent audio playout level. If source data is between 0-1,  media stack multiplies it with 0xFFFF. Depends on microphone. Used to confirm if microphone is silent (no incoming energy). | Microphone input level.                                      |
@@ -115,8 +115,8 @@ If you want to collect this data for off-line inspection (after a call ends) it 
 | videoSendPackets               | Sent packets                     | The number of video packets sent. Results are packets per second (over the last second).                                                 | Information only                                                                                 |
 | VideoSendCodecName             | Sent codec                       | Video CODEC used for encoding video                                                                                                      | VP8 (1:1 calls) and H264                                                                         |
 | videoRecvJitterBufferMs        | Received Jitter                  | Jitter is the amount of difference in packet delay (in milliseconds (ms))                                                                | Lower is better.                                                                                 |
-| videoSendRtt                   | Send Round-Trip Time             | Response time between your system and ACS server. Lower is better                                                                        | A round trip time of 200 ms or less is recommended.                                              |
-| videoSendPairRtt               | Send Pair Round-Trip Time        | Response time between your system and ACS server. Results are in milliseconds (ms).                                                      | A round trip time of 200 ms or less is recommended.                                              |
+| videoSendRtt                   | Send Round-Trip Time             | Response time between your system and Azure Communication Services server. Lower is better                                                                        | A round trip time of 200 ms or less is recommended.                                              |
+| videoSendPairRtt               | Send Pair Round-Trip Time        | Response time between your system and Azure Communication Services server. Results are in milliseconds (ms).                                                      | A round trip time of 200 ms or less is recommended.                                              |
 | videoRecvPairRtt               | Receive Pair Round-Trip Time     | Round trip time for entire transport. Results are in milliseconds (ms).                                                                              | A round trip time of 200 ms or less is recommended.                                              |
 | videoRecvFrameRateReceived     | Received frame rate              | Frame rate of video currently received                                                                                                   | 25-30 fps (360p or better)<br>8-15 fps (270p or lower)                                           |
 | videoRecvFrameWidthReceived    | Received width                   | Width of video currently received                                                                                                        | 1920, 1280, 960, 640, 480, 320                                                                   |

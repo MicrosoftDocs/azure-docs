@@ -42,6 +42,11 @@ sections:
           All regions support scale sets.
 
       - question: |
+          Which SKUs are supported for virtual machine scale sets?
+        answer: |
+          All SKUs are supported for virtual machine scale sets.
+
+      - question: |
           How do I create a scale set by using a custom image?
         answer: |
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
@@ -143,7 +148,7 @@ sections:
       - question: |
           If I have stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
         answer: |
-          No. If autoscale rules require additional VM instances as part of a scale set, a new VM instance is created. VM instances that are stopped (deallocated) aren't started as part of an autoscale event. However, those stopped (deallocated) VMs can be deleted as part of an autoscale event that scales in the number of instances, in the same way that any VM instance can be deleted based on the order of VM instance IDs.
+          No. If autoscale rules require more VM instances as part of a scale set, a new VM instance is created. VM instances that are stopped (deallocated) aren't started as part of an autoscale event. However, those stopped (deallocated) VMs can be deleted as part of an autoscale event that scales in the number of instances, in the same way that any VM instance can be deleted based on the order of VM instance IDs.
 
 
 
@@ -186,7 +191,7 @@ sections:
           az sf cluster create -h
           ```
 
-          Self-signed certificates can't be used for distributed trust provided by a certificate authority, and shouldn't be used for any Service Fabric cluster intended to host enterprise production solutions. For additional security guidance, review [Azure Service Fabric security best practices](../security/fundamentals/service-fabric-best-practices.md) and [Service Fabric cluster security scenarios](../service-fabric/service-fabric-cluster-security.md).
+          Self-signed certificates can't be used for distributed trust provided by a certificate authority, and shouldn't be used for any Service Fabric cluster intended to host enterprise production solutions. For more security guidance, review [Azure Service Fabric security best practices](../security/fundamentals/service-fabric-best-practices.md) and [Service Fabric cluster security scenarios](../service-fabric/service-fabric-cluster-security.md).
 
       - question: |
           For SSH authentication with a Linux virtual machine scale set from a Resource Manager template, can I specify an SSH key pair to use?
@@ -213,7 +218,7 @@ sections:
           }
           ```
 
-          This JSON block is used in [this Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
+          This JSON block is used in [this Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
 
           For more information, see [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
 
@@ -227,7 +232,7 @@ sections:
       - question: |
           How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning?
         answer: |
-          If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Azure Key Vault. Public keys aren't secret.
+          If you're providing the VMs only with a public SSH key, you don't need to put the public keys in Azure Key Vault. Public keys aren't secret.
 
           You can provide SSH public keys in plain text when you create a Linux VM:
 
@@ -255,7 +260,7 @@ sections:
       - question: |
           When I run `Update-AzVmss` after adding more than one certificate from the same key vault, why do I get an error message?
         answer: |
-          This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding additional secrets.
+          This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
 
           To add more secrets from the same key vault, update the following list: `$vmss.properties.osProfile.secrets[0].vaultCertificates`.
 
@@ -325,7 +330,7 @@ sections:
         answer: |
           The purpose is to make it clear to the user what certificate is deployed on their VMs.
 
-          If you create a VM and then update your secret in the key vault, the new certificate isn't downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you are required to reference a secret version.
+          If you create a VM and then update your secret in the key vault, the new certificate isn't downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you're required to reference a secret version.
 
       - question: |
           My team works with several certificates that are distributed to us as .cer public keys. What is the recommended approach for deploying these certificates to a virtual machine scale set?
@@ -368,7 +373,7 @@ sections:
       - question: |
           Do managed identities for Azure resources work with virtual machine scale sets?
         answer: |
-          Yes. For more information, see the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md). You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
+          Yes. For more information, see the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md). You can see some example MSI templates in Azure Quickstart Templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
 
   - name: Deleting
     questions:
@@ -473,7 +478,10 @@ sections:
 
           - Reset the password by using the VM access extensions. Make sure to follow the password requirements, as described in [the FAQ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
               
-              Using a VM access extension doesn't require reimaging, because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
+              Using a VM access extension doesn't require reimaging, because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key. Once the extension is updated, upgrade the instances to apply the updates to the username and password on all the VM instances.
+              
+              >[!NOTE]
+              > If Auto upgrade policy is set to `manual`, manually select the instance to perform an upgrade operation on individual VM instances. If auto upgrade set to `Auto`, the extension will automatically upgrade. For more information, see [Automatic Extension Upgrades](../virtual-machines/automatic-extension-upgrade.md)
 
               Use the following PowerShell example for a Windows virtual machine scale set:
 
@@ -618,7 +626,7 @@ sections:
       - question: |
           In what case would I create a virtual machine scale set with fewer than two VMs?
         answer: |
-          One reason to create a virtual machine scale set with fewer than two VMs is to use the elastic properties of a virtual machine scale set. For example, you can deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you can increase the capacity of the virtual machine scale set to the production instance count.
+          One reason to create a virtual machine scale set with fewer than two VMs is to use the elastic properties of a virtual machine scale set. For example, you can deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you're ready to deploy VMs, you can increase the capacity of the virtual machine scale set to the production instance count.
 
           Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than with using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads don't track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
 
@@ -733,6 +741,10 @@ sections:
               "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
           }
           ```
+      - question: |
+          How do I troubleshoot other issues?
+        answer: |
+          Visit [Troubleshooting common issue with virtual machine scale sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
 
   - name: Virtual machine properties
     questions:
@@ -742,6 +754,8 @@ sections:
           You can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
           /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+          
+          Note that fault domain is not returned when the scale set uses max spreading (platformFaultDomainCount = 1), because there is no guarantee as to how many fault domains would be used with this setting.
 
       - question: |
           Can I pass different extension arguments to different VMs in a virtual machine scale set?

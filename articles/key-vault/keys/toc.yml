@@ -27,6 +27,9 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Bicep
+    displayName: Azure Resource Manager, ARM
+    href: quick-create-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
@@ -46,18 +49,24 @@ items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
-- name: Concepts 
+- name: Concepts
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
 
 - name: How-to guides
   items:
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: how-to-configure-key-rotation.md
 
 - name: Reference
   items:
+  - name: Secure key release policy grammar
+    href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -83,8 +92,8 @@ items:
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

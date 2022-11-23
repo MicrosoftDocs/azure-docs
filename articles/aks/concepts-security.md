@@ -77,6 +77,9 @@ Nightly updates apply security updates to the OS on the node, but the node image
 
 For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+### Node authorization
+Node authorization is a special-purpose authorization mode that specifically authorizes API requests made by kubelets to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
+
 ### Node deployment
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
 
@@ -165,7 +168,7 @@ For more information on core Kubernetes and AKS concepts, see:
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- LINKS - External -->
-[kured]: https://github.com/weaveworks/kured
+[kured]: https://github.com/kubereboot/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
@@ -175,7 +178,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

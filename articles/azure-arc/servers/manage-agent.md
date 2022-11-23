@@ -1,46 +1,49 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 02/28/2022
+ms.date: 10/12/2022
 ms.topic: conceptual
 ---
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses).
 
 ## About the azcmagent tool
 
-The azcmagent tool is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. azcmagent.exe provides command-line parameters to customize the agent and view its status:
+The azcmagent tool is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. azcmagent.exe provides the following command-line parameters to customize the agent and view its status:
 
-* **connect** - To connect the machine to Azure Arc
-
-* **disconnect** - To disconnect the machine from Azure Arc
-
+* **check** - Troubleshoot network connectivity issues.
+* **connect** - Connect the machine to Azure Arc.
+* **disconnect** - Disconnect the machine from Azure Arc.
 * **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
+* **config** - View and change settings to enable features and control agent behavior.
+* **logs** - Create a .zip file in the current directory containing logs to assist you while troubleshooting.
+* **version** - Show the Connected Machine agent version.
+* **-useStderr** - Direct error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
+* **-h or --help** - Show available command-line parameters. For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`.
+* **-v or --verbose** - Enable verbose logging.
 
-* **config** - View and change settings to enable features and control agent behavior
-
-* **logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
-
-* **version** - Shows the Connected Machine agent version.
-
-* **-useStderr** - Directs error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
-
-* **-h or --help** - Shows available command-line parameters
-
-    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`.
-
-* **-v or --verbose** - Enable verbose logging
-
-You can perform a **Connect** and **Disconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you didn't use a service principal to register the machine with Azure Arc-enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+You can perform a **connect** and **disconnect** manually while logged on interactively, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md), or by using the same service principal you used to onboard multiple agents. If you didn't use a service principal to register the machine with Azure Arc-enabled servers, you can [create a service principal now](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 >[!NOTE]
 >You must have *Administrator* permissions on Windows or *root* access permissions on Linux machines to run **azcmagent**.
 
-### Connect
+### check
 
-This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine if not specified.
+This parameter allows you to run network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
+
+When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests:
+
+`azcmagent check --location <regionName> --verbose`
+
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--enable-pls-check` (`--use-private-link` on versions 1.17-1.19) parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+
+`azcmagent check --location <regionName> --enable-pls-check --verbose`
+
+### connect
+
+This parameter specifies a resource in Azure Resource Manager and connects it to Azure Arc. You must specify the subscription and resource group of the resource to connect. Data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine unless otherwise specified.
 
 A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and guest configuration agent service begins synchronizing with Azure Arc-enabled servers.
 
@@ -56,16 +59,16 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-### Disconnect
+### disconnect
 
-This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It doesn't remove the agent from the machine, you uninstall the agent separately. After the machine is disconnected, if you want to re-register it with Azure Arc-enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
+This parameter specifies a resource in Azure Resource Manager to delete from Azure Arc. Running this parameter doesn't remove the agent from the machine; you must uninstall the agent separately. After the machine is disconnected, you can re-register it with Azure Arc-enabled servers by using `azcmagent connect` so a new resource is created for it in Azure.
 
 > [!NOTE]
-> If you have deployed one or more of the Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions are still installed. It's important to understand that depending on the extension installed, it's actively performing its function. Machines that are intended to be retired or no longer managed by Azure Arc-enabled servers should first have the extensions removed before removing its registration from Azure.
+> If you have deployed one or more Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions remain installed and may continue performing their functions. Any machine intended to be retired or no longer managed by Azure Arc-enabled servers should first have its [extensions removed](#step-1-remove-vm-extensions) before removing its registration from Azure.
 
-To disconnect using a service principal, run the following command:
+To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers; this will not be the same service principal that was used to onboard the server:
 
-`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
 To disconnect using an access token, run the following command:
 
@@ -75,7 +78,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 `azcmagent disconnect`
 
-### Config
+### config
 
 This parameter allows you to view and configure settings that control agent behavior.
 
@@ -91,7 +94,7 @@ To change a configuration property, run the following command:
 
 `azcmagent config set <propertyName> <propertyValue>`
 
-If the property you're changing supports a list of values, you can use the `--add` and `--remove` flags to add or remove specific items without having to re-type the entire list.
+If the property you're changing supports a list of values, you can use the `--add` and `--remove` flags to add or remove specific items without having to re-type the entire list:
 
 `azcmagent config set <propertyName> <propertyValue> --add`
 
@@ -101,13 +104,13 @@ To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
 
-## Upgrading agent
+## Upgrade the agent
 
-The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of the machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
 The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent will not require you to restart your server.
 
-The following table describes the methods supported to perform the agent upgrade.
+The following table describes the methods supported to perform the agent upgrade:
 
 | Operating system | Upgrade method |
 |------------------|----------------|
@@ -130,7 +133,7 @@ The latest version of the Azure Connected Machine agent for Windows-based machin
 
 The recommended way of keeping the Windows agent up to date is to automatically obtain the latest version through Microsoft Update. This allows you to utilize your existing update infrastructure (such as Microsoft Endpoint Configuration Manager or Windows Server Update Services) and include Azure Connected Machine agent updates with your regular OS update schedule.
 
-Windows Server doesn't check for updates in Microsoft Update by default. You need to configure the Windows Update client on the machine to also check for other Microsoft products in order to receive automatic updates for the Azure Connected Machine Agent.
+Windows Server doesn't check for updates in Microsoft Update by default. To receive automatic updates for the Azure Connected Machine Agent, you must configure the Windows Update client on the machine to check for other Microsoft products.
 
 For Windows Servers that belong to a workgroup and connect to the Internet to check for updates, you can enable Microsoft Update by running the following commands in PowerShell as an administrator:
 
@@ -142,17 +145,27 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 For Windows Servers that belong to a domain and connect to the Internet to check for updates, you can configure this setting at-scale using Group Policy:
 
-1. Sign into a computer used for server administration with an account that can manage Group Policy Objects (GPO) for your organization
-1. Open the **Group Policy Management Console**
+1. Sign into a computer used for server administration with an account that can manage Group Policy Objects (GPO) for your organization.
+
+1. Open the **Group Policy Management Console**.
+
 1. Expand the forest, domain, and organizational unit(s) to select the appropriate scope for your new GPO. If you already have a GPO you wish to modify, skip to step 6.
-1. Right click the container and select **Create a GPO in this domain, and Link it here...**
-1. Provide a name for your policy such as "Enable Microsoft Update"
-1. Right click the policy and select **Edit**
-1. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Windows Update**
-1. Double click the **Configure Automatic Updates** setting to edit it
-1. Select the **Enabled** radio button to allow the policy to take effect
-1. In the Options section, check the box for **Install updates for other Microsoft products** at the bottom
-1. Select **OK**
+
+1. Right-click the container and select **Create a GPO in this domain, and Link it here...**.
+
+1. Provide a name for your policy such as "Enable Microsoft Update".
+
+1. Right-click the policy and select **Edit**.
+
+1. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Windows Update**.
+
+1. Select the **Configure Automatic Updates** setting to edit it.
+
+1. Select the **Enabled** radio button to allow the policy to take effect.
+
+1. At the bottom of the **Options** section, check the box for **Install updates for other Microsoft products** at the bottom.
+
+1. Select **OK**.
 
 The next time computers in your selected scope refresh their policy, they will start to check for updates in both Windows Update and Microsoft Update.
 
@@ -165,13 +178,13 @@ Once the updates are being synchronized, you can optionally add the Azure Connec
 
 #### To manually upgrade using the Setup Wizard
 
-1. Sign on to the computer with an account that has administrative rights.
+1. Sign in to the computer with an account that has administrative rights.
 
-2. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
+1. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
 
-3. Execute **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
+1. Run **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
 
-The Setup Wizard discovers if a previous version exists, and then it automatically performs an upgrade of the agent. When the upgrade completes, the Setup Wizard automatically closes.
+If the Setup Wizard discovers a previous version of the agent, it will upgrade it automatically. When the upgrade completes, the Setup Wizard closes automatically.
 
 #### To upgrade from the command line
 
@@ -179,9 +192,9 @@ If you're unfamiliar with the command-line options for Windows Installer package
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
+1. Download the latest agent installer from https://aka.ms/AzureConnectedMachineAgent
 
-3. To upgrade the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command.
+1. To upgrade the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command:
 
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\azcmagentupgradesetup.log"
@@ -189,12 +202,12 @@ If you're unfamiliar with the command-line options for Windows Installer package
 
 ### Linux agent
 
-To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package.
+Updating the agent on a Linux machine involves two commands; one command to update the local package index with the list of latest available packages from the repositories, and another command to upgrade the local package.
 
 You can download the latest agent package from Microsoft's [package repository](https://packages.microsoft.com/).
 
 > [!NOTE]
-> To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
+> To upgrade the agent, you must have *root* access permissions or an account that has elevated rights using Sudo.
 
 #### Upgrade the agent on Ubuntu
 
@@ -246,27 +259,29 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## Renaming an Azure Arc-enabled server resource
 
-When you change the name of the Linux or Windows machine connected to Azure Arc-enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
+When you change the name of a Linux or Windows machine connected to Azure Arc-enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you must delete the resource and re-create it in order to use the new name.
 
-For Azure Arc-enabled servers, before you rename the machine, it's necessary to remove the VM extensions before proceeding.
+For Azure Arc-enabled servers, before you rename the machine, it's necessary to remove the VM extensions before proceeding:
 
-1. Audit the VM extensions installed on the machine and note their configuration, using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or using [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+1. Audit the VM extensions installed on the machine and note their configuration using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
+2. Remove any VM extensions installed on the machine. You can do this using the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
-3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process. You can run azcmagent manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you didn't use a service principal to register the machine with Azure Arc-enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
-4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
+    Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process.
+
+4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter to complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
 
 5. Redeploy the VM extensions that were originally deployed to the machine from Azure Arc-enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy definition, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Uninstall the agent
 
-For servers you no longer want to manage with Azure Arc-enabled servers, follow the steps below to remove any VM extensions from the server, disconnect the agent, and uninstall the software from your server. it's important to complete each of the 3 steps to fully remove all related software components from your system.
+For servers you no longer want to manage with Azure Arc-enabled servers, follow the steps below to remove any VM extensions from the server, disconnect the agent, and uninstall the software from your server. It's important to complete all of these steps to fully remove all related software components from your system.
 
 ### Step 1: Remove VM extensions
 
-If you have deployed Azure VM extensions to an Azure Arc-enabled server, you must uninstall the extensions before disconnecting the agent or uninstalling the software. Uninstalling the Azure Connected Machine agent doesn't automatically remove extensions, and they won't be recognized if you later connect the server to Azure Arc again.
+If you have deployed Azure VM extensions to an Azure Arc-enabled server, you must uninstall the extensions before disconnecting the agent or uninstalling the software. Uninstalling the Azure Connected Machine agent doesn't automatically remove extensions, and these extensions won't be recognized if you reconnect the server to Azure Arc.
 
 For guidance on how to identify and remove any extensions on your Azure Arc-enabled server, see the following resources:
 
@@ -276,7 +291,7 @@ For guidance on how to identify and remove any extensions on your Azure Arc-enab
 
 ### Step 2: Disconnect the server from Azure Arc
 
-Disconnecting the agent deletes the corresponding Azure resource for the server and clears the local state of the agent. The recommended way to disconnect the agent is to run the `azcmagent disconnect` command as an administrator on the server. You'll be prompted to log in with an Azure account that has permission to delete the resource in your subscription. If the resource has already been deleted in Azure, you'll need to pass an additional flag to only clean up the local state: `azcmagent disconnect --force-local-only`.
+Disconnecting the agent deletes the corresponding Azure resource for the server and clears the local state of the agent. To disconnect the agent, run the `azcmagent disconnect` command as an administrator on the server. You'll be prompted to log in with an Azure account that has permission to delete the resource in your subscription. If the resource has already been deleted in Azure, you'll need to pass an additional flag to clean up the local state: `azcmagent disconnect --force-local-only`.
 
 ### Step 3a: Uninstall the Windows agent
 
@@ -284,24 +299,25 @@ Both of the following methods remove the agent, but they do not remove the *C:\P
 
 #### Uninstall from Control Panel
 
-1. To uninstall the Windows agent from the machine, do the following:
+Follow these steps to uninstall the Windows agent from the machine:
 
-    a. Sign in to the computer with an account that has administrator permissions.  
-    b. In **Control Panel**, select **Programs and Features**.  
-    c. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.  
+1. Sign in to the computer with an account that has administrator permissions.
 
-    >[!NOTE]
-    > You can also run the agent setup wizard by double-clicking the **AzureConnectedMachineAgent.msi** installer package.
+1. In **Control panel**, select **Programs and Features**.
+
+1. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.
+
+You can also delete the Windows agent directly from the agent setup wizard. Run the **AzureConnectedMachineAgent.msi** installer package to do so.
 
 #### Uninstall from the command line
 
-To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
+You can uninstall the agent manually from the Command Prompt or by using an automated method (such as a script) by following the example below. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
 
 1. Open the Registry Editor.
 
 2. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.
 
-3. You can then uninstall the agent by using Msiexec using the following examples:
+3. Uninstall the agent using Msiexec, as in the following examples:
 
    * From the command-line type:
 
@@ -321,9 +337,9 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 ### Step 3b: Uninstall the Linux agent
 
 > [!NOTE]
-> To uninstall the agent, you must have *root* access permissions or with an account that has elevated rights using sudo.
+> To uninstall the agent, you must have *root* access permissions or an account that has elevated rights using sudo.
 
-To uninstall the Linux agent, the command to use depends on the Linux operating system.
+The command used to uninstall the Linux agent depends on the Linux operating system.
 
 * For Ubuntu, run the following command:
 
@@ -345,9 +361,9 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
 
 ## Update or remove proxy settings
 
-To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task. The agent communicates outbound using the HTTP protocol under this scenario.
+To configure the agent to communicate to the service through a proxy server or to remove this configuration after deployment, use one of the methods described below. Note that the agent communicates outbound using the HTTP protocol under this scenario.
 
-As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. `azcmagent show` returns the effective proxy configuration for the agent.
+As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. Use `azcmagent show` to view the effective proxy configuration for the agent.
 
 > [!NOTE]
 > Azure Arc-enabled servers doesn't support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
@@ -384,15 +400,15 @@ You do not need to restart any services when reconfiguring the proxy settings wi
 
 ### Proxy bypass for private endpoints
 
-Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Azure Active Directory (Azure AD) and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
+Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Azure Active Directory and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
 
 The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server.
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| AAD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
-| ARM | `management.azure.com` |
-| Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+| `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| `ARM` | `management.azure.com` |
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
 
 To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 
@@ -460,9 +476,11 @@ sudo /opt/azcmagent/bin/azcmagent_proxy remove
 
 If you're already using environment variables to configure the proxy server for the Azure Connected Machine agent and want to migrate to the agent-specific proxy configuration based on local agent settings, follow these steps:
 
-1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings
-1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`
-1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables)
+1. [Upgrade the Azure Connected Machine agent](#upgrade-the-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings.
+
+1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`.
+
+1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables).
 
 ## Next steps
 
@@ -470,4 +488,4 @@ If you're already using environment variables to configure the proxy server for 
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

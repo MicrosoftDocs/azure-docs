@@ -3,10 +3,14 @@ title: Networking considerations
 description: Learn about App Service Environment network traffic, and how to set network security groups and user-defined routes.
 author: madsd
 ms.topic: article
-ms.date: 11/15/2021
+ms.date: 03/29/2022
 ms.author: madsd
 ---
 # Networking considerations for App Service Environment
+
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network. There are two deployment types for an App Service Environment:
 

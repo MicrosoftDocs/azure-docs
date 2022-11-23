@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Automation?
+  - name: What is Azure Automation?
     href: overview.md
+  - name: What are the various Automation services in Azure?
+    href: automation-services.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
@@ -13,7 +15,7 @@
 - name: Quickstarts
   items:
     - name: Create Automation account - Azure portal
-      href: quickstarts/create-account-portal.md
+      href: quickstarts/create-azure-automation-account-portal.md
     - name: Enable managed identities - Azure portal
       href: quickstarts/enable-managed-identity.md
     - name: Enable Desired State Configuration for a machine
@@ -56,6 +58,12 @@
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
+    - name: High availability
+      items:
+        - name: Availability zones
+          href: automation-availability-zones.md
+        - name: Disaster recovery for Automation accounts 
+          href: automation-disaster-recovery.md        
 - name: How-to guides
   items:
     - name: Automation Account
@@ -76,8 +84,12 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
+            - name: Migrate Run As account to managed identity
+              href: migrate-run-as-accounts-managed-identity.md  
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
+            - name: FAQ on Migration to managed identity
+              href: automation-managed-identity-faq.md 
         - name: Run As account
           items:
             - name: Create Run As account
@@ -158,7 +170,7 @@
               href: automation-runbook-output-and-messages.md
             - name: Handle errors in graphical runbooks
               href: automation-runbook-graphical-error-handling.md
-            - name: Forward job data to Azure Monitor Logs
+            - name: Forward Azure Automation diagnostic logs to Azure Monitor
               href: automation-manage-send-joblogs-log-analytics.md
         - name: Troubleshoot runbooks
           items:
@@ -166,7 +178,7 @@
               href: troubleshoot/runbooks.md
             - name: Data to collect when opening a case for Microsoft Azure Automation
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Work with a Hybrid Runbook Worker
+        - name: Work with Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md

@@ -3,11 +3,11 @@ title: Assign Azure roles using Azure CLI - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure CLI and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/28/2020
+ms.date: 06/03/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
 ---
@@ -32,38 +32,38 @@ You can assign a role to a user, group, service principal, or managed identity. 
 
 **User**
 
-For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az_ad_user_show).
+For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az-ad-user-show).
 
 ```azurecli
-az ad user show --id "{principalName}" --query "objectId" --output tsv
+az ad user show --id "{principalName}" --query "id" --output tsv
 ```
 
 **Group**
 
-For an Azure AD group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az_ad_group_show) or [az ad group list](/cli/azure/ad/group#az_ad_group_list).
+For an Azure AD group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az-ad-group-show) or [az ad group list](/cli/azure/ad/group#az-ad-group-list).
 
 ```azurecli
-az ad group show --group "{groupName}" --query "objectId" --output tsv
+az ad group show --group "{groupName}" --query "id" --output tsv
 ```
 
 **Service principal**
 
-For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list). For a service principal, use the object ID and **not** the application ID.
+For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). For a service principal, use the object ID and **not** the application ID.
 
 ```azurecli
-az ad sp list --all --query "[].{displayName:displayName, objectId:objectId}" --output tsv
+az ad sp list --all --query "[].{displayName:displayName, id:id}" --output tsv
 az ad sp list --display-name "{displayName}"
 ```
 
 **Managed identity**
 
-For a system-assigned or a user-assigned managed identity, you need the object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
+For a system-assigned or a user-assigned managed identity, you need the object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
 ```azurecli
 az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
 ```
 
-To just list user-assigned managed identities, you can use [az identity list](/cli/azure/identity#az_identity_list).
+To just list user-assigned managed identities, you can use [az identity list](/cli/azure/identity#az-identity-list).
 
 ```azurecli
 az identity list
@@ -73,7 +73,7 @@ az identity list
 
 Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
 
-To list roles and get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To list roles and get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --query "[].{name:name, roleType:roleType, roleName:roleName}" --output tsv
@@ -101,7 +101,7 @@ For resource scope, you need the resource ID for the resource. You can find the 
 
 **Resource group scope**
 
-For resource group scope, you need the name of the resource group. You can find the name on the **Resource groups** page in the Azure portal or you can use [az group list](/cli/azure/group#az_group_list).
+For resource group scope, you need the name of the resource group. You can find the name on the **Resource groups** page in the Azure portal or you can use [az group list](/cli/azure/group#az-group-list).
 
 ```azurecli
 az group list --query "[].{name:name}" --output tsv
@@ -109,7 +109,7 @@ az group list --query "[].{name:name}" --output tsv
 
 **Subscription scope** 
 
-For subscription scope, you need the subscription ID. You can find the ID on the **Subscriptions** page in the Azure portal or you can use [az account list](/cli/azure/account#az_account_list).
+For subscription scope, you need the subscription ID. You can find the ID on the **Subscriptions** page in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account list --query "[].{name:name, id:id}" --output tsv
@@ -117,7 +117,7 @@ az account list --query "[].{name:name, id:id}" --output tsv
 
 **Management group scope** 
 
-For management group scope, you need the management group name. You can find the name on the **Management groups** page in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az_account_management_group_list).
+For management group scope, you need the management group name. You can find the name on the **Management groups** page in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az account management-group list --query "[].{name:name, id:id}" --output tsv
@@ -125,7 +125,7 @@ az account management-group list --query "[].{name:name, id:id}" --output tsv
     
 ### Step 4: Assign role
 
-To assign a role, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. Depending on the scope, the command typically has one of the following formats.
+To assign a role, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. Depending on the scope, the command typically has one of the following formats.
 
 **Resource scope**
 
@@ -266,7 +266,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 
 If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you use a script to create a new managed identity and then try to assign a role to that service principal, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should specify the principal type when creating the role assignment.
 
-To assign a role, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create), specify a value for `--assignee-object-id`, and then set `--assignee-principal-type` to `ServicePrincipal`.
+To assign a role, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), specify a value for `--assignee-object-id`, and then set `--assignee-principal-type` to `ServicePrincipal`.
 
 ```azurecli
 az role assignment create --assignee-object-id "{assigneeObjectId}" \

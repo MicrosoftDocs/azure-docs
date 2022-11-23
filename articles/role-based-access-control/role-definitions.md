@@ -4,11 +4,11 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/06/2022
+ms.date: 08/19/2022
 ms.author: rolyon
 ms.custom:
 ---
@@ -335,9 +335,13 @@ The following table shows two examples of the effective date plane permissions f
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) where this role definition can be assigned. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
+The `AssignableScopes` property specifies the scopes (root, management group, subscriptions, or resource groups) where a role definition can be assigned. You can make a custom role available for assignment in only the management group, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
-Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
+For example, if `AssignableScopes` is set to a subscription, that means that the custom role is available for assignment at subscription scope for the specified subscription, resource group scope for any resource group in the subscription, or resource scope for any resource in the subscription.
+
+Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes.
+
+Examples of valid assignable scopes include:
 
 > [!div class="mx-tableFixed"]
 > | Role is available for assignment | Example |
@@ -346,13 +350,18 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
 > | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
+You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+
+Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
+
+For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
 ## Next steps
 
+* [Understand role assignments](role-assignments.md)
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
 * [Azure resource provider operations](resource-provider-operations.md)

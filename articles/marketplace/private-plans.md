@@ -27,6 +27,9 @@ Private plans let publishers offer private, customized solutions to targeted cus
 
 Private plans let publishers take advantage of the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations. Enterprises can now buy and sell in ways they expect.
 
+>[!Note]
+>Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. For details, see [ISV to CSP partner private offers](./isv-csp-reseller.md).
+
 ## Create private plans
 
 For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private. Each offer can have up to 45 private plans.
@@ -71,8 +74,11 @@ Private plans will also appear in search results and can be deployed via command
 
 [![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
->[!Note]
->Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
+## Next steps
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)
 
 <!---
 ## Next steps

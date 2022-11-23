@@ -22,7 +22,6 @@ This API executes a Report query statement. The API returns only 10 records that
 | **Method** | **Request URI** |
 | --- | --- |
 | GET | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries/testQueryResult?exportQuery={query text}` |
-|||
 
 **Request header**
 
@@ -30,7 +29,6 @@ This API executes a Report query statement. The API returns only 10 records that
 | --- | --- | --- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
-|||
 
 **QueryParameter**
 
@@ -38,7 +36,6 @@ This API executes a Report query statement. The API returns only 10 records that
 | --- | --- | --- |
 | `exportQuery` | string | Report query string that needs to be executed |
 | `queryId` | string | A valid existing query ID |
-|||
 
 **Path**  **Parameter**
 

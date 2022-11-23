@@ -3,7 +3,7 @@ title: Microsoft Sentinel entity types reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel entity types and their required identifiers.
 author: yelevin
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 07/06/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -41,11 +41,11 @@ For best results - for guaranteed unique identification - you should use identif
 | [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | Query + Source |
 | [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | NetworkMessageId + Recipient |
 | [**Submission mail**](#submission-mail) | SubmissionId<br>SubmissionDate<br>Submitter<br>NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType | SubmissionId<br>NetworkMessageId<br>Recipient<br>Submitter |  |
-|
+| [**Sentinel entities**](#sentinel-entities) | Entities | Entities |  |
 
 ## Entity type schemas
 
-The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally-linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+The following is a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types - for example, the User account schema includes a link to the Host entity type, as one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
@@ -70,7 +70,6 @@ The following is a more in-depth look at the full schemas of each entity type. Y
 | IsDomainJoined | Bool? | Determines whether this is a domain account. |
 | DisplayName | String | The display name of the account. |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
-|
 
 Strong identifiers of an account entity:
 
@@ -104,7 +103,6 @@ Weak identifiers of an account entity:
 | OSFamily | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS |
 | OSVersion | String | A free-text representation of the operating system.<br>This field is meant to hold specific versions the are more fine-grained than OSFamily, or future values not supported by OSFamily enumeration. |
 | IsDomainJoined | Bool | Determines whether this host belongs to a domain. |
-|
 
 Strong identifiers of a host entity:
 - HostName + NTDomain
@@ -128,7 +126,6 @@ Weak identifiers of a host entity:
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
 | Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
-|
 
 Strong identifiers of an IP entity:
 - Address
@@ -142,7 +139,6 @@ Strong identifiers of an IP entity:
 | Category | String | The malware category by the vendor, e.g. Trojan. |
 | Files | List\<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the File entity for additional details on structure. |
 | Processes | List\<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for additional details on structure. |
-|
 
 Strong identifiers of a malware entity:
 
@@ -157,7 +153,6 @@ Strong identifiers of a malware entity:
 | Name | String | The file name without the path (some alerts might not include path). |
 | Host | Entity | The host on which the file was stored. |
 | FileHashes | List&lt;Entity&gt; | The file hashes associated with this file. |
-|
 
 Strong identifiers of a file entity:
 - Name + Directory
@@ -178,7 +173,6 @@ Strong identifiers of a file entity:
 | ParentProcess | Entity (Process) | The parent process entity. <br>Can contain partial data, i.e. only the PID. |
 | Host | Entity | The host on which the process was running. |
 | LogonSession | Entity (HostLogonSession) | The session in which the process was running. |
-|
 
 Strong identifiers of a process entity:
 
@@ -202,7 +196,6 @@ Weak identifiers of a process entity:
 | AppId | Int | The technical identifier of the application. This should be one of the values defined in the list of [cloud application identifiers](#cloud-application-identifiers). The value for AppId field is optional. |
 | Name | String | The name of the related cloud application. The value of application name is optional. |
 | InstanceName | String | The user-defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
-|
 
 Strong identifiers of a cloud application entity:
  - AppId (without InstanceName)
@@ -221,7 +214,6 @@ Strong identifiers of a cloud application entity:
 | IpAddress | List&lt;Entity (IP)&gt; | Entities corresponding to the resolved IP addresses. |
 | DnsServerIp | Entity (IP) | An entity representing the DNS server resolving the request. |
 | HostIpAddress | Entity (IP) | An entity representing the DNS request client. |
-|
 
 Strong identifiers of a DNS entity:
 - DomainName + DnsServerIp + HostIpAddress
@@ -239,7 +231,6 @@ Weak identifiers of a DNS entity:
 | TryGetResourceGroup | Bool | The resource group value if it exists. |
 | TryGetProvider | Bool | The provider value if it exists. |
 | TryGetName | Bool | The name value if it exists. |
-|
 
 Strong identifiers of an Azure resource entity:
 - ResourceId
@@ -253,7 +244,6 @@ Strong identifiers of an Azure resource entity:
 | Type | String | 'filehash' |
 | Algorithm | Enum | The hash algorithm type. Possible values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
 | Value | String | The hash value. |
-|
 
 Strong identifiers of a file hash entity:
 - Algorithm + Value
@@ -267,7 +257,6 @@ Strong identifiers of a file hash entity:
 | Type | String | ‘registry-key’ |
 | Hive | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
 | Key | String | The registry key path. |
-|
 
 Strong identifiers of a registry key entity:
 - Hive + Key
@@ -283,7 +272,6 @@ Strong identifiers of a registry key entity:
 | Name | String | The registry value name. |
 | Value | String | String-formatted representation of the value data. |
 | ValueType | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
-|
 
 Strong identifiers of a registry value entity:
 - Key + Name
@@ -301,7 +289,6 @@ Weak identifiers of a registry value entity:
 | DistinguishedName | String | The group distinguished name. |
 | SID | String | The SID attribute is a single-value attribute that specifies the security identifier (SID) of the group. |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
-|
 
 Strong identifiers of a security group entity:
  - DistinguishedName
@@ -314,7 +301,6 @@ Strong identifiers of a security group entity:
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
 | Url | Uri | A full URL the entity points to. |
-|
 
 Strong identifiers of a URL entity:
 - Url (when an absolute URL)
@@ -343,7 +329,6 @@ Weak identifiers of a URL entity:
 | MacAddress | String | The MAC address of the device. |
 | Protocols | List&lt;String&gt; | A list of protocols that the device supports. |
 | SerialNumber | String | The serial number of the device. |
-|
 
 Strong identifiers of an IoT device entity:
 - IoTHub + DeviceId
@@ -361,7 +346,6 @@ Weak identifiers of an IoT device entity:
 | Upn | String | The mailbox's UPN. |
 | RiskLevel | Enum? | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
 | ExternalDirectoryObjectId | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
-|
 
 Strong identifiers of a mailbox entity:
 - MailboxPrimaryAddress
@@ -391,7 +375,6 @@ Strong identifiers of a mailbox entity:
 | ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from Microsoft Defender for Office 365 (see note above). |
 | ClusterQueryEndTime | DateTime? | Cluster end time - used as end time for cluster counts query. Usually the mail data's received time. |
 | ClusterGroup | String | Corresponds to the Kusto query key used on Microsoft Defender for Office 365 (see note above). |
-|
 
 Strong identifiers of a mail cluster entity:
 - Query + Source
@@ -425,7 +408,6 @@ Strong identifiers of a mail cluster entity:
 | DeliveryLocation | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
 | Language | String | The language in which the contents of the mail are written. |
 | ThreatDetectionMethods | IList&lt;String&gt; | The list of Threat Detection Methods applied on this mail. |
-|
 
 Strong identifiers of a mail message entity:
 - NetworkMessageId + Recipient
@@ -447,84 +429,88 @@ Strong identifiers of a mail message entity:
 | SenderIp | String | The sender's IP. |
 | Subject | String | The subject of submission mail. |
 | ReportType | String | The submission type for the given instance. This maps to Junk, Phish, Malware or NotJunk. |
-|
 
 Strong identifiers of a SubmissionMail entity:
 - SubmissionId, Submitter, NetworkMessageId, Recipient
+
+## Sentinel entities
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| Entities | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
 
 ## Cloud application identifiers
 
 The following list defines identifiers for known cloud applications. The App ID value is used as a [cloud application](#cloud-application) entity identifier.
 
-|App ID|Name|
-|------|----|
-|10026|DocuSign|
-|10395|Anaplan|
-|10489|Box|
-|10549|Cisco Webex|
-|10618|Atlassian|
-|10915|Cornerstone OnDemand|
-|10921|Zendesk|
-|10980|Okta|
-|11042|Jive Software|
-|11114|Salesforce|
-|11161|Office 365|
-|11162|Microsoft OneNote Online|
-|11394|Microsoft Online Services|
-|11522|Yammer|
-|11599|Amazon Web Services|
-|11627|Dropbox|
-|11713|Expensify|
-|11770|G Suite|
-|12005|SuccessFactors|
-|12260|Microsoft Azure|
-|12275|Workday|
-|13843|LivePerson|
-|13979|Concur|
-|14509|ServiceNow|
-|15570|Tableau|
-|15600|Microsoft OneDrive for Business|
-|15782|Citrix ShareFile|
-|17152|Amazon|
-|17865|Ariba Inc|
-|18432|Zscaler|
-|19688|Xactly|
-|20595|Microsoft Defender for Cloud Apps|
-|20892|Microsoft SharePoint Online|
-|20893|Microsoft Exchange Online|
-|20940|Active Directory|
-|20941|Adallom CPanel|
-|22110|Google Cloud Platform|
-|22930|Gmail|
-|23004|Autodesk Fusion Lifecycle|
-|23043|Slack|
-|23233|Microsoft Office Online|
-|25275|Microsoft Skype for Business|
-|25988|Google Docs|
-|26055|Microsoft Office 365 admin center|
-|26060|OPSWAT Gears|
-|26061|Microsoft Word Online|
-|26062|Microsoft PowerPoint Online|
-|26063|Microsoft Excel Online|
-|26069|Google Drive|
-|26206|Workiva|
-|26311|Microsoft Dynamics|
-|26318|Microsoft Azure AD|
-|26320|Microsoft Office Sway|
-|26321|Microsoft Delve|
-|26324|Microsoft Power BI|
-|27548|Microsoft Forms|
-|27592|Microsoft Flow|
-|27593|Microsoft PowerApps|
-|28353|Workplace by Facebook|
-|28373|CAS Proxy Emulator|
-|28375|Microsoft Teams|
-|32780|Microsoft Dynamics 365|
-|33626|Google|
-|34127|Microsoft AppSource|
-|34667|HighQ|
-|35395|Microsoft Dynamics Talent|
-|
+| App ID | Name                              |
+| ------ | --------------------------------- |
+| 10026  | DocuSign                          |
+| 10395  | Anaplan                           |
+| 10489  | Box                               |
+| 10549  | Cisco Webex                       |
+| 10618  | Atlassian                         |
+| 10915  | Cornerstone OnDemand              |
+| 10921  | Zendesk                           |
+| 10980  | Okta                              |
+| 11042  | Jive Software                     |
+| 11114  | Salesforce                        |
+| 11161  | Office 365                        |
+| 11162  | Microsoft OneNote Online          |
+| 11394  | Microsoft Online Services         |
+| 11522  | Yammer                            |
+| 11599  | Amazon Web Services               |
+| 11627  | Dropbox                           |
+| 11713  | Expensify                         |
+| 11770  | G Suite                           |
+| 12005  | SuccessFactors                    |
+| 12260  | Microsoft Azure                   |
+| 12275  | Workday                           |
+| 13843  | LivePerson                        |
+| 13979  | Concur                            |
+| 14509  | ServiceNow                        |
+| 15570  | Tableau                           |
+| 15600  | Microsoft OneDrive for Business   |
+| 15782  | Citrix ShareFile                  |
+| 17152  | Amazon                            |
+| 17865  | Ariba Inc                         |
+| 18432  | Zscaler                           |
+| 19688  | Xactly                            |
+| 20595  | Microsoft Defender for Cloud Apps |
+| 20892  | Microsoft SharePoint Online       |
+| 20893  | Microsoft Exchange Online         |
+| 20940  | Active Directory                  |
+| 20941  | Adallom CPanel                    |
+| 22110  | Google Cloud Platform             |
+| 22930  | Gmail                             |
+| 23004  | Autodesk Fusion Lifecycle         |
+| 23043  | Slack                             |
+| 23233  | Microsoft Office Online           |
+| 25275  | Microsoft Skype for Business      |
+| 25988  | Google Docs                       |
+| 26055  | Microsoft 365 admin center |
+| 26060  | OPSWAT Gears                      |
+| 26061  | Microsoft Word Online             |
+| 26062  | Microsoft PowerPoint Online       | 
+| 26063  | Microsoft Excel Online            |
+| 26069  | Google Drive                      |
+| 26206  | Workiva                           |
+| 26311  | Microsoft Dynamics                |
+| 26318  | Microsoft Azure AD                |
+| 26320  | Microsoft Office Sway             |
+| 26321  | Microsoft Delve                   |
+| 26324  | Microsoft Power BI                |
+| 27548  | Microsoft Forms                   |
+| 27592  | Microsoft Flow                    |
+| 27593  | Microsoft PowerApps               |
+| 28353  | Workplace by Facebook             |
+| 28373  | CAS Proxy Emulator                |
+| 28375  | Microsoft Teams                   |
+| 32780  | Microsoft Dynamics 365            |
+| 33626  | Google                            |
+| 34127  | Microsoft AppSource               |
+| 34667  | HighQ                             |
+| 35395  | Microsoft Dynamics Talent         |
 
 ## Next steps
 

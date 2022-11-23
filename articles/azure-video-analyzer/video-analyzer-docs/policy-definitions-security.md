@@ -7,6 +7,8 @@ ms.date: 12/02/2021
 
 # Azure Policy for Video Analyzer
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Azure Video Analyzer provides several built-in [Azure Policy](../../governance/policy/overview.md) definitions to help enforce organizational standards and compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost and management. 
 
 Video Analyzer provides several common use case definitions for Azure Policy that are built-in to help you get started. This article explains how to assign policies for a Video Analyzer account using the Azure portal. 

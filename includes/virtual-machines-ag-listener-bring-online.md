@@ -25,7 +25,7 @@ ms.author: cynthn
 
 8. Start SQL Server Management Studio, and then connect to the primary replica.
 
-9. Go to **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
+9. Go to **Always On High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
     The listener name that you created in Failover Cluster Manager should be displayed.
 
 10. Right-click the listener name, and then click **Properties**.

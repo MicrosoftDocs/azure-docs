@@ -10,6 +10,9 @@ This article shows you how to create more than one value for a variable in your 
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [outputs](copy-outputs.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 The copy element has the following general format:

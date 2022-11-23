@@ -5,7 +5,7 @@ services: Azure Edge Hardware Center
 author: alkohli
 ms.service: azure-edge-hardware-center
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 06/01/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage your Azure Edge Hardware Center orders

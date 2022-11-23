@@ -2,7 +2,7 @@
 title: Network security for Azure Relay
 description: This article describes how to use IP firewall rules and private endpoints with Azure Relay.
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 
 # Network security for Azure Relay 

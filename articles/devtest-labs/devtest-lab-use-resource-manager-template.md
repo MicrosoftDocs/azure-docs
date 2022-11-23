@@ -2,6 +2,8 @@
 title: Create VMs by using ARM templates
 description: Learn how to view, edit, save, and store ARM virtual machine (VM) templates, and connect template repositories to Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/11/2022
 ---
 

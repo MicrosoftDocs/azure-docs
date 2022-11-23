@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
 description: Learn to implement SHA with header-based SSO to Oracle PeopleSoft using F5 BIG-IP Easy Button guided configuration.
 services: active-directory
-author: CelesteDG
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/26/2022
-ms.author: celested
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,13 +19,13 @@ In this article, learn to secure Oracle PeopleSoft (PeopleSoft) using Azure Acti
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
 * Full SSO between Azure AD and BIG-IP published services
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -36,7 +36,7 @@ Being legacy, the application lacks modern protocols to support a direct integra
 Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 > [!NOTE]
-> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy).
+> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
 ## Scenario architecture
 

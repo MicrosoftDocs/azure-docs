@@ -12,7 +12,7 @@ ms.custom: "include file, devx-track-azurecli"
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
-In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PYTHON|3.7`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PYTHON|3.7`. To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp). 
 
 ```azurecli-interactive
 # Bash

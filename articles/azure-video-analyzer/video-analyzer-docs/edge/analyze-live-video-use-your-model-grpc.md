@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021, mode-other
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
 This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events quickstart](detect-motion-emit-events-quickstart.md).

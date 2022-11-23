@@ -2,9 +2,10 @@
 title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
-ms.date: 11/22/2020
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Get started with Application Insights in a Java web project
@@ -25,8 +26,6 @@ Application Insights is an extensible analytics service for web developers that 
 
 ## Get an Application Insights instrumentation key
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=java) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
@@ -152,7 +151,7 @@ Either run it in debug mode on your development machine, or publish to your serv
 ## View your telemetry in Application Insights
 Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
-HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data appears on the overview pane. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
@@ -285,8 +284,11 @@ Application Insights can test your website at regular intervals to check that it
 
 [Learn more about how to set up availability web tests.][availability]
 
-## Questions? Problems?
-[Troubleshooting Java](java-2x-troubleshoot.md)
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/java-2x-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 * [Monitor dependency calls](java-2x-agent.md)

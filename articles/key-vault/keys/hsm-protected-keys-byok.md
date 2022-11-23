@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to generate & transfer HSM-protected keys – BYOK – Azure Key Vault 
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault. Also known as bring your own key (BYOK).
 services: key-vault
@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 11/21/2022
 ms.author: mbaldwin
 
 ---
@@ -31,7 +31,7 @@ For more information, and for a tutorial to get started using Key Vault (includi
 
 Here's an overview of the process. Specific steps to complete are described later in the article.
 
-* In Key Vault, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. Only Key Vault Premium SKU supports RSA-HSM keys.
+* In Key Vault, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. Only Key Vault Premium and Managed HSM support RSA-HSM keys.
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
@@ -47,7 +47,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 | Requirement | More information |
 | --- | --- |
 | An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
-| A Key Vault Premium SKU to import HSM-protected keys |For more information about the service tiers and capabilities in Azure Key Vault, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
+| A Key Vault Premium or Managed HSM to import HSM-protected keys |For more information about the service tiers and capabilities in Azure Key Vault, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
 | Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli).|
 
@@ -64,7 +64,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |Securosys SA|Manufacturer,<br/>HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Utimaco BYOK tool and Integration guide](https://support.hsm.utimaco.com/support/downloads/byok)|
+|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer| Utimaco BYOK tool and Integration guide |
 ||||
 
 
@@ -78,9 +78,9 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 ||EC|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
 ||||
 
-## Generate and transfer your key to the Key Vault HSM
+## Generate and transfer your key to Key Vault Premium HSM or Managed HSM
 
-To generate and transfer your key to a Key Vault HSM:
+To generate and transfer your key to a Key Vault Premium or Managed HSM:
 
 * [Step 1: Generate a KEK](#step-1-generate-a-kek)
 * [Step 2: Download the KEK public key](#step-2-download-the-kek-public-key)
@@ -89,7 +89,7 @@ To generate and transfer your key to a Key Vault HSM:
 
 ### Step 1: Generate a KEK
 
-A KEK is an RSA key that's generated in a Key Vault HSM. The KEK is used to encrypt the key you want to import (the *target* key).
+A KEK is an RSA key that's generated in a Key Vault Premium or Managed HSM. The KEK is used to encrypt the key you want to import (the *target* key).
 
 The KEK must be:
 - An RSA-HSM key (2,048-bit; 3,072-bit; or 4,096-bit)
@@ -99,18 +99,29 @@ The KEK must be:
 > [!NOTE]
 > The KEK must have 'import' as the only allowed key operation. 'import' is mutually exclusive with all other key operations.
 
-Use the [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
+or for Managed HSM
+
+```azurecli
+az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
+```
 
 ### Step 2: Download the KEK public key
 
-Use [az keyvault key download](/cli/azure/keyvault/key#az_keyvault_key_download) to download the KEK public key to a .pem file. The target key you import is encrypted by using the KEK public key.
+Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) to download the KEK public key to a .pem file. The target key you import is encrypted by using the KEK public key.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
+```
+
+or for Managed HSM
+
+```azurecli
+az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
 
 Transfer the KEKforBYOK.publickey.pem file to your offline computer. You will need this file in the next step.
@@ -128,17 +139,28 @@ Transfer the BYOK file to your connected computer.
 
 ### Step 4: Transfer your key to Azure Key Vault
 
-To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) command to upload the BYOK file to the Key Vault HSM.
+To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) command to upload the BYOK file to the Key Vault HSM.
 
 To import an RSA key use following command. Parameter --kty is optional and defaults to 'RSA-HSM'.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+or for Managed HSM
+
+```azurecli
+az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 To import an EC key, you must specify key type and the curve name.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+or for Managed HSM
+
+```azurecli
+az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 If the upload is successful, Azure CLI displays the properties of the imported key.

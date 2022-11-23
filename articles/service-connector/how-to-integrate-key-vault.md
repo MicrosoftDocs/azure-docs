@@ -1,76 +1,104 @@
 ---
 title: Integrate Azure Key Vault with Service Connector
 description: Integrate Azure Key Vault into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Key Vault with Service Connector
 
 > [!NOTE]
-> When you use Service Connector to connect your key vault or manage key vault connections, Service Connector will be using your token to perform the corresponding operations.
+> When you use Service Connector to connect your key vault or manage key vault connections, Service Connector use your token to perform the corresponding operations.
 
-This page shows the supported authentication types and client types of Azure Key Vault using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types of Azure Key Vault using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute service
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Container Apps
+- Azure Spring Apps
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .Net | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
-| Java | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
-| Node.js | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
-| Python | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+
+### [Azure Spring Apps](#tab/spring-apps)
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+
+---
 
 ## Default environment variable names or application properties
 
-### .NET, Java, Node.JS, Python
+Use the connection details below to connect compute services to Azure Key Vault. For each example below, replace the placeholder texts `<vault-name>`, `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your key vault name,  client-ID, client secret and tenant ID.
 
-**System-assigned Managed Identity**
+### System-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
+| Default environment variable name | Description             | Example value                           |
+|-----------------------------------|-------------------------|-----------------------------------------|
+| AZURE_KEYVAULT_SCOPE              | Your Azure RBAC scope   | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
 
-**User-assigned Managed Identity**
+### User-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
-| AZURE_KEYVAULT_CLIENTID | Your Client ID | `{yourClientID}` |
+| Default environment variable name | Description             | Example value                           |
+|-----------------------------------|-------------------------|-----------------------------------------|
+| AZURE_KEYVAULT_SCOPE              | Your Azure RBAC scope   | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
+| AZURE_KEYVAULT_CLIENTID           | Your Client ID          | `<client-ID>`                           |
 
-**Service Principal**
+### Service principal
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
-| AZURE_KEYVAULT_CLIENTID | Your Client ID | `{yourClientID}` |
-| AZURE_KEYVAULT_CLIENTSECRET | Your Client secret | `{yourClientSecret}` |
-| AZURE_KEYVAULT_TENANTID | Your Tenant ID | `{yourTenantID}` |
+| Default environment variable name | Description             | Example value                           |
+|-----------------------------------|-------------------------|-----------------------------------------|
+| AZURE_KEYVAULT_SCOPE              | Your Azure RBAC scope   | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
+| AZURE_KEYVAULT_CLIENTID           | Your Client ID          | `<client-ID>`                           |
+| AZURE_KEYVAULT_CLIENTSECRET       | Your Client secret      | `<client-secret>`                       |
+| AZURE_KEYVAULT_TENANTID           | Your Tenant ID          | `<tenant-id>`                           |
 
-### Java - Spring Boot
+### Java - Spring Boot service principal
 
-**Service Principal**
-
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| azure.keyvault.uri | Your Key Vault endpoint URL | `"https://{yourKeyVaultName}.vault.azure.net/"` |
-| azure.keyvault.client-id | Your Client ID | `{yourClientID}` |
-| azure.keyvault.client-key | Your Client secret | `{yourClientSecret}` |
-| azure.keyvault.tenant-id |  Your Tenant ID | `{yourTenantID}` |
-| azure.keyvault.scope | Your Azure RBAC scope | `https://management.azure.com/.default` |
+| Default environment variable name | Description                 | Example value                             |
+|-----------------------------------|-----------------------------|-------------------------------------------|
+| azure.keyvault.uri                | Your Key Vault endpoint URL | `"https://<vault-name>.vault.azure.net/"` |
+| azure.keyvault.client-id          | Your Client ID              | `<client-ID>`                             |
+| azure.keyvault.client-key         | Your Client secret          | `<client-secret>`                         |
+| azure.keyvault.tenant-id          | Your Tenant ID              | `<tenant-id>`                             |
+| azure.keyvault.scope              | Your Azure RBAC scope       | `https://management.azure.com/.default`   |
 
 ## Next steps
 

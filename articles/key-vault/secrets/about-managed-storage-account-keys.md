@@ -58,7 +58,7 @@ The following permissions can be used when authorizing a user or application pri
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a managed storage account
 
-For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
+For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 
 ## Next steps
 

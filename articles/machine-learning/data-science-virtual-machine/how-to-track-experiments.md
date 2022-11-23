@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-
+ms.custom: sdkv1, event-tier1-build-2022
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
@@ -176,6 +176,8 @@ You should see that the deployment state goes from __transitioning__ to __health
 
 You can test the endpoint using [Postman](https://www.postman.com/), or you can use the AzureML SDK:
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Webservice
 import json
@@ -199,4 +201,4 @@ Delete the Inference Compute you created in Step 1 so that you don't incur ongoi
 
 ## Next Steps
 
-* Learn more about [deploying models in AzureML](../how-to-deploy-and-where.md)
+* Learn more about [deploying models in AzureML](../v1/how-to-deploy-and-where.md)

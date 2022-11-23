@@ -1,19 +1,19 @@
 ---
-title: Create an expiration policy for shared access signatures 
+title: Configure an expiration policy for shared access signatures (SAS)
 titleSuffix: Azure Storage
-description: Create a policy on the storage account that defines the length of time that a shared access signature (SAS) should be valid. Learn how to monitor policy violations to remediate security risks. 
+description: Configure a policy on the storage account that defines the length of time that a shared access signature (SAS) should be valid. Learn how to monitor policy violations to remediate security risks. 
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/17/2022
-ms.author: tamram
+ms.date: 10/25/2022
+ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
 ---
 
-# Create an expiration policy for shared access signatures
+# Configure an expiration policy for shared access signatures
 
 You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS.
 
@@ -31,19 +31,20 @@ A SAS expiration policy does not prevent a user from creating a SAS with an expi
 
 When a SAS expiration policy is in effect for the storage account, the signed start field is required for every SAS. If the signed start field is not included on the SAS, and you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user creates or uses a SAS without a value for the signed start field.
 
-## Create a SAS expiration policy
+## Configure a SAS expiration policy
 
-When you create a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
+When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
-To configure a SAS expiration policy for a storage account, use the Azure portal, PowerShell, or Azure CLI.
+> [!NOTE]
+> Before you can configure a SAS expiration policy, you may need to rotate each of your account access keys at least once.
 
 ### [Azure portal](#tab/azure-portal)
 
-To create a SAS expiration policy in the Azure portal, follow these steps:
+To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
+1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**. If the setting appears disabled, then you need to rotate both account access keys before you can set a recommended upper limit for SAS expiry interval.
 1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal":::
@@ -52,7 +53,7 @@ To create a SAS expiration policy in the Azure portal, follow these steps:
 
 ### [PowerShell](#tab/azure-powershell)
 
-To create a SAS expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, and then set the `-SasExpirationPeriod` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `-SasExpirationPeriod` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
+To configure a SAS expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, and then set the `-SasExpirationPeriod` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `-SasExpirationPeriod` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
 
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -76,7 +77,7 @@ The SAS expiration period appears in the console output.
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a SAS expiration policy, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command, and then set the `--key-exp-days` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `--key-exp-days` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
+To configure a SAS expiration policy, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command, and then set the `--key-exp-days` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `--key-exp-days` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
 
 ```azurecli-interactive
 az storage account update \
@@ -86,9 +87,9 @@ az storage account update \
 ```
 
 > [!TIP]
-> You can also set the SAS expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+> You can also set the SAS expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
-To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{SasPolicy:sasPolicy}` for the `-query` parameter.
+To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{SasPolicy:sasPolicy}` for the `-query` parameter.
   
 ```azurecli-interactive
 az storage account show \
@@ -112,7 +113,7 @@ The SAS expiration period appears in the console output.
 
 ## Query logs for policy violations
 
-To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics).
+To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../../azure-monitor/platform/diagnostic-settings.md).
 
 Next, use an Azure Monitor log query to monitor whether policy has been violated. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
 
@@ -146,13 +147,13 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 
 To monitor your storage accounts for compliance with the key expiration policy, follow these steps:
 
-1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for *Storage accounts should have shared access signature (SAS) policies configured* in the **Search** box to filter for the built-in policy.
+1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for `Storage accounts should have shared access signature (SAS) policies configured` in the **Search** box to filter for the built-in policy.
 1. Select the policy name with the desired scope.
 1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
 
     :::image type="content" source="media/sas-expiration-policy/policy-compliance-report-portal-inline.png" alt-text="Screenshot showing how to view the compliance report for the SAS expiration built-in policy" lightbox="media/sas-expiration-policy/policy-compliance-report-portal-expanded.png":::
 
-To bring a storage account into compliance, configure a SAS expiration policy for that account, as described in [Create a SAS expiration policy](#create-a-sas-expiration-policy).
+To bring a storage account into compliance, configure a SAS expiration policy for that account, as described in [Configure a SAS expiration policy](#configure-a-sas-expiration-policy).
 
 ## See also
 

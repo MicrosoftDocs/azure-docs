@@ -2,14 +2,14 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
-author: davidmu1
+author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: davidmu
+ms.author: celested
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---

@@ -35,7 +35,7 @@ If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS t
 
 1. Reboot the node.
 1. If the reboot is unsuccessful, reimage the node.
-1. If the reimage is unsuccessful, redploy the node.
+1. If the reimage is unsuccessful, redeploy the node.
 
 Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
 
@@ -43,7 +43,7 @@ If AKS finds multiple unhealthy nodes during a health check, each node is repair
 
 
 ## Node Autodrain
-[Scheduled Events][scheduled-events] can occur on the underlying virtual machines (VMs) in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node autodrain to attempt a cordon and drain of the affected node, which allows for a graceful reschedule of any affected workloads on that node.
+[Scheduled Events][scheduled-events] can occur on the underlying virtual machines (VMs) in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node autodrain to attempt a cordon and drain of the affected node, which allows for a graceful reschedule of any affected workloads on that node. When this happens, you might notice the node to receive a taint with *"remediator.aks.microsoft.com/unschedulable"*, because of *"kubernetes.azure.com/scalesetpriority: spot"*.
 
 
 The following table shows the node events, and the actions they cause for AKS node autodrain.

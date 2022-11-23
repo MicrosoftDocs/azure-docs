@@ -1,9 +1,8 @@
 ---
 title: Configure Managed Service offer listing details in Microsoft Partner Center
 description: Configure Managed Service offer listing details on Azure Marketplace. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -43,6 +42,9 @@ Enter the name, email address, and phone number of two people in your company (y
 If you have support websites for Azure Global Customers and/or Azure Government customers, enter their URL, starting with https.
 
 ## Marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 > [!NOTE]
 > If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.

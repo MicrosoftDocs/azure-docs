@@ -3,12 +3,12 @@ title: Troubleshoot Azure Active Directory Application Proxy
 description: Covers how to troubleshoot errors in Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

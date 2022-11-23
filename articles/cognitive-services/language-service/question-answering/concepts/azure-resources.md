@@ -4,7 +4,7 @@ description: Question answering uses several Azure sources, each with a differen
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/10/2021
+ms.date: 08/08/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
@@ -30,7 +30,9 @@ When you move into the development phase of the project, you should consider:
 Typically there are three parameters you need to consider:
 
 * **The throughput you need**:
-    * Question answering is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+
+    * The throughput for question answering is currently capped at 10 text records per second for both management APIs and prediction APIs.
+
     * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of knowledge bases you need based on number of different subject domains. One subject domain (for a single language) should be in one knowledge base.
@@ -42,7 +44,7 @@ Typically there are three parameters you need to consider:
 
     For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
 
-* **Number of documents as sources**: question answering is a free feature, and there are no limits to the number of documents you can add as sources. 
+* **Number of documents as sources**: There are no limits to the number of documents you can add as sources in question answering.
 
 The following table gives you some high-level guidelines.
 
@@ -54,7 +56,9 @@ The following table gives you some high-level guidelines.
 
 ## Recommended settings
 
-Custom question answering is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+
+The throughput for question answering is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+
 
 ## Keys in question answering
 
@@ -64,7 +68,7 @@ Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
-|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language Service APIs). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
+|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
 |Azure Cognitive Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure Cognitive Search resource with the custom question answering feature, the admin key is automatically passed to question answering. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal

@@ -1,10 +1,10 @@
 ---
-title: Classify your Azure SQL data using Azure Purview labels
-description: Import your classification from Azure Purview in your Azure SQL Database and Azure Synpase Analytics 
+title: Classify your Azure SQL data using Microsoft Purview labels
+description: Import your classification from Microsoft Purview in your Azure SQL Database and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: subject-rbac-steps
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
@@ -13,10 +13,9 @@ ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
 ---
 
-# Classify your Azure SQL data using Azure Purview labels
-[!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
+# Classify your Azure SQL data using Microsoft Purview labels
 
-This document describes how to add Azure Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
+This document describes how to add Microsoft Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
 ## Create an application
 
@@ -38,17 +37,17 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 
 ## Provide permissions to the application
 
-1. In your Azure portal, search for **Azure Purview accounts**.
-2. Select the Azure Purview account where your SQL databases and Synapse are classified.
-3. Open **Access control (IAM)**, select **Add**.
+1. In your Azure portal, search for **Microsoft Purview accounts**.
 
-4. Select **Add role assignment**.
-5. In the **Role** section, search for **Azure Purview Data Reader** and select it.
-6. In the **Select** section, search for the application you previously created, select it, and hit **Save**.
+1. Select the Microsoft Purview account where your SQL databases and Synapse are classified.
 
-## Extract the classification from Azure Purview
+1. Assign the Microsoft Purview Data Reader role to the application you previously created.
 
-1. Open your Azure Purview account, and in the Home page, search for your Azure SQL Database or Azure Synapse Analytics where you want to copy the labels.
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+## Extract the classification from Microsoft Purview
+
+1. Open your Microsoft Purview account, and in the Home page, search for your Azure SQL Database or Azure Synapse Analytics where you want to copy the labels.
 2. Copy the qualifiedName under **Properties**, and keep it for future use.
 3. Open your PowerShell shell.
 
@@ -150,7 +149,7 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
       $tableName = $Matches.tableName;
       $columnName = $Matches.columnName;
       
-      Write-Output "ADD SENSITIVITY CLASSIFICATION TO ${schemaName}.${tableName}.${columnName} WITH (LABEL='Azure Purview Label', LABEL_ID='${labelId}');";
+      Write-Output "ADD SENSITIVITY CLASSIFICATION TO ${schemaName}.${tableName}.${columnName} WITH (LABEL='Microsoft Purview Label', LABEL_ID='${labelId}');";
   }
 }
 ```
@@ -238,7 +237,7 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
       $tableName = $Matches.tableName;
       $columnName = $Matches.columnName;
       
-      Write-Output "ADD SENSITIVITY CLASSIFICATION TO ${schemaName}.${tableName}.${columnName} WITH (LABEL='Azure Purview Label', LABEL_ID='${labelId}');";
+      Write-Output "ADD SENSITIVITY CLASSIFICATION TO ${schemaName}.${tableName}.${columnName} WITH (LABEL='Microsoft Purview Label', LABEL_ID='${labelId}');";
   }
 }
 ```
@@ -252,4 +251,4 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-For more information on Azure Purview, see [Azure Purview documentation](../../purview/index.yml).
+For more information on Microsoft Purview, see [Microsoft Purview documentation](../../purview/index.yml).

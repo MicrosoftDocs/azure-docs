@@ -7,7 +7,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 03/22/2022
 ---
 
 # Reservation recommendations

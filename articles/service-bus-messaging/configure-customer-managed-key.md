@@ -32,12 +32,12 @@ After you enable customer-managed keys, you need to associate the customer manag
 
     > [!IMPORTANT]
     > Using customer-managed keys with Azure Service Bus requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new key vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the Key Vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command.
+1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az_keyvault_update) command.
+1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true

@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot private plans in the commercial marketplace
 description: Troubleshoot private plans in the commercial marketplace
-ms.service: marketplace 
+ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 12/10/2021
+ms.date: 04/22/2022
 ---
 
 # Troubleshooting Private Plans in the commercial marketplace
@@ -63,8 +63,9 @@ While troubleshooting the Azure Subscription Hierarchy, keep these things in min
 
 ## Troubleshooting Checklist
 
-- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). For VMs use the [Azure Subscription ID. (video guide)](../media-services/latest/setup-azure-subscription-how-to.md?tabs=portal)
+- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). For VMs use the [Azure Subscription ID.](../azure-portal/get-subscription-tenant-id.md)
 - ISV to ensure that the Customer is not buying through a CSP. Private Plans are not available on a CSP-managed subscription.
+- ISV to ensure the purchaser tenant ID is always present in the private audience list and isn't removed until the customer SaaS subscription is unsubscribed as this could have potential consequences of managing or sending meter usage for that customer SaaS subscription.
 - Customer to ensure customer is logging in with an email ID that is registered under the same tenant ID (use the same user ID they used in step #1 above)
 - ISV to ask the customer to find the Private Plan in Azure Marketplace: [Private plans in Azure Marketplace](/marketplace/private-plans)
 - Customer to ensure marketplace is enabled - [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md) – if it is not, the user has to contact their Azure Administrator to enable marketplace, for more information regarding Azure Marketplace, see [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md).

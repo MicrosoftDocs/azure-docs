@@ -7,16 +7,18 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 # Configure Form Recognizer containers
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container) below for more information.
+> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. For more information, See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container).
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, you'll learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -24,20 +26,20 @@ Each container has the following configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
-|Yes|[ApiKey](#apikey-and-billing-configuration-setting)|Tracks billing information.|
-|Yes|[Billing](#apikey-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure. For more information on obtaining _see_ [Billing]](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
+|Yes|[Key](#key-and-billing-configuration-setting)|Tracks billing information.|
+|Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  For more information, _see_ [Billing](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) customer content support to your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
 |No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-and-billing-configuration-setting), [`Billing`](#apikey-and-billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your containers won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
+> The [`Key`](#key-and-billing-configuration-setting), [`Billing`](#key-and-billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your containers won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
 
-## ApiKey and Billing configuration setting
+## Key and Billing configuration setting
 
-The `ApiKey` setting specifies the Azure resource key that's used to track billing information for the container. The value for the ApiKey must be a valid key for the resource that's specified for `Billing` in the "Billing configuration setting" section.
+The `Key` setting specifies the Azure resource key that's used to track billing information for the container. The value for the Key must be a valid key for the resource that's specified for `Billing` in the "Billing configuration setting" section.
 
 The `Billing` setting specifies the endpoint URI of the resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a resource on Azure. The container reports usage about every 10 to 15 minutes.
 
@@ -45,7 +47,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure that's
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-## Eula setting
+## EULA setting
 
 [!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
@@ -75,7 +77,7 @@ The exact syntax of the host volume location varies depending on the host operat
 
 ## Example docker-compose.yml file
 
-The **docker compose** method is comprised of three steps:
+The **docker compose** method is built from three steps:
 
  1. Create a Dockerfile.
  1. Define the services in a **docker-compose.yml** so they can be run together in an isolated environment.
@@ -83,7 +85,7 @@ The **docker compose** method is comprised of three steps:
 
 ### Single container example
 
-In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
 #### **Layout container**
 
@@ -96,7 +98,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_KEY}
 
     ports:
       - "5000"
@@ -111,7 +113,7 @@ networks:
 
 #### **Receipt and OCR Read containers**
 
-In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Computer Vision Read container.
 
 ```yml
 version: "3"
@@ -120,9 +122,9 @@ services:
     container_name: azure-cognitive-service-receipt
     image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
       - "5000:5050"
@@ -132,9 +134,9 @@ services:
     container_name: azure-cognitive-service-read
     image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apikey={COMPUTER_VISION_API_KEY}
+      - key={COMPUTER_VISION_KEY}
     networks:
       - ocrvnet
 

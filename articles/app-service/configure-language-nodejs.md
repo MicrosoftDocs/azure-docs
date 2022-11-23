@@ -28,7 +28,7 @@ az webapp config appsettings list --name <app-name> --resource-group <resource-g
 To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep node
+az webapp list-runtimes --os windows | grep NODE
 ```
 
 ::: zone-end
@@ -86,7 +86,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ## Get port number
 
-You Node.js app needs to listen to the right port to receive incoming requests.
+Your Node.js app needs to listen to the right port to receive incoming requests.
 
 ::: zone pivot="platform-windows"  
 
@@ -382,7 +382,7 @@ If you deploy your files by using Git, or by using ZIP deployment [with build au
 
 The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly.
 
-If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az_webapp_up) uses ZIP deployment with build automation enabled.
+If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
 
 ::: zone-end
 

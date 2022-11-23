@@ -9,7 +9,7 @@ ms.date: 03/13/2022
 ms.author: cshoe
 ---
 
-# Configure password protection
+# Configure password protection (preview)
 
 You can use a password to protect your app's pre-production environments or all environments. Scenarios when password protection is useful include:
 
@@ -38,9 +38,9 @@ An existing static web app in the Standard plan.
 
 1. Enter the same password in **Confirm visitor password**.
 
-1. Select the **Save** button.
+2. Select **Save**.
 
-When visitors first navigate to a protected environment, they're prompted to enter the password before they can view the site.
+When visitors first go to a protected environment, they're prompted to enter the password before they can view the site.
 
 :::image type="content" source="media/password-protection/password-prompt.png" alt-text="Password prompt":::
 

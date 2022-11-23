@@ -26,7 +26,7 @@ ms.author: franlanglois
 
 ## Redis-benchmark utility
 
-**Redis-benchmark** documentation can be [found here](https://redis.io/topics/benchmarks).
+**Redis-benchmark** documentation can be [found here](https://redis.io/docs/reference/optimization/benchmarks/).
 
 The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test. A Windows-compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
 

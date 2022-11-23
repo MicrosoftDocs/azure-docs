@@ -1,12 +1,12 @@
 ---
 title: Get started with FHIR service - Azure Health Data Services
 description: This document describes how to get started with FHIR service in Azure Health Data Services.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/01/2022
-ms.author: zxue
+ms.date: 06/06/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -20,16 +20,16 @@ As a prerequisite, you'll need an Azure subscription and have been granted prope
 
 ## Create a workspace in your Azure subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of FHIR service instances you can create in each Azure subscription.
 
 ## Create a FHIR service in the workspace
 
-You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) and [MedTech service](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
@@ -58,7 +58,7 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, o
 #### Access using existing tools
 
 - [Postman](../fhir/use-postman.md)
-- [Rest Client](../fhir/using-rest-client.md)
+- [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
 
 #### Load data
@@ -88,7 +88,7 @@ Optionally, you can convert [HL7 v2](../data-transformation/convert-data.md) and
 Optionally, you can create Power BI dashboard reports with FHIR data.
 
 - [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
-- [IoT connector and Microsoft Power BI](../iot/iot-connector-power-bi.md)
+- [MedTech service and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps
 
@@ -96,3 +96,5 @@ This article described the basic steps to get started using the FHIR service. Fo
 
 >[!div class="nextstepaction"]
 >[Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

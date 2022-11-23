@@ -5,7 +5,7 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 02/25/2022
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli" 
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
 ms.devlang: azurecli
 ---
 

@@ -1,28 +1,38 @@
 ---
 title:  Encrypt data using customer-managed keys
 titleSuffix: Azure Cognitive Search
-description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search using keys that you create and manage in Azure Key Vault.
+description: Supplement server-side encryption in Azure Cognitive Search using customer managed keys (CMK) or bring your own keys (BYOK) that you create and manage in Azure Key Vault.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 04/07/2022
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
 
-Azure Cognitive Search automatically encrypts content with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets.
+Azure Cognitive Search automatically encrypts data at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. 
 
-This article walks you through the steps of setting up customer-managed key (CMK) encryption. Here are some points to keep in mind:
+This article walks you through the steps of setting up customer-managed key (CMK) or "bring-your-own-key" (BYOK) encryption. Here are some points to keep in mind:
+
++ CMK encryption is enacted on individual objects. If you require CMK unilaterally across your search service, [set an enforcement policy](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchencryptionwithcmk) at the service level so that you can be notified if the service falls out of compliance.
 
 + CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
 + CMK encryption occurs when an object is created. You can't encrypt objects that already exist.
 
-Encryption is computationally expensive to decrypt so only sensitive content is encrypted. This includes all content within indexes and synonym lists. For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
+## CMK encryption support
+
+Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
+
+Encryption is performed over the following content:
+
++ All content within indexes and synonym lists, including descriptions.
+
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
 
 ## Double encryption
 
@@ -52,7 +62,7 @@ The following tools and services are used in this scenario.
 You should have a search client that can create the encrypted object. Into this code, you'll reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or [Azure PowerShell](search-get-started-powershell.md), to call REST APIs that create indexes and synonym maps that include an encryption key parameter. You can also use Azure SDKs. Portal support for adding a key to indexes or synonym maps isn't supported.
+> You can use [Postman](search-get-started-rest.md) or [Azure PowerShell](search-get-started-powershell.md) to call REST APIs that create indexes and synonym maps that include an encryption key parameter. You can also use Azure SDKs. Portal support for adding a key to indexes or synonym maps isn't supported.
 
 ## Key Vault tips
 
@@ -134,7 +144,7 @@ Skip key generation if you already have a key in Azure Key Vault that you want t
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key" border="true":::
 
-## 3 - Create a security principle
+## 3 - Create a security principal
 
 You have several options for accessing the encryption key at run time. The simplest approach is to retrieve the key using the managed identity and permissions of your search service. You can use either a system or user-managed identity. Doing so allows you to omit the steps for application registration and application secrets, and simplifies the encryption key definition.
 
@@ -261,7 +271,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 1. Select **Next**.
 
-1. On the **Principle** page, find and select the security principle used by the search service to access the encryption key. This will either be the system-managed or user-managed identity of the search service, or the registered application.
+1. On the **Principle** page, find and select the security principal used by the search service to access the encryption key. This will either be the system-managed or user-managed identity of the search service, or the registered application.
 
 1. Select **Next** and **Create**.
 

@@ -71,6 +71,9 @@ Automatic Extension Upgrade supports the following extensions (and more are adde
 - [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
 - Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
 - [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
+- [Log Analytics Agent for Linux](../azure-monitor/agents/log-analytics-agent.md)
+- [Azure Diagnostics extension for Linux](../azure-monitor/agents/diagnostics-extension-overview.md)
+- [DSC extension for Linux](extensions/dsc-linux.md)
 
 
 ## Enabling Automatic Extension Upgrade
@@ -161,7 +164,7 @@ Update the scale set using [Update-AzVmss](/powershell/module/az.compute/update-
 
 
 ### Azure CLI for Virtual Machines
-Use the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) cmdlet:
+Use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) cmdlet:
 
 ```azurecli-interactive
 az vm extension set \
@@ -174,7 +177,7 @@ az vm extension set \
 ```
 
 ### Azure CLI for Virtual Machine Scale Sets
-Use the [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) cmdlet to add the extension to the scale set model:
+Use the [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) cmdlet to add the extension to the scale set model:
 
 ```azurecli-interactive
 az vmss extension set \

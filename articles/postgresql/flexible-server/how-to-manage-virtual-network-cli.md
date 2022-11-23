@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure CLI
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -32,13 +32,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to sign in to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
+You'll need to sign in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az_account_set) command. Make a note of the **ID** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az_account_list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **ID** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -65,7 +65,8 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
-    > The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > - The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > - The virtual network should not have any resource lock set at the VNET or subnet level. Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before creating the server in a virtual network, and you can set it back after server creation.
 
     > [!IMPORTANT]
     > The names including `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` and `GatewaySubnet` are reserved names within Azure. Please do not use these as your subnet name.

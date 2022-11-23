@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Create a collection'
-description: Collections are used for access control, and asset organization in Azure Purview. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
+description: Collections are used for access control, and asset organization in the Microsoft Purview Data Map. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 11/04/2021
+ms.date: 06/17/2022
 ms.custom: template-quickstart, mode-other
 ---
 
-# Quickstart: Create a collection and assign permissions in Azure Purview
+# Quickstart: Create a collection and assign permissions in the Microsoft Purview Data Map
 
-Collections are Azure Purview's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Azure Purview environment for your organization.
+Collections are the Microsoft Purview Data Map's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Microsoft Purview environment for your organization.
 
 ## Prerequisites
 
@@ -20,51 +20,51 @@ Collections are Azure Purview's tool to manage ownership and access control acro
 
 * Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
 ## Check permissions
 
-In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](use-azure-purview-studio.md). You can find the studio by going to your Azure Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Azure Purview Studio** tile on the overview page.
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [portal](use-azure-purview-studio.md). You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Azure Purview studio opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview account. In our example below, it's called Contoso Azure Purview.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Microsoft Purview account. In our example below, it's called ContosoPurview.
 
-    :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the root collection highlighted." border="true":::
 
 1. Select role assignments in the collection window.
 
-    :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you will need to be in the collection admin list under role assignments. If you created the Azure Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
-    :::image type="content" source="./media/quickstart-create-collection/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/collection-admins.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
 ## Create a collection in the portal
 
-To create your collection, we'll start in the [Azure Purview Studio](use-azure-purview-studio.md). You can find the studio by going to your Azure Purview account in the Azure portal and selecting the **Open Azure Purview Studio** tile on the overview page.
+To create your collection, we'll start in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the portal by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com) and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections-2.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select **+ Add a collection**.
 
-    :::image type="content" source="./media/quickstart-create-collection/select-add-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected and Add a Collection highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/select-add-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected and Add a Collection highlighted." border="true":::
 
 1. In the right panel, enter the collection name, description, and search for users to add them as collection admins.
 
-    :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="Screenshot of Azure Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
 
 1. Select **Create**. The collection information will reflect on the page.
 
-    :::image type="content" source="./media/quickstart-create-collection/created-collection.png" alt-text="Screenshot of Azure Purview studio window, showing the newly created collection window." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/created-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, showing the newly created collection window." border="true":::
 
 ## Assign permissions to collection
 
-Now that you have a collection, you can assign permissions to this collection to manage your users access to Azure Purview.
+Now that you have a collection, you can assign permissions to this collection to manage your users access to the Microsoft Purview governance portal.
 
 ### Roles
 
@@ -79,11 +79,11 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 1. Select **Role assignments** tab to see all the roles in a collection.
 
-    :::image type="content" source="./media/quickstart-create-collection/select-role-assignments.png" alt-text="Screenshot of Azure Purview studio collection window, with the role assignments tab highlighted." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/select-role-assignments.png" alt-text="Screenshot of the Microsoft Purview governance portal collection window, with the role assignments tab highlighted." border="true":::
 
 1. Select **Edit role assignments** or the person icon to edit each role member.
 
-    :::image type="content" source="./media/quickstart-create-collection/edit-role-assignments.png" alt-text="Screenshot of Azure Purview studio collection window, with the edit role assignments dropdown list selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/edit-role-assignments.png" alt-text="Screenshot of the Microsoft Purview governance portal collection window, with the edit role assignments dropdown list selected." border="true":::
 
 1. Type in the textbox to search for users you want to add to the role member. Select **OK** to save the change.
 

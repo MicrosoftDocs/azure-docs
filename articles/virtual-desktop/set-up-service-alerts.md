@@ -29,7 +29,7 @@ This section shows you how to configure Azure Service Health and how to set up n
 
 We recommend you create service alerts for the following health event types:
 
-- **Service issue:** Receive notifications on major issues that impact connectivity of your users with the service or with the ability to manage your Azure Virtual Desktop tenant.
+- **Service issue:** Receive notifications on major issues that impact connectivity of your users with the service or with the ability to manage Azure Virtual Desktop.
 - **Health advisory:** Receive notifications that require your attention. The following are some examples of this type of notification:
     - Virtual Machines (VMs) not securely configured as open port 3389
     - Deprecation of functionality
@@ -47,4 +47,4 @@ To configure service alerts:
 In this tutorial, you learned how to set up and use Azure Service Health to monitor service issues and health advisories for Azure Virtual Desktop. To learn about how to sign in to Azure Virtual Desktop, continue to the Connect to Azure Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Connect to the Remote Desktop client on Windows 7 and Windows 10](./user-documentation/connect-windows-7-10.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](./users/connect-windows.md)

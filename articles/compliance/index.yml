@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 12/08/2021
+  ms.date: 06/12/2022
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -374,6 +374,9 @@ conceptualContent:
         - url: /compliance/regulatory/offering-bir-2012-netherlands
           itemType: concept
           text: Netherlands BIR 2012
+        - url: /azure/compliance/offerings/offering-qatar-nia
+          itemType: concept
+          text: Qatar NIA
 
     # Card
     - title: Regional - EMEA
@@ -423,24 +426,28 @@ additionalContent:
             - text: Data residency in Azure
               url: https://azure.microsoft.com/global-infrastructure/data-residency/
 
-        - title: Compliance blueprints
+        - title: Azure Policy regulatory compliance built-in initiatives
           links:
+            - text: Australian Government ISM PROTECTED
+              url: ../governance/policy/samples/australia-ism.md
             - text: Canada Federal PBMM
-              url: ../governance/blueprints/samples/canada-federal-pbmm.md
-            - text: CIS benchmarks
-              url: ../governance/blueprints/samples/cis-azure-1-1-0.md
+              url: ../governance/policy/samples/canada-federal-pbmm.md
+            - text: CIS Azure Foundations Benchmark
+              url: ../governance/policy/samples/cis-azure-1-3-0.md
+            - text: FedRAMP High
+              url: ../governance/policy/samples/fedramp-high.md
             - text: HIPAA HITRUST
-              url: ../governance/blueprints/samples/hipaa-hitrust-9-2.md
+              url: ../governance/policy/samples/hipaa-hitrust-9-2.md
             - text: IRS 1075
               url: ../governance/policy/samples/irs-1075-sept2016.md
             - text: ISO 27001
-              url: ../governance/blueprints/samples/iso-27001-2013.md
-            - text: PCI-DSS v3.2.1
-              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
-            - text: SWIFT CSP-CSCF v2020
-              url: ../governance/blueprints/samples/swift-2020/index.md
-            - text: UK NHS and UK OFFICIAL (G-Cloud)
-              url: ../governance/blueprints/samples/ukofficial-uknhs.md
+              url: ../governance/policy/samples/iso-27001.md
+            - text: PCI DSS
+              url: ../governance/policy/samples/pci-dss-3-2-1.md
+            - text: NIST SP 800-171
+              url: ../governance/policy/samples/nist-sp-800-171-r2.md
+            - text: UK OFFICIAL and UK NHS
+              url: ../governance/policy/samples/ukofficial-uknhs.md
 
         # Card
         - title: Country/Region privacy and compliance guides
@@ -468,12 +475,10 @@ additionalContent:
           links:
             - text: Azure Policy Regulatory Compliance (preview)
               url: ../governance/policy/concepts/regulatory-compliance.md
-            - text: BIR-2012 baseline coverage user guide
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f49ee594-6c56-4b6f-93c1-646850798354&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
-            - text: CIS Azure foundations benchmark
+            - text: CIS Azure Foundations Benchmark
               url: https://www.cisecurity.org/benchmark/azure/
             - text: CSA CAIQ
-              url: https://azure.microsoft.com/resources/microsoft-azure-responses-to-cloud-security-alliance-consensus-assessments-initiative-questionnaire-v301/
+              url: https://cloudsecurityalliance.org/star/registry/microsoft/
             - text: FERPA implementation guide
               url: https://azure.microsoft.com/resources/microsoft-azure-ferpa-implementation-guide/
             - text: GDPR control mapping
@@ -488,19 +493,15 @@ additionalContent:
           links:
             - text: ISO 27001 security controls
               url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
-            - text: IT-Grundschutz workbook
+            - text: IT-Grundschutz workbook (German)
               url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
-            - text: NEN7510-2011 standard coverage guide
-              url: https://azure.microsoft.com/resources/azure-nen7510-coverage-report-guide 
-            - text: NERC CIP standards
-              url: /azure/azure-government/documentation-government-overview-nerc
+            - text: NERC CIP standards and cloud computing
+              url: ../azure-government/documentation-government-overview-nerc.md
             - text: NZ GCIO cloud computing considerations
               url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
-            - text: PCI 3DS shared responsibility matrix
-              url: https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: PCI DSS shared responsibility matrix
-              url: https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: SCI guidance
+            - text: PCI 3DS attestation documents
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3
+            - text: SEC Regulation SCI guidance
               url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
             - text: SOX guidance
               url: https://azure.microsoft.com/resources/microsoft-azure-guidance-for-sarbanes-oxley-sox/
@@ -516,8 +517,6 @@ additionalContent:
               url: https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/
             - text: Azure for worldwide public sector
               url: ../azure-government/documentation-government-overview-wwps.md
-            - text: Azure RFI on security and compliance
-              url: https://azure.microsoft.com/resources/azure-standard-response-to-rfi-on-security-privacy-and-compliance/
             - text: Azure Internet of Things compliance
               url: https://azure.microsoft.com/resources/microsoft-azure-and-data-compliance-in-the-internet-of-things-iot-context/
             - text: IDC - Azure manages regulatory challenges 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API using PowerShell
@@ -21,9 +21,9 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Azure NetApp Files REST API specification
 
-The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager):
 
-`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+`https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager`
 
 
 ## Access the Azure NetApp Files REST API  
@@ -35,7 +35,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
    2. Enter the following command in the Azure CLI:  
 
       ```azurecli
-      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor | ConvertFrom-Json         
+      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor --scopes /subscriptions/<subscription-id> | ConvertFrom-Json         
       ```
 
       To display the service principal information, type `$RBAC_SP` and press Enter.
@@ -79,15 +79,15 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 5. Send a test call and include the token to validate your access to the REST API:
 
     ```azurepowershell
-    $SubId = (Get-AzureRmContext).Subscription.Id 
-    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2019-11-01
+    $SubId = (Get-AzContext).Subscription.Id 
+    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2022-05-01
     ```
 
 ## Examples using the API  
 
 This article uses the following URL for the baseline of requests. This URL points to the root of the Azure NetApp Files namespace. 
 
-`https://management.azure.com/subscriptions/$SUBID/resourceGroups/$RESOURCEGROUP/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01`
+`https://management.azure.com/subscriptions/$SUBID/resourceGroups/$RESOURCEGROUP/providers/Microsoft.NetApp/netAppAccounts?api-version=2022-05-01`
 
 You should assign variable values before running the following examples with your own values. 
 PowerShell variables are accessed by typing `$variablename`.
@@ -245,22 +245,22 @@ An error occurs if the resource does not exist. You use a GET request to query o
 
 ```azurepowershell
 #get NetApp accounts 
-Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01 | ConvertTo-Json
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts?api-version=2022-05-01 | ConvertTo-Json
 ```
 
 ```azurepowershell
 #get capacity pools for NetApp account 
-Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools?api-version=2019-11-01 | ConvertTo-Json
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools?api-version=2022-05-01 | ConvertTo-Json
 ```
 
 ```azurepowershell
 #get volumes in NetApp account & capacity pool 
-Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes?api-version=2019-11-01 | ConvertTo-Json
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes?api-version=2022-05-01 | ConvertTo-Json
 ```
 
 ```azurepowershell
 #get snapshots for a volume 
-Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes/$ANFVOLUME/snapshots?api-version=2019-11-01 | ConvertTo-Json
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes/$ANFVOLUME/snapshots?api-version=2022-05-01 | ConvertTo-Json
 ```
 
 ### Complete PowerShell scripts

@@ -1,6 +1,6 @@
 ---
-title: Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
-description: Learn how to back up and recover an Oracle Database 19c database using the Azure Backup service.
+title: Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup
+description: Learn how to back up and recover an Oracle Database using the Azure Backup service.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -12,7 +12,7 @@ ms.reviewer: dbakevlar
 
 ---
 
-# Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
+# Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
@@ -26,7 +26,9 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 19c. The Marketplace image currently used to create the VM is  **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
+- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or higher.
+
+- Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
 
 
 ## Prepare the environment
@@ -34,7 +36,7 @@ To perform the backup and recovery process, you must first create a Linux VM tha
 To prepare the environment, complete these steps:
 
 1. [Connect to the VM](#connect-to-the-vm).
-1. [Setup Azure Files Storage](#setup-azure-files-storage-for-the-oracle-archived-redo-log-files)
+1. [Set up Azure Files Storage](#set-up-azure-files-storage-for-the-oracle-archived-redo-log-files)
 1. [Prepare the database](#prepare-the-databases).
 
 ### Connect to the VM
@@ -57,15 +59,15 @@ To prepare the environment, complete these steps:
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-### Setup Azure Files Storage for the Oracle archived redo log files
+### Set up Azure Files Storage for the Oracle archived redo log files
 
 The Oracle database archive redo logfiles play a crucial role in database recovery as they store the committed transactions needed to roll forward from a database snapshot taken in the past. When in archivelog mode, the database archives the contents of online redo logfiles when they become full and switch. Together with a backup, they are required to achieve point-in-time recovery when the database has been lost.  
    
 Oracle provides the capability to archive redo logfiles to different locations, with industry best practice recommending that at least one of those destinations be on remote storage, so it is separate from the host storage and protected with independent snapshots. Azure Files is a great fit for those requirements.
 
-An Azure Files fileshare is storage which can be attached to a Linux or Windows VM as a regular filesystem component, using SMB or NFS (Preview) protocols. 
+An Azure Files fileshare is storage which can be attached to a Linux or Windows VM as a regular filesystem component, using SMB or NFS protocols. 
    
-To setup an Azure Files fileshare on Linux, using SMB 3.0 protocol (recommended), for use as archive log storage, please follow the [Use Azure Files with Linux how-to guide](../../../storage/files/storage-how-to-use-files-linux.md). When you have completed the setup, return to this guide and complete all remaining steps.
+To set up an Azure Files fileshare on Linux, using SMB 3.0 protocol, for use as archive log storage, please follow the [Use Azure Files with Linux how-to guide](../../../storage/files/storage-how-to-use-files-linux.md). When you have completed the setup, return to this guide and complete all remaining steps.
 
 ### Prepare the databases
 
@@ -169,12 +171,17 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle and MySQL. This involves invoking a pre-script (to quiesce the applications) before taking a snapshot of disks and calling a post-script (to unfreeze the applications) after the snapshot is completed. 
 
-The framework has now been enhanced so that packaged pre-scripts and post-scripts for selected applications like Oracle are provided by the Azure Backup service and are pre-loaded on the Linux image, so there is nothing you need to install. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre and post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
+The framework has now been enhanced so that packaged pre-scripts and post-scripts for selected applications like Oracle are provided by the Azure Backup service and are pre-loaded on the Linux image, so there is nothing you need to install. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre and post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. 
+
+Currently, the supported applications for the enhanced framework are *Oracle 12.x or higher* and *MySQL*.
+Please see the [Support matrix for managed pre-post scripts for Linux databases](../../../backup/backup-support-matrix-iaas.md) for details. 
+Customers can author their own scripts for Azure Backup to use with pre-12.x databases. Example scripts can be found [here](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts).
+
 
 > [!Note]
 > The enhanced framework will run the pre and post scripts on all Oracle databases installed on the VM each time a backup is executed. 
 >
-> The parameter `configuration_path` in the **workload.conf** file points to the location of the Oracle /etc/oratab file (or a user defined file that follows the oratab syntax). See  [Set up application-consistent backups](#set-up-application-consistent-backups) for details.
+> The parameter `configuration_path` in the **workload.conf** file points to the location of the Oracle /etc/oratab file (or a user defined file that follows the oratab syntax). See  [Set up application-consistent backups](#set-up-application-consistent-backups) for details. 
 > 
 > Azure Backup will run the pre and post backup scripts for each database listed in the file pointed to by configuration_path, except those lines that begin with # (treated as comment) or +ASM (Oracle Automatic Storage Management instance).
 > 
@@ -233,7 +240,7 @@ To use Azure Backup to back up the database, complete these steps:
    ```
 
    > [!IMPORTANT] 
-   > If you the output does not match the Oracle operating system group value retrieved in Step 3 you will need to create the operating system group representing the Oracle SYSBACKUP role. Please substitute `<group name>` for the group name retrieved in step 3 :
+   > If the output does not match the Oracle operating system group value retrieved in Step 3 you will need to create the operating system group representing the Oracle SYSBACKUP role. Please substitute `<group name>` for the group name retrieved in step 3 :
    >   ```bash
    >   sudo groupadd <group name>
    >   ```
@@ -247,8 +254,9 @@ To use Azure Backup to back up the database, complete these steps:
 1. Set up external authentication for the new backup user. 
 
    The backup user `azbackup` needs to be able to access the database using external authentication, so as not to be challenged by a password. In order to do this you must create a database user that authenticates externally through `azbackup`. The database uses a prefix for the user name which you need to find.
-
-   On each database installed on the VM perform the following steps:
+   
+   > [!IMPORTANT]
+   > Perform the following steps for ***each*** database installed on the VM::
  
    Log in to the database using sqlplus and check the default settings for external authentication:
    
@@ -294,7 +302,8 @@ To use Azure Backup to back up the database, complete these steps:
    
 1. Create a stored procedure to log backup messages to the database alert log:
 
-   Perform the following for each database installed on the VM:
+   > [!IMPORTANT]
+   > Perform the following steps for ***each*** database installed on the VM:
 
    ```bash
    sqlplus / as sysdba
@@ -425,352 +434,17 @@ To use Azure Backup to back up the database, complete these steps:
 
 ---
 
-## Recovery
 
-To recover a database, complete these steps:
+## Restore the VM
 
-1. [Remove the database files](#remove-the-database-files).
-1. [Generate a restore script from the Recovery Services vault](#generate-a-restore-script-from-the-recovery-services-vault).
-1. [Mount the restore point](#mount-the-restore-point).
-1. [Perform recovery](#perform-recovery).
-
-### Remove the database files 
-
-Later in this article, you'll learn how to test the recovery process. Before you can test the recovery process, you have to remove the database files.
-
-1.  Switch back to the oracle user:
-    ```bash
-    su - oracle
-    ```
-
-1. Shut down the Oracle instance:
-
-    ```bash
-    sqlplus / as sysdba
-    SQL> shutdown abort
-    ORACLE instance shut down.
-    ```
-
-1.  Remove the database datafiles and contolfiles to simulate a failure:
-
-    ```bash
-    cd /u02/oradata/ORATEST1
-    rm -f *.dbf *.ctl
-    ```
-
-### Generate a restore script from the Recovery Services vault
-
-# [Portal](#tab/azure-portal)
-
-1. In the Azure portal, search for the *myVault* Recovery Services vaults item and select it.
-
-    ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery-service-06.png)
-
-1. On the **Overview** blade, select **Backup items** and the select **Azure Virtual Machine**, which should have anon-zero Backup Item Count listed.
-
-    ![Recovery Services vaults Azure Virtual Machine backup item count](./media/oracle-backup-recovery/recovery-service-07.png)
-
-1. On the Backups Items (Azure Virtual Machines) page, your VM **vmoracle19c** is listed. Click the ellipsis on the right to bring up the menu and select **File Recovery**.
-
-    ![Screenshot of the Recovery Services vaults file recovery page](./media/oracle-backup-recovery/recovery-service-08.png)
-
-1. On the **File Recovery (Preview)** pane, click **Download Script**. Then, save the download (.py) file to a folder on the client computer. A password is generated to the run the script. Copy the password to a file for use later. 
-
-    ![Download script file saves options](./media/oracle-backup-recovery/recovery-service-09.png)
-
-1. Copy the .py file to the VM.
-
-    The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
-
-    > [!IMPORTANT]
-    > In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
-    >
-
-    ```bash
-    $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
-    ```
-
-# [Azure CLI](#tab/azure-cli)
-
-To list recovery points for your VM, use az backup recovery point list. In this example, we select the most recent recovery point for the VM named vmoracle19c that's protected in the Recovery Services Vault called myVault:
-
-```azurecli
-   az backup recoverypoint list \
-      --resource-group rg-oracle \
-      --vault-name myVault \
-      --backup-management-type AzureIaasVM \
-      --container-name vmoracle19c \
-      --item-name vmoracle19c \
-      --query [0].name \
-      --output tsv
-```
-
-To obtain the script that connects, or mounts, the recovery point to your VM, use az backup restore files mount-rp. The following example obtains the script for the VM named vmoracle19c that's protected in the Recovery Services Vault called myVault.
-
-Replace myRecoveryPointName with the name of the recovery point that you obtained in the preceding command:
-
-```azurecli
-   az backup restore files mount-rp \
-      --resource-group rg-oracle \
-      --vault-name myVault \
-      --container-name vmoracle19c \
-      --item-name vmoracle19c \
-      --rp-name myRecoveryPointName
-```
-
-The script is downloaded and a password is displayed, as in the following example:
-
-```bash
-   File downloaded: vmoracle19c_eus_4598131610710119312_456133188157_6931c635931f402eb543ee554e1cf06f102c6fc513d933.py. Use password c4487e40c760d29
-```
-
-Copy the .py file to the VM.
-
-The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
-
-> [!IMPORTANT]
-> In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
->
-
-```bash
-$ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
-```
----
-
-### Mount the restore point
-
-1. Switch to the root user:
-   ```bash
-   sudo su -
-   ``````
-1. Create a restore mount point and copy the script to it.
-
-    In the following example, create a */restore* directory for the snapshot to mount to, move the file to the directory, and change the file so that it's owned by the root user and made executable.
-
-    ```bash 
-    mkdir /restore
-    chmod 777 /restore
-    cd /restore
-    cp /tmp/vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py /restore
-    chmod 755 /restore/vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
-    ```
-    
-    Now execute the script to restore the backup. You will be asked to supply the password generated in Azure portal. 
-  
-   ```bash
-    ./vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
-    ```
-
-    The following example shows what you should see after you run the preceding script. When you're prompted to continue, enter **Y**.
-
-    ```output
-    Microsoft Azure VM Backup - File Recovery
-    ______________________________________________
-    Please enter the password as shown on the portal to securely connect to the recovery point. : b1ad68e16dfafc6
-
-    Connecting to recovery point using ISCSI service...
-
-    Connection succeeded!
-
-    Please wait while we attach volumes of the recovery point to this machine...
-
-    ************ Volumes of the recovery point and their mount paths on this machine ************
-
-    Sr.No.  |  Disk  |  Volume  |  MountPath
-
-    1)  | /dev/sdc  |  /dev/sdc1  |  /restore/vmoracle19c-20201215123912/Volume1
-
-    2)  | /dev/sdd  |  /dev/sdd1  |  /restore/vmoracle19c-20201215123912/Volume2
-
-    3)  | /dev/sdd  |  /dev/sdd2  |  /restore/vmoracle19c-20201215123912/Volume3
-
-    4)  | /dev/sdd  |  /dev/sdd15  |  /restore/vmoracle19c-20201215123912/Volume5
-
-    The following partitions failed to mount since the OS couldn't identify the filesystem.
-
-    ************ Volumes from unknown filesystem ************
-
-    Sr.No.  |  Disk  |  Volume  |  Partition Type
-
-    1)  | /dev/sdb  |  /dev/sdb14  |  BIOS Boot partition
-
-    Please refer to '/restore/vmoracle19c-2020XXXXXXXXXX/Scripts/MicrosoftAzureBackupILRLogFile.log' for more details.
-
-    ************ Open File Explorer to browse for files. ************
-
-    After recovery, remove the disks and close the connection to the recovery point by clicking the 'Unmount Disks' button from the portal or by using the relevant unmount command in case of powershell or CLI.
-
-    After unmounting disks, run the script with the parameter 'clean' to remove the mount paths of the recovery point from this machine.
-
-    Please enter 'q/Q' to exit...
-    ```
-
-1. Access to the mounted volumes is confirmed.
-
-    To exit, enter **q**, and then search for the mounted volumes. To create a list of the added volumes, at a command prompt, enter **df -h**.
-    
-    ```
-    [root@vmoracle19c restore]# df -h
-    Filesystem      Size  Used Avail Use% Mounted on
-    devtmpfs        3.8G     0  3.8G   0% /dev
-    tmpfs           3.8G     0  3.8G   0% /dev/shm
-    tmpfs           3.8G   17M  3.8G   1% /run
-    tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
-    /dev/sdd2        30G  9.6G   18G  36% /
-    /dev/sdb1       126G  736M  119G   1% /u02
-    /dev/sda1       497M  199M  298M  41% /boot
-    /dev/sda15      495M  9.7M  486M   2% /boot/efi
-    tmpfs           771M     0  771M   0% /run/user/54322
-    /dev/sdc1       126G  2.9G  117G   3% /restore/vmoracle19c-20201215123912/Volume1
-    /dev/sdd1       497M  199M  298M  41% /restore/vmoracle19c-20201215123912/Volume2
-    /dev/sdd2        30G  9.6G   18G  36% /restore/vmoracle19c-20201215123912/Volume3
-    /dev/sdd15      495M  9.7M  486M   2% /restore/vmoracle19c-20201215123912/Volume5
-    ```
-
-### Perform recovery
-Perform the following steps for each database on the VM:
-
-1. Restore the missing database files back to their location:
-
-    ```bash
-    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/oradata/ORATEST1
-    cp * /u02/oradata/ORATEST1
-    cd /u02/oradata/ORATEST1
-    chown -R oracle:oinstall *
-    ```
-1. Switch back to the oracle user
-   ```bash
-   sudo su - oracle
-   ```
-1. Start the database instance and mount the controlfile for reading:
-   ```bash
-   sqlplus / as sysdba
-   SQL> startup mount
-   SQL> quit
-   ```
-
-1. Connect to the database with sysbackup:
-   ```bash
-   sqlplus / as sysbackup
-   ```
-1. Initiate automatic database recovery:
-
-   ```bash
-   SQL> recover automatic database until cancel using backup controlfile;
-   ```
-   > [!IMPORTANT]
-   > Please note that it is important to specify the USING BACKUP CONTROLFILE syntax to inform the RECOVER AUTOMATIC DATABASE command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There may be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
-
-   When recovery completes successfully you will see the message `Media recovery complete`. However, when using the BACKUP CONTROLFILE clause the recover command will ignore online log files and it is possible there are changes in the current online redo log required to complete point in time recovery. In this situation you may see messages similar to these:
-
-   ```output
-   SQL> recover automatic database until cancel using backup controlfile;
-   ORA-00279: change 2172930 generated at 04/08/2021 12:27:06 needed for thread 1
-   ORA-00289: suggestion :
-   /u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc
-   ORA-00280: change 2172930 for thread 1 is in sequence #13
-   ORA-00278: log file
-   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc' no
-   longer needed for this recovery
-   ORA-00308: cannot open archived log
-   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc'
-   ORA-27037: unable to obtain file status
-   Linux-x86_64 Error: 2: No such file or directory
-   Additional information: 7
-
-   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
-   ```
-   
-   > [!IMPORTANT]
-   > Note that if the current online redo log has been lost or corrupted and cannot be used, you may cancel recovery at this point. 
-
-   To correct this you can identify which is the current online log that has not been archived, and supply the fully qualified filename to the prompt.
-
-
-   Open a new ssh connection 
-   ```bash
-   ssh azureuser@<IP Address>
-   ```
-   Switch to the oracle user and set the Oracle SID
-   ```bash
-   sudo su - oracle
-   export ORACLE_SID=oratest1
-   ```
-   
-   Connect to the database and run the following query to find the online logfile 
-   ```bash
-   sqlplus / as sysdba
-   SQL> column member format a45
-   SQL> set linesize 500  
-   SQL> select l.SEQUENCE#, to_char(l.FIRST_CHANGE#,'999999999999999') as CHK_CHANGE, l.group#, l.archived, l.status, f.member
-   from v$log l, v$logfile f
-   where l.group# = f.group#;
-   ```
-
-   The output will look similar to this. 
-   ```output
-   SEQUENCE#  CHK_CHANGE           GROUP# ARC STATUS	        MEMBER
-   ---------- ---------------- ---------- --- ---------------- ---------------------------------------------
-           13          2172929          1 NO  CURRENT          /u02/oradata/ORATEST1/redo01.log
-           12          2151934          3 YES INACTIVE         /u02/oradata/ORATEST1/redo03.log
-           11          2071784          2 YES INACTIVE         /u02/oradata/ORATEST1/redo02.log
-   ```
-   Copy the logfile path and file name for the CURRENT online log, in this example it is `/u02/oradata/ORATEST1/redo01.log`. Switch back to the ssh session running the recover command, input the logfile information and press return:
-
-   ```bash
-   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
-   /u02/oradata/ORATEST1/redo01.log
-   ```
-
-   You should see the logfile is applied and recovery completes. Enter CANCEL to exit the recover command:
-   ```output
-   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
-   /u02/oradata/ORATEST1/redo01.log
-   Log applied.
-   Media recovery complete.
-   ```
-
-1. Open the database
-   
-   > [!IMPORTANT]
-   > The RESETLOGS option is required when the RECOVER command uses the USING BACKUP CONTROLFILE option. RESETLOGS creates a new incarnation of the database by resetting the redo history back to the beginning, because there is no way to determine how much of the previous database incarnation was skipped in the recovery.
-
-   ```bash
-   SQL> alter database open resetlogs;
-   ```
-
-   
-1. Check the database content has been fully recovered:
-
-    ```bash
-    RMAN> SELECT * FROM scott.scott_table;
-    ```
-
-1. Unmount the restore point.
-
-   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the Python script again with the **-clean** option.
-
-   In the VM using unmount:
-   ```bash
-   sudo umount /restore/vmoracle19c-20210107110037/Volume*
-   ```
-
-    In the Azure portal, on the **File Recovery (Preview)** blade, click **Unmount Disks**.
-
-    ![Unmount disks command](./media/oracle-backup-recovery/recovery-service-10.png)
-    
-
-
-## Restore the entire VM
-
-Instead of restoring the deleted files from the Recovery Services vaults, you can restore the entire VM.
+Restoring the entire VM allows you to restore the VM and its attached disks to a new VM from a selected restore point. This will restore all databases that run on the VM and each database will need to be recovered afterwards. 
 
 To restore the entire VM, complete these steps:
 
 1. [Stop and delete the VM](#stop-and-delete-the-vm).
 1. [Recover the VM](#recover-the-vm).
 1. [Set the public IP address](#set-the-public-ip-address).
-1. [Perform database recovery](#perform-database-recovery).
+1. [Perform database recovery](#recovery-after-complete-vm-restore).
 
 ### Stop and delete the VM
 
@@ -831,7 +505,7 @@ To restore the entire VM, complete these steps:
 
     ![Restore VM command](./media/oracle-backup-recovery/recover-vm-03.png)
 
-1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **orarestore** you setup earlier.
+1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **or a restore** you set up earlier.
 
     ![Restore configuration values](./media/oracle-backup-recovery/recover-vm-04.png)
 
@@ -1029,6 +703,7 @@ After the VM is restored, you should reassign the original IP address to the new
    ```azurecli
    az vm nic remove --nics vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf --resource-group rg-oracle --vm-name vmoracle19c
    ```
+  
 1. Start the VM:
 
    ```azurecli
@@ -1037,14 +712,232 @@ After the VM is restored, you should reassign the original IP address to the new
 
 ---
 
-### Perform database recovery
-First reconnect to the VM:
+## Restore an individual database
+As multiple Oracle databases can be run on an Azure VM, there may be times when you want to restore and recover an individual database without disrupting the other databases running on the VM. 
+
+To restore an individual database, complete these steps:
+
+1. [Remove the database files](#remove-the-database-files).
+1. [Generate a restore script from the Recovery Services vault](#generate-a-restore-script-from-the-recovery-services-vault).
+1. [Mount the restore point](#mount-the-restore-point).
+1. [Restore the database files](#restore-the-database-files).
+
+### Remove the database files 
+
+Later in this article, you'll learn how to test the recovery process. Before you can test the recovery process, you have to remove the database files.
+
+1.  Switch back to the oracle user:
+    ```bash
+    su - oracle
+    ```
+
+1. Shut down the Oracle instance:
+
+    ```bash
+    sqlplus / as sysdba
+    SQL> shutdown abort
+    ORACLE instance shut down.
+    ```
+
+1.  Remove the database datafiles and contolfiles to simulate a failure:
+
+    ```bash
+    cd /u02/oradata/ORATEST1
+    rm -f *.dbf *.ctl
+    ```
+
+### Generate a restore script from the Recovery Services vault
+
+# [Portal](#tab/azure-portal)
+
+1. In the Azure portal, search for the *myVault* Recovery Services vaults item and select it.
+
+    ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery-service-06.png)
+
+1. On the **Overview** blade, select **Backup items** and the select **Azure Virtual Machine**, which should have anon-zero Backup Item Count listed.
+
+    ![Recovery Services vaults Azure Virtual Machine backup item count](./media/oracle-backup-recovery/recovery-service-07.png)
+
+1. On the Backups Items (Azure Virtual Machines) page, your VM **vmoracle19c** is listed. Click the ellipsis on the right to bring up the menu and select **File Recovery**.
+
+    ![Screenshot of the Recovery Services vaults file recovery page](./media/oracle-backup-recovery/recovery-service-08.png)
+
+1. On the **File Recovery (Preview)** pane, click **Download Script**. Then, save the download (.py) file to a folder on the client computer. A password is generated to the run the script. Copy the password to a file for use later. 
+
+    ![Download script file saves options](./media/oracle-backup-recovery/recovery-service-09.png)
+
+1. Copy the .py file to the VM.
+
+    The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
+
+    > [!IMPORTANT]
+    > In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
+    >
+
+    ```bash
+    $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list recovery points for your VM, use az backup recovery point list. In this example, we select the most recent recovery point for the VM named vmoracle19c that's protected in the Recovery Services Vault called myVault:
 
 ```azurecli
-ssh azureuser@<publicIpAddress>
+   az backup recoverypoint list \
+      --resource-group rg-oracle \
+      --vault-name myVault \
+      --backup-management-type AzureIaasVM \
+      --container-name vmoracle19c \
+      --item-name vmoracle19c \
+      --query [0].name \
+      --output tsv
 ```
 
-When the whole VM has been restored, it is important to recover each database on the VM by performing the following steps on each:
+To obtain the script that connects, or mounts, the recovery point to your VM, use az backup restore files mount-rp. The following example obtains the script for the VM named vmoracle19c that's protected in the Recovery Services Vault called myVault.
+
+Replace myRecoveryPointName with the name of the recovery point that you obtained in the preceding command:
+
+```azurecli
+   az backup restore files mount-rp \
+      --resource-group rg-oracle \
+      --vault-name myVault \
+      --container-name vmoracle19c \
+      --item-name vmoracle19c \
+      --rp-name myRecoveryPointName
+```
+
+The script is downloaded and a password is displayed, as in the following example:
+
+```bash
+   File downloaded: vmoracle19c_eus_4598131610710119312_456133188157_6931c635931f402eb543ee554e1cf06f102c6fc513d933.py. Use password c4487e40c760d29
+```
+
+Copy the .py file to the VM.
+
+The following example shows how you to use a secure copy (scp) command to move the file to the VM. You also can copy the contents to the clipboard, and then paste the contents in a new file that is set up on the VM.
+
+> [!IMPORTANT]
+> In the following example, ensure that you update the IP address and folder values. The values must map to the folder where the file is saved.
+>
+
+```bash
+$ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
+```
+---
+
+### Mount the restore point
+
+1. Switch to the root user:
+   ```bash
+   sudo su -
+   ``````
+1. Create a restore mount point and copy the script to it.
+
+    In the following example, create a */restore* directory for the snapshot to mount to, move the file to the directory, and change the file so that it's owned by the root user and made executable.
+
+    ```bash 
+    mkdir /restore
+    chmod 777 /restore
+    cd /restore
+    cp /tmp/vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py /restore
+    chmod 755 /restore/vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
+    ```
+    
+    Now execute the script to restore the backup. You will be asked to supply the password generated in Azure portal. 
+  
+   ```bash
+    ./vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
+    ```
+
+    The following example shows what you should see after you run the preceding script. When you're prompted to continue, enter **Y**.
+
+    ```output
+    Microsoft Azure VM Backup - File Recovery
+    ______________________________________________
+    Please enter the password as shown on the portal to securely connect to the recovery point. : b1ad68e16dfafc6
+
+    Connecting to recovery point using ISCSI service...
+
+    Connection succeeded!
+
+    Please wait while we attach volumes of the recovery point to this machine...
+
+    ************ Volumes of the recovery point and their mount paths on this machine ************
+
+    Sr.No.  |  Disk  |  Volume  |  MountPath
+
+    1)  | /dev/sdc  |  /dev/sdc1  |  /restore/vmoracle19c-20201215123912/Volume1
+
+    2)  | /dev/sdd  |  /dev/sdd1  |  /restore/vmoracle19c-20201215123912/Volume2
+
+    3)  | /dev/sdd  |  /dev/sdd2  |  /restore/vmoracle19c-20201215123912/Volume3
+
+    4)  | /dev/sdd  |  /dev/sdd15  |  /restore/vmoracle19c-20201215123912/Volume5
+
+    The following partitions failed to mount since the OS couldn't identify the filesystem.
+
+    ************ Volumes from unknown filesystem ************
+
+    Sr.No.  |  Disk  |  Volume  |  Partition Type
+
+    1)  | /dev/sdb  |  /dev/sdb14  |  BIOS Boot partition
+
+    Please refer to '/restore/vmoracle19c-2020XXXXXXXXXX/Scripts/MicrosoftAzureBackupILRLogFile.log' for more details.
+
+    ************ Open File Explorer to browse for files. ************
+
+    After recovery, remove the disks and close the connection to the recovery point by clicking the 'Unmount Disks' button from the portal or by using the relevant unmount command in case of powershell or CLI.
+
+    After unmounting disks, run the script with the parameter 'clean' to remove the mount paths of the recovery point from this machine.
+
+    Please enter 'q/Q' to exit...
+    ```
+
+1. Access to the mounted volumes is confirmed.
+
+    To exit, enter **q**, and then search for the mounted volumes. To create a list of the added volumes, at a command prompt, enter **df -h**.
+    
+    ```
+    [root@vmoracle19c restore]# df -h
+    Filesystem      Size  Used Avail Use% Mounted on
+    devtmpfs        3.8G     0  3.8G   0% /dev
+    tmpfs           3.8G     0  3.8G   0% /dev/shm
+    tmpfs           3.8G   17M  3.8G   1% /run
+    tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+    /dev/sdd2        30G  9.6G   18G  36% /
+    /dev/sdb1       126G  736M  119G   1% /u02
+    /dev/sda1       497M  199M  298M  41% /boot
+    /dev/sda15      495M  9.7M  486M   2% /boot/efi
+    tmpfs           771M     0  771M   0% /run/user/54322
+    /dev/sdc1       126G  2.9G  117G   3% /restore/vmoracle19c-20201215123912/Volume1
+    /dev/sdd1       497M  199M  298M  41% /restore/vmoracle19c-20201215123912/Volume2
+    /dev/sdd2        30G  9.6G   18G  36% /restore/vmoracle19c-20201215123912/Volume3
+    /dev/sdd15      495M  9.7M  486M   2% /restore/vmoracle19c-20201215123912/Volume5
+    ```
+
+### Restore The Database Files
+Perform the following steps for the database on the VM you want to restore:
+
+1. Restore the missing database files back to their location:
+
+    ```bash
+    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/oradata/ORATEST1
+    cp * /u02/oradata/ORATEST1
+    cd /u02/oradata/ORATEST1
+    chown -R oracle:oinstall *
+    ```
+Now the database has been restored you must recover the database. Please follow the steps in [Database Recovery](#recovery-after-an-individual-database-restore) to complete the recovery. 
+
+## Database Recovery
+
+### Recovery after complete VM restore
+
+1. First reconnect to the VM:
+   ```bash
+   ssh azureuser@<publicIpAddress>
+   ```
+   > [!Important]
+   > When the whole VM has been restored, it is important to recover each database on the VM by performing the following steps on each:
 
 1. You may find that the instance is running as the auto start has attempted to start the database on VM boot. However the database requires recovery and is likely to be at mount stage only, so a preparatory shutdown is run first followed by starting to mount stage.
 
@@ -1054,7 +947,7 @@ When the whole VM has been restored, it is important to recover each database on
     SQL> shutdown immediate
     SQL> startup mount
     ```
-    
+   
 1. Perform database recovery
    > [!IMPORTANT]
    > Please note that it is important to specify the USING BACKUP CONTROLFILE syntax to inform the RECOVER AUTOMATIC DATABASE command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There may be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
@@ -1078,8 +971,130 @@ When the whole VM has been restored, it is important to recover each database on
     ```bash
     SQL> select * from scott.scott_table;
     ```
+### Recovery after an individual database restore
 
-The backup and recovery of the Oracle Database 19c database on an Azure Linux VM is now finished.
+1. Switch back to the oracle user
+   ```bash
+   sudo su - oracle
+   ```
+1. Start the database instance and mount the controlfile for reading:
+   ```bash
+   sqlplus / as sysdba
+   SQL> startup mount
+   SQL> quit
+   ```
+
+1. Connect to the database with sysbackup:
+   ```bash
+   sqlplus / as sysbackup
+   ```
+1. Initiate automatic database recovery:
+
+   ```bash
+   SQL> recover automatic database until cancel using backup controlfile;
+   ```
+   > [!IMPORTANT]
+   > Please note that it is important to specify the USING BACKUP CONTROLFILE syntax to inform the RECOVER AUTOMATIC DATABASE command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There may be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
+
+   When recovery completes successfully you will see the message `Media recovery complete`. However, when using the BACKUP CONTROLFILE clause the recover command will ignore online log files and it is possible there are changes in the current online redo log required to complete point in time recovery. In this situation you may see messages similar to these:
+
+   ```output
+   SQL> recover automatic database until cancel using backup controlfile;
+   ORA-00279: change 2172930 generated at 04/08/2021 12:27:06 needed for thread 1
+   ORA-00289: suggestion :
+   /u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc
+   ORA-00280: change 2172930 for thread 1 is in sequence #13
+   ORA-00278: log file
+   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc' no
+   longer needed for this recovery
+   ORA-00308: cannot open archived log
+   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc'
+   ORA-27037: unable to obtain file status
+   Linux-x86_64 Error: 2: No such file or directory
+   Additional information: 7
+
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   ```
+   
+   > [!IMPORTANT]
+   > Note that if the current online redo log has been lost or corrupted and cannot be used, you may cancel recovery at this point. 
+
+   To correct this you can identify which is the current online log that has not been archived, and supply the fully qualified filename to the prompt.
+
+
+   Open a new ssh connection 
+   ```bash
+   ssh azureuser@<IP Address>
+   ```
+   Switch to the oracle user and set the Oracle SID
+   ```bash
+   sudo su - oracle
+   export ORACLE_SID=oratest1
+   ```
+   
+   Connect to the database and run the following query to find the online logfile 
+   ```bash
+   sqlplus / as sysdba
+   SQL> column member format a45
+   SQL> set linesize 500  
+   SQL> select l.SEQUENCE#, to_char(l.FIRST_CHANGE#,'999999999999999') as CHK_CHANGE, l.group#, l.archived, l.status, f.member
+   from v$log l, v$logfile f
+   where l.group# = f.group#;
+   ```
+
+   The output will look similar to this. 
+   ```output
+   SEQUENCE#  CHK_CHANGE           GROUP# ARC STATUS	        MEMBER
+   ---------- ---------------- ---------- --- ---------------- ---------------------------------------------
+           13          2172929          1 NO  CURRENT          /u02/oradata/ORATEST1/redo01.log
+           12          2151934          3 YES INACTIVE         /u02/oradata/ORATEST1/redo03.log
+           11          2071784          2 YES INACTIVE         /u02/oradata/ORATEST1/redo02.log
+   ```
+   Copy the logfile path and file name for the CURRENT online log, in this example it is `/u02/oradata/ORATEST1/redo01.log`. Switch back to the ssh session running the recover command, input the logfile information and press return:
+
+   ```bash
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   /u02/oradata/ORATEST1/redo01.log
+   ```
+
+   You should see the logfile is applied and recovery completes. Enter CANCEL to exit the recover command:
+   ```output
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   /u02/oradata/ORATEST1/redo01.log
+   Log applied.
+   Media recovery complete.
+   ```
+
+1. Open the database
+   
+   > [!IMPORTANT]
+   > The RESETLOGS option is required when the RECOVER command uses the USING BACKUP CONTROLFILE option. RESETLOGS creates a new incarnation of the database by resetting the redo history back to the beginning, because there is no way to determine how much of the previous database incarnation was skipped in the recovery.
+
+   ```bash
+   SQL> alter database open resetlogs;
+   ```
+
+   
+1. Check the database content has been fully recovered:
+
+    ```bash
+    RMAN> SELECT * FROM scott.scott_table;
+    ```
+
+1. Unmount the restore point.
+
+   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
+
+   In the VM using unmount:
+   ```bash
+   sudo umount /restore/vmoracle19c-20210107110037/Volume*
+   ```
+
+    In the Azure portal, on the **File Recovery (Preview)** blade, click **Unmount Disks**.
+
+    ![Unmount disks command](./media/oracle-backup-recovery/recovery-service-10.png)
+    
+The backup and recovery of the Oracle Database on an Azure Linux VM is now finished.
 
 More information about Oracle commands and concepts can be found in the Oracle documentation, including:
 
@@ -1090,6 +1105,8 @@ More information about Oracle commands and concepts can be found in the Oracle d
    * [Oracle ALTER DATABASE command](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-DATABASE.html#GUID-8069872F-E680-4511-ADD8-A4E30AF67986)
    * [Oracle LOG_ARCHIVE_DEST_n parameter](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/LOG_ARCHIVE_DEST_n.html#GUID-10BD97BF-6295-4E85-A1A3-854E15E05A44)
    * [Oracle ARCHIVE_LAG_TARGET parameter](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ARCHIVE_LAG_TARGET.html#GUID-405D335F-5549-4E02-AFB9-434A24465F0B)
+
+
 
 
 ## Delete the VM

@@ -4,7 +4,8 @@ description: Set up and use the DNS Analytics solution in Azure Monitor to gathe
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/20/2018
+ms.date: 11/23/2022
+ms.reviewer: shijain
 
 ---
 
@@ -23,6 +24,9 @@ DNS Analytics helps you to:
 - View dynamic DNS registration failures.
 
 The solution collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers.
+
+> [!IMPORTANT]  
+> The Log Analytics agent will be **retired on 31 August, 2024**. If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](../..//sentinel/ama-migrate.md).
 
 ## Connected sources
 
@@ -56,7 +60,7 @@ From the Log Analytics workspace in the Azure portal, select **Workspace summary
 
   You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
-- **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
+- **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** pane. The default threshold is 1,000. You can edit the threshold.
 
     ![Allowlisted domain names](./media/dns-analytics/dns-config.png)
 
@@ -88,11 +92,11 @@ The solution dashboard shows summarized information for the various features of 
 
 ![Time selection control](./media/dns-analytics/dns-time.png)
 
-The solution dashboard shows the following blades:
+The solution dashboard shows the following sections:
 
 **DNS Security**. Reports the DNS clients that are trying to communicate with malicious domains. By using Microsoft threat intelligence feeds, DNS Analytics can detect client IPs that are trying to access malicious domains. In many cases, malware-infected devices "dial out" to the "command and control" center of the malicious domain by resolving the malware domain name.
 
-![DNS Security blade](./media/dns-analytics/dns-security-blade.png)
+![DNS Security section](./media/dns-analytics/dns-security-blade.png)
 
 When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
@@ -110,11 +114,11 @@ The information helps you to identify the:
 
 **Domains Queried**. Provides the most frequent domain names being queried by the DNS clients in your environment. You can view the list of all the domain names queried. You can also drill down into the lookup request details of a specific domain name in Log Search.
 
-![Domains Queried blade](./media/dns-analytics/domains-queried-blade.png)
+![Domains Queried section](./media/dns-analytics/domains-queried-blade.png)
 
 **DNS Clients**. Reports the clients *breaching the threshold* for number of queries in the chosen time period. You can view the list of all the DNS clients and the details of the queries made by them in Log Search.
 
-![DNS Clients blade](./media/dns-analytics/dns-clients-blade.png)
+![DNS Clients section](./media/dns-analytics/dns-clients-blade.png)
 
 **Dynamic DNS Registrations**. Reports name registration failures. All registration failures for address [resource records](https://en.wikipedia.org/wiki/List_of_DNS_record_types) (Type A and AAAA) are highlighted along with the client IPs that made the registration requests. You can then use this information to find the root cause of the registration failure by following these steps:
 
@@ -126,11 +130,11 @@ The information helps you to identify the:
 
 1. Check whether the zone is configured for secure dynamic update or not.
 
-    ![Dynamic DNS Registrations blade](./media/dns-analytics/dynamic-dns-reg-blade.png)
+    ![Dynamic DNS Registrations section](./media/dns-analytics/dynamic-dns-reg-blade.png)
 
 **Name registration requests**. The upper tile shows a trendline of successful and failed DNS dynamic update requests. The lower tile lists the top 10 clients that are sending failed DNS update requests to the DNS servers, sorted by the number of failures.
 
-![Name registration requests blade](./media/dns-analytics/name-reg-req-blade.png)
+![Name registration requests section](./media/dns-analytics/name-reg-req-blade.png)
 
 **Sample DDI Analytics Queries**. Contains a list of the most common search queries that fetch raw analytics data directly.
 

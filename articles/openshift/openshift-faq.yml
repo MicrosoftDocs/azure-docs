@@ -2,8 +2,8 @@
 metadata:
   title: Frequently asked questions for Azure Red Hat OpenShift
   description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
-  author: rahulm23
-  ms.author: rahul mehta
+  author: johnmarco
+  ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
   ms.date: 07/31/2020
@@ -201,7 +201,7 @@ sections:
 
           General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all the functionality of general-purpose v1 and Blob storage accounts. 
 
-          Storage accounts access is limited with firewall rules via Azure network security groups (NSGs), which filter network traffic to and from your storage accounts. For more information, see [Azure network security groups overview[../virtual-network/network-security-groups-overview.md]. 
+          Storage accounts access is limited with firewall rules via Azure network security groups (NSGs), which filter network traffic to and from your storage accounts. For more information, see [Azure network security groups overview](../virtual-network/network-security-groups-overview.md). 
 
           Transport Layer Security (TLS) protocol version 1.2 provides secure communications, data privacy, and data integrity.     
 

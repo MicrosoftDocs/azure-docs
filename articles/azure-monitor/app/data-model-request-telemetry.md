@@ -3,7 +3,7 @@ title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.reviewer: sergkanz
+ms.reviewer: mmcc
 ---
 
 # Request telemetry: Application Insights data model
@@ -73,5 +73,5 @@ You can read more on request result code and status code in the [blog post](http
 - [Write custom request telemetry](./api-custom-events-metrics.md#trackrequest)
 - See [data model](data-model.md) for Application Insights types and data model.
 - Learn how to [configure ASP.NET Core](./asp-net.md) application with Application Insights.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

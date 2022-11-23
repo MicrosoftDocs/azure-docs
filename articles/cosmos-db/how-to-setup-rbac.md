@@ -1,16 +1,17 @@
 ---
 title: Configure role-based access control for your Azure Cosmos DB account with Azure AD
 description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
-author: ThomasWeiss
+author: seesharprun
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/16/2022
-ms.author: thweiss
-ms.reviewer: wiassaf
+ms.date: 10/31/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
@@ -49,7 +50,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
 > - [Azure CLI scripts](./sql/manage-with-cli.md)
 > - Azure management libraries available in:
->   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 >   
@@ -65,7 +66,7 @@ The table below lists all the actions exposed by the permission model.
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Replace an existing item. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" an item, which means to create or insert an item if it doesn't already exist, or to update or replace an item if it exists. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Delete an item. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Execute a [SQL query](sql-query-getting-started.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Execute a [SQL query](nosql/query/getting-started.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Read from the container's [change feed](read-change-feed.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Execute a [stored procedure](stored-procedures-triggers-udfs.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Manage [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, list and delete items from the conflict feed). |
@@ -284,7 +285,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+For a reference and examples of using Azure Resource Manager templates to create role definitions, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleDefinitions``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroledefinitions).
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -317,6 +318,7 @@ Assign a role to an identity:
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
 $readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
+# For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
@@ -333,29 +335,31 @@ Assign a role to an identity:
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
+# For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+For a reference and examples of using Azure Resource Manager templates to create role assignments, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleAssignments``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments).
 
 ## Initialize the SDK with Azure AD
 
-To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD (AAD) token on behalf of the identity you wish to use.
+To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD token on behalf of the identity you wish to use.
 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of Azure AD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [In Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
 ### In .NET
 
-The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](nosql/sdk-dotnet-v3.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -367,7 +371,7 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 
 ### In Java
 
-The Azure Cosmos DB RBAC is currently supported in the [Java SDK V4](sql-api-sdk-java-v4.md).
+The Azure Cosmos DB RBAC is currently supported in the [Java SDK V4](nosql/sdk-java-v4.md).
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -384,7 +388,7 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 ### In JavaScript
 
-The Azure Cosmos DB RBAC is currently supported in the [JavaScript SDK V3](sql-api-sdk-node.md).
+The Azure Cosmos DB RBAC is currently supported in the [JavaScript SDK V3](nosql/sdk-nodejs.md).
 
 ```javascript
 const servicePrincipal = new ClientSecretCredential(
@@ -395,6 +399,18 @@ const client = new CosmosClient({
     endpoint: "<account-endpoint>",
     aadCredentials: servicePrincipal
 });
+```
+
+### In Python
+
+The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](nosql/sdk-python.md) and higher.
+
+```python
+aad_credentials = ClientSecretCredential(
+    tenant_id="<azure-ad-tenant-id>",
+    client_id="<client-application-id>",
+    client_secret="<client-application-secret>")
+client = CosmosClient("<account-endpoint>", aad_credentials)
 ```
 
 ## Authenticate requests on the REST API
@@ -415,7 +431,7 @@ When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature
 
 ## Audit data requests
 
-When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
+When using the Azure Cosmos DB RBAC, [diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
@@ -455,15 +471,15 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
-Only the SQL API is currently supported.
+Only the API for NoSQL is currently supported.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
 Azure portal support for role management is not available yet.
 
-### Which SDKs in Azure Cosmos DB SQL API support RBAC?
+### Which SDKs in Azure Cosmos DB API for NoSQL support RBAC?
 
-The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) and [JavaScript V3](sql-api-sdk-node.md) SDKs are currently supported.
+The [.NET V3](nosql/sdk-dotnet-v3.md), [Java V4](nosql/sdk-java-v4.md), [JavaScript V3](nosql/sdk-nodejs.md) and [Python V4.3+](nosql/sdk-python.md) SDKs are currently supported.
 
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 
@@ -475,5 +491,5 @@ Yes, see [Enforcing RBAC as the only authentication method](#disable-local-auth)
 
 ## Next steps
 
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).
 - Learn more about [RBAC for Azure Cosmos DB management](role-based-access-control.md).

@@ -1,9 +1,8 @@
 ---
 title: Handle errors and exceptions in MSAL.js
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL.js applications.
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ---

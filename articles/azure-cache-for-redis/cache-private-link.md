@@ -1,7 +1,8 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you'll learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
+description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
@@ -28,7 +29,6 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 > [!IMPORTANT]
 > Currently, portal console support, and persistence to firewall storage accounts are not supported.
->
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
@@ -187,9 +187,9 @@ To create a private endpoint, follow these steps.
 1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
 
 1. Select the **Next: Configuration** button at the bottom of the page.
-
+1. Select the **Next: Virtual Network** button at the bottom of the page.
 1. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
-
+1. In the **Virtual Network** tab, select the virtual network and subnet you created in the previous section.
 1. Select the **Next: Tags** button at the bottom of the page.
 
 1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
@@ -333,7 +333,7 @@ Your application should connect to `<cachename>.redis.cache.windows.net` on port
 
 A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.
 
-For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
+For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
 ### Why can't I connect to a private endpoint?
 
@@ -344,7 +344,8 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 
 ### What features aren't supported with private endpoints?
 
-Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ### How do I verify if my private endpoint is configured correctly?
 

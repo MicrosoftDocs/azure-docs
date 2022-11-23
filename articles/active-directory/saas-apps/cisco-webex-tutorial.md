@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/01/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -21,7 +21,6 @@ In this tutorial, you'll learn how to integrate Cisco Webex Meetings with Azure 
 * Enable your users to be automatically signed-in to Cisco Webex Meetings with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-
 ## Prerequisites
 
 To get started, you need the following items:
@@ -29,6 +28,8 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Cisco Webex Meetings single sign-on (SSO) enabled subscription.
 *  Service Provider Metadata file from Cisco Webex Meetings.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -41,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Cisco Webex Meetings supports [**Automated** user provisioning and deprovisioning](cisco-webex-provisioning-tutorial.md) (recommended).
 * Cisco Webex Meetings supports **Just In Time** user provisioning.
 
-## Adding Cisco Webex Meetings from the gallery
+## Add Cisco Webex Meetings from the gallery
 
 To configure the integration of Cisco Webex Meetings into Azure AD, you need to add Cisco Webex Meetings from the gallery to your list of managed SaaS apps.
 
@@ -52,6 +53,8 @@ To configure the integration of Cisco Webex Meetings into Azure AD, you need to 
 1. In the **Add from the gallery** section, type **Cisco Webex Meetings** in the search box.
 1. Select **Cisco Webex Meetings** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Cisco Webex Meetings
 
 Configure and test Azure AD SSO with Cisco Webex Meetings using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cisco Webex Meetings.
@@ -61,10 +64,8 @@ To configure and test Azure AD SSO with Cisco Webex Meetings, perform the follow
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-   
 1. **[Configure Cisco Webex Meetings SSO](#configure-cisco-webex-meetings-sso)** - to configure the single sign-on settings on application side.
-   * **[Create Cisco Webex Meetings test user](#create-cisco-webex-meetings-test-user)** - to have a counterpart of B.Simon in Cisco Webex Meetings that is linked to the Azure AD representation of user.
-    
+   1. **[Create Cisco Webex Meetings test user](#create-cisco-webex-meetings-test-user)** - to have a counterpart of B.Simon in Cisco Webex Meetings that is linked to the Azure AD representation of user.   
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -82,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       > You will get the Service Provider Metadata file from **Configure Cisco Webex Meetings SSO** section, which is explained later in the tutorial. 
 
 1. If you wish to configure the application in **SP** initiated mode, perform the following steps:	
-   1. On the **Basic SAML Configuration** section, click the edit/pen icon.
+   1. On the **Basic SAML Configuration** section, click the pencil icon.
 
       ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -144,22 +145,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Sign in to Cisco Webex Meetings with your administrator credentials.
 1. Go to **Common Site Settings** and navigate to **SSO Configuration**.
 
-   ![Screenshot shows Cisco Webex Administration with Common Site Settings and S S O Configuration selected.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+   ![Screenshot shows Cisco Webex Administration with Common Site Settings and S S O Configuration selected.](./media/cisco-webex-tutorial/settings.png)
 
 1. On the **Webex Administration** page, perform the following steps:
 
-   ![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+   ![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/metadata.png)
 
-   1. select **SAML 2.0** as **Federation Protocol**.
+   1. Select **SAML 2.0** as **Federation Protocol**.
    1. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
    1. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
-   1. In the **AuthContextClassRef** textbox, type one of the following values:
-      * `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
-      * `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`
-    
-      To enable the MFA by using Azure AD, enter the two values like this:
-      `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
-
    1. Select **Auto Account Creation**.
    
       > [!NOTE]

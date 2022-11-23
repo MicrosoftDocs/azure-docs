@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 09/28/2022
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database. You use the database as a sink data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 * Visual Studio. This article uses Visual Studio 2019.
 * Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 

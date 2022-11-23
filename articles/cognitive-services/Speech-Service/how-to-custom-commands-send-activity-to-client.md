@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
 ms.devlang: csharp
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Send Custom Commands activity to client application
@@ -25,8 +26,7 @@ You complete the following tasks:
 ## Prerequisites
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
-> * An Azure subscription key for Speech service:
-[Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)

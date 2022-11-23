@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-- [Install Go](https://golang.org/doc/install)
+- [Install Go](https://go.dev/doc/install)
 
 - [Install the Azure SDK for Go](/azure/developer/go/azure-sdk-install)
 

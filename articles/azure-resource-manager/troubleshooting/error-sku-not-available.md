@@ -2,13 +2,13 @@
 title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/17/2021
+ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Resolve errors for SKU not available
 
-This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az_vm_create) that specify a **size** parameter for a SKU that's not available.
+This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a `size` parameter for a SKU that's not available.
 
 ## Symptom
 
@@ -45,7 +45,7 @@ If a SKU isn't available for your subscription in a location or zone that meets 
 
 # [Azure CLI](#tab/azure-cli)
 
-To determine which SKUs are available in a location or zone, use the [az vm list-skus](/cli/azure/vm#az_vm_list_skus) command.
+To determine which SKUs are available in a location or zone, use the [az vm list-skus](/cli/azure/vm#az-vm-list-skus) command.
 
 ```azurecli-interactive
 az vm list-skus --location centralus --size Standard_D --all --output table
@@ -194,7 +194,7 @@ To determine which SKUs are available in a **Region**, use the [portal](https://
 
 To determine which SKUs are available in a location, use the [Resource Skus - List](/rest/api/compute/resourceskus/list) operation.
 
-You can use [az rest](/cli/azure/reference-index#az_rest) to run the list operation. Replace `<subscription ID>` including the angle brackets with your subscription ID. The output is a large data set that you can save to a JSON file.
+You can use [az rest](/cli/azure/reference-index#az-rest) to run the list operation. Replace `<subscription ID>` including the angle brackets with your subscription ID. The output is a large data set that you can save to a JSON file.
 
 ```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/<subscription ID>/providers/Microsoft.Compute/skus?api-version=2021-07-01 --output-file .\sku-list.json

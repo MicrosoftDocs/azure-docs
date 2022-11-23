@@ -1,6 +1,6 @@
 ---
 title: Integrate Fortinet with Microsoft Defender for IoT
-description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Fortinet.
+description: In this article, you'll learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.custom: template-tutorial
@@ -120,7 +120,7 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 1. To configure the FortiGate forwarding rule, set the following parameters:
 
-    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the  configure the Create Forwarding Rule window.":::
+    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the configure the Create Forwarding Rule window.":::
 
     | Parameter | Description |
     |--|--|
@@ -251,7 +251,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our Palo Alto integration.
+In this article, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md)
 
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-palo-alto.md)
+

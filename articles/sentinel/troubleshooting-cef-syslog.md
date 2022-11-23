@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog data connector| Microsoft Docs
 description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
-author: batamig
+author: limwainstein
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
@@ -40,7 +40,7 @@ This procedure is relevant only for CEF connections, and is *not* relevant for S
 
     - You must have elevated permissions (sudo) on your log forwarder machine.
 
-    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python –version` command to check.
+    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python --version` command to check.
 
     - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 

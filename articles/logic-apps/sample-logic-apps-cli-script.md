@@ -6,10 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: mvc, devx-track-azurecli
-ms.date: 07/30/2020
+ms.date: 08/23/2022
 ---
 
 # Azure CLI script sample - create a logic app
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This script creates a sample logic app through the [Azure CLI Logic Apps extension](/cli/azure/logic), (`az logic`). For a detailed guide to creating and managing logic apps through the Azure CLI, see the [Logic Apps quickstart for the Azure CLI](quickstart-logic-apps-azure-cli.md).
 
@@ -192,8 +194,8 @@ This sample script uses the following commands to create a new resource group an
 
 | Command | Notes |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which your logic app's resources are stored. |
-| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which your logic app's resources are stored. |
+| [`az logic workflow create`](/cli/azure/logic/workflow#az-logic-workflow-create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
 | [`az group delete`](/cli/azure/vm/extension) | Deletes a resource group and all of its nested resources. |
 
 ## Next steps

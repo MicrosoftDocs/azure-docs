@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/02/2022
+ ms.date: 04/29/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -19,10 +19,9 @@ You can connect to a VM that is deployed to your VNet by creating a Remote Deskt
 
      ```azurepowershell-interactive
      $VMs = Get-AzVM
-     $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
+     $Nics = Get-AzNetworkInterface | Where-Object VirtualMachine -ne $null
 
-     foreach($Nic in $Nics)
-     {
+     foreach ($Nic in $Nics) {
       $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
       $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
       $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod

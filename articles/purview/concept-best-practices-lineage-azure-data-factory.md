@@ -1,6 +1,6 @@
 ---
-title: Azure Purview Data Lineage best practices
-description: This article provides best practices for data Lineage various data sources in Azure Purview.
+title: Microsoft Purview Data Lineage best practices
+description: This article provides best practices for data Lineage various data sources in Microsoft Purview.
 author: amberz
 ms.author: amberz
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 10/25/2021
 ---
 
 
-# Azure Purview Data Lineage best practices
+# Microsoft Purview Data Lineage best practices
 
-Data Lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. Azure Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including: 
+Data Lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. Microsoft Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including: 
 * Completely raw data staged from various platforms 
 * Transformed and prepared data 
 * Data used by visualization platforms
@@ -32,42 +32,41 @@ Data lineage is the process of describing what data exists, where it is 
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
 
-* Each Data Factory instance can connect to only one Azure Purview account. You can establish new connection in another Azure Purview account, but this will turn existing connection to disconnected.  
+* Each Data Factory instance can connect to only one Microsoft Purview account. You can establish new connection in another Microsoft Purview account, but this will turn existing connection to disconnected.  
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
-* Data factory's managed identity is used to authenticate lineage in Azure Purview account, the data factory's managed identity Data Curator role on Azure Purview root collection is required. 
-* Support no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket. 
+* Data factory's managed identity is used to authenticate lineage push operations in Microsoft Purview account. The data factory's managed identity needs Data Curator role on Microsoft Purview root collection.
+
+* Currently, only 10 data factories can be connected at a time. If you want to add more than 10 data factories, please file a support ticket. 
+
 
 ### Azure Data Factory activities  
 
-* Azure Purview captures runtime lineage from the following Azure Data Factory activities: 
+* Microsoft Purview captures runtime lineage from the following Azure Data Factory activities: 
     * [Copy activity ](../data-factory/copy-activity-overview.md)
     * [Data Flow activity](../data-factory/concepts-data-flow-overview.md)
     * [Execute SSIS Package activity](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
-* Azure Purview drops lineage if the source or destination uses an unsupported data storage system.  
+* Microsoft Purview drops lineage if the source or destination uses an unsupported data storage system.  
     * Supported data sources in copy activity is listed **Copy activity support** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)
     * Supported data sources in data flow activity is listed **Data Flow support** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)
     * Supported data sources in SSIS is listed **SSIS execute package activity support** of [Lineage from SQL Server Integration Services](how-to-lineage-sql-server-integration-services.md)
 
-* Azure Purview cannot capture lineage if Azure Data Factory copy activity use copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
+* Microsoft Purview cannot capture lineage if Azure Data Factory copy activity uses copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
 
-* For the lineage of Dataflow activity, Azure Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
+* For the lineage of Dataflow activity, Microsoft Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
 
-* Data flow lineage doesn't integrate with Azure Purview resource set. 
-
-    **Resource set example 1**    
-
-    Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv 
-
-    Display name: "data" 
+* Data flow lineage doesn't integrate with Microsoft Purview resource set. 
+    **Resource set example:**    
+        Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv 
+        Display name: "data" 
 
 * For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet. 
 
-    :::image type="content" source="./media/concept-best-practices-lineage/ssis-lineage.png" alt-text="Screenshot of the Execute SSIS lineage in Azure Purview." lightbox="./media/concept-best-practices-lineage/ssis-lineage.png":::
+    :::image type="content" source="./media/concept-best-practices-lineage/ssis-lineage.png" alt-text="Screenshot of the Execute SSIS lineage in Microsoft Purview." lightbox="./media/concept-best-practices-lineage/ssis-lineage.png":::
 
-* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Azure Purview](../data-factory/tutorial-push-lineage-to-purview.md).  
+* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Microsoft Purview](../data-factory/tutorial-push-lineage-to-purview.md).  
 
 ## Next steps
 -  [Manage data sources](./manage-data-sources.md)

@@ -4,7 +4,7 @@ description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803

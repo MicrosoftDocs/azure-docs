@@ -32,7 +32,7 @@ When you chose a partner application, Azure Synapse Studio provisions a sandbox 
 | -------- | ------------- |
 | A [dedicated SQL pool](../overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
 | A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **Partner_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.|
-| A [database user](../../azure-sql/database/logins-create-manage.md) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
+| A [database user](/azure/azure-sql/database/logins-create-manage) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
 
 In all cases, **[PartnerName]** is the name of the third-party ISV who offers the trial. 
 

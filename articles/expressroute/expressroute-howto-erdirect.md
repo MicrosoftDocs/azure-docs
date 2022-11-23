@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 06/09/2022
 ms.author: duau
 
 ---
@@ -17,7 +16,7 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
 
 ## Before you begin
 
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, run the following via Azure PowerShell:
 1.  Sign in to Azure and select the subscription you wish to enroll.
 
     ```azurepowershell-interactive
@@ -26,7 +25,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     ```
 
-2. Register your subscription for Public Preview using the following command:
+2. Register your subscription using the following command:
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -103,6 +102,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
                           }
                         ]
    ```
+   > [!NOTE]
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   >
 5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
@@ -172,7 +174,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Reference the recently created ExpressRoute Direct resource, input a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
+Reference the recently created ExpressRoute Direct resource, input a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path isn't referenced, the document will download to the current directory.
+
+### Azure PowerShell
 
   ```powershell 
    New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
@@ -182,6 +186,18 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
    ```
+
+### Cloud Shell
+
+1.  Replace the `<USERNAME>` with the username displayed in the prompt, then run the command to generate the Letter of Authorization. Use the exact path define in the command.
+
+    ```azurepowershell-interactive
+    New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination /home/USERNAME/loa.pdf
+    ```
+
+1. Select the **Upload/Download** button and then select **Download**. Select the `loa.pdf` file and select Download.
+
+    :::image type="content" source="./media/expressroute-howto-erdirect/download.png" alt-text="Screenshot of download button from Azure Cloud Shell.":::
 
 ## <a name="state"></a>Change Admin State of links
    
@@ -255,13 +271,13 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
 
 ## <a name="circuit"></a>Create a circuit
 
-By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This limit can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
+By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This limit can be increased by support. You're responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
 
-There are additional circuit bandwidths that can be utilized on ExpressRoute Direct to support only the scenarios outlined above. These bandwidths are 40 Gbps and 100 Gbps.
+There are more circuit bandwidths that can be utilized on ExpressRoute Direct to support only the scenarios outlined above. These bandwidths are 40 Gbps and 100 Gbps.
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited isn't supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource.
 
@@ -308,6 +324,77 @@ You can delete the ExpressRoute Direct resource by running the following command
  ```powershell
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
+
+## Public Preview
+
+The following scenario is in public preview:
+
+ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Azure Active Directory tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Azure Active Directory tenant.
+
+### Enable ExpressRoute Direct and circuits in different subscriptions
+
+1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
+
+
+1. Sign in to Azure and select the ExpressRoute Direct subscription. 
+
+   ```powershell
+   Connect-AzAccount 
+
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+   ```
+
+
+1. . Get ExpressRoute Direct details 
+
+   ```powershell
+   Get-AzExpressRoutePort 
+
+   $ERPort = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
+
+1. Create the ExpressRoute Direct authorization by running the following commands in PowerShell:
+
+    ```powershell
+    Add-AzExpressRoutePortAuthorization -Name $AuthName -ExpressRoutePort $ERPort
+    ```
+   
+   Sample output:
+    ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :
+    ```
+
+1. Verify the authorization was created successfully and store ExpressRoute Direct authorization into a variable:
+
+    ```powershell
+    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $AuthName
+    $ERDirectAuthorization  
+    ```
+    
+    Sample output:
+      ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :on  
+    ```
+
+1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
+
+    ```powershell
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
+    ```
 ## Next steps
 
 For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).

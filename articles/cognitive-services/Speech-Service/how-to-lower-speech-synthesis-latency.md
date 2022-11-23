@@ -314,8 +314,10 @@ Meanwhile, a compressed audio format helps to save the users' network bandwidth,
 
 We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
 For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
-Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
+Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set.
+For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
+For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
 ## Others tips
 
@@ -327,7 +329,7 @@ See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certi
 
 ### Use latest Speech SDK
 
-We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application. 
+We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
 
 ## Load test guideline
 

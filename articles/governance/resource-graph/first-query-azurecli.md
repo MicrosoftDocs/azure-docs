@@ -20,7 +20,7 @@ and run your first Resource Graph query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
 ## Add the Resource Graph extension
 
@@ -34,14 +34,14 @@ Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installe
 
 1. In your Azure CLI environment of choice, import it with the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
 1. Validate that the extension has been installed and is the expected version (at least **1.0.0**):
 
-   ```azurecli-interactive
+   ```azurecli
    # Check the extension list (note that you may have other extensions installed)
    az extension list
 
@@ -59,7 +59,7 @@ or `--subscriptions` arguments.
 
 1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
 
-   ```azurecli-interactive
+   ```azurecli
    # Login first with az login if not using Cloud Shell
 
    # Run Azure Resource Graph query
@@ -72,7 +72,7 @@ or `--subscriptions` arguments.
 
 1. Update the query to `order by` the **Name** property:
 
-   ```azurecli-interactive
+   ```azurecli
    # Run Azure Resource Graph query with 'order by'
    az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
    ```
@@ -86,7 +86,7 @@ or `--subscriptions` arguments.
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five
    results:
 
-   ```azurecli-interactive
+   ```azurecli
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
@@ -100,7 +100,7 @@ top five results.
 If you wish to remove the Resource Graph extension from your Azure CLI environment, you can do so by
 using the following command:
 
-```azurecli-interactive
+```azurecli
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```

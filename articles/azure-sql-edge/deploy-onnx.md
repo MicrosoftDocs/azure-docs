@@ -2,14 +2,15 @@
 title: Deploy and make predictions with ONNX
 titleSuffix: SQL machine learning
 description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge, and then run native PREDICT on data using the uploaded ONNX model.
-keywords: deploy SQL Edge
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: hudequei, randolphwest
+ms.date: 06/21/2022
 ms.prod: sql
 ms.technology: machine-learning
 ms.topic: quickstart
-author: dphansen
-ms.author: davidph
-ms.date: 05/06/2021
 ms.custom: mode-other
+keywords: deploy SQL Edge
 ---
 
 # Deploy and make predictions with an ONNX model and SQL machine learning
@@ -27,8 +28,8 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 * Install Python packages needed for this quickstart:
 
   1. Open [New Notebook](/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-  1. Click **Manage Packages**
-  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
+  1. Select **Manage Packages**
+  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and select **Install**.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
@@ -178,6 +179,9 @@ onnx_model = skl2onnx.convert_sklearn(model, 'Boston Data', convert_dataframe_sc
 onnx_model_path = 'boston1.model.onnx'
 onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 ```
+
+> [!NOTE]
+> You may need to set the `target_opset` parameter for the skl2onnx.convert_sklearn function if there is a mismatch between ONNX runtime version in SQL Edge and skl2onnx packge. For more information, see the [SQL Edge Release notes](release-notes.md) to get the ONNX runtime version corresponding for the release, and pick the `target_opset` for the ONNX runtime based on the [ONNX backward compatibility matrix](https://github.com/microsoft/onnxruntime/blob/master/docs/Versioning.md#version-matrix).
 
 ## Test the ONNX model
 

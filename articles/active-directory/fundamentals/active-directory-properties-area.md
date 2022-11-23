@@ -2,14 +2,14 @@
 title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2018
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: bpham
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -39,7 +39,7 @@ You add your organization's privacy information in the **Properties** area of Az
 
     - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
     
-    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services . If there's no person listed here, Microsoft contacts your global administrators. For Microsoft 365 related privacy incident notifications please see [Microsoft 365 Message center FAQs](https://docs.microsoft.com/microsoft-365/admin/manage/message-center?view=o365-worldwide#frequently-asked-questions&preserve-view=true)
+    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services. If there's no person listed here, Microsoft contacts your global administrators. For Microsoft 365 related privacy incident notifications, see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
 
     - **Privacy statement URL.** Type the link to your organization's document that describes how your organization handles both internal and external guest's data privacy.
 

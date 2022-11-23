@@ -37,7 +37,7 @@ The most important of which include:
 
   - Automatic significant database migration (5.6 to 5.7, 5.7 to 8.0)
 
-  - When using [MySQL Server User-Defined Functions (UDFs),](https://dev.mysql.com/doc/refman/5.7/en/server-udfs.html) the only viable hosting option is Azure Hosted VMs, as there's no capability to upload the `so` or `dll` component to Azure Database for MySQL.
+  - When using MySQL Server User-Defined Functions (UDFs), the only viable hosting option is Azure Hosted VMs, as there's no capability to upload the `so` or `dll` component to Azure Database for MySQL.
 
 Many of the other items are operational aspects that administrators should become familiar with as part of the operational data workload lifecycle management. This guide explores many of these operational aspects in the Post Migration Management section.
 

@@ -1,9 +1,10 @@
 ---
-author: memildin
 ms.service: defender-for-cloud
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 01/10/2022
-ms.author: memildin
+ms.date: 07/14/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 ## Remove the Defender extension
 
@@ -13,7 +14,7 @@ To remove this - or any - Defender for Cloud extension, it's not enough to turn 
 - **Enabling** auto provisioning, potentially impacts *existing* and *future* machines. 
 - **Disabling** auto provisioning for an extension, only affects the *future* machines - nothing is uninstalled by disabling auto provisioning.
 
-Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../enable-data-collection.md).
+Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../monitoring-components.md).
 ::: zone-end
 
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
@@ -52,7 +53,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
     There should be no delay in the extension resource getting deleted from Azure Resource Manager. After that, validate that there are no pods called "azuredefender-XXXXX" on the cluster by running the following command with the `kubeconfig` file pointed to your cluster: 
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -A --selector app=defender
     ```
 
     It might take a few minutes for the pods to be deleted.
@@ -72,7 +73,7 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
 | Resource Group  | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's resource group  |
 | Cluster Name    | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's name            |
-||||||
+
 
 For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 

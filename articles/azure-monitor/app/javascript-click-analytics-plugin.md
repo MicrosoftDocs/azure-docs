@@ -7,6 +7,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
@@ -360,6 +361,12 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+
 ## Sample app
 
 [Simple web app with Click Analytics Auto-collection Plugin enabled](https://go.microsoft.com/fwlink/?linkid=2152871).
@@ -370,4 +377,4 @@ appInsights.loadAppInsights();
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871).
-- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md#integrating-queries) to create custom visualizations of click data.
+- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md#integrate-queries) to create custom visualizations of click data.

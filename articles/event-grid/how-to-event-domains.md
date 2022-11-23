@@ -201,7 +201,7 @@ For example, the following command lists all the topics with name containing `my
 az eventgrid topic list --odata-query "contains(name, 'mytopic')"
 ```
 
-For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list). 
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az-eventgrid-topic-list). 
 
 
 ## Next steps

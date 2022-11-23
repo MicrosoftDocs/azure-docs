@@ -30,19 +30,33 @@ What is logged:
 
 ## Prerequisites
 
-To complete this tutorial, you must have the following:
+To complete this tutorial, you will need an Azure key vault. You can create a new key vault using one of these methods:
+  - [Create a key vault using the Azure CLI](quick-create-cli.md)
+  - [Create a key vault using Azure PowerShell](quick-create-powershell.md)
+  - [Create a key vault using the Azure portal](quick-create-portal.md)
 
-* An existing key vault that you have been using.  
-* [Azure Cloud Shell](https://shell.azure.com) - Bash environment.
-* Sufficient storage on Azure for your Key Vault logs.
+You will also need a destination for your logs.  This can be an existing or new Azure storage account and/or Log Analytics workspace.
 
-In this article, commands are formatted for [Cloud Shell](https://shell.azure.com) with Bash as an environment.
+> [!IMPORTANT]
+> If you use an existing Azure storage account or Log Analytics workspace, it must be in the same subscription as your key vault. It must also use the Azure Resource Manager deployment model, rather than the classic deployment model.
+>
+> If you create a new Azure storage account or Log Analytics workspace, we recommend you create it in the same resource group as your key vault, for ease of management.
+
+You can create a new Azure storage account using one of these methods:
+  - [Create a storage account using the Azure CLI](../../storage/common/storage-account-create.md?tabs=azure-cli)
+  - [Create a storage account using Azure PowerShell](../../storage/common/storage-account-create.md?tabs=azure-powershell)
+  - [Create a storage account using the Azure portal](../../storage/common/storage-account-create.md?tabs=azure-portal)
+
+You can create a new Log Analytics workspace using one of these methods:
+  - [Create a Log Analytics workspace using the Azure CLI](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-cli)
+  - [Create a Log Analytics workspace using Azure PowerShell](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-powershell)
+  - [Create a Log Analytics workspace the Azure portal](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal)
 
 ## Connect to your Key Vault subscription
 
 The first step in setting up key logging is connecting to the subscription containing your key vault. This is especially important if you have multiple subscriptions associated with your account.
 
-With the Azure CLI, you can view all your subscriptions by using the [az account list](/cli/azure/account#az_account_list) command. Then you connect to one by using the [az account set](/cli/azure/account#az_account_set) command:
+With the Azure CLI, you can view all your subscriptions by using the [az account list](/cli/azure/account#az-account-list) command. Then you connect to one by using the [az account set](/cli/azure/account#az-account-set) command:
 
 ```azurecli-interactive
 az account list
@@ -58,43 +72,13 @@ Get-AzSubscription
 Set-AzContext -SubscriptionId "<subscriptionID>"
 ```
 
-## Create a storage account for your logs
+## Obtain resource IDs
 
-Although you can use an existing storage account for your logs, here you create a new storage account dedicated to Key Vault logs. 
+To enable logging on a key vault, you will need the resource ID of the key vault, as well as the destination (Azure Storage or Log Analytics account).
 
-For additional ease of management, you'll also use the same resource group as the one that contains the key vault. In the [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md), this resource group is named **myResourceGroup**, and the location is *eastus*. Replace these values with your own, as applicable. 
+If you can't remember the name of your key vault, you can use the Azure CLI [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command, or the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet, to find it.
 
-You also need to provide a storage account name. Storage account names must be unique, between 3 and 24 characters in length, and use numbers and lowercase letters only. Lastly, you create a storage account of the `Standard_LRS` SKU.
-
-With the Azure CLI, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. 
-
-```azurecli-interactive
-az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
-```
-
-With Azure PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. You will need to provide the location that corresponds to the resource group.
-
-```powershell
- New-AzStorageAccount -ResourceGroupName myResourceGroup -Name "<your-unique-storage-account-name>" -Type "Standard_LRS" -Location "eastus"
-```
-
-In either case, note the ID of the storage account. The Azure CLI operation returns the ID in the output. To obtain the ID with Azure PowerShell, use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount), and assign the output to the variable `$sa`. You can then see the storage account with `$sa.id`. (The `$sa.Context` property is also used later in this article.)
-
-```powershell-interactive
-$sa = Get-AzStorageAccount -Name "<your-unique-storage-account-name>" -ResourceGroup "myResourceGroup"
-$sa.id
-```
-
-The ID of the storage account is in the following format: "/subscriptions/*your-subscription-ID*/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/*your-unique-storage-account-name*".
-
-> [!NOTE]
-> If you decide to use an existing storage account, it must use the same subscription as your key vault. It must use the Azure Resource Manager deployment model, rather than the classic deployment model.
-
-## Obtain your key vault resource ID
-
-In the [CLI quickstart](quick-create-cli.md) and [PowerShell quickstart](quick-create-powershell.md), you created a key with a unique name. Use that name again in the following steps. If you can't remember the name of your key vault, you can use the Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) command, or the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet, to list them.
-
-Use the name of your key vault to find its resource ID. With the Azure CLI, use the [az keyvault show](/cli/azure/keyvault#az_keyvault_show) command.
+Use the name of your key vault to find its resource ID. With the Azure CLI, use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command.
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -124,7 +108,7 @@ az monitor diagnostic-settings create --storage-account "<storage-account-id>" -
 
 Optionally, you can set a retention policy for your logs, so that older logs are automatically deleted after a specified amount of time. For example, you might set a retention policy that automatically deletes logs older than 90 days.
 
-With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
+With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
@@ -150,23 +134,19 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
 
 To configure diagnostic settings in the Azure portal, follow these steps:
 
-1. From the **Resource** pane menu, select **Diagnostic settings**.
+1. From the **Resource** pane menu, select **Diagnostic settings**, and then  **Add diagnostic setting**
 
    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Screenshot that shows how to select diagnostic settings.":::
 
-1. Select **+ Add diagnostic setting**.
+1. Under **Category groups**, select both **audit** and **allLogs**. 
+1. If Azure Log Analytics is the destination, select **Send to Log Analytics workspace** and choose your subscription and workspace from the drop-down menus. You may also select **Archive to a storage account** and choose your subscription and storage account from the drop-down menus.
 
-    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Screenshot that shows adding a diagnostic setting.":::
- 
-1. Select a name for your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select **AuditEvent** and **Send to Log Analytics workspace**. Then choose the subscription and Log Analytics workspace to which you want to send your logs. You can also select the option to **Archive to a storage account**.
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Screenshot of diagnostic settings options.":::
 
-    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Screenshot of diagnostic settings options.":::
-
-    Otherwise, select the options that pertain to the logs that you want to select.
 
 1. When you have selected your desired options, select **Save**.
 
-    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Screenshot that shows how to save the options you selected.":::
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Screenshot that shows how to save the options you selected.":::
 
 ---
 
@@ -174,7 +154,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
 
 Your Key Vault logs are in the *insights-logs-auditevent* container in the storage account that you provided. To view the logs, you have to download blobs.
 
-First, list all the blobs in the container.  With the Azure CLI, use the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
+First, list all the blobs in the container.  With the Azure CLI, use the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command.
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -190,7 +170,7 @@ From the output of either the Azure CLI command or the Azure PowerShell cmdlet, 
 
 Because you can use the same storage account to collect logs for multiple resources, the full resource ID in the blob name is useful to access or download just the blobs that you need.
 
-But first, download all the blobs. With the Azure CLI, use the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command, pass it the names of the blobs, and the path to the file where you want to save the results.
+But first, download all the blobs. With the Azure CLI, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command, pass it the names of the blobs, and the path to the file where you want to save the results.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

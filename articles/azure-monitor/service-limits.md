@@ -2,10 +2,10 @@
 title: Azure Monitor service limits | Microsoft Docs
 description: Lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
-ms.date: 06/10/2019
-
+ms.date: 04/05/2022
 ---
 
 # Azure Monitor service limits
@@ -14,43 +14,46 @@ This article lists limits in different areas of Azure Monitor.
 
 ## Alerts
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
+[!INCLUDE [monitoring-limits-alerts](../../includes/azure-monitor-limits-alerts.md)]
 
 ## Action groups
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+[!INCLUDE [monitoring-limits-action-groups](../../includes/azure-monitor-limits-action-groups.md)]
 
 ## Autoscale
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
+[!INCLUDE [monitoring-limits-autoscale](../../includes/azure-monitor-limits-autoscale.md)]
 
-## Custom logs
+## Prometheus metrics
 
-[!INCLUDE [custom-logs](../../includes/azure-monitor-limits-custom-logs.md)]
+[!INCLUDE [monitoring-limits-metrics](../../includes/azure-monitor-limits-metrics.md)]
+
+## Logs ingestion API
+
+[!INCLUDE [monitoring-limits-custom-logs](../../includes/azure-monitor-limits-custom-logs.md)]
 
 ## Data collection rules
 
-[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
+[!INCLUDE [monitoring-limits-data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
 
 ## Diagnostic Settings
 
-[!INCLUDE [diagnostic-settings](../../includes/azure-monitor-limits-diagnostic-settings.md)]
+[!INCLUDE [monitoring-limits-diagnostic-settings](../../includes/azure-monitor-limits-diagnostic-settings.md)]
 
 
 ## Log queries and language
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
+[!INCLUDE [monitoring-limits-log-queries](../../includes/azure-monitor-limits-log-queries.md)]
 
 ## Log Analytics workspaces
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
+[!INCLUDE [monitoring-limits-workspaces](../../includes/azure-monitor-limits-workspaces.md)]
 
 ## Application Insights
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits-application-insights](../../includes/application-insights-limits.md)]
 
 ## Next Steps
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitoring usage and estimated costs in Azure Monitor](./usage-estimated-costs.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)

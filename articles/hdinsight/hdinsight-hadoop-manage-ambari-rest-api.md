@@ -4,7 +4,7 @@ description: Learn how to use Ambari to monitor and manage Hadoop clusters in Az
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
-ms.date: 04/29/2020
+ms.date: 06/09/2022
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari REST API

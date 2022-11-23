@@ -1,8 +1,8 @@
 ---
 title: 'How to block network traffic with Azure Virtual Network Manager (Preview) - Azure PowerShell'
 description: Learn how to block network traffic using security rules in Azure Virtual Network Manager with the Azure PowerShell.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021

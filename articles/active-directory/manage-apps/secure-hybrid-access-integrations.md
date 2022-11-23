@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access with Azure AD partner integration
 description: Help customers discover and migrate SaaS applications into Azure AD and connect apps that use legacy authentication methods with Azure AD.
-titleSuffix: Azure AD
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/20/2021
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -560,28 +559,28 @@ Microsoft has partnerships with these application delivery controller (ADC) prov
 
 | **ADC provider** | **Link** |
 | --- | --- |
-| Akamai Enterprise Application Access | [https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial](../saas-apps/akamai-tutorial.md) |
-| Citrix ADC | [https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial](../saas-apps/citrix-netscaler-tutorial.md) |
-| F5 BIG-IP Access Policy Manager | [https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration](./f5-aad-integration.md) |
-| Kemp LoadMaster | [https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial](../saas-apps/kemp-tutorial.md) |
-| Pulse Secure Virtual Traffic Manager | [https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) |
+| Akamai Enterprise Application Access | [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md) |
+| Citrix ADC | [Citrix ADC](../saas-apps/citrix-netscaler-tutorial.md) |
+| F5 BIG-IP Access Policy Manager | [F5 BIG-IP Access Policy Manager](./f5-aad-integration.md) |
+| Kemp LoadMaster | [Kemp LoadMaster](../saas-apps/kemp-tutorial.md) |
+| Pulse Secure Virtual Traffic Manager | [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) |
 
 The following VPN solution providers connect with Azure AD to enable modern authentication and authorization methods like SSO and multifactor authentication.
 
 | **VPN vendor** | **Link** |
 | --- | --- |
-| Cisco AnyConnect | [https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect](../saas-apps/cisco-anyconnect.md) |
-| Fortinet FortiGate | [https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial](../saas-apps/fortigate-ssl-vpn-tutorial.md) |
-| F5 BIG-IP Access Policy Manager | [https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn](./f5-aad-password-less-vpn.md) |
-| Palo Alto Networks GlobalProtect | [https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial](../saas-apps/paloaltoadmin-tutorial.md) |
-| Pulse Connect Secure | [https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial](../saas-apps/pulse-secure-pcs-tutorial.md) |
+| Cisco AnyConnect | [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md) |
+| Fortinet FortiGate | [Fortinet FortiGate](../saas-apps/fortigate-ssl-vpn-tutorial.md) |
+| F5 BIG-IP Access Policy Manager | [F5 BIG-IP Access Policy Manager](./f5-aad-password-less-vpn.md) |
+| Palo Alto Networks GlobalProtect | [Palo Alto Networks GlobalProtect](../saas-apps/paloaltoadmin-tutorial.md) |
+| Pulse Connect Secure | [Pulse Connect Secure](../saas-apps/pulse-secure-pcs-tutorial.md) |
 
 The following providers of software-defined perimeter (SDP) solutions connect with Azure AD to enable modern authentication and authorization methods like SSO and multifactor authentication.
 
 | **SDP vendor** | **Link** |
 | --- | --- |
-| Datawiza Access Broker | [https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad](./datawiza-with-azure-ad.md) |
-| Perimeter 81 | [https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial](../saas-apps/perimeter-81-tutorial.md) |
-| Silverfort Authentication Platform | [https://docs.microsoft.com/azure/active-directory/manage-apps/silverfort-azure-ad-integration](./silverfort-azure-ad-integration.md) |
-| Strata Maverics Identity Orchestrator | [https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md) |
-| Zscaler Private Access | [https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial](../saas-apps/zscalerprivateaccess-tutorial.md) |
+| Datawiza Access Broker | [Datawiza Access Broker](./datawiza-with-azure-ad.md) |
+| Perimeter 81 | [Perimeter 81](../saas-apps/perimeter-81-tutorial.md) |
+| Silverfort Authentication Platform | [Silverfort Authentication Platform](./silverfort-azure-ad-integration.md) |
+| Strata Maverics Identity Orchestrator | [Strata Maverics Identity Orchestrator](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md) |
+| Zscaler Private Access | [Zscaler Private Access](../saas-apps/zscalerprivateaccess-tutorial.md) |

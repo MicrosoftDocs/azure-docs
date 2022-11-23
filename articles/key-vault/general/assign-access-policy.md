@@ -26,31 +26,31 @@ A Key Vault access policy determines whether a given security principal, namely 
 
 1.	In the [Azure portal](https://portal.azure.com), navigate to the Key Vault resource. 
 
-1.	Under **Settings**, select **Access policies**, then select **Add Access Policy**:
+1.	Select **Access policies**, then select **Create**:
 
-	![Select Access policies, selecting Add role assignment](../media/authentication/assign-policy-portal-01.png)
+	![Select Access policies, selecting Add role assignment](../media/authentication/assign-access-01.png)
 
-1.	Select the permissions you want under **Certificate permissions**, **Key permissions**, and **Secret permissions**. You can also select a template that contains common permission combinations:
+1.	Select the permissions you want under **Key permissions**, **Secret permissions**, and **Certificate permissions**. 
 
-	![Specifying access policy permissions](../media/authentication/assign-policy-portal-02.png)
+	![Specifying access policy permissions](../media/authentication/assign-access-02.png)
 
-1. Under **Select principal**, choose the **None selected** link to open the **Principal** selection pane. Enter the name of the user, app or service principal in the search field, select the appropriate result, then choose **Select**.
+1. Under the **Principal** selection pane, enter the name of the user, app or service principal in the search field and select the appropriate result.
 
-	![Selecting the security principal for the access policy](../media/authentication/assign-policy-portal-03.png)
+	![Selecting the security principal for the access policy](../media/authentication/assign-access-03.png)
 
     If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on security principals, see [Key Vault authentication](authentication.md).
  
-1.	Back in the **Add access policy** pane, select **Add** to save the access policy.
+1.	Review the access policy changes and select **Create** to save the access policy.
 
-	![Adding the access policy with the security principal assigned](../media/authentication/assign-policy-portal-04.png)
+	![Adding the access policy with the security principal assigned](../media/authentication/assign-access-04.png)
 
-1. Back on the **Access policies** page, verify that your access policy is listed under **Current Access Policies**, then select **Save**. Access policies aren't applied until you save them.
+1. Back on the **Access policies** page, verify that your access policy is listed. 
 
-	![Saving the access policy changes](../media/authentication/assign-policy-portal-05.png)
+	![Saving the access policy changes](../media/authentication/assign-access-05.png)
 
 # [Azure CLI](#tab/azure-cli)
 
-For more information on creating groups in Azure Active Directory using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az_ad_group_create) and [az ad group member add](/cli/azure/ad/group/member#az_ad_group_member_add).
+For more information on creating groups in Azure Active Directory using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az-ad-group-create) and [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add).
 
 ## Configure the Azure CLI and sign in
 
@@ -60,7 +60,7 @@ For more information on creating groups in Azure Active Directory using the Azur
 
 1. Local CLI only: sign in to Azure using `az login`:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -70,19 +70,19 @@ For more information on creating groups in Azure Active Directory using the Azur
 
 Determine the object ID of the application, group, or user to which you want to assign the access policy:
 
-- Applications and other service principals: use the [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command to retrieve your service principals. Examine the output of the command to determine the object ID of the security principal to which you want to assign the access policy.
+- Applications and other service principals: use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command to retrieve your service principals. Examine the output of the command to determine the object ID of the security principal to which you want to assign the access policy.
 
     ```azurecli-interactive
     az ad sp list --show-mine
     ```
 
-- Groups: use the [az ad group list](/cli/azure/ad/group#az_ad_group_list) command, filtering the results with the `--display-name` parameter:
+- Groups: use the [az ad group list](/cli/azure/ad/group#az-ad-group-list) command, filtering the results with the `--display-name` parameter:
 
      ```azurecli-interactive
     az ad group list --display-name <search-string>
     ```
 
-- Users: use the [az ad user show](/cli/azure/ad/user#az_ad_user_show) command, passing the user's email address in the `--id` parameter:
+- Users: use the [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing the user's email address in the `--id` parameter:
 
     ```azurecli-interactive
     az ad user show --id <email-address-of-user>
@@ -90,7 +90,7 @@ Determine the object ID of the application, group, or user to which you want to 
 
 ## Assign the access policy
     
-Use the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command to assign the desired permissions:
+Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to assign the desired permissions:
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -98,7 +98,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 Replace `<object-id>` with the object ID of your security principal.
 
-You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) documentation.
+You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) documentation.
 
 # [Azure PowerShell](#tab/azure-powershell)
 

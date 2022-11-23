@@ -1,8 +1,8 @@
 ---
 title: Compute and Storage Options - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 
@@ -173,7 +173,9 @@ After you create your server, you can independently change the vCores, the compu
 > [!NOTE]
 > The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
-When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute. Scaling the storage works the same way, and also requires a short restart.
+When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. The time it takes to restart your server depends on crash recovery process and database activity at the time of restart. Restart typically takes one minute or less, however can be higher and can take several minutes depending upon transactional activity at time of restart. Scaling the storage works the same way, and requires restart. 
+
+To improve the restart time, we recommend to perform scale operations during non-peak hours, that will reduce the time needed to restart the database server.
 
 Changing the backup retention period is an online operation.
 

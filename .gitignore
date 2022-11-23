@@ -24,4 +24,6 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 *.pdn
-articles/azure-cache-for-redis/media/cache-managed-identity/Screenshot 2022-01-20 092913.pdn
+
+# Pycharm
+.idea/*

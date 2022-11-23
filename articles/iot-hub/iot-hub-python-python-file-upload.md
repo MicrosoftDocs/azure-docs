@@ -15,33 +15,35 @@ ms.custom: mqtt, devx-track-python
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using Python.
 
-* Securely provide a storage container for uploading a file.
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-python-python-c2d.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
-* Use the Python client to upload a file through your IoT hub.
+* Videos
+* Large files that contain images
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
-At the end of this tutorial, you run the Python console app:
+At the end of this article, you run the Python console app **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
-* **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
-
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+> [!NOTE]
+> IoT Hub supports many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) to learn how to connect your device to Azure IoT Hub.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
-## Create an IoT hub
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-## Register a new device in the IoT hub
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
@@ -181,15 +183,15 @@ Now you're ready to run the application.
 
 2. The following screenshot shows the output from the **FileUpload** app:
 
-    ![Output from simulated-device app](./media/iot-hub-python-python-file-upload/run-device-app.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/run-device-app.png" alt-text="Screenshot showing output from running the FileUpload app." border="true" lightbox="./media/iot-hub-python-python-file-upload/run-device-app.png":::
 
 3. You can use the portal to view the uploaded file in the storage container you configured:
 
-    ![Uploaded file](./media/iot-hub-python-python-file-upload/view-blob.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/view-blob.png" alt-text="Screenshot of the container in the Azure portal that shows the uploaded file." border="true" lightbox="./media/iot-hub-python-python-file-upload/view-blob.png":::
 
 ## Next steps
 
-In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
+In this article, you learned how to use the file upload feature of IoT Hub to simplify file uploads from devices. You can continue to explore this feature with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
 

@@ -14,6 +14,8 @@ ms.author: shuawan
 ---
 # Integrate with Kubernetes Deployment using Helm
 
+Applications hosted in Kubernetes can access data in App Configuration [using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refreshing capabilities so applications can have dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to your Kubernetes using Helm via deployment. This way, your application can continue accessing configuration from Kubernetes variables and secrets. You run Helm upgrade when you want your application to pick up new configuration changes.
+
 Helm provides a way to define, install, and upgrade applications running in Kubernetes. A Helm chart contains the information necessary to create an instance of a Kubernetes application. Configuration is stored outside of the chart itself, in a file called *values.yaml*.
 
 During the release process, Helm merges the chart with the proper configuration to run the application. For example, variables defined in *values.yaml* can be referenced as environment variables inside the running containers. Helm also supports creation of Kubernetes Secrets, which can be mounted as data volumes or exposed as environment variables.
@@ -186,7 +188,7 @@ settings:
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them.
 
 > [!TIP]
-> Learn more about the [export command](/cli/azure/appconfig/kv#az_appconfig_kv_export).
+> Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml

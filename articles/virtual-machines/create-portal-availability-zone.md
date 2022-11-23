@@ -4,7 +4,7 @@ description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/17/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: 
@@ -18,7 +18,7 @@ This article steps through using the Azure portal to create highly resilient vir
 
 To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
 
-Some users will now see the option to create VMs in multiple zones. If you see the following message, please use the **Preview** tab below.
+Some users will now see the option to create VMs in multiple zones. If you see the following message, use the **Preview** tab below.
 
 :::image type="content" source="media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
@@ -67,7 +67,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
    1. You can select an existing load balancer or select **Create a load balancer**.
    2. To create a new load balancer, for **Load balancer name** type a load balancer name.
-   3. Select the **Type** of load balancer, either Public or Internal.
+   3. Select the **Type** of load balancer, either *Public* or *Internal*.
    4. Select the **Protocol**, either **TCP** or **UDP**.
    5. You can leave the default **Port** and **Backend port**, or change them if needed. The backend port you select will be opened up on the Network Security Group (NSG) of the VM.
    6. When you are done, select **Create**.
@@ -78,15 +78,14 @@ Some users will now see the option to create VMs in multiple zones. If you see t
    2. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
    3. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
    4. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
+     - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
+     - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
         
-        - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
-        - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
-        
-        > [!IMPORTANT]
-        > After the VMs and application gateway are deployed, log in to the VMs to ensure that either the application gateway certificate is uploaded onto the VMs or the domain name of the VM certificate matches with the domain name of the application gateway.
+   > [!IMPORTANT]
+   > After the VMs and application gateway are deployed, log in to the VMs to ensure that either the application gateway certificate is uploaded onto the VMs or the domain name of the VM certificate matches with the domain name of the application gateway.
 
-        > [!NOTE]
-        > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
+   > [!NOTE]
+   > A separate subnet will be defined for Application Gateway upon creation. For more information, see [Application Gateway infrastructure configuration](../application-gateway/configuration-infrastructure.md).
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 

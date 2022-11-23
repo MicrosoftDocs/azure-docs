@@ -83,6 +83,8 @@
           href: manage-dns.md
         - name: Check health status
           href: check-health.md
+        - name: Fleet metrics
+          href: fleet-metrics.md
         - name: Configure email notifications
           href: notifications.md
         - name: Delete a managed domain
@@ -91,6 +93,8 @@
           href: migrate-from-classic-vnet.md
         - name: Change SKU
           href: change-sku.md
+        - name: Retrieve data
+          href: how-to-data-retrieval.md
     - name: Secure Azure AD DS
       items:
         - name: Secure your managed domain
@@ -119,6 +123,10 @@
           href: join-ubuntu-linux-vm.md
         - name: SUSE Linux Enterprise
           href: join-suse-linux-vm.md
+    - name: AD authentication through LDAP Linux
+      items:
+        - name: Active Directory authentication non domain joined Linux Virtual Machines
+          href: ad-auth-no-join-linux-vm.md
     - name: Deploy applications
       items:
         - name: Deploy Azure AD Application Proxy

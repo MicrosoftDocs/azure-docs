@@ -3,7 +3,7 @@ title: Route traffic for HA of applications - Azure CLI - Traffic Manager
 description: Azure CLI script sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: greg-lindsay
 manager: twooley
 tags: azure-infrastructure
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 02/28/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Route traffic for high availability of applications using Azure CLI
@@ -49,7 +49,7 @@ This script uses the following commands to create a resource group, web app, tra
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](/cli/azure/appservice/plan) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az webapp web create](/cli/azure/webapp#az_webapp_create) | Creates an Azure web app within the App Service plan. |
+| [az webapp web create](/cli/azure/webapp#az-webapp-create) | Creates an Azure web app within the App Service plan. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Creates an Azure Traffic Manager profile. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Adds an endpoint to an Azure Traffic Manager Profile. |
 

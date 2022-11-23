@@ -2,7 +2,7 @@
 title: Azure Event Hubs - Exchange events using different protocols
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
 ms.topic: article
-ms.date: 09/20/2021
+ms.date: 10/25/2022
 ms.devlang: csharp, java
 ms.custom: devx-track-csharp
 ---
@@ -126,6 +126,22 @@ For Kafka consumers that receive properties from AMQP or HTTPS producers, use th
 
 As a best practice, we recommend that you include a property in messages sent via AMQP or HTTPS. The Kafka consumer can use it to determine whether header values need AMQP deserialization. The value of the property is not important. It just needs a well-known name that the Kafka consumer can find in the list of headers and
 adjust its behavior accordingly.
+
+> [!NOTE]
+> The Event Hubs service natively converts some of the EventHubs specific [AmqpMessage properties](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-properties) to [Kafka’s record headers](https://kafka.apache.org/32/javadoc/org/apache/kafka/common/header/Headers.html) as **strings**. Kafka message header is a list of &lt;key, value&gt; pairs where key is string and value is always a byte array. For these supported properties, the byte array will have an UTF8encoded string. 
+>
+> Here is the list of immutable properties that Event Hubs support in this conversion today. If you set values for user properties with the names in this list, you don’t need to deserialize at the Kafka consumer side.
+> 
+> - message-id
+> - user-id
+> - to
+> - reply-to
+> - content-type
+> - content-encoding
+> - creation-time
+
+
+
 
 ### AMQP to Kafka part 1: create and send an event in C# (.NET) with properties
 ```csharp

@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/09/2021
-ms.custom: mode-other, devx-track-azurecli, contperf-fy22q3
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23, devx-track-azurecli
 ---
 
 # Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -94,7 +94,7 @@ To create an IoT hub:
     - If you prefer to use Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. Run [az extension add](/cli/azure/extension#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
@@ -129,7 +129,7 @@ In the rest of this quickstart, you'll use IoT Explorer to register a device to 
 
 To add a connection to your IoT hub:
 
-1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
+1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
 
     ```azurecli
     az iot hub connection-string  show --hub-name {YourIoTHubName}
@@ -324,7 +324,7 @@ To view device properties using Azure IoT Explorer:
  
 To use Azure CLI to view device properties:
 
-1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show) command.
+1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show) command.
 
     ```azurecli
     az iot hub device-identity show --device-id mydevice --hub-name {YourIoTHubName}
@@ -355,7 +355,7 @@ To view telemetry in Azure IoT Explorer:
 
 To use Azure CLI to view device telemetry:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
@@ -395,7 +395,7 @@ To call a method in Azure IoT Explorer:
 
 To use Azure CLI to call a method:
 
-1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az_iot_hub_invoke_device_method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
+1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
     ```azurecli
     az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}

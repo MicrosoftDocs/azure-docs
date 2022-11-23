@@ -1,12 +1,12 @@
 ---
 title: Ddv4 and Ddsv4-series 
 description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
-author: brbell
-ms.author: brbell
+author: andysports8
+ms.author: shuji
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
 ---
@@ -38,10 +38,10 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max NICs|Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2d_v4<sup>1</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 1000  |
-| Standard_D4d_v4             | 4  | 16  | 150  | 8  | 19000/250   | 2 | 2000  |
-| Standard_D8d_v4             | 8  | 32  | 300  | 16 | 38000/500   | 4 | 4000  |
-| Standard_D16d_v4            | 16 | 64  | 600  | 32 | 75000/1000   | 8 | 8000  |
+| Standard_D2d_v4<sup>1</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 5000  |
+| Standard_D4d_v4             | 4  | 16  | 150  | 8  | 19000/250   | 2 | 10000  |
+| Standard_D8d_v4             | 8  | 32  | 300  | 16 | 38000/500   | 4 | 12500  |
+| Standard_D16d_v4            | 16 | 64  | 600  | 32 | 75000/1000   | 8 | 12500  |
 | Standard_D32d_v4            | 32 | 128 | 1200 | 32 | 150000/2000 | 8 | 16000 |
 | Standard_D48d_v4            | 48 | 192 | 1800 | 32 | 225000/3000 | 8 | 24000 |
 | Standard_D64d_v4            | 64 | 256 | 2400 | 32 | 300000/4000 | 8 | 30000 |
@@ -74,10 +74,10 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v4<sup>2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3200/48    | 4000/200   | 2 | 1000  |
-| Standard_D4ds_v4             | 4  | 16  | 150  | 8  | 19000/250   | 6400/96    | 8000/200   | 2 | 2000  |
-| Standard_D8ds_v4             | 8  | 32  | 300  | 16 | 38000/500   | 12800/192  | 16000/400  | 4 | 4000  |
-| Standard_D16ds_v4            | 16 | 64  | 600  | 32 | 85000/1000   | 25600/384  | 32000/800  | 8 | 8000  |
+| Standard_D2ds_v4<sup>2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3200/48    | 4000/200   | 2 | 5000  |
+| Standard_D4ds_v4             | 4  | 16  | 150  | 8  | 19000/250   | 6400/96    | 8000/200   | 2 | 10000  |
+| Standard_D8ds_v4             | 8  | 32  | 300  | 16 | 38000/500   | 12800/192  | 16000/400  | 4 | 12500  |
+| Standard_D16ds_v4            | 16 | 64  | 600  | 32 | 85000/1000   | 25600/384  | 32000/800  | 8 | 12500  |
 | Standard_D32ds_v4            | 32 | 128 | 1200 | 32 | 150000/2000 | 51200/768  | 64000/1600 | 8 | 16000 |
 | Standard_D48ds_v4            | 48 | 192 | 1800 | 32 | 225000/3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_D64ds_v4            | 64 | 256 | 2400 | 32 | 300000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |

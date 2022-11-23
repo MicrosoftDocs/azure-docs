@@ -50,7 +50,7 @@ When the query string versioning scheme is used, the version identifier needs to
 
 The format of an API request URL when using query string-based versioning is: `https://{yourDomain}/{apiName}/{operationId}?{queryStringParameterName}={versionIdentifier}`.
 
-For example, `https://apis.contoso.com/products?api-version=v1` and `https://apis.contoso.com/products/api-version=v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
+For example, `https://apis.contoso.com/products?api-version=v1` and `https://apis.contoso.com/products?api-version=v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
 ## Original versions
 

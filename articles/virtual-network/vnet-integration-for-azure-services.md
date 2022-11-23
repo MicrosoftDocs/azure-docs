@@ -4,13 +4,14 @@ titlesuffix: Azure Virtual Network
 description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 12/01/2020
-ms.author: kumud
+ms.author: allensu
 ---
 
 
@@ -114,13 +115,14 @@ To compare and understand the differences, see the following table.
 | Service can be reached without using any public IP address                                                                                       | No                                                                                                                          | Yes                                                                                                                                                               |
 | Azure-to-Azure traffic stays on the Azure backbone network                                                                                       | Yes                                                                                                                         | Yes                                                                                                                                                               |
 | Service can disable its public IP address                                                                                                        | No                                                                                                                          | Yes                                                                                                                                                               |
-| You can easily restrict traffic coming from an Azure Virtual Network                                                                             | Yes (allow access from specific subnets and or use NSGs)                                                                   | No*                                                                                                                                                               |
-| You can easily restrict traffic coming from on-prem (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | No*                                                                                                                                                               |
+| You can easily restrict traffic coming from an Azure Virtual Network                                                                             | Yes (allow access from specific subnets and or use NSGs)                                                                   | Yes                                                                                                                                                               |
+| You can easily restrict traffic coming from on-prem (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | Yes                                                                                                                                                               |
 | Requires DNS changes                                                                                                                             | No                                                                                                                          | Yes (see [DNS configuration](../private-link/private-endpoint-dns.md))                                                                 |
 | Impacts the cost of your solution                                                                                                                | No                                                                                                                          | Yes (see [Private link pricing](https://azure.microsoft.com/pricing/details/private-link/))                                                                       |
 | Impacts the [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) of your solution | No                                                                                                                          | Yes (Private link service itself has a [99.99% SLA](https://azure.microsoft.com/support/legal/sla/private-link/))                                                 |
+| Setup and maintenance | Simple to set up with less management overhead | Additional effort is required |
+| Limits | No limit on the total number of service endpoints in a virtual network. Azure services may enforce limits on the number of subnets used for securing the resource. (see [VNet FAQ](virtual-networks-faq.md#are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet)) | Yes (see [Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)) |
 
-*Anything with network line-of-sight into the private endpoint will have network-level access. This access can't be controlled by an NSG on the private endpoint itself.
 
 **Azure service resources secured to virtual networks aren't reachable from on-premises networks. If you want to allow traffic from on-premises, allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources. For more information, see the [VNet FAQ](virtual-networks-faq.md#can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints).
 
@@ -128,4 +130,4 @@ To compare and understand the differences, see the following table.
 
 - Learn how to [integrate your app with an Azure network](../app-service/overview-vnet-integration.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
-- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).
+- Learn how to [connect privately to an Azure Cosmos DB account via Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

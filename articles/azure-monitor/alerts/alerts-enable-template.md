@@ -1,28 +1,29 @@
 ---
 title: Resource Manager template - create metric alert
 description: Learn how to use a Resource Manager template to create a classic metric alert to receive notifications by email or webhook.
-author: rboucher
-ms.author: robb
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 03/30/2022
+ms.reviewer: harelbr
 ---
-# Create a classic metric alert with a Resource Manager template
+# Create a classic metric alert rule with a Resource Manager template
 
 > [!WARNING]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> This article describes how to create older classic metric alert rules. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure Azure classic metric alert rules. This enables you to automatically set up alert rules on your resources when they are created to ensure that all resources are monitored correctly.
 
 The basic steps are as follows:
 
-1. Create a template as a JSON file that describes how to create the alert.
+1. Create a template as a JSON file that describes how to create the alert rule.
 2. [Deploy the template using any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
+Below we describe how to create a Resource Manager template first for an alert rule alone, then for an alert rule during the creation of another resource.
 
-## Resource Manager template for a classic metric alert
-To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/alertRules` and fill in all related properties. Below is a template that creates an alert rule.
+## Resource Manager template for a classic metric alert rule
+To create an alert rule using a Resource Manager template, you create a resource of type `Microsoft.Insights/alertRules` and fill in all related properties. Below is a template that creates an alert rule.
 
 ```json
 {
@@ -171,8 +172,8 @@ To create an alert using a Resource Manager template, you create a resource of t
 
 An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/alertrules).
 
-## Resource Manager template for a resource with a classic metric alert
-An alert on a Resource Manager template is most often useful when creating an alert while creating a resource. For example, you may want to ensure that a “CPU % > 80” rule is set up every time you deploy a Virtual Machine. To do this, you add the alert rule as a resource in the resource array for your VM template and add a dependency using the `dependsOn` property to the VM resource ID. Here’s a full example that creates a Windows VM and adds an alert that notifies subscription admins when the CPU utilization goes above 80%.
+## Resource Manager template for a resource with a classic metric alert rule
+An alert rule on a Resource Manager template is most often useful when creating an alert rule while creating a resource. For example, you may want to ensure that a “CPU % > 80” rule is set up every time you deploy a Virtual Machine. To do this, you add the alert rule as a resource in the resource array for your VM template and add a dependency using the `dependsOn` property to the VM resource ID. Here’s a full example that creates a Windows VM and adds an alert rule that notifies subscription admins when the CPU utilization goes above 80%.
 
 ```json
 {

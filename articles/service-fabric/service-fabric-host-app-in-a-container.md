@@ -1,15 +1,17 @@
 ---
 title: Deploy a .NET app in a container to Azure Service Fabric 
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
-
 ms.topic: tutorial
-ms.date: 07/08/2019 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
-This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
+This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 In this tutorial, you learn how to:
 
@@ -43,7 +45,7 @@ In this tutorial, you learn how to:
 
 When running the Fabrikam Fiber CallCenter application in production, the data needs to be persisted in a database. There is currently no way to guarantee persistent data in a container, therefore you cannot store production data in SQL Server in a container.
 
-We recommend [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
+We recommend [Azure SQL Database](/azure/azure-sql/database/powershell-script-content-guide). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -209,7 +211,7 @@ You can confirm the installation by opening **Manage User Certificates** from th
 
 ## Allow your application running in Azure to access SQL Database
 
-Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](../azure-sql/database/vnet-service-endpoint-rule-overview.md) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
+Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
 
 ```powershell
 # Create a virtual network service endpoint

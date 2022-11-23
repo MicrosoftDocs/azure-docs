@@ -13,6 +13,8 @@ Alternatively, check out [troubleshoot on the edge](../edge/troubleshoot.md).
 
 ---
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article covers troubleshooting steps for common error scenarios you might see while using the service.
 
 ## Enable diagnostics

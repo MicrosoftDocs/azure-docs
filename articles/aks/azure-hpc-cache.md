@@ -16,7 +16,7 @@ ms.date: 09/08/2021
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > Your AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
@@ -331,8 +331,9 @@ We'd love to hear from you!  Please send any feedback or questions to <aks-hpcca
 * For more information on Azure HPC Cache, see [HPC Cache Overview][hpc-cache].
 * For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
 
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-nfs]: azure-nfs-volume.md
 [hpc-cache]: ../hpc-cache/hpc-cache-overview.md
 [hpc-cache-access-policies]: ../hpc-cache/access-policies.md

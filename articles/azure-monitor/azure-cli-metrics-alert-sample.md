@@ -4,7 +4,7 @@ description: Learn how to create metric alerts in Azure Monitor with Azure CLI c
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 08/06/2021
+ms.date: 04/05/2022
 ms.custom: devx-track-azurecli
 
 ---
@@ -69,7 +69,7 @@ condition=$(az monitor metrics alert condition create --aggregation Average \
    --dimension $dim01 --output tsv)
 ```
 
-To see a list of the possible metrics, run the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command. The `--output` parameter displays the values in a readable format.
+To see a list of the possible metrics, run the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command. The `--output` parameter displays the values in a readable format.
 
 
 ```azurecli
@@ -102,17 +102,17 @@ az monitor metrics alert delete --name alert-02
 
 This article uses the following Azure CLI commands:
 
-- [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create)
-- [az appservice plan show](/cli/azure/appservice/plan#az_appservice_plan_show)
+- [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create)
+- [az appservice plan show](/cli/azure/appservice/plan#az-appservice-plan-show)
 - [az group create](/cli/azure/group#az-group-create)
 - [az group delete](/cli/azure/group#az-group-delete)
-- [az monitor action-group create](/cli/azure/monitor/action-group#az_monitor_action_group_create)
+- [az monitor action-group create](/cli/azure/monitor/action-group#az-monitor-action-group-create)
 - [az monitor metrics alert condition create](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-condition-create)
 - [az monitor metrics alert create](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-create)
 - [az monitor metrics alert delete](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-delete)
 - [az monitor metrics alert dimension create](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-dimension-create)
-- [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions)
-- [az vm show](/cli/azure/vm#az_vm_show)
+- [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
+- [az vm show](/cli/azure/vm#az-vm-show)
 
 ## Next steps
 

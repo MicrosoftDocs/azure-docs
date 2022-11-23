@@ -290,7 +290,7 @@ This logic means that if the Virtual Network is linked to a Private DNS Zone wit
 
 As you can see, the name resolution is under your control. The rationales for this design are:
 
-- You may have a complex scenario that involves custom DNS servers and integration with on-premise networks. In that case, you need to control how names are translated to IP addresses.
+- You may have a complex scenario that involves custom DNS servers and integration with on-premises networks. In that case, you need to control how names are translated to IP addresses.
 - You may need to access a key vault without private links. In that case, resolving the hostname from the Virtual Network must return the public IP address, and this happens because key vaults without private links don't have the `privatelink` alias in the name registration.
 
 ## 7. Validate that requests to key vault use private link

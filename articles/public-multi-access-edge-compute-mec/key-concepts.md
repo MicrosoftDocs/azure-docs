@@ -62,7 +62,7 @@ Azure public MEC supports specific compute and GPU VM SKUs. The following table 
 
 | Type | Series | VM size |
 | ---- | ------ | ------- |
-| VM | D-series | D2s_v3, D4s_v3, D8s_v3 |
+| VM | D-series | D1s_v2, D2s_v2, D2s_v3, D4s_v3, D8s_v3 |
 | VM | E-series | E4s_v3, E8s_v3 |
 | GPU | NCasT4_v3-series | Standard_NC4asT4_v3, Standard_NC8asT4_v3 |
 
@@ -92,7 +92,7 @@ Azure public MEC supports creating Standard SSD managed disks only. All other Az
 
 ### Default outbound access
 
-Because Azure public MEC doesn't support [default outbound access](/azure/virtual-network/ip-services/default-outbound-access), manage your outbound connectivity by using one of the following methods:
+Because Azure public MEC doesn't support [default outbound access](../virtual-network/ip-services/default-outbound-access.md), manage your outbound connectivity by using one of the following methods:
 
 - Use the frontend IP addresses of an Azure Load Balancer for outbound via outbound rules.
 - Assign an Azure public IP to the VM.

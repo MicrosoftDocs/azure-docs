@@ -8,13 +8,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Salesforce for automatic user provisioning
 
 The objective of this tutorial is to show the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 
+> [!Note]
+> Microsoft uses v28 of the Salesforce API for automatic provisioning. Microsoft is aware of the upcoming deprecation of v21 through v30 and is working with Salesforce to migrate to a supported version prior to the deprecation date. No customer action is required.
+> 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:

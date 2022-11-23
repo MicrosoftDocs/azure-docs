@@ -11,6 +11,9 @@ ms.custom: mode-other
 
 # How to query the prediction runtime with user text
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser.
 
 ## Prerequisites
@@ -94,7 +97,7 @@ In order to query a public app, you need:
 
     #### [V3 prediction endpoint](#tab/V3-3-1)
 
-    Add `show-all-intents=true` to the end of the querystring to **show all intents**, and `verbose=true' to return all detailed information for entities.
+    Add `show-all-intents=true` to the end of the querystring to **show all intents**, and `verbose=true` to return all detailed information for entities.
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true&verbose=true

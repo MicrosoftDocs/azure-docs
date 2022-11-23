@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/11/2022
 ms.author: anfdocs
 ---
 # Dynamically change the service level of a volume
 
-You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact access to the volume.  
+You can change the service level of an existing volume by moving the volume to another capacity pool in the same NetApp account that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not affect access to the volume.  
 
 This functionality enables you to meet your workload needs on demand.  You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. For example, if the volume is currently in a capacity pool that uses the *Standard* service level and you want the volume to use the *Premium* service level, you can move the volume dynamically to a capacity pool that uses the *Premium* service level.  
 
@@ -25,31 +25,13 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 ## Considerations
 
-* After the volume is moved to another capacity pool, you will no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
+* This functionality is supported within the same NetApp account. You can't move the volume to a capacity pool in a different NetApp Account.
 
-* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*).  
+* After the volume is moved to another capacity pool, you'll no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
 
-## Register the feature
+* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
 
-The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
-
-If you have multiple Azure subscriptions, ensure that you are registering for the intended subscription by using the ['Set-AzContext'](/powershell/module/az.accounts/set-azcontext) command. <!-- GitHub #74191 --> 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+* You cannot change the service level for volumes in a cross-region replication relationship. 
  
 ## Move a volume to another capacity pool
 
@@ -61,7 +43,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![Change pool](../media/azure-netapp-files/change-pool.png)
 
-3.	Click **OK**.
+3.	Select **OK**.
 
 
 ## Next steps  

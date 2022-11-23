@@ -1,21 +1,15 @@
 ---
 title: SAP HANA availability within one Azure region | Microsoft Docs
 description: Describes SAP HANA operations on Azure native VMs in one Azure region.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP HANA availability within one Azure region
@@ -50,7 +44,7 @@ A health check functionality monitors the health of every VM that's hosted on an
 With the host and VM monitoring provided by Azure, Azure VMs that experience host issues are automatically restarted on a healthy Azure host. 
 
 >[!IMPORTANT]
->Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically restarting VMs or server where the Linux kernel is in panic state. Instead the default foresees to keep the OS in kernel panic state to be able to attach a kernel debugger to analyze. Azure is honoring that behavior by not automatically restarting a VM with the guest OS in a such a state. Assumption is that such occurrences are extremely rare. You could overwrite the default behavior to enable a restart of the VM. To change the default behavior enable the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. See also <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>.
+>Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically restarting VMs or server where the Linux kernel is in panic state. Instead the default foresees to keep the OS in kernel panic state to be able to attach a kernel debugger to analyze. Azure is honoring that behavior by not automatically restarting a VM with the guest OS in a such a state. Assumption is that such occurrences are extremely rare. You could overwrite the default behavior to enable a restart of the VM. To change the default behavior enable the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. For more information, see [sysctl.conf](https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf).
 
 The second feature that you rely on in this scenario is the fact that the HANA service that runs in a restarted VM starts automatically after the VM reboots. You can set up [HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) through the watchdog services of the various HANA services.
 
@@ -104,7 +98,7 @@ In this scenario, data that's replicated to the HANA instance in the second VM i
 
 ### SAP HANA system replication with automatic failover
 
-In the standard and most common availability configuration within one Azure region, two Azure VMs running SLES Linux have a failover cluster defined. The SLES Linux cluster is based on the [Pacemaker](./high-availability-guide-suse-pacemaker.md) framework, in conjunction with a [STONITH](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) device. 
+In the standard and most common availability configuration within one Azure region, two Azure VMs running SLES Linux have a failover cluster defined. The SLES Linux cluster is based on the [Pacemaker](./high-availability-guide-suse-pacemaker.md) framework, in conjunction with a [fencing device](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device). 
 
 From an SAP HANA perspective, the replication mode that's used is synced and an automatic failover is configured. In the second VM, the SAP HANA instance acts as a hot standby node. The standby node receives a synchronous stream of change records from the primary SAP HANA instance. As transactions are committed by the application at the HANA primary node, the primary HANA node waits to confirm the commit to the application until the secondary SAP HANA node confirms that it received the commit record. SAP HANA offers two synchronous replication modes. For details and for a description of differences between these two synchronous replication modes, see the SAP article [Replication modes for SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 

@@ -174,7 +174,7 @@ This sample has been truncated to show a snippet of the result:
 
 ## Clean up resources
 
-If you've hardcoded your subscription key into your program, make sure to remove the subscription key when you're finished with this quickstart.
+If you've hardcoded your key into your program, make sure to remove the key when you're finished with this quickstart.
 
 ## Next steps
 

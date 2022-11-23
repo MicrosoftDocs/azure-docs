@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: caitlinv39
-  ms.author: cavoeg
-  ms.date: 02/22/2022
+  author: expekesheth
+  ms.author: kesheth
+  ms.date: 05/06/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -71,19 +71,26 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Profile validation
-            url: validation-against-profiles.md
-          - text: Patient-everything
-            url: patient-everything.md
           - text: $member-match operation
             url: tutorial-member-match.md
+          - text: Patient/$everything
+            url: patient-everything.md
+          - text: Profile validation
+            url: validation-against-profiles.md
+          - text: $purge-history operation
+            url: purge-history.md     
   - title: Export and Convert Data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Export data
-            url: export-data.md
-          - text: Copy data to Synapse
-            url: copy-to-synapse.md
+          - text: Configure settings for export 
+            url: configure-export-data.md
+          - text: Configure settings for bulk-import
+            url: configure-import-data.md
           - text: Convert data
             url: convert-data.md
+          - text: Copy data to Synapse
+            url: copy-to-synapse.md
+          - text: Export data
+            url: export-data.md
+        

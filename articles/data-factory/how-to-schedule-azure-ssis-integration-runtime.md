@@ -6,8 +6,9 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
+ms.custom: subject-rbac-steps
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
@@ -20,6 +21,11 @@ Alternatively, you can create Web activities in ADF or Synapse pipelines to star
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
+
+### Data Factory
+You will need an instance of Azure Data Factory to implement this walk through. If you do not have one already provisioned, you can follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md).
+
+### Azure-SSIS Integration Runtime (IR)
 If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## Create and schedule ADF pipelines that start and or stop Azure-SSIS IR
@@ -35,50 +41,13 @@ For example, you can create two triggers, the first one is scheduled to run dail
 
 If you create a third trigger that is scheduled to run daily at midnight and associated with the third pipeline, that pipeline will run at midnight every day, starting your IR just before package execution, subsequently executing your package, and immediately stopping your IR just after package execution, so your IR will not be running idly.
 
-### Create your ADF
-
-1. Sign in to [Azure portal](https://portal.azure.com/).    
-2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
-   
-   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png" alt-text="New->DataFactory":::
-   
-3. In the **New data factory** page, enter **MyAzureSsisDataFactory** for **Name**. 
-      
-   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png" alt-text="New data factory page":::
- 
-   The name of your ADF must be globally unique. If you receive the following error, change the name of your ADF (e.g. yournameMyAzureSsisDataFactory) and try creating it again. See [Data Factory - Naming Rules](naming-rules.md) article to learn about naming rules for ADF artifacts.
-  
-   `Data factory name MyAzureSsisDataFactory is not available`
-      
-4. Select your Azure **Subscription** under which you want to create your ADF. 
-5. For **Resource Group**, do one of the following steps:
-     
-   - Select **Use existing**, and select an existing resource group from the drop-down list. 
-   - Select **Create new**, and enter the name of your new resource group.   
-         
-   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) article.
-   
-6. For **Version**, select **V2** .
-7. For **Location**, select one of the locations supported for ADF creation from the drop-down list.
-8. Select **Pin to dashboard**.     
-9. Click **Create**.
-10. On Azure dashboard, you will see the following tile with status: **Deploying Data Factory**. 
-
-    :::image type="content" source="media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png" alt-text="deploying data factory tile":::
-   
-11. After the creation is complete, you can see your ADF page as shown below.
-   
-    :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png" alt-text="Data factory home page":::
-   
-12. Click **Author & Monitor** to launch ADF UI/app in a separate tab.
-
 ### Create your pipelines
 
 1. In the home page, select **Orchestrate**. 
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/orchestrate-button.png" alt-text="Screenshot that shows the Orchestrate button on the Azure Data Factory home page.":::
    
-2. In **Activities** toolbox, expand **General** menu, and drag & drop a **Web** activity onto the pipeline designer surface. In **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to **Settings** tab, and do the following actions:
+2. In the **Activities** toolbox, expand **General** menu, and drag & drop a **Web** activity onto the pipeline designer surface. In **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to **Settings** tab, and do the following actions:
     > [!NOTE]
     > For Azure-SSIS in Azure Synapse, use corresponding Azure Synapse REST API to [Get Integration Runtime status](/rest/api/synapse/integration-runtimes/get), [Start Integration Runtime](/rest/api/synapse/integration-runtimes/start) and [Stop Integration Runtime](/rest/api/synapse/integration-runtimes/stop).
 
@@ -119,14 +88,19 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
     
       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir-open.png" alt-text="ADF Until Activity On-Demand SSIS IR Open":::
 
-7. Assign the managed identity for your ADF a **Contributor** role to itself, so Web activities in its pipelines can call REST API to start/stop Azure-SSIS IRs provisioned in it.  On your ADF page in Azure portal, click **Access control (IAM)**, click **+ Add role assignment**, and then on **Add role assignment** blade, do the following actions:
+7. Assign the managed identity for your ADF a **Contributor** role to itself, so Web activities in its pipelines can call REST API to start/stop Azure-SSIS IRs provisioned in it:  
 
-   1. For **Role**, select **Contributor**. 
-   2. For **Assign access to**, select **Azure AD user, group, or service principal**. 
-   3. For **Select**, search for your ADF name and select it. 
-   4. Click **Save**.
-    
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png" alt-text="ADF Managed Identity Role Assignment":::
+   1. On your ADF page in the Azure portal, select **Access control (IAM)**.
+   1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+      | Setting | Value |
+      | --- | --- |
+      | Role | Contributor |
+      | Assign access to | User, group, or service principal |
+      | Members | Your ADF username |
+
+      :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
 
 8. Validate your ADF and all pipeline settings by clicking **Validate all/Validate** on the factory/pipeline toolbar. Close **Factory/Pipeline Validation Output** by clicking **>>** button.  
 
@@ -177,7 +151,7 @@ Now that your pipelines work as you expected, you can create triggers to run the
 4. In **Trigger Run Parameters** page, review any warning, and select **Finish**. 
 5. Publish the whole ADF settings by selecting **Publish All** in the factory toolbar. 
 
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png" alt-text="Publish All":::
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png" alt-text="Screenshot that shows the Publish All button."::: 
 
 ### Monitor your pipelines and triggers in Azure portal
 
@@ -221,7 +195,7 @@ In this section, you will learn to create Azure Automation runbook that executes
 
 ### Create your Azure Automation account
 
-If you do not have an Azure Automation account already, create one by following the instructions in this step. For detailed steps, see [Create an Azure Automation account](../automation/quickstarts/create-account-portal.md) article. As part of this step, you create an **Azure Run As** account (a service principal in your Azure Active Directory) and assign it a **Contributor** role in your Azure subscription. Ensure that it is the same subscription that contains your ADF with Azure SSIS IR. Azure Automation will use this account to authenticate to Azure Resource Manager and operate on your resources. 
+If you do not have an Azure Automation account already, create one by following the instructions in this step. For detailed steps, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md) article. As part of this step, you create an **Azure Run As** account (a service principal in your Azure Active Directory) and assign it a **Contributor** role in your Azure subscription. Ensure that it is the same subscription that contains your ADF with Azure SSIS IR. Azure Automation will use this account to authenticate to Azure Resource Manager and operate on your resources. 
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, ADF UI/app is only supported in Microsoft Edge and Google Chrome web browsers.
 2. Sign in to [Azure portal](https://portal.azure.com/).    

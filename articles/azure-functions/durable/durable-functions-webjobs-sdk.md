@@ -34,7 +34,7 @@ To complete the steps in this article:
 
   (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
 
-* Install and run an [Azure Storage Emulator](../../storage/common/storage-use-emulator.md). An alternative is to update the *App.config* file with a real Azure Storage connection string.
+* Install and run the [Azurite storage emulator](../../storage/common/storage-use-azurite.md). An alternative is to update the *App.config* file with a real Azure Storage connection string.
 
 ## WebJobs SDK versions
 

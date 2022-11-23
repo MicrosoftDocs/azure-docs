@@ -1,8 +1,6 @@
 ---
 title: Approach and process for adopting Azure Data Catalog
 description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 02/17/2022
@@ -10,7 +8,7 @@ ms.date: 02/17/2022
 
 # Approach and process for adopting Azure Data Catalog
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 This article helps you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 

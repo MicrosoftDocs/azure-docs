@@ -10,7 +10,6 @@ ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---

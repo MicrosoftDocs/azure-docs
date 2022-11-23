@@ -4,6 +4,7 @@ description: This sample Azure CLI script shows how to enable and download the s
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -42,13 +43,13 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | List the configuration values for a server. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Update the configuration of a server. |
-| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | List log files for a server. |
-| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Download log files. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | List the configuration values for a server. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | Update the configuration of a server. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) | List log files for a server. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) | Download log files. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

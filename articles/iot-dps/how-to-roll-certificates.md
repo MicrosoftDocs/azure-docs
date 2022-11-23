@@ -39,7 +39,7 @@ The mechanics of installing a new certificate on a device will often involve one
 
 - You can trigger affected devices to send a new certificate signing request (CSR) to your PKI Certificate Authority (CA). In this case, each device will likely be able to download its new device certificate directly from the CA.
 
-- You can retain a CSR from each device and use that to get a new device certificate from the PKI CA. In this case, you'll need to push the new certificate to each device in a firmware update using a secure OTA update service like [Device Update for IoT Hub](/azure/iot-hub-device-update/).
+- You can retain a CSR from each device and use that to get a new device certificate from the PKI CA. In this case, you'll need to push the new certificate to each device in a firmware update using a secure OTA update service like [Device Update for IoT Hub](../iot-hub-device-update/index.yml).
 
 ## Roll the certificate in the IoT hub
 

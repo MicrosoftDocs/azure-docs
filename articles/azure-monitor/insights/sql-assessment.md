@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
+ms.reviewer: shijain
 
 ---
 
@@ -154,7 +155,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
 3. In the **Insights** section of the menu, select **More**.  
 4. On the **Overview** page, click the **SQL Health Check** tile.
-5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+5. On the **Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 

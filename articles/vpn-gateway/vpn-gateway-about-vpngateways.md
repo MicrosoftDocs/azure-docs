@@ -6,14 +6,14 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 01/12/2022
+ms.date: 10/17/2022
 ms.author: cherylmc
 ms.custom: contperf-fy21q1, e2e-hybrid
 ---
 
 # What is VPN Gateway?
 
-A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
+VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
 
 ## <a name="whatis"></a>What is a virtual network gateway?
 
@@ -39,7 +39,7 @@ Because you can create multiple connection configurations using VPN Gateway, you
 
 ### <a name="planningtable"></a>Planning table
 
-The following table can help you decide the best connectivity option for your solution. Note that ExpressRoute is not a part of VPN Gateway, but is included in the table.
+The following table can help you decide the best connectivity option for your solution. Note that ExpressRoute isn't a part of VPN Gateway, but is included in the table.
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
@@ -57,6 +57,7 @@ When you create a virtual network gateway, you specify the gateway SKU that you 
 
 * For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
 * For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
+* The Basic SKU does not support IPv6.
 
 ### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
@@ -83,5 +84,6 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 ## Next steps
 
 - [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
-- [Learn module: Connect your on-premises network to Azure with VPN Gateway](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
+- [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
+- [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
 - [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).

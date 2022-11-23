@@ -2,8 +2,10 @@
 title: Disaster recovery solutions for Azure VMware Solution virtual machines
 description: Learn about leading disaster recovery solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 11/29/2021
 ---
+
 # Disaster recovery solutions for Azure VMware Solution virtual machines (VMs)
 
 One of the most important aspects of any Azure VMware Solution deployment is disaster recovery, which can be achieved by creating disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. 

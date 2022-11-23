@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 01/23/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
 # What is conversation transcription?
@@ -82,7 +82,7 @@ Audio data is processed live to return the speaker identifier and transcript, an
 
 ## Language support
 
-Currently, conversation transcription supports [all speech-to-text languages](language-support.md#speech-to-text) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
+Currently, conversation transcription supports [all speech-to-text languages](language-support.md?tabs=stt-tts) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
 
 ## Next steps
 

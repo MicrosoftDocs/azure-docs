@@ -57,13 +57,16 @@ In this tutorial, you learn how to:
 
 1. Select **Create** to create your new product.
 
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
 ### [Azure CLI](#tab/azure-cli)
 
 To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To create a product, run the [az apim product create](/cli/azure/apim/product#az_apim_product_create) command:
+To create a product, run the [az apim product create](/cli/azure/apim/product#az-apim-product-create) command:
 
 ```azurecli
 az apim product create --resource-group apim-hello-word-resource-group \
@@ -84,14 +87,17 @@ You can specify various values for your product:
    | `--subscriptions-limit` | Optionally, limit the count of multiple simultaneous subscriptions.|
    | `--legal-terms`         | You can include the terms of use for the product, which subscribers must accept to use the product. |
 
-To see your current products, use the [az apim product list](/cli/azure/apim/product#az_apim_product_list) command:
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
+To see your current products, use the [az apim product list](/cli/azure/apim/product#az-apim-product-list) command:
 
 ```azurecli
 az apim product list --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --output table
 ```
 
-You can delete a product by using the [az apim product delete](/cli/azure/apim/product#az_apim_product_delete) command:
+You can delete a product by using the [az apim product delete](/cli/azure/apim/product#az-apim-product-delete) command:
 
 ```azurecli
 az apim product delete --product-id contoso-product \
@@ -130,14 +136,14 @@ Products are associations of one or more APIs. You can include many APIs and off
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To see your managed APIs, use the [az apim api list](/cli/azure/apim/api#az_apim_api_list) command:
+1. To see your managed APIs, use the [az apim api list](/cli/azure/apim/api#az-apim-api-list) command:
 
    ```azurecli
    az apim api list --resource-group apim-hello-word-resource-group \
        --service-name apim-hello-world --output table
    ```
 
-1. To add an API to your product, run the [az apim product api add](/cli/azure/apim/product/api#az_apim_product_api_add) command:
+1. To add an API to your product, run the [az apim product api add](/cli/azure/apim/product/api#az-apim-product-api-add) command:
 
    ```azurecli
    az apim product api add --resource-group apim-hello-word-resource-group \
@@ -145,14 +151,14 @@ Products are associations of one or more APIs. You can include many APIs and off
        --service-name apim-hello-world
    ```
 
-1. Verify the addition by using the [az apim product api list](/cli/azure/apim/product/api#az_apim_product_api_list) command:
+1. Verify the addition by using the [az apim product api list](/cli/azure/apim/product/api#az-apim-product-api-list) command:
 
    ```azurecli
    az apim product api list --resource-group apim-hello-word-resource-group \
        --product-id contoso-product --service-name apim-hello-world --output table
    ```
 
-You can remove an API from a product by using the [az apim product api delete](/cli/azure/apim/product/api#az_apim_product_api_delete) command:
+You can remove an API from a product by using the [az apim product api delete](/cli/azure/apim/product/api#az-apim-product-api-delete) command:
 
 ```azurecli
 az apim product api delete --resource-group apim-hello-word-resource-group \
@@ -174,6 +180,9 @@ After you publish a product, developers can access the APIs. Depending on how th
     > You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.
 
 * **Open product** - Developers can access an open product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](./api-management-access-restriction-policies.md#RestrictCallerIPs).
+
+    > [!NOTE]
+    > Open products aren't listed in the developer portal for developers to learn about or subscribe to. They're visible only to the **Administrators** group. You'll need to use another mechanism to inform developers about APIs that can be accessed without a subscription key.
 
     When a client makes an API request without a subscription key:
     

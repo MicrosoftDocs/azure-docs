@@ -22,10 +22,16 @@ When you have critical applications and business processes that rely on Azure re
 Azure virtual machines collect the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). For detailed information about the metrics and logs that are created by Azure virtual machines, see [Reference: Monitoring Azure virtual machine data](monitor-vm-reference.md).
 
 ## Overview page
-To begin exploring Azure Monitor, go to the **Overview** page for your virtual machine, and then select the **Monitoring** tab. The **Key Metrics** pane includes charts that show key health metrics, such as average CPU and network utilization. At the top of the pane, you can select a duration to change the time range for the charts, or select a chart to open the **Metrics** pane to drill down further or to create an alert rule. 
+To begin exploring Azure Monitor, go to the **Overview** page for your virtual machine, and then select the **Monitoring** tab. You can see the number of active alerts on the tab.
 
-:::image type="content" source="media/monitor-vm/overview.png" lightbox="media/monitor-vm/overview.png" alt-text="Screenshot of the Azure virtual machines 'Key Metrics' pane.":::
+The **Alerts** pane shows you the alerts fired in the last 24 hours, along with important statistics about those alerts. If there are no alerts configured for your VM, there is a link to  help you quickly create new alerts for your VM.
 
+:::image type="content" source="media/monitor-vm/overview-alerts.png" alt-text="Screenshot of the Azure virtual machine 'Alerts' pane.":::
+
+
+The **Key Metrics** pane includes charts that show key health metrics, such as average CPU and network utilization. At the top of the pane, you can select a duration to change the time range for the charts, or select a chart to open the **Metrics** pane to drill down further or to create an alert rule. 
+
+:::image type="content" source="media/monitor-vm/overview-key-metrics.png" alt-text="Screenshot of the Azure virtual machine 'Key metrics' pane.":::
 ## Activity log
 The [Activity log](../azure-monitor/essentials/activity-log.md) displays recent activity by the virtual machine, including any configuration changes and when it was stopped and started. View the Activity log in the Azure portal, or create a [diagnostic setting to send it to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace), where you can view events over time or analyze them with other collected data.
 
@@ -65,7 +71,7 @@ For a list of the available metrics, see [Reference: Monitoring Azure virtual ma
 ## Analyze logs
 Data in Azure Monitor Logs is stored in a Log Analytics workspace, where it's separated into tables, each with its own set of unique properties. 
 
-VM insights store the collected data in logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](../azure-monitor/vm/vminsights-log-search.md).
+VM insights store the collected data in logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](../azure-monitor/vm/vminsights-log-query.md).
 
 To analyze other log data that you collect from your virtual machines, use [log queries](../azure-monitor/logs/get-started-queries.md) in [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). Several [built-in queries](../azure-monitor/logs/queries.md) for virtual machines are available to use, or you can create your own. You can interactively work with the results of these queries, include them in a workbook to make them available to other users, or generate alerts based on their results.
 

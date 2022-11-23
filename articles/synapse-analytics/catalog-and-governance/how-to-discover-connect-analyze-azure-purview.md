@@ -1,5 +1,5 @@
 ---
-title: Discover, connect, and explore data in Synapse using Azure Purview
+title: Discover, connect, and explore data in Synapse using Microsoft Purview
 description: Guide on how to discover data, connect them and explore them in Synapse
 author: Jejiang
 ms.service: synapse-analytics
@@ -7,38 +7,38 @@ ms.subservice: purview
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: jejiang
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
-# Discover, connect, and explore data in Synapse using Azure Purview 
+# Discover, connect, and explore data in Synapse using Microsoft Purview 
 
-In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
+In this document, you will learn the type of interactions that you can perform when registering a Microsoft Purview Account into Synapse. 
 
 ## Prerequisites 
 
-- [Azure Azure Purview account](../../purview/create-catalog-portal.md) 
+- [Microsoft Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
-- [Connect an Azure Purview Account into Synapse](quickstart-connect-azure-purview.md) 
+- [Connect a Microsoft Purview Account into Synapse](quickstart-connect-azure-purview.md) 
 
-## Using Azure Purview in Synapse 
+## Using Microsoft Purview in Synapse 
 
-The use Azure Purview in Synapse requires you to have access to that Azure Purview account. Synapse passes-through your Azure Purview permission. As an example, if you have a curator permission role, you will be able to edit metadata scanned by Azure Purview. 
+The use Microsoft Purview in Synapse requires you to have access to that Microsoft Purview account. Synapse passes-through your Microsoft Purview permission. As an example, if you have a curator permission role, you will be able to edit metadata scanned by Microsoft Purview. 
 
 ### Data discovery: search datasets 
 
-To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Azure Purview to search for all of your organization data. 
+To discover data registered and scanned by Microsoft Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Microsoft Purview to search for all of your organization data. 
 
-[![Search for Azure Purview assets](./media/purview-access.png)](./media/purview-access.png#lightbox)
+[![Search for Microsoft Purview assets](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
-## Azure Purview actions 
+## Microsoft Purview actions 
 
-Here is a list of the Azure Purview features that are available in Synapse: 
+Here is a list of the Microsoft Purview features that are available in Synapse: 
 - **Overview** of the metadata 
 - View and edit **schema** of the metadata with classifications, glossary terms, data types, and descriptions 
 - View **lineage** to understand dependencies and do impact analysis. For more information about, see [lineage](../../purview/catalog-lineage-user-guide.md)
 - View and edit **Contacts** to know who is an owner or expert over a dataset 
 - **Related** to understand the hierarchical dependencies of a specific dataset. This experience is helpful to browse through data hierarchy.
-
+- Click **Request Access** to request access to the data by triggering the self-service data access workflow configured by Workflow Admin in Microsoft Purview. For more information see [Request access](../../purview/how-to-request-access.md) and [Self-Service data access workflow](../../purview/how-to-workflow-self-service-data-access-hybrid.md).
 ## Actions that you can perform over datasets with Synapse resources 
 
 ### Connect data to Synapse 
@@ -65,5 +65,5 @@ With **New data flow**, you can create an integration dataset that can be used a
 
 ##  Next steps 
 
-- [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
-- [How to Search Data in Azure Purview Data Catalog](../../purview/how-to-search-catalog.md)
+- [Register and scan Azure Synapse assets in Microsoft Purview](../../purview/register-scan-azure-synapse-analytics.md)
+- [How to Search Data in Microsoft Purview Data Catalog](../../purview/how-to-search-catalog.md)

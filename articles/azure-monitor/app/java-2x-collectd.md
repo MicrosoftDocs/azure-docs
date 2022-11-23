@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # collectd: Linux performance metrics in Application Insights [Deprecated]
@@ -87,7 +88,7 @@ Restart collectd according to its [manual](https://collectd.org/wiki/index.php/F
 ## View the data in Application Insights
 In your Application Insights resource, open [Metrics and add charts][metrics], selecting the metrics you want to see from the Custom category.
 
-By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details blade, turn on Grouping and then choose to group by CollectD-Host.
+By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details pane, turn on Grouping and then choose to group by CollectD-Host.
 
 ## To exclude upload of specific statistics
 By default, the Application Insights plugin sends all the data collected by all the enabled collectd 'read' plugins. 

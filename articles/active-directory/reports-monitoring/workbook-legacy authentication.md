@@ -3,17 +3,14 @@
 title: Sign-ins using legacy authentication workbook in Azure AD | Microsoft Docs
 description: Learn how to use the sign-ins using legacy authentication workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenho
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management
@@ -21,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Sign-ins using legacy authentication workbook
 
-Have you ever wondered how you can determine whether it is safe to turn off legacy authentication in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
+Have you ever wondered how you can determine whether it's safe to turn off legacy authentication in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
 
 This article gives you an overview of this workbook.
 
@@ -39,12 +36,12 @@ Examples of applications that commonly or only use legacy authentication are:
 - Apps using legacy auth with mail protocols like POP, IMAP, and SMTP AUTH.
 
 
-Single-factor authentication (for example, username and password) doesn’t provide the required level of protection for today’s computing environments. Passwords are bad as they are easy to guess and humans are bad at choosing good passwords. 
+Single-factor authentication (for example, username and password) doesn’t provide the required level of protection for today’s computing environments. Passwords are bad as they're easy to guess and humans are bad at choosing good passwords. 
 
 
 Unfortunately, legacy authentication:
 
-- Does not support multi-factor authentication (MFA) or other strong authentication methods.
+- Doesn't support multi-factor authentication (MFA) or other strong authentication methods.
 
 - Makes it impossible for your organization to move to passwordless authentication. 
 
@@ -93,12 +90,11 @@ This workbook supports multiple filters:
 ## Best practices
 
 
-- **[Enable risky sign-in policies](../identity-protection/concept-identity-protection-policies.md)** - To prompt for multi-factor authentication (MFA) on medium risk or above. Enabling the policy reduces the proportion of active real-time risk detections by allowing legitimate users to self-remediate the risk detections with MFA.
+- For guidance on blocking legacy authentication in your environment, see [Block legacy authentication to Azure AD with conditional access](../conditional-access/block-legacy-authentication.md).
 
-- **[Enable a risky user policy](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-with-conditional-access)** - To enable users to securely remediate their accounts when they are high risk. Enabling the policy reduces the number of active at-risk users in your organization by returning the user’s credentials to a safe state.
+- Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
 
-
-
+- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it's using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
 
 
 ## Next steps
@@ -106,4 +102,3 @@ This workbook supports multiple filters:
 - To learn more about identity protection, see [What is identity protection](../identity-protection/overview-identity-protection.md). 
 
 - For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md).
-

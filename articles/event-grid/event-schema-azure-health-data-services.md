@@ -27,7 +27,7 @@ This section contains examples of what events message data would look like for e
 > [!Note]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
 >
-> For more information, see [Azure Event Grid event schema properties](/azure/event-grid/event-schema#event-properties).
+> For more information, see [Azure Event Grid event schema properties](./event-schema.md#event-properties).
 
 ### FhirResourceCreated event
 

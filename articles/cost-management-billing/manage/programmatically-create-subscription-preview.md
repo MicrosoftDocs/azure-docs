@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 03/22/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -164,7 +164,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | No       | String | The Object ID of any user that want to add as an Azure RBAC Owner on the subscription when it's created.  |
+| `owners`      | No       | String | The Object ID of any user to be added as an Azure RBAC Owner on the subscription when it's created.  |
 
 In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](/rest/api/subscription/)
 
@@ -525,7 +525,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Yes      | String | The display name of the subscription.|
 | `skuId` | Yes      | String | The sku ID of the Azure plan. Use *0001* for subscriptions of type Microsoft Azure Plan |
-| `resellerId`      | No       | String | The MPN ID of the reseller who will be associated with the subscription.  |
+| `resellerId`      | No       | String | The ID of the reseller who will be associated with the subscription.  |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object returns a `subscriptionLink` object. It has the subscription ID.
 
@@ -533,4 +533,4 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 - To view and example of creating an Enterprise Agreement (EA) subscription using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
-* For more information about about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
+* For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).

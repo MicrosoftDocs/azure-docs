@@ -1,11 +1,14 @@
 ---
 title: Package an Azure Service Fabric app 
 description: Learn about packaging an Azure Service Fabric application and how to prepare for deployment to a cluster.
-
-ms.topic: conceptual
-ms.date: 2/23/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Package an application
 
 This article describes how to package a Service Fabric application and make it ready for deployment.
@@ -41,7 +44,7 @@ The folders are named to match the **Name** attributes of each corresponding ele
 
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-* Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a Node.js application.
 * Setting up access control by installing security certificates.
 
 For more information on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)

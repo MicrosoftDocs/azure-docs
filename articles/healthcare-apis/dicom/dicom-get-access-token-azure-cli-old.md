@@ -1,12 +1,12 @@
 ---
 title: Get access token using Azure CLI - Azure Health Data Services for DICOM service
 description: This article explains how to obtain an access token for the DICOM service using the Azure CLI.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 03/02/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Get access token for the DICOM service using Azure CLI
@@ -21,9 +21,9 @@ Use the Bash environment in Azure Cloud Shell.
 
 If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
-* If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command. To finish the authentication process, follow the steps displayed in your terminal. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+* If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-* Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+* Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
 
 ## Obtain a token
 

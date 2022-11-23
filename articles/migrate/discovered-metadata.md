@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 08/05/2022
+ms.custom: engagement-fy23
 ---
 
 # Metadata discovered by Azure Migrate appliance 
@@ -271,9 +272,6 @@ Architecture | uname
 ## SQL Server instances and databases data
 
 Azure Migrate appliance used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
-
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
 
 ### SQL database metadata
 

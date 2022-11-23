@@ -1,6 +1,5 @@
 ---
 title: "Quickstart: Sign in users in web apps using the auth code flow"
-titleSuffix: Microsoft identity platform
 description: In this quickstart, learn how a web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: Dickson-Mwendia

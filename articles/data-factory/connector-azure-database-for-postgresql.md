@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/20/2021
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -21,13 +21,21 @@ This connector is specialized for the [Azure Database for PostgreSQL service](..
 
 ## Supported capabilities
 
-This Azure Database for PostgreSQL connector is supported for the following activities:
+This Azure Database for PostgreSQL connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
 
-Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+The three activities work on all Azure Database for PostgreSQL deployment options:
+
+* [Single Server](../postgresql/single-server/index.yml)
+* [Flexible Server](../postgresql/flexible-server/index.yml)
+* [Hyperscale (Citus)](../postgresql/hyperscale/index.yml)
 
 ## Getting started
 
@@ -299,6 +307,9 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset. | No | - |*(for inline dataset only)*<br>tableName |
 | Query | If you select Query as input, specify a SQL query to fetch data from source, which overrides any table you specify in dataset. Using queries is a great way to reduce rows for testing or lookups.<br><br>**Order By** clause is not supported, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table that you can use in data flow.<br>Query example: `select * from mytable where customerId > 1000 and customerId < 2000` or `select * from "MyTable"`. Note in PostgreSQL, the entity name is treated as case-insensitive if not quoted.| No | String | query |
+| Schema name | If you select Stored procedure as input, specify a schema name of the stored procedure, or select Refresh to ask the service to discover the schema names.| No | String | schemaName |
+| Stored procedure | If you select Stored procedure as input, specify a name of the stored procedure to read data from the source table, or select Refresh to ask the service to discover the procedure names.| Yes (if you select Stored procedure as input) | String | procedureName |
+| Procedure parameters | If you select Stored procedure as input, specify any input parameters for the stored procedure in the order set in the procedure, or select Import to import all procedure parameters using the form `@paraName`. | No | Array | inputs |
 | Batch size | Specify a batch size to chunk large data into batches. | No | Integer | batchSize |
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
 
@@ -325,11 +336,19 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 | Skip writing key columns | If you wish to not write the value to the key column, select "Skip writing key columns". | No | `true` or `false` | skipKeyWrites |
 | Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Batch size | Specify how many rows are being written in each batch. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
+| Select user DB schema | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No | String | stagingSchemaName |
 | Pre and Post SQL scripts | Specify multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
 
 > [!TIP]
 > 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
 > 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
+
+
+* Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+
+* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+
+* Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
 #### Azure Database for PostgreSQL sink script example
 

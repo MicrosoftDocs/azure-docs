@@ -178,6 +178,10 @@ ObjectModel model = await observer.LoadObjectModelAsync(modelAsBytes);
 The application creates a query to detect instances of that model within a space.
 
 ```cs
+#if WINDOWS_UWP || DOTNETWINRT_PRESENT
+#define SPATIALCOORDINATESYSTEM_API_PRESENT
+#endif
+
 using Microsoft.Azure.ObjectAnchors;
 using Microsoft.Azure.ObjectAnchors.SpatialGraph;
 using Microsoft.Azure.ObjectAnchors.Unity;
@@ -186,7 +190,7 @@ using UnityEngine;
 // Get the coordinate system.
 SpatialGraphCoordinateSystem? coordinateSystem = null;
 
-#if WINDOWS_UWP
+#if SPATIALCOORDINATESYSTEM_API_PRESENT
 SpatialCoordinateSystem worldOrigin = ObjectAnchorsWorldManager.WorldOrigin;
 if (worldOrigin != null)
 {
@@ -237,7 +241,7 @@ foreach (ObjectInstance instance in detectedObjects)
     // Supported modes:
     // "LowLatencyCoarsePosition"    - Consumes less CPU cycles thus fast to
     //                                 update the state.
-    // "HighLatencyAccuratePosition" - (Not yet implemented) Consumes more CPU
+    // "HighLatencyAccuratePosition" - Uses the device's camera and consumes more CPU
     //                                 cycles thus potentially taking longer
     //                                 time to update the state.
     // "Paused"                      - Stops to update the state until mode
@@ -257,15 +261,15 @@ In the state changed event, we can query the latest state or dispose an instance
 ```cs
 using Microsoft.Azure.ObjectAnchors;
 
-var InstanceChangedHandler = new Windows.Foundation.TypedEventHandler<ObjectInstance, ObjectInstanceChangedEventArgs>((sender, args) =>
+void InstanceChangedHandler(object sender, ObjectInstanceChangedEventArgs args)
 {
     // Try to query the current instance state.
-    ObjectInstanceState? state = sender.TryGetCurrentState();
+    ObjectInstanceState state = sender.TryGetCurrentState();
 
-    if (state.HasValue)
+    if (state != null)
     {
-        // Process latest state via state.Value.
-        // An object pose includes scale, rotation and translation, applied in
+        // Process latest state.
+        // An object pose includes rotation and translation, applied in
         // the same order to the object model in the centered coordinate system.
     }
     else
@@ -273,9 +277,8 @@ var InstanceChangedHandler = new Windows.Foundation.TypedEventHandler<ObjectInst
         // This object instance is lost for tracking, and will never be recovered.
         // The caller can detach the Changed event handler from this instance
         // and dispose it.
-        sender.Dispose();
     }
-});
+}
 ```
 
 Also, an application can optionally record one or multiple diagnostics sessions for offline debugging.

@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Use the Azure Video Analyzer player widget
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and browse through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
 
 In this tutorial, you will:

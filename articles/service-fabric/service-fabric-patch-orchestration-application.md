@@ -2,8 +2,11 @@
 title: Use Patch Orchestration Application 
 description: Automate operating system patching on non-Azure hosted Service Fabric clusters by using Patch Orchestration Application.
 ms.topic: how-to
-ms.date: 2/01/2019 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Use Patch Orchestration Application

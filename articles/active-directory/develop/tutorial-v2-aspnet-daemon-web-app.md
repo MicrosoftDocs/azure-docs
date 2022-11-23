@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data"
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 author: jmprieur

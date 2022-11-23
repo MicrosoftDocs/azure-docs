@@ -2,12 +2,11 @@
 title: Kubernetes data plane hardening
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes data plane hardening security recommendations
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 03/08/2022
 ---
 
 # Protect your Kubernetes data plane hardening
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
@@ -49,7 +48,7 @@ When you enable Microsoft Defender for Containers, Azure Kubernetes Service clus
 
 ## Configure Defender for Containers components
 
-If you disabled any of the default protections when you enabled Microsoft Defender for Containers, you can change the configurations and reenable them via auto provisioning.
+If you disabled any of the default protections when you enabled Microsoft Defender for Containers, you can change the configurations and reenable them.
 
 **To configure the Defender for Containers components**:
 
@@ -59,7 +58,7 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 1. Select the relevant subscription.
 
-1. From the left side tool bar, select **Auto provisioning**.
+1. In the Monitoring coverage column of the Defender for Containers plan, select **Settings**.
 
 1. Ensure that Microsoft Defenders for Containers components (preview) is toggled to On.
 
@@ -124,7 +123,7 @@ You can manually configure the Kubernetes data plane hardening add-on, or extens
     | Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
-    ||||
+
 
 For recommendations with parameters that need to be customized, you will need to set the parameters:
 

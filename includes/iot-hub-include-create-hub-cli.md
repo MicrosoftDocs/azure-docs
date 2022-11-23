@@ -21,13 +21,13 @@ To create an IoT hub and a resource group:
     - If you're using Cloud Shell, select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or you can open the [Cloud Shell](https://shell.azure.com/bash) in a separate browser tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. Run [az extension add](/cli/azure/extension#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
     ```
 
-1. In your CLI app, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location.
+1. In your CLI app, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location.
 
     >[!NOTE]
     > Optionally, you can set a different location. To see available locations, run `az account list-locations`. This quickstart uses *eastus* as shown in the example command.
@@ -36,7 +36,7 @@ To create an IoT hub and a resource group:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Run the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
+1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 
@@ -55,7 +55,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
 
 To create a device identity:
 
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command in your CLI shell. This creates the device identity.
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This command creates the device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -65,7 +65,7 @@ To create a device identity:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) command. 
+1. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command. 
 
     ```azurecli-interactive
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

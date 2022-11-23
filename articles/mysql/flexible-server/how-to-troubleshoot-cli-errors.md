@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot Azure Database for MySQL Flexible Server CLI errors
 description: This topic gives guidance on troubleshooting common issues with Azure CLI when using MySQL Flexible Server.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
+ms.author: sumuth
+author: mksuni
 ms.date: 08/24/2021
 ---
 
@@ -67,7 +68,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |SubscriptionNotFound| The requested subscription was not found. Run ```az account list all``` to see all your current subscriptions.|
 |InvalidParameterValue| An invalid value was given to a parameter.Check the [CLI reference docs](/cli/azure/mysql/flexible-server) to see what is the correct values supported for the arguments.|
 |InvalidLocation| An invalid location was specified. Check availability of Azure Database for MySQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=mysql) |
-|InvalidServerName| Identified an invalid server name. Check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
+|InvalidServerName| Identified an invalid server name. Check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-list) to see all the list of Flexible servers available. |
 |InvalidResourceIdSegment| A syntax error was identified in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
 |InvalidUserName| Enter a valid username. The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
 |BlockedUserName| The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|

@@ -1,22 +1,25 @@
 ---
-title: Best practices for scanning data sources in Azure Purview
-description: This article provides best practices for registering and scanning various data sources in Azure Purview.
+title: Best practices for scanning data sources in Microsoft Purview
+description: This article provides best practices for registering and scanning various data sources in Microsoft Purview.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 09/14/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Purview scanning best practices
+# Microsoft Purview scanning best practices
 
-Azure Purview supports automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
+Microsoft Purview supports automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
 
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
-The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Azure Purview account is connected to the Microsoft 365 Security and Compliance Center.
+The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft Purview compliance portal.
+
+> [!IMPORTANT]
+> If you have any [Azure Policies](../governance/policy/overview.md) preventing **updates to Storage accounts**, this will cause errors for Microsoft Purview's scanning process. Follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts. 
 
 ## Why do you need best practices to manage data sources?
 
@@ -34,19 +37,19 @@ The following design considerations and recommendations help you register a sour
 ### Design considerations
 
 - Use collections to create the hierarchy that aligns with the organization's strategy, like geographical, business function, or source of data. The hierarchy defines the data sources to be registered and scanned.
-- By design, you can't register data sources multiple times in the same Azure Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source.
+- By design, you can't register data sources multiple times in the same Microsoft Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source.
 
 ### Design recommendations
 
 - If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection. Then you can create corresponding scans under each subcollection. In this way, relevant assets appear under each child collection. Sources without parents are grouped in a dotted box in the map view. No arrows link them to parents.
 
-  :::image type="content" source="media/concept-best-practices/scanning-parent-child.png" alt-text="Screenshot that shows Azure Purview with data source registered at parent collection.":::
+  :::image type="content" source="media/concept-best-practices/scanning-parent-child.png" alt-text="Screenshot that shows Microsoft Purview with data source registered at parent collection.":::
 
 - Use the **Azure Multiple** option if you need to register multiple sources, such as Azure subscriptions or resource groups, in the cloud. For more information, see the following documentation:
 
-    * [Scan multiple sources in Azure Purview](./register-scan-azure-multiple-sources.md)
+    * [Scan multiple sources in Microsoft Purview](./register-scan-azure-multiple-sources.md)
     * [Check data source readiness at scale](./tutorial-data-sources-readiness.md)
-    * [Configure access to data sources for Azure Purview MSI at scale](./tutorial-msi-configuration.md)
+    * [Configure access to data sources for Microsoft Purview MSI at scale](./tutorial-msi-configuration.md)
 
 - After a data source is registered, you might scan the same source multiple times, in case the same source is being used differently by various teams or business units.
 
@@ -86,15 +89,15 @@ After you register your source in the relevant [collection](./how-to-create-and-
        :::image type="content" source="media/concept-best-practices/scanning-create-custom-scan-rule-set.png" alt-text="Screenshot that shows the option to select relevant classification rules when you create the custom scan rule set.":::
 
         > [!NOTE]
-        > When you scan a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. You can use resource set pattern rules to customize or override how Azure Purview detects which assets are grouped as resource sets. The rules also determine how the assets are displayed within the catalog.
+        > When you scan a storage account, Microsoft Purview uses a set of defined patterns to determine if a group of assets forms a resource set. You can use resource set pattern rules to customize or override how Microsoft Purview detects which assets are grouped as resource sets. The rules also determine how the assets are displayed within the catalog.
         > For more information, see [Create resource set pattern rules](./how-to-resource-set-pattern-rules.md).
         > This feature has cost considerations. For information, see the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/).
 
 1. Set up a scan for the registered data sources.
-    - **Scan name**: By default, Azure Purview uses the naming convention **SCAN-[A-Z][a-z][a-z]**, which isn't helpful when you're trying to identify a scan that you've run. Be sure to use a meaningful naming convention. For instance, you could name the scan _environment-source-frequency-time_ as DEVODS-Daily-0200. This name represents a daily scan at 0200 hours.
+    - **Scan name**: By default, Microsoft Purview uses the naming convention **SCAN-[A-Z][a-z][a-z]**, which isn't helpful when you're trying to identify a scan that you've run. Be sure to use a meaningful naming convention. For instance, you could name the scan _environment-source-frequency-time_ as DEVODS-Daily-0200. This name represents a daily scan at 0200 hours.
     
-    - **Authentication**: Azure Purview offers various authentication methods for scanning data sources, depending on the type of source. It could be Azure cloud or on-premises or third-party sources. Follow the least-privilege principle for the authentication method in this order of preference:
-        - Azure Purview MSI - Managed Service Identity (for example, for Azure Data Lake Storage Gen2 sources)
+    - **Authentication**: Microsoft Purview offers various authentication methods for scanning data sources, depending on the type of source. It could be Azure cloud or on-premises or third-party sources. Follow the least-privilege principle for the authentication method in this order of preference:
+        - Microsoft Purview MSI - Managed Service Identity (for example, for Azure Data Lake Storage Gen2 sources)
         - User-assigned managed identity
         - Service principal
         - SQL authentication (for example, for on-premises or Azure SQL sources)
@@ -112,7 +115,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
         - When you use SHIR, make sure that the memory is sufficient for the data source being scanned. For example, when you use SHIR for scanning an SAP source, if you see "out of memory error":
             - Ensure the SHIR machine has enough memory. The recommended amount is 128 GB.
             - In the scan setting, set the maximum memory available as some appropriate value, for example, 100.
-            - For more information, see the prerequisites in [Scan to and manage SAP ECC Azure Purview](./register-scan-sapecc-source.md#create-and-run-scan).
+            - For more information, see the prerequisites in [Scan to and manage SAP ECC Microsoft Purview](./register-scan-sapecc-source.md#create-and-run-scan).
 
     - **Scope scan**
         - When you set up the scope for the scan, select only the assets that are relevant at a granular level or parent level. This practice ensures that the scan cost is optimal and performance is efficient. All future assets under a certain parent will be automatically selected if the parent is fully or partially checked.
@@ -133,7 +136,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
 
     - **Scan rule set**
         - When you select the scan rule set, make sure to configure the relevant system or custom scan rule set that was created earlier.
-        - You can create custom filetypes and fill in the details accordingly. Currently, Azure Purview supports only one character in Custom Delimiter. If you use custom delimiters, such as ~, in your actual data, you need to create a new scan rule set.
+        - You can create custom filetypes and fill in the details accordingly. Currently, Microsoft Purview supports only one character in Custom Delimiter. If you use custom delimiters, such as ~, in your actual data, you need to create a new scan rule set.
 
        :::image type="content" source="media/concept-best-practices/scanning-scan-rule-set.png" alt-text="Screenshot that shows the scan rule set selection while configuring the scan.":::
 
@@ -154,9 +157,9 @@ After you register your source in the relevant [collection](./how-to-create-and-
 
 ### Points to note
 
-- If a field or column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Azure Purview after the next scheduled full or incremental scan.
-- An asset can be deleted from an Azure Purview catalog by using the **Delete** icon under the name of the asset. This action won't remove the object in the source. If you run a full scan on the same source, it would get reingested in the catalog. If you've scheduled a weekly or monthly scan instead (incremental), the deleted asset won't be picked unless the object is modified at the source. An example is if a column is added or removed from the table.
-- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through Azure Purview Studio, see [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
+- If a field or column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Microsoft Purview after the next scheduled full or incremental scan.
+- An asset can be deleted from a Microsoft Purview catalog by using the **Delete** icon under the name of the asset. This action won't remove the object in the source. If you run a full scan on the same source, it would get reingested in the catalog. If you've scheduled a weekly or monthly scan instead (incremental), the deleted asset won't be picked unless the object is modified at the source. An example is if a column is added or removed from the table.
+- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through the Microsoft Purview governance portal, see [Catalog asset details](./catalog-asset-details.md#editing-assets).
 -  For more information, see the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md).
 
 ## Next steps

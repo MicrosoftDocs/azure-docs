@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 #### [bash](#tab/terminal-bash)
 

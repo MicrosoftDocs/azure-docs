@@ -14,4 +14,4 @@ Now that you've learned the basics of Azure queue storage, follow these links to
 * View more feature guides to learn about additional options for storing data in Azure.
   * To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/cosmos-db/tutorial-develop-table-dotnet.md).
   * To work with Azure Storage Blobs, [Get started with Azure Blob storage using .NET](../articles/storage/blobs/storage-quickstart-blobs-dotnet.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/azure-sql/database/connect-query-dotnet-visual-studio.md).
+  * To store relational data, see [Connect to SQL Database by using .NET (C#)](/azure/azure-sql/database/connect-query-dotnet-visual-studio).

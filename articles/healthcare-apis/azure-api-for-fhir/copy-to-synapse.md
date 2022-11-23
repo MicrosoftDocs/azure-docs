@@ -1,12 +1,12 @@
 ---
 title: Copy data in Azure API for FHIR to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse in Azure API for FHIR
-author: ginalee-dotcom
+author: irenejoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/28/2022
-ms.author: ginle
+ms.date: 06/03/2022
+ms.author: irenejoseph
 ---
 
 # Copy data from Azure API for FHIR to Azure Synapse Analytics
@@ -33,7 +33,7 @@ Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipel
 > [!Note]
 > [FHIR to CDM pipeline generator](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/fhir-to-cdm.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
-The **FHIR to CDM pipeline generator** is a Microsoft OSS project released under MIT License. It's a tool to generate an ADF pipeline for copying a snapshot of data from a FHIR server using $export API, transforming it to csv format, and writing to a [CDM folder](https://docs.microsoft.com/common-data-model/data-lake) in Azure Data Lake Storage Gen 2. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the instructions for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
+The **FHIR to CDM pipeline generator** is a Microsoft OSS project released under MIT License. It's a tool to generate an ADF pipeline for copying a snapshot of data from a FHIR server using $export API, transforming it to csv format, and writing to a [CDM folder](/common-data-model/data-lake) in Azure Data Lake Storage Gen 2. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the instructions for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
 
 This solution enables you to transform the data into tabular format as it gets written to CDM folder. You should consider this solution if you want to transform FHIR data into a custom schema after it's extracted from the FHIR server.
 
@@ -197,11 +197,4 @@ Next, you can learn about how you can de-identify your FHIR data while exporting
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](de-identified-export.md)
 
-
-
-
-
-
-
-
-
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

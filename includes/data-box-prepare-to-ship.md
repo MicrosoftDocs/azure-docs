@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 05/10/2021
+ms.date: 07/21/2022
 ms.author: alkohli
 ---
 
@@ -29,7 +29,11 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     ![Prepare to ship 4](media/data-box-prepare-to-ship/prepare-to-ship-4.png)
 
-    Once the errors are resolved, run **Prepare to ship**.
+    If you have enabled the **copy to archive** option and you have not copied data into the Block Blob (Archive) shares, make sure to do so to prevent the following error:
+
+    :::image type="content" source="media/data-box-prepare-to-ship/prepare-to-ship-no-data-copy-archive.png" alt-text="Screenshot of no data archive error.":::
+
+    After the errors are resolved, run **Prepare to ship**.
 
 4. After the prepare to ship is successfully complete (with no errors), follow these steps:
 
@@ -38,7 +42,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
         
         ![Prepare to ship 5](media/data-box-prepare-to-ship/prepare-to-ship-5.png)
     3. Select and download the shipping instructions for the device. The shipping instructions are different depending on the country in which you are located.
-    4. If the E-ink is not displaying the shipping label, you can download the reverse shipment label here. 
+    4. If the E-ink is not displaying the shipping label, you can download the [reverse shipment label](../articles/databox/data-box-portal-admin.md). Make sure you have the shipping label before you shut down and disconnect the device.
 
 5. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
 

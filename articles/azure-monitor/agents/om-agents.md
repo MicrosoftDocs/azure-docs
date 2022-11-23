@@ -2,15 +2,12 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 07/24/2020
+ms.date: 11/18/2022
+ms.reviewer: JeffWo
 
 ---
 
 # Connect Operations Manager to Azure Monitor
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 To maintain your existing investment in [System Center Operations Manager](/system-center/scom/key-concepts) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
 
@@ -32,23 +29,20 @@ If your IT security policies do not allow computers on your network to connect t
 
 Before starting, review the following requirements.
 
-* Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
-* Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
-* All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/design-logs-deployment.md).
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#manage-access-using-azure-permissions).
+>[!Note]
+>From 1 February 2023, System Center Operations Manager version lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) will stop sending data to Log Analytics workspace. Ensure your agents are on SCOM Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents)) and SCOM Management Group version is SCOM 2022 & 2019 UR3 or later version.
 
-* Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
-    - West Central US
-    - Australia South East
-    - West Europe
-    - East US
-    - South East Asia
-    - Japan East
-    - UK South
-    - Central India
-    - Canada Central
-    - West US 2
+* Azure Monitor supports the following:
+    * System Center Operations Manager 2022
+    * System Center Operations Manager 2019
+    * System Center Operations Manager 2016 
+* Integrating System Center Operations Manager with US Government cloud requires the following:
+    *  System Center Operations Manager 2022
+    *  System Center Operations Manager 2019
+* All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/workspace-design.md).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#azure-rbac).
+
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  

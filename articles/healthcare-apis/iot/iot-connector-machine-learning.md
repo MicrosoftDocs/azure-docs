@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 08/16/2022
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ In this article, we'll explore using the MedTech service and Azure Machine Learn
 
 ## MedTech service and Azure Machine Learning Service reference architecture
 
-MedTech service enables IoT devices seamless integration with Fast Healthcare Interoperability Resources (FHIR&#174;) services. This reference architecture is designed to accelerate adoption of Internet of Medical Things (IoMT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure ML Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
+The MedTech service enables IoT devices seamless integration with Fast Healthcare Interoperability Resources (FHIR&#174;) services. This reference architecture is designed to accelerate adoption of Internet of Medical Things (IoMT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure ML Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
 
 The four line colors show the different parts of the data journey.
 
@@ -31,17 +31,17 @@ The four line colors show the different parts of the data journey.
 1. Data from IoT device or via device gateway sent to Azure IoT Hub/Azure IoT Edge.
 2. Data from Azure IoT Edge sent to Azure IoT Hub.
 3. Copy of raw IoT device data sent to a secure storage environment for device administration.
-4. PHI IoMT payload moves from Azure IoT Hub to the MedTech service. Multiple Azure services are represented by 1 MedTech service icon.
+4. PHI IoMT payload moves from Azure IoT Hub to the MedTech service. Multiple Azure services are represented by the MedTech service icon.
 5. Three parts to number 5: 
- a. MedTech service request Patient resource from FHIR service. 
- b. FHIR service sends Patient resource back to the MedTech service. 
- c. IoT Patient Observation is record in FHIR service.
+ a. The MedTech service requests Patient resource from the FHIR service. 
+ b. The FHIR service sends Patient resource back to the MedTech service. 
+ c. IoT Patient Observation is record in the FHIR service.
 
 **Machine Learning and AI Data Route – Steps 6 through 11**
 
-6. Normalized ungrouped data stream sent to Azure Function (ML Input).
+6. Normalized ungrouped data stream sent to an Azure Function (ML Input).
 7. Azure Function (ML Input) requests Patient resource to merge with IoMT payload.
-8. IoMT payload with PHI is sent to Event Hub for distribution to Machine Learning compute and storage.
+8. IoMT payload with PHI is sent to an event hub for distribution to Machine Learning compute and storage.
 9. PHI IoMT payload is sent to Azure Data Lake Storage Gen 2 for scoring observation over longer time windows.
 10. PHI IoMT payload is sent to Azure Databricks for windowing, data fitting, and data scoring.
 11. The Azure Databricks requests more patient data from data lake as needed. a. Azure Databricks also sends a copy of the scored data to the data lake.
@@ -68,4 +68,4 @@ In this article, you've learned about the MedTech service and Machine Learning s
 >[!div class="nextstepaction"]
 >[MedTech service overview](iot-connector-overview.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -2,11 +2,11 @@
 title: Migrate from v1 to v2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
@@ -37,7 +37,7 @@ An Azure PowerShell script is available that does the following:
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
 * v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
 * If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
-* Headers with names containing anything other than letters, digits, hyphens and underscores are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
+* Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
 * NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
 
 ## Download the script
@@ -193,7 +193,7 @@ No. The script doesn't  replicate this configuration for v2. You must add the lo
 
 ### Does this script support certificates uploaded to Azure KeyVault ?
 
-No. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
+No. Currently the script doesn't support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
   

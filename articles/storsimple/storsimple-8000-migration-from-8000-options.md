@@ -6,15 +6,13 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/08/2021 
+ms.date: 08/18/2022 
 ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
 
-> [!IMPORTANT]
-> In December 2022, the StorSimple 8000 series will reach the [end of its extended support](/lifecycle/products/azure-storsimple-8000-series). Microsoft will no longer support hardware and software of these devices, and the cloud service will be discontinued.</br></br>
-> Data loss! You will lose the ability to interpret the proprietary StorSimple data format. You must migrate your data before December 2022 or you will lose access.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Migration options
 

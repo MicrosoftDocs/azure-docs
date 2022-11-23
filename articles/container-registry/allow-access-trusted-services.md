@@ -4,7 +4,7 @@ description: Enable a trusted Azure service instance to securely access a networ
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 01/26/2022
+ms.date: 10/11/2022
 ---
 
 # Allow trusted services to securely access a network-restricted container registry
@@ -48,7 +48,7 @@ Where indicated, access by the trusted service requires additional configuration
 
 ## Allow trusted services - CLI
 
-By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az_acr_update) command.
+By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
 
 To disable:
 

@@ -19,9 +19,13 @@
     href: troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/logz
   - name: Azure PowerShell
     href: /powershell/module/az.logz/get-azlogzmonitor
   - name: Java
     href: /java/api/overview/azure/resourcemanager-logz-readme
   - name: Python
     href: /python/api/overview/azure/mgmt-logz-readme
+  - name: REST API
+    href: /rest/api/logz

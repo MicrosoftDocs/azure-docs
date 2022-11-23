@@ -1,45 +1,41 @@
 ---
 title: "Azure SignalR Service serverless quickstart - C#"
-description: "A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using C#."
+description: "A quickstart for using Azure SignalR Service and Azure Functions to create an app showing GitHub star count using C#."
 author: vicancy
 ms.service: signalr
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
-ms.date: 06/09/2021
+ms.date: 03/30/2022
 ms.author: lianwei
 ---
 
-# Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service via C#
+# Quickstart: Create an app showing GitHub star count with Azure Functions and SignalR Service via C#
 
-Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
+In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
 
 > [!NOTE]
-> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp)
+> You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp).
 
 ## Prerequisites
 
-If you don't already have Visual Studio Code installed, you can download and use it for free(https://code.visualstudio.com/Download).
+The following prerequisites are needed for this quickstart:
 
-You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools)](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2). Also the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
+- Visual Studio Code, or other code editor. If you don't already have Visual Studio Code installed, [download Visual Studio Code here](https://code.visualstudio.com/Download).
+- An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
+- [Azure Functions Core Tools](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
-
-## Log in to Azure and create SignalR Service instance
-
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
+## Create an Azure SignalR Service instance
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
-
 ## Setup and run the Azure Function locally
 
-1. Make sure you have Azure Function Core Tools installed. And create an empty directory and navigate to the directory with command line.
+You'll need the Azure Functions Core Tools for this step.
+
+1. Create an empty directory and change to the directory with the command line.
+1. Initialize a new project.
 
     ```bash
     # Initialize a function project
@@ -49,7 +45,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService
     ```
 
-2. After you initialize a project. Create a new file with name *Function.cs*. Add the following code to *Function.cs*.
+1. Using your code editor, create a new file with the name *Function.cs*. Add the following code to *Function.cs*:
 
     ```csharp
     using System;
@@ -126,10 +122,14 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
     }
     ```
-    These codes have three functions. The `Index` is used to get a website as client. The `Negotiate` is used for client to get access token. The `Broadcast` is periodically
-    get star count from GitHub and broadcast messages to all clients.
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory under project root folder. And copy the following content.
+    The code in *Function.cs* has three functions:
+    - `GetHomePage` is used to get a website as client.
+    - `Negotiate` is used by the client to get an access token.
+    - `Broadcast` is periodically called to get the star count from GitHub and then broadcast messages to all clients.
+
+1. The client interface for this sample is a web page. We render the web page using the `GetHomePage` function by reading HTML content from file *content/index.html*. Now let's create this *index.html* under the `content` subdirectory with the following content:
+
     ```html
     <html>
 
@@ -156,7 +156,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </html>
     ```
 
-4. Update your `*.csproj` to make the content page in build output folder.
+1. Update your `*.csproj` to make the content page in the build output folder.
 
     ```html
     <ItemGroup>
@@ -166,35 +166,33 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </ItemGroup>
     ```
 
-5. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
+1. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
-    1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
+    1. Confirm the SignalR Service instance was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    2. Select **Keys** to view the connection strings for the SignalR Service instance.
+    1. Select **Keys** to view the connection strings for the SignalR Service instance.
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    3. Copy the primary connection string. And execute the command below.
+    1. Copy the primary connection string, and then run the following command:
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
 
-6. Run the Azure Function in local:
+1. Run the Azure function locally:
 
     ```bash
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
+    After the Azure function is running locally, open `http://localhost:7071/api/index` and you can see the current star count. If you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
 
     > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
+    > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
+    > If you got the error `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -202,8 +200,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Next steps
 
-In this quickstart, you built and ran a real-time serverless application in local. Learn more how to use SignalR Service bindings for Azure Functions.
-Next, learn more about how to bi-directional communicating between clients and Azure Function with SignalR Service.
+In this quickstart, you built and ran a real-time serverless application locally. Next, learn more about bi-directional communication between clients and Azure Functions with Azure SignalR Service.
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)

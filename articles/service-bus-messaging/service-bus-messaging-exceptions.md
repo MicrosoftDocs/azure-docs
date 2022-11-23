@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 08/04/2021
+ms.date: 03/21/2022
 ---
 
 # Service Bus messaging exceptions
@@ -17,6 +17,10 @@ The messaging APIs generate exceptions that can fall into the following categori
 2. Setup/configuration error ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). General action: review your configuration and change if necessary.
 3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). General action: retry the operation or notify users. The `RetryPolicy` class in the client SDK can be configured to handle retries automatically. For more information, see [Retry guidance](/azure/architecture/best-practices/retry-service-specific#service-bus).
 4. Other exceptions ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). General action: specific to the exception type; refer to the table in the following section:
+
+> [!IMPORTANT]
+> Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+
 
 ## Exception types
 

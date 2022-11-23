@@ -6,6 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/07/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Use managed identities to access Event Hub from an Azure Stream Analytics job
@@ -38,21 +39,19 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 For the Stream Analytics job to access your Event Hub using managed identity, the service principal you created must have special permissions to the Event Hub.
 
-1. Go to **Access Control (IAM)** in your Event Hub.
+1. Select **Access control (IAM)**.
 
-1. Select **+ Add** and **Add role assignment**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. On the **Add role assignment** page, enter the following options:
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-   |Parameter|Value|
-   |---------|-----|
-   |Role|Azure Event Hubs Data Owner|
-   |Assign access to|User, group, or service principal|
-   |Select|Enter the name of your Stream Analytics job|
+    | Setting | Value |
+    | --- | --- |
+    | Role | Azure Event Hubs Data Owner |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name of your Stream Analytics job> |
 
-   :::image type="content" source="media/event-hubs-managed-identity/add-role-assignment.png" alt-text="Add role assignment":::
-
-1. Select **Save** and wait a minute or so for changes to propagate.
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 You can also grant this role at the Event Hub Namespace level, which will naturally propagate the permissions to all Event Hubs created under it. That is, all Event Hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
 

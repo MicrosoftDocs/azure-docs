@@ -3,13 +3,13 @@ title: How to rotate access key for Azure SignalR Service
 description: An overview on why the customer needs to routinely rotate the access keys and how to do it with the Azure portal GUI and the Azure CLI.
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 03/01/2019
+ms.topic: how-to
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 # How to rotate access key for Azure SignalR Service
 
-Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint url. Keep your keys secure, and rotate them regularly. You're provided with two access keys, so you can maintain connections by using one key while regenerating the other.
+Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint URL. Keep your keys secure, and rotate them regularly. You're provided with two access keys so that you can maintain connections by using one key while regenerating the other.
 
 ## Why rotate access keys?
 
@@ -29,7 +29,7 @@ For security reasons and compliance requirements, routinely rotate your access k
 
    ![Regenerate Keys](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az_signalr_key_renew).
+You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az-signalr-key-renew).
 
 ## Update configurations with new connection strings
 

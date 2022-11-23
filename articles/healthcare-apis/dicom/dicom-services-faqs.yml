@@ -3,12 +3,12 @@ metadata:
   title: FAQs about the DICOM service - Azure Health Data Services
   description: Get answers to frequently asked questions about the DICOM service, such as what are the key requirements to use DICOM service.
   services: healthcare-apis
-  author: stevewohl
+  author: mmitrik
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: reference
-  ms.date: 03/15/2022
-  ms.author: aersoy
+  ms.date: 03/22/2022
+  ms.author: mmitrik
 title: Frequently asked questions about the DICOM service
 summary: |
 
@@ -63,6 +63,6 @@ sections:
         answer: |
           DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](./api-versioning-dicom-service.md).
           
-      - question: How can I get access and use DICOM cast?
+      - question: How can I get access and use DICOMcast?
         answer: |
-          To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 
+          To enable DICOMcast for your Azure subscription, please request access for DICOMcast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOMcast, see [DICOMcast request access](dicom-cast-access-request.md). 

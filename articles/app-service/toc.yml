@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
@@ -58,6 +60,8 @@
           href: tutorial-python-postgresql-app.md
         - name: Java with Spring Data
           href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with Postgres
+          href: tutorial-java-quarkus-postgresql-app.md
     - name: Custom containers
       items:
         - name: Deploy from ACR
@@ -66,18 +70,24 @@
           href: tutorial-multi-container-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
-    - name: Securely connect to Azure resources
+    - name: Connect to Azure resource as app
       items:
         - name: Overview
           href: tutorial-connect-overview.md
+        - name: Set up App Service authentication
+          href: scenario-secure-app-authentication-app-service.md          
         - name: With secrets in app settings
           href: configure-common.md?tabs=portal
         - name: With managed identity
           items: 
           - name: Connect to databases
             items: 
-              - name: .NET
+              - name: .NET with SQL DB
                 href: tutorial-connect-msi-sql-database.md
+              - name: Java Tomcat with Postgres
+                href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+              - name: Azure databases
+                href: tutorial-connect-msi-azure-database.md
           - name: Connect to services
             items:
               - name: .NET
@@ -100,22 +110,24 @@
                 href: tutorial-connect-msi-key-vault-javascript.md    
               - name: PHP
                 href: tutorial-connect-msi-key-vault-php.md              
-    - name: Securely connect to Azure resources on behalf of user
+    - name: Connect to Azure resource as user
       items:
-        - name: Overview
-          href: scenario-secure-app-overview.md
         - name: Set up App Service authentication
-          href: scenario-secure-app-authentication-app-service.md
-        - name: Access Microsoft Graph as the user
-          href: scenario-secure-app-access-microsoft-graph-as-user.md
-        - name: Clean up resources
-          href: scenario-secure-app-clean-up-resources.md
+          href: scenario-secure-app-authentication-app-service-as-user.md
+        - name: Connect to Microsoft Graph
+          items: 
+            - name: .NET
+              href: scenario-secure-app-access-microsoft-graph-as-user.md
+            - name: JavaScript
+              href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
+        - name: Connect to another App Service
+          href: tutorial-auth-aad.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: Add CDN
-      href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
+      href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: Send email/tweet
       href: tutorial-send-email.md
     - name: Troubleshoot errors
@@ -129,7 +141,55 @@
 - name: Samples
   items:
     - name: Azure CLI
-      href: samples-cli.md
+      items:
+        - name: Overview
+          items:
+            - name: Overview
+              href: samples-cli.md
+        - name: Create App
+          items:
+            - name: Deploy with FTP
+              href: ./scripts/cli-deploy-ftp.md
+            - name: Deploy from GitHub
+              href: ./scripts/cli-deploy-github.md
+            - name: Deploy continuously from GitHub
+              href: ./scripts/cli-continuous-deployment-github.md
+            - name: Deploy into local Git repo
+              href: ./scripts/cli-deploy-local-git.md
+            - name: Deploy to a staging environment
+              href: ./scripts/cli-deploy-staging-environment.md
+            - name: Deploy in a Docker container
+              href: ./scripts/cli-linux-docker-aspnetcore.md
+            - name: Deploy with a private endpoint
+              href: ./scripts/cli-deploy-privateendpoint.md
+        - name: Configure app
+          items:
+            - name: Map a custom domain to an app
+              href: ./scripts/cli-configure-custom-domain.md
+            - name: Bind a custom TLS/SSL certificate to an app
+              href: ./scripts/cli-configure-ssl-certificate.md
+        - name: Scale app
+          items:
+            - name: Scale an app manually
+              href: ./scripts/cli-scale-manual.md
+            - name: Scale an app with HA architecture
+              href: ./scripts/cli-scale-high-availability.md
+        - name: Integrate with Azure Application Gateway
+          href: ./scripts/cli-integrate-app-service-with-application-gateway.md
+        - name: Connect app to resources
+          items:
+            - name: Connect to SQL
+              href: ./scripts/cli-connect-to-sql.md
+            - name: Connect to storage account
+              href: ./scripts/cli-connect-to-storage.md
+            - name: Connect to Azure Cache for Redis
+              href: ./scripts/cli-connect-to-redis.md
+            - name: Connect to Azure Cosmos DB
+              href: ./scripts/cli-connect-to-documentdb.md
+        - name: Backup and restore an app
+          href: ./scripts/cli-backup-schedule-restore.md
+        - name: Monitor an app with web server logs
+          href: ./scripts/cli-monitor.md
     - name: Azure PowerShell
       href: samples-powershell.md
     - name: Resource Manager templates
@@ -150,6 +210,14 @@
       href: deploy-best-practices.md
     - name: Azure Arc hosting (preview)
       href: overview-arc-integration.md
+    - name: Monitoring overview
+      href: overview-monitoring.md      
+    - name: Resiliency
+      items:
+      - name: Migrate to availability zone support
+        href: ../availability-zones/migrate-app-service.md
+      - name: Restore from downed region
+        href: manage-disaster-recovery.md
     - name: Security
       items:
         - name: Recommendations
@@ -158,6 +226,8 @@
           href: overview-authentication-authorization.md
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
+        - name: Subdomain takeover
+          href: reference-dangling-subdomain-prevention.md                
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -171,18 +241,14 @@
           href: networking-features.md
         - name: Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
+        - name: Access restrictions
+          href: overview-access-restrictions.md
         - name: Private endpoint
           href: networking/private-endpoint.md
         - name: Hybrid connections
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Application Gateway integration
-          href: networking/app-gateway-with-service-endpoints.md
-        - name: NAT gateway integration
-          href: networking/nat-gateway-integration.md
-        - name: Traffic Manager integration
-          href: web-sites-traffic-manager.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics
@@ -193,6 +259,8 @@
       items:
         - name: Configure common settings
           href: configure-common.md
+        - name: Reference settings from App Configuration (preview)
+          href: app-service-configuration-references.md
         - name: Configure ASP.NET
           href: configure-language-dotnet-framework.md
         - name: Configure ASP.NET Core
@@ -209,7 +277,7 @@
           href: configure-language-ruby.md
         - name: Configure custom container
           href: configure-custom-container.md
-        - name: Configure Azure Storage (container)
+        - name: Configure Azure Storage
           href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
@@ -229,6 +297,8 @@
               href: deploy-ci-cd-custom-container.md
             - name: Deploy from local Git
               href: deploy-local-git.md
+            - name: Azure Pipelines
+              href: deploy-azure-pipelines.md
             - name: GitHub Actions
               href: deploy-github-actions.md
             - name: GitHub Actions for Containers
@@ -265,7 +335,7 @@
               href: configure-authentication-provider-twitter.md
             - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
-            - name: Authenticate using Sign in with Apple (Preview)
+            - name: Authenticate using Sign-in with Apple (Preview)
               href: configure-authentication-provider-apple.md
         - name: Customize sign-ins/outs
           href: configure-authentication-customize-sign-in-out.md
@@ -300,7 +370,7 @@
         - name: Configure PremiumV3 tier
           href: app-service-configure-premium-tier.md
         - name: Scale out to multiple instances
-          href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
         - name: High density hosting
           href: manage-scale-per-app.md
     - name: Monitor app
@@ -321,36 +391,34 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Back up an app
+        - name: Back up and restore
           href: manage-backup.md
-        - name: Restore a backup
-          href: web-sites-restore.md
-        - name: Restore a snapshot
-          href: app-service-web-restore-snapshots.md
         - name: Clone an app
           href: app-service-web-app-cloning.md
         - name: Restore deleted App Service
           href: app-service-undelete.md
-        - name: Restore from downed region
-          href: manage-disaster-recovery.md
         - name: Enable on Azure Arc
           href: manage-create-arc-environment.md
-
     - name: Networking
       items:
-        - name: Enable VNet integration
+        - name: Enable virtual network integration
           href: configure-vnet-integration-enable.md
-        - name: Configure VNet integration routing
+        - name: Configure network routing
           href: configure-vnet-integration-routing.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
-
+        - name: Integrate with Application Gateway
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: Configure NAT gateway integration
+          href: networking/nat-gateway-integration.md
+        - name: Integrate with Traffic Manager
+          href: web-sites-traffic-manager.md
     - name: Move app
       items:
         - name: Move between regions
           href: manage-move-across-regions.md
         - name: Move subscriptions
-          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: Run background tasks
       items:
         - name: Create WebJobs
@@ -361,10 +429,6 @@
           href: webjobs-sdk-get-started.md
         - name: Use WebJobs SDK
           href: webjobs-sdk-how-to.md
-    - name: Zone redundancy
-      items:
-        - name: Configuring zone redundancy
-          href: how-to-zone-redundancy.md
     - name: Automate provisioning
       items:
       - name: Bicep
@@ -392,8 +456,8 @@
   items:
     - name: App Service Blog
       href: https://aka.ms/appserviceblog
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
@@ -412,10 +476,14 @@
       href: https://azure.microsoft.com/resources/videos/index/?services=app-service
     - name: Migrate to App Service
       items:
-        - name: Migrate ASP.NET
+        - name: Assess .NET
+          href: app-service-migration-assess-net.md
+        - name: Discover .NET
+          href: app-service-migration-discover-net.md
+        - name: Migrate .NET
           href: app-service-asp-net-migration.md
-        - name: Migrate containerized ASP.NET
-          href: /azure/migrate/tutorial-app-containerization-aspnet-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+        - name: Migrate containerized .NET
+          href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
         - name: Migrate Java
           href: app-service-java-migration.md
         - name: Migrate Spring Boot
@@ -436,6 +504,28 @@
           href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
+        - name: Create or delete web apps FAQ 
+          href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
+        - name: App performance FAQs
+          href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
+        - name: App Service Compliance with PCI Standards
+          href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
+        - name: Back up and restore app services
+          href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
+        - name: Built-in Linux containers FAQs
+          href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
+        - name: Configuration and management FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-configuration-and-management-faqs?toc=/azure/app-service/toc.json
+        - name: Deployment FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
+        - name: FAQs about scaling web apps
+          href: /troubleshoot/azure/app-service/scaling-web-app-faq?toc=/azure/app-service/toc.json
+        - name: Open-source technologies FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-open-source-technologies-faqs?toc=/azure/app-service/toc.json
+        - name: Troubleshoot temporary storage
+          href: /troubleshoot/azure/app-service/temporary-storage-for-azure-app-service?toc=/azure/app-service/toc.json
+        - name: Troubleshoot instance-related issues
+          href:  /troubleshoot/azure/app-service/troubleshoot-instance-related-issues-on-azure-app-service?toc=/azure/app-service/toc.json
         - name: Troubleshoot intermittent outbound connection errors
           href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Troubleshoot with Visual Studio
@@ -448,6 +538,7 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
+
     - name: IP address change
       items:
       - name: Inbound IP address

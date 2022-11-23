@@ -12,7 +12,7 @@ ms.custom: devx-track-python
 
 Run the following Azure CLI commands to see the log stream. This command uses parameters cached in the .azure/config file.
 
-**Step 1.** Configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+**Step 1.** Configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -34,7 +34,7 @@ az webapp log config `
 
 ---
 
-**Step 2.** To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+**Step 2.** To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command.
 
 #### [bash](#tab/terminal-bash)
 

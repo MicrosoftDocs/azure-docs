@@ -9,7 +9,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: metrics-advisor
   ms.topic: faq
-  ms.date: 11/05/2020
+  ms.date: 08/05/2022
   ms.author: mbullwin
 title: Metrics Advisor frequently asked questions
 summary: |
@@ -75,27 +75,40 @@ sections:
           
           2. Limitation on maximum time series count within one metric.
 
-          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric should not exceed **100k**.   
+          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric shouldn't exceed **100k**.   
           - Metrics Advisor resource admins and data feed owners will be notified when the **80%** limitation is reached on the data feed detail page. 
-          - If the metric has exceeded the limitation the data feed **will be paused** and wait for customers to take follow-up actions. It's suggested to split the data feed to multiple data feeds by using filtering. 
+          - If the metric has exceeded the limitation the data feed **will be paused**, and wait for customers to take follow-up actions. It's suggested to split the data feed to multiple data feeds by using filtering. 
 
           3. Limitation on maximum data points stored in one Metrics Advisor instance
 
           Metrics Advisor counts on total data points from all data feeds that onboarded to the instance starting from the first ingestion timestamp. The maximum number of data points to be stored in one Metrics Advisor instance is **2 billion**. 
-          - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
-          - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
-      
+          - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and via the add new data feed page. 
+          - If total data points have exceeded the limitation all data feeds **will be paused**, and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
+      - question: |
+          Why can't I sign in to Metrics Advisor? The error message says 'The resource is decommissioned due to inactive in 90 days'
+        answer: |
+          There are two cases where a resource is decommissioned: 
+          - A Metrics Advisor resource is created, but no data feed has been onboarded within 90 days. The resource will be decommissioned after 90 days due to inactivity.  
+          - If one or multiple data feeds have been created but there isn't any new data being ingested into Metrics Advisor, the service will enter idle mode with no data to be processed. The system will still try to grab data regularly from the source according to the metrics granularity. However, if it continues to have no data available or no single time series to be processed for a period of 90 consecutive days, the resource will be decommissioned. **All historical data associated with the resource will be lost when it's decommissioned**. 
+          
+          It's recommended to create a new resource and delete the old one, if you would like to restart the usage. 
+          
       - question: |
           How do I detect spikes & dips as anomalies?
         answer: |
-          If you have hard thresholds predefined, you could actually manually set "hard threshold" in [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods).
-          If there's no thresholds, you could use "smart detection" which is powered by AI. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
+          If you have hard thresholds predefined, you could manually set "hard threshold" in [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods).
+          If there's no thresholds, you could use "smart detection", which is powered by AI. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
           
       - question: |
           How do I detect inconformity with regular (seasonal) patterns as anomalies?
         answer: |
           "Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
-          
+      
+      - question: |
+          Does Metrics Advisor support datasources that are behind a VNET?
+        answer: |
+          No, Metrics Advisor doesn't currently support datasources that are behind a VNET.
+              
       - question: |
           How do I detect flat lines as anomalies?
         answer: |
@@ -109,7 +122,7 @@ sections:
           1. A user with subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
           2. Select **Add role assignments**
           3. Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
-          4. Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
+          4. Select the **Save** button, and you're added as an administrator of the Metrics Advisor resource. All the above actions need to be performed by subscription administrator or resource group administrator. 
           
               :::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permissions." lightbox="media/access-control.png":::
           
@@ -138,7 +151,7 @@ sections:
           
           Starting from the total `Response latency`, we can drill down into the metric by `Service`, `Data center` and `Machine`. However, maybe it makes more sense for service owners to use the path `Service` -> `Data center` -> `Machine`, or maybe it makes more sense for infrastructure engineers to use the path `Data Center` -> `Machine` -> `Service`. It all depends on the individual business requirements of your users. 
           
-          In Metric Advisor, users can specify any path they want to drill down or rollup from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
+          In Metric Advisor, users can specify any path they want to drill down or roll up from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
           
           :::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting vertices and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/dimension-combinations-view.png":::
           
@@ -148,7 +161,7 @@ sections:
           
           The **Diagnostic tree** tool in the diagnostics page only shows nodes where an anomaly has been detected, rather than the whole topology. This is to help you focus on the current issue. It also may not show all anomalies within the metric, and instead will display the top anomalies based on contribution. In this way, we can quickly find out the impact, scope, and the spread path of the abnormal data. Which significantly reduces the number of anomalies we need to focus on, and helps users to understand and locate their key issues. 
            
-          For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2` which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The incident tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
+          For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2`, which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The incident tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
           
            :::image type="content" source="media/root-cause-paths.png" alt-text="5 labeled vertices with two distinct paths connected by edges with a common node labeled S2. The top anomaly is captured on Service = S2, and root cause can be analyzed by the two paths which both lead to Service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
           

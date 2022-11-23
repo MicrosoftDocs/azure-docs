@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 03/16/2022
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 

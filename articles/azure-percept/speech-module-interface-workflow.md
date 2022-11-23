@@ -1,15 +1,17 @@
 ---
 title: Azure Percept speech module interface workflow
 description: Describes the workflow and available methods for the Azure Percept speech module 
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 7/19/2021
+ms.date: 10/04/2022
 ms.custom: template-concept
 ---
 
 # Azure Percept speech module interface workflow
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 This article describes how the Azure Percept speech module interacts with IoT Hub. It does so via Module Twin and Module methods. Furthermore, it lists the direct method calls used to invoke the speech module.
 

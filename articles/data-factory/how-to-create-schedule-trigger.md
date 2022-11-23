@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli
 ---
 
@@ -35,28 +35,32 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Switch to Edit tab":::
 
     # [Azure Synapse](#tab/synapse-analytics)
+
     :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Switch to Edit tab":::
 
 ---
-    
-2. Select **Trigger** on the menu, then select **New/Edit**. 
+
+2. Select **Trigger** on the menu, then select **New/Edit**.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="New trigger menu":::
 
-1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
+1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Add triggers - new trigger":::
 
-1. On the **New Trigger** page, do the following steps: 
+1. On the **New Trigger** page, do the following steps:
 
     1. Confirm that **Schedule** is selected for **Type**.
     1. Specify the start datetime of the trigger for **Start Date**. It's set to the current datetime in Coordinated Universal Time (UTC) by default.
-    1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone. Please note that Scheduled Execution time of Trigger will be considered post the Start Date (Ensure Start Date is atleast 1minute lesser than the Execution time else it will trigger pipeline in next recurrence). 
+    1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone. Please note that Scheduled Execution time of Trigger will be considered post the Start Date (Ensure Start Date is at least 1 minute lesser than the Execution time else it will trigger pipeline in next recurrence).
 
         > [!NOTE]
-        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
+        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change, if the recurrence is set to _Days_ or above. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
-    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+        > [!IMPORTANT]
+        > Daylight saving adjustment only happens for trigger with recurrence set to _Days_ or above. If the trigger is set to _Hours_ or _Minutes_ frequency, it will continue to fire at regular intervals.
+
+    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box.
     1. In the **Recurrence**, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
@@ -65,7 +69,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
         :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Trigger settings for End Date":::
 
-1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
+1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Trigger settings - Next button":::
 
@@ -77,7 +81,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Publish button":::
 
-1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
+1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list.
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -85,10 +89,10 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Monitor triggered runs":::
-    
+
 ---
 
-9. Switch to the **Trigger Runs** \ **Schedule** view. 
+9. Switch to the **Trigger Runs** \ **Schedule** view.
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -96,7 +100,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Monitor trigger runs":::
-    
+
 ---
 
 ## Azure PowerShell
@@ -389,7 +393,7 @@ This section shows you how to use the Python SDK to create, start, and monitor a
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
     pipelines_to_run.append(TriggerPipelineReference(pipeline_reference, pipeline_parameters))
-    tr_properties = ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
+    tr_properties = TriggerResource(properties=ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence))
     adf_client.triggers.create_or_update(rg_name, df_name, tr_name, tr_properties)
 
     # Start the trigger

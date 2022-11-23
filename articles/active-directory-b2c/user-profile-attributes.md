@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 10/11/2021
 ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support
 ---
 
 # User profile attributes
@@ -48,14 +49,13 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |creationType    |String|If the user account was created as a local account for an Azure Active Directory B2C tenant, the value is LocalAccount or nameCoexistence. Read only.|No|No|Persisted, Output|
 |dateOfBirth     |Date|Date of birth.|No|No|Persisted, Output|
 |department      |String|The name for the department in which the user works. Max length 64.|Yes|No|Persisted, Output|
-|displayName     |String|The display name for the user. Max length 256.|Yes|Yes|Persisted, Output|
+|displayName     |String|The display name for the user. Max length 256. \< \> characters aren't allowed. | Yes|Yes|Persisted, Output|
 |facsimileTelephoneNumber<sup>1</sup>|String|The telephone number of the user's business fax machine.|Yes|No|Persisted, Output|
 |givenName       |String|The given name (first name) of the user. Max length 64.|Yes|Yes|Persisted, Output|
 |jobTitle        |String|The user's job title. Max length 128.|Yes|Yes|Persisted, Output|
 |immutableId     |String|An identifier that is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
 |legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, and adult.|Yes|No|Persisted, Output|
 |legalCountry<sup>1</sup>  |String|Country/Region for legal purposes.|No|No|Persisted, Output|
-|mail    |String|Email address for the user. Example: "bob@contoso.com". NOTE: Accent characters are not allowed.|Yes|No|Persisted, Output|
 |mailNickName    |String|The mail alias for the user. Max length 64.|No|No|Persisted, Output|
 |mobile (mobilePhone) |String|The primary cellular telephone number for the user. Max length 64.|Yes|No|Persisted, Output|
 |netId           |String|Net ID.|No|No|Persisted, Output|
@@ -166,7 +166,7 @@ In user migration scenarios, if the accounts you want to migrate have weaker pas
 
 ## MFA phone number attribute
 
-When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](/graph/api/authentication-post-phonemethods) a new phone number programmatically, [update](/graph/api/b2cauthenticationmethodspolicy-update), [get](/graph/api/b2cauthenticationmethodspolicy-get), or [delete](/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](/graph/api/resources/phoneauthenticationmethod).
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](/graph/api/authentication-post-phonemethods) a new phone number programmatically, [update](/graph/api/phoneauthenticationmethod-update), [get](/graph/api/phoneauthenticationmethod-get), or [delete](/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](/graph/api/resources/phoneauthenticationmethod).
 
 In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 

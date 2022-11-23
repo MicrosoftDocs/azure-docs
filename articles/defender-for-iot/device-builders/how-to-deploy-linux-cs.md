@@ -2,7 +2,7 @@
 title: Install & deploy Linux C# agent
 description: Learn how to install and deploy the Defender for IoT C#-based security agent on Linux
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy Defender for IoT C# based security agent for Linux
@@ -46,9 +46,9 @@ This script performs the following actions:
 
 - Installs prerequisites.
 
-- Adds a service user (with interactive sign in disabled).
+- Adds a service user (with interactive sign-in disabled).
 
-- Installs the agent as a **Daemon** - assumes the device uses **systemd** for classic deployment model.
+- Installs the agent as a **Daemon** - assumes the device uses **systemd** for legacy deployment model.
 
 - Configures **sudoers** to allow the agent to do certain tasks as root.
 

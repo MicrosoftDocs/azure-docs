@@ -4,7 +4,7 @@ description: Use Apache Hive to extract, transform, and load (ETL) data in Azure
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/28/2020
+ms.date: 04/29/2022
 ---
 
 # Use Apache Hive as an Extract, Transform, and Load (ETL) tool

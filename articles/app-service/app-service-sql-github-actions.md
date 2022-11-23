@@ -10,7 +10,7 @@ ms.custom: github-actions-azure
 
 # Tutorial: Use GitHub Actions to deploy to an App Service custom container and connect to a database
 
-This tutorial walks you through setting up a GitHub Actions workflow to deploy a containerized ASP.NET Core application with an [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) backend. When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database. You'll first create Azure resources with an [ARM template](../azure-resource-manager/templates/overview.md) GitHub Actions workflow.
+This tutorial walks you through setting up a GitHub Actions workflow to deploy a containerized ASP.NET Core application with an [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) backend. When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database. You'll first create Azure resources with an [ARM template](../azure-resource-manager/templates/overview.md) GitHub Actions workflow.
 
 In this tutorial, you learn how to:
 
@@ -47,7 +47,7 @@ Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use t
 
 ## Generate deployment credentials
 
-You'll need to authenticate with a service principal for the resource deployment script to work. You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You'll need to authenticate with a service principal for the resource deployment script to work. You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
     az ad sp create-for-rbac --name "{service-principal-name}" --sdk-auth --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -70,9 +70,7 @@ In the example, replace the placeholders with your subscription ID, resource gro
 
 ## Configure the GitHub secret for authentication
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ## Add a SQL Server secret
 
@@ -90,7 +88,9 @@ To run the create Azure resources workflow:
 
 1. Open the `azuredeploy.yaml` file in `.github/workflows` within your repository.
 
-1. Update the value of `AZURE_RESOURCE_GROUP` to your resource group name.
+1. Update the value of `AZURE_RESOURCE_GROUP` to your resource group name. 
+
+1. Update the values of `WEB_APP_NAME` and `SQL_SERVER_NAME` to your web app name and sql server name.
 
 1. Go to **Actions** and select **Run workflow**.
 

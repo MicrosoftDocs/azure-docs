@@ -3,10 +3,10 @@ title: include file
 description: include file
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 3/24/2022
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -17,13 +17,13 @@ On the **Lifecycle** tab, you specify when a user's assignment to the access pac
 
 1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, **Number of hours**, or **Never**.
 
-    For **On date**, select an expiration date in the future.
-
-    For **Number of days**, specify a number between 0 and 3660 days.
-
-    For **Number of hours**, specify a number of hours.
+    - For **On date**, select an expiration date in the future.
+    - For **Number of days**, specify a number between 0 and 3660 days.
+    - For **Number of hours**, specify a number of hours.
 
     Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
+
+1. If you want the user to request a specific start and end date for their access, click **yes** next to the **Users can request specific timeline** toggle.
 
 1. Click **Show advanced expiration settings** to show additional settings.
 

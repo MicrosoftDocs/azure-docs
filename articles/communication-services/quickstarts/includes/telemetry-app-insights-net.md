@@ -131,7 +131,7 @@ After the SDK calls have been wrapped with Activities, you can add the OpenTelem
 
 You have the option of defining a dictionary with some resource attributes that will show up in Application Insights.
 Then, call `AddSource` and use the same Activity Source name that was defined in `TracedSample`.
-You will also need to grab the connection string from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
+You will also need to grab the [connection string](../../../azure-monitor/app/sdk-connection-string.md) from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
 
 Lastly, call and await the `TracedSample()` function where we have our SDK calls.
 

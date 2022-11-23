@@ -32,11 +32,11 @@ The list of geographies you can choose from includes:
 - India
 - Japan
 - Korea
+- Norway
+- Switzerland
+- United Arab Emirates
 - United Kingdom
 - United States
-
-> [!NOTE]
-> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
 
 ## Data collection
 
@@ -58,7 +58,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
@@ -102,10 +102,10 @@ Call recordings are stored temporarily in the same geography that was selected f
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
+Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Additional resources
 
 - [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
-- [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)
+- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/)

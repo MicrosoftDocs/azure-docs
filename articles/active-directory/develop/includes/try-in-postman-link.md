@@ -1,5 +1,5 @@
 ---
-title: Try the protocols in Postman | Azure
+title: Try the protocols in Postman
 description: Standard link to use the Postman files
 services: active-directory
 author: nickludwig

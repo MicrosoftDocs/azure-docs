@@ -28,8 +28,8 @@ Before beginning, make sure you have all the values required to make OAuth2 call
 ### Client Credentials Flow
 
 In the client credentials flow, the token is used with the ARM endpoint. A single request is made to receive a token, using the application permissions provided during the Azure AD application setup.
-The resource requested is: <https://management.azure.com/>. 
-You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/). Replace the "resource" in the example.
+The resource requested is: `https://management.azure.com`. 
+You can also use this flow to request a token to `https://api.loganalytics.io`. Replace the "resource" in the example.
 
 #### Client Credentials Token URL (POST request)
 
@@ -42,6 +42,19 @@ You can also use this flow to request a token to [https://api.loganalytics.io](h
     &client_id=YOUR_CLIENT_ID
     &redirect_uri=YOUR_REDIRECT_URI
     &resource=https://management.azure.com/
+    &client_secret=YOUR_CLIENT_SECRET
+```
+
+##### Microsoft identity platform v2.0
+
+```
+    POST /YOUR_AAD_TENANT/oauth2/v2.0/token HTTP/1.1
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=YOUR_CLIENT_ID
+    &scope=https://management.azure.com/.default
     &client_secret=YOUR_CLIENT_SECRET
 ```
 

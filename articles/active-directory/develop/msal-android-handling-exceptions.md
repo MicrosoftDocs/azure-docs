@@ -1,9 +1,8 @@
 ---
-title: Errors and exceptions (MSAL Android)  | Azure
-titleSuffix: Microsoft identity platform
+title: Errors and exceptions (MSAL Android) 
 description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL Android applications.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 08/07/2020
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: marsma
 ---
 

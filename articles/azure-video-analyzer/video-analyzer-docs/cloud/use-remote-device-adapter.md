@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 Azure Video Analyzer service allows users to capture and record video from RTSP cameras that are connected to the cloud. This requires that such cameras must be accessible over the internet. In cases where this may not be permissible, the Video Analyzer edge module can instead be deployed to a lightweight edge device with internet connectivity. With the lightweight edge device on the same (private) network as the RTSP cameras, the edge module can now be set up as an *adapter* that enables the Video Analyzer service to connect to the *remote devices* (cameras). The edge module enables the edge device to act as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service.
 
 > [!div class="mx-imgBorder"]

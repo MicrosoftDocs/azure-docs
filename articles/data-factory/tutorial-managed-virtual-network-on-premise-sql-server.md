@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 05/06/2021
+ms.date: 09/26/2022
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint
@@ -250,7 +250,7 @@ data factory from the resources list.
 
 ## Create a linked service and test the connection
 
-1. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
+1. Go to the **Manage** tab and then go to the **Linked services** section.
 2. Select + **New** under **Linked Service**.
 3. Select the **SQL Server** tile from the list and select **Continue**.    
 

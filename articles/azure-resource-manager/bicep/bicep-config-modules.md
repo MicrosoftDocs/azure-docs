@@ -2,7 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 04/08/2022
 ---
 
 # Add module settings in the Bicep config file
@@ -99,29 +99,30 @@ For a template spec, use:
 module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
 
-## Credentials for publishing/restoring modules
+An alias has been predefined for the [public module registry](./modules.md#path-to-module). To reference a public module, you can use the format:
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
+```bicep
+br/public:<file>:<tag>
+```
+
+You can override the public module registry alias definition in the bicepconfig.json file:
 
 ```json
 {
-    "cloud": {
-      "credentialPrecedence": [
-        "AzureCLI",
-        "AzurePowerShell"
-      ]
+  "moduleAliases": {
+    "br": {
+      "public": {
+        "registry": "<your_module_registry>",
+        "modulePath": "<optional_module_path>"
+      }
     }
+  }
 }
 ```
 
-The available credentials are:
+## Credentials for publishing/restoring modules
 
-- AzureCLI
-- AzurePowerShell
-- Environment
-- ManagedIdentity
-- VisualStudio
-- VisualStudioCode
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, see [Add credential precedence to Bicep config](bicep-config.md#credential-precedence).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to add Apache Hive libraries (jar files) to an HDInsight 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 02/14/2020
+ms.date: 04/08/2022
 ---
 
 # Add custom Apache Hive libraries when creating your HDInsight cluster

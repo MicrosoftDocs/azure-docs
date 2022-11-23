@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 11/18/2022
 ms.author: radeltch
 
 ---
@@ -49,7 +49,9 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system.
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [converged template][template-converged] with SAP system ID NW1 to create the resources.
+In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. 
+
+For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
 
 Read the following SAP Notes and papers first
 
@@ -81,48 +83,21 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse.png)
 
-The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 10.0.0.7
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
-
-### ERS
-
-* Frontend configuration
-  * IP address 10.0.0.8
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
-
+* Frontend IP address 10.0.0.7 for ASCS
+* Frontend IP address 10.0.0.8 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up a highly available NFS server
+
+> [!NOTE]
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
+> The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
+> - [High availability SAP NW on Azure VMswith simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
+> - [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
+> - [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
 
 SAP NetWeaver requires shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
 
@@ -209,10 +184,11 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Enter the name of the new load balancer rule (for example **nw1-lb-ascs**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-backend** and **nw1-ascs-hp**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if***  your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -424,7 +400,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.7</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
@@ -475,7 +452,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.8</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b>
+   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>

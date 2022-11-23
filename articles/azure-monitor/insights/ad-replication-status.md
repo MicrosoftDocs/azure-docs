@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
+ms.reviewer: shijain
 
 ---
 
@@ -15,8 +16,6 @@ ms.date: 01/24/2018
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
 The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## Installing and configuring the solution
 

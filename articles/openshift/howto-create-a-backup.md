@@ -4,8 +4,8 @@ description: Learn how to create a backup of your Azure Red Hat OpenShift cluste
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
-author: georgewallace
-ms.author: gwallace
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create an Azure Red Hat OpenShift cluster application backup
@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application backup
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ To [install](https://velero.io/docs/main/basic-install/) Velero on your system, 
 
 This step will create a resource group outside of the ARO cluster's resource group.  This resource group will allow the backups to persist and can restore applications to new clusters.
 
-```bash
+```azurecli
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
 az group create -n $AZURE_BACKUP_RESOURCE_GROUP --location eastus
 
@@ -60,13 +60,13 @@ export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-gr
 ```
 
 
-```bash
+```azurecli
 AZURE_SUBSCRIPTION_ID=$(az account list --query '[?isDefault].id' -o tsv)
 
 AZURE_TENANT_ID=$(az account list --query '[?isDefault].tenantId' -o tsv)
 ```
 
-```bash
+```azurecli
 AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --name "velero" --role "Contributor" --query 'password' -o tsv \
 --scopes  /subscriptions/$AZURE_SUBSCRIPTION_ID)
 AZURE_CLIENT_ID=$(az ad sp list --display-name "velero" --query '[0].appId' -o tsv)
@@ -86,7 +86,7 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This step will install Velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to an Azure Red Hat OpenShift v4 cluster.
+This step will install Velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you're successfully logged in to an Azure Red Hat OpenShift v4 cluster.
 
 
 ```bash
@@ -118,7 +118,7 @@ A successful backup will output `phase:Completed` and the objects will live in t
 
 ## Create a backup with Velero to include snapshots
 
-To create an application backup with Velero to include the persistent volumes of your application, you'll need to include the namespace that the application is in as well as to include the `snapshot-volumes=true` flag when creating the backup
+To create an application backup with Velero to include the persistent volumes of your application, you'll need to include the namespace that the application is in and include the `snapshot-volumes=true` flag when creating the backup.
 
 ```bash
 velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
@@ -132,7 +132,7 @@ oc get backups -n velero <name of backup> -o yaml
 
 A successful backup with output `phase:Completed` and the objects will live in the container in the storage account.
 
-For more information about how to create backups and restores using Velero see [Backup OpenShift resources the native way](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+For more information, see [Backup OpenShift resources the native way](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
 
 ## Next steps
 

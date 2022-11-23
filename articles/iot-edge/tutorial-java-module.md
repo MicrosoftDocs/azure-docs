@@ -39,6 +39,7 @@ Use the following table to understand your options for developing and deploying 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use VS Code for Java modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing either of those tutorials, you should have the following prerequisites in place:
 
@@ -46,7 +47,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in Java, install the following additional prerequisites on your development machine:
 
