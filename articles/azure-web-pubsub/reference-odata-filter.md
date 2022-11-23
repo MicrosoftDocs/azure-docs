@@ -10,7 +10,7 @@ ms.date: 11/11/2022
 
 # OData filter syntax in Azure Web PubSub service
 
-Azure Web PubSub's **filter** parameter defines inclusion or exclusion criteria for sending messages to connections. 
+Azure Web PubSub's **filter** parameter defines inclusion or exclusion criteria for sending messages to connections. This parameter is used in the [Send to all](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all), [Send to group](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-group), and [Send to user](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-user) operations.
 
 This article provides the following resources:
 
@@ -115,7 +115,7 @@ length(userId) gt 0 and length(userId) lt 3 or length(userId) gt 7 and length(us
 ((length(userId) gt 0) and (length(userId) lt 3)) or ((length(userId) gt 7) and (length(userId) lt 10))
 ```
 
-The `not` operator has the highest precedence of all, even higher than the comparison operators. 's If you write a filter like this:
+The `not` operator has the highest precedence of all, even higher than the comparison operators. If you write a filter like this:
 
 ```odata-filter-expr
 not length(userId) gt 5
