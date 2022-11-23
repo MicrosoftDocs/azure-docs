@@ -10,7 +10,7 @@ ms.author: caiqing
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use App Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
+# Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -53,7 +53,7 @@ Use the following steps to enable App Accelerator using the Azure portal:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to provision an Azure Spring Apps service instance with App Accelerator enabled using the Azure CLI:
+Use the following steps to provision an Azure Spring Apps service instance with App Accelerator enabled using the Azure CLI.
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription:
 
@@ -118,13 +118,13 @@ You can see the running instances and resource usage of all the components using
 
 ### [Azure portal](#tab/Portal)
 
-You can view the state of Application Accelerator on the **Developer Tools (Preview)** page, as shown in the following screenshot:
+You can view the state of Application Accelerator in the Azure portal on the **Developer Tools (Preview)** page, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Developer Tools (Preview) page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to view Application Accelerator.
+Use the following command in the Azure CLI to view Application Accelerator.
 
 ```azurecli
 az spring application-accelerator show \
@@ -136,13 +136,15 @@ az spring application-accelerator show \
 
 ## Configure Dev Tools to access Application Accelerator
 
-To access app accelerator, you need centrally configure Dev Tools. Please refer to [Use Dev Tools](./how-to-use-dev-tool-portal.md) to understand more there.
+To access Application Accelerator, you must configure VMware Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
 
-## Use App Accelerator to bootstrap your new projects
+## Use Application Accelerator to bootstrap your new projects
+
+To use Application Accelerator to bootstrap your new projects, you must get permissions to manage accelerators. You can then manage predefined accelerators or your own accelerators.
 
 ### Get Permissions to manage accelerators
 
-Before manage your accelerators, you need following permissions:
+Managing your accelerators requires the following permissions:
 
 - Read : Get Azure Spring Apps Predefined Accelerator
 - Other: Disable Azure Spring Apps Predefined Accelerator
@@ -150,41 +152,49 @@ Before manage your accelerators, you need following permissions:
 - Write : Create or Update Microsoft Azure Spring Apps Customized Accelerator
 - Read : Get Azure Spring Apps Customized Accelerator
 
-For more information, see: [Use permissions in Azure Spring Apps | Microsoft Learn](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal)
+For more information, see [How to use permissions in Azure Spring Apps | Microsoft Learn](./how-to-permissions.md)
 
 ### Manage predefined accelerators
 
-There are several predefined accelerators which you can start with to bootstrap your new projects. You can disable or enable the built-in accelerators according to you own preference.
+You can start with several predefined accelerators to bootstrap your new projects. You can disable or enable the built-in accelerators according to your own preference.
 
-#### [Portal](#tab/Portal)
+You can manager predefined accelerators using the Azure portal or Azure CLI.
 
-![Predefined-accelerator](./media/how-to-use-accelerator/predefined-accelerator.png)
+### [Portal](#tab/Portal)
 
-#### [CLI](#tab/Azure-CLI)
+You can view the built-in accelerators in the Azure portal on the **Accelerators** tab, as shown in the following screenshot:
 
-  Use the following command to get the list of built-in accelerators:
+:::image type="content" source="media/how-to-use-accelerator/predefined-accelerator.png" alt-text="Screenshot of the Accelerators tab showing built-in accelerators." lightbox="media/how-to-use-accelerator/predefined-accelerator.png":::
 
-  ```azurecli
-  az spring application-accelerator predefined-accelerator list
-  	--service <service instance name>
-  	--resource-group <resource group name>
-  ```
+### [CLI](#tab/Azure-CLI)
 
-  Use the following command to disable a built-in accelerator:
+Use the following command in the Azure CLI to get the list of built-in accelerators:
 
   ```azurecli
-  az spring application-accelerator predefined-accelerator disable --name <predefined accelerator name>
-  	--service <service instance name>
-  	--resource-group <resource group name>
+  az spring application-accelerator predefined-accelerator list \
+      --service <service-instance-name> \
+      --resource-group <resource-group-name>
   ```
 
-  Use the following command to enable a built-in predefined-accelerator:
+Use the following command to disable a built-in accelerator:
 
   ```azurecli
-  az spring application-accelerator predefined-accelerator enable --name <predefined accelerator name>
-  	--service <service instance name>
-  	--resource-group <resource group name>
+  az spring application-accelerator predefined-accelerator disable \
+      --name <predefined-accelerator-name> \
+      --service <service-instance-name> \
+      --resource-group <resource-group-name>
   ```
+
+Use the following command to enable a built-in predefined-accelerator:
+
+  ```azurecli
+  az spring application-accelerator predefined-accelerator enable \
+    --name <predefined-accelerator-name>
+    --service <service-instance-name>
+    --resource-group <resource-group-name>
+  ```
+
+---
 
 ### Manage your own accelerators
 

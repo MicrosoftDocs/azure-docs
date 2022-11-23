@@ -132,6 +132,8 @@ items:
         href: how-to-use-enterprise-spring-cloud-gateway.md
       - name: Configure Spring Cloud Gateway
         href: how-to-configure-enterprise-spring-cloud-gateway.md
+      - name: Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
+        href: how-to-use-accelerator.md
   - name: Deploy
     items:
     - name: Set up a staging environment
