@@ -68,7 +68,7 @@ Before creating capacity reservation, VM sizes available for reservation can be 
     ```
     
     
-    ### [CLI](#tab/cli1)
+  ### [CLI](#tab/cli1)
 
 1. The following example lists the capacity reservation available VM sizes in East US location using Azure CLI:
 
