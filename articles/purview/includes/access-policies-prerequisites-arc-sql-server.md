@@ -7,7 +7,6 @@ ms.topic: include
 ms.date: 11/23/2022
 ms.custom: references_regions
 ---
-
 - Get [SQL Server version 2022 or later](https://www.microsoft.com/sql-server/sql-server-2022) running on Windows and install it.
 - Complete the process to onboard that [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
@@ -62,4 +61,4 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 
 1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully.
 
-   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
+   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)
