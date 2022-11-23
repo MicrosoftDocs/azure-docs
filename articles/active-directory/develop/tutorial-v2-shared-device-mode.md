@@ -155,7 +155,7 @@ private void loadAccount()
       }
     }
     @Override
-    public void on AccountChanged(@Nullable IAccount priorAccount, @Nullable Iaccount currentAccount)
+    public void onAccountChanged(@Nullable IAccount priorAccount, @Nullable Iaccount currentAccount)
     {
       if (currentAccount == null)
       {

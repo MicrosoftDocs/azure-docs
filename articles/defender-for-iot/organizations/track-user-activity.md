@@ -16,7 +16,7 @@ Use Azure Active Directory (AAD) user auditing resources to audit Azure user act
 - [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
 - [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
 
-## Audit user activity on a OT network sensor
+## Audit user activity on an OT network sensor
 
 Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
 

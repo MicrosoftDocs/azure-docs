@@ -5,12 +5,16 @@ items:
   items:
   - name: What is Azure Monitor?
     href: overview.md
+  - name: What is observability?
+    href: observability-data.md  
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: Observability
-    href: observability-data.md    
   - name: What's new?
     href: whats-new.md
+  - name: View and estimate charges
+    href: usage-estimated-costs.md
+  - name: Cost optimization
+    href: best-practices-cost.md     
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -134,8 +138,6 @@ items:
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
-    - name: Optimize costs
-      href: best-practices-cost.md
   - name: Monitor a virtual machine
     items:
     - name: Overview
@@ -380,7 +382,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: faq.yml#prometheus
+        href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
       - name: Enable on AKS cluster
@@ -439,46 +441,14 @@ items:
       href: essentials/activity-log.md
     - name: Resource logs
       href: essentials/resource-logs.md
-    - name: Logs ingestion API
-      items:
-      - name: Overview
-        displayName: data ingestion
-        href: logs/logs-ingestion-api-overview.md
-      - name: Migrate from Data Collector API
-        href: logs/custom-logs-migrate.md
-      - name: Tutorials
-        items:
-        - name: Send data to Azure Monitor Logs using REST API
-          href: logs/tutorial-logs-ingestion-portal.md
-        - name: Send data to Azure Monitor Logs with ARM templates
-          href: logs/tutorial-logs-ingestion-api.md        
-      - name: Data collector API
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
-    - name: Data security
-      items:
-        - name: Roles permissions and security
-          href: roles-permissions-security.md
-        - name: Log data
-          href: logs/data-security.md
-        - name: Customer-managed keys
-          href: logs/customer-managed-keys.md
-        - name: Private storage
-          href: logs/private-storage.md
-        - name: Personal log data handling
-          href: logs/personal-data-mgmt.md
-        - name: Application data collection, retention, and storage
-          href: app/data-retention-privacy.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
+        - name: Cost details
+          displayName: Log Analytics workspace,Logs
+          href: logs/cost-logs.md
         - name: Manage Log Analytics workspaces
           items:
           - name: Create a Log Analytics workspace
@@ -542,6 +512,41 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
+    - name: Data security
+      items:
+        - name: Roles permissions and security
+          href: roles-permissions-security.md
+        - name: Log data
+          href: logs/data-security.md
+        - name: Customer-managed keys
+          href: logs/customer-managed-keys.md
+        - name: Private storage
+          href: logs/private-storage.md
+        - name: Personal log data handling
+          href: logs/personal-data-mgmt.md
+        - name: Application data collection, retention, and storage
+          href: app/data-retention-privacy.md
+    - name: Logs ingestion API
+      items:
+      - name: Overview
+        displayName: data ingestion
+        href: logs/logs-ingestion-api-overview.md
+      - name: Migrate from Data Collector API
+        href: logs/custom-logs-migrate.md
+      - name: Tutorials
+        items:
+        - name: Send data to Azure Monitor Logs using REST API
+          href: logs/tutorial-logs-ingestion-portal.md
+        - name: Send data to Azure Monitor Logs with ARM templates
+          href: logs/tutorial-logs-ingestion-api.md        
+      - name: Data collector API
+        items:
+        - name: Overview
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data collector API
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data Collector API Pipeline example
+          href: logs/create-pipeline-datacollector-api.md
     - name: Integrate with Logic Apps
       items:
         - name: Azure Monitor Logs connector
@@ -937,8 +942,6 @@ items:
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export data model
-        href: app/export-data-model.md
     - name: Visual Studio
       items:
       - name: F5 insights
@@ -1525,8 +1528,6 @@ items:
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: Platform support
-      href: app/platforms.md
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
@@ -1703,10 +1704,6 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
-    - name: Logs pricing details
-      href: logs/cost-logs.md
     - name: Legacy Application Insights pricing
       href: app/legacy-pricing.md
     - name: Optimize costs
