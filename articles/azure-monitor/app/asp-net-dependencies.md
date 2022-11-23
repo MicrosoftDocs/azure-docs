@@ -28,7 +28,7 @@ Application Insights SDKs for .NET and .NET Core ship with `DependencyTrackingTe
 |[Azure Service Bus client SDK](https://nuget.org/packages/Azure.Messaging.ServiceBus)| Use the latest package: https://nuget.org/packages/Azure.Messaging.ServiceBus. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
-If you're missing a dependency or using a different SDK, make sure it's in the list of [autocollected dependencies](#dependency-auto-collection). If the dependency isn't autocollected, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+If you're missing a dependency or using a different SDK, make sure it's in the list of [autocollected dependencies](#dependencies). If the dependency isn't autocollected, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ## Set up automatic dependency tracking in console apps
 
@@ -224,11 +224,11 @@ In the Log Analytics query view, `timestamp` represents the moment the TrackDepe
 
 Like every Application Insights SDK, the dependency collection module is also open source. Read and contribute to the code or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
-## Dependency auto-collection
+## <a name="dependencies"></a> Dependency auto-collection
 
 Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](./app-map.md) and [Transaction diagnostics](./transaction-diagnostics.md) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
-### .NET
+### <a name="dotnet"></a> .NET
 
 | App frameworks| Versions |
 | ------------------------|----------|
@@ -269,7 +269,6 @@ A list of the latest [currently-supported modules](https://github.com/microsoft/
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
 * [Availability](./monitor-web-app-availability.md)
-* Set up custom dependency tracking for [.NET](./asp-net-dependencies.md).
 * Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
