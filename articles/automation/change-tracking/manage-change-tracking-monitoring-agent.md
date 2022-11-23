@@ -1,17 +1,17 @@
 ---
-title: Manage Change Tracking and Inventory in Azure Automation using Azure Monitoring Agent
-description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
+title: Manage change tracking and inventory in Azure Automation using Azure Monitoring Agent
+description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 11/23/2022
 ms.topic: conceptual
 ---
 
-# Manage Change Tracking and Inventory using Azure Monitoring Agent
+# Manage change tracking and inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article describes how to manage configure tracking, change a workspace and how to configure data collection rule.
+This article describes how to manage change tracking, change a workspace and how to configure data collection rule.
 
 >[!NOTE]
 > Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs. For more information, see [Enable change tracking and inventory from portal](enable-vms-monitoring-agent.md)
