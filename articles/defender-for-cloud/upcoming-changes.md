@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/13/2022
+ms.date: 11/23/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,6 +21,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-preview-is-set-to-be-deprecated) | November 2022 |
 | [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
+| [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
 
 ### The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated
 
@@ -49,6 +50,16 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 | Recommendation | Description | Severity |
 |--|--|--|
 | Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
+
+## The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
+
+**Estimated date for change: December 2022**
+
+The policy `Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports` is set to be deprecated. 
+
+Notifications and emails should be set at the subscription level in order to maximize the security value of our products, rather than on a specific resource level.
+
+The Defender for SQL vulnerability assessment e-mail report will still be available and existing e-email configurations won't change after the policy is deprecated.
 
 ## Next steps
 
