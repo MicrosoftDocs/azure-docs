@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Azure Front Door Standard/Premium profile using Terraform'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Terraform.
 services: front-door
 author: johndowns
