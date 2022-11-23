@@ -1,5 +1,5 @@
 ---
-title: Develop for Azure Files with .NET | Microsoft Docs
+title: Develop for Azure Files with .NET
 description: Learn how to develop .NET applications and services that use Azure Files to store data.
 author: khdownie
 ms.service: storage

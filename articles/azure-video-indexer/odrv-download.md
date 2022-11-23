@@ -57,7 +57,7 @@ You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#ap
 
 ### Configurations and parameters
 
-This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
+This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
 #### externalID
 
@@ -131,7 +131,7 @@ After you copy the following code into your development platform, you'll need to
 
   To get your API key:
 
-  1. Go to the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.
