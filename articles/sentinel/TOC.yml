@@ -32,9 +32,9 @@
   - name: Integrate with Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
-      href: /defender-for-iot-/organizations/iot-solution.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /azure/defender-for-iot/organizations/iot-solution.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: /defender-for-iot-/organizations/iot-advanced-threat-monitoring.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /azure/defender-for-iot/organizations/iot-advanced-threat-monitoring.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
