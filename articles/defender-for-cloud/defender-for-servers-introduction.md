@@ -49,10 +49,6 @@ The following table summarizes what's included in each plan.
 | **Just-in-time VM access for management ports** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface.| | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Docker host hardening** | Defender for Cloud assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-<!-- 
- [Learn more](fileless-attack-detection.md).
-| Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
 
 > [!NOTE]
 > If you only enable Defender for Cloud at the workspace level, Defender for Cloud won't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
