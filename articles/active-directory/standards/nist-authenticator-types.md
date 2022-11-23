@@ -21,7 +21,7 @@ The authentication process begins when a claimant asserts its control of one of 
 
 |NIST authenticator type| Azure AD authentication method|
 | - | - |
-|Memorized secret <br> (something you know)|  Password: Cloud accounts, Federated, password hash sync, passthrough authentication|
+|Memorized secret <br> (something you know)|  Password: Cloud accounts, federated, password hash sync, passthrough authentication|
 |Look-up secret <br> (something you have)| None: A look-up secret is data not held in a system|
 |Out-of-band <br>(something you have)| Phone (SMS): Not recommended |
 |Single-factor one-time password (OTP) <br> (something you have)| Microsoft Authenticator App OTP <br> Single-factor OTP (OTP manufacturers) <sup data-htmlnode="">1</sup>| 
@@ -34,7 +34,7 @@ The authentication process begins when a claimant asserts its control of one of 
 
 <sup data-htmlnode="">1</sup> 30-second or 60-second OATH-TOTP SHA-1 token
 
-<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity](../devices/index.yml). 
+<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity](../devices/index.yml)
 
 ## SMS isn't recommended 
 
