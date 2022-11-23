@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf
-ms.date: 07/19/2022
+ms.date: 11/23/2022
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
@@ -125,7 +125,7 @@ The LLAP daemon container size is calculated as follows;
 **LLAP daemon container size =  (Total memory for LLAP queue on a workernode) – (Tez AM memory per node) - (Service Master container size)**  
 There is only one Service Master (Application Master for LLAP service) on the cluster spawned on one of the worker nodes. For calculation purpose, we consider one service master per worker node.  
 For D14 v2 worker node, HDI 4.0 -  the recommended value is (85 GB - 4 GB - 1 GB)) = **80 GB**   
-(For HDI 3.6, recommended value is **79 GB** because you should reserve additional ~2 GB for slider AM.)  
+ 
 
 #### **8. Determining number of executors per LLAP daemon**  
 Configuration: ***hive.llap.daemon.num.executors***, ***hive.llap.io.threadpool.size***
@@ -171,7 +171,7 @@ Setting *hive.llap.io.allocator.mmap* = true will enable SSD caching.
 When SSD cache is enabled, some portion of the memory will be used to store metadata for the SSD cache. The metadata is stored in memory and it's expected to be ~8% of SSD cache size.   
 SSD Cache in-memory metadata size = LLAP daemon container size - (Head room + Heap size)  
 For D14 v2, with HDI 4.0, SSD cache in-memory metadata size = 80 GB - (4 GB + 57 GB) = **19 GB**  
-For D14 v2, with HDI 3.6, SSD cache in-memory metadata size = 79 GB - (4 GB + 57 GB) = **18 GB**
+
 
 Given the size of available memory for storing SSD cache metadata, we can calculate the size of SSD cache that can be supported.  
 Size of in-memory metadata for SSD cache =  LLAP daemon container size - (Head room + Heap size)
@@ -179,7 +179,7 @@ Size of in-memory metadata for SSD cache =  LLAP daemon container size - (Head r
 Size of SSD cache = size of in-memory metadata for SSD cache(19 GB) / 0.08 (8 percent)  
 
 For D14 v2 and HDI 4.0, the recommended SSD cache size = 19 GB / 0.08 ~= **237 GB**  
-For D14 v2 and HDI 3.6, the recommended SSD cache size = 18 GB / 0.08 ~= **225 GB**
+
 
 #### **10. Adjusting Map Join memory**   
 Configuration: ***hive.auto.convert.join.noconditionaltask.size***
