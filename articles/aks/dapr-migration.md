@@ -33,10 +33,7 @@ When [installing the extension][dapr-create], you'll receive a prompt asking if 
 Is Dapr already installed in the cluster? (y/N): y
 ```
 
-For the following prompts:
-
-- If you kept the default Dapr name and namespace created with `dapr init -k`, press **Enter**. 
-- If you created your own unique name and namespace, type the unique release name and namespace and press **Enter**.
+If Dapr is already installed, please enter the Helm release name and namespace (from `helm list -A`) when prompted the following:
 
 ```bash
 Enter the Helm release name for Dapr, or press Enter to use the default name [dapr]:
@@ -45,9 +42,9 @@ Enter the namespace where Dapr is installed, or press Enter to use the default n
 
 ## Configure the Dapr check using `--configuration-settings` 
 
-Alternatively, when creating the Dapr extension, you can configure the Dapr migration via the `--configuration-settings`. This method is useful when installing via automation, etc.
+Alternatively, when creating the Dapr extension, you can configure the above settings via `--configuration-settings`. This method is useful when you are automating the installation via bash scripts, CI pipelines, etc.
 
-If Dapr doesn't already exist on your machine and you'd like to bypass checking for an existing Dapr installation, set `skipExistingDaprCheck` to `true`:
+If you don't have Dapr already installed on your cluster, set `skipExistingDaprCheck` to `true`:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -55,10 +52,10 @@ az k8s-extension create --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name dapr \
 --extension-type Microsoft.Dapr \
---configuration-settings skipExistingDaprCheck=true
+--configuration-settings "skipExistingDaprCheck=true"
 ```
 
-To tell the Azure CLI that Dapr exists on your machine, add the following `configuration-settings` with the Dapr release name and namespace:
+If Dapr exists on your cluster, set the Helm release name and namespace (from `helm list -A`) via `--configuration-settings`:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -66,19 +63,17 @@ az k8s-extension create --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name dapr \
 --extension-type Microsoft.Dapr \
---configuration-settings existingDaprReleaseName=dapr \
---configuration-settings existingDaprReleaseNamespace=dapr-system
+--configuration-settings "existingDaprReleaseName=dapr" \
+--configuration-settings "existingDaprReleaseNamespace=dapr-system"
 ```
 
 ## Update HA mode or placement service settings
 
-Once you install the Dapr extension, you'll see the following message while the CLI creates the extension:
+When you install the Dapr extension on top of an existing Dapr installation, you'll see the following prompt:
 
-```bash
-The extension will be installed on your existing Dapr installation. Note, if you have updated the default values for global.ha.* or dapr_placement.* in your existing Dapr installation, you must provide them in the configuration settings. Failing to do so will result in an error, since Helm upgrade will try to modify the StatefulSet. See <link> for more information.
-```
+> ```The extension will be installed on your existing Dapr installation. Note, if you have updated the default values for global.ha.* or dapr_placement.* in your existing Dapr installation, you must provide them in the configuration settings. Failing to do so will result in an error, since Helm upgrade will try to modify the StatefulSet. See <link> for more information.```
 
-You can update HA mode or placement service settings via the following commands:
+Kubernetes only allows for limited fields in StatefulSets to be patched, subsequently failing upgrade of the placement service if any of the mentioned settings are configured. You can follow the steps below to update those settings:
 
 1. Delete the stateful set.
 
@@ -97,12 +92,13 @@ You can update HA mode or placement service settings via the following commands:
    --auto-upgrade-minor-version true \  
    --configuration-settings "global.ha.enabled=true" \    
    ```
-For more information, read the [Dapr Production Guidelines][dapr-prod-guidelines].
+
+For more information, see [Dapr Production Guidelines][dapr-prod-guidelines].
 
 
 ## Next steps
 
-Learn more about [the cluster extension][dapr-overview.md] and [how to use it][dapr-howto].
+Learn more about [the cluster extension][dapr-overview] and [how to use it][dapr-howto].
 
 
 <!-- LINKS INTERNAL -->
