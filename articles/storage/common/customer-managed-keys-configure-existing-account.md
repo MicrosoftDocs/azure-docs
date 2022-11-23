@@ -155,7 +155,7 @@ After you've specified the key, the Azure portal indicates that automatic updati
 
 To configure customer-managed keys for an existing account with automatic updating of the key version with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later.
 
-Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, setting the key version to a null string. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
+Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings. Be sure to set `KeyVersion` to a null string to clear out any values that might have been manually configured previously. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
 ```azurepowershell
 $accountName = "<storage-account>"
@@ -172,7 +172,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 To configure customer-managed keys for an existing account with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, setting the key version to a null string. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
+Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings. Be sure to set `encryption-key-version` to a null string to clear out any values that might have been manually configured previously. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
 
 ```azurecli
 accountName="<storage-account>"
