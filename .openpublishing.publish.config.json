@@ -219,6 +219,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-kafka-extension",
       "url": "https://github.com/Azure/azure-functions-kafka-extension",
       "branch": "dev",
