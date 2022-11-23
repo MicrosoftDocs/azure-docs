@@ -92,7 +92,8 @@ Use the following steps to convert active-standby mode gateway to active-active 
 
 1. At the top of the **Configuration** page, click **Save**. This update can take about 30-45 minutes to complete.
 
-[!IMPORTANT] If you have BGP sessions running, please beware that the Azure VPN Gateway BGP configuration will change and two newly assigned BGP IPs will be provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address will no longer exist. This will incur downtime and updating the BGP peers on the On Premises devices will be required. Once the Gateway is finished provisioning, the new BGP IPs can be obtained and the On Premises device configuration will need to be updated accordingly. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure please reference [How to configure BGP on Azure VPN Gateways](../vpn-gateway/bgp-howto.md).
+> [!IMPORTANT] If you have BGP sessions running, please beware that the Azure VPN Gateway BGP configuration will change and two newly assigned BGP IPs will be provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address will no longer exist. This will incur downtime and updating the BGP peers on the On Premises devices will be required. Once the Gateway is finished provisioning, the new BGP IPs can be obtained and the On Premises device configuration will need to be updated accordingly. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure please reference [How to configure BGP on Azure VPN Gateways](../vpn-gateway/bgp-howto.md).
+> 
 
 ### Change active-active to active-standby
 
@@ -106,7 +107,8 @@ Use the following steps to convert active-active mode gateway to active-standby 
 
 1. At the top of the **Configuration** page, click **Save**.
 
-[!IMPORTANT] If you have BGP sessions running, please beware that the Azure VPN Gateway BGP configuration will change from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This will incur downtime and updating the BGP peers on the On Premises devices will be required. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure please reference [How to configure BGP on Azure VPN Gateways](../vpn-gateway/bgp-howto.md).
+> [!IMPORTANT] If you have BGP sessions running, please beware that the Azure VPN Gateway BGP configuration will change from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This will incur downtime and updating the BGP peers on the On Premises devices will be required. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure please reference [How to configure BGP on Azure VPN Gateways](../vpn-gateway/bgp-howto.md).
+> 
 
 ## Next steps
 
