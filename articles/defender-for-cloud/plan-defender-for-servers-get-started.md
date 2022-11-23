@@ -30,7 +30,8 @@ Here's a quick overview of the deployment process.
 
 :::image type="content" source="media/defender-for-servers-introduction/deployment-overview.png" alt-text="Summary overview of the deployment steps for Defender for Servers.":::
 
-Get more information about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) 
+- Get more information about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+- Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.
 
  
 
@@ -39,24 +40,24 @@ Get more information about [foundational cloud security posture management (CSPM
 Data residency is the physical or geographic location of an organization’s data, and often requires planning due to compliance requirements.
 
 1. Before you deploy Defender for Servers, review [general Azure data residency considerations](https://azure.microsoft.com/blog/making-your-data-residency-choices-easier-with-azure/).
-1. Ensure you understand where alerts and security recommendations for servers will be stored.
+1. Review the table below to understand where Defender for Cloud/Defender for Server stores data.
 
 ### Storage locations
 
 **Data** | **Location** 
 --- | ---  
-Security alerts and recommendations | Stored in the Defender for Cloud backend.<br/><br/> For example, if you create an Azure VM in West Europe region, all alert and recommendation information will also be stored in West Europe.
-Machine information | Stored in a Log Analytics workspace.<br/><br/> Either the Defender for Cloud default workspace, or a custom workspace that you specify.
+**Security alerts and recommendations** | Stored in the Defender for Cloud backend.<br/><br/> For example, if you create an Azure VM in West Europe region, all alert and recommendation information will also be stored in West Europe.
+**Machine information** | Stored in a Log Analytics workspace.<br/><br/> Either the Defender for Cloud default workspace, or a custom workspace that you specify.
 
 ## Understand workspace considerations
 
-You can use default or custom Log Analytics workspaces with Defender for Cloud
+In your Defender for Server deployment, you can use the default Defender or Cloud log analytics workspace, or a custom workspace.
 
 ### Default workspace
 
-By default, when you onboard for the first time Defender for Cloud creates a workspace per region in each subscription where it is enabled.
-
-- If you use the default option, Defender for Cloud creates a new resource group and the default workspace.
+- By default, when you onboard for the first time Defender for Cloud creates a new resource group and default workspace for the region in each subscription where it is enabled.
+- When you're using only free foundational CSPM features, Defender for Cloud sets up the default workspace with the **SecurityCenterFree*solution enabled and you won't be billed.
+- When you turn on Defender for Servers (or any other plan), it's enabled on the default workspace, and the *Security* solution is installed on the workspace.
 - If you have VMs in multiple locations, Defender for Cloud creates multiple workspaces to ensure data compliance. 
 - Default workspace naming is in the format: [subscription-id]-[geo].
 
@@ -70,29 +71,16 @@ East Asia, Southeast Asia | Asia
 
 ### Custom workspaces
 
-You can choose to use a custom workspace instead of the default workspace.
+You can use a custom workspace instead of the default workspace.
 
-- If you want to use a custom workspace, it must be associated with the Azure subscription on which you're enabling Defender for Cloud.
+- You must switch on Defender for Servers in the custom workspace.
+- The custom workspace must be associated with the Azure subscription on which you're enabling Defender for Cloud.
 - You need at minimum read permissions for the workspace.
-- You need to manually enable Defender for Cloud, and turn on Defenderfor Server on the custom workspace. 
+- If Defender for Cloud identifies that a VM is connected to a custom workspace, it enables solutions on the workspace, in accordance with your Defender for Cloud configuration.
+- The VM is protected as long at the *Security* or *SecurityCenterFree* solution is installed on the workspace.
+- If the Security & Audit solution is installed on a workspace, Defender for Cloud uses the existing solution.
 - Learn more about [design strategy and criteria](../azure-monitor/logs/workspace-design.md) for workspaces.
 
-
-
-1. To protect on-premises servers, 
-1. 
-1. When you 
-1. If you enable a subscription, all servers in the subscription are 
-    - If you enable for a subscription, all servers in the subscription are protected. You can't exclude servers.
-    - When you enable for a subscription, Defender for Servers is enabled on the default Defender for Cloud workspace.
-    - If you want to use a custom workspace instead of the default workspace, you need to enable Defender for Servers on all custom workspaces that don't have it enabled. 
-        - You can only select a custom workspace that you have access too, and that's associated with the subscription.
-        - You need at least read permissions to access the workspace.     
-1. You can also enable Defender for Servers for an AWS account or GCP project.
-    - 
-1. 
-1. 
-1. 
 
 Agent provisioning
    
@@ -100,23 +88,7 @@ Agent provisioning
 1. 
 1. required agents and extensions to compute resources it pr Defender for Cloud starts protecting compute resources .
     - .
-1. 
-
-
-
-to start discovering and protecting Azure and Azure Arc resources in the subscription. 
-1. If you want to protect additional on-premises servers or AWS/GCP machines, there are a couple of ways to do that.
-    **Method** | **Details**
-    --- | ---
-    Onboard machines using Defender for Cloud connectors | You can use the native Defender for Cloud connectors to onboard AWS accounts and GCP projects.<br/><br/> 
-    Onboard machines using Azure Arc | 
-    Onboard machines into Azure without Azure Arc | 
-
-
-    - **Connect AWS or GCP accounts to Defender for Cloud**: You can use Defender for Cloud's native AWS or GCP connectors to connect to AWS or GCP. 
-        - 
-       
-        - To protect GCP/AWS machines and on-premises servers, they must be onboarded to Azure using [Azure Arc](../azure-arc/index.yml).- 
+ 
         - ​
 
 AWS:​
