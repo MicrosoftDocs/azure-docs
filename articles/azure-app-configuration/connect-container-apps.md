@@ -1,6 +1,6 @@
 ---
-title: Connect an ASP.NET Core 6 application to App Configuration using Service Connector
-description: Learn how to connect an ASP.NET Core 6 application to + App Configuration using Service Connector
+title: Connect a container app to App Configuration using Service Connector
+description: Learn how to connect a containerized application to Azure App Configuration, using Service Connector.
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
@@ -12,39 +12,64 @@ ms.author: malev
 
 # Tutorial: Connect an ASP.NET Core 6 app to App Configuration using Service Connector
 
-In this tutorial, you'll learn how to connect an ASP.NET Core 6 app to App Configuration using Service Connector. This tutorial leverages the feature flags capability introduced in the quickstart [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md). Before you continue, finish this tutorial.
+In this tutorial, you'll learn how to connect an container app to Azure App Configuration using Service Connector. This tutorial leverages the ASP.NET application created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). Complete this quickstart before you continue.
 
 ## Prerequisites
 
 - An Azure subscription
 - Docker CLI
-- Complete the [Quickstart for adding feature flags to ASP.NET Core](./quickstart-feature-flag-aspnet-core.md).
+- Complete the [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Build a docker image and test it locally
 
-### Create a Dockerfile
+### Clone the sample repository
 
-1. Select [Compose sample application: ASP.NET with MS SQL server database](https://docs.docker.com/samples/dotnet/#create-a-dockerfile-for-an-aspnet-core-application)
-1. Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
+Run the command below in your terminal to clone the sample Docker repository [Compose sample application: ASP.NET with MS SQL server database](https://docs.docker.com/samples/dotnet/#create-a-dockerfile-for-an-aspnet-core-application).
 
-    ```bash
-    git clone https://github.com/docker/awesome-compose/
-    cd awesome-compose
-    ```
+```bash
+git clone https://github.com/docker/awesome-compose/
+```
 
 ### Build and run the container
 
-1. Build the container
+1. Navigate to the folder containing the Dockerfile used to build the container.
 
-1. Run the container locally using the command below and replace `<connection-string>` with your own connection string:
-
-    ``` bash
-    docker run -d -p 8080:80 --name myapp testfeatureflags -e AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
+    ```bash
+    cd awesome-compose/aspnet-mssql/app/aspnetapp
     ```
+
+1. Build the container by running the command below
+
+    ```bash
+    docker build --tag aspnetapp .
+    ```
+
+1. Execute the container locally using the command below and replace `<connection-string>` with your own connection string.
+
+    ```bash
+    docker run –-detach –-publish 8080:80 --name myapp aspnetapp -env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
+    ```
+
+    | Name      | Description                                                                                                                                            |
+    |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | --detach  | Runs the container in the background and prints the container ID.                                                                                      |
+    | --publish | Publishes a container's port to the host. In this example, we expose port 8080 of the host machine and port 80 of the container.                       |
+    | --name    | Assigns a name to the container and indicate the tag. In this example we run an aspnetapp container named myapp.                                                            |
+    | --env     | Sets environment variables in the container. In this example, we set an environment variable for the connection string of the App Configuration store. |
+
+    The command returns a long ID back.
+
+1. Check if the container is running by executing the command `docker ps`. An output similar to be one below is displayed:
+
+    ```output
+    CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                  NAMES
+    fd7ad0ef680e   aspnetapp   "dotnet aspnetapp.dl…"   38 minutes ago   Up 14 minutes   0.0.0.0:8080->80/tcp   myapp
 
 ## Push the image to Azure Container Registry
 
 In the next step, create an Azure Container Registry (ACR), where you'll push the Docker image. ACR allows you to build, store, and manage container image.
+
+## [Portal](#tab/azure-portal)
 
 1. Open  the Azure portal and in the search bar, search for and select **Container Registries**.
 1. Select **Create**
@@ -59,19 +84,53 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
 1. Accept default values for the remaining setting, and select **Review + create**. After reviewing the settings, select **Create** to deploy the Azure Container Registry.
 
+### [Azure CLI](#tab/azure-cli)
+
+1. Create an ACR instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 lowercase alphanumeric characters.
+
+    ```azurecli
+    az acr create --resource-group AppConfigTestResources \
+        --name MyRegistry --sku Basic
+    ```
+
+1. In the command output, take note of fully qualified registry name for your ACR listed for `loginServer`. You will use this information in a later step.
+1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the registry.
+
+    ```azurecli
+    az acr login --name MyRegistry
+    ```
+
+    The command returns `Login Succeeded` once login is successful.
+
+1. Run the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command to tag your Docker image with the ACR's fully qualified registry name.
+
+    ```bash
+    docker tag mcr.microsoft.com/awesome-compose MyRegistry.azurecr.io/awesome-compose:latest
+    ```
+
+1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the registry instance. This example creates the **awesome-world** repository, containing the `awesome-world:latest` image.
+
+    ```bash
+    docker push <login-server>/awesome-world:latest
+    ```
+
+---
+
 ## Create a Container App
+
+## [Portal](#tab/azure-portal)
 
 1. In the Azure portal, search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results and then **Create**.
 1. In the **Basics** tab:
 
-    | Setting                    | Suggested value         | Description                                                                                                         |
-    |----------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------|
-    | Subscription               | Your Azure subscription | Select your Azure subscription.                                                                                     |
-    | Resource group             | AppConfigTestResources  | Select your **Resource group**.                                                                                     |
-    | Container app name         | MyContainerApp    | Enter a **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
-    | Region                     | Central US              | Select an Azure region.                                                                                             |
-    | Container Apps Environment | MyEnvironment           | Select a Container Apps Environment or create a new one.                                                            |
+    | Setting                    | Suggested value         | Description                                                                                                     |
+    |----------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
+    | Subscription               | Your Azure subscription | Select your Azure subscription.                                                                                 |
+    | Resource group             | AppConfigTestResources  | Select your Resource group.                                                                                     |
+    | Container app name         | MyContainerApp          | Enter a Registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Region                     | Central US              | Select an Azure region.                                                                                         |
+    | Container Apps Environment | MyEnvironment           | Select a Container Apps Environment or create a new one.                                                        |
 
 1. Select **Next: App settings** and fill out the form:
 
@@ -94,8 +153,6 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 ## Connect the app to Azure App Configuration
 
 In the next step, connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md). Service Connector helps you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
-
-## [Portal](#tab/azure-portal)
 
 1. Browse to your container app select **Service Connector** from the left table of contents.
 1. Select **Create**:
