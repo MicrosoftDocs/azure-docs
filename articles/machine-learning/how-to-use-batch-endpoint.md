@@ -16,9 +16,9 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 
 # Use batch endpoints for batch scoring
 
-[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch endpoints provide a convenient way to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](../concept-endpoints.md).
+Batch endpoints provide a convenient way to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](./concept-endpoints.md).
 
 Use batch endpoints when:
 
@@ -50,7 +50,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
 ### Connect to your workspace
 
@@ -94,7 +94,7 @@ Open the [Azure ML studio portal](https://ml.azure.com) and log in using your cr
 
 ### Create compute
 
-Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](../how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](../how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
+Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
 
 Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
 
@@ -112,12 +112,12 @@ ml_client.begin_create_or_update(compute_cluster)
 
 # [Studio](#tab/azure-studio)
 
-*Create a compute cluster as explained in the following tutorial [Create an Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md?tabs=azure-studio).*
+*Create a compute cluster as explained in the following tutorial [Create an Azure Machine Learning compute cluster](./how-to-create-attach-compute-cluster.md?tabs=azure-studio).*
 
 ---
 
 > [!NOTE]
-> You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](../how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+> You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 
 ### Registering the model
@@ -157,10 +157,10 @@ model = ml_client.models.create_or_update(
 
 ## Create a batch endpoint
 
-A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch scoring job. A batch scoring job is a job that scores multiple inputs (for more, see [What are batch endpoints?](../concept-endpoints.md#what-are-batch-endpoints)). A batch deployment is a set of compute resources hosting the model that does the actual batch scoring. One batch endpoint can have multiple batch deployments.
+A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch scoring job. A batch scoring job is a job that scores multiple inputs (for more, see [What are batch endpoints?](./concept-endpoints.md#what-are-batch-endpoints)). A batch deployment is a set of compute resources hosting the model that does the actual batch scoring. One batch endpoint can have multiple batch deployments.
 
 > [!TIP]
-> One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](../concept-endpoints.md#what-are-batch-endpoints).
+> One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](./concept-endpoints.md#what-are-batch-endpoints).
 
 ### Steps
 
@@ -195,7 +195,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-endpoint.yml":::
 
-    The following table describes the key properties of the endpoint. For the full batch endpoint YAML schema, see [CLI (v2) batch endpoint YAML schema](../reference-yaml-endpoint-batch.md).
+    The following table describes the key properties of the endpoint. For the full batch endpoint YAML schema, see [CLI (v2) batch endpoint YAML schema](./reference-yaml-endpoint-batch.md).
     
     | Key | Description |
     | --- | ----------- |
@@ -313,16 +313,16 @@ A deployment is a set of resources required for hosting the model that does the 
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
     
-    For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML schema](../reference-yaml-deployment-batch.md).
+    For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML schema](./reference-yaml-deployment-batch.md).
     
     | Key | Description |
     | --- | ----------- |
     | `name` | The name of the deployment. |
     | `endpoint_name` | The name of the endpoint to create the deployment under. |
-    | `model` | The model to be used for batch scoring. The example defines a model inline using `path`. Model files will be automatically uploaded and registered with an autogenerated name and version. Follow the [Model schema](../reference-yaml-model.md#yaml-syntax) for more options. As a best practice for production scenarios, you should create the model separately and reference it here. To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. |
+    | `model` | The model to be used for batch scoring. The example defines a model inline using `path`. Model files will be automatically uploaded and registered with an autogenerated name and version. Follow the [Model schema](./reference-yaml-model.md#yaml-syntax) for more options. As a best practice for production scenarios, you should create the model separately and reference it here. To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. |
     | `code_configuration.code.path` | The local directory that contains all the Python source code to score the model. |
     | `code_configuration.scoring_script` | The Python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation (for example, load the model in memory). `init()` will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` function should return a pandas DataFrame or an array. Each returned element indicates one successful run of input element in the `mini_batch`. For more information on how to author scoring script, see [Understanding the scoring script](how-to-batch-scoring-script.md#understanding-the-scoring-script). |
-    | `environment` | The environment to score the model. The example defines an environment inline using `conda_file` and `image`. The `conda_file` dependencies will be installed on top of the `image`. The environment will be automatically registered with an autogenerated name and version. Follow the [Environment schema](../reference-yaml-environment.md#yaml-syntax) for more options. As a best practice for production scenarios, you should create the environment separately and reference it here. To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. |
+    | `environment` | The environment to score the model. The example defines an environment inline using `conda_file` and `image`. The `conda_file` dependencies will be installed on top of the `image`. The environment will be automatically registered with an autogenerated name and version. Follow the [Environment schema](./reference-yaml-environment.md#yaml-syntax) for more options. As a best practice for production scenarios, you should create the environment separately and reference it here. To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. |
     | `compute` | The compute to run batch scoring. The example uses the `batch-cluster` created at the beginning and references it using `azureml:<compute-name>` syntax. |
     | `resources.instance_count` | The number of instances to be used for each batch scoring job. |
     | `max_concurrency_per_instance` | [Optional] The maximum number of parallel `scoring_script` runs per instance. |
@@ -432,7 +432,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     In the wizard, click on __Create__ to start the deployment process.
     
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
 
     ---
     
@@ -465,7 +465,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. Select the batch endpoint you want to get details from.
     1. In the endpoint page, you will see all the details of the endpoint along with all the deployments available.
         
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
+        :::image type="content" source="./media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
 ## Invoke the batch endpoint to start a batch job
 
@@ -491,16 +491,16 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
 
 1. Click on __Next__.
 1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://pipelinedata.blob.core.windows.net/sampledata/mnist`. Notice that this only works because the given path has public access enabled. In general, you will need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
 
 1. Start the job.
 
@@ -550,19 +550,19 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 1. Click on __Next__.
 1. Check the option __Override deployment settings__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. You can now configure __Output file name__ and some extra properties of the deployment execution. Just this execution will be affected.
 1. On __Select data source__, select the data input you want to use.
 1. On __Configure output location__, check the option __Enable output configuration__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
 
 1. Configure the __Blob datastore__ where the outputs should be placed.
 
@@ -606,13 +606,13 @@ job = ml_client.batch_endpoints.invoke(
 1. Select the batch endpoint you just created.
 1. Click on __Create job__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
 
 1. On __Deployment__, select the deployment you want to execute.
 1. Click on __Next__.
 1. Check the option __Override deployment settings__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. Configure the job parameters. Only the current job execution will be affected by this configuration.
 
@@ -643,7 +643,7 @@ ml_client.jobs.get(job.name)
 1. Select the batch endpoint you want to monitor.
 1. Click on the tab __Jobs__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
 
 1. You will see a list of the jobs created for the selected endpoint.
 1. Select the last job that is running.
@@ -663,11 +663,11 @@ Follow the steps below to view the scoring results in Azure Storage Explorer whe
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
 1. From __Data outputs__, select the icon to open __Storage Explorer__.
 
-    :::image type="content" source="../media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="../media/how-to-use-batch-endpoint/view-data-outputs.png" :::
+    :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png":::
 
     The scoring results in Storage Explorer are similar to the following sample page:
 
-    :::image type="content" source="../media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="../media/how-to-use-batch-endpoint/scoring-view.png":::
+    :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ## Adding deployments to an endpoint
 
@@ -759,7 +759,7 @@ In this example, you will learn how to add a second deployment __that solves the
     1. Select the existing batch endpoint where you want to add the deployment.
     1. Click on __Add deployment__.
 
-        :::image type="content" source="../media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Screenshot of add new deployment option.":::
+        :::image type="content" source="./media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Screenshot of add new deployment option.":::
 
     1. On the model list, select the model `mnist` and click on __Next__.
     1. On the deployment configuration page, give the deployment a name.
@@ -857,7 +857,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 1. Select the batch endpoint you want to configure.
 1. Click on __Update default deployment__.
     
-    :::image type="content" source="../media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Screenshot of updating default deployment.":::
+    :::image type="content" source="./media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Screenshot of updating default deployment.":::
 
 1. On __Select default deployment__, select the name of the deployment you want to be the default one.
 1. Click on __Update__.

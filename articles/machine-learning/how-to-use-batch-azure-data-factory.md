@@ -56,11 +56,11 @@ You can use a service principal or a [managed identity](../active-directory/mana
 
 # [Using a Service Principal](#tab/sp)
 
-1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. Grant access for the service principal you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
+1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Grant access for the service principal you created to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores.
@@ -68,7 +68,7 @@ You can use a service principal or a [managed identity](../active-directory/mana
 
 ## About the pipeline
 
-We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](../how-to-deploy-batch-with-rest.md). 
+We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md). 
 
 The pipeline will look as follows:
 
@@ -125,7 +125,7 @@ The pipeline requires the following parameters to be configured:
 > Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error *the path already exists*.
 
 > [!IMPORTANT]
-> The input data URI can be a path to an Azure Machine Learning data store, data asset, or a cloud URI. Depending on the case, further configuration may be required to ensure the deployment can read the data properly. See [Accessing storage services](../how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
+> The input data URI can be a path to an Azure Machine Learning data store, data asset, or a cloud URI. Depending on the case, further configuration may be required to ensure the deployment can read the data properly. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 
 ## Steps
 
@@ -152,7 +152,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
   > Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
 
   > [!TIP]
-  > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
+  > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
   > 
   > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline when invoked from another pipeline.":::
 
@@ -165,7 +165,7 @@ When calling Azure Machine Learning batch deployments consider the following lim
 
 * __Data inputs__:
    * Only Azure Machine Learning data stores or Azure Storage Accounts (Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2) are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
-   * Ensure the deployment has the required access to read the input data depending on the type of input you are using. See [Accessing storage services](../how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
+   * Ensure the deployment has the required access to read the input data depending on the type of input you are using. See [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 * __Data outputs__:
    * Only registered Azure Machine Learning data stores are supported.
    * Only Azure Blob Storage Accounts are supported for outputs. For instance, Azure Data Lake Storage Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
