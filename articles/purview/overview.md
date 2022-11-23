@@ -6,7 +6,7 @@ ms.author: whhender
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/16/2022
+ms.date: 11/23/2022
 ---
 
 # What's available in the Microsoft Purview governance portal?
@@ -41,24 +41,24 @@ Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microso
 
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 
-## Data Catalog
+## Data Catalog app
 
 With the Microsoft Purview Data Catalog, business and technical users can quickly and easily find relevant data using a search experience with filters based on  lenses such as glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Microsoft Purview Data Catalog provides data curation features such as business glossary management and the ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets: for example, starting from operational systems on-premises, through movement, transformation & enrichment with various data storage and processing systems in the cloud, to consumption in an analytics system like Power BI.
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
-## Data Estate Insights
+## Data Estate Insights app
 
 With the Microsoft Purview Data Estate Insights, the chief data officers and other governance stakeholders can get a bird’s eye view of their data estate and can gain actionable insights into the governance gaps that can be resolved from the experience itself.
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 
-## Data Sharing
+## Data Sharing app
 
 Microsoft Purview Data Sharing enables organizations to securely share data both within your organization or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
 
 For more information, see our [introduction to Data Sharing](concept-data-share.md).
 
-## Data Policy
+## Data Policy app
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 - Manage access to data sources from a single-pane of glass, cloud-based experience
 - At-scale access provisioning
