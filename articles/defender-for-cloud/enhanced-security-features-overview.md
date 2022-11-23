@@ -149,14 +149,14 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
-### How can I monitor my daily usage
+# How can I monitor my daily usage
 
 You can view your data usage in two different ways, the Azure portal, or by running a script.
 
 **To view your usage in the Azure portal**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-
+##
 1. Navigate to **Log Analytics workspaces**.
 
 1. Select your workspace.
