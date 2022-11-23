@@ -494,7 +494,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
    }
    ```
 
-8. In the `web.config` file add the Metadata address, replace clientId, clientsecret, authority,redirectUri and PostLogoutRedirectUri with the values from the Akamai application in `appSettings`.
+8. In the `web.config` file add the Metadata address, replace clientId, clientsecret, authority, redirectUri and PostLogoutRedirectUri with the values from the Akamai application in `appSettings`.
 
    You can find these values in the previous step 5 in the  OpenID tab for the HTTP Akamai Application, where you created `Discovery URL=MetadataAddress`. `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` [document](https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc).
 
