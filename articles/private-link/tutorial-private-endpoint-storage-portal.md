@@ -170,7 +170,7 @@ Create a storage account and configure the private endpoint. The private endpoin
     | Resource Group | Select **TutorPEstorage-rg**. |
     | Location | Select **East US**. |
     | Name | Enter **myPrivateEndpoint**. |
-    | Storage sub-resource | Leave the default **blob**. |
+    | Storage subresource | Leave the default **blob**. |
     | **Networking** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **myVNet/mySubnet(10.1.0.0/24)**. |
