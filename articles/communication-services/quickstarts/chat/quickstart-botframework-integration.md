@@ -15,8 +15,10 @@ ms.custom: mode-other
 # Add a bot to your chat app
 
 > [!IMPORTANT]
-> This functionality is in public preview.
+> This functionality is in private preview, and restricted to a limited number of Azure Communication Services early adopters. You can [submit this form to request participation in the preview](https://forms.office.com/r/HBm8jRuuGZ) and we will review your scenario(s) and evaluate your participation in the preview.
 >
+> Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 In this quickstart, you will learn how to build conversational AI experiences in a chat application using Azure Communication Services Chat messaging channel that is available under Azure Bot Services. This article will describe how to create a bot using BotFramework SDK and how to integrate this bot into any chat application that is built using Communication Services Chat SDK.
