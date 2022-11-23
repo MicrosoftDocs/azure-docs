@@ -1,33 +1,36 @@
 ---
 title: Overview of Azure Dedicated Hosts for virtual machines
 description: Learn more about how Azure Dedicated Hosts can be used for deploying virtual machines.
-author: brittanyrowe
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 12/07/2020
-ms.author: brittanyrowe
-ms.reviewer: mattmcinnes
+ms.date: 9/10/2022
+ms.author: mattmcinnes
+ms.reviewer: vamckms
 
-#Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
+#Customer intent: As an IT administrator, I want to learn more about using a dedicated host for my Azure virtual machines
 ---
 
 # Azure Dedicated Hosts
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+Azure Dedicated Host is a service which provides physical servers able to host one or more virtual machines assigned to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided instead as a directly accessible hardware resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts in whatever configuration best meets your needs.
 
 
 ## Benefits
 
-Reserving the entire host provides the following benefits:
+Reserving the entire host provides several benefits beyond those of a standard shared virtual machine host:
 
--   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
--   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
--   With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+-   Cost Optimization: With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
+-   Reliability: You have near complete control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
+
+-   Performance Efficiency: Because you have control over a physical host, you can choose which applications share physical resources such as memory and storage. This can speed up certain workloads which benefit from low latency and extremely high throughput on the host machine.
+
+-   Security: Hardware isolation at the physical server level allows for sensitive memory data to remain isolated within a physical host. No other customer's VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 
 ## Groups, hosts, and VMs
 
@@ -44,7 +47,7 @@ For high availability, you should deploy multiple VMs, spread across multiple ho
 
 ### Use Availability Zones for fault isolation
 
-Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.
+Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts between them accordingly.
 
 If you assign a host group to an availability zone, all VMs created on that host must be created in the same zone.
 
@@ -78,7 +81,7 @@ Host groups that are enabled for automatic placement do not require all the VMs 
 Known issues and limitations when using automatic VM placement:
 
 - You will not be able to redeploy your VM.
-- You will not be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts
+- You will not be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
 
 ## Virtual machine scale set support
@@ -148,7 +151,7 @@ You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](p
 
 ## Sizes and hardware generations
 
-A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series.
+A SKU represents the VM size series and type on a given host. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series.
 
 The *type* is the hardware generation. Different hardware types for the same VM series will be from different CPU vendors and have different CPU generations and number of cores.
 
