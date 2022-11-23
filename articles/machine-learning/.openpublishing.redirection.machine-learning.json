@@ -1827,8 +1827,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/azure-machine-learning-release-notes.md",
-        "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
-        "redirect_document_id": true
+        "redirect_url": "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/azure-machine-learning-release-notes.md",
+        "redirect_url": "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/sample-designer-datasets.md",

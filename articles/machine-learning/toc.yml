@@ -817,9 +817,9 @@
       href: /cli/azure/ml
 - name: Resources
   items:
-    - name: Python SDK release notes
+    - name: Python SDK (v2) release notes
       displayName: what's, new, issues, bugs
-      href: azure-machine-learning-release-notes.md
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md
     - name: CLI (v2) release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes-cli-v2.md
