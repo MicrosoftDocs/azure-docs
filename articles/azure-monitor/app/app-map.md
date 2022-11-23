@@ -511,7 +511,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Confirm the [cloud role name](#set-or-override-cloud-role-name) is correctly configured.
 
-1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](asp-net-dependencies.md#dependency-auto-collection). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](./asp-net-dependencies.md#dependency-auto-collection). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ### Too many nodes on the map
 
