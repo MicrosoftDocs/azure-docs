@@ -20,11 +20,11 @@ zone_pivot_groups: enterprise-apps-all
 
 This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes app roles, you can also assign a specific app role to the user.
 
-When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
+When you assign a group to an application, only users in the group will have access. The assignment doesn't cascade to nested groups.
 
-Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
-For greater control, certain types of enterprise applications can be configured to require user assignment. See [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app) for more information on requiring user assignment for an app.
+For greater control, certain types of enterprise applications can be configured to require user assignment. For more information on requiring user assignment for an app, see [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app).
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 ## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
+1. Run `Connect-AzureAD Application.Read.All Directory.Read.All Application.ReadWrite.All Directory.ReadWrite.All` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
 
     ```powershell
     # Store the proper parameters
@@ -134,6 +134,8 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     ```
 
 ## Remove all users who are assigned to the application
+
+Use the following script to remove all users and groups assigned to the application.
 
 ```powershell
 #Retrieve the service principal object ID.
@@ -161,7 +163,7 @@ $assignments | ForEach-Object {
 :::zone pivot="ms-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph Application.Read.All, Directory.Read.All, Application.ReadWrite.All, Directory.ReadWrite.All` and sign in with a Global Admin user account.
+1. Run `Connect-AzureAD Application.Read.All Directory.Read.All Application.ReadWrite.All Directory.ReadWrite.All` and sign in with a Global Admin user account.
 1. Use the following script to assign a user and role to an application:
 
 ```powershell    
@@ -189,6 +191,8 @@ New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
 
 ## Unassign users, and groups, from an application
 
+1. Open an elevated Windows PowerShell command prompt.
+1. Run `Connect-AzureAD Application.Read.All Directory.Read.All Application.ReadWrite.All Directory.ReadWrite.All` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
 ```powershell
 # Get the user and the service principal
 
@@ -208,7 +212,9 @@ $assignments | Select *
 Remove-MgServicePrincipalAppRoleAssignedTo -AppRoleAssignmentId  '<AppRoleAssignment-id>' -ServicePrincipalId $spo.Id
 ```
 
-# Remove all users and groups assigned to the application
+## Remove all users and groups assigned to the application
+
+Use the following script to remove all users and groups assigned to the application.
 
 ```powershell
 $assignments | ForEach-Object {
@@ -221,19 +227,17 @@ $assignments | ForEach-Object {
 
 :::zone pivot="ms-graph"
 
-Assign users and groups to an application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. To assign users and groups to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-Sign in to Graph explorer with one of the roles listed in the prerequisite section.
+    You'll need to consent to the following permissions: 
 
-To you'll need to consent to the following permissions: 
+    `Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
 
-`Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
+    To grant an app role assignment, you need three identifiers:
 
-To grant an app role assignment, you need three identifiers:
-
-`principalId`: The id of the user or group to which you are assigning the app role.
-`resourceId`: The id of the resource servicePrincipal which has defined the app role.
-`appRoleId`: The id of the appRole (defined on the resource service principal) to assign to a user or group.
+    - `principalId`: The ID of the user or group to which you're assigning the app role.
+    - `resourceId`: The ID of the resource servicePrincipal that has defined the app role.
+    - `appRoleId`: The ID of the appRole (defined on the resource service principal) to assign to a user or group.
 
 1. Get the enterprise application. Filter by DisplayName.
 
@@ -243,9 +247,9 @@ To grant an app role assignment, you need three identifiers:
     Record the following values from the response body:
 
     - Object ID of the enterprise application
-    - appRoleId that you'll assign to the user. If the application hasn't defined any roles, the user will assigned the default access role.
+    - appRoleId that you'll assign to the user. If the application doesn't expose any roles, the user will be assigned the default access role.
 
-1. Get the user by filtering using the user's principal name. Record the object ID of the user.
+1. Get the user by filtering by the user's principal name. Record the object ID of the user.
 
     ```http
     GET /users/{userPrincipalName}
@@ -254,7 +258,6 @@ To grant an app role assignment, you need three identifiers:
     ```http
     POST /servicePrincipals/resource-servicePrincipal-id/appRoleAssignedTo
 
-    Request body
     {
     "principalId": "33ad69f9-da99-4bed-acd0-3f24235cb296",
     "resourceId": "9028d19c-26a9-4809-8e3f-20ff73e2d75e",
