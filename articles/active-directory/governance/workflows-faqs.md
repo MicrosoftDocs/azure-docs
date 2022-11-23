@@ -29,6 +29,8 @@ Yes, key user properties like employeeHireDate and employeeType are supported fo
 
 ![Screenshot showing an example of how mapping is done in a Lifecycle Workflow.](./media/workflows-faqs/workflows-mapping.png)
 
+For more information on syncing employee attributes in Lifecycle Workflows, see: [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
+
 ### How do I see more details and parameters of tasks and the attributes that are being updated? 
 
 Some tasks do update existing attributes; however, we don’t currently share those specific details. As these tasks are updating attributes related to other Azure AD features, so you can find that info in those docs. For temporary access pass, we're writing to the appropriate attributes listed [here](/graph/api/resources/temporaryaccesspassauthenticationmethod). 
