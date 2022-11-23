@@ -1,5 +1,5 @@
 ---
-title: Configure SSO on macOS and iOS 
+title: Configure SSO on macOS and iOS
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
 author: henrymbuguakiarie
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/03/2020
+ms.date: 11/23/2022
 ms.author: henrymbugua
-ms.reviewer: 
-ms.custom: aaddev
+ms.reviewer:
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Configure SSO on macOS and iOS
@@ -21,7 +21,7 @@ The Microsoft Authentication Library (MSAL) for macOS and iOS supports single si
 
 - [Silent SSO between multiple apps](#silent-sso-between-apps)
 
-This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.  
+This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
@@ -35,7 +35,7 @@ SSO is achieved through the [ASWebAuthenticationSession](https://developer.apple
 
 If you use the default web view in your app to sign in users, you'll get automatic SSO between MSAL-based applications and Safari. To learn more about the web views that MSAL supports, visit [Customize browsers and WebViews](customize-webviews.md).
 
-This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
+This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari.
 
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
@@ -62,7 +62,7 @@ The way the Microsoft identity platform tells apps that use the same Application
 
 App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`  
 App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`  
-App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
 The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
@@ -89,8 +89,9 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 #### Add a new keychain group
 
 Add a new keychain group to your project **Capabilities**. The keychain group should be:
-* `com.microsoft.adalcache` on iOS 
-* `com.microsoft.identity.universalstorage` on macOS.
+
+- `com.microsoft.adalcache` on iOS
+- `com.microsoft.identity.universalstorage` on macOS.
 
 ![keychain example](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -106,7 +107,7 @@ Objective-C:
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<my-client-id>"];
 configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
-    
+
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
@@ -139,42 +140,42 @@ The following steps are how you enable SSO using an authentication broker for yo
 
 1. Register a broker compatible Redirect URI format for the application in your app's Info.plist. The broker compatible Redirect URI format is `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>`` with your application's bundle ID. For example:
 
-    ```xml
-    <key>CFBundleURLSchemes</key>
-    <array>
-        <string>msauth.<app.bundle.id></string>
-    </array>
-    ```
+   ```xml
+   <key>CFBundleURLSchemes</key>
+   <array>
+       <string>msauth.<app.bundle.id></string>
+   </array>
+   ```
 
 1. Add following schemes to your app's Info.plist under `LSApplicationQueriesSchemes`:
 
-    ```xml
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-         <string>msauthv2</string>
-         <string>msauthv3</string>
-    </array>
-    ```
+   ```xml
+   <key>LSApplicationQueriesSchemes</key>
+   <array>
+        <string>msauthv2</string>
+        <string>msauthv3</string>
+   </array>
+   ```
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
-    Objective-C:
-    
-    ```objc
-    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
-    {
-        return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
-    }
-    ```
-    
-    Swift:
-    
-    ```swift
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
-    }
-    ```
-    
+   Objective-C:
+
+   ```objc
+   - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+   {
+       return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+   }
+   ```
+
+   Swift:
+
+   ```swift
+   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+       return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+   }
+   ```
+
 **If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate` file instead.
 If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
 
@@ -186,7 +187,7 @@ Objective-C:
      UIOpenURLContext *context = URLContexts.anyObject;
      NSURL *url = context.URL;
      NSString *sourceApplication = context.options.sourceApplication;
-     
+
      [MSALPublicClientApplication handleMSALResponse:url sourceApplication:sourceApplication];
  }
 ```
@@ -195,14 +196,14 @@ Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
