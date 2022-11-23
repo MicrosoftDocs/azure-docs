@@ -52,7 +52,7 @@ We recommend to using a service principal for authentication and interaction wit
 
 ## Enabling data access
 
-We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. Batch deployments use the identity of the compute to mount the data. The identity of the job is used to read the data once mounted for external storage accounts. You will need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
+We will be using cloud URIs provided by Event Grid to indicate the input data to send to the deployment job. Batch deployments use the identity of the compute to mount the data. The identity of the job is used to read the data once mounted for external storage accounts. You will need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
 
 1. Create a [managed identity resource](../active-directory/managed-identities-azure-resources/overview.md):
 
