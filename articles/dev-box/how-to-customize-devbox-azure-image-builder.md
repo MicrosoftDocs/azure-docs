@@ -4,17 +4,17 @@ titleSuffix: Microsoft Dev Box Preview
 description: 'Learn how to create a custom image with Azure Image Builder, then create a Dev box with the image.'
 services: dev-box
 ms.service: dev-box
-author: xnkevinnguyen
-ms.author: kevinnguyen
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 11/17/2022
 ms.topic: how-to
 ---
 
 # Configure a Dev Box with Azure Image Builder
 
-By using standardized virtual machine images, your organization can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image and submit it to the service, where the image is built and then distributed to a Devbox project.In this guide, you will create a customized dev box using a template which includes a customization step to install Vscode. 
+By using standardized virtual machine (VM) images, your organization can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image and submit it to the service, where the image is built and then distributed to a dev box project. In this article, you will create a customized dev box using a template which includes a customization step to install Visual Studio Code. 
 
-Although it's possible to create custom VM images by hand or by other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service. 
+Although it's possible to create custom VM images by hand or by using other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service. 
 
 To reduce the complexity of creating VM images, VM Image Builder: 
 
@@ -32,7 +32,7 @@ Resource group and a dev center with an attached network connection. If don't ha
 ## Create a Windows image and distribute it to an Azure Compute Gallery 
 The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in an Azure Compute Gallery (formerly Shared Image Gallery) and then distribute the image globally. You can also do this by using the Azure CLI. 
 
-To use VM Image Builder, you need to register the features. 
+1. To use VM Image Builder, you need to register the features. 
 
 Check your provider registrations. Make sure that each one returns Registered. 
 
@@ -54,15 +54,15 @@ If they don't return Registered, register the providers by running the following
     Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
 ```
 
-Install Powershell modules: 
+2. Install PowerShell modules: 
 
 ```powershell
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
-Because you'll be using some pieces of information repeatedly, create some variables to store that information. 
+3.  Create variables to store information that you'll use more than once. 
 
-Replace the Resource group with the resource group you have used to create the dev center. 
+Copy the sample code and replace the Resource group with the resource group you have used to create the dev center. 
 
 ```powershell
 # Get existing context 
@@ -79,7 +79,7 @@ $runOutputName="aibCustWinManImg01"
 $imageTemplateName="vscodeWinTemplate"  
 ```
 
-Create a user-assigned identity and set permissions on the resource group 
+4. Create a user-assigned identity and set permissions on the resource group 
 
 VM Image Builder uses the provided user-identity to inject the image into Azure Compute Gallery. In this example, you create an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity. 
 
@@ -99,7 +99,7 @@ $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
-Assign permissions for the identity to distribute the images 
+5. Assign permissions for the identity to distribute the images 
 
 Use this command to download an Azure role definition template, and then update it with the previously specified parameters. 
 
@@ -143,7 +143,7 @@ $features = @($SecurityType)
 New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $imageResourceGroup  -Location $location  -Name $imageDefName  -OsState generalized  -OsType Windows  -Publisher 'myCompany'  -Offer 'vscodebox'  -Sku '1-0-0' -Feature $features -HyperVGeneration "V2" 
 ```
 
-Copy the ARM Template For Azure Image Builder. This template indicates the source image and also the customizations applied. With this template, we are installing choco and vscode. It also indicates where the image will be distributed.
+1. Copy the ARM Template for Azure Image Builder. This template indicates the source image and also the customizations applied. With this template, we are installing choco and vscode. It also indicates where the image will be distributed.
 
 ```json
 {
@@ -222,7 +222,7 @@ Copy the ARM Template For Azure Image Builder. This template indicates the sourc
     ]
   }
 ```
-Configure the template with your variables. 
+2. Configure the template with your variables. 
 ```powershell
 $templateFilePath = <Template Path>
 
@@ -235,7 +235,7 @@ $templateFilePath = <Template Path>
 (Get-Content -path $templateFilePath -Raw ) -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath  
 ((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath 
 ```
-Create the image version 
+3. Create the image version 
 
 Your template must be submitted to the service. The following commands will download any dependent artifacts, such as scripts, and store them in the staging resource group, which is prefixed with IT_. 
 
