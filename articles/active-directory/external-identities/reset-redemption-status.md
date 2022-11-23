@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 11/11/2022
 
 ms.author: mimart
 author: msmimart
@@ -28,13 +28,21 @@ In this article, you'll learn how to update the [guest user's](user-properties.m
 
 To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Azure portal, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the [UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
+## Required Azure AD roles
+
+To reset a user's redemption status, you'll need one of the following roles:
+
+- [Guest Inviter](../roles/permissions-reference.md#guest-inviter) (least privileged)
+- [User Administrator](../roles/permissions-reference.md#user-administrator)
+- [Global Administrator](../roles/permissions-reference.md#global-administrator)
+
 ## Use the Azure portal to reset redemption status
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
-1. Search for and select **Azure Active Directory**.
-1. Select **Users**.
-1. In the list, select the user's name to open their user profile.
-1. If the user wants to sign in using a different email:
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account that has one of the [required Azure AD roles](#required-azure-ad-roles).
+2. Search for and select **Azure Active Directory**.
+3. Select **Users**.
+4. In the list, select the user's name to open their user profile.
+5. If the user wants to sign in using a different email:
    - Select **Edit properties**.
    - Select the **Contact Information** tab.
    - Next to **Email**, type the new email.
@@ -68,7 +76,7 @@ If a user wants to sign in using a different email:
 ```powershell
 Install-Module Microsoft.Graph
 Select-MgProfile -Name beta
-Connect-MgGraph
+Connect-MgGraph -Scopes "User.ReadWrite.All"
 
 $user = Get-MgUser -Filter "startsWith(mail, 'john.doe@fabrikam.net')"
 New-MgInvitation `

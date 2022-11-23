@@ -42,6 +42,7 @@ The following are well-known ports used by services listed in this article. If a
 | 443 | Secured web traffic (HTTPS) |
 | 445 | SMB traffic used to access file shares in Azure File storage |
 | 8787 | Used when connecting to RStudio on a compute instance |
+| 18881 | Used to connect to the language server to enable IntelliSense for notebooks on a compute instance. |
 
 ## Required public internet access
 
@@ -113,7 +114,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
-1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
+1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Secure AKS inference environment](how-to-secure-kubernetes-inferencing-environment.md) articles.
 
 ## Kubernetes Compute
 
