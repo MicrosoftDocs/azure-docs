@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Configure SSO on macOS and iOS
 
-The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
+The Microsoft Authentication Library (MSAL) for macOS and iOS supports single sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
 
 - [Silent SSO between multiple apps](#silent-sso-between-apps)
 
@@ -25,10 +25,9 @@ This type of SSO works between multiple apps distributed by the same Apple Devel
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
-> [!IMPORTANT]
-> This flow is not available on macOS.
+The SSO through authentication broker isn't available on macOS.
 
-Microsoft provides apps, called brokers, that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (AAD). This type of SSO requires a broker application be installed on the user's device.
+Microsoft provides apps called brokers, that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (Azure AD). This type of SSO requires a broker application be installed on the user's device.
 
 - **SSO between MSAL and Safari**
 
@@ -36,8 +35,7 @@ SSO is achieved through the [ASWebAuthenticationSession](https://developer.apple
 
 If you use the default web view in your app to sign in users, you'll get automatic SSO between MSAL-based applications and Safari. To learn more about the web views that MSAL supports, visit [Customize browsers and WebViews](customize-webviews.md).
 
-> [!IMPORTANT]
-> This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
+This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
 
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
@@ -66,8 +64,7 @@ App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
 App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`  
 App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
 
-> [!IMPORTANT]
-> The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
+The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
 ### Setup keychain sharing between applications
 
@@ -136,7 +133,7 @@ That's it! The Microsoft identity SDK will now share credentials across all your
 
 ## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow Conditional Access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for Azure AD registered devices, and also helps your application follow Conditional Access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 
