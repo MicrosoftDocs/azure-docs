@@ -61,4 +61,4 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 
 1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully.
 
-   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)
+   ![Screenshot that shows pre-requisites to configure a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)

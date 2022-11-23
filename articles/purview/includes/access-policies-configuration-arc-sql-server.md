@@ -29,4 +29,4 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
 
 1. Compare the **App registration ID** with the one shown in the Microsoft Purview account registration for this data source
 
-   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview2.png)
+   ![Screenshot that shows Microsoft Purview endpoint status in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview2.png)
