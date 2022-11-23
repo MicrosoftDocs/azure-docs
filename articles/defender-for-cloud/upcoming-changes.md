@@ -51,7 +51,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 |--|--|--|
 | Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
 
-## The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
+### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
 
 **Estimated date for change: December 2022**
 
