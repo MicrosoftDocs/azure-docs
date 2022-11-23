@@ -392,10 +392,10 @@ After waiting, check the directory server to ensure users are being provisioned.
    [![Screenshot of the Ldp tool location.](media/active-directory-app-provisioning-ldap/ldp-1.png)](media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
-   - Server:  APP3
-   - Port: 636
-   - Place a check in the SSL box
-   [![Screenshot showing the Ldp connection for checking users.](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
+    - Server:  APP3
+    - Port: 636
+    - Place a check in the SSL box
+    [![Screenshot showing the Ldp connection for checking users.](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5. At the top, under **Connection** select **Bind**.
  6. Leave the defaults and click **OK**.
  7. At the top, select **View** and **Tree**
