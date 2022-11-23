@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/10/2022
+ms.date: 11/23/2022
 ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
@@ -18,11 +18,11 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 ## Safety instructions in Azure languages
 
-|Language              |Code     |Download PDF|
+|Language              |Code     |Article|
 |----------------------|---------|---------|
 |Arabic                |         |         |
-|English               |en       |         |
-|Czech                 |cs       |         |
+|English               |en       |[en-us](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-pro-2-safety) |
+|Czech                 |cs       |[cs-cz](https://learn.microsoft.com/cs-cz/azure/databox-online/azure-stack-edge-pro-2-safety) |
 |German                |de       |         |
 |Spanish               |es       |         |
 |French                |fr       |         |
