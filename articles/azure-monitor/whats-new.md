@@ -144,7 +144,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | Article | Description |
 |---|---|
 |[Azure Application Insights Overview Dashboard](app/overview-dashboard.md)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
-|[Azure Application Insights override default SDK endpoints](app/custom-endpoints.md)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
+|[Azure Application Insights override default SDK endpoints](app/create-new-resource.md#application-insights-overriding-default-endpoints)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
 |[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspace.|
 |[Dependency Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-dependency.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
