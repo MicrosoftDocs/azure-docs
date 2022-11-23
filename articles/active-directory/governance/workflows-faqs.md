@@ -3,7 +3,7 @@ title: 'Lifecycle workflows FAQs - Azure AD (preview)'
 description: Frequently asked questions about Lifecycle workflows (preview).
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
