@@ -13,10 +13,13 @@ This guide helps you to design and plan an effective Microsoft Defender for Serv
 This planning guide is aimed at cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
 
 - What can Defender for Servers do?
-- Which Defender for Servers plan should I choose?
 - Where will my data be stored?
-- What do I need to deploy?
-- What permissions do I need?
+- Who needs access?
+- Which Defender for Servers plan should I choose?
+- What type of vulnerability assessment is available?
+- What Log Analytics workspaces do I need?
+- How do I protect AWS and GCP machines?
+- What agents must be deployed?
 - How do I scale a deployment?
 
 ## Before you begin
@@ -189,7 +192,7 @@ Attack detection at the OS level and network layer (including fileless attack de
 File integrity monitoring** |  | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server capabilities.
 [Adaptive application controls](adaptive-application-controls.md) | | :::image type="icon" source="./media/icons/yes-icon.png":::
 
-## Qualys extension
+### Qualys extension
 
 Qualys vulnerability assessment/mitigation is available in Defender for Servers Plan 2, and is used if you want to use Qualys for vulnerability assessment and mitigation.
 
@@ -219,7 +222,7 @@ When you enable Defender for Servers, Defender for Cloud automatically deploys a
 - Linux machines extension: MDE.Linux
 - Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements). There are some [specific requirements](/microsoft-365/security/defender-endpoint/configure-server-endpoints) for some Windows Server versions.
 
-## Agent provisioning
+### Agent provisioning
 
 When you enable Defender for Cloud plans, including Defender for Server, you can select to automatically provision these agents:
 
@@ -313,7 +316,7 @@ Guest configuration extension | [Overview and prerequisites](../virtual-machines
 
 These common questions around Defender for Servers billing might be useful as you plan your deployment
 
-## Can I enabled Defender for Servers on a subset of machines in a subscription?
+### Can I enable Defender for Servers on a subset of machines in a subscription?
 
 No. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account/GCP project, all of the connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics/Azure Monitor agent installed.
 
