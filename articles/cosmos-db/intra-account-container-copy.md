@@ -60,7 +60,7 @@ The rate of container copy job progress is determined by these factors:
 
 * Source container/database throughput setting.
 
-* Target container/database throughput setting.
+* Target container/database throughput setting. *(We recommend setting the target container throughput to atleast 2 times the source container throughput.)*
 
 * Server-side compute instances allocated to the Azure Cosmos DB account for performing the data transfer.
 
@@ -133,6 +133,14 @@ As a work-around, create a database called *__datatransferstate* manually within
 
 ```
 ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
+```
+
+* Error - (Request) is blocked by your Cosmos DB account firewall settings.
+
+The job creation request could be blocked if the client IP is not allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](../cloud-shell/quickstart-powershell.md#start-cloud-shell).
+```
+InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden
+ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ## Next steps
