@@ -67,7 +67,7 @@ You can change the sensor threat intelligence update mode after initial onboardi
 
 Packages can be downloaded the Azure portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
 
-:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates in the Azure portal.":::
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Screenshot of how to download updates in the Azure portal." lightbox="media/how-to-work-with-threat-intelligence-packages/download-screen.png":::
 
 This option is available for both *cloud connected* and *locally managed* sensors.
 
@@ -83,7 +83,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Threat intelligence** pane, select **Upload file**. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png" alt-text="Upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-ti-single-sensor.png" alt-text="Screenshot of where you can upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-ti-single-sensor.png":::
 
 1. Browse to and select the package you'd downloaded from the Azure portal and upload it to the sensor.
 
@@ -97,17 +97,17 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Sensor Engine Configuration** area, select the sensors that you want to receive the updated packages. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Select which sensors you want to make changes to." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-ti-multiple-sensors.png" alt-text="Screenshot of where you can select which sensors you want to make changes to." lightbox="media/how-to-work-with-threat-intelligence-packages/update-ti-multiple-sensors.png":::
 
 1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**).
 
 1. In the **Upload File** dialog, select **BROWSE FILE...** to browse to and select the update package. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/upload-TI-to-management-console.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/upload-TI-to-management-console.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/upload-ti-to-management-console.png" alt-text="Screenshot of where you can upload a Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/upload-ti-to-management-console.png":::
 
 1. Select **CLOSE** and then **SAVE CHANGES** to push the threat intelligence update to all selected sensors.
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-MC.png" alt-text="Save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-MC.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-mc.png" alt-text="Screenshot of where you can save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-mc.png":::
 
 ## Review package update status on the sensor
 
