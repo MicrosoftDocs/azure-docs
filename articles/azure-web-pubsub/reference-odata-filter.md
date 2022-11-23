@@ -115,7 +115,7 @@ length(userId) gt 0 and length(userId) lt 3 or length(userId) gt 7 and length(us
 ((length(userId) gt 0) and (length(userId) lt 3)) or ((length(userId) gt 7) and (length(userId) lt 10))
 ```
 
-The `not` operator has the highest precedence of all, even higher than the comparison operators. 's If you write a filter like this:
+The `not` operator has the highest precedence of all, even higher than the comparison operators. If you write a filter like this:
 
 ```odata-filter-expr
 not length(userId) gt 5
