@@ -1,16 +1,17 @@
 ---
-title: Use App Accelerator
+title: Use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use App Accelerator for VMware Tanzu with with Azure Spring Apps Enterprise Tier
-author: 
+description: Learn how to use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier.
+author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 12/01/2022
 ms.author: caiqing
-ms.custom: 
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use App Accelerator
+
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
@@ -18,15 +19,18 @@ ms.custom:
 This article shows you how to use [Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) for VMware Tanzu® with Azure Spring Apps Enterprise tier to bootstrap developing your applications in a discoverable and repeatable way.
 
 ## Prerequisites
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Enable App Accelerator
+
 You can enable App Accelerator when provisioning an Azure Spring Apps Enterprise tier. If you already have a succeeded Azure Spring Apps Enterprise resource, see [Manage App Accelerator in existing Enterprise tier instances](#manage-app-accelerator-in-existing-enterprise-tier-instances) to enable it.
 
 #### [Portal](#tab/Portal)
+
 1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
 1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Click "next".
 1. In the "VMware Tanzu settings" tab, check "App Accelerators" checkbox.
@@ -35,6 +39,7 @@ You can enable App Accelerator when provisioning an Azure Spring Apps Enterprise
 4. You can obtain "Enable Application Accelerator" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
 
 #### [CLI](#tab/Azure-CLI)
+
 Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription:
@@ -80,6 +85,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
     ```
 
 ## Monitor App Accelerator
+
 Application Accelerator allows you to generate new projects from files in Git repositories.
 Application accelerator has 8 components:
 
@@ -95,11 +101,14 @@ Application accelerator has 8 components:
 | flux-source-controller  | 1              | 0.2 core          | 0.25Gi               | Register a controller to reconcile `GithubRepository` resources which are used by Accelerators. Support managing git repository sources for application accelerator.|
 
 You can see the running instances and resource usage of all the components through Azure Portal and CLI.
+
 #### [Portal](#tab/Portal)
+
 You can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
 ![Accelerator-components](./media/how-to-use-accelerator/accelerator-components.png)
 
 #### [CLI](#tab/Azure-CLI)
+
 Use the following command to view App Accelerator.
 ```azurecli
 az spring application-accelerator show \
@@ -108,10 +117,13 @@ az spring application-accelerator show \
 ```
 
 ## Configure Dev Tools to access Application Accelerator
+
 To access app accelerator, you need centrally configure Dev Tools. Please refer to [Use Dev Tools](./how-to-use-dev-tool-portal.md) to understand more there.
 
 ## Use App Accelerator to bootstrap your new projects
+
 ### Get Permissions to manage accelerators
+
 Before manage your accelerators, you need following permissions:
 
 - Read : Get Azure Spring Apps Predefined Accelerator
@@ -237,6 +249,7 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
     > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
 
 ### Use accelerators to bootstrap a new project
+
 Click **App Accelerator URL** to access Dev Tools Portal.
 ![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
 Jump to Dev Tools Portal, you can choose one accelerator to explore file and download as zip file.
@@ -250,11 +263,13 @@ Click **GENERATE ACCELERATOR**, it will start a task to process provided paramen
 ![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
 
 ## Manage App Accelerator in existing Enterprise tier instances
+
 This section instructs you how to enable the App Accelerator under an existing Azure Spring Apps Enterprise tier instance.
 
 If Dev tools public endpoint has already been exposed, then after enabling App Accelerator here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
 
 #### [Portal](#tab/Portal)
+
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
 1. Check the App Accelerators checkbox and click "Apply"
@@ -264,6 +279,7 @@ If Dev tools public endpoint has already been exposed, then after enabling App A
 4.After it is saved successfully, you can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
 
 #### [CLI](#tab/Azure-CLI)
+
 Use the following command to enable App Accelerator for an Azure Spring Apps service instance:
 ```azurecli
 az spring application-accelerator create \
