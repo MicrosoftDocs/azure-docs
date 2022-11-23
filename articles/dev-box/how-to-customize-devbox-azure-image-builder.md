@@ -265,3 +265,7 @@ Once your custom image has been provisioned within the compute gallery, you can 
 Once the compute gallery images are available in the dev center. You can use the custom image with the dev box service. More details here:
 
 [Configure the Microsoft Dev Box Service](./quickstart-configure-dev-box-service.md)
+
+## Next steps
+- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
