@@ -96,6 +96,9 @@ The following properties are supported for file system linked service:
 >[!NOTE]
 >When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
 
+>[!NOTE]
+>Copying files from local machine is not supported under Azure Integration Runtime. Refer to the command line from [here](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) to enable the access to the local machine under Self-hosted integration runtime. By default, it's disabled.
+
 **Example:**
 
 ```json
