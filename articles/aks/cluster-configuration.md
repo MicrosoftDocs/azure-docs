@@ -85,7 +85,7 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 > [!IMPORTANT]
 > When you don't explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
 
-If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
+If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure VM documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
 If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you'll receive a validation error.
 
