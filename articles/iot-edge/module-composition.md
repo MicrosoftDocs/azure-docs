@@ -185,7 +185,7 @@ The edgeHub module and custom modules also have three properties that tell the I
 
 ## Declare routes
 
-The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
+The IoT Edge hub manages communication between modules, IoT Hub, and any downstream devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
 
 Routes are declared in the **$edgeHub** desired properties with the following syntax:
 
@@ -223,17 +223,17 @@ You can assign *priority* to routes that you want to make sure process their mes
 
 ### Source
 
-The source specifies where the messages come from. IoT Edge can route messages from modules or leaf devices.
+The source specifies where the messages come from. IoT Edge can route messages from modules or downstream devices.
 
-Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Leaf devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Downstream devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 The source property can be any of the following values:
 
 | Source | Description |
 | ------ | ----------- |
-| `/*` | All device-to-cloud messages or twin change notifications from any module or leaf device |
-| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or leaf device |
-| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a leaf device |
+| `/*` | All device-to-cloud messages or twin change notifications from any module or downstream device |
+| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or downstream device |
+| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a downstream  device |
 | `/messages/modules/*` | Any device-to-cloud message sent by a module through some or no output |
 | `/messages/modules/<moduleId>/*` | Any device-to-cloud message sent by a specific module through some or no output |
 | `/messages/modules/<moduleId>/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
@@ -253,7 +253,7 @@ You can build queries around any of the three parameters with the following synt
 
 For examples about how to create queries for message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
+An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a downstream device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from downstream devices directly to IoT Hub, use the following route to exclude module messages:
 
 ```query
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream

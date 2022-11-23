@@ -1,6 +1,6 @@
 ---
 title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
-description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices. 
+description: How to configure downstream devices to connect to Azure IoT Edge gateway devices. 
 author: PatAltimore
 
 ms.author: patricka
@@ -218,10 +218,10 @@ The output of this command may be long, including information about all the cert
 
 ## Troubleshoot the gateway connection
 
-If your leaf device has intermittent connection to its gateway device, try the following steps for resolution.
+If your downstream device has intermittent connection to its gateway device, try the following steps for resolution.
 
 1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
-2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
+2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the downstream device.
 3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 
 ## Next steps
