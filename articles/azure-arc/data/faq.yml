@@ -16,19 +16,25 @@ summary: |
 sections:
   - name: General FAQ
     questions:
-      - question: Can I onboard via policy, and exclude some of my SQL Server instances at scale? For example, I want to exclude instances based on a pattern in the name, because they're just standby instances. We don't want to see them in the portal.
+      - question: How can I optimize onboarding at scale? 
         answer: |
           Yes, you can set the `excludedInstances` setting in the Azure Policy.  
           
+          For example, if you have standby instances, perhaps you don't want to see them in the portal. When you use Azure Policy to onboard, you can exclude instances based on a pattern in the name. 
+
           1. Create a copy of the definition that we provide in Azure so that you can create a custom definition.
           1. Set the value for excluded instances in the custom definition.
           1. Target the subscription and resource group.
 
 
           
-      - question: If we have Policy enabled on the Server side, the cost is 6 dollars and then once the Defender is enabled the policy becomes free, and cost will be 14.60 dollars for Defender and policy combined. Is that the same for Azure Arc-enabled SQL Server + Defender? Or if we use Azure Policy for SQL instances what would the cost be and is it per instance or per policy on the charges?
+      - question: How are the costs charged for Policy if Defender is enabled?
         answer: |
-          Azure guest agent configuration policy on Arc-enabled servers costs $6/server/month.  You can use that to set configuration related to SQL Server that is local in the OS like registry key values, etc.  You don’t need to pay any additional to do that kind of policy thing for SQL Server.  Policy is not like Defender in that sense.  Some of the things you might want to do using Azure Policy changes the configuration of things in Azure. You don’t need to pay $6 for things like that using guest agent configuration policy.  Example: create a policy that sets the licenseType of all Arc Enabled SQL Serves to PAYG  targeted at a certain resource group.
+          Azure guest agent configuration policy on Arc-enabled servers costs $6.00 per server per month.  You can use that to set configuration related to SQL Server that is local in the OS like registry key values, etc.  You don't need to pay any additional to do that kind of policy thing for SQL Server.  Policy is not like Defender in that sense.  Some of the things you might want to do using Azure Policy changes the configuration of things in Azure. You don’t need to pay $6 for things like that using guest agent configuration policy.  For example,create a policy that sets the licenseType of all Arc Enabled SQL Serves to pay-as-you-go targeted at a certain resource group.
+
+      - question: What is the cost for Azure Arc-enabled SQL Server + Defender?
+        answer: |
+          Some answer
 
       - question: Can we customize our policies and what is the out of box list of policies that are there that we can use or modify.   
         answer: |
@@ -58,10 +64,12 @@ sections:
           
   - name: Azure SQL Server FAQ
     questions:
-      - question: In Assessment, can we run this at scale for all the instances at the same time? Can we get a roll-up report that indicates how many instances fall into the high priority category instead of one machine at a time? 
+      - question: Can we run assessment at scale for all instances at the same time?  
         answer: |
           When BPA is released, you can schedule BPA to run automatically on a configurable schedule. You'll also be able to start a BPA run at-scale by calling the Azure API.
 
+      - question: Can we get a roll-up report that indicates how many instances fall into the high priority category instead of one machine at a time?
+        answer: | 
           To get your own "roll-up" report, you can create your own workbook in the **Log Analytics** workspace.
   
           [Log Analytics workspace overview](../../azure-monitor/logs/log-analytics-workspace-overview.md)
