@@ -23,7 +23,7 @@ recommendations: false
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
 > [!NOTE]
-> The [cloud hosted](https://fott-2-1.azurewebsites.net/) labeling tool is available at [https://fott-2-1.azurewebsites.net/](https://fott-2-1.azurewebsites.net/). Follow the steps in this document only if you want to deploy the sample labeling tool for yourself. 
+> The [cloud hosted](https://fott-2-1.azurewebsites.net/) labeling tool is available at [https://fott-2-1.azurewebsites.net/](https://fott-2-1.azurewebsites.net/). Follow the steps in this document only if you want to deploy the Sample Labeling tool for yourself. 
 
 The Form Recognizer Sample Labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
 

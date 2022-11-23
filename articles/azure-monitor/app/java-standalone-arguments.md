@@ -2,7 +2,7 @@
 title: Adding the JVM arg - Azure Monitor Application Insights for Java
 description: How to add the JVM arg that enables Azure Monitor Application Insights for Java
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -21,6 +21,12 @@ See [Monitoring Azure Functions with Azure Monitor Application Insights](./monit
 ## Spring Boot
 
 Read the Spring Boot documentation [here](../app/java-in-process-agent.md).
+
+## Third-party container images
+
+If you are using a third-party container image which you cannot modify, mount the Application Insights Java agent jar
+into the container from outside, and set the environment variable for the container
+`JAVA_TOOL_OPTIONS=-javaagent:/path/to/applicationinsights-agent.jar`.
 
 ## Tomcat 8 (Linux)
 

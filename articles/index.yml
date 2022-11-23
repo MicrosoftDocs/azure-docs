@@ -507,7 +507,7 @@ productDirectory:
         - compute
       url: ./virtual-machines/spot-vms.md
     # Card
-    - title: Azure Spring Cloud
+    - title: Azure Spring Apps
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
       imageSrc: https://static.docs.com/ui/media/product/azure/spring-cloud.svg
       azureCategories:

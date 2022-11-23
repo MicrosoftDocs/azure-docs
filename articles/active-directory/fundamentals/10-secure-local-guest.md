@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD B2B) allows external users to collaborate using their own identities. However, it isn't uncommon for organizations to issue local usernames and passwords to external users. This approach isn't recommended as the bring-your-own-identity (BYOI) capabilities provided
 by Azure AD B2B to provide better security, lower cost, and reduce
 complexity when compared to local account creation. Learn more
-[here.](/azure/active-directory/fundamentals/secure-external-access-resources)
+[here.](./secure-external-access-resources.md)
 
 If your organization currently issues local credentials that external users have to manage and would like to migrate to using Azure AD B2B instead, this document provides a guide to make the transition as seamlessly as possible.
 
@@ -28,7 +28,7 @@ If your organization currently issues local credentials that external users have
 Before migrating local accounts to Azure AD B2B, admins should understand what applications and workloads these external users need to access. For example, if external users need access to an application that is hosted on-premises, admins will need to validate that the application is integrated with Azure AD and that a provisioning process is implemented to provision the user from Azure AD to the application.
 The existence and use of on-premises applications could be a reason why local accounts are created in the first place. Learn more about
 [provisioning B2B guests to on-premises
-applications.](/azure/active-directory/external-identities/hybrid-cloud-to-on-premises)
+applications.](../external-identities/hybrid-cloud-to-on-premises.md)
 
 All external-facing applications should have single-sign on (SSO) and provisioning integrated with Azure AD for the best end user experience.
 
@@ -59,7 +59,7 @@ External users should be notified that the migration will be taking place and wh
 
 ## Migrate local guest accounts to Azure AD B2B
 
-Once the local accounts have their user.mail attributes populated with the external identity/email that they're mapped to, admins can [convert the local accounts to Azure AD B2B by inviting the local account.](/azure/active-directory/external-identities/invite-internal-users)
+Once the local accounts have their user.mail attributes populated with the external identity/email that they're mapped to, admins can [convert the local accounts to Azure AD B2B by inviting the local account.](../external-identities/invite-internal-users.md)
 This can be done in the UX or programmatically via PowerShell or the Microsoft Graph API. Once complete, the users will no longer
 authenticate with their local password, but will instead authenticate with their home identity/email that was populated in the user.mail attribute. You've successfully migrated to Azure AD B2B.
 

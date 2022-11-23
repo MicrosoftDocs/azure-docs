@@ -1,11 +1,11 @@
 ---
 title: Support for physical server migration in Azure Migrate
 description: Learn about support for physical server migration in Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: conceptual
-ms.date: 06/14/2020
+ms.date: 07/22/2022
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs
