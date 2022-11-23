@@ -5,10 +5,10 @@ services: active-directory
 author: janicericketts
 manager: martinco
 ms.service: active-directory
-ms.workload: 
+ms.workload: identity
 ms.subservice: fundamentals
-ms.topic:
-ms.date: 11/15/2022
+ms.topic: conceptual
+ms.date: 11/23/2022
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
@@ -16,7 +16,7 @@ ms.collection:
 ---
 # Azure Active Directory and data residency
 
-Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](https://learn.microsoft.com/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
+Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
 
 ## Core Store
 
@@ -56,7 +56,7 @@ Use the following table to see Azure AD cloud solution models based on infrastru
 
 **Table references**:
 
-(1) **Data custodians**: Data centers in the Worldwide region are operated by Microsoft. In China, Azure AD is operated through a partnership with [21Vianet](https://learn.microsoft.com/microsoft-365/admin/services-in-china/services-in-china?redirectSourcePath=%252fen-us%252farticle%252fLearn-about-Office-365-operated-by-21Vianet-a8ab5061-3346-4da0-bb7c-5260822b53ae&view=o365-21vianet&viewFallbackFrom=o365-worldwide).  
+(1) **Data custodians**: Data centers in the Worldwide region are operated by Microsoft. In China, Azure AD is operated through a partnership with [21Vianet](/microsoft-365/admin/services-in-china/services-in-china?redirectSourcePath=%252fen-us%252farticle%252fLearn-about-Office-365-operated-by-21Vianet-a8ab5061-3346-4da0-bb7c-5260822b53ae&view=o365-21vianet&viewFallbackFrom=o365-worldwide&preserve-view=true).  
 (2) **Authentication data**: Tenants outside the national clouds have authentication information at rest in the continental United States. 
 
 Learn more: 
@@ -83,7 +83,7 @@ Data storage for Azure AD components includes authentication, identity, MFA, and
 |---|---|---|
 |Azure AD Authentication Service|This service is stateless. The data for authentication is in the Azure AD Core Store. It has no directory data. Azure AD Authentication Service generates log data in Azure storage, and in the data center where the service instance runs. When users attempt to authenticate using Azure AD, they’re routed to an instance in the geographically nearest data center that is part of its Azure AD logical region. |In region|
 |Azure AD Identity and Access Management (IAM)  Services|**User and management experiences**: The Azure AD management experience is stateless and has no directory data. It generates log and usage data stored in Azure Tables storage. The user experience is like the Azure portal. <br>**Identity management business logic and reporting services**: These services have locally cached data storage for groups and users. The services generate log and usage data that goes to Azure Tables storage, Azure SQL, and in Microsoft Elastic Search reporting services. |In region|
-|Azure AD Multi-Factor Authentication (MFA)|For details about MFA-operations data storage and retention, see [Data residency and customer data for Azure AD multifactor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency). Azure AD MFA logs the User Principal Name (UPN), voice-call telephone numbers, and SMS challenges. For challenges to mobile app modes, the service logs the UPN and a unique device token. Data centers in the North America region store Azure AD MFA, and the logs it creates.|North America|
+|Azure AD Multi-Factor Authentication (MFA)|For details about MFA-operations data storage and retention, see [Data residency and customer data for Azure AD multifactor authentication](/azure/active-directory/authentication/concept-mfa-data-residency). Azure AD MFA logs the User Principal Name (UPN), voice-call telephone numbers, and SMS challenges. For challenges to mobile app modes, the service logs the UPN and a unique device token. Data centers in the North America region store Azure AD MFA, and the logs it creates.|North America|
 |Azure AD Domain Services|See regions where Azure AD Domain Services is published on [Products available by region](https://azure.microsoft.com/regions/services/). The service holds system metadata globally in Azure Tables, and it contains no personal data.|In region|
 |Azure AD Connect Health|Azure AD Connect Health generates alerts and reports in Azure Tables storage and blob storage.|In region|
 |Azure AD dynamic membership for groups, Azure AD self-service group management|Azure Tables storage holds dynamic membership rule definitions.|In region|
@@ -94,7 +94,7 @@ Data storage for Azure AD components includes authentication, identity, MFA, and
 |Azure AD provisioning|Azure AD provisioning creates, removes, and updates users in systems, such as software as service (SaaS) applications. It manages user creation in Azure AD and on-premises AD from cloud HR sources, like Workday. The service stores its configuration in an Azure Cosmos DB, which stores the group membership data for the user directory it keeps. Cosmos DB replicates the database to multiple datacenters in the same region as the tenant, which isolates the data, according to the Azure AD cloud solution model. Replication creates high availability and multiple reading and writing endpoints. Cosmos DB has encryption on the database information, and the encryption keys are stored in the secrets storage for Microsoft.|In region|
 |Azure AD business-to-business (B2B) collaboration|Azure AD B2B collaboration has no directory data. Users and other directory objects in a B2B relationship, with another tenant, result in user data copied in other tenants, which might have data residency implications.|In region|
 |Azure AD Identity Protection|Azure AD Identity Protection uses real-time user log-in data, with multiple signals from company and industry sources, to feed its machine-learning systems that detect anomalous logins. Personal data is scrubbed from real-time log-in data before it’s passed to the machine learning system. The remaining log-in data identifies potentially risky usernames and logins. After analysis, the data goes to Microsoft reporting systems. Risky logins and usernames appear in reporting for Administrators.|In region|
-|Azure AD managed identities for Azure resources|Azure AD managed identities for Azure resources with managed identities systems can authenticate to Azure services, without storing credentials. Rather than use username and password, managed identities authenticate to Azure services with certificates. The service writes certificates it issues in Azure Cosmos DB in the East US region, which fail over to another region, as needed. Azure Cosmos DB geo-redundancy occurs by global data replication. Database replication puts a read-only copy in each region that Azure AD managed identities runs. To learn more, see [Azure services that can use managed identities to access other services](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-managed-identities-for-azure-resources). Microsoft isolates each Cosmos DB instance in an Azure AD cloud solution model. </br> The resource provider, such as the virtual machine (VM) host, stores the certificate for authentication, and identity flows, with other Azure services. The service stores its master key to access Azure Cosmos DB in a datacenter secrets management service. Azure Key Vault stores the master encryption keys.|In region|
+|Azure AD managed identities for Azure resources|Azure AD managed identities for Azure resources with managed identities systems can authenticate to Azure services, without storing credentials. Rather than use username and password, managed identities authenticate to Azure services with certificates. The service writes certificates it issues in Azure Cosmos DB in the East US region, which fail over to another region, as needed. Azure Cosmos DB geo-redundancy occurs by global data replication. Database replication puts a read-only copy in each region that Azure AD managed identities runs. To learn more, see [Azure services that can use managed identities to access other services](/azure/active-directory/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-managed-identities-for-azure-resources). Microsoft isolates each Cosmos DB instance in an Azure AD cloud solution model. </br> The resource provider, such as the virtual machine (VM) host, stores the certificate for authentication, and identity flows, with other Azure services. The service stores its master key to access Azure Cosmos DB in a datacenter secrets management service. Azure Key Vault stores the master encryption keys.|In region|
 |Azure Active Directory business-to-consumer (B2C)|Azure Active Directory B2C is an identity management service to customize and manage how customers sign up, sign in, and manage their profiles when using applications. B2C uses the Core Store to keep user identity information. The Core Store database follows known storage, replication, deletion, and data-residency rules. B2C uses an Azure Cosmos DB system to store service policies and secrets. Cosmos DB has encryption and replication services on database information. Its encryption key is stored in the secrets storage for Microsoft. Microsoft isolates Cosmos DB instances in an Azure AD cloud solution model.|Customer-selectable region|
 
 ## Related resources
@@ -103,6 +103,6 @@ For more information on data residency in Microsoft Cloud offerings see the foll
 
 * [Azure Active Directory – Where is your data located?](https://aka.ms/aaddatamap)
 * [Data Residency in Azure | Microsoft Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview)
-* [Microsoft 365 data locations - Microsoft 365 Enterprise](https://learn.microsoft.com/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide)
+* [Microsoft 365 data locations - Microsoft 365 Enterprise](/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide&preserve-view=true)
 * [Microsoft Privacy - Where is Your Data Located?](https://www.microsoft.com/trust-center/privacy/data-location?rtc=1)
 * Download PDF: [Privacy considerations in the cloud](https://go.microsoft.com/fwlink/p/?LinkID=2051117&clcid=0x409&culture=en-us&country=US)
