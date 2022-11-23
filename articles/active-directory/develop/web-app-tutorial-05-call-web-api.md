@@ -24,6 +24,10 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md).
+* A working version of one of the following IDEs. These can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+    - Visual Studio 2022
+    - Visual Studio Code
+    - Visual Studio 2022 for Mac
 
 ## Add the API configuration
 
@@ -35,9 +39,8 @@ Open the *appsettings.json* file and add the following code to configure the API
   "Scopes": "user.read"
     },
 ```
+This previous configuration definition defines an endpoint for accessing Microsoft Graph. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different. The application URI is combined with the specified scope.
 
-> [!NOTE]
-> The previous configuration definition defines an endpoint for accessing Microsoft Graph. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different. The application URI is combined with the specified scope.
 ## Get the configuration settings and acquire a token
 
 1. Open the *Program.cs* file and add the following code to retrieve the defined scopes from the configuration:

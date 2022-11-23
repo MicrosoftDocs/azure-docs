@@ -21,7 +21,10 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
-* Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
+* A working version of one of the following IDEs. These can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+    - Visual Studio 2022
+    - Visual Studio Code
+    - Visual Studio 2022 for Mac
 * Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
 
 ## Create an ASP.NET Core project
@@ -32,7 +35,7 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 1. Open Visual Studio, and then select **Create a new project**.
 1. Search for and choose the **ASP.NET Core Web App** template, and then select **Next**.
-1. Enter a name for the project, such as **NewApp1**.
+1. Enter a name for the project, such as *NewApp1*.
 1. Accept the default location for the project or choose a different location, and then select **Next**.
 1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**.
 
@@ -44,16 +47,18 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar or the **Terminal**
-1. Create a new folder, and give it the same name that you gave the app when you registered it online, for example *NewWebApp1*.
+1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar or the **Terminal**.
+1. Create a new folder, and give it the same name that you gave the app when you registered it online, for example *NewApp1*.
 1. Run the following command in the terminal:
+
 ```powershell
 dotnet new webapp --framework net6.0
 ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-Information with Visual Studio for Mac instructions in progress.
+<!-- Information with Visual Studio for Mac instructions in progress. -->
+EDITS NEEDED
 
 ---
 
@@ -66,31 +71,35 @@ The use of certificates is suggested for securing the application. When using ce
 1. In Visual Studio, select **Tools > Command Line > Developer Command Prompt**.
 1. Enter the following command to clear the HTTPS development certificates from the machine:
 
-    ```dotnet dev-certs https --clean```
+    ```powershell
+    dotnet dev-certs https --clean
+    ```
 
 1. Enter the following command to create a new self-signed certificate:
 
-    ```dotnet dev-certs https -ep ./certificate.crt --trust```
+    ```powershell
+    dotnet dev-certs https -ep ./certificate.crt --trust
+    ```
 
 ### [PowerShell](#tab/powershell)
 
 1. In the PowerShell command window, run the following commands replacing the `{certificateName}` value with the name of the certificate.
 
-    ```PowerShell
+    ```powershell
     $certname = "{certificateName}"    ## Replace {certificateName}
     $cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
     ```
 
 2. Run the following command to export the certificate to be uploaded to the Azure portal. Replace `{projectLocation}` with the location of the application project:
 
-    ```PowerShell
+    ```powershell
     Export-Certificate -Cert $cert -FilePath "C:\{projectLocation}\$certname.cer"
     ```
 ---
 
 ### Upload certificate to the portal
 
-To make the certificate available to the application, it must be uploaded into the Azure AD tenant.
+To make the certificate available to the application, it must be uploaded into your Azure AD tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.
@@ -98,17 +107,18 @@ To make the certificate available to the application, it must be uploaded into t
 1. Select **Upload certificate**.
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant.":::
-
+<!-- New screenshot needed -->
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
 1. Double-click the thumbprint, select the verticle ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot of copying the certificate thumbprint.":::
+<!-- New screenshot needed -->
 
 ## Configure the application for authentication
 
-The application that was created earlier needs to be configured for authentication with Azure AD.
+The application created earlier needs to be configured for authentication with Azure AD.
 
 1. Open the *appsettings.json* file in the project that was previously created.
 1. Add the following configuration settings for Azure AD:
@@ -129,15 +139,15 @@ The application that was created earlier needs to be configured for authenticati
     },
     ```
 
-    * **Instance** - Is the endpoint of the cloud provider. For this tutorial, accept the default endpoint for Azure AD.
-    * **TenantId** - Is the identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-    * **ClientId** - Is the identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * **ClientCertificates** - A self-signed certificate is used for authentication in the application. Replace the text of the **CertificateThumbprint** with the thumbprint of the certificate that was previously recorded.
-    * **CallbackPath** - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
+    * `Instance` - The endpoint of the cloud provider. For this tutorial, accept the default endpoint for Azure AD.
+    * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
+    * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
+    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
 1. Save the changes to the file.
-1. Record the value of the **CallbackPath**. This will be used later to define the **Redirect URI**
+1. Record the value of the `CallbackPath`. This will be used later to define the **Redirect URI** on the Azure portal.
 1. Under **Properties**, open the *launchSettings.json* file.
-1. Record the https URL listed in the value of **applicationURL**. This will be used alongside the **CallbackPath** when defining the **Redirect URI**.
+1. Record the https URL listed in the value of `applicationURL`. This will also be used when defining the **Redirect URI**.
 
 ## See also
 

@@ -28,14 +28,22 @@ In this tutorial, you learn how to:
 1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
 
     :::image type="content" source="./media/web-app-tutorial-04-prepare-tenant-app/select-platform.png" alt-text="Screenshot on how to select the platform for the application.":::
+<!-- Screenshot edits needed -->
 
 ## Define URLs
 
-1. Under **Redirect URIs**, enter the **applicationURL** and the **CallbackPath** that was recorded earlier. For example, `https://localhost:7141/signin-oidc`.
+1. Under **Redirect URIs**, enter the **applicationURL** and the **CallbackPath** that was recorded when configuring the application. For example, `https://localhost:7141/signin-oidc`.
 1. Under **Front-channel logout URL**, enter the application URL and a callback path for signing out. For example, `https://localhost:7141/signout-oidc`.
 1. Under **Implicit grant and hybrid flows**, select **ID tokens**.
+
+## See also
+
+The following articles are related to the concepts presented in this tutorial:
+<!-- Suitable links required -->
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Call an API and display results](web-app-tutorial-05-call-web-api.md)
+> [Create an API from scratch](web-app-tutorial-05-call-web-api.md)
+<!-- Link to web API tutorial series recommended here -->
