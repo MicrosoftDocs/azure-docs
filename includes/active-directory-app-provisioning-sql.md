@@ -202,6 +202,7 @@ In this section, you create the connector configuration for your database.
 
 To create a generic SQL connector, follow these steps:
 
+1. Generate a secret token that will be used for authenticating Azure AD to the connector.  It should be 12 characters minimum and unique for each application.
 1. If you haven't already done so, launch the **Microsoft ECMA2Host Configuration Wizard** from the Windows Start menu.
 
 2. Select **New Connector**.
@@ -214,9 +215,9 @@ To create a generic SQL connector, follow these steps:
 
      |Property|Value|
      |-----|-----|
-     |Name|SQL|
+     |Name|The name you chose for the connector, which should be unique across all connectors in your environment. For example, if you only have one SQL database, `SQL`. |
      |Autosync timer (minutes)|120|
-     |Secret Token|Enter your own key here. You can choose any value you like. The key should be 12 characters minimum.|
+     |Secret Token|Enter the secret token you generated for this connector. The key should be 12 characters minimum.|
      |Extension DLL|For the generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
 
 4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
@@ -261,7 +262,7 @@ After having provided credentials, the ECMA Connector Host will be ready to retr
 
      |Property|Description|
      |-----|-----|
-     |Select Anchor for :User|User:ContosoLogin|
+     |Select Anchor for: User|User:ContosoLogin|
      |Select DN attribute for User|AzureID|
 
 8. Once you select **Next**, the next page will automatically appear, for you to confirm the data type of each of the columns of the `Employee` table, and whether the connector should import or export them. On the **Schema 4** page, leave the defaults and select **Next**.
@@ -387,9 +388,9 @@ If you are connecting to a new database or one that is empty and has no users, t
 
 Now you need to map attributes between the representation of the user in Azure AD and the representation of a user in the on-premises application's SQL database.
 
-You'll use the Azure Portal to configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.
+You'll use the Azure portal to configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.
 
- 1. Ensure that the Azure AD schema includes the attributes which are required by the database. If the database requires users to have an attribute, such as `uidNumber`, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+ 1. Ensure that the Azure AD schema includes the attributes that are required by the database. If the database requires users to have an attribute, such as `uidNumber`, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
