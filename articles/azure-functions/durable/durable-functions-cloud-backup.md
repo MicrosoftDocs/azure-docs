@@ -54,7 +54,7 @@ After awaiting from `Task.WhenAll`, we know that all function calls have complet
 
 The function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples/E2_BackupSiteContent/function.json)]
+[!code-json[Main](/samples/E2_BackupSiteContent/function.json)]
 
 Here is the code that implements the orchestrator function:
 
