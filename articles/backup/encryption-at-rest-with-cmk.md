@@ -32,7 +32,7 @@ This article discusses about how to:
 
 - This feature isn't related to [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md), which uses guest-based encryption of a VM's disk using BitLocker (for Windows) and DM-Crypt (for Linux).
 
-- The Recovery Services vault can be encrypted only with keys stored in Azure Key Vault, located in the **same region**. Also, keys must be **RSA keys** only and should be in **enabled** state.
+- The Recovery Services vault can be encrypted only with keys stored in Azure Key Vault, located in the **same region**. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) **RSA keys** only and should be in **enabled** state.
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
 - Recovery Services vaults encrypted with customer-managed keys currently don't support cross-region restore of backed-up instances.
@@ -351,7 +351,7 @@ To assign the key and follow the steps, choose a client:
 
 2. Select **Update** under **Encryption Settings**.
 
-3. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. **Ensure that the key you want to use is an RSA 2048 key, which is in an enabled state.**
+3. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. **Ensure that the key you want to use is an RSA key, which is in an enabled state.**
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Recovery Services vault. You  also need to specify the subscription in which the Azure Key Vault (that contains this key) is present. This key URI can be obtained from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
