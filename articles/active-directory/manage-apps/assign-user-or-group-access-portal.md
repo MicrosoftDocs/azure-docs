@@ -288,5 +288,5 @@ To unassign user and groups from the application, run the following query.
 
 ## Next steps
 
-- [Create and assign a user account from the Azure portal](add-application-portal-assign-users.md)
-- [Manage access to apps](what-is-access-management.md).
+- [Assign custom security attributes](custom-security-attributes-apps.md)
+- [Disable user sign-in](disable-user-sign-in-portal.md).
