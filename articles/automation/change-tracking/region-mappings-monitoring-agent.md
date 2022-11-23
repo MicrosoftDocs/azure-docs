@@ -1,5 +1,5 @@
 ---
-title: Supported regions for Azure Monintoring Agent
+title: Supported regions for Azure Monitoring Agent
 description: This article describes the supported region mappings between an Automation account and monitoring agent workspace as it relates to certain features of Azure Automation.
 ms.date: 11/19/2022
 services: automation
