@@ -620,7 +620,7 @@ items:
           items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
-          - name: Working with SAS tokens
+          - name: Work with SAS tokens
             items:
             - name: Account SAS
               href: storage-blob-account-delegation-sas-create-javascript.md
