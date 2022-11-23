@@ -580,7 +580,7 @@ items:
         items:
         - name: .NET
           items:
-          - name: Getting started
+          - name: Get started
             href: storage-blob-dotnet-get-started.md
           - name: Container actions
             items:
@@ -612,15 +612,13 @@ items:
               href: storage-blob-container-lease.md
           - name: Append blob actions
             items:
-            - name: Append to blobs
+            - name: Append data to an append blob
               href: storage-blob-append.md
-          - name: Blob configuration scenarios
-            items:
-            - name: Implement a retry policy
-              href: storage-retry-policy.md
+          - name: Implement a retry policy
+            href: storage-retry-policy.md
         - name: JavaScript
           items:
-          - name: Getting started
+          - name: Get started
             href: storage-blob-javascript-get-started.md
           - name: Working with SAS tokens
             items:
