@@ -10,9 +10,7 @@ ms.date: 11/23/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.collection: engagement-fy23
-
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 
 # Customer intent: As a tenant administrator, I want to give partners access to both on-premises and cloud resources with Azure AD B2B collaboration. 
 ---
