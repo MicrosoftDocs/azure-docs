@@ -204,7 +204,7 @@ The complete set of status codes that the service might return is listed in the 
 To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
-In this sections are samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
+In this section are samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
 
 For each sample, set the variables for the authorization header by doing the following:
 
