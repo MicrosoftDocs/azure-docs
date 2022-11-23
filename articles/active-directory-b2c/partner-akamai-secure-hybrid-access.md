@@ -416,7 +416,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 5. A new **OpenID** tab appears, copy the Discovery URL that is needed later in the steps when configuring the OWIN component for testing application.
 
-   [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-settings.png#lightbox)
 
 6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#option-2-openid-connect).
 
