@@ -22,61 +22,60 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 ## Before you begin
 
 - Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-- If you're deploying on AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
+- If you're deploying for AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
 
-## How deployment works
+## Deployment overview
 
-Here's a quick overview of the deployment process
+Here's a quick overview of the deployment process.
 
-### Start protecting resources
+:::image type="content" source="media/defender-for-servers-introduction/deployment-overview.png" alt-text="Summary overview of the deployment steps for Defender for Servers.":::
 
-When you open Defender for Cloud in the Azure portal, it's automatically turned on for your Azure subscriptions. At this stage:
+Get more information about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) 
 
-1. Defender for Cloud starts protecting resources in the subscription with [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) features, including security assessment and recommendations, and Secure Score.
-1. Defender for Cloud creates a default Log Analytics workspace with the *SecurityCenterFree* solution enabled.
-1. Recommendations based on security posture assessments start appearing in the Defender for Cloud console.
+ 
 
-Note that:
+## Understand data residency requirements
 
-- There are no charges when you use foundational CSPM with no Defender for Cloud plans enabled.
-- Foundational CSPM provides assessment and recommendations for Azure VMs, AWS/GCP machines, and on-premises machines.
-- AWS and GCP machines don't need to be set up with Azure Arc to get foundational CSPM features. 
-- On-premises machines must be deployed as Azure Arc machines to get assessments and recommendation.
-- Most of the foundational CSPM capabilities don't rely on an agent to collect data.
-- There are a couple of recommendations that do rely on the Log Analytics agent/Azure Monitoring agent, system updates recommendations, OS baseline recommendations, and antimalware/endpoint protection recommendations.
+Data residency is the physical or geographic location of an organization’s data, and often requires planning due to compliance requirements.
 
-### Deploy Defender for Servers
+1. Before you deploy Defender for Servers, review [general Azure data residency considerations](https://azure.microsoft.com/blog/making-your-data-residency-choices-easier-with-azure/).
+1. Ensure you understand where alerts and security recommendations for servers will be stored.
 
-With Defender for Cloud working, you can then turn on paid Defender for Cloud plans, including Defender for Server.
+### Storage locations
 
-- When you enable a paid plan, Defender for Cloud enables the *Security* solution on its default Log Analytics workspace.
-- You can enable Defender for Servers Plan 1 for a subscription only. Defender for Servers Plan 2 can be enabled at the subscription and workspace level, or at the workspace level only.
-- After enabling, Defender for Cloud starts pushing out agents and extensions to supported Azure VMs in the subscription/workgroup.
+**Data** | **Location** 
+--- | ---  
+Security alerts and recommendations | Stored in the Defender for Cloud backend.<br/><br/> For example, if you create an Azure VM in West Europe region, all alert and recommendation information will also be stored in West Europe.
+Machine information | Stored in a Log Analytics workspace.<br/><br/> Either the Defender for Cloud default workspace, or a custom workspace that you specify.
 
-### Deploy on AWS
+## Understand workspace considerations
 
-1. AWS machines must be connected to Azure with Azure Arc.
-1. You set up a connector to connect to a single AWS account or to a management account.
-1. All Defender for Cloud plans are on by default. You can turn off any plans you don't need.
-1. You can configure auto provisioning settings to specify how agents needed by Defender for Server are installed on AWS machines.
-1. You configure and download a CloudFormation template containing the resources needed for Defender for Cloud to connect to AWS.
-1. After authentication to AWS, you deploy the template to the AWS account.
+You can use default or custom Log Analytics workspaces with Defender for Cloud
 
-### Deploy on GCP
+### Default workspace
 
-1. GCP machines must be connected to Azure with Azure Arc.
-1. You set up a connector to connect to a single GCP project or organization.
-1. All Defender for Cloud plans are on by default. You can turn off any plans you don't need.
-1. You can configure auto provisioning settings to specify how agents needed by Defender for Server are installed on GCP machines. 
-1. You configure a Cloud Shell template, and run the script in the GCP Cloud Shell.
+By default, when you onboard for the first time Defender for Cloud creates a workspace per region in each subscription where it is enabled.
 
+- If you use the default option, Defender for Cloud creates a new resource group and the default workspace.
+- If you have VMs in multiple locations, Defender for Cloud creates multiple workspaces to ensure data compliance. 
+- Default workspace naming is in the format: [subscription-id]-[geo].
 
-### Protect on-premises machines
+#### Default workspace location
 
-You can protect on-premises machines with Defender for Servers in a couple of ways:
+**Server location** | **Workspace location**
+--- | ---
+United States, Canada, Europe, UK, Korea, India, Japan, China, Australia | The workspace is created in the matching location.
+Brazil | United States
+East Asia, Southeast Asia | Asia
 
-- Option 1: Onboard them as Azure Arc machines, and deploy the Log Analytics agent.
-- Option 2: Onboard on-premises machines connected to a Log Analytics workspace by manually installing the Log Analytics agent. 
+### Custom workspaces
+
+You can choose to use a custom workspace instead of the default workspace.
+
+- If you want to use a custom workspace, it must be associated with the Azure subscription on which you're enabling Defender for Cloud.
+- You need at minimum read permissions for the workspace.
+- You need to manually enable Defender for Cloud, and turn on Defenderfor Server on the custom workspace. 
+- Learn more about [design strategy and criteria](../azure-monitor/logs/workspace-design.md) for workspaces.
 
 
 
@@ -262,47 +261,7 @@ In addition to features provided in plans, Defender for Servers leverages Defend
 Before deployment, verify that your [operating systems are supported](/microsoft-365/security/defender-endpoint/minimum-requirements) by Defender for Endpoint.
 
 
-## Understand data residency requirements
 
-Data residency is the physical or geographic location of an organization’s data, and often requires planning due to compliance requirements.
-
-1. Before you deploy Defender for Servers, review [general Azure data residency considerations](https://azure.microsoft.com/blog/making-your-data-residency-choices-easier-with-azure/).
-1. Ensure you understand where alerts and security recommendations for servers will be stored:
-    - For data stored in the Defender for Cloud's backend storage:
-        - For Azure VMs, and Azure Arc VMs (used for on-premises servers), the data is stored in the region in which the server machine is located.
-    - For data Anything in the EU is stored in the EU region. Anything else is stored in the US region.
-    - For AWS and GCP machines, Defender for Cloud looks at the region in which the data is stored in the AWS/G cloud and matches that. 
-
-
-## Plan Log Analytics workspaces
-
-Defender for Servers uses the Log Analytics agent or Azure Monitoring agent to collect operating system telemetry, security configuration, and event logs from protected servers, and for agent-based features in Defender for Servers Plan 2, including File Integrity monitoring, Adaptive Application controls, and operating system attack detections outside of Defender for Endpoint.
-
-By default Defender for Cloud creates a workspace per region in each subscription where it is enabled. If you have multiple subscriptions or need a different policy, you can override this behavior and deploy centralized workspaces per region.
-
-Data from the Log Analytics agent streams events into a Log Analytics workspace.
-
-When you enable auto-provisioning of the agent , you specify the Log Analytics workspace you want to use:
-
-- **Default workspace**:
-    - If you use the default option, Defender for Cloud creates a new resource group and the default workspace.
-    - If you have VMs in multiple locations, Defender for Cloud creates multiple workspaces to ensure data compliance. 
-    - The default workspace location depends on your Azure region.
-    - On the default workspace, Defender for Cloud automatically turns on basic cloud security posture management (CSPM), and Defender for Servers (if it's enabled on the subscription).
-    - Default workspace naming is in the format: [subscription-id]-[geo].
-- **Custom workspace**: 
-    - If you want to use a custom workspace, it must be associated with the Azure subscription on which you're enabling Defender for Cloud.
-    - You need at minimum read permissions for the workspace.
-    - You need to manually enable Defender for Cloud, and turn on Defenderfor Server on the custom workspace. 
-    - Learn more about [design strategy and criteria](../azure-monitor/logs/workspace-design.md) for workspaces.
-
-### Default location workspace
-
-**Server location** | **Workspace location**
---- | ---
-United States, Canada, Europe, UK, Korea, India, Japan, China, Australia | The workspace is created in the matching location.
-Brazil | United States
-East Asia, Southeast Asia | Asia
 
 
 ## Review agent requirements
@@ -318,6 +277,10 @@ For Defender for Servers to protect AWS. GCP, and on-premises servers, these ser
 - After deployment, machines should be located in a subscription that has Defender for Servers enabled.
 
 Learn more about [onboarding requirements](../azure-arc/servers/prerequisites.md) for Azure Arc, and the [agent](../azure-arc/servers/security-overview.md#agent-security-and-permissions).
+
+- Foundational CSPM: There are a few recommendations that need the Log Analytics agent/Azure Monitor agent. These include system updates recommendations, OS baseline recommendations, and antimalware/endpoint protection recommendations.
+- Defender for Servers Plan 2 agent-based features, including File Integrity monitoring, Adaptive Application controls, and operating system attack detections outside of Defender for Endpoint.
+- Defender 
 
 ### Defender for Endpoint extensions
 
