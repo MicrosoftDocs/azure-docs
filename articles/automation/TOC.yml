@@ -277,7 +277,9 @@
         - name: Using Azure Monitoring Agent
           items:
             - name: Overview
-              href: change-tracking/overview-monitoring-agent.md
+              href: change-tracking/overview.md
+            - name: Support regions
+              href: change-tracking/region-mappings-monitoring-agent.md
             - name: Enable
               items:
                 - name: Enable change tracking from portal
