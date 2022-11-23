@@ -994,7 +994,7 @@ items:
     - name: Monitoring
       items:
       - name: Monitor Blob storage
-        href: ./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Monitoring (classic)
