@@ -20,6 +20,8 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 **Azure CLI**
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+> [!NOTE]
+> Azure CLI installation by default includes the Azure IoT CLI extension, however for some preview features, please upgrade the IoT CLI extension following the instructions [here](https://github.com/Azure/azure-iot-cli-extension).
 
 **IoT Hub and an endpoint service**
 
@@ -27,7 +29,7 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub using the Azure CLI](iot-hub-create-using-cli.md).
 
-You can choose which Azure service (Event Hubs, Service Bus queue or topic, or Azure Storage) endpoint that you'd like to connect with your IoT Hub route. You only need one service to assign the endpoint to a route.
+You can choose which Azure service (Event Hubs, Service Bus queue or topic, Azure Storage, or Azure Cosmos DB) endpoint that you'd like to connect with your IoT Hub route. 
 
 # [Event Hubs](#tab/eventhubs)
 
@@ -153,6 +155,24 @@ You can choose an Azure Storage resource (account and container).
 
 For more information, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli).
 
+# [Cosmos DB](#tab/cosmosdb)
+
+You can choose a Cosmos DB endpoint.
+
+### Create an Azure Storage resource with container
+
+1. Create a new Cosmos DB account for SQL API
+   ```azurecli
+   az group create --name my-resource-group --location "eastus" 
+   az cosmosdb create --name my-cosmosdb-account --resource-group my-resource-group 
+   ```
+2. Create a Cosmos DB container
+   ```azurecli
+   az cosmosdb sql database create --account-name my-cosmosdb-account --resource-group my-resource-group --name my-cosmosdb-database
+   az cosmosdb sql container create --account-name my-cosmosdb-account --resource-group my-resource-group --database-name my-cosmosdb-database --name my-cosmosdb-database-container --partition-key-path "/my/path"
+   ```
+For more information, see [Create an Azure Cosmos DB for NoSQL](/cosmos-db/scripts/cli/nosql/create).
+
 ---
 
 ## Create an endpoint
@@ -245,6 +265,32 @@ References used in the following commands:
 
    For more parameter options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
 
+# [Cosmos DB](#tab/cosmosdb)
+
+References used in the following commands:
+* [az cosmosdb](/cli/azure/cosmosdb)
+* [az iot hub](/cli/azure/iot/hub)
+
+### Create a Cosmos DB endpoint
+
+1. Find the Cosmos DB connection string and copy for later use.
+
+   ```azurecli
+   az cosmosdb keys list --name my-cosmosdb-account --resource-group my-resource-group --type connection-strings
+   ```
+
+1. Create your custom endpoint. Use the connection string in this command that you copied in the last step. The `endpoint-type` must be `eventhub`, otherwise all other values should be your own.
+
+   ```azurecli
+   az iot hub message-endpoint cosmosdb-collection create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-cosmosdb-endpoint --endpoint-account my-cosmosdb-account --database-name my-cosmosdb-database --collection my-cosmosdb-database-container --connection-string "copied-connection-string"
+   ```
+> [!NOTE]
+> If you are using managed identities instead of connection string, you have to use the following command to authenticate your identity to the CosmosDB account.
+   To see all routing endpoint options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
+   
+   ```azurecli
+   az cosmosdb sql role assignment create -a my-cosmosdb-account -g my-resource-group --scope '/' -n 'Cosmos DB Built-in Data Contributor' -p "IoT Hub System Assigned or User Assigned Identity"
+   ```
 ---
 
 ## Create an IoT Hub route
