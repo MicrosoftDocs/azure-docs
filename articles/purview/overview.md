@@ -30,10 +30,10 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 
 |App  |Description  |
 |----------|-----------|
-|[Data Catalog](#data-catalog)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
-|[Data Estate Insights](#data-estate-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
-|[Data Sharing](#data-sharing) | Allows you to securely share data internally or cross organizations with business partners and customers. |
-|[Data Policy](#data-policy) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
+|[Data Catalog](#data-catalog-app)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
+|[Data Estate Insights](#data-estate-insights-app) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
+|[Data Sharing](#data-sharing-app) | Allows you to securely share data internally or cross organizations with business partners and customers. |
+|[Data Policy](#data-policy-app) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
 
 
 Microsoft Purview Data Map provides the foundation for data discovery and data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the data map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
