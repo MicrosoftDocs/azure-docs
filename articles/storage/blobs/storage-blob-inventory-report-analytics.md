@@ -47,9 +47,9 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 2. In the Synapse workspace, assign the **Contributor** role to your user identity. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin.md#azure-rbac-owner-role-for-the-workspace).
 
-3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your **inventory report account**, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-4. Navigate to **primary storage account** and assign the **Blob Storage Contributor** role to your user identity.
+4. Navigate to primary storage account and assign the **Blob Storage Contributor** role to your user identity.
 
 ## Set up Synapse Studio
 
@@ -77,7 +77,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
    
    - Set `accessKey` to the account key of the inventory report account.
 
-3. Upload the **BlobInventoryStorageAccountConfiguration.json** file to the container in your primary storage account that you specified when you created the Synapse workspace. 
+3. Upload this file to the container in your primary storage account that you specified when you created the Synapse workspace. 
 
 #### Import the sample PySpark Notebook
 
@@ -112,16 +112,24 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 #### Run the PySpark notebook
 
-In the PySpark notebook, select **Run all**.
+1. In the PySpark notebook, select **Run all**.
 
-It will take a few minutes to start the Spark session and another few minutes to process the inventory reports. The first run could take a while if there are numerous inventory reports to process. Subsequent runs will only process the new inventory reports created since the last run.
+   It will take a few minutes to start the Spark session and another few minutes to process the inventory reports. The first run could take a while if there are numerous inventory reports to process. Subsequent runs will only process the new inventory reports created since the last run.
 
-> [!NOTE]
-> If you make any changes to the notebook will the notebook is running, make sure to publish those changes by using the **Publish** button.
+   > [!NOTE]
+   > If you make any changes to the notebook will the notebook is running, make sure to publish those changes by using the **Publish** button.
    
+2. Verify that the notebook ran successfully by selecting the **Data** tab.
+
+   A database named **reportdata** should appear in the **Workspace** tab of the **Data** pane.
+   
+   > [!div class="mx-imgBorder"]
+   > ![Report data database](./media/storage-blob-inventory-report-analytics/report-data-database.png)
+ 
+
 ## Visualize the data
 
-1. Download the [ReportAnalysis.pbit](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.pbit) sample file.
+1. Download the [ReportAnalysis.pbit](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.pbit) sample report file.
 
 2. Open Power BI Desktop. For installation guidance, see [Get Power BI Desktop](/power-bi/fundamentals/desktop-get-the-desktop).
 
@@ -132,7 +140,7 @@ It will take a few minutes to start the Spark session and another few minutes to
    > [!div class="mx-imgBorder"]
    > ![The Power BI template files type in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
 
-4. Browse to the location of the **ReportAnalysis.ipynb** file that you downloaded, and then select **Open**.
+4. Browse to the location of the **ReportAnalysis.pbit** file that you downloaded, and then select **Open**.
 
    A dialog box appears which asks you to provide the name of the Synapse workspace and the data base name. 
 
@@ -141,13 +149,32 @@ It will take a few minutes to start the Spark session and another few minutes to
    > [!div class="mx-imgBorder"]
    > ![Report configuration dialog box](./media/storage-blob-inventory-report-analytics/report-configuration-dialog-box.png) 
 
-   A report appears which provides visualizations of the data retrieved by the notebook.
+   A report appears which provides visualizations of the data retrieved by the notebook. The following images show the types of the charts and graphs that appear in this report.
 
+   > [!div class="mx-imgBorder"]
+   > ![Overview tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-overview.png) 
 
-## Common errors
+   > [!div class="mx-imgBorder"]
+   > ![Detailed analysis tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-detailed-analysis.png) 
 
-Figure out how best to introduce these. Maybe just link to the sample.
+   > [!div class="mx-imgBorder"]
+   > ![Breakdown tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-breakdown.png) 
 
 ## Next steps
 
-Need next steps.
+- Learn about ways to analyze individual containers in your storage account. See these articles:
+
+  [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
+  
+  [How to calculate Container Level Statistics in Azure Blob Storage with Azure Databricks](https://techcommunity.microsoft.com/t5/azure-paas-blog/how-to-calculate-container-level-statistics-in-azure-blob/ba-p/3614650)
+
+- Learn about ways to optimize your costs based on the analysis of your blobs and containers. See these articles:
+
+  [Plan and manage costs for Azure Blob Storage](storage-plan-manage-costs.md)
+
+  [Estimate the cost of archiving data](archive-cost-estimation.md)
+
+  [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+
+
+Include cost optimization links.
