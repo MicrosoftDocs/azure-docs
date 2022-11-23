@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory to meet NIST authenticator assurance levels 
 
-If you provide services for federal agencies there can be challenges meeting multiple standards. As a cloud service provider (CSP) or federal agency, you ensure compliance with all relevant standards. Azure and Azure Active Directory (Azure AD) make configuring requirements easier with our certifications. Azure is certified for more than 90 compliance offerings. For more details, see [Trust your cloud](https://azure.microsoft.com/overview/trusted-cloud/).
+If you provide services for federal agencies, there can be challenges meeting multiple standards. As a cloud service provider (CSP) or federal agency, you ensure compliance with all relevant standards. Azure and Azure Active Directory (Azure AD) make configuring requirements easier with our certifications. Azure is certified for more than 90 compliance offerings. For more details, see [Trust your cloud](https://azure.microsoft.com/overview/trusted-cloud/).
 
 This article set has guidance on attaining the authenticator assurance levels (AALs) in NIST SP 800-63B by using Azure AD and other Microsoft solutions. See Next steps below.
 
