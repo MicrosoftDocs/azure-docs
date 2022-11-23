@@ -4,7 +4,7 @@ description: Learn how to debug your apps remotely in Azure Spring Apps.
 ms.service: spring-apps
 ms.topic: how-to
 ms.author: karler
-author: shipeng
+author: shipeng, jialuogan
 ms.date: 11/18/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
@@ -78,7 +78,7 @@ az spring app get-remote-debugging-config \
 #### [Intellij extension](#tab/Intellij-extension)
 
 ### Prerequisites
-* [Azure Toolkit for Intellij](https://learn.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit) is installed
+* [Azure Toolkit for IntelliJ](https://learn.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit) is installed
 
 
 ### Enable/disable Remote Debugging
@@ -120,7 +120,7 @@ az role assignment create --role 'Azure Spring Apps Remote Debugging Role' --sco
 #### [Vscode extension](#tab/Vscode-extension)
 
 ### Prerequisites
-* [Azure Spring Apps Vscode plugin](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) is installed.
+* [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) is installed.
 
 
 ### Enable/disable Remote Debugging
