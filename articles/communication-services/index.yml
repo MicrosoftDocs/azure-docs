@@ -107,7 +107,7 @@ landingContent:
         links:
           - text: Send an SMS using C#
             url: /training/modules/communication-service-send-sms-console-app/
-    - title: Call Automation
+  - title: Call Automation
     linkLists:
       - linkListType: quickstart
         links:
