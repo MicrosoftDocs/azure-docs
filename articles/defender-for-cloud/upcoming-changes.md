@@ -55,7 +55,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 **Estimated date for change: December 2022**
 
-The policy `Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports` is set to be deprecated. 
+The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
 
 Notifications and emails should be set at the subscription level in order to maximize the security value of our products, rather than on a specific resource level.
 
