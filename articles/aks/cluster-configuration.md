@@ -4,7 +4,7 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 10/28/2022
+ms.date: 11/23/2022
 ---
 
 # Configure an AKS cluster
@@ -46,10 +46,10 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 * `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker's json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
 
-  * If you currently extract application logs or monitoring data from Docker Engine, use [Container insights](../azure-monitor/containers/container-insights-enable-new-cluster.md) instead. Additionally AKS doesn't support running any out of band commands on the agent nodes that could cause instability.
-  * Building images and directly using the Docker engine using the methods above isn't recommended. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
+  * If you currently extract application logs or monitoring data from Docker engine, use [Container insights](../azure-monitor/containers/container-insights-enable-new-cluster.md) instead. AKS doesn't support running any out of band commands on the agent nodes that could cause instability.
+  * Building images and directly using the Docker engine using the methods above isn't recommended. Kubernetes isn't fully aware of those consumed resources, and those methods present numerous issues as described [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/).
 
-* Building images - You can continue to use your current docker build workflow as normal, unless you're building images inside your AKS cluster. In this case, consider switching to the recommended approach for building images using [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md), or a more secure in-cluster option like [docker buildx](https://github.com/docker/buildx).
+* Building images - You can continue to use your current Docker build workflow as normal, unless you're building images inside your AKS cluster. In this case, consider switching to the recommended approach for building images using [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md), or a more secure in-cluster option like [Docker Buildx](https://github.com/docker/buildx).
 
 ## Generation 2 virtual machines
 
@@ -72,7 +72,7 @@ By default, when creating a new cluster or adding a new node pool to an existing
 | 64+ | P30/1024G | 5000 | 200 |
 
 > [!IMPORTANT]
-> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size isn't specified. The default OS disk size may impact the performance or cost of your cluster, but you can change the sizing of the OS disk at any time after cluster or node pool creation. This default disk sizing affects clusters or node pools created in July 2022 or later.
+> Default OS disk sizing is only used on new clusters or node pools when ephemeral OS disks are not supported and a default OS disk size isn't specified. The default OS disk size may impact the performance or cost of your cluster, and you cannot change the OS disk size after cluster or node pool creation. This default disk sizing affects clusters or node pools created on July 2022 or later.
 
 ## Ephemeral OS
 
