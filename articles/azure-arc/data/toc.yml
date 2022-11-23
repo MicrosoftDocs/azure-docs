@@ -286,6 +286,8 @@ items:
     href: about-arcdata-extension.md
 - name: Resources
   items:
+    - name: Frequently asked questions
+      href: faq.yml
     - name: Azure Arc Jumpstart
       href: https://azurearcjumpstart.io
     - name: Pre-release testing

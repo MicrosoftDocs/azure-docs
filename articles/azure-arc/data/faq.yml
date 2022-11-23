@@ -1,0 +1,77 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Arc-enabled data services FAQ | Microsoft Docs
+  description: Azure Arc-enabled data services FAQ.
+  
+  services: azure-arc
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: faq
+  ms.date: 11/22/2022
+  ms.author: mikeray
+  author: MikeRayMSFT
+title: Azure Arc-enabled data services FAQ
+summary: |
+
+sections:
+  - name: General FAQ
+    questions:
+      - question: Can I onboard via policy, and exclude some of my SQL Server instances at scale? For example, I want to exclude instances based on a pattern in the name, because they're just standby instances. We don't want to see them in the portal.
+        answer: |
+          Yes, you can set the `excludedInstances` setting in the Azure Policy.  
+          
+          1. Create a copy of the definition that we provide in Azure so that you can create a custom definition.
+          1. Set the value for excluded instances in the custom definition.
+          1. Target the subscription and resource group.
+
+
+          
+      - question: If we have Policy enabled on the Server side, the cost is 6 dollars and then once the Defender is enabled the policy becomes free, and cost will be 14.60 dollars for Defender and policy combined. Is that the same for Azure Arc-enabled SQL Server + Defender? Or if we use Azure Policy for SQL instances what would the cost be and is it per instance or per policy on the charges?
+        answer: |
+          Azure guest agent configuration policy on Arc-enabled servers costs $6/server/month.  You can use that to set configuration related to SQL Server that is local in the OS like registry key values, etc.  You don’t need to pay any additional to do that kind of policy thing for SQL Server.  Policy is not like Defender in that sense.  Some of the things you might want to do using Azure Policy changes the configuration of things in Azure. You don’t need to pay $6 for things like that using guest agent configuration policy.  Example: create a policy that sets the licenseType of all Arc Enabled SQL Serves to PAYG  targeted at a certain resource group.
+
+      - question: Can we customize our policies and what is the out of box list of policies that are there that we can use or modify.   
+        answer: |
+         Yes, you can copy policies that we provide in Azure and customize them. The only policy we provide at the moment is the at-scale onboarding one.
+
+
+  - name: Azure SQL Managed Instance FAQ
+    questions:
+      - question: SQL MI specific question?
+        answer: |
+          SQL MI specific answer description.
+
+          - Point 1
+          - Point 2
+          
+          [Some link](overview.md)
+          
+          
+      - question: A different SQL MI specific question?
+        answer: |
+          A different SQL MI specific answer description. This answer provides numbered steps.
+
+          1. Do this
+          1. Do that
+          
+          [Some link](overview.md)
+          
+  - name: Azure SQL Server FAQ
+    questions:
+      - question: In Assessment, can we run this at scale for all the instances at the same time? Can we get a roll-up report that indicates how many instances fall into the high priority category instead of one machine at a time? 
+        answer: |
+          When BPA is released, you can schedule BPA to run automatically on a configurable schedule. You'll also be able to start a BPA run at-scale by calling the Azure API.
+
+          To get your own "roll-up" report, you can create your own workbook in the **Log Analytics** workspace.
+  
+          [Log Analytics workspace overview](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+
+      
+additionalContent: |
+
+  ## Next steps
+  
+  - Learn more about [Azure Arc-enabled data services](overview.md)
+  - Learn more about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview)
+  - Learn more about [Azure Arc-enabled SQL Managed Instance](managed-instance-overview.md)
+  - Learn more about [Azure Arc-enabled PostgreSQL server](what-is-azure-arc-enabled-postgresql.md)
