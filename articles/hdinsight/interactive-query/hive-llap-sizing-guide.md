@@ -136,7 +136,7 @@ This configuration controls the number of executors that can execute tasks in pa
 Each executor is equivalent to a Tez container and can consume 4 GB(Tez container size) of memory. All executors in LLAP daemon share the same heap memory. With the assumption that not all executors run memory intensive operations at the same time, you can consider 75% of Tez container size(4 GB) per executor. This way you can increase the number of executors by giving each executor less memory (for example, 3 GB) for increased parallelism. However, it is recommended to tune this setting for your target workload.
 
 There are 16 vcores on D14 v2 VMs.
-For D14 v2, the recommended value for num of executors is (16 vcores x 120%) ~= **19** on each worker node considering 3-GB per executor.
+For D14 v2, the recommended value for num of executors is (16 vcores x 120%) ~= **19** on each worker node considering 3 GB per executor.
 
 ***hive.llap.io.threadpool.size***:   
 This value specifies the thread pool size for executors. Since executors are fixed as specified, it will be same as number of executors per LLAP daemon.    
@@ -185,7 +185,7 @@ For D14 v2 and HDI 4.0, the recommended SSD cache size = 19 GB / 0.08 ~= **237 G
 Configuration: ***hive.auto.convert.join.noconditionaltask.size***
 
 Make sure you have *hive.auto.convert.join.noconditionaltask* enabled for this parameter to take effect.
-This configuration determines the threshold for MapJoin selection by Hive optimizer that considers oversubscription of memory from other executors to have more room for in-memory hash tables to allow more map join conversions. Considering 3-GB per executor, this size can be oversubscribed to 3-GB, but some heap memory may also be used for sort buffers, shuffle buffers, etc. by the other operations.   
+This configuration determines the threshold for MapJoin selection by Hive optimizer that considers oversubscription of memory from other executors to have more room for in-memory hash tables to allow more map join conversions. Considering 3 GB per executor, this size can be oversubscribed to 3 GB, but some heap memory may also be used for sort buffers, shuffle buffers, etc. by the other operations.   
 So for D14 v2, with 3 GB memory per executor, it's recommended to set this value to **2048 MB**.  
 
 (Note: This value may need adjustments that are suitable for your workload. Setting this value too low may not use autoconvert feature. And setting it too high may result into out of memory exceptions or GC pauses that can result into adverse performance.)  
@@ -196,7 +196,6 @@ Ambari environment variables: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 **num_llap_nodes** - specifies number of nodes used by Hive LLAP service, this includes nodes running LLAP daemon, LLAP Service Master, and Tez Application Master(Tez AM).  
 
 :::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`" border="true":::  
-
 **num_llap_nodes_for_llap_daemons** - specified number of nodes used only for LLAP daemons. LLAP daemon container sizes are set to max fit node, so it will result in one llap daemon on each node.
 
 :::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`" border="true":::
@@ -219,7 +218,7 @@ Total cluster capacity = 100-GB memory, divided between LLAP, Workload Managemen
  - Workload management queue capacity = 20 GB
  - Default queue capacity = 10 GB
 
-With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4-GB container size each. If `QUERY_PARALLELISM` is higher than the capacity, you may see some Tez AMs stop responding in `ACCEPTED` state. The Hiveserver2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
+With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4 GB container size each. If `QUERY_PARALLELISM` is higher then the capacity, you may see some Tez AMs stop responding in `ACCEPTED` state. The Hiveserver2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
 
 
 #### **Next Steps**
@@ -229,7 +228,7 @@ If setting these values didn't resolve your issue, visit one of the following...
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 * ##### **Other References:**
   * [Configure other LLAP properties](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/performance-tuning/content/hive_setup_llap.html)  
