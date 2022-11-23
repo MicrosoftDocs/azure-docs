@@ -25,7 +25,7 @@ Following are the different configurations of SSL and TLS settings you can have 
 | Scenario | Server parameter settings | Description |
 | --- | --- | --- |
 | Disable SSL enforcement | require_secure_transport = OFF | If your legacy application doesn't support encrypted connections to MySQL server, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF. |
-| Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the tls version (v1.0 or v1.1) supported by your application. Supported only with Azure Database for MySQL – Flexible Server version v5.7 |
+| Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the TLS version (1.0 or 1.1) supported by your application. Supported only with Azure Database for MySQL – Flexible Server version v5.7 |
 | Enforce SSL with TLS version = 1.2(Default configuration) | require_secure_transport = ON and tls_version = TLS 1.2 | This is the recommended and default configuration for flexible server. |
 | Enforce SSL with TLS version = 1.3 | require_secure_transport = ON and tls_version = TLS 1.3 | This is useful and recommended for new applications development. Supported only with Azure Database for MySQL – Flexible Server version v8.0 |
 
@@ -58,7 +58,8 @@ The following example shows how to connect to your server using the mysql comman
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
-It's important to note that setting require_secure_transport to OFF doesn't mean encrypted connections won't supported on server side. If you set require_secure_transport to OFF on flexible server but if the client connects with encrypted connection, it still is accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF also works as shown below.
+> [!IMPORTANT]
+> Setting the require_secure_transport to OFF doesn't mean encrypted connections aren't supported on the server side. If you set require_secure_transport to OFF on the flexible server, but if the client connects with the encrypted connection, it still is accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF also works as shown below.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
