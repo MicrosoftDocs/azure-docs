@@ -90,7 +90,7 @@ Things don't always work the way you want, when that happens you need a way to g
 
 ## Community contribution
 
-These samples are available in our [GitHub repository](https://github.com/Azure-Samples/azure-ad-conditional-access-apis). We are happy to support community contributions thorough GitHub Issues and Pull Requests.
+These samples are available in our [GitHub repository](https://github.com/Azure-Samples/azure-ad-conditional-access-apis). We are happy to support community contributions through GitHub Issues and Pull Requests.
 
 ## Next steps
 
