@@ -40,7 +40,7 @@ You learn how to register an application in the next tutorial.
 - An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
 ## Create an Azure AD B2C tenant
->[!Important]
+>[!NOTE]
 >If you're unable to create Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
