@@ -32,9 +32,9 @@ This sample application is also capable of making multiple concurrent outbound c
 ![Call flow](./media/call-automation/appointment-reminder.png)
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [CA csharp sample]](./includes/ca-appointment-reminder-csharp.md)
+[!INCLUDE [CA csharp sample](./includes/ca-appointment-reminder-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [CA java sample]](./includes/ca-appointment-reminder-java.md)
+[!INCLUDE [CA java sample](./includes/ca-appointment-reminder-java.md)]
 ::: zone-end
