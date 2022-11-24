@@ -65,7 +65,6 @@ Conversational language understanding is only available in some Azure regions. S
 | West Central US    |           | ✓           |
 | West Europe        | ✓         | ✓           |
 
-
 ## API limits
 
 |Item|Request type| Maximum limit|
