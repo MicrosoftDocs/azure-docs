@@ -21,7 +21,7 @@ ms.date: 11/24/2022
 
 - [08:48](/shows/mdc-in-the-field/update-regulatory#time=08m48s) - Demonstration
 
-- [13:49](/shows/mdc-in-the-field/security-explorer#time=12m00s) - Manual attestation
+- [13:49](/shows/mdc-in-the-field/security-explorer#time=13m49s) - Manual attestation
 
 
 ## Recommended resources
