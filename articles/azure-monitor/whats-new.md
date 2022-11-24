@@ -286,7 +286,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md).|
 | [Azure Application Insights Telemetry Data Model - Telemetry Context](app/data-model-context.md) | Clarified that Anonymous User ID is simply User.Id for easy selection in Intellisense.|
 | [Continuous export of telemetry from Application Insights](app/export-telemetry.md) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
-| [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The Event Hub Client SDK and ServiceBus Client SDK information has been updated.|
+| [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The Event Hubs Client SDK and ServiceBus Client SDK information has been updated.|
 | [Monitor Azure app services performance .NET Core](app/azure-web-apps-net-core.md) | Updated Linux troubleshooting guidance. |
 | [Performance counters in Application Insights](app/performance-counters.md) | A prerequisite section has been added to ensure performance counter data is accessible.|
 
