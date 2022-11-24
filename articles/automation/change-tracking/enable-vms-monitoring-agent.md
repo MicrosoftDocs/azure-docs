@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/17/2022
+ms.date: 11/24/2022
 ms.topic: conceptual
 ---
 

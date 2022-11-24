@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/18/2022
+ms.date: 11/24/2022
 ms.topic: conceptual
 ---
 
