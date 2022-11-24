@@ -33,6 +33,8 @@ items:
         href: quickstarts/chat/react-native.md
       - name: Send Chat messages in Azure Logic Apps
         href: quickstarts/chat/logic-app.md
+      - name: Add a bot to your chat app
+        href: quickstarts/chat/quickstart-botframework-integration.md
   - name: Email
     items:
       - name: Create an Email Communication Services resource
@@ -494,8 +496,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
     - name: Common (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
