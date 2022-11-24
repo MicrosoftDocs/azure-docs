@@ -370,7 +370,7 @@
         href: sql-azure-vulnerability-assessment-enable.md
       - name: Manage vulnerability assessments
         href: sql-azure-vulnerability-assessment-manage.md
-      - name: Find and remediate threats
+      - name: Find and remediate vulnerabilities
         href: sql-azure-vulnerability-assessment-find.md
       - name: Investigate threats
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
