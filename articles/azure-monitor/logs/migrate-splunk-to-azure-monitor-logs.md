@@ -35,14 +35,19 @@ Cost considerations
 ## Deploy and configure a workspace
 
 [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design)
+
 [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access)
+
 [Set a table's log data plan](../logs/basic-logs-configure.md)
 
 ## Collect data
 
 [Data sources](https://learn.microsoft.com/en-us/azure/azure-monitor/data-sources)
+
 [Data collection rules]()
+
 [Azure Monitor Agent]()
+
 [Logs Ingestion API]()
 
 ## Migrate applications
