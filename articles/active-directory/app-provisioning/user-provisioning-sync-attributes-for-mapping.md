@@ -17,7 +17,9 @@ ms.reviewer: arvinh
 
 Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a [SaaS app](../saas-apps/tutorial-list.md) or on-premises application. When customizing attribute mappings for user provisioning, you might find the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
 
-## Determining where the extensions need to be added
+## Determine where the extensions need to be added
+
+Adding missing attributes needed for an application will start in either on-premises Active Directory or in Azure AD, depending on where the user accounts reside.
 
 First, identify which users in your Azure AD tenant will need access to the application and therefore are going to be in scope of being provisioned into the application.
 
@@ -36,7 +38,7 @@ Next, if one or more of the users that will need access to the application do no
   - If the properties originate from the users themselves, then you can ask the users to supply the values of the attribute when they request access to the application, by including the attribute requirements in [entitlement management catalog](../governance/entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog).
   - For all other situations, a custom application can update the users via the [Microsoft Graph](/graph/extensibility-overview?tabs=http#update-or-delete-directory-extension-properties) API.
 
-The following sections outline how to create extension attributes for the cases described above.
+The following sections outline how to create extension attributes for a tenant with cloud only users, and for a tenant with Active Directory users.
 
 ## Create an extension attribute in a tenant with cloud only users
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you do not have any users who need that attribute and originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
