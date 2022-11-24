@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge device, and access network configuration. You'll also learn how to modify the data network attached to the packet core instance.
 
+If you want to modify a packet core instance's local access configuration, follow [Modify the local access configuration in a site](modify-local-access-configuration.md).
+
 ## Prerequisites
 
 - If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format.

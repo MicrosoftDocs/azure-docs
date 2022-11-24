@@ -58,6 +58,11 @@ In this step, you'll create the mobile network site resource representing the ph
     :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 
 1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
+1. If you decided you want to provide a custom HTTPS certificate in [Define access to local monitoring tools](collect-required-information-for-a-site.md#define-access-to-local-monitoring-tools), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
+    
+    1. Under **Provide custom HTTPS certificate?**, select **Yes**.
+    1. Use the information you collected in [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) to fill out the remaining fields.
+
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
@@ -65,11 +70,11 @@ In this step, you'll create the mobile network site resource representing the ph
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-2. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
+1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-3. Select **Go to resource group**, and confirm that it contains the following new resources:
+1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.

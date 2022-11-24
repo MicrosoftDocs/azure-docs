@@ -49,11 +49,11 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 ## Access to local monitoring tools
 
-Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). The certificates used to secure these web applications can be self-signed or user-provided, with the latter option being recommended for additional security of you deployment.
+Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). The certificates used to secure these web applications can be self-signed or user-provided; we recommend the latter option for additional security of your deployment.
 
-If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to your [Azure Key Vault](/azure/key-vault/) and create a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview).
+If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](/azure/key-vault/) and set up the appropriate access permissions.
 
-For additional information on configuring user-provided certificates for local monitoring access, see TODO.
+See [Define access to local monitoring tools](collect-required-information-for-a-site.md#define-access-to-local-monitoring-tools) for additional information on configuring custom HTTPS certificates for local monitoring access when creating a new site. You can also modify the local monitoring certificate in existing sites by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 ## Next steps
 

@@ -66,6 +66,29 @@ Collect all the values in the following table to define the packet core instance
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
 
+## Choose how to access local monitoring tools
+
+You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a certificate authority (CA) as this provides additional security to your deployment.
+
+You can change this configuration later by following TODO.
+
+If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything.
+
+If you want to provide a custom HTTPS certificate at site creation, follow the steps below. you'll need a certificate signed by a certificate authority (CA).
+
+   1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate.
+   1. [Add the certificate to your Key Vault](/azure/key-vault/certificates/quick-create-portal).
+   1. Decide how you want to provide access to your certificate. 
+      - [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+      - [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+   1. Collect the values in the following table.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
+   |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
+   |The User-assigned identity for accessing the custom HTTPS certificate within the Azure Key Vault. You'll only need to collect this if you decided to provide access to your certificate via a user-assigned managed identity. |**User-assigned identity**|
+
 ## Next steps
 
 You can now use the information you've collected to create the site.
