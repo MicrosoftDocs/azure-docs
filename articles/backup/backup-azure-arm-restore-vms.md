@@ -249,7 +249,7 @@ In summary, the **Availability Zone** will only appear when
 ![Choose availability zone](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 >[!Note]
->Azure Backup currently doesn't support canceling Cross-region restore jobs, after triggered.
+>Cross-region restore jobs can't be canceled.
 
 ### Monitoring secondary region restore jobs
 
