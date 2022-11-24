@@ -7,7 +7,7 @@ ms.date: 06/28/2022
 
 # Microsoft Defender for Servers
 
-**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with TVM. Aviv explains how this new integration with TVM works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multicloud connector for AWS.
+**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with Microsoft Defender Vulnerability Management (formerly TVM). Aviv explains how this new integration with Defender Vulnerability Management works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multicloud connector for AWS.
 
 <br>
 <br>
@@ -15,15 +15,15 @@ ms.date: 06/28/2022
 
 - [1:22](/shows/mdc-in-the-field/defender-for-containers#time=01m22s) - Overview of the announcements for Microsoft Defender for Servers
 
-- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to TVM
+- [5:50](/shows/mdc-in-the-field/defender-for-containers#time=05m50s) - Migration path from Qualys VA to Defender Vulnerability Management
 
-- [7:12](/shows/mdc-in-the-field/defender-for-containers#time=07m12s) - TVM capabilities in Defender for Servers
+- [7:12](/shows/mdc-in-the-field/defender-for-containers#time=07m12s) - Defender Vulnerability Management capabilities in Defender for Servers
 
 - [8:38](/shows/mdc-in-the-field/defender-for-containers#time=08m38s) - Threat detections for Defender for Servers
 
 - [9:52](/shows/mdc-in-the-field/defender-for-containers#time=09m52s) - Defender for Servers in AWS
 
-- [12:23](/shows/mdc-in-the-field/defender-for-containers#time=12m23s) - Onboard process for TVM in an on-premises scenario
+- [12:23](/shows/mdc-in-the-field/defender-for-containers#time=12m23s) - Onboard process for Defender Vulnerability Management in an on-premises scenario
 
 - [13:20](/shows/mdc-in-the-field/defender-for-containers#time=13m20s) - Demonstration
 
