@@ -53,7 +53,7 @@ Access to the [distributed tracing](distributed-tracing.md) and [packet core das
 
 If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](/azure/key-vault/) and set up the appropriate access permissions.
 
-See [Define access to local monitoring tools](collect-required-information-for-a-site.md#define-access-to-local-monitoring-tools) for additional information on configuring custom HTTPS certificates for local monitoring access when creating a new site. You can also modify the local monitoring certificate in existing sites by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+See [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) for additional information on configuring custom HTTPS certificates for local monitoring access when creating a new site. You can also modify the local monitoring certificate in existing sites by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 ## Next steps
 

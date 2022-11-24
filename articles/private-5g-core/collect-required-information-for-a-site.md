@@ -70,13 +70,13 @@ Collect all the values in the following table to define the packet core instance
 
 You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a certificate authority (CA) as this provides additional security to your deployment.
 
-You can change this configuration later by following TODO.
+You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything.
 
 If you want to provide a custom HTTPS certificate at site creation, follow the steps below. you'll need a certificate signed by a certificate authority (CA).
 
-   1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate.
+   1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate. Ensure the Azure Key Vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. [Add the certificate to your Key Vault](/azure/key-vault/certificates/quick-create-portal).
    1. Decide how you want to provide access to your certificate. 
       - [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).

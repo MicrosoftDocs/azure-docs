@@ -39,7 +39,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. You'll now see the **Packet core** configuration tab.
 
-    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
+    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource."::: <!-- TODO: update screenshot to show both Local access tab and multi DN changes -->
 
 1. In the **Packet core** section, set the fields as follows:
 
@@ -58,7 +58,7 @@ In this step, you'll create the mobile network site resource representing the ph
     :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 
 1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
-1. If you decided you want to provide a custom HTTPS certificate in [Define access to local monitoring tools](collect-required-information-for-a-site.md#define-access-to-local-monitoring-tools), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
+1. If you decided you want to provide a custom HTTPS certificate in [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
     
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
     1. Use the information you collected in [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) to fill out the remaining fields.
