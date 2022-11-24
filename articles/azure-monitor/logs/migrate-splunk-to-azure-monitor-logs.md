@@ -18,22 +18,31 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 > * Design and deploy a workspace
 > * Collect data
 > * Migrate applications
-> * Import historical data
+> * Ingest historical data
 > * Analyze log data
 
 ## Introduction to basic concepts
 
+|Azure |Splunk|
+|---|---|
+|[Workspace](../logs/log-analytics-workspace-overview.md)||
+|[Table](../logs/manage-logs-tables.md)|Indexing|
+|[Transformation](../essentials/data-collection-transformations.md)
+|[Cost calculations and options](../logs/cost-logs.md)||
 
+Cost considerations
+## Deploy and configure a workspace
 
-## Design and deploy a workspace
-
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+[Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design)
+[Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access)
+[Set a table's log data plan](../logs/basic-logs-configure.md)
 
 ## Collect data
 
+[Data sources](https://learn.microsoft.com/en-us/azure/azure-monitor/data-sources)
+[Data collection rules]()
+[Azure Monitor Agent]()
+[Logs Ingestion API]()
 
 ## Migrate applications
 
@@ -42,7 +51,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-## Import historical data
+## Ingest historical data
 
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
