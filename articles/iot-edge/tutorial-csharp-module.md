@@ -23,7 +23,7 @@ You can use Azure IoT Edge modules to deploy code that implements your business 
 
 > [!div class="checklist"]
 >
-> * Use Visual Studio Code to create an IoT Edge module that's based on the .NET Core 2.1 SDK.
+> * Use Visual Studio Code to create an IoT Edge module that's based on the .NET Core SDK.
 > * Use Visual Studio Code and Docker to create a Docker image and publish it to your registry.
 > * Deploy the module to your IoT Edge device.
 > * View generated data.
@@ -55,7 +55,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To complete these tutorials, prepare the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download).
 
 ## Create a module project
 

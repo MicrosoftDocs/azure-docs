@@ -182,7 +182,7 @@ The following table lists the components included in each release starting with 
 
 The following table lists the components included in each release up to the 1.1 LTS release. The components listed in this table can be installed or updated individually, and are backwards compatible with older versions.
 
-IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive security updates and fixes to regressions. IoT Edge 1.1 LTS uses .NET Core 3.1, and will be supported until December 13, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive security updates and fixes to regressions. IoT Edge 1.1 LTS uses .NET Core, and will be supported until December 13, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 | Release | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
 |--|--|--|--|--|
