@@ -20,7 +20,7 @@ For more information, see [Log Analytics workspace and Automation account](../..
 
 The following table shows the supported mappings:
 
-|**Geography**| **Log Analytics workspace region**|
+|**Geography**| **Monitoring Agent workspace region**|
 |---| ---|
 |**US**| EastUS<sup>1</sup> </br> EastUS2<sup>2</sup> </br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
 |**Brazil**| BrazilSouth|

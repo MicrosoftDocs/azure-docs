@@ -16,9 +16,11 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 ## Prerequisites
 
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md) and ensure that your virtual machine(s) are configured in the specified region.
+- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md) configured in the specified region.
 
 ## Enable Change Tracking and Inventory
+
+This section provides detailed procedure on how you can enable change tracking on a single VM and multiple VMs.
 
 #### [For a single VM](#tab/singlevm)
 
@@ -26,7 +28,8 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
-1. Select the virtual machine to which you want to configure the changes and in the search enter **Change tracking**.
+1. Select the virtual machine for which you want to enable Change Tracking.
+1. In the search enter **Change tracking**.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
 
@@ -41,11 +44,14 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
-1. Select the machines to which you intend to enable change tracking and select **Services** > **Change Tracking**. You can select upto 250 virtual machines at a time to enable this feature.
+1. Select the virtual machines to which you intend to enable change tracking and select **Services** > **Change Tracking**. 
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
 
-1. In **Enable Change Tracking**, select the banner on the top of the page, **Click to try new change tracking and inventory v2 experience**.
+   > [!NOTE]
+   > You can select upto 250 virtual machines at a time to enable this feature.
+
+1. In **Enable Change Tracking**, select the banner at the top right of the page, **Click to try new change tracking and inventory v2 experience**.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-expanded.png":::
 
@@ -53,11 +59,12 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
    :::image type="content" source="media/enable-vms-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/enable-vms-monitoring-agent/change-tracking-status-expanded.png":::
 
-1. Select **Enable** to initiate the deployment and a notification appears on the top right corner of the screen.
+1. Select **Enable** to initiate the deployment.
+1. A notification appears on the top right corner of the screen indicating the status of deployment.
 --- 
 
 > [!NOTE]
-> It usually takes upto two to three minutes to successfully onboard and enable the machine(s). After you enable a machine for change tracking, you can make changes to the files, registries, or software for the specific VM. For more information, see [Configure data collection rule](manage-change-tracking-monitoring-agent.md#configure-data-collection-rule).
+> It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM. For more information, see [Configure data collection rule](manage-change-tracking-monitoring-agent.md#configure-data-collection-rule).
 
  
 ## Next steps
