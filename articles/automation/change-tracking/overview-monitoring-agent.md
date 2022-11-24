@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 # Overview of change tracking and inventory using Azure Monitoring Agent
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
+
 > [!Important]
 > Change tracking and inventory using the Log Analytics Agent will retier on August 2024. We recommend that you use Azure Monitoring Agent as the new support agent.
 
@@ -179,10 +181,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md).
-
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](enable-from-portal.md).
-
-- To enable from a runbook, see [Enable Change Tracking and Inventory from a runbook](enable-from-runbook.md).
-
-- To enable from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
