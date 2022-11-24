@@ -35,6 +35,35 @@ After the script is successfully executed, the target API Management service sho
 * If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. 
 * If you're using a self-hosted portal, you need to publish the destination portal manually. Follow the publishing and hosting instructions in the tutorial to [set up a self-hosted developer portal](developer-portal-self-host.md).
 
+## Automate Using Azure DevOps
+
+Install the Marketplace Extension [Migrate Azure APIM Developer Portal - Azure API Management](https://marketplace.visualstudio.com/items?itemName=Celezant.azure-apim-automation) within your Azure DevOps Organization. 
+
+Add the Task within your Build or Release Pipeline. Select the + Add tasks -> Marketplace -> Migrate Azure APIM Developer Portal - Azure API Management.
+
+> [!NOTE]
+> API Management Services can be of Internal, External or None Virtual Network type. You've to Manually Publish the Developer Portal after the Completion of Task.
+
+> [!WARNING]
+> The script removes contents of the developer portal in your destination API Management service. If you're concerned about it, make sure you perform a backup.
+
+Pre-Requisites
+
+* An Active Service Principle with access to Source and Destination Azure API Management Services.
+* Existing Source and Destination Azure API Management Services either in same or different subscriptions.
+
+Configure Task parameters as below.
+
+| Options                           |	Description                                             |
+|-----------------------------------|-----------------------------------------------------------|
+| Azure Service Connection          | Should have Access to both the APIMs                      |
+| Source APIM Subscription ID       | Subscription ID for Source API Management Services        |
+| Source APIM Resource Group        | Resource Group Name for Source API Management Services    |
+| Source APIM Name	                | Name for Source API Management Services                   |
+| Destination APIM Subscription ID  | Subscription ID for Destination API Management Services   |
+| Destination APIM Resource Group	| Resource Group Name for Destination API Management Service|
+| Destination APIM Name	            | Name for Destination API Management Services              |
+
 ## Next steps
 
 Learn more about the developer portal:
