@@ -58,7 +58,7 @@ You see different types of data on data records, data collectors, and threat int
 
 You see data for analytics rules under **Analytics**.
 
-:::image type="content" source="./media/qs-get-visibility/analytics.png" alt-text="Screenshot of the Analytics section in the Microsoft Sentinel Overview page." lightbox="./media/qs-get-visibility/analytics.png":::
+:::image type="content" source="./media/qs-get-visibility/analytics.png" alt-text="Screenshot of the Analytics section in the Microsoft Sentinel Overview page.":::
 
 You see the number of analytics rules in Microsoft Sentinel, by enabled, disabled, or auto-disabled status.
 
