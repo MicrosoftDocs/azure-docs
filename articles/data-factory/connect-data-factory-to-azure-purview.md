@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, references_regions
 ms.date: 10/25/2021
 ---
 
-# Connect Data Factory to Microsoft Purview (Preview)
+# Connect Data Factory to Microsoft Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

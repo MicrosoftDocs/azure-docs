@@ -5516,6 +5516,21 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-monitoring-addon.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/powershell-azure-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-to-application-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/platforms.md",
+            "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-data-model.md",
+            "redirect_url": "/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id": false
         }
     ]
 }

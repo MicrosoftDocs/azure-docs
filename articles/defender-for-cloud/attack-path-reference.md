@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 11/08/2022
+ms.date: 11/21/2022
 ---
 
 
@@ -18,7 +18,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### Azure VMs
 
-Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
+Prerequisite: For a list of prerequisites see the [Availability](how-to-manage-attack-path.md#availability) table for attack paths.
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|

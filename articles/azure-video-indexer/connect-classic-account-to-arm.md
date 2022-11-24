@@ -49,7 +49,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
 ## Get started
 
-### Browse to [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
+### Browse to the [Azure Video Indexer website](https://aka.ms/vi-portal-link)
 
 1. Sign in using your Azure AD account.
 1. On the top right bar press *User account* to open the side pane account list.

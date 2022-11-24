@@ -5,7 +5,7 @@ description: Learn how Azure savings plans help you save money by committing an 
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 11/04/2022

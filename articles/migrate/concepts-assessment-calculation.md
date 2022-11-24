@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/24/2022
+ms.date: 07/28/2021
 ---
 
 # Assessment overview (migrate to Azure VMs)
