@@ -51,7 +51,7 @@ This section provides detailed procedure on how you can enable change tracking o
    > [!NOTE]
    > You can select upto 250 virtual machines at a time to enable this feature.
 
-1. In **Enable Change Tracking**, select the banner at the top right of the page, **Click to try new change tracking and inventory v2 experience**.
+1. In **Enable Change Tracking**, select the banner at the top right of the page, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-expanded.png":::
 
