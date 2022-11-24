@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/23/2022
+ms.date: 11/24/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
