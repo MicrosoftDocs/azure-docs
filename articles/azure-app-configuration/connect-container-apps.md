@@ -71,7 +71,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
 ### Create a Container Registry
 
-#### [Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 
 1. Open  the Azure portal and in the search bar, search for and select **Container Registries**.
 1. Select **Create**
@@ -88,7 +88,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Switch **Amdin user** to *Enabled*. This option is needed to connect the ACR to Azure Container Apps in a later step.
 
-#### [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 1. Create an ACR instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 lowercase alphanumeric characters.
 
@@ -159,7 +159,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Select **Review + create**.
 1. After reviewing the settings, select **Create** to deploy the container app.
 
-#### [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 1. Install the Azure Container Apps CLI extension if you haven't used it before.
 
@@ -207,6 +207,8 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
 In the next step, connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md). Service Connector helps you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
 
+## [Portal](#tab/azure-portal)
+
 1. Browse to your container app select **Service Connector** from the left table of contents.
 1. Select **Create**:
 1. Select or enter the following settings.
@@ -224,7 +226,7 @@ In the next step, connect the container app to Azure App Configuration using [Se
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules to enable access to target service**.
 1. Select **Next: Review + Create**  to review the provided information. Running the final validation takes a few seconds. Then select **Create** to create the service connection. It might take a minute or so to complete the operation.
 
-### [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 1. Run the Azure CLI command `az containerapp connection connection create` to create a service connection from the container app, using a system-assigned managed identity.
 
