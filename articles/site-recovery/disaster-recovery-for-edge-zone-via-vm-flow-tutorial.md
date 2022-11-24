@@ -33,7 +33,7 @@ To enable replication to a secondary location, follow the below steps:
     - Option2: **Public MEC to Public MEC**
     
     >[!Note]
-    >This flow proceeds with option1: Public MEC to Region replication.
+    >This flow proceeds with option1: Public MEC (preview) to Region replication.
 
 1. Select **Next : Advanced settings**.
 
