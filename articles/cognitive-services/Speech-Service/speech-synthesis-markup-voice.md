@@ -22,7 +22,7 @@ Refer to the sections below for details about how to use SSML elements to specif
 
 At least one `voice` element must be specified within each SSML [speak](speech-synthesis-markup-structure.md#speak-root-element) element. This element determines the voice that's used for text-to-speech. 
 
-You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#voice-element) between sentences.
+You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#add-silence) between sentences.
 
 Usage of the `voice` element's attributes are described in the following table.
 
