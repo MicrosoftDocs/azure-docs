@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) must contain all the data (attributes) require
 
 ## Determining where the extensions need to be added
 
-First, identify which users in your Azure AD tenant need access to the application and therefore are going to be in scope of being provisioned into the application.
+First, identify which users in your Azure AD tenant will need access to the application and therefore are going to be in scope of being provisioned into the application.
 
 If any of those users originate in on-premises Active Directory, then you must sync the attributes with the users from Active Directory to Azure AD. You will need to perform the following tasks before configuring provisioning to your application.
 
@@ -136,7 +136,7 @@ If users who will access the applications originate in on-premises Active Direct
 
 5. Finish the Azure AD Connect wizard and allow a full synchronization cycle to run. When the cycle is complete, the schema is extended and the new values are synchronized between your on-premises AD and Azure AD.
  
-6. In the Azure portal, while you’re [editing user attribute mappings](customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`. Select the attribute and map it to the target application for provisioning.
+6. In the Azure portal, while you’re [editing user attribute mappings](customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`, where appID is the identifier of a placeholder application in your tenant. Select the attribute and map it to the target application for provisioning.
 
    ![Azure Active Directory Connect wizard Directory extensions selection page](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 

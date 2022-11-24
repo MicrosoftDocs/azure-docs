@@ -112,7 +112,7 @@ Applications and systems that support customization of the attribute list includ
 - ServiceNow
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
-- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-on-a-cloud-only-user) and [known limitations](./known-issues.md). 
+- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md) and [known limitations](./known-issues.md). 
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - For Azure Active Directory writeback to Workday or SuccessFactors, it is supported to update relevant metadata for supported attributes (XPATH and JSONPath), but it is not supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
 
