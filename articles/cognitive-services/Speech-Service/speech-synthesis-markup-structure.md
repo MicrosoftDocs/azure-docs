@@ -151,8 +151,9 @@ The supported values for attributes of the `break` element were [described previ
 
 Use the `mstts:silence` element to insert pauses before or after text, or between two adjacent sentences.
 
-> [!NOTE]
->The difference between `mstts:silence` and `break` is that `break` can be added any place in the text. Silence only works at the beginning or end of input text or at the boundary of two adjacent sentences.
+One of the differences between `mstts:silence` and `break` is that a `break` element can be inserted anywhere in the text. Silence only works at the beginning or end of input text or at the boundary of two adjacent sentences.
+
+The silence setting is applied to all input text within it's enclosing `voice` element. To reset or change the silence setting again, you must use a new `voice` element with either the same voice or a different voice.
 
 Usage of the `mstts:silence` element's attributes are described in the following table.
 
@@ -180,10 +181,6 @@ A good place to start is by trying out the slew of educational apps that are hel
 ## Specify paragraphs and sentences
 
 The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the Speech service automatically determines the structure of the SSML document.
-
-The `p` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
-
-The `s` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, and `sub`.
 
 ### paragraph and sentence examples
 
