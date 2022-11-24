@@ -238,7 +238,7 @@ In this article, we first define names of online endpoint and deployment for deb
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -520,7 +520,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -745,7 +745,7 @@ The `begin_create_or_update` method also works with local deployments. Use the s
 > The above is an example of inplace rolling update.
 > * For managed online endpoint, the same deployment is updated with the new configuration, with 20% nodes at a time, i.e. if the deployment has 10 nodes, 2 nodes at a time will be updated. 
 > * For Kubernetes online endpoint, the system will iterately create a new deployment instance with the new configuration and delete the old one.
-> * For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
+> * For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative.
 
 ### (Optional) Configure autoscaling
 

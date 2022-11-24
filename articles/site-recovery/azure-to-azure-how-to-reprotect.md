@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/13/2022
 ms.author: ankitadutta
 ---
 

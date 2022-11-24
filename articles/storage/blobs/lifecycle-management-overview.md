@@ -149,6 +149,9 @@ Actions are applied to the filtered blobs when the run condition is met.
 
 Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
 
+> [!NOTE]
+> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
 | Action                      | Current Version                            | Snapshot      | Previous Versions
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |

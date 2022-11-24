@@ -3,11 +3,11 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/10/2021
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: racheg
 ---
 
 # Azure Enterprise REST APIs
@@ -18,7 +18,7 @@ This article describes the REST APIs for use with your Azure enterprise enrollme
 
 Microsoft Enterprise Azure customers can get usage and billing information through REST APIs. The role owner (Enterprise Administrator, Department Administrator, Account Owner) must enable access to the API by generating a key from the Azure EA portal. Then, anyone provided with the enrollment number and key can access the data through the API.
 
-### Available APIs
+## Available APIs
 
 **Balance and Summary -** The [Balance and Summary API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) provides a monthly summary of information about balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. For more information, see [Reporting APIs for Enterprise customers - Balance and Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
 
@@ -30,50 +30,78 @@ Microsoft Enterprise Azure customers can get usage and billing information throu
 
 **Billing Periods -** The [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
-### Enable API data access
+## Enable API data access
 
-Role owners can perform the following steps in the Azure EA portal. Navigate to **Reports** > **Download Usage** > **API Access Key**. Then they can:
+Role owners can perform the following steps in the Azure portal to enable API data access.
 
-- Generate primary and secondary access keys.
-- Disable access keys.
-- View start and end dates of access keys.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Search for Cost Management + Billing and then select it.
+3. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+4. In the left navigation menu, select **Usage + Charges**.
+5. Select **Manage API Access Keys** to open the Manage API Access Keys window.  
+    :::image type="content" source="./media/ea-portal-rest-apis/manage-api-access-keys.png" alt-text="Screenshot showing the Manage API Access Keys option." lightbox="./media/ea-portal-rest-apis/manage-api-access-keys.png" :::
 
-### Generate or retrieve the API Key
+In the Manage API Access Keys window, you can perform the following tasks:
 
-1. Sign in as an enterprise administrator.
-2. Select **Reports** on the left navigation window and then select the **Download Usage** tab.
-3. Select **API Access Key**.
-4. Under **Enrollment Access Keys**, select the generate key symbol to generate either a primary or secondary key.
-5. Select **Expand Key** to view the entire generated API access key.
-6. Select **Copy** to get the API access key for immediate use.
+- Generate and view primary and secondary access keys
+- View start and end dates for access keys
+- Disable access keys
 
-![Example showing API Access Key page](./media/ea-portal-rest-apis/ea-create-generate-or-retrieve-the-api-key.png)
+### Generate the primary or secondary API key
 
-If you want to give the API access keys to people who aren't enterprise administrators in your enrollment, perform the following steps:
+1. Sign in to the Azure portal as an enterprise administrator.
+2. Select **Cost Management + Billing**.
+3. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+4. In the navigation menu, select **Usage + Charges**.
+5. Select **Manage API Access Keys**.
+6. Select **Generate** to generate the key.  
+    :::image type="content" source="./media/ea-portal-rest-apis/manage-api-access-keys-window.png" alt-text="Screenshot showing the Manage API Access Keys window." lightbox="./media/ea-portal-rest-apis/manage-api-access-keys-window.png" :::
+7. Select the **expand symbol** or select **Copy** to get the API access key for immediate use.  
+    :::image type="content" source="./media/ea-portal-rest-apis/expand-symbol-copy.png" alt-text="Screenshot showing the expand symbol and Copy option." lightbox="./media/ea-portal-rest-apis/expand-symbol-copy.png" :::
 
-1. In the left navigation window, select **Manage**.
-2. Select the pencil symbol next to **DA view charges** (Department Administrator view charges).
-3. Select **Enable** and then select **Save**.
-4. Select the pencil symbol next to **AO view charges** (Account Owner view charges).
-5. Select **Enable** and then select **Save**.
+### Regenerate the primary or secondary API key
 
-![Example showing DA and AO view charges enabled](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png)
-The preceding steps give API access key holders with access to cost and pricing information in usage reports.
+1. Sign in to the Azure portal as an enterprise administrator.
+2. Select **Cost Management + Billing**.
+3. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+4. In the navigation menu, select **Usage + Charges**.
+5. Select **Manage API Access Keys**.
+6. Select **Regenerate** to regenerate the key.
 
-### Pass keys in the API
+### Revoke the primary or secondary API key
+
+1. Sign in to the Azure portal as an enterprise administrator.
+2. Search for and select **Cost Management + Billing**.
+3. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+4. In the navigation menu, select **Usage + Charges**.
+5. Select **Manage API Access Keys**.
+6. Select **Revoke** to revoke the key.
+
+### Allow API access to non-administrators
+
+If you want to give the API access keys to people who aren't enterprise administrators in your enrollment, perform the following steps.
+
+The steps give API access to key holders so they can view cost and pricing information in usage reports.
+
+1. In the left navigation window, select **Policies**.
+2. Select **On** under the DEPARTMENT ADMINS CAN VIEW CHARGES section and then select **Save**.
+3. Select **On** under the ACCOUNT OWNERS CAN VIEW CHARGES section and then select **Save**.  
+    :::image type="content" source="./media/ea-portal-rest-apis/policies-view-charges.png" alt-text="Screenshot showing the Polices window where you change view charges options." lightbox="./media/ea-portal-rest-apis/policies-view-charges.png" :::
+
+## Pass keys in the API
 
 Pass the API key for each call for authentication and authorization. Pass the following property to HTTP headers:
 
 | Request header key | Value |
 | --- | --- |
 | Authorization | Specify the value in this format: **bearer {API\_KEY}**
-Example: bearer \&lt;APIKey\&gt; |
+Example: bearer \<APIKey\> |
 
-### Swagger
+## Swagger
 
 A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index)for the following APIs. Swagger helps inspect the API. Use Swagger to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data available after May 1, 2014 is available through the API.
 
-### API response codes
+## API response codes
 
 When you're using an API, response status codes are shown. The following table describes them.
 
@@ -85,19 +113,19 @@ When you're using an API, response status codes are shown. The following table d
 | 400 | Bad Request | Invalid parameters – Date ranges, EA numbers etc. |
 | 500 | Server Error | Unexpected error processing request |
 
-### Usage and billing data update frequency
+## Usage and billing data update frequency
 
 Usage and billing data files are updated every 24 hours for the current billing month. However, data latency can occur for up to three days. For example, if usage is incurred on Monday, data might not appear in the data file until Thursday.
 
-### Azure service catalog
+## Azure service catalog
 
 You can download all Azure services in the Azure portal as part of the Price Sheet download. For more information about downloading your price sheet, see [Download pricing for an Enterprise Agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
-### CSV data file details
+## CSV data file details
 
 The following information describes the properties of API reports.
 
-#### Usage summary
+### Usage summary
 
 JSON format is generated from the CSV report. As a result, the format is same as the summary CSV format. The column name is wielded, so you should deserialize into a data table when you consume the JSON summary data.
 
@@ -107,7 +135,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Account Name | AccountName | AccountName |   |
 | ServiceAdministratorId | ServiceAdministratorLiveId | ServiceAdministratorLiveId |   |
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
-| SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
+| SubscriptionGuid | MOSPSubscriptionGuid | SubscriptionGuid |   |
 | Subscription Name | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | Shows the date that the service catalog report ran. The format is a date string without a time stamp. |
 | Month | Month | Month |   |
@@ -135,7 +163,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Unit of Measure | UnitOfMeasure | UnitOfMeasure | Example values: Hours, GB, Events, Pushes, Unit, Unit Hours, MB, Daily Units |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
-#### Azure Marketplace report
+### Azure Marketplace report
 
 | CSV column name | JSON column name | JSON new column |
 | --- | --- | --- |
@@ -164,7 +192,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Cost Center | CostCenters |  CostCenter |
 | Resource Group | ResourceGroup |  ResourceGroup |
 
-#### Price sheet
+### Price sheet
 
 | CSV column name | JSON column name | Comment |
 | --- | --- | --- |
@@ -174,7 +202,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Overage Unit Price | ConsumptionPrice |   |
 | Currency Code | CurrencyCode |     |
 
-### Common API issues
+## Common API issues
 
 As you use Azure Enterprise REST APIs, you might encounter any of the following common issues.
 

@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Install apps in a scale set with Azure templates
-description: Learn how to use Azure Resource Manager templates to install applications into virtual machine scale sets with the Custom Script Extension
+description: Learn how to use Azure Resource Manager templates to install applications into Virtual Machine Scale Sets with the Custom Script Extension
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 03/27/2018
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
-# Tutorial: Install applications in virtual machine scale sets with an Azure template
+# Tutorial: Install applications in Virtual Machine Scale Sets with an Azure template
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
@@ -39,7 +39,7 @@ To see the Custom Script Extension in action, create a scale set that installs t
 
 
 ## Create Custom Script Extension definition
-When you define a virtual machine scale set with an Azure template, the *Microsoft.Compute/virtualMachineScaleSets* resource provider can include a section on extensions. The *extensionsProfile* details what is applied to the VM instances in a scale set. To use the Custom Script Extension, you specify a publisher of *Microsoft.Azure.Extensions* and a type of *CustomScript*.
+When you define a Virtual Machine Scale Set with an Azure template, the *Microsoft.Compute/virtualMachineScaleSets* resource provider can include a section on extensions. The *extensionsProfile* details what is applied to the VM instances in a scale set. To use the Custom Script Extension, you specify a publisher of *Microsoft.Azure.Extensions* and a type of *CustomScript*.
 
 The *fileUris* property is used to define the source install scripts or packages. To start the install process, the required scripts are defined in *commandToExecute*. The following example defines a sample script from GitHub that installs and configures the NGINX web server:
 
@@ -75,7 +75,7 @@ Let's use the sample template to create a scale set and apply the Custom Script 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username and password that is used as the credentials for each VM instance:
+Now create a Virtual Machine Scale Set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
 az deployment group create \

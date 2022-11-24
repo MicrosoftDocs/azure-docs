@@ -12,8 +12,8 @@
       href: whats-new.md
     - name: Azure Virtual Desktop Agent
       href: whats-new-agent.md
-    - name: Azure Monitor for Azure Virtual Desktop
-      href: whats-new-azure-monitor.md
+    - name: Azure Virtual Desktop Insights
+      href: whats-new-insights.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
@@ -83,6 +83,8 @@
         href: proxy-server-support.md
       - name: Determine user connection quality
         href: connection-latency.md
+      - name: Azure Private Link
+        href: private-link-overview.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Identity and access management
@@ -135,12 +137,12 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.yml
-  - name: Azure Monitor for Azure Virtual Desktop
+  - name: Azure Virtual Desktop Insights
     items:
-      - name: Estimate Azure Monitor costs
-        href: azure-monitor-costs.md
-      - name: Azure Monitor glossary
-        href: azure-monitor-glossary.md
+      - name: Estimate Azure Virtual Desktop Insights costs
+        href: insights-costs.md
+      - name: Azure Virtual Desktop Insights glossary
+        href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
   - name: Multimedia redirection (preview)
@@ -159,6 +161,8 @@
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported features for Teams
     href: teams-supported-features.md
+  - name: Printing using Universal Print
+    href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -325,8 +329,8 @@
       href: windows-11-language-packs.md
   - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Monitor for Azure Virtual Desktop
-    href: azure-monitor.md
+  - name: Use Azure Virtual Desktop Insights
+    href: insights.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
   - name: Start VM on Connect
@@ -345,6 +349,8 @@
       href: configure-rdp-shortpath.md
     - name: Limit RDP Shortpath port range
       href: configure-rdp-shortpath-limit-ports-public-networks.md
+    - name: Set up Azure Private Link
+      href: private-link-setup.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
@@ -371,16 +377,28 @@
     href: troubleshoot-agent.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
-  - name: Remote Desktop client issues
-    href: troubleshoot-client.md
+  - name: Remote Desktop clients
+    items:
+    - name: Windows Desktop client
+      href: troubleshoot-client-windows.md
+    - name: Web client
+      href: troubleshoot-client-web.md
+    - name: macOS client
+      href: troubleshoot-client-macos.md
+    - name: iOS/iPadOS client
+      href: troubleshoot-client-ios-ipados.md
+    - name: Android/Chrome OS client
+      href: troubleshoot-client-android-chrome-os.md
+    - name: Windows Microsoft Store client
+      href: troubleshoot-client-microsoft-store.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
     href: troubleshoot-device-redirections.md
-  - name: Azure Monitor
-    href: troubleshoot-azure-monitor.md
+  - name: Azure Virtual Desktop Insights
+    href: troubleshoot-insights.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
   - name: Connection quality issues

@@ -5,7 +5,7 @@ description: Learn how to connect Windows, macOS, and Linux clients securely to 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 11/07/2022
 ms.author: cherylmc
 
 ---

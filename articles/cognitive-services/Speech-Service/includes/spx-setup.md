@@ -3,7 +3,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 11/12/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -26,9 +26,6 @@ Follow these steps to install the Speech CLI on Windows:
    ```
 
 Enter `spx` or `spx help` to see help for the Speech CLI.
-
-> [!NOTE]
-> As an alternative, you can download and extract the Speech CLI for Windows as a [.zip file](https://aka.ms/speech/spx-windows).
 
 ### Font limitations
 
@@ -66,10 +63,6 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 4. On Ubuntu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Enter `spx` to see help for the Speech CLI.
-
-> [!NOTE]
-> As an alternative, you can download the Linux binaries as a [.zip file](https://aka.ms/speech/spx-linux). Extract `spx-net60-linux-x64.zip` to a new `~/spx` directory. Enter `sudo chmod +r+x spx` on the binary, and add the `~/spx` path to your `PATH` system variable (`export PATH="~/spx:$PATH"`).
-
 
 #### [macOS](#tab/macOS)
 
