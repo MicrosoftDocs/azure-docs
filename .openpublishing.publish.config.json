@@ -889,12 +889,6 @@
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
       "branch": "main",
       "branch_mapping": {}
-    },
-    {
-      "path_to_root": "aspnetcore",
-      "url": "https://github.com/dotnet/AspNetCore.Docs/aspnetcore",
-      "branch": "main",
-      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
