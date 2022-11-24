@@ -278,8 +278,8 @@
       - name: Find vulnerabilities and software inventory with agentless scanning
         href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
-        displayName: mde, tvm, vulnerability, va, arc, hybrid
-        href: deploy-vulnerability-assessment-tvm.md
+        displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
+        href: deploy-vulnerability-assessment-defender-vulnerability-management.md
       - name: Find vulnerabilities with the integrated Qualys scanner
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
