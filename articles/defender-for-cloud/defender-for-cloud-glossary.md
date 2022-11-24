@@ -115,7 +115,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## T
 | Term | Description | Learn more |
 |--|--|--|
-|**TVM**|Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.|[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
+|**TVM**|Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.|[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 
 ## Z
 | Term | Description | Learn more |
