@@ -17,10 +17,10 @@ ms.author: kpunjabi
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
 - [Visual Studio (2022 v17.4.0 and above)](https://visualstudio.microsoft.com/vs/)
-- [.NET6 Framework](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this sample.
-- Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?tabs=windows&pivots=programming-language-csharp)
-- Enable Visual studio dev tunneling for local development. For details, see [Enable dev tunnel] (https://learn.microsoft.com/en-us/connectors/custom-connectors/port-tunneling)
+- [.NET6 Framework](https://dotnet.microsoft.com/download/dotnet/6.0) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this sample.
+- Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md?tabs=windows&pivots=programming-language-csharp)
+- Enable Visual studio dev tunneling for local development. For details, see [Enable dev tunnel](/connectors/custom-connectors/port-tunneling)
 	- To enable dev tunneling, Click `Tools` -> `Options` in Visual Studio 2022
 	- In the search bar type tunnel, Click the checkbox under `Environment` -> `Preview Features` called `Enable dev tunnels for Web Application`
 	![EnableDevTunnel](../media/call-automation/enable-dev-tunnel.png) 
@@ -57,4 +57,4 @@ Open the appsetting.json file to configure the following settings
 	2. `SourcePhone`: Phone number associated with the Azure Communication Service resource. For example "+1425XXXAAAA"
 	3. `TargetPhoneNumber`: Target phone number to add in the call. For example "+1425XXXAAAA"
     4. `AppBaseUri`:  URI of the deployed app service.
-4. Detailed instructions on publishing the app to Azure are available at [Publish a Web app](https://learn.microsoft.com/en-us/visualstudio/deployment/quickstart-deploy-aspnet-web-app?view=vs-2019&tabs=azure)
+4. Detailed instructions on publishing the app to Azure are available at [Publish a Web app](/visualstudio/deployment/quickstart-deploy-aspnet-web-app?view=vs-2019&tabs=azure&preserve-view=true)
