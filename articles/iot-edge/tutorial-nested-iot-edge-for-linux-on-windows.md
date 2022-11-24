@@ -367,7 +367,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
 
 Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
-You can run `iotedge check` in a nested hierarchy, even if the downstream machines don't have direct internet access.
+You can run `iotedge check` in a nested hierarchy, even if the downstream devices don't have direct internet access.
 
 When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
 
