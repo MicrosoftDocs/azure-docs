@@ -35,9 +35,9 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
-This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](manage-change-tracking-monitoring-agent.md#change-a-workspace) from this screen.
+   This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](manage-change-tracking-monitoring-agent.md#change-a-workspace) from this screen.
    
-    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
 
 #### [For multiple VMs](#tab/multiplevms)
