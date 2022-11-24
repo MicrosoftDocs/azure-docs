@@ -79,6 +79,8 @@ Mark a task complete by selecting its "checkbox" circle.
 
 ## Next steps
 
-- Learn how to [add tasks to incidents in Microsoft Sentinel](create-tasks.md).
+- Learn how to [use tasks to handle incident workflow in Microsoft Sentinel](work-with-tasks.md).
 - Learn more about [investigating incidents in Microsoft Sentinel](investigate-cases.md).
-- Learn more about [automation rules](automate-incident-handling-with-automation-rules.md).
+- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
+- Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) and how to [create them](./create-manage-use-automation-rules.md).
+- Learn more about [playbooks](automate-responses-with-playbooks.md) and how to [create them](tutorial-respond-threats-playbook.md).

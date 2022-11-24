@@ -18,9 +18,14 @@ The listed features were released in the last three months. For information abou
 
 ## November 2022
 
+- [Use Incident tasks to govern incident workflow (Preview)](#use-incident-tasks-to-govern-incident-workflow-preview)
 - [Common Event Format (CEF) via AMA (Preview)](#common-event-format-cef-via-ama-preview)
 - [Monitor the health of automation rules and playbooks](#monitor-the-health-of-automation-rules-and-playbooks)
 - [Updated Microsoft Sentinel Logstash plugin](#updated-microsoft-sentinel-logstash-plugin)
+
+### Use Incident tasks to govern incident workflow (Preview)
+
+SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts.
 
 ### Common Event Format (CEF) via AMA (Preview)
 

@@ -141,7 +141,7 @@
       href: notebooks.md
   - name: Investigate incidents
     items:
-    - name: Use tasks to manage incidents in Microsoft Sentinel
+    - name: Use tasks to manage incident workflow
       href: incident-tasks.md
     - name: Investigate large datasets
       href: investigate-large-datasets.md
@@ -380,8 +380,8 @@
       href: livestream.md
   - name: Investigate incidents
     items:
-    - name: Work with incident tasks in Microsoft Sentinel
-      href: create-tasks.md
+    - name: Use tasks to handle incident workflow
+      href: work-with-tasks.md
     - name: Investigate incidents
       href: investigate-cases.md
     - name: Relate alerts to incidents
@@ -412,6 +412,10 @@
       href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
+    - name: Create and perform advanced incident tasks using playbooks
+      href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
     - name: Microsoft Sentinel for MSSPs
