@@ -29,13 +29,15 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
-1. In the search enter **Change tracking**.
+1. In the search enter **Change tracking** to view the change tracking and inventory page.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
 
-1. Select **Enable using AMA agent (Recommended)** option and **Enable**. This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](manage-change-tracking-monitoring-agent.md#change-a-workspace) from this screen.
+1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
+
+   This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](manage-change-tracking-monitoring-agent.md#change-a-workspace) from this screen.
    
-    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
 
 #### [For multiple VMs](#tab/multiplevms)
@@ -51,7 +53,7 @@ This section provides detailed procedure on how you can enable change tracking o
    > [!NOTE]
    > You can select upto 250 virtual machines at a time to enable this feature.
 
-1. In **Enable Change Tracking**, select the banner at the top right of the page, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
+1. In **Enable Change Tracking** page, select the banner at the top of the page, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-expanded.png":::
 
