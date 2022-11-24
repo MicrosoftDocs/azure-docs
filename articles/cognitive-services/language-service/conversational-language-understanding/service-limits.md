@@ -63,6 +63,8 @@ Conversational language understanding is only available in some Azure regions. S
 | UAE North          |           | ✓           |
 | UK South           | ✓         | ✓           |
 | West Central US    |           | ✓           |
+| West Europe        | ✓         | ✓           |
+
 
 ## API limits
 
