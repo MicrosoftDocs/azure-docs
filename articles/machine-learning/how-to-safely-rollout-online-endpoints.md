@@ -358,7 +358,7 @@ Mirroring has the following limitations:
 
 Also note the following behavior:
 * A deployment can only be set to live or mirror traffic, not both.
-* You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic. 
+* You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
 * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
 
 > [!TIP]
