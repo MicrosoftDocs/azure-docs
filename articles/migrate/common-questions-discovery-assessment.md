@@ -5,8 +5,8 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/16/2022
-
+ms.date: 11/24/2022
+ms.custom: engagement-fy23
 ---
 
 # Discovery, assessment, and dependency analysis - Common questions
