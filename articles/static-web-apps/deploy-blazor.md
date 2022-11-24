@@ -61,7 +61,7 @@ Now that the repository is created, create a static web app from the Azure porta
     | Property | Value | Description |
     | --- | --- | --- |
     | App location | **Client** | Folder containing the Blazor WebAssembly app |
-    | API location | **ApiIsolated** | Folder containing the .NET 7 Azure Functions app |
+    | API location | **Api** | Folder containing the Azure Functions app |
     | Output location | **wwwroot** | Folder in the build output containing the published Blazor WebAssembly application |
 
 8. Select **Review + Create** to verify the details are all correct.
@@ -96,8 +96,7 @@ Together, the following projects make up the parts required to create a Blazor W
 
 |Visual Studio project |Description |
 |---------|---------|
-|Api   | The *.NET 6 in-process* C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
-|ApiIsolated   | The *.NET 7 isolated-process* C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
+|Api   | The C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
 |Client    |The front-end Blazor WebAssembly project. A [fallback route](#fallback-route) is implemented to ensure client-side routing is functional.         |
 |Shared    | Holds common classes referenced by both the Api and Client projects, which allow data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.        |
 
