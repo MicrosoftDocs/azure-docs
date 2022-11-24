@@ -34,7 +34,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
     </dependency>
     ```
 
-2. Navigate to the _resources_ folder, and a file called _logback.xml_, and insert the following code.
+2. Navigate to the _resources_ folder, and add a file called _logback.xml_, and insert the following code. This will append logs to the console. You can change the appender `class` to write logs to a file, database or any appender of your choosing.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -53,7 +53,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
 
     ```java
     @SpringBootApplication
-    public class MsalB2CWebSampleApplication {
+    public class MsalWebSampleApplication {
 
         static { System.setProperty("logging.config", "C:\Users\<your path>\src\main\resources\logback.xml"); }
         public static void main(String[] arrgs) {
@@ -61,7 +61,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
             // System.console().printf("Hello");
             // System.out.printf("Hello %s!%n", "World");
             System.out.printf("%s%n", "Hello World");
-            SpringApplication.run(MsalB2CWebSampleApplication.class, args);
+            SpringApplication.run(MsalWebSampleApplication.class, args);
         }
     }
     ```
