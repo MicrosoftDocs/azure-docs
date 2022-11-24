@@ -168,7 +168,7 @@ You can view the built-in accelerators in the Azure portal on the **Accelerators
 
 ### [CLI](#tab/Azure-CLI)
 
-Use the following command in the Azure CLI to get the list of built-in accelerators:
+Use the following command in the Azure CLI to view a list of built-in accelerators:
 
   ```azurecli
   az spring application-accelerator predefined-accelerator list \
@@ -176,7 +176,7 @@ Use the following command in the Azure CLI to get the list of built-in accelerat
       --resource-group <resource-group-name>
   ```
 
-Use the following command to disable a built-in accelerator:
+Use the following command to disable a built-in predefined accelerator:
 
   ```azurecli
   az spring application-accelerator predefined-accelerator disable \
@@ -185,12 +185,12 @@ Use the following command to disable a built-in accelerator:
       --resource-group <resource-group-name>
   ```
 
-Use the following command to enable a built-in predefined-accelerator:
+Use the following command to enable a built-in predefined accelerator:
 
   ```azurecli
   az spring application-accelerator predefined-accelerator enable \
-    --name <predefined-accelerator-name>
-    --service <service-instance-name>
+    --name <predefined-accelerator-name> \
+    --service <service-instance-name> \
     --resource-group <resource-group-name>
   ```
 
@@ -198,29 +198,31 @@ Use the following command to enable a built-in predefined-accelerator:
 
 ### Manage your own accelerators
 
-Besides using the predefined accelerators, you can also create your own ones. Please follow below steps to create and maintain your own accelerators.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in GitHub, GitLab, or BitBucket.
 
-1. You can use any Git repository to create an accelerator. (Currently we support Git repository in GitHub, GitLab and BitBucket.) 
+Use to following steps to create and maintain your own accelerators.
 
-   Create a file named `accelerator.yaml` in the root directory of this Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
+1. Create a file named `accelerator.yaml` in the root directory of your Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
    
    You can also use **Template Editor** in Dev Tools Portal to edit your accelerator.yaml file for visualization and syntax check.
+
    ![Template-editor-entry](./media/how-to-use-accelerator/template-editor-entry.png)
+
    Template Editor can be used to preview the accelerators input options and steps. During creation of new accelerator, you can verify the input options and steps in TAP-GUI to make sure the behaviour is correct and the yaml file is valid. You can copy paste the content of their accelerator.yaml file or choose one of the existing ones and edit them to see the updated view.
+
    ![Template-editor](./media/how-to-use-accelerator/template-editor.png)
    
-
 1. Publish the new accelerator
 
     When you have an Git repository to create an accelerator, you can publish it to be visible on Accelerator portal for developers to consume.
 
-    #### [Portal](#tab/Portal)
+    ### [Portal](#tab/Portal)
 
     To create your own accelerator, open the **Accelerators** section and click **Add Accelerator** under the Customized Accelerators section.
 
     ![Add-accelerator](./media/how-to-use-accelerator/add-accelerator.png)
 
-    #### [CLI](#tab/Azure-CLI)
+    ### [CLI](#tab/Azure-CLI)
 
       Use the following command to create your own accelerator:
 
@@ -265,6 +267,8 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
 	| Host key | host-key    | The host key to access the accelerator source repository whose authentication type is `SSH`. | Required when authentication type is `SSH`     |
 	| Host key algorithm | host-key-algorithm    | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.  | Required when authentication type is `SSH`     |
 
+---
+
 1. Click App Accelerator URL to access Dev Tools Portal to see all the published accelerators.
 
 	![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
@@ -296,7 +300,7 @@ This section instructs you how to enable the App Accelerator under an existing A
 
 If Dev tools public endpoint has already been exposed, then after enabling App Accelerator here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
 
-#### [Portal](#tab/Portal)
+### [Portal](#tab/Portal)
 
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
@@ -304,9 +308,9 @@ If Dev tools public endpoint has already been exposed, then after enabling App A
 
     ![Enable-Application-Accelerator](./media/how-to-use-accelerator/enable-app-accelerator.png)
 
-4.After it is saved successfully, you can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
+1. After it is saved successfully, you can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
 
-#### [CLI](#tab/Azure-CLI)
+### [CLI](#tab/Azure-CLI)
 
 Use the following command to enable App Accelerator for an Azure Spring Apps service instance:
 ```azurecli
@@ -329,3 +333,9 @@ az spring application-accelerator delete \
 >    --service <Azure-Spring-Apps-service-instance-name> \
 >    --assign-endpoint
 > ```
+
+---
+
+## Next steps
+
+- [Azure Spring Apps](index.yml)
