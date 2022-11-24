@@ -39,9 +39,9 @@ Receipt digitization is the process of converting scanned receipts into digital 
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/connection)**:
+**Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/connection)**:
 
-:::image type="content" source="media/receipts-example.jpg" alt-text="Screenshot of a sample receipt processed with the Form Sample Labeling tool.":::
+:::image type="content" source="media/analyze-receipt-fott.png" alt-text="Screenshot of a sample receipt processed with the Form Sample Labeling tool.":::
 
 ::: moniker-end
 
@@ -145,7 +145,7 @@ See how data, including time and date of transactions, merchant information, and
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
+    :::image type="content" source="media/receipts-example.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.

@@ -252,6 +252,8 @@ To create the alert, use the following steps:
 
 8. From the When to evaluate section, select **1 minute** under the **Check every** drop-down menu.
 
+9. For the lookback period, select **5 minutes** from the drop-down menu options. 
+
 9. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
 
 10. Before deploying your action, **test the action group**.

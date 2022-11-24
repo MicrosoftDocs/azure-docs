@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: heidilohr
 manager: femila
 ms.author: helohr
-ms.date: 11/03/2022
+ms.date: 11/16/2022
 ---
 # What's new in the Remote Desktop client for Windows
 
@@ -17,7 +17,7 @@ The client can be configured to enable Windows Insider releases. The following t
 
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
-| Public  | 1.2.3577       | 1.2.1672                  |
+| Public  | 1.2.3577         | 1.2.1672                  |
 | Insider | 1.2.3667       | 1.2.1672                  |
 
 ## Updates for version 1.2.3667 (Insider)
