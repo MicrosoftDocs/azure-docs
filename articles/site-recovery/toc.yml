@@ -31,7 +31,7 @@
       href: azure-to-azure-tutorial-failback.md
   - name: Edge Zone VMs disaster recovery
     items:
-    - name: Replicate VMs running in an Azure Edge Zone (preview) to Azure region
+    - name: Replicate VMs running in an Azure Public MEC (preview) to Azure region
       href: tutorial-replicate-vms-edge-zone-to-azure-region.md
     - name: Replicate VMs running in an Azure Edge Zone (preview) to another Edge Zone in the same region 
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
