@@ -6,13 +6,14 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 10/11/2022
+ms.date: 11/22/2022
 ms.author: cshoe
 ---
 
-# Build an Azure Static Web Apps website with Blazor
+# Build an Azure Static Web Apps website with Blazor and serverless API
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository, which is supported by a serverless backend. The following tutorial shows how to deploy C# Blazor WebAssembly app that displays weather data returned by a serverless API.
+
 ## Prerequisites
 
 - [GitHub](https://github.com) account
@@ -60,7 +61,7 @@ Now that the repository is created, create a static web app from the Azure porta
     | Property | Value | Description |
     | --- | --- | --- |
     | App location | **Client** | Folder containing the Blazor WebAssembly app |
-    | API location | **Api** | Folder containing the Azure Functions app |
+    | API location | **ApiIsolated** | Folder containing the .NET 7 Azure Functions app |
     | Output location | **wwwroot** | Folder in the build output containing the published Blazor WebAssembly application |
 
 8. Select **Review + Create** to verify the details are all correct.
@@ -88,13 +89,15 @@ The Static Web Apps overview window displays a series of links that help you int
 2. Once GitHub Actions workflow is complete, you can select the _URL_ link to open the website in new tab.
 
    :::image type="content" source="media/deploy-blazor/my-first-static-blazor-app.png" alt-text="Screenshot of Static Web Apps Blazor webpage.":::
+   
 ## 4. Understand the application overview
 
 Together, the following projects make up the parts required to create a Blazor WebAssembly application running in the browser supported by an Azure Functions API backend.
 
 |Visual Studio project |Description |
 |---------|---------|
-|API   | The C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
+|Api   | The *.NET 6 in-process* C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
+|ApiIsolated   | The *.NET 7 isolated-process* C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
 |Client    |The front-end Blazor WebAssembly project. A [fallback route](#fallback-route) is implemented to ensure client-side routing is functional.         |
 |Shared    | Holds common classes referenced by both the Api and Client projects, which allow data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.        |
 
@@ -113,7 +116,7 @@ The app exposes URLs like `/counter` and `/fetchdata`, which map to specific rou
 }
 ```
 
-The json configuration ensures that requests to any route in the app return the `index.html` page.
+The JSON configuration ensures that requests to any route in the app return the `index.html` page.
 
 ## Clean up resources
 
