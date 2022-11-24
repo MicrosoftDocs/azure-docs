@@ -7,7 +7,6 @@ ms.manager: bsiva
 ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.date: 9/20/2022
-ms.custom: engagement-fy23
 ---
 
 # Support requirements and considerations for Private endpoint connectivity (Preview)
