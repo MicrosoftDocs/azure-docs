@@ -303,6 +303,6 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 In this document, you learned about how automation rules can help you to centrally manage response automation for Microsoft Sentinel incidents and alerts.
 
 - [Create and use Microsoft Sentinel automation rules to manage incidents](create-manage-use-automation-rules.md).
-- [Use automation rules to create lists of tasks for analysts](create-tasks.md).
+- [Use automation rules to create lists of tasks for analysts](create-tasks-automation-rule.md).
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 - For help in implementing playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

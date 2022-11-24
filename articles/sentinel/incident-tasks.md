@@ -27,6 +27,8 @@ One of the most important factors in running your security operations (SecOps) e
 
 The **Microsoft Sentinel Responder** role is required to create automation rules and to view and edit incidents, both of which are necessary to add, view, and edit tasks.
 
+The **Logic Apps Contributor** role is required to create and edit playbooks. ***VERIFY???***
+
 ## Scenarios
 
 ### Workflow creator
@@ -61,6 +63,13 @@ Consider the following scenarios as examples:
 - **Let playbook evaluate if conditional tasks should be added:** When an incident is created, it will trigger a playbook that requests an IP address report from an external threat intelligence source.
     - If the IP address is malicious, the playbook adds a certain task (say, "Block this IP address").
     - Otherwise, the playbook takes no further action.
+
+#### Use automation rules or playbooks to add tasks?
+
+What considerations should dictate which of these methods should be used to create incident tasks?
+
+- **Automation rules** - Use whenever possible. Use for plain, static tasks that don't require interactivity.
+- **Playbooks** - Use for advanced use cases: the creation of tasks based on conditions, tasks with integrated automated actions.
 
 #### High-level view of all incident tasks
 
