@@ -22,7 +22,7 @@ In the Azure portal, select Microsoft Sentinel and then select the workspace you
 
 :::image type="content" source="./media/qs-get-visibility/overview.png" alt-text="Screenshot of the Microsoft Sentinel overview page" lightbox="./media/qs-get-visibility/overview.png":::
 
-At the top, select **Refresh** to refresh the data for each widget on the screen. To improve performance,the data for each section of the Overview page is pre-calculated, and you can see the refresh time at the top of each section.
+If you want to refresh the data for all sections of the dashboard, select **Refresh** at the top of the dashboard. To improve performance, the data for each section of the dashboard is pre-calculated, and you can see the refresh time at the top of each section.
 
 ### View incident data
 
@@ -31,7 +31,7 @@ You see different types of incident data under **Incidents**.
 :::image type="content" source="./media/qs-get-visibility/incidents.png" alt-text="Screenshot of the Incidents section in the Microsoft Sentinel Overview page" lightbox="./media/qs-get-visibility/incidents.png":::
  
 - On the top left, you see the number of new, active, and closed incidents over the last 24 hours. 
-- On the top right, you see incidents organized by severity, closed incidents by closing classification. 
+- On the top right, you see incidents organized by severity, and closed incidents by closing classification. 
 - On the bottom left, a graph breaks up the incident status by creation time, in four hour intervals.
 - On the bottom right, you can see the mean time to acknowledge an incident and mean time to close, with a link to the SOC efficiency workbook. 
 
@@ -63,7 +63,7 @@ You see data for analytics rules under **Analytics**.
 
 :::image type="content" source="./media/qs-get-visibility/analytics.png" alt-text="Screenshot of the Analytics section in the Microsoft Sentinel Overview page." lightbox="./media/qs-get-visibility/analytics.png":::
 
-Under **Analytics**, you see the number of analytics rules in Microsoft Sentinel, by enabled, disabled, or auto-disabled status.
+You see the number of analytics rules in Microsoft Sentinel, by enabled, disabled, or auto-disabled status.
 
 ## Use built-in workbooks<a name="dashboards"></a>
 
