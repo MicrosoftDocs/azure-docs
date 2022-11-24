@@ -17,7 +17,7 @@ To visualize and get analysis of what's happening on your environment, first, ta
 
 In the Azure portal, select Microsoft Sentinel and then select the workspace you want to monitor.
 
-:::image type="content" source="./media/qs-get-visibility/overview.png" alt-text="Screenshot of the Microsoft Sentinel overview page" lightbox="./media/qs-get-visibility/overview.png":::
+:::image type="content" source="./media/qs-get-visibility/overview.png" alt-text="Screenshot of the Microsoft Sentinel overview page." lightbox="./media/qs-get-visibility/overview.png":::
 
 If you want to refresh the data for all sections of the dashboard, select **Refresh** at the top of the dashboard. To improve performance, the data for each section of the dashboard is pre-calculated, and you can see the refresh time at the top of each section.
 
@@ -25,7 +25,7 @@ If you want to refresh the data for all sections of the dashboard, select **Refr
 
 You see different types of incident data under **Incidents**.
 
-:::image type="content" source="./media/qs-get-visibility/incidents.png" alt-text="Screenshot of the Incidents section in the Microsoft Sentinel Overview page" lightbox="./media/qs-get-visibility/incidents.png":::
+:::image type="content" source="./media/qs-get-visibility/incidents.png" alt-text="Screenshot of the Incidents section in the Microsoft Sentinel Overview page." lightbox="./media/qs-get-visibility/incidents.png":::
  
 - On the top left, you see the number of new, active, and closed incidents over the last 24 hours. 
 - On the top right, you see incidents organized by severity, and closed incidents by closing classification. 
