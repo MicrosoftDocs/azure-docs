@@ -143,7 +143,7 @@ app.MapPost("/api/calls/{contextId}", async (
 
 app.Run();
 ```
-Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](aspnet/core/security/app-secrets) for storing sensitive information.
+Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
  
 ## Run the app
 
