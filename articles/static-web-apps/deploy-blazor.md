@@ -61,7 +61,7 @@ Now that the repository is created, create a static web app from the Azure porta
     | Property | Value | Description |
     | --- | --- | --- |
     | App location | **Client** | Folder containing the Blazor WebAssembly app |
-    | API location | **ApiIsolated** | Folder containing the Azure Functions app |
+    | API location | **ApiIsolated** | Folder containing the .NET 7 Azure Functions app |
     | Output location | **wwwroot** | Folder in the build output containing the published Blazor WebAssembly application |
 
 8. Select **Review + Create** to verify the details are all correct.
