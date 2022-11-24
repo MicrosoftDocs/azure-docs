@@ -150,11 +150,11 @@ On the Review request tab, the following status messages might be displayed.
 
 You can request billing ownership of the following subscription types.
 
-* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)<sup>1</sup>
+* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)¹
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
-* Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
+* Azure Plan¹ [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
+¹ You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 

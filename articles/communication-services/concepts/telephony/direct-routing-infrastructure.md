@@ -48,7 +48,6 @@ The certificate must have the SBC FQDN as the common name (CN) or the subject al
 Alternatively, Communication Services direct routing supports a wildcard in the CN and/or SAN, and the wildcard must conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
 
 Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
-Domains that aren’t previously used in O365 must be provisioned.
 
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
@@ -119,8 +118,8 @@ The port ranges of the Media Processors are shown in the following table:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478–3481 and 49152–53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478–3481 and 49152–53247|
+|UDP/SRTP|Media Processor|SBC|49152–53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|49152–53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.
@@ -163,8 +162,11 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 - [Telephony Concept](./telephony-concept.md)
 - [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
+- [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)

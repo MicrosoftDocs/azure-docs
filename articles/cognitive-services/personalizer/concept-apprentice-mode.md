@@ -14,8 +14,8 @@ ms.date: 07/26/2022
 
 When deploying a new Personalizer resource, it is initialized with an untrained Reinforcement Learning (RL) model. That is, it has not yet learned from any data and therefore will not perform well in practice. This is known as the "cold start" problem and is resolved over time by training the model with real data from your production environment. **Apprentice mode** is a learning behavior that helps mitigate the "cold start" problem, and allows you to gain confidence in the model _before_ it makes decisions in production, all without requiring any code change. 
 
-
-[!INCLUDE [Important Blue Box - Apprentice mode pricing tier](./includes/important-apprentice-mode.md)]
+<!-- 
+[!INCLUDE [Important Blue Box - Apprentice mode pricing tier](./includes/important-apprentice-mode.md)] -->
 
 ## What is Apprentice mode?
 

@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mmcc
@@ -20,7 +20,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 
 | Method | Used for |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
+| [`TrackPageView`](#page-views) |Pages, screens, panes, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
 | [`GetMetric`](#getmetric) |Zero and multidimensional metrics, centrally configured aggregation, C# only. |
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
@@ -220,7 +220,7 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 ## Page views
 
-In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
+In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or panes, you might want to track a page whenever the user opens a new pane.
 
 User and session data is sent as properties along with page views, so the user and session charts come alive when there's page view telemetry.
 
@@ -617,7 +617,7 @@ In Java, many dependency calls can be automatically tracked by using the
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-auto-collected-telemetry).
 
 ### Dependencies in Log Analytics
 
@@ -1141,13 +1141,21 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Frequently asked questions
 
+### Why am I missing telemetry data?
+
+Both [TelemetryChannels](telemetry-channels.md#what-are-telemetry-channels) will lose buffered telemetry if it isn't flushed before an application shuts down.
+
+To avoid data loss, flush the TelemetryClient when an application is shutting down.
+
+For more information, see [Flushing data](#flushing-data).
+
 ### What exceptions might `Track_()` calls throw?
 
 None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and, if the messages get through, in Diagnostic Search.
 
 ### Is there a REST API to get data from the portal?
 
-Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Log Analytics to Power BI](./export-power-bi.md) and [continuous export](./export-telemetry.md).
+Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
 
 ### Why are my calls to custom events and metrics APIs ignored?
 

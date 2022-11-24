@@ -52,7 +52,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Import data offline with Data Box 
-            url: /learn/modules/move-data-with-azure-data-box/
+            url: /training/modules/move-data-with-azure-data-box/
 
   # Card
   - title: View requirements

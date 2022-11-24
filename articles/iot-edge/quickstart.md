@@ -131,7 +131,7 @@ Run the following PowerShell commands on the target device where you want to dep
    <!-- end 1.1 -->
 
    <!-- iotedge-2020-11 -->
-   :::moniker range=">=iotedge-2020-11"
+   :::moniker range="iotedge-2020-11"
       * **X64/AMD64**
          ```powershell
          $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
@@ -147,6 +147,24 @@ Run the following PowerShell commands on the target device where you want to dep
          ```
    :::moniker-end
    <!-- end iotedge-2020-11 -->
+
+   <!-- iotedge-1.4 -->
+   :::moniker range=">=iotedge-1.4"
+      * **X64/AMD64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+         ```
+
+      * **ARM64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+         ```
+   :::moniker-end
+   <!-- end iotedge-1.4 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -206,7 +224,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Device Management**, select **IoT Edge**.
+1. From the menu on the left, select **Devices** under the **Device management** menu.
 
 1. Select the device ID of the target device from the list of devices.
 

@@ -19,27 +19,8 @@ Lifecycle Workflows come with many pre-configured tasks that are designed to aut
  
 Lifecycle Workflow's built-in tasks each include an identifier, known as **taskDefinitionID**, and can be used to create either new workflows from scratch, or inserted into workflow templates so that they fit the needs of your organization. For more information on templates available for use with Lifecycle Workflows, see: [Lifecycle Workflow Templates](lifecycle-workflow-templates.md).
 
-Lifecycle Workflows currently support the following tasks:
 
-|Task  |taskDefinitionID  |
-|---------|---------|
-|[Send welcome email to new hire](lifecycle-workflow-tasks.md#send-welcome-email-to-new-hire)     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      |
-|[Generate Temporary Access Pass and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-pass-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
-|[Add user to groups](lifecycle-workflow-tasks.md#add-user-to-groups)     |    22085229-5809-45e8-97fd-270d28d66910     |
-|[Add user to teams](lifecycle-workflow-tasks.md#add-user-to-teams)      |  e440ed8d-25a1-4618-84ce-091ed5be5594       |
-|[Enable user account](lifecycle-workflow-tasks.md#enable-user-account)     |    6fc52c9d-398b-4305-9763-15f42c1676fc     |
-|[Run a custom task extension](lifecycle-workflow-tasks.md#run-a-custom-task-extension)    |    4262b724-8dba-4fad-afc3-43fcbb497a0e    |
-|[Disable user account](lifecycle-workflow-tasks.md#disable-user-account)     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
-|[Remove user from selected group](lifecycle-workflow-tasks.md#remove-user-from-selected-groups)     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
-|[Remove users from all groups](lifecycle-workflow-tasks.md#remove-users-from-all-groups)     |    b3a31406-2a15-4c9a-b25b-a658fa5f07fc     |
-|[Remove user from teams](lifecycle-workflow-tasks.md#remove-user-from-teams)    |    06aa7acb-01af-4824-8899-b14e5ed788d6     |
-|[Remove user from all teams](lifecycle-workflow-tasks.md#remove-users-from-all-teams)     |    81f7b200-2816-4b3b-8c5d-dc556f07b024     |
-|[Remove all license assignments from user](lifecycle-workflow-tasks.md#remove-all-license-assignments-from-user)     |    8fa97d28-3e52-4985-b3a9-a1126f9b8b4e     |
-|[Delete user](lifecycle-workflow-tasks.md#delete-user)    |    8d18588d-9ad3-4c0f-99d0-ec215f0e3dff     |
-|[Send email to manager before user last day](lifecycle-workflow-tasks.md#send-email-to-manager-before-user-last-day)    |    52853a3e-f4e5-4eb8-bb24-1ac09a1da935     |
-|[Send email on users last day](lifecycle-workflow-tasks.md#send-email-on-users-last-day)    |    9c0a1eaf-5bda-4392-9d9e-6e155bb57411     |
-|[Send offboarding email to users manager after their last day](lifecycle-workflow-tasks.md#send-offboarding-email-to-users-manager-after-their-last-day)    |    6f22ddd4-b3a5-47a4-a846-0d7c201a49ce     |
-
+[!INCLUDE [Lifecylce Workflows tasks table](../../../includes/lifecycle-workflows-tasks-table.md)]
 
 ## Common task parameters (preview)
 
@@ -52,11 +33,11 @@ Common task parameters are the non-unique parameters contained in every task. Wh
 |Parameter  |Definition  |
 |---------|---------|
 |category     |  A  read-only string that identifies the category or categories of the task. Automatically determined when the taskDefinitionID is chosen.     |
-|taskDefinitionId     | A string referencing a taskDefinition which determines which task to run.       |
+|taskDefinitionId     | A string referencing a taskDefinition that determines which task to run.       |
 |isEnabled     | A boolean value that denotes whether the task is set to run or not. If set to “true" then the task will run. Defaults to true.       |
 |displayName     |  A unique string that identifies the task.       |
 |description     | A string that describes the purpose of the task for administrative use. (Optional)         |
-|executionSequence     | An integer that is read-only which states in what order the task will run in a workflow. For more information about executionSequence and workflow order, see: [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).       |
+|executionSequence     | A read-only integer that states in what order the task will run in a workflow. For more information about executionSequence and workflow order, see: [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).       |
 |continueOnError     |  A boolean value that determines if the failure of this task stops the subsequent workflows from running.        |
 |arguments     |  Contains unique parameters relevant for the given task.       |
 
@@ -71,7 +52,7 @@ Below is each specific task, and detailed information such as parameters and pre
 
 
 Lifecycle Workflows allow you to automate the sending of welcome emails to new hires in your organization. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/email-task.png" alt-text="Screenshot of Workflows task: Email task.":::
+:::image type="content" source="media/lifecycle-workflow-task/welcome-email-task.png" alt-text="Screenshot of Workflows task: Welcome email task.":::
 
 
 The Azure AD prerequisite to run the **Send welcome email to new hire** task is:
@@ -93,11 +74,48 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
 ```Example for usage within the workflow
 {
             "category": "joiner",
+            "continueOnError": true,
             "description": "Send welcome email to new hire",
             "displayName": "Send Welcome Email",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "70b29d51-b59a-4773-9280-8841dfd3f2ea",
+            "arguments": []
+}
+
+```
+
+### Send onboarding reminder email
+
+
+Lifecycle Workflows allow you to automate the sending of onboarding reminder emails to managers of new hires in your organization. You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/send-onboarding-reminder-email.png" alt-text="Screenshot of Workflows task: Send onboarding reminder email task.":::
+
+
+The Azure AD prerequisite to run the **Send onboarding reminder email** task is:
+
+- A populated manager attribute for the user.
+- A populated manager's mail attribute for the user.
+
+
+For Microsoft Graph the parameters for the **Send onboarding reminder email** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  joiner      |
+|displayName     | Send onboarding reminder email (Customizable by user)        |
+|description     | Send onboarding reminder email to user’s manager (Customizable by user)      |
+|taskDefinitionId     |   3C860712-2D37-42A4-928F-5C93935D26A1     |
+
+
+
+```Example for usage within the workflow
+{
+            "category": "joiner",
+            "continueOnError": true,
+            "description": "Send onboarding reminder email to user’s manager",
+            "displayName": "Send onboarding reminder email",
+            "isEnabled": true,
+            "taskDefinitionId": "3C860712-2D37-42A4-928F-5C93935D26A1",
             "arguments": []
 }
 
@@ -105,9 +123,9 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
 
 ### Generate Temporary Access Pass and send via email to user's manager
 
-When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass(TAP) and have it sent to the new user's manager.
+When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass(TAP), and have it sent to the new user's manager.
 
-With this task in the Azure portal, you're able to give the task a name and description. You must also set the following:
+With this task in the Azure portal, you're able to give the task a name and description. You must also set:
 
 **Activation duration**- How long the password is active.
 **One time use**- If the password is one use only.
@@ -163,7 +181,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 
 ### Add user to groups
 
-Allows users to be added to cloud-only groups. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task.
 :::image type="content" source="media/lifecycle-workflow-task/add-group-task.png" alt-text="Screenshot of Workflows task: Add user to group task.":::
@@ -173,11 +191,11 @@ For Microsoft Graph the parameters for the **Add user to groups** task are as fo
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     |  AddUserToGroup (Customizable by user)        |
 |description     |  Add user to groups (Customizable by user)       |
 |taskDefinitionId     |   22085229-5809-45e8-97fd-270d28d66910      |
-|arguments     |  Argument contains a name parameter that is the "groupID", and a value parameter which is the group ID of the group you are adding the user to.    |
+|arguments     |  Argument contains a name parameter that is the "groupID", and a value parameter that is the group ID of the group you're adding the user to.    |
 
 
 ```Example for usage within the workflow
@@ -209,11 +227,11 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     |  AddUserToTeam (Customizable by user)       |
 |description     |  Add user to teams (Customizable by user)        |
 |taskDefinitionId     |   e440ed8d-25a1-4618-84ce-091ed5be5594      |
-|argument     |  Argument contains a name parameter that is the "teamID", and a value parameter which is the team ID of the existing team you are adding a user to.    |
+|argument     |  Argument contains a name parameter that is the "teamID", and a value parameter that is the team ID of the existing team you're adding a user to.    |
 
 
 
@@ -246,7 +264,7 @@ For Microsoft Graph the parameters for the **Enable user account** task are as f
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     |  EnableUserAccount (Customizable by user)       |
 |description     |  Enable user account (Customizable by user)        |
 |taskDefinitionId     |   6fc52c9d-398b-4305-9763-15f42c1676fc      |
@@ -280,11 +298,11 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
-|description     |  Run a custom Task Extension (Customizable by user)      |
-|taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
-|argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter which is the Logic App HTTP trigger.     |
+|description     |  Run a Custom Task Extension to call-out to an external system. (Customizable by user)      |
+|taskDefinitionId     |   d79d1fcc-16be-490c-a865-f4533b1639ee      |
+|argument     |  Argument contains a name parameter that is the "customTaskExtensionID", and a value parameter that is the ID of the previously created extension that contains information about the Logic App.    |
 
 
 
@@ -299,7 +317,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
             "taskDefinitionId": "d79d1fcc-16be-490c-a865-f4533b1639ee",
             "arguments": [
                 {
-                    "name": "CustomTaskExtensionID",
+                    "name": "customTaskExtensionID",
                     "value": ""<ID of your Custom Task Extension>""
                 }
             ]
@@ -320,7 +338,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     |  DisableUserAccount (Customizable by user)       |
 |description     |  Disable user account (Customizable by user)       |
 |taskDefinitionId     |   1dfdfcc7-52fa-4c2e-bf3a-e3919cc12950      |
@@ -341,7 +359,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 ### Remove user from selected groups
 
-Allows you to remove a user from cloud-only groups. Dynamic and Privileged Access Groups not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-group-task.png" alt-text="Screenshot of Workflows task: Remove user from select groups.":::
@@ -356,14 +374,13 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 |displayName     |  Remove user from selected groups (Customizable by user)        |
 |description     |  Remove user from membership of selected Azure AD groups (Customizable by user)      |
 |taskDefinitionId     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
-|argument     |  Argument contains a name parameter that is the "groupID", and a value parameter which is the group Id(s) of the group or groups you are removing the user from.   |
+|argument     |  Argument contains a name parameter that is the "groupID", and a value parameter that is the group Id(s) of the group or groups you're removing the user from.   |
 
 
 
 ```Example for usage within the workflow
 {
             "category": "leaver",
-            "continueOnError": true,
             "displayName": "Remove user from selected groups",
             "description": "Remove user from membership of selected Azure AD groups",
             "isEnabled": true,
@@ -381,7 +398,7 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 
 ### Remove users from all groups
 
-Allows users to be removed from every cloud-only group they are a member of. Dynamic and Privileged Access Groups not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
 
 
 You're able to customize the task name and description for this task in the Azure portal.
@@ -407,7 +424,6 @@ For Microsoft Graph the parameters for the **Remove users from all groups** task
             "displayName": "Remove user from all groups",
             "description": "Remove user from all Azure AD groups memberships",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "b3a31406-2a15-4c9a-b25b-a658fa5f07fc",
             "arguments": []
 }
@@ -423,11 +439,11 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 
 |Parameter |Definition  |
 |---------|---------|
-|category    |  joiner,leaver      |
+|category    |  joiner, leaver      |
 |displayName     |  Remove user from selected Teams (Customizable by user)       |
 |description     |  Remove user from membership of selected Teams (Customizable by user)       |
 |taskDefinitionId     |   06aa7acb-01af-4824-8899-b14e5ed788d6     |
-|arguments     |  Argument contains a name parameter that is the "teamID", and a value parameter which is the Teams ID of the Teams you are removing the user from.   |
+|arguments     |  Argument contains a name parameter that is the "teamID", and a value parameter that is the Teams ID of the Teams you're removing the user from.   |
 
 
 ```Example for usage within the workflow
@@ -437,7 +453,6 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
             "displayName": "Remove user from selected Teams",
             "description": "Remove user from membership of selected Teams",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "06aa7acb-01af-4824-8899-b14e5ed788d6",
             "arguments": [
                 {
@@ -451,7 +466,7 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 
 ### Remove users from all teams
 
-Allows users to be removed from every static team they are a member of. You're able to customize the task name and description for this task in the Azure portal.
+Allows users to be removed from every static team they're a member of. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-user-all-team-task.png" alt-text="Screenshot of Workflows task: remove user from all teams.":::
 
 For Microsoft Graph the parameters for the **Remove users from all teams** task are as follows:
@@ -472,7 +487,6 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
             "description": "Remove user from all Teams",
             "displayName": "Remove user from all Teams memberships",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
             "arguments": []
 }
@@ -504,7 +518,6 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
             "displayName": "Remove all licenses for user",
             "description": "Remove all licenses assigned to the user",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "8fa97d28-3e52-4985-b3a9-a1126f9b8b4e",
             "arguments": []
 }
@@ -535,7 +548,6 @@ For Microsoft Graph the parameters for the **Delete User** task are as follows:
             "displayName": "Delete user account",
             "description": "Delete user account in Azure AD",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
             "arguments": []
 }
@@ -569,7 +581,6 @@ For Microsoft Graph the parameters for the **Send email before user last day** t
             "displayName": "Send email before user’s last day",
             "description": "Send offboarding email to user’s manager before the last day of work",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "52853a3e-f4e5-4eb8-bb24-1ac09a1da935",
             "arguments": []
 }
@@ -602,7 +613,6 @@ For Microsoft Graph the parameters for the **Send email on user last day** task 
             "displayName": "Send email on user’s last day",
             "description": "Send offboarding email to user’s manager on the last day of work",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "9c0a1eaf-5bda-4392-9d9e-6e155bb57411",
             "arguments": []
 }
@@ -636,7 +646,6 @@ For Microsoft Graph the parameters for the **Send offboarding email to users man
             "displayName": "Send offboarding email to user’s manager after the last day of work",
             "description": "Send email after user’s last day",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "6f22ddd4-b3a5-47a4-a846-0d7c201a49ce",
             "arguments": []
 }

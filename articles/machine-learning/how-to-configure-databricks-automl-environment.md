@@ -3,11 +3,11 @@ title: Develop with AutoML & Azure Databricks
 titleSuffix: Azure Machine Learning
 description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with AutoML.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
@@ -108,7 +108,7 @@ In AutoML config, when using Azure Databricks add the following parameters:
 ## ML notebooks that work with Azure Databricks
 
 Try it out:
-+ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
++ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
 ![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)

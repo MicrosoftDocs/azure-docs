@@ -183,7 +183,7 @@ For more information, see the [Node.js Developer Center].
 [Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Connect PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
-[Overview of Creating a Hosted Service for Azure]: /azure/cloud-services/
+[Overview of Creating a Hosted Service for Azure]: ./index.yml
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->

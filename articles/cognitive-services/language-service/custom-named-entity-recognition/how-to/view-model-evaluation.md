@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -43,6 +43,20 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 [!INCLUDE [Model evaluation](../includes/rest-api/model-evaluation.md)]
 
 ---
+
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../../custom-text-classification/includes/rest-api/load-export-model.md)]
+
+---
+
 ## Delete model
 
 ### [Language studio](#tab/language-studio)

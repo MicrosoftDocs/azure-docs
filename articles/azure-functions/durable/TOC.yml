@@ -138,8 +138,8 @@
       href: durable-functions-billing.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-functions
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

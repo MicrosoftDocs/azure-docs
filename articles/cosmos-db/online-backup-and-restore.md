@@ -3,6 +3,7 @@ title: Online backup and on-demand data restore in Azure Cosmos DB.
 description: This article describes how automatic backup, on-demand data restore works. It also explains the difference between continuous and periodic backup modes. 
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: govindk
@@ -11,9 +12,9 @@ ms.reviewer: mjbrown
 
 # Online backup and on-demand data restore in Azure Cosmos DB
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database, or container and later require the data recovery. Azure Cosmos DB backups are encrypted with Microsoft managed service keys. These backups are transferred over a secure non-public network. Which means, backup data remains encrypted while transferred over the wire and at rest. Backups of an account in a given region are uploaded to storage accounts in the same region.
+Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos DB account, database, or container and later require the data recovery. Azure Cosmos DB backups are encrypted with Microsoft managed service keys. These backups are transferred over a secure non-public network. Which means, backup data remains encrypted while transferred over the wire and at rest. Backups of an account in a given region are uploaded to storage accounts in the same region.
 
 ## Backup modes
 

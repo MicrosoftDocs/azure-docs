@@ -35,10 +35,10 @@ Azure Spring Apps requires two dedicated subnets:
 * Service runtime
 * Spring Boot applications
 
-Each of these subnets requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Apps can support varies based on the size of the subnet. You can find the detailed Virtual Network (VNET) requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Apps in a virtual network][17].
+Each of these subnets requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Apps can support varies based on the size of the subnet. You can find the detailed virtual network requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Apps in a virtual network][17].
 
 > [!WARNING]
-> The selected subnet size can't overlap with the existing VNET address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
+> The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
 ## Use cases
 
@@ -235,7 +235,7 @@ The following list shows the CIS controls that address network security in this 
 | 6.5            | Ensure that Network Watcher is 'Enabled'.                      |
 | 6.6            | Ensure that ingress using UDP is restricted from the internet. |
 
-Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 #### Application security
 

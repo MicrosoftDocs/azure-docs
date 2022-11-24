@@ -1,18 +1,18 @@
 ---
-title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB Gremlin API
-description: PowerShell scripts for throughput (RU/s) operations for Gremlin API
+title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for Gremlin
+description: PowerShell scripts for throughput (RU/s) operations for API for Gremlin
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# Throughput (RU/s) operations with PowerShell for a database or graph for Azure Cosmos DB - Gremlin API
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+# Throughput (RU/s) operations with PowerShell for a database or graph for Azure Cosmos DB - API for Gremlin
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -23,15 +23,15 @@ Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 
 ## Get throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for API for Gremlin")]
 
 ## Update throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-update.ps1 "Update throughput on a database or graph for Gremlin API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-update.ps1 "Update throughput on a database or graph for API for Gremlin")]
 
 ## Migrate throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a database or graph for Gremlin API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a database or graph for API for Gremlin")]
 
 ## Clean up deployment
 
@@ -48,12 +48,12 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Gets the throughput value of the Gremlin API Database. |
-| [Get-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Gets the throughput value of the Gremlin API Graph. |
-| [Update-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlindatabasethroughput) | Updates the throughput value of the Gremlin API Database. |
-| [Update-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlingraphthroughput) | Updates the throughput value of the Gremlin API Graph. |
-| [Invoke-AzCosmosDBGremlinDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlindatabasethroughputmigration) | Migrate throughput of a Gremlin API Database. |
-| [Invoke-AzCosmosDBGremlinGraphThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlingraphthroughputmigration) | Migrate throughput of a  Gremlin API Graph. |
+| [Get-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Gets the throughput value of the API for Gremlin Database. |
+| [Get-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Gets the throughput value of the API for Gremlin Graph. |
+| [Update-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlindatabasethroughput) | Updates the throughput value of the API for Gremlin Database. |
+| [Update-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlingraphthroughput) | Updates the throughput value of the API for Gremlin Graph. |
+| [Invoke-AzCosmosDBGremlinDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlindatabasethroughputmigration) | Migrate throughput of a API for Gremlin Database. |
+| [Invoke-AzCosmosDBGremlinGraphThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlingraphthroughputmigration) | Migrate throughput of a  API for Gremlin Graph. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

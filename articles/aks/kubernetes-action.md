@@ -95,8 +95,8 @@ The following shows an example output from the above command.
 ```
 
 In your GitHub repository, create the below secrets for your action to use. To create a secret:
-1. Navigate to the repository's settings, and click *Secrets* then *Actions*.  
-1. For each secret, click *New Repository Secret* and enter the name and value of the secret.
+1. Navigate to the repository's settings, and select **Security > Secrets and variables > Actions**. 
+1. For each secret, click **New Repository Secret** and enter the name and value of the secret.
 
 For more details on creating secrets, see [Encrypted Secrets][github-actions-secrets].
 
@@ -202,7 +202,7 @@ Review the following starter workflows for AKS. For more details on using starte
 - [Azure Kubernetes Service Kompose][aks-swf-kompose]
 
 > [!div class="nextstepaction"]
-> [Learn how to create multiple pipelines on GitHub Actions with AKS](/learn/modules/aks-deployment-pipeline-github-actions)
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](/training/modules/aks-deployment-pipeline-github-actions)
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)

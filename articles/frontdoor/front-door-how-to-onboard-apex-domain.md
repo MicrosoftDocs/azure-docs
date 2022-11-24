@@ -94,7 +94,7 @@ Follow the guidance for [configuring HTTPS for your custom domain](standard-prem
 
 ## Managed certificate renewal for apex domain
 
-Front Door managed certificates will automatically rotate certificates only if the domain CNAME is pointed to Front Door endpoint. If the APEX domain doesn’t have a CNAME record pointing to Front Door endpoint, the auto-rotation for managed certificate will fail until domain ownership is re-validated. The validation column will become `Pending-revalidation` 45 days before the managed certificate expires. Select the **Pending-revalidation** link and then select the **Regenerate** button to regenerate the TXT token. After that, add the TXT token to the DNS provider settings.
+Front Door managed certificates will automatically rotate certificates only if the domain CNAME is pointed to Front Door endpoint. Since the APEX domain doesn’t have a CNAME record pointing to Front Door endpoint, the auto-rotation for managed certificate will fail until domain ownership is re-validated. The validation column will become `Pending-revalidation` 45 days before the managed certificate expires. Select the **Pending-revalidation** link and then select the **Regenerate** button to regenerate the TXT token. After that, add the TXT token to the DNS provider settings.
 
 ::: zone-end
 

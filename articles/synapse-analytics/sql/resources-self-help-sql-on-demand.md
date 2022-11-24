@@ -8,7 +8,7 @@ ms.date: 09/01/2022
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -175,6 +175,14 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 
     - The table has some column types that can't be represented in serverless SQL pool.
     - The table has a format that isn't supported in serverless SQL pool. Examples are Avro or ORC.
+
+### String or binary data would be truncated
+
+This error happens if the length of your string or binary column type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the column type:
+- If your string column is defined as the `VARCHAR(32)` type and the text is 60 characters, use the `VARCHAR(60)` type (or longer) in your column schema.
+- If you are using the schema inference (withtout the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
+- If your table is in the Lake database, try to increase the string column size in the Spark pool.
+- Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this will not impact your functionalities.
 
 ### Unclosed quotation mark after the character string
 
@@ -821,7 +829,7 @@ The error "Column `column name` of the type `type name` is not compatible with t
 
 ### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve: Azure Cosmos DB path has failed with error
 
-If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you get the error "Resolving Azure Cosmos DB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
 ### Azure Cosmos DB performance issues
 
@@ -844,8 +852,12 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
   - You can't [store query results to storage in Delta Lake format](create-external-table-as-select.md) by using the CETAS command. The CETAS command supports only Parquet and CSV as the output formats.
-- Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
+- Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
+
+### Column rename in Delta table is not supported
+
+The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
 
 ### JSON text isn't properly formatted
 
@@ -919,7 +931,7 @@ If you are exporting your [Dataverse table to Azure Data Lake storage](/power-ap
 
 Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
 
-Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](/sql/develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
+Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
@@ -950,7 +962,7 @@ Check the following issues if you experience slow query execution:
 - Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
 - Make sure that you don't have networking issues that can cause the slow streaming of result set
 - Make sure that the client application has enough resources (for example, not using 100% CPU).
-- Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
+- Make sure that the storage account or Azure Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 

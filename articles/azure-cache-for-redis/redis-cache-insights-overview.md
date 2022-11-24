@@ -7,8 +7,7 @@ ms.topic: conceptual
 ms.service: cache
 ms.date: 09/10/2020
 ms.reviewer: shijain
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Explore Azure Monitor for Azure Cache for Redis
@@ -47,7 +46,7 @@ To view the utilization and performance of your storage accounts across all of y
 
 1. Search for **Monitor**, and select **Monitor**.
 
-    ![Search box with the word "Monitor" and the Services search result that shows "Monitor" with a speedometer symbol](../cosmos-db/media/cosmosdb-insights-overview/search-monitor.png)
+    ![Search box with the word "Monitor" and the Services search result that shows "Monitor" with a speedometer symbol](../cosmos-db/media/insights-overview/search-monitor.png)
 
 1. Select **Azure Cache for Redis**. If this option isn't present, select **More** > **Azure Cache for Redis**.
 
@@ -157,27 +156,27 @@ Selecting any of the other tabs for **Performance** or **Operations** opens the 
 
 To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
 
-![A metric section with the pushpin symbol highlighted](../cosmos-db/media/cosmosdb-insights-overview/pin.png)
+![A metric section with the pushpin symbol highlighted](../cosmos-db/media/insights-overview/pin.png)
 
 To export your data into an Excel format, select the down arrow symbol to the left of the pushpin symbol.
 
-![A highlighted export-workbook symbol](../cosmos-db/media/cosmosdb-insights-overview/export.png)
+![A highlighted export-workbook symbol](../cosmos-db/media/insights-overview/export.png)
 
 To expand or collapse all views in a workbook, select the expand symbol to the left of the export symbol.
 
-![A highlighted expand-workbook symbol](../cosmos-db/media/cosmosdb-insights-overview/expand.png)
+![A highlighted expand-workbook symbol](../cosmos-db/media/insights-overview/expand.png)
 
 ## Customize Azure Monitor for Azure Cache for Redis
 
 Because this experience is built atop Azure Monitor workbook templates, you can select **Customize** > **Edit** > **Save** to save a copy of your modified version into a custom workbook.
 
-![A command bar with Customize highlighted](../cosmos-db/media/cosmosdb-insights-overview/customize.png)
+![A command bar with Customize highlighted](../cosmos-db/media/insights-overview/customize.png)
 
 Workbooks are saved within a resource group in either the **My Reports** section or the **Shared Reports** section. **My Reports** is available only to you. **Shared Reports** is available to everyone with access to the resource group.
 
 After you save a custom workbook, go to the workbook gallery to open it.
 
-![A command bar with Gallery highlighted](../cosmos-db/media/cosmosdb-insights-overview/gallery.png)
+![A command bar with Gallery highlighted](../cosmos-db/media/insights-overview/gallery.png)
 
 ## Troubleshooting
 

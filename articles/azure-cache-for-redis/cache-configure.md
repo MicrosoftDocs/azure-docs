@@ -5,9 +5,9 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 11/21/2022
 ms.author: franlanglois 
-
+ms.custom: engagement-fy23
 ---
 
 # How to configure Azure Cache for Redis
@@ -185,12 +185,14 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru` - The default eviction policy.
-- `allkeys-lru`
-- `volatile-random`
-- `allkeys-random`
-- `volatile-ttl`
-- `noeviction`
+- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
+- `allkeys-lru`: Removes the least recently used key.
+- `volatile-random`: Removes a random key that has an expiration set.
+- `allkeys-random`: Removes a random key.
+- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
+- `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
+- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
@@ -282,11 +284,12 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 
-For more information, see [Azure Cache for Redis with Azure Private Link](./cache-private-link.md).
+For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
 
 ### Firewall
 
-Firewall rules configuration is available for all Azure Cache for Redis tiers.
+- Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
+- Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 
 Select **Firewall** to view and configure firewall rules for cache.
 
@@ -527,7 +530,7 @@ For more information about databases, see [What are Redis databases?](cache-deve
 
 ## Redis commands not supported in Azure Cache for Redis
 
-Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which makes disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
+Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
 
 - ACL
 - BGREWRITEAOF

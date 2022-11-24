@@ -35,6 +35,13 @@ The Event Hubs dedicated offering is billed at a fixed monthly price, with a **m
 
 For more information about quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
+## High availability with availability zones 
+Event Hubs standard, premium, and dedicated tiers offer [availability zones](../availability-zones/az-overview.md#availability-zones) support where you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures. 
+
+> [!IMPORTANT] 
+> Event Hubs dedicated clusters require at least 8 Capacity Units(CUs) to enable availability zones. Clusters with self-serve scaling does not support availability zones yet. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+
+
 ## How to onboard
 Event Hubs dedicated tier is generally available (GA). The self-serve experience to create an Event Hubs cluster through the [Azure portal](event-hubs-dedicated-cluster-create-portal.md) is currently in Preview. You can also request for the cluster to be created by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). 
 

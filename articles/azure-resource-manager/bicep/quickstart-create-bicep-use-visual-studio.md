@@ -11,11 +11,13 @@ ms.topic: quickstart
 
 This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio. You'll create a storage account and a virtual network. You'll also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
+Similar authoring experience is also supported in Visual Studio Code.  See [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+
 ## Prerequisites
 
 - Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Visual Studio version 17.3.0 preview 3 or newer.  See [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/).
-- Visual Studio Bicep extension.  See [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+- Visual Studio Bicep extension.  See [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 - Bicep file deployment requires either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
 ## Add resource snippet
@@ -249,4 +251,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep in Microsoft Learn](learn-bicep.md)
+> [Learn modules for Bicep](learn-bicep.md)

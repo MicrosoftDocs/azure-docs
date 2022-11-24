@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 
  
@@ -34,6 +35,9 @@ The appliance can be deployed using a couple of methods:
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
+
+> [!Note]
+> Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
 
 ## Appliance services
 

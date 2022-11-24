@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 11/23/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -80,6 +80,7 @@ This section provides references for Windows applications and SQL Server solutio
 * [SQL Server on Azure Virtual Machines with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
 * [SQL Server on Azure Deployment Guide Using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/deploying-sql-server-on-azure-using-azure-netapp-files/ba-p/3023143)
 * [Benefits of using Azure NetApp Files for SQL Server deployment](solutions-benefits-azure-netapp-files-sql-server.md)
+* [Managing SQL Server 2022 T-SQL snapshot backup with Azure NetApp Files snapshots](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798)
 * [Deploy SQL Server Over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) 
 * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) 
@@ -110,14 +111,14 @@ This section provides references to SAP on Azure solutions.
 * [SAP HANA scale-out with HSR and Pacemaker on RHEL - Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Implementing Azure NetApp Files with Kerberos for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/implementing-azure-netapp-files-with-kerberos/ba-p/3142010)
 * [Azure Application Consistent Snapshot tool (AzAcSnap)](azacsnap-introduction.md)
+* [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
-* [SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_backup_and_recovery_on_Azure_NetApp_Files_with_SnapCenter_Service.pdf)
 
 ### SAP AnyDB
 
 * [SAP System on Oracle Database on Azure - Azure Architecture Center](/azure/architecture/example-scenario/apps/sap-production)
-* [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
+* [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
@@ -194,6 +195,8 @@ This section provides references for High Performance Computing (HPC) solutions.
 ### Analytics
 
 * [SAS on Azure architecture guide - Azure Architecture Center | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
+* [Deploy SAS Grid 9.4 on Azure NetApp Files](/azure/architecture/guide/hpc/netapp-files-sas)
+* [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)

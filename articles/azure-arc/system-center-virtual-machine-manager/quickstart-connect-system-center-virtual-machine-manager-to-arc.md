@@ -4,7 +4,7 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 05/25/2022
+ms.date: 10/19/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,9 @@ Before you can start using the Azure Arc-enabled SCVMM features, you need to con
 This QuickStart shows you how to connect your SCVMM management server to Azure Arc using a helper script. The script deploys a lightweight Azure Arc appliance (called Azure Arc resource bridge) as a virtual machine running in your VMM environment and installs an SCVMM cluster extension on it, to provide a continuous connection between your VMM management server and Azure Arc.
 
 ## Prerequisites
+
+>[!Note]
+>If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
 
 | **Requirement** | **Details** |
 | --- | --- |
@@ -46,6 +49,10 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 1. Under **Region**, select an Azure location where you want to store the resource metadata. The currently supported regions are **East US** and **West Europe**.
 1. Provide a name for **Custom location**.
    This is the name that you'll see when you deploy virtual machines. Name it for the datacenter or the physical location of your datacenter. For example: *contoso-nyc-dc.*
+
+    >[!Note]
+    >If you are using an existing resource bridge created for a different provider (HCI/VMware), ensure that you create a separate custom location for each provider.  
+
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
 1. Select **Next: Download and run script**.

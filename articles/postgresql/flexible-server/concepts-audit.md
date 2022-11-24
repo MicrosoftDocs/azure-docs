@@ -12,7 +12,7 @@ ms.date: 11/30/2021
 
 # Audit logging in Azure Database for PostgreSQL - Flexible server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Audit logging of database activities in Azure Database for PostgreSQL - Flexible server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
 

@@ -9,8 +9,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 09/15/2022
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -95,7 +96,7 @@ For further instructions on installing Elastic search, refer to [Installation in
             storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
             container => "insights-logs-networksecuritygroupflowevent"
             codec => "json"
-            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Refer https://learn.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
             # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
             file_head_bytes => 12
             file_tail_bytes => 2

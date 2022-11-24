@@ -3,7 +3,7 @@ title: Azure Service Bus samples or examples
 description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
-ms.date: 07/23/2021
+ms.date: 10/19/2022
 ms.author: spelluru
 ---
 

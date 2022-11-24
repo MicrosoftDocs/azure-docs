@@ -19,7 +19,7 @@ The guest configuration agent receives improvements on an ongoing basis. To stay
 - Known issues
 - Bug fixes
 
-For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](/azure/azure-arc/servers/agent-release-notes).
+For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](../../azure-arc/servers/agent-release-notes.md).
 
 ## Release notes
 

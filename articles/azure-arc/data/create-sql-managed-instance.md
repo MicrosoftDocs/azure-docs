@@ -46,13 +46,13 @@ az sql mi-arc create -n sqldemo --storage-class-backups mybackups --k8s-namespac
 ### [Directly connected mode](#tab/directly)
 
 ```azurecli
-az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
+az sql mi-arc create --name <name> --resource-group <group> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --storage-class-backups mybackups
+az sql mi-arc create --name sqldemo --resource-group rg -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --storage-class-backups mybackups
 ```
 
 ---

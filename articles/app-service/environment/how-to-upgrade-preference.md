@@ -1,15 +1,15 @@
 ---
-title: Configure upgrade preference for App Service Environment
-description: Configure the upgrade preference for the Azure App Service Environment.
+title: Configure upgrade preference for App Service Environment planned maintenance
+description: Configure the upgrade preference for the Azure App Service Environment planned maintenance.
 author: madsd
 ms.topic: tutorial
-ms.date: 01/08/2022
+ms.date: 09/19/2022
 zone_pivot_groups: app-service-cli-portal
 ---
 
-# Upgrade preference for App Service Environments
+# Upgrade preference for App Service Environment planned maintenance
 
-Azure App Service is regularly updated to provide new features, new runtime versions, performance improvements, and bug fixes. The upgrade happens automatically. The upgrades are applied progressively through the regions following [Azure Safe Deployment Practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Because of the isolated nature of App Service Environment, you have an opportunity to influence the upgrade process.
+Azure App Service is regularly updated to provide new features, new runtime versions, performance improvements, and bug fixes. This is also known as planned maintenance. The upgrade happens automatically. The upgrades are applied progressively through the regions following [Azure Safe Deployment Practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Because of the isolated nature of App Service Environment, you have an opportunity to influence the upgrade process.
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
@@ -17,7 +17,7 @@ If you don't have an App Service Environment, see [How to Create an App Service 
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
 
-With App Service Environment v3, you can specify your preference for when and how the upgrade is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
+With App Service Environment v3, you can specify your preference for when and how the planned maintenance is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
 
 ## Automatic upgrade preference
 

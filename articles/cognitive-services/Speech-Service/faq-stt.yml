@@ -94,7 +94,7 @@ sections:
         answer: |
           By default, requests aren't logged (neither audio nor transcription). If necessary, you can select the **Log content from this endpoint** option when you [create a custom endpoint](how-to-custom-speech-deploy-model.md#add-a-deployment-endpoint). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis, without having to create a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. Subscriptions that use Microsoft-owned storage will be available for 30 days.
           
-          You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with **Log content from this endpoint** enabled. If audio logging is enabled via the SDK, call the [API](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files. You can also use API to [delete the logs](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEndpointLogs) any time.
+          You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with **Log content from this endpoint** enabled. If audio logging is enabled via the SDK, call the API to access the files. You can also use API to [delete the logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteBaseModelLog) any time.
           
       - question: |
           Are my requests throttled?

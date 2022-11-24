@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,12 @@ In this tutorial, you'll learn how to integrate Concur with Azure Active Directo
 * Control in Azure AD who has access to Concur.
 * Enable your users to be automatically signed-in to Concur with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!NOTE]
+> The guidance provided in this article does not cover the new **Manage Single Sign-On** offering that is available from SAP Concur as of mid 2019.
+> This new self-service SSO offering relies on **IdP initiated** sign-in which the current gallery app does not allow, due to the **Sign on URL** not being optional.
+> The **Sign on URL** must be empty for IdP initiated sign-in via MyApps portal to work as intended.
+> For these reason you must start out with a custom non-galleryp application to set up SSO when using the **Manage Single Sign-On** feature in SAP Concur.
 
 ## Prerequisites
 

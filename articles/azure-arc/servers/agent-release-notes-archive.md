@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 09/09/2022
+ms.date: 10/11/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,20 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.18 - May 2022
+
+### New features
+
+- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
+- VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
+
+### Fixed
+
+- `systemd` is now an official prerequisite on Linux and your package manager will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
+- Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
+- Improved reliability when extracting extensions and guest configuration policy packages
+- Improved reliability for guest configuration policies that have child processes
 
 ## Version 1.17 - April 2022
 
@@ -36,7 +50,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### Known issues
 
-- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
+- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](agent-overview.md#agent-resources).
 
 ### New features
 

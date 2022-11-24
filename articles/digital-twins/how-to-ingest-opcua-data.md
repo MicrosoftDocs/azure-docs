@@ -3,9 +3,9 @@
 title: Ingest OPC UA data with Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA data into Azure Digital Twins
-author: danhellem
-ms.author: dahellem # Microsoft employees only
-ms.date: 06/21/2022
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 10/4/2022
 ms.topic: how-to
 ms.service: digital-twins
 # Optional fields. Don't forget to remove # if you need a field.
@@ -74,7 +74,7 @@ If you already have a physical OPC UA device or another OPC UA simulation server
 
 The Prosys Software requires a simple virtual resource. Using the [Azure portal](https://portal.azure.com), [create a Windows 10 virtual machine (VM)](../virtual-machines/windows/quick-create-portal.md) with the following specifications:
 * **Availability options**: No infrastructure redundancy required
-* **Image**: Windows 10 Pro, Version 2004 - Gen2
+* **Image**: Windows 10 Pro, Version 21H2 - Gen2
 * **Size**: Standard_B1s - 1 vcpu, 1 GiB memory
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png" alt-text="Screenshot of the Azure portal, showing the Basics tab of Windows virtual machine setup." lightbox="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png":::
@@ -122,17 +122,17 @@ In this section, you set up the OPC UA Server for simulating data. Verify that y
 
 In this section, you'll set up an IoT Hub instance and an IoT Edge device. 
 
-First, [create an Azure IoT Hub instance](../iot-hub/iot-hub-create-through-portal.md). For this article, you can create an instance in the **F1 - Free** tier.
+First, [create an Azure IoT Hub instance](../iot-hub/iot-hub-create-through-portal.md). For this article, you can create an instance in the **F1: Free** tier (if you're using the Azure portal to create the hub, that option is on the **Management** tab of setup).
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iot-hub.png" alt-text="Screenshot of the Azure portal showing properties of an IoT Hub.":::
 
-After you've created the Azure IoT Hub instance, select **IoT Edge** from the instance's left navigation menu, and select **Add an IoT Edge device**.
+After you've created the Azure IoT Hub instance, select **IoT Edge** from the instance's left navigation menu, and select **Add IoT Edge Device**.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-1.png" alt-text="Screenshot of adding an IoT Edge device in the Azure portal.":::
 
 Follow the prompts to create a new device. 
 
-Once your device is created, copy either the **Primary Connection String** or **Secondary Connection String** value. You'll need this value later when you set up the edge device.
+Once your device is created, copy either the **Primary Connection String** or **Secondary Connection String** value. You'll need this value in the next section when you set up the edge device.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-2.png" alt-text="Screenshot of the Azure portal showing IoT Edge device connection strings.":::
 
@@ -147,70 +147,70 @@ In this section, you set up IoT Edge and IoT Hub in preparation to create a gate
 
 To get your OPC UA Server data into IoT Hub, you need a device that runs IoT Edge with the OPC Publisher module. OPC Publisher will then listen to OPC UA node updates and will publish the telemetry into IoT Hub in JSON format.
 
-#### Create Ubuntu Server virtual machine
+#### Create Ubuntu VM with IoT Edge
 
-Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virtual machine with the following specifications:
-* **Availability options**: No infrastructure redundancy required
-* **Image**: Ubuntu Server 18.04 LTS - Gen1
-* **Size**: Standard_B1ms - 1 vcpu, 2 GiB memory
-    - The default size (Standard_b1s – vcpu, 1GiB memory) is too slow for RDP. Updating it to the 2-GiB memory will provide a better RDP experience.
+Use the [ARM Template to deploy IoT Edge enabled VM](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) to deploy an Ubuntu virtual machine with IoT Edge. You can use the **Deploy to Azure** button to set the template options through the Azure portal. Fill in the values for the VM, keeping in mind these specifics:
+* Remember the value you use for the **Dns Label Prefix**, as you'll use it to identify the device later.
+* For **VM Size**, enter *Standard_B1ms*.
+* For **Device Connection String**, enter the *primary connection string* you collected in the previous section while [setting up the IoT Edge device](#set-up-iot-edge-device).
 
-:::image type="content" source="media/how-to-ingest-opcua-data/ubuntu-virtual-machine.png" alt-text="Screenshot of the Azure portal showing Ubuntu virtual machine settings.":::
+When you're finished setting up the values, select **Review + create**. This will create the new VM, which you can find in the Azure portal under a resource name with the prefix *vm-* (the exact name is generated randomly).
 
-> [!NOTE]
-> If you choose to RDP into your Ubuntu VM, you can follow the instructions to [Install and configure xrdp to use Remote Desktop with Ubuntu](../virtual-machines/linux/use-remote-desktop.md).
+Once the installation completes, connect to the new gateway VM.
 
-#### Install IoT Edge container
-
-Follow the instructions to [Install IoT Edge on Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
-
-Once the installation completes, run the following command to verify the status of your installation:
+Run the following command on the VM to verify the status of your IoT Edge installation:
 
 ```bash
-admin@gateway:~$ sudo iotedge check
+sudo iotedge check
 ```
 
 This command will run several tests to make sure your installation is ready to go.
 
+> [!NOTE]
+> You may see one error in the output related to IoT Edge Hub:
+>
+> **× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+> 
+> **Could not check current state of edgeHub container**
+>
+> This error is expected on a newly provisioned device because the IoT Edge Hub module isn't yet running. After the next step of installing the OPC Publisher module, this error will disappear.
+
 #### Install OPC Publisher module
 
-Next, install the OPC Publisher module on your gateway device. 
+Next, install the OPC Publisher module on your gateway device. You'll complete the first part of this section on your main working device (not the gateway device), and you'll provide information about the gateway device where the module should be installed.
 
-Start by getting the module from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.iotedge-opc-publisher).
+Follow the installation steps documented in the [OPC Publisher GitHub Repo](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) to install the module on your gateway device VM. Here are some things to keep in mind during this process:
+* You'll be asked to connect to your IoT Hub and select the device where the module should be installed. You should see the **Dns label prefix** you created for the IoT Edge device earlier, and be able to select it as the gateway device.
+* In the step for [specifying container create options](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md#specifying-container-create-options-in-the-azure-portal), add the following json:
 
-:::image type="content" source="media/how-to-ingest-opcua-data/opc-publisher-1.png" alt-text="Screenshot of OPC publisher in Azure Marketplace.":::
-
-Then, follow the installation steps documented in the [OPC Publisher GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher) to install the module on your Ubuntu VM.
-
-In the step for [specifying container create options](https://github.com/Azure/iot-edge-opc-publisher#specifying-container-create-options-in-the-azure-portal), make sure to add the following json:
-
-```JSON
-{
-    "Hostname": "opcpublisher",
-    "Cmd": [
-        "--pf=/appdata/publishednodes.json",
-        "--aa"
-    ],
-    "HostConfig": {
-        "Binds": [
-            "/iiotedge:/appdata"
-        ]
+    ```JSON
+    {
+        "Hostname": "opcpublisher",
+        "Cmd": [
+            "--pf=/appdata/publishednodes.json",
+            "--aa"
+        ],
+        "HostConfig": {
+            "Binds": [
+                "/iiotedge:/appdata"
+            ]
+        }
     }
-}
-```
+    ```
+* On the **Routes** tab for the module creation, create a route with the value _FROM /* INTO $upstream_.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/opc-publisher-2.png" alt-text="Screenshot of OPC publisher container create options.":::
+    :::image type="content" source="media/how-to-ingest-opcua-data/set-route.png" alt-text="Screenshot of the Azure portal creating the route for the device module.":::
+
+Follow the rest of the prompts to create the module. 
 
 >[!NOTE]
 >The create options above should work in most cases without any changes, but if you're using your own gateway device that's different from the article guidance so far, you may need to adjust the settings to your situation.
-
-Follow the rest of the prompts to create the module. 
 
 After about 15 seconds, you can run the `iotedge list` command on your gateway device, which lists all the modules running on your IoT Edge device. You should see the OPCPublisher module up and running.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="Screenshot of IoT Edge list results.":::
 
-Finally, go to the `/iiotedge` directory and create a *publishednodes.json* file. The IDs in the file need to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software). Your file should look like something like this:
+Finally, go to the `/iiotedge` directory on your gateway device, and create a *publishednodes.json* file. Use the following example file body to create your own similar file. Update the `EndpointUrl` value to match the connection address with the public IP value that you created while [installing the OPC UA simulation software](#install-opc-ua-simulation-software). Then, update the IDs in the file as needed to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software).
 
 ```JSON
 [
@@ -243,7 +243,7 @@ Finally, go to the `/iiotedge` directory and create a *publishednodes.json* file
 
 Save your changes to the *publishednodes.json* file.
 
-Then, run the following command:
+Then, run the following command on the gateway device:
 
 ```bash
 sudo iotedge logs OPCPublisher -f
@@ -255,7 +255,7 @@ The command will result in the output of the OPC Publisher logs. If everything i
 
 Data should now be flowing from an OPC UA Server into your IoT Hub.
 
-To monitor the messages flowing into Azure IoT hub, you can use the following command:
+To monitor the messages flowing into Azure IoT hub, you can run the following command for the Azure CLI on your main development machine:
 
 ```azurecli-interactive
 az iot hub monitor-events -n <iot-hub-instance> -t 0

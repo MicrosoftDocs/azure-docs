@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Scale SNAT ports with Azure Virtual Network NAT
 
-Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend virtual machine scale set instance (Minimum of 2 instances), and you can associate up to [250 public IP addresses](./deploy-multi-public-ip-powershell.md). Depending on your architecture and traffic patterns, you might need more than the 512,000 available SNAT ports with this configuration. For example, when you use it to protect large [Azure Virtual Desktop deployments](./protect-azure-virtual-desktop.md) that integrate with Microsoft 365 Apps.
+Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend virtual machine scale set instance (Minimum of 2 instances), and you can associate up to [250 public IP addresses](./deploy-multi-public-ip-powershell.md). Depending on your architecture and traffic patterns, you might need more than the 1,248,000 available SNAT ports with this configuration. For example, when you use it to protect large [Azure Virtual Desktop deployments](./protect-azure-virtual-desktop.md) that integrate with Microsoft 365 Apps.
 
 Another challenge with using a large number of public IP addresses is when there are downstream IP address filtering requirements. Azure Firewall randomly selects the source public IP address to use for a connection, so you need to allow all public IP addresses associated with it. Even if you use [Public IP address prefixes](../virtual-network/ip-services/public-ip-address-prefix.md) and you need to associate 250 public IP addresses to meet your outbound SNAT port requirements, you still need to create and allow 16 public IP address prefixes.
 

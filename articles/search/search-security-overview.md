@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/11/2022
-
 ---
 
 # Security overview for Azure Cognitive Search
@@ -128,7 +128,7 @@ For multitenancy solutions requiring security boundaries at the index level, suc
 
 If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. 
 
-Conceptually equivalent to "row-level security", authorization to content within the index isn't natively supported using  predefined roles or role assignments that map to entities in Azure Active Directory. Any user permissions on data in external systems, such as Cosmos DB, don't transfer with that data as its being indexed by Cognitive Search.
+Conceptually equivalent to "row-level security", authorization to content within the index isn't natively supported using  predefined roles or role assignments that map to entities in Azure Active Directory. Any user permissions on data in external systems, such as Azure Cosmos DB, don't transfer with that data as its being indexed by Cognitive Search.
 
 Workarounds for solutions that require "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
@@ -204,9 +204,9 @@ Using alerts and the logging infrastructure in Azure, you can pick up on query v
 
 Azure Cognitive Search participates in regular audits, and has been certified against many global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) from the official Audit reports page.
 
-For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 11 security controls, including [Network Security](../security/benchmarks/security-control-network-security.md), [Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md), and [Data Protection](../security/benchmarks/security-control-data-protection.md) to name a few.
+For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). The Microsoft cloud security benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 12 security controls, including [Network Security](/security/benchmark/azure/mcsb-network-security), Logging and Monitoring, and [Data Protection](/security/benchmark/azure/mcsb-data-protection).
 
-Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
+Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Microsoft cloud security benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
 
 For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. With this built-in, you can assign a policy that identifies any search service that is missing resource logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
@@ -214,7 +214,7 @@ For Azure Cognitive Search, there's currently one built-in definition. It's for 
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 
-> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
+> [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## See also
 
