@@ -14,7 +14,9 @@ ms.author: eur
 
 # SSML document structure and events
 
-The input text structure determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+The Speech Synthesis Markup Language (SSML) with input text determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+
+Refer to the sections below for details about how to structure elements in the SSML document. 
 
 ## Document structure
 
@@ -30,9 +32,7 @@ Here's the basic structure and syntax of an SSML document:
     <voice name="string">
         <audio src="string"/></audio>
         <bookmark mark="string"/>
-        <break />
-        <break strength="string" />
-        <break time="string" />
+        <break strength="string" time="string" />
         <emphasis level="value"></emphasis>
         <lang xml:lang="string"></lang>
         <lexicon uri="string"/>
@@ -52,16 +52,16 @@ Here's the basic structure and syntax of an SSML document:
 
 Contents that are allowed in each element are described in the following list:
 - `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
-- `bookmark`: This element can contain the following elements: 
+- `bookmark`: This element can't contain text or any other elements.
 - `break`: This element can't contain text or any other elements.
-- `emphasis`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
-- `lang`: This element can contain the following elements: 
-- `lexicon`: This element can contain the following elements: 
+- `emphasis`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
+- `lang`: This element can contain all other elements except `mstts:backgroundaudio`, `voice`, and `speak`.
+- `lexicon`: This element can't contain text or any other elements.
 - `math`: This element can only contain text and MathML elements.
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
-- `mstts:express-as`: This element can contain the following elements: 
-- `mstts:silence`: This element can contain the following elements: 
-- `mstts:viseme`: This element can contain the following elements: 
+- `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
+- `mstts:silence`: This element can't contain text or any other elements.
+- `mstts:viseme`: This element can't contain text or any other elements.
 - `p`: This element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 - `phoneme`: This element can only contain text and no other elements.
 - `prosody`: This element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
@@ -88,7 +88,7 @@ Here's the syntax for the `speak` element:
 ```
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is "1.0".| Required|
 | `xml:lang` | The language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
 | `xmlns` | The URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
@@ -118,14 +118,14 @@ Use the `break` element to to override the default behavior of breaks or pauses 
 Usage of the `break` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul><br/><br/>Set `strength` to `none` to prevent automatic insertion of a prosodic break. | Optional |
 | `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
 | Strength                      | Relative duration |
-| ----------------------------- | ----------- |
+| ---------- | ---------- |
 | None, or if no value provided | 0 ms        |
 | X-weak                        | 250 ms      |
 | Weak                          | 500 ms      |
@@ -157,7 +157,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 Usage of the `mstts:silence` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
 | `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`.| Required |
 
@@ -210,9 +210,9 @@ You can use the `bookmark` element in SSML to reference a specific location in t
 
 Usage of the `bookmark` element's attributes are described in the following table.
 
-| Attribute | Description                                             | Required or optional |
-| --------- | ------------------------------------------------------- | -------------------- |
-| `mark`    | The reference text of the `bookmark` element. | Required             |
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | ---------- |
+| `mark` | The reference text of the `bookmark` element. | Required |
 
 ### bookmark examples
 
@@ -235,7 +235,7 @@ A viseme is the visual description of a phoneme in spoken language. It defines t
 Usage of the `viseme` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `type`    | The type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required  |
 
 > [!NOTE]
@@ -258,5 +258,6 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 ## Next steps
 
-- [How to synthesize speech](how-to-speech-synthesis.md)
+- [SSML overview](speech-synthesis-markup.md)
+- [Voice and sound with SSML](speech-synthesis-markup-voice.md)
 - [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)

@@ -14,7 +14,9 @@ ms.author: eur
 
 # Voice and sound with SSML
 
-Choose the voice language, name, style, and role. You can use multiple voices in a single SSML document. Adjust the emphasis, speaking rate, pitch, and volume. You can also use SSML to insert pre-recorded audio, such as a sound effect or a musical note.
+Use Speech Synthesis Markup Language (SSML) to specify the text-to-speech voice, language, name, style, and role. You can use multiple voices in a single SSML document. Adjust the emphasis, speaking rate, pitch, and volume. You can also use SSML to insert pre-recorded audio, such as a sound effect or a musical note.
+
+Refer to the sections below for details about how to use SSML elements to specify voice and sound. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
 ## Voice element
 
@@ -23,7 +25,7 @@ At least one `voice` element must be specified within each SSML [speak](speech-s
 Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
 
 ### voice examples
@@ -83,7 +85,7 @@ By default, neural voices have a neutral speaking style. You can adjust the spea
 Usage of the `mstts:express-as` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `style` | The voice-specific speaking style. You can express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant. If the style value is missing or invalid, the entire `mstts:express-as` element is ignored and the service uses the default neutral speech. For custom neural voice styles, see the [custom neural voice style example](#custom-neural-voice-style-example). | Required |
 | `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity. If the style degree is missing or isn't supported for your voice, this attribute is ignored.| Optional |
 | `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. If the role is missing or isn't supported for your voice, this attribute is ignored. | Optional |
@@ -91,7 +93,7 @@ Usage of the `mstts:express-as` element's attributes are described in the follow
 The following table has descriptions of each supported `style` attribute.
 
 |Style|Description|
-|-----------|-------------|
+| ---------- | ---------- |
 |`style="advertisement_upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
@@ -130,7 +132,7 @@ The following table has descriptions of each supported `style` attribute.
 The following table has descriptions of each supported `role` attribute.
 
 | Role                      | Description                                  |
-| ------------------------- | -------------------------------------------- |
+| ---------- | ---------- |
 | `role="Girl"`             | The voice imitates a girl.                |
 | `role="Boy"`              | The voice imitates a boy.                 |
 | `role="YoungAdultFemale"` | The voice imitates a young adult female.  |
@@ -213,7 +215,7 @@ You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neu
 Usage of the `lang` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `xml:lang`    | The language that you want the neural voice to speak. | Required to adjust the speaking language for the neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
 > [!NOTE]
@@ -222,14 +224,16 @@ Usage of the `lang` element's attributes are described in the following table.
 Use this table to determine which speaking languages are supported for each neural voice. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio.
 
 | Voice | Primary and default locale | Secondary locales |
-| -------------- | --------------- | ------- |
+| ---------- | ---------- | ---------- |
 | `en-US-JennyMultilingualNeural` | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN` |
 
 ### lang examples
 
 The supported values for attributes of the `lang` element were [described previously](#adjust-speaking-languages). 
 
-The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. 
+
+This SSML snippet shows how use the `lang` element (and `xml:lang` attribute) to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -270,12 +274,12 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 Usage of the `prosody` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
-| `pitch`   | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value: Expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value:<ul><li>As a relative number: Expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.<li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody pitch="50%">some text</prosody>` or `<prosody pitch="-50%">some text</prosody>`.</li></ul></li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
+| ---------- | ---------- | ---------- |
 | `contour` | Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch by using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
+| `pitch`   | Indicates the baseline pitch for the text. Pitch changes can be applied at the sentence level. The pitch changes should be within 0.5 to 1.5 times the original audio. You can express the pitch as:<ul><li>An absolute value: Expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value:<ul><li>As a relative number: Expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.<li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody pitch="50%">some text</prosody>` or `<prosody pitch="-50%">some text</prosody>`.</li></ul></li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `range`| A value that represents the range of pitch for the text. You can express `range` by using the same absolute values, relative values, or enumeration values used to describe `pitch`.| Optional |
-| `rate` | Indicates the speaking rate of the text. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the original rate. A value of *0.5* results in a halving of the original rate. A value of *2* results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `volume`  | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
+| `rate` | Indicates the speaking rate of the text. Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to 2 times the original audio. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the original rate. A value of *0.5* results in a halving of the original rate. A value of *2* results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
+| `volume`  | Indicates the volume level of the speaking voice. Volume changes can be applied at the sentence level. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### prosody examples
 
@@ -283,13 +287,13 @@ The supported values for attributes of the `prosody` element were [described pre
 
 #### Change speaking rate example
 
-Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to 2 times the original audio.
+This SSML snippet illustrates how the `rate` attribute is used to change the speaking rate to 30% greater than the default rate.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
         <prosody rate="+30.00%">
-            Welcome to Microsoft Cognitive Services Text-to-Speech API.
+            Enjoy using text-to-speech.
         </prosody>
     </voice>
 </speak>
@@ -297,13 +301,13 @@ Speaking rate can be applied at the word or sentence level. The rate changes sho
 
 #### Change volume example
 
-Volume changes can be applied at the sentence level. The volume changes should be within 0 (silence) to 1.5 times the original audio.
+This SSML snippet illustrates how the `volume` attribute is used to change the volume to 20% greater than the default volume.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
-            Welcome to Microsoft Cognitive Services Text-to-Speech API.
+            Enjoy using text-to-speech.
         </prosody>
     </voice>
 </speak>
@@ -311,17 +315,19 @@ Volume changes can be applied at the sentence level. The volume changes should b
 
 #### Change pitch example
 
-Pitch changes can be applied at the sentence level. The pitch changes should be within 0.5 to 1.5 times the original audio.
+This SSML snippet illustrates how the `pitch` attribute is used so that the voice speaks in a high pitch.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
+        Welcome to <prosody pitch="high">Enjoy using text-to-speech.</prosody>
     </voice>
 </speak>
 ```
 
 #### Change pitch contour example
+
+This SSML snippet illustrates how the `contour` attribute is used to change the contour.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -343,7 +349,7 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 Usage of the `emphasis` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `level`   | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute isn't specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2) | Optional             |
 
 ### emphasis examples
@@ -365,8 +371,6 @@ This SSML snippet demonstrates how the `emphasis` element is used to add mod
 The `audio` element is optional. You can use it to insert prerecorded audio into an SSML document. The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 
 Any audio included in the SSML document must meet these requirements:
-
-* The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend that you put the audio file into Blob Storage in the same Azure region as the text-to-speech endpoint to minimize the latency.
 * The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
@@ -377,12 +381,14 @@ Any audio included in the SSML document must meet these requirements:
 Usage of the `audio` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
-| `src`     | The location/URL of the audio file. | Required |
+| ---------- | ---------- | ---------- |
+| `src`     | The URI location of the audio file. The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend that you put the audio file into Blob Storage in the same Azure region as the text-to-speech endpoint to minimize the latency. | Required |
 
 ### audio examples
 
 The supported values for attributes of the `audio` element were [described previously](#add-recorded-audio). 
+
+This SSML snippet illustrates how the `src` attribute is used to insert audio from two .wav files.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -414,8 +420,8 @@ Only one background audio file is allowed per SSML document. You can intersperse
 Usage of the `mstts:backgroundaudio` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
-| `src`     | The location/URL of the background audio file. | Required |
+| ---------- | ---------- | ---------- |
+| `src`     | The URI location of the background audio file. | Required |
 | `volume`  | The volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`.  | Optional  |
 | `fadein`  | The duration of the background audio fade-in as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.   | Optional    |
 | `fadeout` | The duration of the background audio fade-out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive. | Optional|
@@ -435,5 +441,7 @@ The supported values for attributes of the `mstts:backgroundaudio` element were 
 
 ## Next steps
 
-- [How to synthesize speech](how-to-speech-synthesis.md)
+- [SSML overview](speech-synthesis-markup.md)
+- [SSML document structure and events](speech-synthesis-markup-structure.md)
 - [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+

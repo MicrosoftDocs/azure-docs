@@ -14,13 +14,15 @@ ms.author: eur
 
 # Pronunciation with SSML
 
-You can use SSML to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
+You can use Speech Synthesis Markup Language (SSML) with text-to-speech to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
+
+Refer to the sections below for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
 ## phoneme element
 
-The `phoneme` element is used for phonetic pronunciation in SSML documents. The `phoneme` element can contain only text but no other elements. Always provide human-readable speech as a fallback.
+The `phoneme` element is used for phonetic pronunciation in SSML documents. Always provide human-readable speech as a fallback.
 
-Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
+Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
 > For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
@@ -28,7 +30,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 Usage of the `phoneme` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document. | Required |
 
@@ -62,7 +64,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ## Custom lexicon
 
-Sometimes text-to-speech doesn't accurately pronounce a word. Examples might be the name of a company, a medical term, or an emoji. You can define how single entities are read in SSML by using the `phoneme` and `sub` tags. If you need to define how multiple entities are read, you can create a custom lexicon by using the `lexicon` tag.
+Sometimes text-to-speech doesn't accurately pronounce a word. Examples might be the name of a company, a medical term, or an emoji. You can define how single entities are read in SSML by using the [phoneme](#phoneme-element) and [sub](#sub-element) elements. If you need to define how multiple entities are read, you can create a custom lexicon by using the `lexicon` tag.
 
 > [!NOTE]
 > For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
@@ -71,9 +73,9 @@ Sometimes text-to-speech doesn't accurately pronounce a word. Examples might be 
 
 Usage of the `lexicon` element's attributes are described in the following table.
 
-| Attribute | Description                              | Required or optional |
-| --------- | ---------------------------------------- | -------------------- |
-| `uri`     | The URI of the external `.xml` or `.pls` file. We don't have restrictions on where this file can be stored, but we recommend that you use [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md). For more information about the custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).| Required             |
+| Attribute | Description | Required or optional |
+| --------- | ---------- | ---------- |
+| `uri`     | The URI of the external `.xml` or `.pls` file. We don't have restrictions on where this file can be stored, but we recommend that you use [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md). For more information about the custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).| Required |
 
 After you've published your custom lexicon, you can reference it from your SSML.
 
@@ -197,7 +199,7 @@ The `say-as` element indicates the content type, such as number or date, of the 
 Usage of the `say-as` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `interpret-as` | Indicates the content type of an element's text. For a list of types, see the following table.| Required |
 | `format`| Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional             |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
@@ -205,7 +207,7 @@ Usage of the `say-as` element's attributes are described in the following table.
 The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in the table below.
 
 | interpret-as   | format   | Interpretation |
-| ----------- | --------- | -------- |
+| ---------- | ---------- | ---------- |
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
 | `cardinal`, `number` | None| The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">10</say-as> options`<br /><br />As "There are ten options."|
 | `ordinal`  | None | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option."|
@@ -243,7 +245,7 @@ Use the `sub` element to indicate that the alias attribute's text value should b
 Usage of the `sub` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
+| ---------- | ---------- | ---------- |
 | `alias` | The text value that should be pronounced instead of the element's enclosed text. | Required |
 
 ### sub examples
@@ -286,5 +288,6 @@ The text-to-speech output for this example is "a squared plus b squared equals c
 
 ## Next steps
 
-- [How to synthesize speech](how-to-speech-synthesis.md)
+- [SSML overview](speech-synthesis-markup.md)
+- [SSML document structure and events](speech-synthesis-markup-structure.md)
 - [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
