@@ -50,12 +50,12 @@ git clone https://github.com/docker/awesome-compose/
     docker run –-detach –-publish 8080:80 --name myapp aspnetapp -env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
     ```
 
-    | Name      | Description                                                                                                                                            |
-    |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | --detach  | Runs the container in the background and prints the container ID.                                                                                      |
-    | --publish | Publishes a container's port to the host. In this example, we expose port 8080 of the host machine and port 80 of the container.                       |
-    | --name    | Assigns a name to the container and indicate the tag. In this example we run an aspnetapp container named myapp.                                                            |
-    | --env     | Sets environment variables in the container. In this example, we set an environment variable for the connection string of the App Configuration store. |
+    | Name        | Description                                                                                                                                            |
+    |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `--detach`  | Runs the container in the background and prints the container ID.                                                                                      |
+    | `--publish` | Publishes a container's port to the host. In this example, we expose port 8080 of the host machine and port 80 of the container.                       |
+    | `--name`    | Assigns a name to the container. In this example we run an aspnetapp container named myapp.                                                            |
+    | `--env`     | Sets environment variables in the container. In this example, we set an environment variable for the connection string of the App Configuration store. |
 
     The command returns a long ID back.
 
@@ -69,24 +69,32 @@ git clone https://github.com/docker/awesome-compose/
 
 In the next step, create an Azure Container Registry (ACR), where you'll push the Docker image. ACR allows you to build, store, and manage container image.
 
-### Create a Container Registry
+### Create a Container registry
 
 ## [Portal](#tab/azure-portal)
 
-1. Open  the Azure portal and in the search bar, search for and select **Container Registries**.
+1. Open the Azure portal and in the search bar, search for and select **Container Registries**.
+
+    :::image type="content" border="true" source="media\connect-container-app\portal-container-registries.png" alt-text="Screenshot of the Azure portal showing how to find container registries.":::
+
 1. Select **Create**
 1. Fill out form in the **Basics** tab:
 
     | Setting        | Suggested value        | Description                                                                                                     |
     |----------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
+    | Subscription   | MySubscription         | Select your Azure subscription.                                                                                 |
     | Resource group | AppConfigTestResources | Select your resource group.                                                                                     |
-    | Registry name  | myregistry   | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Registry name  | myregistry             | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
     | Azure region   | Central US             | Select an Azure region.                                                                                         |
     | SKU            | Basic                  | The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                           |
 
+    :::image type="content" border="true" source="media\connect-container-app\create-container-registry.png" alt-text="Screenshot of the Azure portal showing the first step to create a container registry.":::
+
 1. Accept default values for the remaining setting, and select **Review + create**. After reviewing the settings, select **Create** to deploy the Azure Container Registry.
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
-1. Switch **Amdin user** to *Enabled*. This option is needed to connect the ACR to Azure Container Apps in a later step.
+1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials.
+
+    :::image type="content" border="true" source="media\connect-container-app\admin-user.png" alt-text="Screenshot of the Azure platform enabling admin user.":::
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -98,6 +106,13 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
       --admin-enabled true \
       --sku Basic
     ```
+
+| Parameter          | Suggested value          | Description                                                                                                                         |
+|--------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `--resource-group` | `AppConfigTestResources` | Enter the name of your resource group.                                                                                                         |
+| `--name`           | `myregistry`             | Enter a name of your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.   |
+| `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
+| `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
 
 1. In the command output, take note of fully qualified registry name for your ACR listed for `loginServer`. You will use this information in a later step.
 
@@ -113,10 +128,18 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
     The command returns `Login Succeeded` once login is successful.
 
-1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp:latest` image. In the example below, replace the placeholder `<registry-name>` by the ACR's fully qualified registry name.
+1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholder `<registry-name>` by the ACR's fully qualified registry name.
+
+    Method:
 
     ```bash
-    docker push <registry-name>/aspnet:latest
+    docker push <registry-name>/<image-name>
+    ```
+
+    Example:
+
+    ```bash
+    docker push myregistry.azurecr.io/aspnetapp
     ```
 
 ## Create a Container App
@@ -124,12 +147,15 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 ## [Portal](#tab/azure-portal)
 
 1. In the Azure portal, search for **Container Apps** in the top search bar.
+
+    :::image type="content" border="true" source="media\connect-container-app\portal-container-apps.png" alt-text="Screenshot of the Azure portal showing how to find Container Apps.":::
+
 1. Select **Container Apps** in the search results and then **Create**.
 1. In the **Basics** tab:
 
     | Setting                    | Suggested value         | Description                                                                                                     |
     |----------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
-    | Subscription               | Your Azure subscription | Select your Azure subscription.                                                                                 |
+    | Subscription               | MySubscription          | Select your Azure subscription.                                                                                 |
     | Resource group             | AppConfigTestResources  | Select your Resource group.                                                                                     |
     | Container app name         | MyContainerApp          | Enter a Registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
     | Region                     | Central US              | Select an Azure region.                                                                                         |
@@ -173,7 +199,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     az provider register --namespace Microsoft.App
     ```
 
-1. Create a Container Apps environment using the az run az containerapp env create command:
+1. Create a Container Apps environment using the [az containerapp env create](/cli/azure/containerapp#az-containerapp-env-create) command:
 
     ```azurecli
     az containerapp env create \
@@ -185,14 +211,14 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Retrieve the ACR login information and take note of the username and password in the output for the next step:
 
    ```azurecli-interactive
-    az acr credential show --myregistry
+    az acr credential show --name myregistry
     ```
 
-1. Run the `az containerapp create`command to create the Azure Container App:
+1. Run the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to create the Azure Container App:
 
     ```azurecli-interactive
     az containerapp create \
-      --image myregistry.azurecr.io/aspnetapp:latest \
+      --image myregistry.azurecr.io/aspnetapp \
       --name mycontainerapp \
       --resource-group AppConfigTestResources \
       --environment MyContainerAppEnv \
@@ -201,7 +227,15 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
       --registry-password "<ACR-password>" \
     ```
 
----
+| Parameter             | Suggested value                   | Description                                                                                          |
+|-----------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
+| `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the fully qualified registry name of your ACR followed by `/` and the name of your image.      |
+| `--name`              | `mycontainerapp`                  | Enter a name of your container app.                                                                  |
+| `--resource-group`    | `AppConfigTestResources`          | Enter the name of your resource group.                                                               |
+| `--environment`       | `MyContainerAppEnv`               | Enter the name of your Azure Container Apps Environment. |
+| `--registry-server`   | `myregistry.azurecr.io`           | Enter the fully qualified registry name of your ACR. |
+| `--registry-username` | `myregistry`                      | Enter the name of your ACR. |
+| `--registry-password` | `"<ACR-password>"`                | Enter one of the two passwords displayed in the output of the previous command. |
 
 ## Connect the app to Azure App Configuration
 
@@ -209,15 +243,18 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 ## [Portal](#tab/azure-portal)
 
-1. Browse to your container app select **Service Connector** from the left table of contents.
-1. Select **Create**:
+1. Browse to your container app select **Service Connector (preview)** from the left table of contents.
+1. Select **Create connection**.
+
+    :::image type="content" border="true" source="media\connect-container-app\create-connection-service-connector.png" alt-text="Screenshot of the Azure portal, connecting cloud services with Service Connector.":::
+
 1. Select or enter the following settings.
 
     | Setting               | Suggested value         | Description                                                                                                            |
     |-----------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
     | **Container**         | mycontainerapp          | Select your Container Apps instance.                                                                                   |
     | **Service type**      | App Configuration       | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
-    | **Subscription**      | Your Azure subscription | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
+    | **Subscription**      | MySubscription          | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
     | **Connection name**   | Generated unique name   | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store.                      |
     | **App Configuration** | MyAppConfiguration      | Select the name of the App Configuration store to which you want to connect.                                                       |
     | **Client type**       | .NET                    | Select the application stack that works with the target service you selected.                                                |
@@ -244,12 +281,9 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 ## Browse to the URL of the Azure Container App
 
-In the Azure portal, browse to the container app you've created and in the **Overview** tab, open the **Application URL**.
-
-> [!NOTE]
-> You may need to restart the app if you've disable the feature flag *Beta* in the App Configuration feature flag management.
+In the Azure portal, browse to the container app you've created and in the **Overview** tab open the **Application URL**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage feature flags](./manage-feature-flags.md)
+> [Sync your GitHub repository to App Configuration](./concept-github-action.md)
