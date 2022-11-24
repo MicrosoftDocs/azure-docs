@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery using the Recovery Services vault
+title: Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow
 description: Learn how to set up disaster recovery for virtual machines on Public MEC (preview).
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -8,7 +8,7 @@ ms.date: 11/10/2022
 ms.author: v-pgaddala
 ---
 
-# Tutorial: Set up disaster recovery for VMs on Public MEC (preview) using Vault flow
+# Tutorial: Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow
 
 This tutorial shows you how to set up disaster recovery for VMs on Azure Public MEC (preview) using Azure Site Recovery (via the Portal). In this article, you learn how to:
 
