@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) supports customizing the claims that are issue
 
 In the [Azure portal](https://portal.azure.com), you can view or edit the claims that are sent in the SAML token to the application. To access the settings, select **Azure Active Directory** > **Enterprise applications** > the application that's configured for single sign-on > **Single sign-on**. See the SAML token settings in the **User Attributes** section.
 
-:::image type="content" source="media/claims-mapping/view-claims-in-saml-token.png" alt-text="Screenshot of the SAML token attributes in the UI.":::
+:::image type="content" source="media/claims-mapping/view-claims-in-saml-token-attributes.png" alt-text="Screenshot of the SAML token attributes in the UI.":::
 
 There are two possible reasons why you might need to edit the claims that are issued in the SAML token:
 
