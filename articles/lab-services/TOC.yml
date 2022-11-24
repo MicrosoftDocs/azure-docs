@@ -8,7 +8,7 @@
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
   - name: Migrate to Azure Lab Services August 2022 Update
-    href: migrate-v1-to-v2.md  
+    href: migrate-to-2022-update.md  
 - name: Quickstarts
   expanded: true
   items:
@@ -130,7 +130,7 @@
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md
+      href: how-to-request-capacity-increase.md?tabs=Labplans
     - name: Determine Usage and Quota
       href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans

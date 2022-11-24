@@ -8,7 +8,7 @@ ms.custom: devdivchpfy22
 
 # What's new in Azure Lab Services August 2022 Update
 
-We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this preview!
+We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this update!
 
 ## Overview
 
@@ -116,7 +116,7 @@ Let's cover each step to get started with the August 2022 Update in more detail.
 
 ## Next steps
 
-- As an admin, [Migrate to Azure Lab Services August 2022 Update (v2)](migrate-v1-to-v2.md) 
+- As an admin, [Migrate to Azure Lab Services August 2022 Update](migrate-to-2022-update.md) 
 - As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
 - As an educator, [create a lab](tutorial-setup-lab.md).

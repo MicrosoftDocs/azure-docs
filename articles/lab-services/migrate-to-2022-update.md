@@ -1,18 +1,18 @@
 ---
-title: Migrate from Azure Lab Services version 1 to Azure Lab Services August 2022 Update (version 2)
-description: 'Learn how to migrate from Azure Lab Services v1 to Azure Lab Services August 2022 Update (v2)'
+title: Migrate to Azure Lab Services August 2022 Update 
+description: 'Learn how to migrate from Azure Lab Services to Azure Lab Services August 2022 Update.'
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 11/08/2022
 ---
 
-# Migrate from Azure Lab Services version 1 to Azure Lab Services August 2022 Update (version 2)
+# Migrate to Azure Lab Services August 2022 Update
 
 Use the following checklist to get started with Azure Lab Services August 2022 Update:
 
 > [!div class="checklist"]
-> * Create a simple, temporary lab plan.
+> * Create a simple lab plan.
 > * Request capacity.
 > * Configure shared resources.
 > * Create additional lab plans.
@@ -20,34 +20,38 @@ Use the following checklist to get started with Azure Lab Services August 2022 U
 > * Create and publish labs.
 > * Update cost management reports.
 
-If you're moving from the current version of Azure Lab Services to the August 2022 Update, there likely will be a time when you're using both lab accounts and lab plans. Lab accounts and lab plans can coexist in your subscription and share the same external resources. However, lab accounts and lab plans do not share capacity. You must request new capacity for lab plans even if you have existing capacity for lab accounts.
+If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both lab accounts and lab plans. Lab plans replace lab accounts in the August 2022 Update. Although similar in functionality, lab plans give you more flexibility in how you manage your Lab Services than lab accounts. You can read more about the differences between lab plans and lab accounts in [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
+
+Lab accounts and lab plans can coexist in your subscription and share the same external resources. However, lab accounts and lab plans do not share capacity. You must request new capacity for lab plans even if you have existing capacity for lab accounts.
 
 With all the new enhancements, it's a good time to revisit your overall lab structure. More than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
 
 This article covers each step to get started with the August 2022 Update in more detail.
 
-## 1. Create a temporary lab plan. 
+## 1. Create a lab plan 
 
-Before you request capacity, you must have at least one lab plan in your subscription. You can create a temporary lab plan for requesting capacity, and delete the plan afterwards.  The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
+Before you request capacity, you must have at least one lab plan in your subscription. If you don't already have a lab plan, you can create a temporary lab plan for requesting capacity, and delete the plan afterwards. Because capacity is assigned to your subscription, it's not affected when you create or delete lab plans. The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
  
 - [Create a  lab plan](/azure/lab-services/tutorial-setup-lab-plan).
     - This lab plan can be deleted once capacity is requested.
-    - You do not need to enable advanced networking or images; or assign permissions.
+    - You don't need to enable advanced networking or images; or assign permissions.
     - You can select any region.
 
 ## 2. Request capacity 
 
 Customers are now assigned their own [dedicated VM cores quota](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account won't be available when you create a lab plan.
 
+1. Verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md).
 1. [Request a core limit increase](/azure/lab-services/how-to-request-capacity-increase?tabs=Labplans).
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
 
-> [!TIP]
-> The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested.  
-> To ensure you have the resources you require when you need them, you should:
-> - Request capacity as far in advance as possible.
-> - Make incremental requests for VM cores rather than making large, bulk requests.  
-> For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+#### Tips for requesting capacity
+- The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested. To ensure you have the resources you require when you need them, you should:
+    - Request capacity as far in advance as possible.
+    - Make incremental requests for VM cores rather than making large, bulk requests.  
+ For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+- If possible, be flexible on the region where you're requesting capacity. 
+- Capacity remains assigned for the lifetime of a subscription. You only need to request extra capacity if you need more than is already assigned to your subscription.
 
 
 ## 3. Configure shared resources  
