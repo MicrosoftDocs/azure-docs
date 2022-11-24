@@ -27,7 +27,8 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |---|---|
 |[Workspace](../logs/log-analytics-workspace-overview.md)||
 |[Table](../logs/manage-logs-tables.md)|Indexing|
-|[Kusto Query Language](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/splunk-cheat-sheet)||
+|[Log data plan](../logs/basic-logs-configure.md)||
+|[Kusto Query Language (KQL)](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/splunk-cheat-sheet)||
 |[Transformation](../essentials/data-collection-transformations.md)
 |[Cost calculations and options](../logs/cost-logs.md)||
 
