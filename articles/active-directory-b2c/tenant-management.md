@@ -206,7 +206,7 @@ If you're not using [Conditional Access](conditional-access-user-flow.md), you c
 
 ## Check tenant creation permission 
 
-To check if you have permission to create a tenant, follow these steps: 
+Before you create an Azure AD B2C tenant, make sure that you've the permission to do so. Use these steps to check that you've the permission to create a tenant: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
