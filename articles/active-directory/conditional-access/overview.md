@@ -97,6 +97,8 @@ When licenses required for Conditional Access expire, policies aren't automatica
 
 [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
+[!INCLUDE [active-directory-zero-trust](../../../includes/active-directory-zero-trust.md)]
+
 ## Next steps
 
 - [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
