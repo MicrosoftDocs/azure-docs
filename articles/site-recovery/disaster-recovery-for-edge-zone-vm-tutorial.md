@@ -107,3 +107,4 @@ The **VM setting** now includes target region information and a **Summary** sect
 :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text="Screenshot of Review replication tab"::: 
             
 The VMs you enable appear on the vault > **Replicated items** page. 
+
