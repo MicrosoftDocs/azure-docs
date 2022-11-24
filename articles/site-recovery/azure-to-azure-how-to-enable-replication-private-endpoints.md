@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 04/23/2022
 ms.custom: references_regions, subject-rbac-steps
 ---
 # Replicate machines with private endpoints
