@@ -13,7 +13,7 @@ In this article, you will learn how to quickly be able to view and monitor what'
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
+To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
 In the Azure portal, select Microsoft Sentinel and then select the workspace you want to monitor.
 
@@ -31,8 +31,6 @@ You see different types of incident data under **Incidents**.
 - On the top right, you see incidents organized by severity, and closed incidents by closing classification. 
 - On the bottom left, a graph breaks up the incident status by creation time, in four hour intervals.
 - On the bottom right, you can see the mean time to acknowledge an incident and mean time to close, with a link to the SOC efficiency workbook. 
-
-Check to see that there isn't a dramatic increase or drop in the number of incidents. If there is a drop, it could be that a connection stopped reporting to Microsoft Sentinel. If there is an increase, something suspicious may have happened. Check to see if you have new alerts.
 
 ### View automation data
 
