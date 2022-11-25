@@ -37,22 +37,28 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
 1. Check the fields under the **Local access** heading to view the current local access configuration and status.
-<!-- TODO: screenshot -->
+    
+    :::image type="content" source="media//modify-local-access-configuration/packet-core-control-plane-overview-local-access.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane overview.":::
 
 ## Modify the local access configuration
 
 1. Select **Modify local access**.
-<!-- TODO: screenshot 
-    :::image type="content" source="media/modify-packet-core/modify-local-access-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify local access option.":::-->
+
+    :::image type="content" source="media//modify-local-access-configuration/modify-local-access.png" alt-text="Screenshot of the Azure portal showing the Modify local access option.":::
 
 1. Under **HTTPS certificate**, choose whether you want to provide a custom HTTPS certificate for accessing your local monitoring tools.
 1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) to fill out the remaining fields.
-    <!-- TODO: screenshot -->
+
+    :::image type="content" source="media//modify-local-access-configuration/local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab.":::
+
 1. Select **Next**. 
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+1. Azure will now validate the configuration values you entered. You should see a message indicating that your values have passed validation.
+
+    :::image type="content" source="media//modify-local-access-configuration/modify-local-access-validation.png" alt-text="Screenshot of the Azure portal showing successful validation for a local access configuration change.":::
+
 1. Select **Create**.
 1. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display a confirmation screen when this deployment is complete.
-1. Select **Go to resource**. Check that the fields under **Local access** contain the updated certificate information and provisioned status.
+1. Select **Go to resource**. Check that the fields under **Local access** contain the updated certificate information and successful provisioned status.
 
 ## Next steps
 
