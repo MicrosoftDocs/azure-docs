@@ -92,7 +92,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     1. Under **Extension settings**, 
         - Select **Update settings** and **Automation account**. 
             
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/manage.png" alt-text="Screenshot of Manage replication tab.":::
+            :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/manage.png" alt-text="Screenshot of Manage replication tab.":::
 
     > [!NOTE]
     > There are no changes to select replication policy for Azure Public MEC (preview). 
