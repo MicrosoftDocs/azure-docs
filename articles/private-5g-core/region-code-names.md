@@ -16,7 +16,7 @@ When the **location** parameter is used in a command or request, you need to pro
 az account list-locations -o table
 ```
 
-The output of this command is a table of all the Azure region names and locations. Navigate to the Azure region that has the *DisplayName* you are looking for and use its *Name* value for the **location** parameter.
+The output of this command is a table of the names and locations for all the Azure regions that your subscription supports. Navigate to the Azure region that has the *DisplayName* you are looking for and use its *Name* value for the **location** parameter.
 
 For example, if you're deploying in the East US region, use *eastus* for the **location** parameter.
 
@@ -24,4 +24,5 @@ For example, if you're deploying in the East US region, use *eastus* for the **l
 DisplayName               Name                 RegionalDisplayName
 ------------------------  -------------------  -------------------------------------
 East US                   eastus               (US) East US
+West Europe               westeurope           (Europe) West Europe
 ```
