@@ -107,14 +107,9 @@ The modifiers you can set on a public client application builder on Xamarin.iOS 
 
 ### Modifiers specific to confidential client applications
 
-The modifiers you can set on a confidential client application builder are:
+The modifiers you can set that are specific to a confidential client application builder can be found in the `ConfidentialClientApplicationBuilder` class. The different methods can be found in the [Azure SDK for .NET documentation](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder). 
 
-|Modifier | Description|
-|--------- | --------- |
-|`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
-|`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|
-
-These modifiers are mutually exclusive. If you provide both, MSAL will throw a meaningful exception.
+Modifiers such as `.WithCertificate(X509Certificate2 certificate)` and `.WithClientSecret(string clientSecret)` are mutually exclusive. If you provide both, MSAL will throw a meaningful exception.
 
 ### Example of usage of modifiers
 
