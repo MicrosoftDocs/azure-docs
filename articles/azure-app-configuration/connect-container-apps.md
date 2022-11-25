@@ -63,11 +63,16 @@ git clone https://github.com/docker/awesome-compose/
 
     ```output
     CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                  NAMES
-    fd7ad0ef680e   aspnetapp   "dotnet aspnetapp.dl…"   38 minutes ago   Up 14 minutes   0.0.0.0:8080->80/tcp   myapp
+    fd7ad0ef680e   aspnetapp   "dotnet aspnetapp.dl…"   05 minutes ago   Up 02 minutes   0.0.0.0:8080->80/tcp   myapp
+    ```
+
+1. Open an internet browser and navigate to [localhost:8080](localhost:8080) to check if you can display your webpage.
+
+    :::image type="content" border="true" source="media\connect-container-app\localhost-display.png" alt-text="Screenshot of an internet browser displaying the app running.":::
 
 ## Push the image to Azure Container Registry
 
-In the next step, create an Azure Container Registry (ACR), where you'll push the Docker image. ACR allows you to build, store, and manage container image.
+In the next step, create an Azure Container Registry (ACR), where you'll push the Docker image. ACR enables you to build, store, and manage container images.
 
 ### Create a Container registry
 
@@ -80,8 +85,8 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Select **Create**
 1. Fill out form in the **Basics** tab:
 
-    | Setting        | Suggested value        | Description                                                                                                     |
-    |----------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
+    | Setting        | Suggested value        | Description                                                                                                       |
+    |----------------|------------------------|-------------------------------------------------------------------------------------------------------------------|
     | Subscription   | *MySubscription*         | Select your Azure subscription.                                                                                 |
     | Resource group | *AppConfigTestResources* | Select your resource group.                                                                                     |
     | Registry name  | *myregistry*             | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
@@ -113,7 +118,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     | `--name`           | `myregistry`             | Enter a name of your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.   |
     | `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
     | `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
-    
+
 1. In the command output, take note of fully qualified registry name for your ACR listed for `loginServer`. You will use this information in a later step.
 
 ---
@@ -143,6 +148,8 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     ```
 
 ## Create a Container App
+
+In the next step, you will deploy the container image to [Azure Container Apps](../container-apps/overview.md). This Azure service enables you to run the containerized application created in this tutorial on a serverless platform.
 
 #### [Portal](#tab/azure-portal)
 
