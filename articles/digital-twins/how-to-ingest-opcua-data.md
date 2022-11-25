@@ -27,9 +27,9 @@ Below is a summary of the data flow in this solution.
   *	Reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
   *	Automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
   *	Automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
-*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](https://learn.microsoft.com/en-us/azure/digital-twins/concepts-data-history#data-schema) feature. This generates a historical record of twin time-series data which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
+*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](https://learn.microsoft.com/en-us/azure/digital-twins/concepts-data-history#data-schema) feature. This generates a historical record of twin time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
 
-Below is a description of the components in this solution. 
+Below is a description of the components in this solution.
 
 | Component | Description |
 | --- | --- |
@@ -49,15 +49,15 @@ Once the deployment is complete, log in to the deployed Windows VM via Remote De
 
 ## Running the Production Line Simulation
 
-On the deployed VM, download this repo from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the **StartSimulation** command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The azure region needs to be specified as a DNS acronym as listed [here](https://learn.microsoft.com/en-us/azure/automation/how-to/automation-region-dns-records#dns-records-per-region), e.g. for Azure region East US 2 you would pass in eus2 as parameter:
+On the deployed VM, download this repo from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the **StartSimulation** command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The azure region needs to be specified as a DNS acronym as listed [here](https://learn.microsoft.com/en-us/azure/automation/how-to/automation-region-dns-records#dns-records-per-region), for example for Azure region East US 2 you would pass in eus2 as parameter:
 
     StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
 
-Please note: The StartSimulation script will launch UA Cloud Twin as its last step. Please log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
+Note: The StartSimulation script will launch UA Cloud Twin as its last step. Please log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
 
-Please note: If you restart Docker Desktop at any time, you will need to stop and then restart the simulation, too!
+Note: If you restart Docker Desktop at any time, you will need to stop and then restart the simulation, too!
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add additional relationships to the digital twins created, for example the order of machines in your production lines.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created, for example the order of machines in your production lines.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates." lightbox="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png":::
 
