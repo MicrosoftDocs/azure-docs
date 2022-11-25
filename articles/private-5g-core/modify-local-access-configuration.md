@@ -48,7 +48,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media//modify-local-access-configuration/modify-local-access.png" alt-text="Screenshot of the Azure portal showing the Modify local access option.":::
 
 1. Under **HTTPS certificate**, choose whether you want to provide a custom HTTPS certificate for accessing your local monitoring tools.
-1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to fill out the remaining fields.
+1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to select a certificate and, if applicable, add a user-assigned managed identity.
 
     :::image type="content" source="media//modify-local-access-configuration/local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab.":::
 

@@ -61,7 +61,7 @@ In this step, you'll create the mobile network site resource representing the ph
 1. If you decided you want to provide a custom HTTPS certificate in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
     
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
-    1. Use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to fill out the remaining fields.
+    1. Use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) select a certificate and, if applicable, add a user-assigned managed identity.
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
 

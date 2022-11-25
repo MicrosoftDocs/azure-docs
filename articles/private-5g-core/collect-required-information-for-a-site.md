@@ -87,7 +87,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
    |---------|---------|
    |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
    |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
-   |The User-assigned identity for accessing the custom HTTPS certificate within the Azure Key Vault. You'll only need to collect this if you decided to provide access to your certificate via a user-assigned managed identity. |**User-assigned identity**|
+   |The user-assigned managed identity for accessing the custom HTTPS certificate within the Azure Key Vault. You'll only need to collect this if you decided to provide access to your certificate via a user-assigned managed identity. |**User assigned managed identities**|
 
 ## Next steps
 
