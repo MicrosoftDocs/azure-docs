@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 ## MSAL for Java logging
 
-MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time and automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+MSAL for Java allows you to use the logging library that you're already using with your app, as long as it's compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time and automatically binds to Logback at deployment time. MSAL logs will be written to the console.
 
 This article shows how to enable MSAL4J logging using the logback framework in a spring boot web application. You can refer to the [code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-java-webapp-sample) for reference.
 
@@ -73,7 +73,7 @@ For instructions on how to bind to other logging frameworks, see the [SLF4J manu
 
 ### Personal and organization information
 
-By default, MSAL logging does not capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
+By default, MSAL logging doesn't capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
 
 ```java
     PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
