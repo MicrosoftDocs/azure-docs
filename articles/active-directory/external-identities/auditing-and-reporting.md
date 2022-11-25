@@ -27,11 +27,11 @@ You can use access reviews to periodically verify whether guest users still need
 
 The Azure AD audit logs provide records of system and user activities, including activities initiated by guest users. To access audit logs, in **Azure Active Directory**, under **Monitoring**, select **Audit logs**. To access audit logs of one specific user, select **Azure Active Directory** > **Users** > select the user > **Audit logs**.
 
-:::image type="content" source="media/auditing-and-reporting/audit-log.png" alt-text="Screenshot showing and example of audit log output.":::
+:::image type="content" source="media/auditing-and-reporting/audit-log.png" alt-text="Screenshot showing and example of audit log output." lightbox="media/auditing-and-reporting/audit-log-large.png":::
 
 You can dive into each of these events to get the details. For example, let's look at the user update details.
 
-:::image type="content" source="media/auditing-and-reporting/activity-details.png" alt-text="Screenshot showing and example of activity details output.":::
+:::image type="content" source="media/auditing-and-reporting/activity-details.png" alt-text="Screenshot showing and example of activity details output." lightbox="media/auditing-and-reporting/activity-details-large.png":::
 
 You can also export these logs from Azure AD and use the reporting tool of your choice to get customized reports.
 
