@@ -25,11 +25,11 @@ You can use access reviews to periodically verify whether guest users still need
 
 ## Audit logs
 
-The Azure AD audit logs provide records of system and user activities, including activities initiated by guest users. To access audit logs, in **Azure Active Directory**, under **Monitoring**, select **Audit logs**. Here's an example of the invitation and redemption history of invitee Sam Oogle:
+The Azure AD audit logs provide records of system and user activities, including activities initiated by guest users. To access audit logs, in **Azure Active Directory**, under **Monitoring**, select **Audit logs**. To access audit logs of one specific user, select **Azure Active Directory** > **Users** > select the user > **Audit logs**.
 
 :::image type="content" source="media/auditing-and-reporting/audit-log.png" alt-text="Screenshot showing and example of audit log output.":::
 
-You can dive into each of these events to get the details. For example, let's look at the acceptance details.
+You can dive into each of these events to get the details. For example, let's look at the user update details.
 
 :::image type="content" source="media/auditing-and-reporting/activity-details.png" alt-text="Screenshot showing and example of activity details output.":::
 
