@@ -32,22 +32,23 @@ You can use the Azure portal to monitor your deployment's health and performance
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
 1. In the resource menu, select **Sites**.
+
+    :::image type="content" source="media/resource-menu-sites.png" alt-text="Screenshot of the Azure portal showing the Mobile Network resource menu. The Sites option is highlighted.":::
+
 1. Select the site you're interested in monitoring.
-    <!-- TODO: add screenshot -->
 1. Select the **Monitoring** tab.
     <!-- TODO: add screenshot -->
 
-Under **Key Metrics**, you should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and throughput. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
-
-<!-- TODO: add screenshot -->
+Under **Key Metrics**, you should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and throughput. You can select individual dashboards to open an expanded view where you can specify details such as the time range and time granularity. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
 
 ## Retrieve metrics using the Azure Monitor REST API
 
-In addition to the monitoring functionalities offered by the Azure portal, you can retrieve Azure Private 5G Core metrics using the [Azure Monitor REST API](/rest/api/monitor/). Once this data is retrieved, you can sava it in a separate data store and use your tools of choice to monitor and analyze your deployment. 
+In addition to the monitoring functionalities offered by the Azure portal, you can retrieve Azure Private 5G Core metrics using the [Azure Monitor REST API](/rest/api/monitor/). Once this data is retrieved, you can sava it in a separate data store and use your tools of choice to monitor and analyze your deployment. For example, you can export the metrics data from Azure Monitor to [Azure Event Hubs](/azure/event-hubs/) or a storage account.
 
-You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough). The following are some example queries you can run to retrieve metrics relating to KPIs for your private mobile network. You should run all of these queries at the scope of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
+> [!NOTE]
+> Exporting the network metrics to another application for third-party application integration or longer data retention period may incur extra cost.
 
-<!-- TODO: Add example queries -->
+You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 Not all metrics displayed in the Azure portal will be available for retrieval using the Azure Monitor REST API. For more information on which metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported). <!-- TODO: link directly to MobileNetwork metrics once manifest is merged. -->
 
