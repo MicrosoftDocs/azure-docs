@@ -17,7 +17,8 @@ In this tutorial, you'll learn how to connect an container app to Azure App Conf
 ## Prerequisites
 
 - An Azure subscription
-- Docker CLI
+- The Docker CLI
+- An App Configurations store
 - Complete the [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Build a docker image and test it locally
@@ -44,7 +45,7 @@ git clone https://github.com/docker/awesome-compose/
     docker build --tag aspnetapp .
     ```
 
-1. Execute the container locally using the command below and replace `<connection-string>` with your own connection string.
+1. Execute the container locally using the command below and replace `<connection-string>` with your the connection string of your own App Configuration store.
 
     ```bash
     docker run –-detach –-publish 8080:80 --name myapp aspnetapp -env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
