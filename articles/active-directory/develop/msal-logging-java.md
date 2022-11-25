@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time and automatically binds to Logback at deployment time. MSAL logs will be written to the console.
 
-This article shows how to enable MSAL4J logging using the logback framework in a spring boot web application. You can refer to the [code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-b2c-web-sample) for reference.
+This article shows how to enable MSAL4J logging using the logback framework in a spring boot web application. You can refer to the [code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-java-webapp-sample) for reference.
 
 1. To implement logging, include the `logback` package in the _pom.xml_ file.
 
@@ -49,7 +49,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
         </root>    
     </configuration>
     ```
-3. Next, you should set the _logging.config_ property to the location of the _logback.xml_ file before the main method. Navigate to _MsalB2CWebSampleApplication.java_ and add the following code to the `MsalB2CWebSampleApplication` public class. 
+3. Next, you should set the _logging.config_ property to the location of the _logback.xml_ file before the main method. Navigate to _MsalWebSampleApplication.java_ and add the following code to the `MsalWebSampleApplication` public class. 
 
     ```java
     @SpringBootApplication
