@@ -148,6 +148,10 @@ Here is an example of configuring pglogical at the provider database server and 
    ```SQL
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
+   
+>[!NOTE]
+> Pglogical does not currently support an automatic DDL replication. The initial schema can be copied manually using pg_dump --schema-only. DDL statements can be executed on the provider and subscriber at the same time by using the pglogical.replicate_ddl_command function. Please be aware of other limitations of the extension listed [here](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions).
+
 
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
