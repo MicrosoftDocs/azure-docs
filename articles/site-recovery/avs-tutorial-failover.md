@@ -7,8 +7,7 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/06/2022
 ms.author: ankitadutta
-ms.custom: MVC
-ms.custom: engagement-fy23
+ms.custom: MVC, engagement-fy23
 ---
 # Fail over  Azure VMware Solution VMs
 
