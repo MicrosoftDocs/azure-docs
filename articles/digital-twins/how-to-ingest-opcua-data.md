@@ -27,7 +27,7 @@ Below is a summary of the data flow in this solution.
   *	Reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
   *	Automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
   *	Automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
-*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](./concepts-data-history.md) feature. This generates a historical record of twin time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
+*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](concepts-data-history.md) feature. This generates a historical record of twin time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
 
 Below is a description of the components in this solution.
 
