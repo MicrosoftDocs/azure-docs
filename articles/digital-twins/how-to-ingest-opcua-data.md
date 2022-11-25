@@ -16,12 +16,12 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
-This article describes a solution for an automated data ingestion path from [OPC Unified Architecture (OPC UA)](https://opcfoundation.org)-enabled manufacturing assets in multiple simulated factories to digital twins hosted in an Azure Digital Twins instance.
+This article describes a solution for an automated data ingestion path from [OPC Unified Architecture (OPC UA)](https://opcfoundation.org)-enabled manufacturing assets in multiple factories to digital twins hosted in an Azure Digital Twins instance.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png" alt-text="Architectural diagram of the O P C U A to Azure Digital Twins solution." lightbox="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png":::
 
 Below is a summary of the data flow in this solution.
-*	The solution simulates the operation of eight OPC UA production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by separate Manufacturing Execution System.
+*	The solution simulates the operation of eight OPC UA-enabled production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by separate Manufacturing Execution Systems.
 *	The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure Event Hubs. 
 *	The UA Cloud Twin:
   *	Reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
