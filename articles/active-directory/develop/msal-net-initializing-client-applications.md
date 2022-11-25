@@ -95,22 +95,7 @@ In the code snippets using application builders, a number of `.With` methods can
 
 ### Modifiers common to public and confidential client applications
 
-The modifiers you can set on a public client or confidential client application builder are:
-
-|Modifier | Description|
-|--------- | --------- |
-|[`.WithAuthority()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withauthority)  | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
-|[`.WithAdfsAuthority(string)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withadfsauthority) | Sets the application default authority to be an ADFS authority.|
-|[`.WithB2CAuthority(string)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withb2cauthority) | Sets the application default authority to be an Azure AD B2C authority.|
-|[`.WithClientId(string)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withclientid) | Overrides the client ID.|
-|[`.WithComponent(string)`] | Sets the name of the library using MSAL.NET (for telemetry reasons). |
-|[`.WithDebugLoggingCallback()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withdebugloggingcallback) | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
-|[`.WithExtraQueryParameters(IDictionary<string,string> eqp)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withextraqueryparameters?view=azure-dotnet&branch=main#microsoft-identity-client-abstractapplicationbuilder-1-withextraqueryparameters(system-collections-generic-idictionary((system-string-system-string)))) | Set the application level extra query parameters that will be sent in all authentication request. This is overridable at each token acquisition method level (with the same `.WithExtraQueryParameters` pattern).|
-|[`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withhttpclientfactory?view=azure-dotnet&branch=main#microsoft-identity-client-abstractapplicationbuilder-1-withhttpclientfactory(microsoft-identity-client-imsalhttpclientfactory)) | Enables advanced scenarios such as configuring for an HTTP proxy, or to force MSAL to use a particular HttpClient (for instance in ASP.NET Core web apps/APIs).|
-|[`.WithLogging()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withlogging) | If called, the application will call a callback with debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
-|[`.WithRedirectUri(string redirectUri)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withredirecturi) | Overrides the default redirect URI. In the case of public client applications, this will be useful for scenarios involving the broker.|
-|[`.WithTelemetry(TelemetryCallback telemetryCallback)`]() | Sets the delegate used to send telemetry.|
-|[`.WithTenantId(string tenantId)`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withtenantid) | Overrides the tenant ID, or the tenant description.|
+The modifiers you can set on a public client or confidential client application builder can be found in the `AbstractApplicationBuilder<T>` class. The different methods can be found in the [Azure SDK for .NET documentation](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1).
 
 ### Modifiers specific to Xamarin.iOS applications
 
@@ -133,7 +118,7 @@ These modifiers are mutually exclusive. If you provide both, MSAL will throw a m
 
 ### Example of usage of modifiers
 
-Let's assume that your application is a line-of-business application, which is only for your organization.  Then you can write:
+Let's assume that your application is a line-of-business application, which is only for your organization. Then you can write:
 
 ```csharp
 IPublicClientApplication app;
@@ -142,7 +127,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Where it becomes interesting is that programming for national clouds has now simplified. If you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
+Where it becomes interesting is that programming for national clouds has simplified. If you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
 
 ```csharp
 IPublicClientApplication app;
@@ -152,6 +137,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```
 
 There is also an override for ADFS (ADFS 2019 is currently not supported):
+
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
