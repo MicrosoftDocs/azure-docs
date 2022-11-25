@@ -23,10 +23,9 @@ This article describes a solution for an automated data ingestion path from [OPC
 Below is a summary of the data flow in this solution.
 *	The solution simulates the operation of eight OPC UA-enabled production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by separate Manufacturing Execution Systems.
 *	The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure Event Hubs. 
-*	The UA Cloud Twin:
-  *	Reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
-  *	Automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
-  *	Automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
+*	The UA Cloud Twin reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
+*	The UA Cloud Twin also automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
+*	The UA Cloud Twin also automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
 *	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](concepts-data-history.md) feature. This generates a historical record of twin time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
 
 Below is a description of the components in this solution.
