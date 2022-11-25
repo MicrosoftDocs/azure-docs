@@ -1,5 +1,5 @@
 ---
-title: Host keys for SFTP support for Azure Blob Storage| Microsoft Docs
+title: Host keys for SFTP support for Azure Blob Storage
 description: Find a list of valid host keys when using an SFTP client to connect with Azure Blob Storage.
 author: normesta
 ms.subservice: blobs

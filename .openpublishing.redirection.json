@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/iot-solution.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-center-community.md",
+            "redirect_url": "/azure/backup/backup-center-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
@@ -5959,6 +5974,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
             "redirect_url": "/azure/reliability/cross-region-replication-azure",
             "redirect_document_id": true
@@ -7016,6 +7036,16 @@
         {
             "source_path_from_root": "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
             "redirect_url": "/azure/azure-functions/functions-event-grid-blob-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
         },
         {
@@ -18271,6 +18301,11 @@
         {
             "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
             "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/monitor-sentinel-health.md",
+            "redirect_url": "/azure/sentinel/enable-monitoring",
             "redirect_document_id": false
         },
         {

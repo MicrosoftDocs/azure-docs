@@ -227,4 +227,3 @@ Navigate to the project where you copied the model to [deploy the model copy](ho
 - [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
-- [Long Audio API](long-audio-api.md)

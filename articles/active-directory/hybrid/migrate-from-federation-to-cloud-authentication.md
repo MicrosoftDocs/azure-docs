@@ -10,7 +10,7 @@ ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
-manager: amycolannino
+manager: martinco
 
 ms.collection: M365-identity-device-management
 ---
