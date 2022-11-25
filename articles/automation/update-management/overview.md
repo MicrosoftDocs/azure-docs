@@ -143,12 +143,12 @@ The next table defines the supported classifications for Linux updates.
 
 ### Logic for Linux classification
 
-1. For assessment, Update Management classifies updates into three categories: **Security**, **Critical** or **Others**. This classification of updates is done based on data from two sources:
+1. For assessment, Update Management classifies updates into three categories: **Security**, **Critical** or **Others**. This classification of updates is as per the data from two sources:
 
     - [Open Vulnerability and Assessment Language](https://oval.mitre.org/)(OVAL) files are provided by the Linux distro vendor which includes data about security issues or vulnerabilities which the update fixes.
     - Package manager on your machine such as YUM, APT or ZYPPER.
 
-2. For patching, Update Management classifies updates into **Critical and Security** or **Others** categories. Classification of updates is based solely on data from package managers such as YUM, APT, or ZYPPER.
+2. For patching, Update Management classifies updates into two categories: **Critical and Security** or **Others**. This classification of updates is based solely on data from package managers such as YUM, APT, or ZYPPER.
 
 **CentOS** - Unlike other distributions, CentOS does not have classification data available from the package manager. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
 
@@ -156,11 +156,10 @@ The next table defines the supported classifications for Linux updates.
 sudo yum -q --security check-update
 ```
 
->[!NOTE]
-> 
-Currently there's no supported method to enable native classification-data availability on CentOS. At this time, limited support is provided to customers who might have enabled this feature on their own.
+> [!NOTE]
+> Currently there's no supported method to enable native classification-data availability on CentOS. At this time, we provide limited support to customers who might have enabled this feature on their own.
 
-**Redhat** - To classify updates on Red Hat Enterprise version 6, you must install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself. Hence, there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
+**Redhat** - To classify updates on Red Hat Enterprise version 6, you must install the YUM security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of YUM itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 
 ## Integrate Update Management with Configuration Manager
