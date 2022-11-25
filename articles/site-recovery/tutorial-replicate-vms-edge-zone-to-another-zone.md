@@ -8,15 +8,15 @@ ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Replicate virtual machines running in an Azure Public MEC (preview) to another Public MEC in the same region 
+# Replicate virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC in the same region 
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC connected to the same parent region. 
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview)connected to the same parent region. 
 
 Azure Public MECs (preview) are fully managed solution deployed close to your data centre and includes hardware, services, and support. 
 
 ## Disaster recovery in Azure Public MEC (preview)
 
-Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is another Azure Public MEC connected to the same parent region. 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is another Azure Public MEC (preview) connected to the same parent region. 
 
 ## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
 
@@ -35,9 +35,9 @@ Site Recovery ensures business continuity by keeping workloads running during ou
     >[!Note]
     >Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
 
-## Replicate Virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC
+## Replicate Virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC (preview)
 
-To replicate VMs running in a Public MEC (preview) to another Azure Public MEC, follow these steps:
+To replicate VMs running in a Public MEC (preview) to another Azure Public MEC (preview), follow these steps:
 
 > [!NOTE] 
 > For this example, the primary location is an Azure Public MEC (preview), and the secondary/recovery location is another Azure Public MEC connected to the same region. 
@@ -223,7 +223,7 @@ To replicate VMs running in a Public MEC (preview) to another Azure Public MEC, 
 
 1. Create a cache storage account for replication logs in the primary region. The cache storage account is created in the primary region.
 
-    You can use **Local cache** (cache in the Public MEC) or **Remote cache** (cache in Azure). 
+    You can use **Local cache** (cache in the Public MEC (preview)) or **Remote cache** (cache in Azure). 
     
     In this example, remote cache is used but there is no difference between them in terms of PowerShell commands. ARM ID of the cache storage account we provide to `New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig` is the only difference.
 

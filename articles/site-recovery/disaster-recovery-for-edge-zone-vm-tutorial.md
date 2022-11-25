@@ -21,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- Ensure to create a Recovery Services vault in the parent region to which the Public MEC (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
+- Ensure to create a Recovery Services vault in the parent region to which the Azure Public MEC (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 - Enable Site Recovery
     In the vault settings, select **Enable Site Recovery**.
 
@@ -70,10 +70,10 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/replication-settings.png" alt-text=" Screenshot of Replication settings tab.":::
 
     > [!NOTE]
-    >- In the above box, you can select target to be parent region (i.e., connected to the Public MEC (preview)) or in certain cases, another of your Public MEC (preview) connected to the same region. 
+    >- In the above box, you can select target to be parent region (i.e., connected to the Azure Public MEC (preview)) or in certain cases, another of your Azure Public MEC (preview) connected to the same region. 
     >- Capacity reservation has been disabled and hence hidden.  
 
-1. In **Customize storage option**, you can select an existing storage that was created either on Public MEC (preview) or region.
+1. In **Customize storage option**, you can select an existing storage that was created either on Azure Public MEC (preview) or region.
 
     
     >[!NOTE]
