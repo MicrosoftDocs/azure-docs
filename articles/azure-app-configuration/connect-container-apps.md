@@ -82,11 +82,11 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
     | Setting        | Suggested value        | Description                                                                                                     |
     |----------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
-    | Subscription   | MySubscription         | Select your Azure subscription.                                                                                 |
-    | Resource group | AppConfigTestResources | Select your resource group.                                                                                     |
-    | Registry name  | myregistry             | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
-    | Azure region   | Central US             | Select an Azure region.                                                                                         |
-    | SKU            | Basic                  | The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                           |
+    | Subscription   | *MySubscription*         | Select your Azure subscription.                                                                                 |
+    | Resource group | *AppConfigTestResources* | Select your resource group.                                                                                     |
+    | Registry name  | *myregistry*             | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Azure region   | *Central US*             | Select an Azure region.                                                                                         |
+    | SKU            | *Basic*                  | The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                           |
 
     :::image type="content" border="true" source="media\connect-container-app\create-container-registry.png" alt-text="Screenshot of the Azure portal showing the first step to create a container registry.":::
 
@@ -107,13 +107,13 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
       --sku Basic
     ```
 
-| Parameter          | Suggested value          | Description                                                                                                                         |
-|--------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `--resource-group` | `AppConfigTestResources` | Enter the name of your resource group.                                                                                                         |
-| `--name`           | `myregistry`             | Enter a name of your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.   |
-| `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
-| `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
-
+    | Parameter          | Suggested value          | Description                                                                                                                         |
+    |--------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+    | `--resource-group` | `AppConfigTestResources` | Enter the name of your resource group.                                                                                                         |
+    | `--name`           | `myregistry`             | Enter a name of your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.   |
+    | `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
+    | `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
+    
 1. In the command output, take note of fully qualified registry name for your ACR listed for `loginServer`. You will use this information in a later step.
 
 ---
@@ -153,13 +153,13 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Select **Container Apps** in the search results and then **Create**.
 1. In the **Basics** tab:
 
-    | Setting                    | Suggested value         | Description                                                                                                     |
-    |----------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
-    | Subscription               | MySubscription          | Select your Azure subscription.                                                                                 |
-    | Resource group             | AppConfigTestResources  | Select your Resource group.                                                                                     |
-    | Container app name         | MyContainerApp          | Enter a Registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
-    | Region                     | Central US              | Select an Azure region.                                                                                         |
-    | Container Apps Environment | MyEnvironment           | Select a Container Apps Environment or create a new one.                                                        |
+    | Setting                    | Suggested value          | Description                                                                                                     |
+    |----------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------|
+    | Subscription               | *MySubscription*         | Select your Azure subscription.                                                                                 |
+    | Resource group             | *AppConfigTestResources* | Select your Resource group.                                                                                     |
+    | Container app name         | *MyContainerApp*         | Enter a Registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Region                     | *Central US*             | Select an Azure region.                                                                                         |
+    | Container Apps Environment | *MyEnvironment*          | Select a Container Apps Environment or create a new one.                                                        |
 
 1. Select **Next: App settings** and fill out the form:
 
@@ -227,15 +227,17 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
       --registry-password "<ACR-password>" \
     ```
 
-| Parameter             | Suggested value                   | Description                                                                                          |
-|-----------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
-| `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the fully qualified registry name of your ACR followed by `/` and the name of your image.      |
-| `--name`              | `mycontainerapp`                  | Enter a name of your container app.                                                                  |
-| `--resource-group`    | `AppConfigTestResources`          | Enter the name of your resource group.                                                               |
-| `--environment`       | `MyContainerAppEnv`               | Enter the name of your Azure Container Apps Environment. |
-| `--registry-server`   | `myregistry.azurecr.io`           | Enter the fully qualified registry name of your ACR. |
-| `--registry-username` | `myregistry`                      | Enter the name of your ACR. |
-| `--registry-password` | `"<ACR-password>"`                | Enter one of the two passwords displayed in the output of the previous command. |
+    | Parameter             | Suggested value                   | Description                                                                                          |
+    |-----------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
+    | `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the fully qualified registry name of your ACR followed by `/` and the name of your image.      |
+    | `--name`              | `mycontainerapp`                  | Enter a name of your container app.                                                                  |
+    | `--resource-group`    | `AppConfigTestResources`          | Enter the name of your resource group.                                                               |
+    | `--environment`       | `MyContainerAppEnv`               | Enter the name of your Azure Container Apps Environment. |
+    | `--registry-server`   | `myregistry.azurecr.io`           | Enter the fully qualified registry name of your ACR. |
+    | `--registry-username` | `myregistry`                      | Enter the name of your ACR. |
+    | `--registry-password` | `"<ACR-password>"`                | Enter one of the two passwords displayed in the output of the previous command. |
+
+ ---
 
 ## Connect the app to Azure App Configuration
 
@@ -250,14 +252,14 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 1. Select or enter the following settings.
 
-    | Setting               | Suggested value         | Description                                                                                                            |
-    |-----------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
-    | **Container**         | mycontainerapp          | Select your Container Apps instance.                                                                                   |
-    | **Service type**      | App Configuration       | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
-    | **Subscription**      | MySubscription          | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
-    | **Connection name**   | Generated unique name   | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store.                      |
-    | **App Configuration** | MyAppConfiguration      | Select the name of the App Configuration store to which you want to connect.                                                       |
-    | **Client type**       | .NET                    | Select the application stack that works with the target service you selected.                                                |
+    | Setting               | Suggested value       | Description                                                                                                            |
+    |-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+    | **Container**         | *mycontainerapp*      | Select your Container Apps instance.                                                                                   |
+    | **Service type**      | *App Configuration*   | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
+    | **Subscription**      | MySubscription        | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
+    | **Connection name**   | Generated unique name | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store. |
+    | **App Configuration** | *MyAppConfiguration*  | Select the name of the App Configuration store to which you want to connect.                                                       |
+    | **Client type**       | *.NET*                | Select the application stack that works with the target service you selected.                                                |
 
 1. Select **Next: Authentication** and select **System assigned managed identity** to let Azure Directory manage the authentication.
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules to enable access to target service**.
@@ -276,6 +278,15 @@ In the next step, connect the container app to Azure App Configuration using [Se
         --app-config MyAppConfiguration \  # the name of the App Configuration store
         --system-identity #the authentication method
     ```
+
+    | Parameter                | Suggested value          | Description                                                                             |
+    |--------------------------|--------------------------|-----------------------------------------------------------------------------------------|
+    | `--name`                 | `mycontainerapp`         | Enter a name of the container app.                                                      |
+    | `--resource-group`       | `AppConfigTestResources` | Enter the name of the resource group that contains the container app.                   |
+    | `--container`            | `mycontainerapp`         | Enter the name of the container app.                                                    |
+    | `--target-resource-group`| `AppConfigTestResources` | Enter the resource group that contains the App Configuration store.                     |
+    | `--app-config`           | `MyAppConfiguration`     | Enter the name of the App Configuration store.                                          |
+    | `--system-identity`      | Leave blank              | Enter ``--system-identity` to authenticate with with a system-assigned managed identity |
 
 ---
 
