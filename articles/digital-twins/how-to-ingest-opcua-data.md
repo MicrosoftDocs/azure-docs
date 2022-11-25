@@ -16,77 +16,61 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
-This article describes a solution for an automated ingestion path from [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) manufacturing assets to Azure Digital Twins.
-
-## About OPC UA 
-
-The OPC UA is a platform independent, service-oriented architecture for industrial verticals. It's used for machine-to-machine communication, machine-to-SCADA-system communication, and manufacturing execution systems communication. More recently, it's also been used for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities, and represents the standard for modeling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body, since its inception. Microsoft has been integrating OPC UA into its products since 2015, and has been instrumental in defining the use of OPC UA in the cloud.
-
-Using the solution described in this article to ingest OPC UA data into Azure Digital Twins has several advantages over traditional mechanisms:
-
-* **Open**: By using open standards like OPC UA and the [ISA95](https://en.wikipedia.org/wiki/ANSI/ISA-95) ontology, you aren't locked into a solution architecture that might otherwise be difficult to leave.
-* **Cost optimized**: If you're already using OPC UA and ISA95 data models, you can save money and effort by using resources that you already have.
-* **Time optimized**: Since the ingestion in this solution is set up to happen automatically, it eliminates the need to create a digital twin ontology from scratch.
-
-## Solution overview
-
-This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. 
-
-The example simulates eight OPC UA production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by a separate manufacturing execution system. The solution uses a set of [manufacturing ontologies](https://github.com/digitaltwinconsortium/ManufacturingOntologies) for modeling the environment. 
-
-:::image type="content" source="media/how-to-ingest-opcua-data/production-line.png" alt-text="Screenshot showing a graph with nodes representing the O P C U A production line." lightbox="media/how-to-ingest-opcua-data/production-line.png":::
-
-The data flow is as follows:
-
-1. The UA Cloud Publisher reads OPC UA data from each simulated factory, and forwards it via OPC UA PubSub over MQTT to Azure IoT Hub. UA Cloud Publisher runs in a Docker container to simplify deployment.
-
-1. The UA Cloud Twin reads and processes the OPC UA data from IoT Hub, and forwards it to the Azure Digital Twins service. UA Cloud Twin runs in a Docker container to simplify deployment.
-
-1. The UA Cloud Twin creates digital twins in Azure Digital Twins automatically and on-demand, mapping each OPC UA element (including publishers, server namespaces, and nodes) to a separate digital twin.
-
-    The UA Cloud Twin also automatically updates each digital twin when there are data changes in the OPC UA node. This allows the [historization of digital twin time-series data](concepts-data-history.md) in Azure Data Explorer for condition monitoring, OEE calculation, and predictive maintenance scenarios.
-
-## Architecture
-
-Here are the components required for this solution.
+This article describes a solution for an automated data ingestion path from [OPC Unified Architecture (OPC UA)](https://opcfoundation.org)-enabled manufacturing assets in multiple simulated factories to digital twins hosted in an Azure Digital Twins instance.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png" alt-text="Architectural diagram of the O P C U A to Azure Digital Twins solution." lightbox="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png":::
 
+Below is a summary of the data flow in this solution.
+*	The solution simulates the operation of eight OPC UA production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by separate Manufacturing Execution System.
+*	The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure Event Hubs. 
+*	The UA Cloud Twin:
+  *	Reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
+  *	Automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
+  *	Automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
+*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](https://learn.microsoft.com/en-us/azure/digital-twins/concepts-data-history#data-schema) feature. This generates a historical record of twin time-series data which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
+
+Below is a description of the components in this solution. 
+
 | Component | Description |
 | --- | --- |
-| Industrial Assets | OPC UA-enabled assets. A set of simulated production lines is provided until you're ready to connect your own physical assets. |
-| Kubernetes | Kubernetes is a Docker container orchestration system, deployed at the edge in fault-tolerant industrial gateways. |
-| [UA Cloud Publisher](https://github.com/barnstee/ua-cloudpublisher) | This reference implementation converts OPC UA Client/Server requests into OPC UA PubSub cloud messages. |
-| [Azure IoT Hub](../iot-hub/about-iot-hub.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. |
-| [UA Cloud Twin](https://github.com/digitaltwinconsortium/UA-CloudTwin) | This cloud application converts OPC UA PubSub cloud messages into Azure Digital Twins service updates, using the ISA95 ontology to create digital twins automatically. |
+| Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
+| [UA Cloud Publisher](https://github.com/barnstee/ua-cloudpublisher) | This edge application converts OPC UA Client/Server requests into OPC UA PubSub cloud messages. Hosted in a Docker container. |
+| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. |
+| [UA Cloud Twin](https://github.com/digitaltwinconsortium/UA-CloudTwin) | This cloud application converts OPC UA PubSub cloud messages into digital twins updates. Also creates digital twins automatically by processing the cloud messages. Twins are instantiated from models in ISA95 DTDL ontology. Hosted in a Docker container. |
 | [Azure Digital Twins](overview.md) | The platform that enables the creation of a digital representation of real-world things, places, business processes, and people. |
 
 ## Installation
 
-Start by selecting the button below to deploy all required resources for this solution.
+Click on the button below, it will deploy all required resources.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
 
-Once the deployment is complete in the Azure portal, follow these steps to configure the production line simulation.
+Once the deployment is complete, log in to the deployed Windows VM via Remote Desktop (Connect -> Download RDP file in the [Azure portal](https://portal.azure.com)), using the credentials you provided during deployment and download and **install Docker Desktop** from [here](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation and a required system restart, accept the license terms and install the WSL2 Linux kernel by following the instructions. Then restart one more time and verify that Docker Desktop is running in the Windows System Tray.
 
-1. In the IoT Hub that was deployed, create six devices and call them *publisher.munich.corp.contoso*, *publisher.capetown.corp.contoso*, *publisher.mumbai.corp.contoso*, *publisher.seattle.corp.contoso*, *publisher.beijing.corp.contoso*, and *publisher.rio.corp.contoso*.
+## Running the Production Line Simulation
 
-2. Log in to the deployed VM using the credentials you provided during deployment. Download and install Docker Desktop from the [Docker Desktop page](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation and a required system restart, accept the license terms and install the WSL2 Linux kernel by following the instructions. Then, verify that Docker Desktop is running in the Windows System Tray and enable Kubernetes in Settings.
+On the deployed VM, download this repo from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the **StartSimulation** command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The azure region needs to be specified as a DNS acronym as listed [here](https://learn.microsoft.com/en-us/azure/automation/how-to/automation-region-dns-records#dns-records-per-region), e.g. for Azure region East US 2 you would pass in eus2 as parameter:
 
-3. On the VM, browse to the [Digital Twin Consortium's Manufacturing Ontologies repo](https://github.com/digitaltwinconsortium/ManufacturingOntologies) and select **Code** and **Download Zip**. Unzip the contents to a directory of your choice. Navigate to the *OnPremAssets* directory of the zip you downloaded, and edit the *settings.json* file for each publisher directory located in the Config directory. Replace `[myiothub]` with the name of your IoT Hub, and replace `[publisherkey]` with the primary key of the six IoT Hub publisher devices you created earlier. This data can be accessed by clicking on the names of the devices in the Azure portal.
+    StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
 
-4. On the VM, run the *StartSimulation.cmd* script from the *OnPremAssets* folder in a command prompt window. A total of eight production lines will be started, each with three stations (assembly, test and packaging). There is also an MES per line, and a UA Cloud Publisher instance per factory location. There are six locations in total: Munich, Cape town, Mumbai, Seattle, Beijing and Rio. Next, check your IoT Hub in the [Azure portal](https://portal.azure.com) to verify that OPC UA telemetry is flowing to the cloud.
+Please note: The StartSimulation script will launch UA Cloud Twin as its last step. Please log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
 
-5. Under your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com), navigate to **Access Control** and then **Role Assignments**. Add a new role assignment of type *Azure Digital Twins Data Owner*, and assign its access to **Managed Identity**. Under **Select Users**, select your previously deployed Azure Web App service instance.
+Please note: If you restart Docker Desktop at any time, you will need to stop and then restart the simulation, too!
 
-6. Open the URL of the deployed Azure Web App service in a browser, fill in the two fields under **Settings**, and select **Apply**. The Azure Event Hubs connection string for the Azure IoT Hub can be read in the [Azure portal](https://portal.azure.com) under **Built-in Endpoints** and **Event Hub-compatible endpoint**. You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add additional relationships to the digital twins created, such as the order of machines in your production lines.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add additional relationships to the digital twins created, for example the order of machines in your production lines.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates." lightbox="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png":::
 
-7. Set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the Azure Digital Twins service configuration in the [Azure portal](https://portal.azure.com) and follow the wizard to set this up.
+To do so, assign yourself the Azure Digital Twins Data Owner role in the [Azure portal](https://portal.azure.com) and open the Azure Digital Twins Explorer directly from the Azure Digital Twins overview page.
+
+You can set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the Azure Digital Twins service configuration in the [Azure portal](https://portal.azure.com) and follow the wizard to set this up.
 
 ## Next steps
 
 Use the instructions for [replacing the simulation with a real production line](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets into this solution.
 
 Or, visit the Azure Data Explorer documentation to see how to create [condition monitoring dashboards](../data-explorer/azure-data-explorer-dashboards.md).
+
+## About OPC UA
+
+The OPC Unified Architecture (OPC UA) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine-to-machine communication, machine-to-SCADA system communication, Manufacturing Execution System communication, and more recently also for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities and is a leading standard for modeling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
