@@ -2,8 +2,8 @@
 title: Seed offline backup with the Azure Import/Export service
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
-ms.topic: conceptual
-ms.date: 05/17/2018
+ms.topic: how-to
+ms.date: 11/30/2022
 ---
 # Offline backup workflow in Azure Backup
 
@@ -33,8 +33,6 @@ The following Azure Backup features or workloads support the use of offline back
 
    > [!NOTE]
    > Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Prerequisites
 
