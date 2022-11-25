@@ -16,10 +16,12 @@ zone_pivot_groups: acs-csharp-java
 
 # Call Automation - Appointment Reminder
 
-> [!IMPORTANT]
-> This sample is available **on GitHub** for [C#](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_AppointmentReminder) and [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_AppointmentReminder)
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 This Azure Communication Services Call Automation - Appointment Reminder sample demonstrates how your application can use the Call Automation SDK to build automated workflows that create outbound calls to proactively reach out to your customers. 
+
+> [Note]
+> This sample is available **on GitHub** for [C#](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_AppointmentReminder) and [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_AppointmentReminder)
 
 ## Overview
 
@@ -38,3 +40,15 @@ This sample application is also capable of making multiple concurrent outbound c
 ::: zone pivot="programming-language-java"
 [!INCLUDE [CA java sample](./includes/ca-appointment-reminder-java.md)]
 ::: zone-end
+
+## Clean up resources
+
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
+
+## Next Steps
+
+- Learn about [Call Automation](../concepts/call-automation/call-automation.md) and it's features.
+- Learn about [Play action](../concepts/call-automation/play-action.md) to play audio in call.
+- Learn about [Recognize action](../concepts/call-automation/recognize-action.md) to gather user input.
+
+
