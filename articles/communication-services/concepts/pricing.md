@@ -135,6 +135,8 @@ Vlad dials your toll-free number (that you acquired from Communication Service) 
 
 The service application that uses Call Automation SDK isn't charged to be part of the call. The additional monthly cost of leasing a US toll-free number isn't included in this calculation.
 
+**Total cost for the call**: $0.11 + $0.02 = $0.13
+
 ## Call Recording
 
 Azure Communication Services allow developers to record PSTN, WebRTC, Conference, or SIP calls. Call Recording supports mixed video MP4, mixed audio MP3/WAV, and unmixed audio WAV output formats. Call Recording SDKs are available for Java and C#. To learn more view Call Recording [concepts](./voice-video-calling/call-recording.md) and [quickstart](../quickstarts/voice-video-calling/get-started-call-recording.md).
