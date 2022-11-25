@@ -11,7 +11,7 @@ ms.date: 11/20/2022
 
 With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) to your server resources. Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. Its main features are:
 
-- Risk-based vulnerability management and assessment 
+- Risk-based vulnerability management and assessment
 - Attack surface reduction
 - Behavioral based and cloud-powered protection
 - Endpoint detection and response (EDR)
@@ -24,13 +24,13 @@ For more information about migrating servers from Defender for Endpoint to Defen
 
 ## Availability
 
-| Aspect                                       | Details                                                                                                                                                                                                                                                                               |
-|----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                               | General availability (GA)                                                                                                                                    |
-| Pricing:                                     | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)                                                                                                                                                                                                           |
-| Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session)           |
-| Required roles and permissions:              | - To enable/disable the integration: **Security admin** or **Owner**<br>- To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
-| Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects                                                      |
+| Aspect | Details |
+|---|:--|
+| Release state: | General availability (GA) |
+| Pricing: | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans) |
+| Supported environments: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) |
+| Required roles and permissions: | - To enable/disable the integration: **Security admin** or **Owner**<br>- To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects |
 
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
@@ -69,7 +69,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 1. Ensure the machine is connected to Azure and the internet as required:
 
-    - **Azure virtual machines (Windows or Linux)** - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration).
+    - **Azure virtual machines (Windows or Linux)** - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/microsoft-365/security/defender-endpoint/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration).
 
     - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
@@ -80,7 +80,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 1. For Windows servers, make sure that your servers meet the requirements for [onboarding Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-server-endpoints#windows-server-2012-r2-and-windows-server-2016).
 
-1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 ### Enable the integration
 
@@ -112,7 +112,7 @@ To deploy the MDE unified solution, you'll need to use the [REST API call](#enab
 
     1. Select **Enable unified solution**.
     1. Select **Save**.
-    1. In the confirmation prompt, verify the information and select **Enable** to continue. 
+    1. In the confirmation prompt, verify the information and select **Enable** to continue.
 
     :::image type="content" source="./media/integration-defender-for-endpoint/enable-unified-solution-result.png" alt-text="Confirming the use of the MDE unified solution for Windows Server 2012 R2 and 2016 machines":::
 
@@ -148,7 +148,6 @@ You'll deploy Defender for Endpoint to your Linux machines in one of two ways - 
 - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
 - [New users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
-
 ### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
 
 If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy Defender for Endpoint to your **Linux** machines.
@@ -166,7 +165,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
     1. Select **Enable for Linux machines**.
     1. Select **Save**.
-    1. In the confirmation prompt, verify the information and select **Enable** to continue. 
+    1. In the confirmation prompt, verify the information and select **Enable** to continue.
 
     :::image type="content" source="./media/integration-defender-for-endpoint/enable-for-linux-result.png" alt-text="Confirming the integration between Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
@@ -180,7 +179,6 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
     > [!NOTE]
     > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
-
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
@@ -223,7 +221,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
     `licensed: true`
 
     In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
---- 
+---
 
 ### Enable the MDE unified solution at scale
 
@@ -246,12 +244,11 @@ URI: `https://management.azure.com/subscriptions/<subscriptionId>providers/Micro
 
 ## Access the Microsoft Defender for Endpoint portal
 
-1. Ensure the user account has the necessary permissions. Learn more in [Assign user access to Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Ensure the user account has the necessary permissions. Learn more in [Assign user access to Microsoft Defender Security Center](/microsoft-365/security/defender-endpoint/assign-portal-access).
 
-1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](/microsoft-365/security/defender-endpoint/configure-proxy-internet#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server).
 
-1. Open the [Defender for Endpoint Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Defender for Endpoint Security Center portal overview](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
-
+1. Open the [Microsoft 365 Defender portal](https://security.windows.com/). Learn more about the portal's features and icons, in [Microsoft Defender for Endpoint in Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-security-center-mde).
 
 ## Send a test alert
 
@@ -269,6 +266,7 @@ For endpoints running Windows:
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
+
     :::image type="content" source="./media/integration-defender-for-endpoint/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
     If the command is successful, you'll see a new alert on the workload protection dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
@@ -278,12 +276,11 @@ For endpoints running Windows:
     > [!TIP]
     > The alert is triggered with **Informational** severity.
 
-
 ### [**Linux**](#tab/linux)
 
 For endpoints running Linux:
 
-1. Download the test alert tool from https://aka.ms/LinuxDIY
+1. Download the test alert tool from <https://aka.ms/LinuxDIY>
 1. Extract the contents of the zip file and execute this shell script:
 
     `./mde_linux_edr_diy`
@@ -296,7 +293,7 @@ For endpoints running Linux:
     > [!TIP]
     > The alert is triggered with **Low** severity.
 
---- 
+---
 
 ## Remove Defender for Endpoint from a machine
 
@@ -306,9 +303,7 @@ To remove the Defender for Endpoint solution from your machines:
     1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
     1. Open **Integrations** and clear the checkbox for **Allow Microsoft Defender for Endpoint to access my data**.
     1. Select **Save**.
-
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
-
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
 
 ## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
@@ -321,7 +316,7 @@ To remove the Defender for Endpoint solution from your machines:
 
 ### What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?
 
-In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-on-windows-virtual-desktop-released-for-general-availability-ga) and Linux, we also added an extension to perform the automatic onboarding. 
+In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-on-windows-virtual-desktop-released-for-general-availability-ga) and Linux, we also added an extension to perform the automatic onboarding.
 
 Defender for Cloud automatically deploys the extension to machines running:
 
@@ -332,29 +327,31 @@ Defender for Cloud automatically deploys the extension to machines running:
 - Linux.
 
 > [!IMPORTANT]
-> If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
-
+> If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. To 'offboard', see [Offboard Windows servers](/microsoft-365/security/defender-endpoint/configure-server-endpoints#offboard-windows-servers).
 
 ### I enabled the solution but the "MDE.Windows" / "MDE.Linux" extension isn't showing on my machine
 
 If you enabled the integration, but still don't see the extension running on your machines:
 
-1. If 12 hours didn't pass since you enabled the solution, you'll need to wait until the end of this period to be sure there's an issue to investigate. 
+1. If 12 hours didn't pass since you enabled the solution, you'll need to wait until the end of this period to be sure there's an issue to investigate.
 1. After 12 hours pass, if you still don't see the extension running on your machines, check that you've met [Prerequisites](#prerequisites) for the integration.
 1. Ensure you've enabled the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
 1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
+
 Licenses for Defender for Endpoint for servers are included with **Microsoft Defender for Servers**.
 
 ### Do I need to buy a separate anti-malware solution to protect my machines?
+
 No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+
 - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers will deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
 - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
 - On Linux, Defender for Servers will deploy MDE including the anti-malware component, and set the component in *passive mode*.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
+
 If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
@@ -362,6 +359,7 @@ To request your discount, [contact Defender for Cloud's support team](https://po
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
 ### How do I switch from a third-party EDR tool?
+
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
 
 ### Which Microsoft Defender for Endpoint plan is supported in Defender for Servers?
