@@ -275,6 +275,14 @@ Error message | Recommended action
 --|--
 Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the following steps and retry the operation:<br/> - [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
+## MARS offline seeding using your own disks (Import/Export) is not working
+
+Azure Import/Export now uses Azure DataBox APIs for offline seeding on your own disks. The Azure portal also list the Import/Export jobs created using the new API under Azure Data Box jobs with the Model column as Import/Export.
+
+Currently, MARS uses Azure Import/Export APIs for offline seeding. The old Azure Import/Export APIs will be discontinues after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or above that uses the new Azure Data Box APIs for offline seeding on your own disks.
+
+If you've ongoing Import/Export jobs created from older MARS agents, you can still monitor them in the Azure portal, under Import/Export jobs.
+
 ## Next steps
 
 - Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
