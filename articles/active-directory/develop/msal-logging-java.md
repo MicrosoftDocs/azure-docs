@@ -9,11 +9,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/25/2021
+ms.date: 11/25/2022
 ms.author: dmwendia
-ms.reviewer: saeeda, jmprieur
+ms.reviewer: saeeda, jmprieur, engagement-fy23
 ms.custom: aaddev
 ---
+
 # Logging in MSAL for Java
 
 [!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
@@ -24,7 +25,7 @@ MSAL for Java allows you to use the logging library that you are already using w
 
 This article shows how to enable MSAL4J logging using the logback framework in a spring boot web application. You can refer to the [code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-java-webapp-sample) for reference.
 
-1. To implement logging, include the `logback` package in the _pom.xml_ file.
+1. To implement logging, include the `logback` package in the *pom.xml* file.
 
     ```xml
     <dependency>
@@ -34,7 +35,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
     </dependency>
     ```
 
-2. Navigate to the _resources_ folder, and add a file called _logback.xml_, and insert the following code. This will append logs to the console. You can change the appender `class` to write logs to a file, database or any appender of your choosing.
+2. Navigate to the *resources* folder, and add a file called *logback.xml*, and insert the following code. This will append logs to the console. You can change the appender `class` to write logs to a file, database or any appender of your choosing.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -49,7 +50,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
         </root>    
     </configuration>
     ```
-3. Next, you should set the _logging.config_ property to the location of the _logback.xml_ file before the main method. Navigate to _MsalWebSampleApplication.java_ and add the following code to the `MsalWebSampleApplication` public class. 
+3. Next, you should set the *logging.config* property to the location of the *logback.xml* file before the main method. Navigate to *MsalWebSampleApplication.java* and add the following code to the `MsalWebSampleApplication` public class. 
 
     ```java
     @SpringBootApplication
@@ -66,7 +67,7 @@ This article shows how to enable MSAL4J logging using the logback framework in a
     }
     ```
     
-In your Azure B2C tenant, you will need separate app registrations for the web app and the web API. For app registration and exposing the web API scope, you can follow the steps in [Configure authentication in a sample web app that calls a web API by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app-with-api).
+In your tenant, you'll need separate app registrations for the web app and the web API. For app registration and exposing the web API scope, follow the steps in the scenario [A web app that authenticates users and calls web APIs](/scenario-web-app-call-api-overview).
 
 For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
 
