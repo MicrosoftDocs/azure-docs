@@ -71,7 +71,7 @@ You can set up [data history](concepts-data-history.md) in your Azure Digital Tw
 
 Use the instructions for [replacing the simulation with a real production line](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets into this solution.
 
-Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to see how to create condition monitoring dashboards.
+Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to create condition monitoring dashboards.
 
 ## About OPC UA
 
