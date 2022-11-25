@@ -18,10 +18,10 @@ zone_pivot_groups: acs-csharp-java
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+This Azure Communication Services Call Automation - Appointment Reminder sample demonstrates how your application can use the Call Automation SDK to build automated workflows that create outbound calls to proactively reach out to your customers. 
+
 > [Note]
 > This sample is available **on GitHub** for [C#](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_AppointmentReminder) and [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_AppointmentReminder)
-
-This Azure Communication Services Call Automation - Appointment Reminder sample demonstrates how your application can use the Call Automation SDK to build automated workflows that create outbound calls to proactively reach out to your customers. 
 
 ## Overview
 
