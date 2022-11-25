@@ -274,26 +274,26 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Run the Azure CLI command `az containerapp connection connection create` to create a service connection from the container app, using a system-assigned managed identity.
+Run the Azure CLI command `az containerapp connection connection create` to create a service connection from the container app, using a system-assigned managed identity.
 
-    ```azurecli-interactive
-    az containerapp connection create appconfig \
-        --name mycontainerapp \ # the name of the container app
-        --resource-group AppConfigTestResources \ # the resource group that contains the container app
-        --container mycontainerapp \ #container where the connection information will be saved
-        --target-resource-group AppConfigTestResources \ # the resource group that contains the App Configuration store
-        --app-config MyAppConfiguration \  # the name of the App Configuration store
-        --system-identity #the authentication method
-    ```
+```azurecli-interactive
+az containerapp connection create appconfig \
+    --name mycontainerapp \ # the name of the container app
+    --resource-group AppConfigTestResources \ # the resource group that contains the container app
+    --container mycontainerapp \ #container where the connection information will be saved
+    --target-resource-group AppConfigTestResources \ # the resource group that contains the App Configuration store
+    --app-config MyAppConfiguration \  # the name of the App Configuration store
+    --system-identity #the authentication method
+```
 
-    | Parameter                | Suggested value          | Description                                                                             |
-    |--------------------------|--------------------------|-----------------------------------------------------------------------------------------|
-    | `--name`                 | `mycontainerapp`         | Enter a name of the container app.                                                      |
-    | `--resource-group`       | `AppConfigTestResources` | Enter the name of the resource group that contains the container app.                   |
-    | `--container`            | `mycontainerapp`         | Enter the name of the container app.                                                    |
-    | `--target-resource-group`| `AppConfigTestResources` | Enter the resource group that contains the App Configuration store.                     |
-    | `--app-config`           | `MyAppConfiguration`     | Enter the name of the App Configuration store.                                          |
-    | `--system-identity`      | Leave blank              | Enter ``--system-identity` to authenticate with with a system-assigned managed identity |
+| Parameter                | Suggested value          | Description                                                                             |
+|--------------------------|--------------------------|-----------------------------------------------------------------------------------------|
+| `--name`                 | `mycontainerapp`         | Enter a name of the container app.                                                      |
+| `--resource-group`       | `AppConfigTestResources` | Enter the name of the resource group that contains the container app.                   |
+| `--container`            | `mycontainerapp`         | Enter the name of the container app.                                                    |
+| `--target-resource-group`| `AppConfigTestResources` | Enter the resource group that contains the App Configuration store.                     |
+| `--app-config`           | `MyAppConfiguration`     | Enter the name of the App Configuration store.                                          |
+| `--system-identity`      | Leave blank              | Enter ``--system-identity` to authenticate with with a system-assigned managed identity |
 
 ---
 
