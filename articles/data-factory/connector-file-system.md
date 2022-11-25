@@ -38,9 +38,6 @@ Specifically, this file system connector supports:
 - Copying files using **Windows** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
-> [!NOTE]
-> Mapped network drive is not supported when loading data from a network file share. Use the actual path instead e.g. ` \\server\share`.
-
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -97,7 +94,8 @@ The following properties are supported for file system linked service:
 >When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
 
 >[!NOTE]
->Copying files from local machine is not supported under Azure Integration Runtime. Refer to the command line from [here](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) to enable the access to the local machine under Self-hosted integration runtime. By default, it's disabled.
+>Copying files from local machine is not supported under Azure Integration Runtime.<br>
+>Refer to the command line from [here](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) to enable the access to the local machine under Self-hosted integration runtime. By default, it's disabled.
 
 **Example:**
 
