@@ -29,7 +29,7 @@ With MSAL.NET 3.x, the recommended way to instantiate an application is by using
 Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
 
 - **Application (client) ID** - This is a string representing a GUID.
-- **Directory (tenant) ID** - Provides identity and access management (IAM) capabilities to applications and resources used by your organization. It can specify if you are writing a line of business application solely for your organization (also named single-tenant application).
+- **Directory (tenant) ID** - Provides identity and access management (IAM) capabilities to applications and resources used by your organization. It can specify if you're writing a line of business application solely for your organization (also named single-tenant application).
 - The identity provider URL (named the **instance**) and the sign-in audience for your application. These two parameters are collectively known as the authority.
 - **Client credentials** - which can take the form of an application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the **Redirect URI** where the identity provider will contact back your application with the security tokens.
@@ -40,7 +40,7 @@ There are many different ways to instantiate client applications.
 
 ### Initializing a public client application from code
 
-The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with their work and school accounts, or their personal Microsoft accounts.
+The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with their work, school or personal Microsoft accounts.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -59,7 +59,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-In production however, certificates are recommended as they are more secure than client secrets. They can be created and uploaded to the Azure portal. The code would then be the following:
+In production however, certificates are recommended as they're more secure than client secrets. They can be created and uploaded to the Azure portal. The code would then be the following:
 
 ```csharp
 IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(clientId)
@@ -91,7 +91,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## Builder modifiers
 
-In the code snippets using application builders, a number of `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
+In the code snippets using application builders, many `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
 
 ### Modifiers common to public and confidential client applications
 
@@ -131,7 +131,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-There is also an override for ADFS (ADFS 2019 is currently not supported):
+There's also an override for ADFS (ADFS 2019 is currently not supported):
 
 ```csharp
 IPublicClientApplication app;
@@ -140,7 +140,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Finally, if you are an Azure AD B2C developer, you can specify your tenant like this:
+Finally, if you're an Azure AD B2C developer, you can specify your tenant like this:
 
 ```csharp
 IPublicClientApplication app;
