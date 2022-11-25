@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 11/06/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -40,7 +40,7 @@ This documentation contains the following types of articles:
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-For a more structured approach, follow a Learn module for Face.
+For a more structured approach, follow a Training module for Face.
 * [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces/)
 
 ## Example use cases

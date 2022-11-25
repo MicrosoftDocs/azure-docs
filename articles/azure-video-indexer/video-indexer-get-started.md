@@ -74,7 +74,7 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Uploaded the upload":::
 
-After you upload and index a video, you can continue using [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+After you upload and index a video, you can continue using [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
 ## Start using insights
 
