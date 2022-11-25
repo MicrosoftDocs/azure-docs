@@ -12,13 +12,14 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). The certificates used to secure these web applications can be self-signed or user-provided; we recommend the latter option for additional security of your deployment. 
+Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). You can use a self-signed certificate or provide your own to authenticate access to your local diagnostics tools. We recommend providing a certificate signed by a well-known certificate authority (CA) for additional security to your deployment.
 
 In this how-to guide, you'll learn how to use the Azure portal to change the certificate used for securing access to a site's local monitoring tools.
 
 ## Prerequisites
 
-- Refer to [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) to collect the required values and make sure they're in the correct format. If you want to use a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a certificate authority (CA).
+- If you want to use a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a CA.
+- Refer to [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to collect the required values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the local access configuration
@@ -47,7 +48,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media//modify-local-access-configuration/modify-local-access.png" alt-text="Screenshot of the Azure portal showing the Modify local access option.":::
 
 1. Under **HTTPS certificate**, choose whether you want to provide a custom HTTPS certificate for accessing your local monitoring tools.
-1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose how to access local monitoring tools](collect-required-information-for-a-site.md#choose-how-to-access-local-monitoring-tools) to fill out the remaining fields.
+1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to fill out the remaining fields.
 
     :::image type="content" source="media//modify-local-access-configuration/local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab.":::
 
