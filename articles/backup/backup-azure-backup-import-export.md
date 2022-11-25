@@ -128,11 +128,11 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     | Parameter | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file.  |
+    
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
-    ![Azure disk preparation tool input](./media/backup-azure-backup-import-export/diskprepconsole0_1.png) <br/>
+    ![Azure disk preparation tool input](./media/backup-azure-backup-import-export/diskprepconsole0_1.png)
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure.
 1. Provide confirmation for the formatting of the drive when prompted.
@@ -142,51 +142,88 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
-    At the end of successful execution of the tool, the command prompt provides three pieces of information:
+1. After successful copy of the data from the staging location to the disks, the tool appears and requests for a few details to create the *Import/Export Job*:
 
-   1. One or more disks you provided are prepared for shipping to Azure.
-   1. You receive confirmation that your import job was created. The import job uses the name you provided.
-   1. The tool displays the shipping address for the Azure datacenter.
+   - The list of disks prepared for seeding. 
+   - The name of the storage account, resource group, country and region of the import/export job. 
 
-      ![Azure disk preparation finished](./media/backup-azure-backup-import-export/console2.png)<br/>
+   Enter the following details to create the *Import/Export Job*. (All the fields are required.)
 
-1. At the end of the command execution, you can update the shipping information.
+   | Required Parameter | Detail|
+   | --- | --- |
+   | Contact Name | Name of the contact for the Import/Export Job |
+   | Contact Number | Phone number of the contact for the Import/Export Job |
+   | Email Id | Email id to notify for the Import/Export Job |
+   | Shipping Address | The return shipping address |
+   | Country | Return shipping country |
+   | Postal Code | Return shipping postal code |
 
-1. Ship the disks to the address that the tool provided. Keep the tracking number for future reference.
+   You can edit these parameters in future in the Azure portal for the *Import/Export Job*.    
 
-   > [!IMPORTANT]
-   > No two Azure import jobs can have the same tracking number. Ensure that drives prepared by the utility under a single Azure import job are shipped together in a single package and that there's a single unique tracking number for the package. Don't combine drives prepared as part of separate Azure import jobs in a single package.
+   :::image type="content" source="./media/backup-azure-backup-import-export/create-import-export-jobs.png" alt-text="Screenshot shows to create the import/export jobs.":::
+
+   After you enter these parameters and run the tool successfully, you receive a confirmation of the successful creation of the import job.
+
+   :::image type="content" source="./media/backup-azure-backup-import-export/confirmation-after-successful-tool-run.png" alt-text="Screenshot shows the confirmation after tool is run successfully.":::
+
+   >[!Important]
+   >The tool also displays the Azure data centre address to which the disks need to be shipped along with a list of supported carriers.
+
+Ship the disks to the address that the tool provided. Keep the tracking number for future reference and update it in the Azure portal as soon as possible.
+
+>[!Important]
+>No two Azure import jobs can have the same tracking number. Ensure that drives created by the utility under a single Azure import job are shipped together in a single package and that there is a single unique tracking number for the package. Don't combine drives prepared as part of separate Azure import jobs in a single package.
 
 ## Update shipping details on the Azure import job
 
-The following procedure updates the Azure import job shipping details. This information includes details about:
+The section helps you update the Azure import job shipping details. This information includes details about:
 
 * The name of the carrier that delivers the disks to Azure.
 * Return shipping details for your disks.
+* Modify the notification email for the import job.
 
-1. Sign in to your Azure subscription.
-1. On the main menu, select **All services**. In the **All services** dialog box, enter **Import**. When you see **Import/export jobs**, select it.
+### Update the tracking details
+
+To update the tracking details, follow these steps:
+
+1. Sign in to the Azure subscription.
+1. On the main menu, select **All services**.
+1. On the **All services** pane, enter **Azure Data Box** in the search box, and then select it from the search result.
 
     ![Enter shipping information](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
 
-    The **Import/export jobs** menu opens, and the list of all import/export jobs in the selected subscription appears.
+    On the **Azure Data Box** menu, the list of all Azure Data Box jobs under the selected subscription appears (including **Import/Export**).
 
-1. If you have multiple subscriptions, select the subscription used to import the backup data. Then select the newly created import job to open its details.
+1. Enter *Import/Export* on the search box to filter the *Import/Export jobs*, or enter the job name directly, and then select the newly created import job to view its details.
+
+   If you've multiple subscriptions, select the subscription used to import the backup data.
 
     ![Review shipping information](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
 
-1. On the **Settings** menu for the import job, select **Manage shipping info**. Enter the return shipping details.
+1. Select the job, and then under the **Overview** pane, add the *Carrier and Tracking Number* to update the *Tracking information*.
 
-    ![Store shipping information](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
 
-1. When you have the tracking number from your shipping carrier, select the banner in the Azure import job overview page and enter the following details.
+    ![Store shipping information](./media/backup-azure-backup-import-export/shipping-info.png)
 
-   > [!IMPORTANT]
-   > Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted and drives not being processed.
+### Add return shipping details 
 
-   ![Tracking information update alert](./media/backup-azure-backup-import-export/joboverview.png)<br/>
+To add retuen shipping details, follow these steps:
 
-   ![Carrier information and tracking number](./media/backup-azure-backup-import-export/tracking-info.png)
+1. Select **Job Details** under **General**, and then **Edit Address**.
+1. Update the *carrier*, *carrier account number*, *contact details*, and the *return shipping address details*
+1. Select **Save**.
+
+ ![Screenshot shows how to add return shipping details.](./media/backup-azure-backup-import-export/add-tracking-information.png)
+
+### Edit notification email
+
+To update the email addresses that are notified on the Import job progress, select **Edit notification details**.
+ 
+![Screenshot shows to how to edit notification email.](./media/backup-azure-backup-import-export/edit-notification-email.png)
+
+> [!IMPORTANT]
+> Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted and drives not being processed.
+
 
 ### Time to process the drives
 
@@ -194,7 +231,9 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 ### Monitor Azure import job status
 
-You can monitor the status of your import job from the Azure portal. Go to the **Import/Export jobs** page and select your job. For more information on the status of the import jobs, see [What is the Azure Import/Export service?](../import-export/storage-import-export-service.md).
+To monitor the statuys of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
+
+For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview).
 
 ### Finish the workflow
 
