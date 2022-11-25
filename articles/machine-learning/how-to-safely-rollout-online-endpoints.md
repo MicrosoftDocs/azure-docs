@@ -327,7 +327,7 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 > Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
 
 > [!IMPORTANT]
-> Mirrored traffic is supported with newer version of the CLI/SDK. If you update the endpoint using an older version of CLI/SDK or Studio UI, setting for the mirrored traffic can be removed.
+> Mirrored traffic is supported for the CLI (v2) and Python SDK (v2). If you update the endpoint using an older version of CLI/SDK or Studio UI, the setting for mirrored traffic can be removed.
 
 # [Azure CLI](#tab/azure-cli)
 
