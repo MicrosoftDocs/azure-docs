@@ -5,6 +5,7 @@ ms.topic: article
 ms.date: 11/23/2022
 author: ankitaduttaMSFT
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Support matrix for Azure VM disaster recovery between Azure regions
