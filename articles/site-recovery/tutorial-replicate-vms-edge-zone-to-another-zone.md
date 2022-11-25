@@ -16,7 +16,7 @@ Azure Public MECs (preview) are fully managed solution deployed close to your da
 
 ## Disaster recovery in Azure Public MEC (preview)
 
-Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is another Azure Public MEC connected to the same parent region. 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is another Azure Public MEC connected to the same parent region. 
 
 ## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
 
@@ -37,7 +37,7 @@ Site Recovery ensure business continuity by keeping workloads running during out
 
 ## Replicate Virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC
 
-To replicate VMs running in an Public MEC (preview) to another Azure Public MEC, follow these steps:
+To replicate VMs running in a Public MEC (preview) to another Azure Public MEC, follow these steps:
 
 > [!NOTE] 
 > For this example, the primary location is an Azure Public MEC (preview), and the secondary/recovery location is another Azure Public MEC connected to the same region. 
@@ -457,7 +457,7 @@ To replicate VMs running in an Public MEC (preview) to another Azure Public MEC,
         Standard_LRS -Kind Storage
         ```
     
-    1. Use the recovery protection container, the new cache storage account in Azure Public MEC’s (preview) region, and the source region VM resource group. 
+    1. Use the recovery protection container, the new cache storage account in Azure Public MECs (preview) region, and the source region VM resource group. 
     
         ```
         $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -

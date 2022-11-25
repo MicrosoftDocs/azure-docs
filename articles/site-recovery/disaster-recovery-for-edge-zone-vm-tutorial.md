@@ -46,8 +46,7 @@ Select the source settings and enable VM replication.
     - **Virtual machine deployment model**: Retain the default **Resource Manager** setting. 
     - **Disaster recovery between availability zones**: Retain the default **No** setting. 
 
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/source.png" alt-text="Screenshot of Enable replication form source tab":::
-
+    
     > [!NOTE]
     > As there are no availability zones for Azure Public MEC (preview), it is disabled. 
     
@@ -59,7 +58,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     
 1. In **Virtual machines**, select the VMs you want to enable for disaster recovery. You can select up to 10 VMs. 
     
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/virtual-machines.png" alt-text="Screenshot of Enable replication form VM tab":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/virtual-machines.png" alt-text="Screenshot of Enable replication form VM tab.":::
 
 1. Select **Next**. 
     
@@ -68,7 +67,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings. 
  
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/replication-settings.png" alt-text=" Screenshot of Replication settings tab":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/replication-settings.png" alt-text=" Screenshot of Replication settings tab.":::
 
     > [!NOTE]
     >- In the above box, you can select target to be parent region (i.e., connected to the Public MEC (preview)) or in certain cases, another of your Public MEC (preview) connected to the same region. 
@@ -76,8 +75,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Customize storage option**, you can select an existing storage that was created either on Public MEC (preview) or region.
 
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/customize-target.png" alt-text=" Screenshot of Customizing the target settings tab":::
-
+    
     >[!NOTE]
     >- For *Azure Public MEC* (preview) replication flow, an existing storage account associated with the recovery vault will be preselected. If a storage account doesn't exist with the recovery vault, a new one will be created in the region.
     >- For *Public MEC to Public MEC* (preview) replication flow, you must select an existing storage account in the drop down for **cache storage**.
@@ -104,7 +102,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 In **Review**, review the VM settings and select **Enable replication**.  
 The **VM setting** now includes target region information and a **Summary** section includes the Azure Public MEC (preview) information. 
             
-:::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text="Screenshot of Review replication tab"::: 
+:::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text="Screenshot of Review replication tab."::: 
             
 The VMs you enable appear on the vault > **Replicated items** page. 
 

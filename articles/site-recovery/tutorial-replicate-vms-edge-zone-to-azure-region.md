@@ -14,7 +14,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 ## Disaster recovery in Azure Public MEC (preview)
 
-Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is the parent region to which the Azure Public MEC is connected. 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is the parent region to which the Azure Public MEC is connected. 
 
 ## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
 
@@ -31,7 +31,7 @@ Site Recovery ensure business continuity by keeping workloads running during out
 
 ## Replicate Virtual machines running in an Azure Public MEC (preview) to Azure region
 
-To replicate VMs running in an Public MEC (preview) to Azure region, Follow these steps: 
+To replicate VMs running in a Public MEC (preview) to Azure region, Follow these steps: 
 
 > [!NOTE] 
 > For this example, the primary location is an Azure Public MEC (preview), and the secondary/recovery location is the Public MEC's (preview) region.
