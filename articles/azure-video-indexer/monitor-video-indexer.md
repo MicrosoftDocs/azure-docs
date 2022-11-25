@@ -20,6 +20,9 @@ Keep the headings in this order.
 <!-- IMPORTANT STEP 1.  Do a search and replace of Azure Video Indexer with the name of your service. That will make the template easier to read -->
 
 # Monitoring Azure Video Indexer
+
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 <!-- REQUIRED. Please keep headings in this order -->
 <!-- Most services can use this section unchanged. Add to it if there are any unique charges if your service has significant monitoring beyond Azure Monitor. -->
 
@@ -67,7 +70,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 | Category | Description  |
 |:---|:---|
 |Audit | Read/Write operations|
-|Indexing Logs| Monitor the indexing process form upload to indexing and Re-indexing when needed|
+|Indexing Logs| Monitor the indexing process from upload to indexing and Re-indexing when needed|
 
 :::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings." lightbox="./media/monitor/toc-diagnostics-save.png":::
 

@@ -4,8 +4,9 @@ description: This article describes managed identities for Azure Stream Analytic
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 10/27/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -32,7 +33,7 @@ Stream Analytics supports two types of managed identities:
 
 Below is a table that shows Azure Stream Analytics inputs and outputs that support system-assigned managed identity or user-assigned managed identity:
 
-| Type            |  Adapter                      | User-assigned managed identity (Preview)                               | System-assigned managed identity       |
+| Type            |  Adapter                      | User-assigned managed identity                                         | System-assigned managed identity       |
 |-----------------|-------------------------------|------------------------------------------------------------------------|------------------------------------------|
 | Storage Account | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
 | Inputs          | Event Hubs                    | Yes                                                                    | Yes                                      |
@@ -46,7 +47,7 @@ Below is a table that shows Azure Stream Analytics inputs and outputs that suppo
 |                 | Table Storage                 | No                                                                     | No                                       |
 |                 | Service Bus Topic             | Yes                                                                    | Yes                                      |
 |                 | Service Bus Queue             | Yes                                                                    | Yes                                      |
-|                 | Cosmos DB                     | Yes                                                                    | Yes                                      |
+|                 | Azure Cosmos DB                     | Yes                                                                    | Yes                                      |
 |                 | Power BI                      | No                                                                     | Yes                                      |
 |                 | Data Lake Storage Gen1        | Yes                                                                    | Yes                                      |
 |                 | Azure Functions               | No                                                                     | No                                       |

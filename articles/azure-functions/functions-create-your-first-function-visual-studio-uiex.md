@@ -3,7 +3,7 @@ title: "Quickstart: Create your first function in Azure using Visual Studio"
 description: In this quickstart, you learn how to create and publish an HTTP trigger Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 11/8/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, mode-ui
 ROBOTS: NOINDEX,NOFOLLOW
@@ -99,7 +99,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
     
     + **Select** <abbr title="When you publish your project to a function app that runs in a Consumption plan, you pay only for executions of your functions app. Other hosting plans incur higher costs.">Consumption</abbr> in the Play Type drop-down. (For more information, see [Consumption plan](consumption-plan.md).)
     
-    + **Select** an  <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.See [regions](https://azure.microsoft.com/regions/) for a list of available regions.">location</abbr> from the drop-down.
+    + **Select** a  <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.See [regions](https://azure.microsoft.com/regions/) for a list of available regions.">location</abbr> from the drop-down.
     
     + **Select** an <abbr="An Azure Storage account is required by the Functions runtime. Select New to configure a general-purpose storage account. You can also choose an existing account that meets the storage account requirements.">Azure Storage</abbr> account from the drop-down
 

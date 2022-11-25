@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to add device templates in Azure IoT Central
 description: How to use the IoT Central REST API to add device templates in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 06/17/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -43,7 +43,7 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -318,7 +318,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -450,13 +450,13 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which adds a the `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
 
 ```json
 {
@@ -726,7 +726,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 ## List device templates
@@ -734,7 +734,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example: 
@@ -1264,7 +1264,7 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two device templates where the display name contains the string `thermostat`.
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2

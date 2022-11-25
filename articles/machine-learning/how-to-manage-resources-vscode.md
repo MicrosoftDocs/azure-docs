@@ -135,7 +135,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to:
-    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple version of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
+    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple versions of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
     - **Preview dataset**. View your dataset directly in the VS Code Data Viewer. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
@@ -267,7 +267,7 @@ Alternatively, use the `Azure ML: Delete Compute instance` command in the comman
 
 ## Compute clusters
 
-For more information, see [training compute targets](concept-compute-target.md#train).
+For more information, see [training compute targets](concept-compute-target.md#training-compute-targets).
 
 ### Create compute cluster
 
@@ -300,7 +300,7 @@ Alternatively, use the `> Azure ML: Remove Compute` command in the command palet
 
 ## Inference Clusters
 
-For more information, see [compute targets for inference](concept-compute-target.md#deploy).
+For more information, see [compute targets for inference](concept-compute-target.md#compute-targets-for-inference).
 
 ### Manage inference clusters
 

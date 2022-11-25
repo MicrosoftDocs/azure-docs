@@ -16,7 +16,7 @@ Ensure that you meet the following prerequisites for the connection.
 
 ### ITSMC installation
 
-For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#add-it-service-management-connector).
+For information about installing ITSMC, see [Add the IT Service Management Connector solution](./itsmc-definition.md#install-it-service-management-connector).
 
 > [!NOTE]
 > ITSMC supports only the official software as a service (SaaS) offering from ServiceNow. Private deployments of ServiceNow are not supported.

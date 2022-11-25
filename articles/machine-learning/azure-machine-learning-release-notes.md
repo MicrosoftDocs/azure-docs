@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/29/2022
+ms.date: 10/25/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,50 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## 2022-10-25
+
+### Azure Machine Learning SDK for Python v1.47.0
+  + **azureml-automl-dnn-nlp**
+    + Runtime changes for AutoML NLP to account for fixed training parameters, as part of the newly introduced model sweeping and hyperparameter tuning.
+  + **azureml-mlflow**
+    + AZUREML_ARTIFACTS_DEFAULT_TIMEOUT can be used to control the timeout for artifact upload
+  + **azureml-train-automl-runtime**
+    + Many Models and Hierarchical Time Series training now enforces check on timeout parameters to detect conflict before submitting the experiment for run. This will prevent experiment failure during the run by raising exception before submitting experiment.
+    + Customers can now control the step size while using rolling forecast in Many Models inference.
+    + ManyModels inference with unpartitioned tabular data now supports forecast_quantiles.
+
+## 2022-09-26
+
+### Azure Machine Learning SDK for Python v1.46.0 
+  + **azureml-automl-dnn-nlp**
+    + Customers will no longer be allowed to specify a line in CoNLL which only comprises with a token. The line must always either be an empty newline or one with exactly one token followed by exactly one space followed by exactly one label.
+  + **azureml-contrib-automl-dnn-forecasting**
+    + There is a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
+  + **azureml-core**
+    + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when python version is 3.6 and less.
+    + The following values of `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` change the behavior as follows:
+      + Default - displays the warning when customer uses python 3.6 and less and for cli/sdk v1. 
+      + `True` - displays the sdk v1 deprecation warning on azureml-sdk packages. 
+      + `False` - disables the sdk v1 deprecation warning on azureml-sdk packages. 
+    + Command to be executed to set the environment variable to disable the deprecation message: 
+      + Windows - `setx AZUREML_LOG_DEPRECATION_WARNING_ENABLED "False"`
+      + Linux - `export AZUREML_LOG_DEPRECATION_WARNING_ENABLED="False"`
+  + **azureml-interpret**
+    + update azureml-interpret package to interpret-community 0.27.*
+  + **azureml-pipeline-core**
+    + Fix schedule default time zone to UTC.
+    + Fix incorrect reuse when using SqlDataReference in DataTransfer step.
+  + **azureml-responsibleai**
+    + update azureml-responsibleai package and curated images to raiwidgets and responsibleai v0.22.0
+  + **azureml-train-automl-runtime**
+    + Fixed a bug in generated scripts that caused certain metrics to not render correctly in ui.
+    + Many Models now supports rolling forecast for inferencing.
+    + Support to return top `N` models in Many models scenario.
+
+
+
 
 ## 2022-08-29
 
@@ -179,7 +223,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     +  AutoML training now supports numpy version 1.19
     +  Fix AutoML reset index logic for ensemble models in automl_setup_model_explanations API
     +  In AutoML, use lightgbm surrogate model instead of linear surrogate model for sparse case after latest lightgbm version upgrade
-    +  All internal intermediate artifacts that are produced by AutoML are now stored transparently on the parent run (instead of being sent to the default workspace blob store). Users should be able to see the artifacts that AutoML generates under the 'outputs/` directory on the parent run.
+    +  All internal intermediate artifacts that are produced by AutoML are now stored transparently on the parent run (instead of being sent to the default workspace blob store). Users should be able to see the artifacts that AutoML generates under the `outputs/` directory on the parent run.
 
  
 ## 2022-01-24 
@@ -445,7 +489,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 
 ## 2021-05-25
 
-### Announcing the CLI (v2) (preview) for Azure Machine Learning
+### Announcing the CLI (v2) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
@@ -1987,7 +2031,7 @@ Access the following web-based authoring tools from the studio:
 
 + **New features**
   + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
-  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates a Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](./concept-data-encryption.md#azure-cosmos-db).
+  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Azure Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates an Azure Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](./concept-data-encryption.md#azure-cosmos-db).
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -2634,7 +2678,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + **azureml-core**
     + Fixed issue with blob_cache_timeout parameter ordering.
     + Added external fit and transform exception types to system errors.
-    + Added support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get, and list secrets from the keyvault associated with your workspace. Supported operations are:
+    + Added support for Key Vault secrets for remote runs. Add an `azureml.core.keyvault.Keyvault` class to add, get, and list secrets from the key vault associated with your workspace. Supported operations are:
       + azureml.core.workspace.Workspace.get_default_keyvault()
       + azureml.core.keyvault.Keyvault.set_secret(name, value)
       + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)

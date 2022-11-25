@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy a connected registry to an IoT Edge hierarchy'
 description: In this tutorial, use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge devices and deploy a connected registry as a module at each layer.
 ms.topic: tutorial
-ms.date: 06/07/2022
+ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]

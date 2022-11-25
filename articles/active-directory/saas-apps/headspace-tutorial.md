@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 09/30/2022
 ms.author: jeedes
 
 ---
@@ -96,9 +96,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Name | Source Attribute|
     | ------------ | --------- |
-    | email | user.mail |
+    | email | user.userprincipalname |
     | family_name | user.surname |
-    | userName | user.userprincipalname |
+    | given_name | user.givenname |
 
 1. In order to fill Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
 

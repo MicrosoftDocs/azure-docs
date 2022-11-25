@@ -2,9 +2,9 @@
 title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/29/2022
 ms.reviewer: viviandiec
-
 ---
 # Understand monitoring costs for Container insights
 
@@ -176,11 +176,11 @@ The following are examples of what changes you can apply to your cluster by modi
       ttlSecondsAfterFinished: 100
     ```
 
-After applying one or more of these changes to your ConfigMaps, see [Apply updated ConfigMap](container-insights-prometheus-integration.md#apply-updated-configmap) to apply it to your cluster.
+After applying one or more of these changes to your ConfigMaps, apply it to your cluster withe the command `kubectl apply -f <config3. map_yaml_file.yaml>`. For example, run the command `kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
 
 ### Prometheus metrics scraping
 
-If you are utilizing [Prometheus metric scraping](container-insights-prometheus-integration.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
+If you are utilizing [Prometheus metric scraping](container-insights-prometheus.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
 
 - Ensure scraping frequency is set optimally (the default is 60 seconds). While you can increase the frequency to 15 seconds, you need to ensure that the metrics you are scraping are published at that frequency. Otherwise there will be many duplicate metrics scraped and sent to your Log Analytics workspace at intervals adding to data ingestion and retention costs, but are of less value. 
 
@@ -190,7 +190,7 @@ If you are utilizing [Prometheus metric scraping](container-insights-prometheus-
  
 ### Configure Basic Logs
 
-You can save on data ingestion costs by configuring certain tables in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
+You can save on data ingestion costs by configuring certain tables in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs](../best-practices-cost.md#configure-basic-logs). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
 
 You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md).
 

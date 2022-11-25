@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-javascript"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Get URL for container or blob in Azure Storage using the JavaScript client library

@@ -9,32 +9,47 @@ ms.custom: mode-other
 
 # Quickstart: How to sign up and upload your first video
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
+You can access Azure Video Indexer capabilities in three ways:
 
-[!INCLUDE [accounts](./includes/create-accounts-intro.md)]
-
-## Sign up for Azure Video Indexer
-
-To start developing with Azure Video Indexer, browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign up.
+* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models (as described in this article).
+* API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure. To get started, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
+* Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app. For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
 Once you start using Azure Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
 
 > [!NOTE]
 > Review [planned Azure Video Indexer website authenticatication changes](./release-notes.md#planned-azure-video-indexer-website-authenticatication-changes).
 
-## Upload a video using the Azure Video Indexer website
+This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
+
+[!INCLUDE [accounts](./includes/create-accounts-intro.md)]
+
+## Sign up and upload a video
 
 ### Supported browsers
 
-For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
+The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
+
+- Edge, version: 16
+- Firefox, version: 54
+- Chrome, version: 58
+- Safari, version: 11
+- Opera, version: 44
+- Opera Mobile, version: 59
+- Android Browser, version: 81
+- Samsung Browser, version: 7
+- Chrome for Android, version: 87
+- Firefox for Android, version: 83
 
 ### Supported file formats for Azure Video Indexer
 
 See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
 
-### Upload a video
+### Upload 
 
 1. Sign in on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. To upload a video, press the **Upload** button or link.
@@ -61,12 +76,14 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
 
 After you upload and index a video, you can continue using [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
-For more details, see [Upload and index videos](upload-index-videos.md).
+## Start using insights
 
-To start using the APIs, see [use APIs](video-indexer-use-apis.md)
+For more details, see [Upload and index videos](upload-index-videos.md) and check out other **How to guides**.
 
 ## Next steps
 
-For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
+* To embed widgets, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
+* For the API integration, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
+* Check out our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
 
-At the end of the workshop, you'll have a good understanding of the kind of information that can be extracted from video and audio content, you'll be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Azure Video Indexer.
+   At the end of the workshop, you'll have a good understanding of the kind of information that can be extracted from video and audio content, you'll be more    prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Azure Video Indexer.

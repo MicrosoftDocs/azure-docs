@@ -22,6 +22,8 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: TLS support
+      href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
     - name: Security controls by Azure Policy

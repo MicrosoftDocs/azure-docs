@@ -29,14 +29,14 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
+| Standard_E2_v5  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
 | Standard_E4_v5                | 4   | 32  | Remote Storage Only | 8  | 2 | 12500 |
 | Standard_E8_v5                | 8   | 64  | Remote Storage Only | 16 | 4 | 12500 |
 | Standard_E16_v5               | 16  | 128 | Remote Storage Only | 32 | 8 | 12500 |
@@ -48,8 +48,7 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 | Standard_E104i_v5<sup>3</sup> | 104 | 672 | Remote Storage Only | 64 | 8 | 100000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ev5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
+<sup>2</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
 
 ## Esv5-series
 
@@ -62,14 +61,14 @@ Esv5-series supports Standard SSD, Standard HDD, and Premium SSD disk types. You
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>4</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
+| Standard_E2s_v5  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
 | Standard_E4s_v5                | 4   | 32  | Remote Storage Only | 8  | 6400/145    | 20000/1200 | 2 | 12500 |
 | Standard_E8s_v5                | 8   | 64  | Remote Storage Only | 16 | 12800/290   | 20000/1200 | 4 | 12500 |
 | Standard_E16s_v5               | 16  | 128 | Remote Storage Only | 32 | 25600/600   | 40000/1200 | 8 | 12500 |
@@ -78,19 +77,17 @@ Esv5-series supports Standard SSD, Standard HDD, and Premium SSD disk types. You
 | Standard_E48s_v5               | 48  | 384 | Remote Storage Only | 32 | 76800/1315  | 80000/3000 | 8 | 24000  |
 | Standard_E64s_v5               | 64  | 512 | Remote Storage Only | 32 | 80000/1735  | 80000/3000 | 8 | 30000  |
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | Remote Storage Only | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
-| Standard_E104is_v5<sup>4,6</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
+| Standard_E104is_v5<sup>3,5</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.
 
-<sup>2</sup> Accelerated networking can be applied to two NICs.
+<sup>2</sup> [Constrained core](constrained-vcpu.md) sizes available.
 
-<sup>3</sup> [Constrained core](constrained-vcpu.md) sizes available.
+<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
 
-<sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
+<sup>4</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
-<sup>5</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-
-<sup>6</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E104is_v5** results in higher IOPs and MBps than standard premium disks:
+<sup>5</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E104is_v5** results in higher IOPs and MBps than standard premium disks:
 - Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/4000 
 - Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/4000
 

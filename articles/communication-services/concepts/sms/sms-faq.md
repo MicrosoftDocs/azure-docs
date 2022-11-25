@@ -120,7 +120,7 @@ Toll-free verification (TFV) involves an integration between Microsoft and the T
 ### What are common reasons for toll-free verification delays? 
 Your application wait time increases when your application has missing or unclear information. 
 
-- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, proved a good justification. 
+- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, provide a good justification. 
 - **Opt-in Image URL is not accessible to the public** - When you host your image on image hosting services (i.e. OneDrive, GoogleDrive, iCloud, Dropbox, etc.) make sure the public can view it. Test the URL by seeing if the URL can be viewed by a personal account. 
 - **Incorrect toll-free numbers** - Phone numbers have to be toll-free numbers, not local numbers, 10DLC, or short codes. 
  
@@ -140,7 +140,9 @@ This table shows the maximum number of characters that can be sent per SMS segme
 
 ### Can I send/receive long messages (>2048 chars)?
 
-Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages.
+Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
+
+*Limitation of US short code - There is a known limit of ~4 segments when sending/receiving a message with Non-ASCII characters. Beyond 4 segments, the message may not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 

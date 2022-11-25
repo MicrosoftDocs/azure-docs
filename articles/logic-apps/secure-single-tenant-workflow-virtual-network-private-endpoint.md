@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 09/07/2022
+ms.date: 10/03/2022
 
 # As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
@@ -162,6 +162,8 @@ For more information, review the following documentation:
 1. On the **VNet Integration** pane, select **Add Vnet**.
 
 1. On the **Add VNet Integration** pane, select the subscription and the virtual network that connects to your internal service.
+
+   After you add virtual network integration, on the **VNet Integration** pane, the **Route All** setting is enabled by default. This setting routes all outbound traffic through the virtual network. When this setting is enabled, the `WEBSITE_VNET_ROUTE_ALL` app setting is ignored.
 
 1. If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS.
 

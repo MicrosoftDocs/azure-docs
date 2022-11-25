@@ -1,10 +1,11 @@
 ---
 title: JSONL format for computer vision tasks
 titleSuffix: Azure Machine Learning
-description: Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks with the CLI v2 and Python SDK v2 (preview).
+description: Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks with the CLI v2 and Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: reference
 ms.reviewer: nibaccam
 ms.author: rvadthyavath
@@ -20,8 +21,6 @@ ms.date: 09/09/2022
 > * [v1](v1/reference-automl-images-schema-v1.md)
 > * [v2 (current version)](reference-automl-images-schema.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
 
@@ -268,11 +267,11 @@ This json is a dictionary with outer key `input_data` and inner keys `columns`, 
 
 After we [deploy the mlflow model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
 
 ### Output format
 
@@ -437,4 +436,4 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 * Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
 * [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

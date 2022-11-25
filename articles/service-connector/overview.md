@@ -1,10 +1,10 @@
 ---
 title: What is Service Connector?
 description: Understand typical use case scenarios for Service Connector, and learn the key benefits of Service Connector.
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
 ms.date: 06/14/2022
 ---
@@ -19,9 +19,9 @@ This article provides an overview of Service Connector.
 
 Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
-* **WebApp/Container Apps/Spring Apps + DB:** Use Service Connector to connect PostgreSQL, MySQL, or Cosmos DB to your App Service/Container Apps/Spring Apps.  
+* **WebApp/Container Apps/Spring Apps + Database:** Use Service Connector to connect PostgreSQL, MySQL, or Azure Cosmos DB to your App Service/Container Apps/Spring Apps.
 * **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
-* **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs and Apache Kafka on Confluent Cloud.
+* **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
 See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
 
@@ -48,7 +48,7 @@ Once a service connection is created, developers can validate and check the heal
 * Apache Kafka on Confluent Cloud
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
-* Azure Cosmos DB (Core, MangoDB, Gremlin, Cassandra, Table)
+* Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Event Hubs

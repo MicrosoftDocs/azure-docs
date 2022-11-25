@@ -115,7 +115,7 @@ Build IoT solutions such as:
 
 ## Administer your application
 
-IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications. Administrators manage access to your application with [user roles and permissions](howto-administer.md).
+IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications. Administrators manage access to your application with [user roles and permissions](howto-administer.md) and track activity by using [audit logs](howto-use-audit-logs.md).
 
 ## Pricing
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022, ignite-2022
 ms.date: 05/11/2022
 ---
 
-# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, and monitoring with Azure Machine Learning
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -181,7 +181,6 @@ Learn more by reading and exploring the following resources:
 + [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
 + [How to deploy a model to an online endpoint](how-to-deploy-managed-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
-+ [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 + [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 + [Azure AI reference architectures and best practices repo](https://github.com/microsoft/AI)

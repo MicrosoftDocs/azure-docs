@@ -5,6 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.date: 06/22/2022
 ms.topic: conceptual
+ms.custom: ignite-2022
 ---
 # Overview of Microsoft Defender for Servers
 
@@ -38,20 +39,23 @@ The following table summarizes what's included in each plan.
 | **Unified view** | The Defender for Cloud portal displays Defender for Endpoint alerts. You can then drill down into Defender for Endpoint portal, with additional information such as the alert process tree, the incident graph, and a detailed machine timeline showing historical data up to six months.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Automatic MDE provisioning** | Automatic provisioning of Defender for Endpoint on Azure, AWS, and GCP resources. | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Microsoft threat and vulnerability management** |  Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, without needing  other agents or periodic scans. [Learn more](deploy-vulnerability-assessment-tvm.md). | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for OS-level (Agent-based)** | Defender for Servers and Microsoft Defender for Endpoint (MDE) detect threats at the OS level, including VM behavioral detections and **Fileless attack detection**, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br>[Learn more](alerts-reference.md#alerts-windows) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for network-level (Agentless)** | Defender for Servers detects threats directed at the control plane on the network, including network-based detections for Azure virtual machines. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Security Policy and Regulatory Compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Integrated vulnerability assessment powered by Qualys** | Use the Qualys scanner for real-time identification of vulnerabilities in Azure and hybrid VMs. Everything's handled by Defender for Cloud. You don't need a Qualys license or even a Qualys account. [Learn more](deploy-vulnerability-assessment-vm.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Log Analytics 500 MB free data ingestion** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection** | Defender for Cloud detects threats at the OS level, network layer, and control plane. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) in Defender for Cloud define allowlists of known safe applications for machines.  | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) (change monitoring) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Just-in-time VM access for management ports** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface.| | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Docker host hardening** | Defender for Cloud assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Fileless attack detection** | Fileless attack detection in Defender for Cloud  generates detailed security alerts that accelerate alert triage, correlation, and downstream response time. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 <!-- 
  [Learn more](fileless-attack-detection.md).
 | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+
+> [!NOTE]
+> If you only enable Defender for Cloud at the workspace level, Defender for Cloud won't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
 
 Want to learn more? Watch an overview of enhanced workload protection features in Defender for Servers in our [Defender for Cloud in the Field](episode-twelve.md) series.
 

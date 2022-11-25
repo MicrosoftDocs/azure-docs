@@ -1,21 +1,21 @@
 ---
-title: Support for VMware migration in Azure Migrate
-description: Learn about support for VMware VM migration in Azure Migrate.
+title: Support for VMware vSphere migration in Azure Migrate
+description: Learn about support for VMware vSphere VM migration in Azure Migrate.
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 10/04/2022
 ---
 
-# Support matrix for VMware migration
+# Support matrix for VMware vSphere migration
 
-This article summarizes support settings and limitations for migrating VMware VMs with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing VMware VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
+This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
 
 
 ## Migration options
 
-You can migrate VMware VMs in a couple of ways:
+You can migrate VMware vSphere VMs in a couple of ways:
 
 - **Using agentless migration**: Migrate VMs without needing to install anything on them. You deploy the [Azure Migrate appliance](migrate-appliance.md) for agentless migration.
 - **Using agent-based migration**: Install an agent on the VM for replication. For agent-based migration, you deploy a [replication appliance](migrate-replication-appliance.md).
@@ -24,29 +24,29 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 ## Agentless migration
 
-This section summarizes requirements for agentless VMware VM migration to Azure.
+This section summarizes requirements for agentless VMware vSphere VM migration to Azure.
 
-### VMware requirements (agentless)
+### VMware vSphere requirements (agentless)
 
-The table summarizes VMware hypervisor requirements.
+The table summarizes VMware vSphere hypervisor requirements.
 
 **VMware** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
+**VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
 **vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff** (Virtual machine -> Interaction -> Power off): Allow the VM to be powered off during migration to Azure.
 **Multiple vCenter Servers** | A single appliance can connect to up to 10 vCenter Servers.
 
 
 ### VM requirements (agentless)
 
-The table summarizes agentless migration requirements for VMware VMs.
+The table summarizes agentless migration requirements for VMware vSphere VMs.
 
 **Support** | **Details**
 --- | ---
 **Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
@@ -93,9 +93,9 @@ The table summarizes agentless migration requirements for VMware VMs.
 
 ### Appliance requirements (agentless)
 
-Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMware VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
+Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMware vSphere VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
-- Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
+- Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware vSphere.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 - In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
@@ -104,8 +104,8 @@ Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). Yo
 **Device** | **Connection**
 --- | ---
 Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
-vCenter server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots.
-vSphere/ESXI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound port 902 from ESXi host.
+vCenter Server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots.
+vSphere ESXi host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound port 902 from ESXi host.
 
 ## Agent-based migration
 
@@ -113,19 +113,19 @@ vSphere/ESXI host | Inbound on TCP port 902 for the appliance to replicate data 
 This section summarizes requirements for agent-based migration.
 
 
-### VMware requirements (agent-based)
+### VMware vSphere requirements (agent-based)
 
-This table summarizes assessment support and limitations for VMware virtualization servers.
+This table summarizes assessment support and limitations for VMware vSphere virtualization servers.
 
-**VMware requirements** | **Details**
+**VMware vSphere requirements** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
+**VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | A read-only account for vCenter Server.
 
 ### VM requirements (agent-based)
 
-The table summarizes VMware VM support for VMware VMs you want to migrate using agent-based migration.
+The table summarizes VMware vSphere VM support for VMware vSphere VMs you want to migrate using agent-based migration.
 
 **Support** | **Details**
 --- | ---
@@ -158,7 +158,7 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 
 When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
-- Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
+- Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
 - Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
@@ -194,4 +194,4 @@ Connect after migration-Linux | To connect to Azure VMs after migration using SS
 
 ## Next steps
 
-[Select](server-migrate-overview.md) a VMware migration option.
+[Select](server-migrate-overview.md) a VMware vSphere migration option.

@@ -4,7 +4,8 @@ description: An introduction to Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022
@@ -54,7 +55,7 @@ Customers can right-size permissions based on usage, grant new permissions on-de
 
 ### Monitor
 
-Customers can detect anomalous activities with machine language-powered (ML-powered) alerts and generate detailed forensic reports.
+Customers can detect anomalous activities with machine learning-powered (ML-powered) alerts and generate detailed forensic reports.
 
 - ML-powered anomaly detections.
 - Context-rich forensic reports around identities, actions, and resources to support rapid investigation and remediation.

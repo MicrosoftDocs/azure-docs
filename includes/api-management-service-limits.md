@@ -36,7 +36,7 @@ ms.custom: Include file
 | Maximum number of [schemas](../articles/api-management/validation-policies.md#schemas-for-content-validation)<sup>10</sup> | 100 |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
-| Maximum number of active WebSocket connections per unit | 100 |
+| Maximum number of active WebSocket connections per unit | 200 |
 | Maximum number of tags supported by an API Management resource|15|
 
 <sup>1</sup> Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
@@ -21,8 +21,8 @@ The assumption, when using this template, is the messages being evaluated were s
 
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
->[!IMPORTANT]
->Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination Fast Healthcare Interoperability Resource (FHIR&#174;) service.
+> [!IMPORTANT]
+> Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination Fast Healthcare Interoperability Resource (FHIR&#174;) service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContentTemplate, assuming that you're using custom properties in the message body for the device identity or measurement timestamp.
 
@@ -38,22 +38,27 @@ With each of these examples, you're provided with:
  * An example of what the MedTech service device message will look like after normalization.
 
 > [!IMPORTANT]
-> To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties)
+> To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties).
+
+> [!TIP]
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 **Heart rate**
 
-**A valid IoT device message.**
+**A valid IoT device message to send to your IoT Hub.**
 
 ```json
 
-{“heartrate” : “78”}
+{“heartRate” : “78”}
 
 ```
 
 **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
 
 > [!NOTE]
-> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with **iothub**. For example: **iothub-creation-time-utc**.
+> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
+>
+> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties). 
 
 ```json
 
@@ -81,8 +86,9 @@ With each of these examples, you're provided with:
       {
         "templateType": "IotJsonPathContentTemplate",
         "template": {
-        "typeName": "heartrate",
+        "typeName": "heartRate",
         "typeMatchExpression": "$..[?(@Body.heartRate)]",
+        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id", 
         "values": [
           {  
              "required": "true",
@@ -102,7 +108,7 @@ With each of these examples, you're provided with:
 ```json
 
 {
-   "type": "heartrate",
+   "type": "heartRate",
    "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
    "deviceId": "device123",
    "properties": [
@@ -117,7 +123,7 @@ With each of these examples, you're provided with:
 
 **Blood pressure**
 
-**A valid IoT device message.**
+**A valid IoT device message to send to your IoT Hub.**
 
 ```json
 
@@ -131,7 +137,9 @@ With each of these examples, you're provided with:
 **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
 
 > [!NOTE]
-> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with **iothub**. For example: **iothub-creation-time-utc**.
+> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
+>
+> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
 
 ```json
 
@@ -162,6 +170,7 @@ With each of these examples, you're provided with:
         "template": {
         "typeName": "bloodpressure",
         "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id", 
         "values": [
           {
              "required": "true",
@@ -218,8 +227,9 @@ With each of these examples, you're provided with:
      {  
         "templateType": "IotJsonPathContentTemplate",
         "template": {
-        "typeName": "heartrate",
+        "typeName": "heartRate",
         "typeMatchExpression": "$..[?(@Body.heartRate)]",
+        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
         "values": [
              {
                "required": "true",
@@ -234,6 +244,7 @@ With each of these examples, you're provided with:
         "template": {
         "typeName": "bloodpressure",
         "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
         "values": [
              {  
                "required": "true",
@@ -254,13 +265,13 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
 In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
 
->[!div class="nextstepaction"]
->[How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

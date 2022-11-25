@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/07/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 
 ---
@@ -919,6 +919,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
         params ip="10.23.0.27"
 
       sudo crm configure primitive rsc_nc_HN1_HDB03 azure-lb port=62503 \
+        op monitor timeout=20s interval=10 \
         meta resource-stickiness=0
 
       sudo crm configure group g_ip_HN1_HDB03 rsc_ip_HN1_HDB03 rsc_nc_HN1_HDB03
