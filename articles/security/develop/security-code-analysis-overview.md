@@ -72,9 +72,11 @@ Passwords and other secrets stored in source code are a significant problem. Cre
 
 Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
-### TSLint
+### ESLint
 
-TSLint is an extensible static-analysis tool that checks TypeScript code for readability, maintainability, and errors in functionality. It's widely supported by modern editors and build systems. You can customize it with your own lint rules, configurations, and formatters. TSLint is an open-source tool. For more information, see [TSLint on GitHub](https://github.com/palantir/tslint).
+ESLint is an extensible static-analysis tool that checks JavaScript code for readability, maintainability, and errors in functionality. It's widely supported by modern editors and build systems. You can customize it with your own lint rules, configurations, and formatters. ESLint is an open-source tool. For more information, see [ESLint on GitHub](https://github.com/eslint/eslint).
+
+To enable ESLint in a TypeScript project, see [TypeScript ESLint on GitHub](https://github.com/typescript-eslint/typescript-eslint).
 
 ## Analysis and post-processing of results
 
