@@ -79,9 +79,9 @@ The following steps will create an instance type with the labeled behavior:
 - Pods will be assigned resource requests of `700m` CPU and `1500Mi` memory.
 - Pods will be assigned resource limits of `1` CPU, `2Gi` memory and `1` NVIDIA GPU.
 
-Custom instance types creation need to meet the following definition rules, otherwise the instance type creation will fail:
+Custom instance types creation need to meet the following parameters and definition rules, otherwise the instance type creation will fail:
 
-| Parameter | If required | Description |
+| Parameter | Required | Description |
 | --- | --- | --- |
 | name | required | String values, must be unique in cluster, otherwise will override the exist one.|
 | CPU request | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
