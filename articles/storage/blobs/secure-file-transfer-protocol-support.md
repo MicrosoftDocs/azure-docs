@@ -143,6 +143,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Moveit 12.7
 - OpenSSH 7.4+
 - paramiko 2.8.1+
+- phpseclib 1.0.13+
 - PuTTY 0.74+
 - QualysML 12.3.41.1+
 - RebexSSH 5.0.7119.0+
