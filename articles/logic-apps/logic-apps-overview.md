@@ -61,11 +61,13 @@ To access and run operations on resources in services such as Azure, Microsoft, 
 
 * Office 365 services such as Outlook, Excel, and SharePoint
 
-* Database servers such as SQL and Oracle
+* Database servers such as SQL, Oracle and DB2
 
 * Enterprise systems such as SAP and IBM MQ
 
 * File shares such as FTP and SFTP
+
+* IBM Mainframe systems such as CICS and IMS
 
 For more information, review the following documentation:
 
