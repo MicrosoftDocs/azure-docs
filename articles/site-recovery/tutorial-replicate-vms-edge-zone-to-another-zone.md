@@ -10,9 +10,9 @@ ms.author: v-pgaddala
 
 # Replicate virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC in the same region 
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview)connected to the same parent region. 
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview) connected to the same parent region. 
 
-Azure Public MECs (preview) are fully managed solution deployed close to your data centre and includes hardware, services, and support. 
+Azure Public MECs (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. 
 
 ## Disaster recovery in Azure Public MEC (preview)
 
