@@ -183,6 +183,16 @@ For more information, see the documentation for the [Model class](/python/api/az
 
 ---
 
+> [!NOTE]
+>
+> You can also register a model from local file via the Workspace UI portal.
+>
+> Currently there are two entries to upload a local model file in UI, which are:
+> - From local files, which will register a v2 model.
+> - From local files (based on framework), which will register a v1 model.
+>
+> It should be noted that only models registered via the **From local files (based on framework)** entrance (which are known as v1 models) can be deployed as webservices using SDKv1/CLIv1.
+
 ## Define a dummy entry script
 
 The entry script receives data submitted to a deployed web service and passes it to the model. It then returns the model's response to the client. *The script is specific to your model*. The entry script must understand the data that the model expects and returns.
