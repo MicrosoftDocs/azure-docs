@@ -9,11 +9,11 @@ ms.topic: article
 
 # Register an App to work with Log Analytics APIs
 
-To access the log analytics API you can generate a token based on a client ID and secret. This article shows you how to register a client app and assign permissions to access a Log Analytics Workspace.
+To access the log analytics API, you can generate a token based on a client ID and secret. This article shows you how to register a client app and assign permissions to access a Log Analytics Workspace.
 
 ## Register an App
 
-1. To register an app, open the Active Directory Overview page in the Azure Portal.
+1. To register an app, open the Active Directory Overview page in the Azure portal.
 
 1. Select **App registrations** from the side bar.
 :::image type="content" source="../media/api-register-app/active-directory-overview-page.png" alt-text="A screenshot showing the Azure Active Directory overview page.":::  
@@ -21,8 +21,8 @@ To access the log analytics API you can generate a token based on a client ID an
 1. Select **New registration**
 1. On the Register an application page, enter a **Name** for the application. 
 1. Select **Register**
-1. On the app's overview page select **Certificates and Secrets**
-1. Note the **Application (clinet) ID**. It is used in the HTTP request for a token.
+1. On the app's overview page, select **Certificates and Secrets**
+1. Note the **Application (client) ID**. It's used in the HTTP request for a token.
 :::image type="content" source="../media/api-register-app/app-registration-overview.png" alt-text="A screenshot showing the App registrations overview page in Azure Active Directory.":::
   
 1. In the **Client secrets tab** Select **New client secret**
@@ -52,11 +52,11 @@ To access the log analytics API you can generate a token based on a client ID an
 1. Choose your app and select **Select**
 1. Select **Review and assign**
      
-    :::image type="content" source="../media/api-register-app/select-members.png" alt-text="A screenshot showing the the select members blade on the role assignment page for a log analytics workspace.":::
+    :::image type="content" source="../media/api-register-app/select-members.png" alt-text="A screenshot showing the select members blade on the role assignment page for a log analytics workspace.":::
 
 ## Next steps
 
-You can use your client ID and client secret to generate a bearer token to access the Log Anlaytics API. For more information, see [Access the API](./access-api.md)
+You can use your client ID and client secret to generate a bearer token to access the Log Analytics API. For more information, see [Access the API](./access-api.md)
 
 > [!NOTE]
 > When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403.
