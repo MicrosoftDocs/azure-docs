@@ -1,14 +1,17 @@
 ---
-title: Access the API
-description: There are two endpoints through which you can communicate with the Azure Monitor Log Analytics API.
+title:  API Access and Authentication
+description: How to Authenticate and access the Azure Monitor Log Analytics API.
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 11/18/2021
+ms.date: 11/28/2022
 ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
 
-You can communicate with the Azure Monitor Log Analytics API using this endpoint: `https://api.loganalytics.io`. To access the API, you must authenticate through Azure Active Directory (Azure AD). 
+You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.io`, or the `https://management.azure.com` ARM endpoint . To access either endpoint, you must authenticate through Azure Active Directory (Azure AD). 
+
+>[!NOTE]
+> The ARM API endpoint has stricter limitations and does not support all features. For more information on ARM limitations for Log Analytics queries see [XXXXXXXXXXXX](https:learn.microsof.com/) 
 
 ## Authenticating with an demo API key
 
@@ -44,26 +47,37 @@ The public API endpoint is:
 ```
 where:
  - **api-version**: The API version. The current version is "v1"
- - **workspaceId**: Your workspace ID
- - **parameters**: The data required for this query
+ - **workspaceId**: Your workspace ID  
+ 
+The query is passed in the request body.
  
 For example, 
  ```
     https://api.loganalytics.io/v1/workspaces/1234abcd-def89-765a-9abc-def1234abcde
+    
+    Body:
+    {
+        "query": "Usage"
+    }
 ```
 ## Set up Authentication
 
-1. [Register an app for in Azure Active Directory](./register-app-for-token.md).
-
-1. After completing the Active Directory setup and workspace permissions, [Request an Authorization Token](#request-an-authorization-token).
+To access the  API, you need to register a client app with Azure Active Directory and request a token.
+1. [Register an app in Azure Active Directory](./register-app-for-token.md).
+1. After completing the Active Directory setup and workspace permissions, request an authorization token.
 
 ## Request an Authorization Token
 
-Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
-- Your Azure Active Directory tenant ID
-- Your workspace ID
-- Your client ID for the Azure AD app
-- A client secret for the Azure AD app (referred to as "keys" in the Azure AD App menu bar).
+Before beginning, make sure you have all the values required to make the request successfully. All requests require:
+- Your Azure Active Directory tenant ID.
+- Your workspace ID.
+- Your Azure Active Directory client ID for the app.
+- An Azure Active Directory client secret for the  app.
+
+The Log Analytics API supports Azure Active Directory authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+- Client credentials 
+- Authorization code
+- Implicit
 
 
 ### Client Credentials Flow
@@ -71,45 +85,28 @@ Before beginning, make sure you have all the values required to make OAuth2 call
 In the client credentials flow, the token is used with the log analytics endpoint. A single request is made to receive a token, using the credentials provided for your app in the [Register an app for in Azure Active Directory](./register-app-for-token.md) step above.  
 Use the `https://api.loganalytics.io` endpoint. 
 
-##### Microsoft identity platform v2.0
+##### #### Client Credentials Token URL (POST request)
 
 ```http
-    POST /<your-tenant-id>/oauth2/v2.0/token HTTP/1.1
+    POST /<your-tenant-id>/oauth2/v2.0/token
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     
     grant_type=client_credentials
     &client_id=<app-client-id>
-    &resource=https://api.loganalytics.io
+    &scope=https://api.loganalytics.io/.default
     &client_secret=<app-client-secret>
 ```
 
 A successful request receives an access token in the response:
 
-```http
+
     {
         token_type": "Bearer",
         "expires_in": "86399",
         "ext_expires_in": "86399",
-        "expires_on": "1668778654",
-        "not_before": "1668691954",
-        "resource": "https://api.loganalytics.io",
         "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
     }
-```
-
-#### Client Credentials Token URL (POST request)
-
-```http
-    POST /your-AAD-tenant_id/oauth2/token HTTP/1.1
-    Host: https://login.microsoftonline.com
-    Content-Type: application/x-www-form-urlencoded
-    
-    grant_type=client_credentials
-    &client_id=<app-client-id>
-    &redirect_uri=<app-redirect-id>
-    &resource=https://api.loganalytics.io
-    &client_secret=<app-client-secret>
 ```
 
 Use the token in requests to the log analytics endpoint:
@@ -128,8 +125,6 @@ Use the token in requests to the log analytics endpoint:
 
 To use the ARM API endpoint, substitute `&resource=https://management.azure.com` in the body of the HTTP POST. You can then use the endpoint`https://management.azure.com/` as per the exam[ple below:
 
->[!NOTE]
-> The ARM API endpoint has stricter limitation and does not support all features. For more information on ARM limitations for Log Analytics queries see [XXXXXXXXXXXX](https:learn.microsof.com/) 
 
 ```http
     GET https://management.azure.com/subscriptions/6c3ac85e-59d5-4e5d-90eb-27979f57cb16/resourceGroups/demo/providers/Microsoft.OperationalInsights/workspaces/demo-ws/api/query
@@ -262,7 +257,7 @@ Response example:
 
 ### Implicit Code Flow
 
-The Log Analytics API also supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token can be acquired.
+The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token can be acquired.
 
 #### Implicit Code Authorize URL
 

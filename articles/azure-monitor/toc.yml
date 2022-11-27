@@ -1278,15 +1278,15 @@ items:
           href: logs/api/overview.md
         - name: Using the API
           items:
-          - name: Set up authentication and authorization
-            href: logs/api/authentication-authorization.md
-          - name: Access the API
+          - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Register an app for API access
+            href: logs/api/register-app-for-token.md 
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
             href: logs/api/response-format.md
-          - name: API options
+          - name: API methods and options
             items:
             - name: Batch queries
               href: logs/api/batch-queries.md
