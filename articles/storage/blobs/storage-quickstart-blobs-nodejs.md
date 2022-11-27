@@ -11,9 +11,9 @@ ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Manage blobs with JavaScript SDK in Node.js
+# Quickstart: Azure Blob Storage client library for Node.js
 
-In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. 
+Get started with the Azure Blob Storage client library for Node.js to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
 [API reference](/javascript/api/@azure/storage-blob) |
 [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
@@ -313,11 +313,10 @@ Step through the code in your debugger and check your [Azure portal](https://por
 
 In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
 
-For tutorials, samples, quickstarts, and other documentation, visit:
+To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript developer center](/azure/developer/javascript/)
+> [Azure Blob Storage library for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
-- To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
-- To see Blob storage sample apps, continue to [Azure Blob storage package library JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
-- To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+- To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
+- For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).
