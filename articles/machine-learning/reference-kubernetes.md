@@ -137,41 +137,43 @@ spec:
 
 [Taint and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concept they work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
-Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azureml taints and tolerations, allowing users to add specific azureml taints on the Azureml-dedicated nodes/nodel pools, to prevent non-azureml workloads from being scheduled onto these dedicated nodes.
+Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azureml taints and tolerations, allowing users to add specific azureml taints on the Azureml-dedicated nodes, to prevent non-azureml workloads from being scheduled onto these dedicated nodes.
 
-You must add the amlarc-specific taints on your Azureml-dedicated nodes/node pools with definition as follows:
+We only support placing the amlarc-specific taints on your nodes, which are defined as follows: 
 
-| Taint Description|  Key | Value | Effect |
-|--|--|--|--|
-| amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
-| amlarc system | ml.azure.com/amlarc/ amlarc -system	| true	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
-| amlarc workload| 	ml.azure.com/amlarc/ amlarc -workload	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
-| amlarc resource group| 	ml.azure.com/resource-group| <\resource group name> | `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
-| amlarc workspace | 	ml.azure.com/workspace | 	<\workspace name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
-| amlarc compute| 	ml.azure.com/compute	| <\compute name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| Taint | Key | Value | Effect | Description |
+|--|--|--|--|--|
+| amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| All Azureml workloads, including extension system service pods and machine learning workload pods would tolerate this `amlarc overall` taint.|
+| amlarc system | ml.azure.com/amlarc/ amlarc -system	| true	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only Azureml extension system services pods would tolerate this `amlarc system` taint.|
+| amlarc workload| 	ml.azure.com/amlarc/ amlarc -workload	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods would tolerate this `amlarc workload` taint. |
+| amlarc resource group| 	ml.azure.com/resource-group| \<resource group name> | `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created from the specific resource group would tolerate this `amlarc resource group` taint.|
+| amlarc workspace | 	ml.azure.com/workspace | 	\<workspace name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`|Only machine learning workload pods created from the specific workspace would tolerate this `amlarc workspace` taint. |
+| amlarc compute| 	ml.azure.com/compute	| \<compute name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created with the specific compute target would tolerate this `amlarc cpmpute` taint.|
 
-> [!TIPS]
+> [!TIP]
 > 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
-> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl` command to add taints to nodes, more example you can find in [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes, more example you can find in [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
-According to your scheduling requirements of the Azureml-dedicated nodes/node pools, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. Below, we list best practices for using amlarc taints:
+### Best Pratices
 
-- **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall taint` to these nodes.
+According to your scheduling requirements of the Azureml-dedicated nodes, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. Below, we list best practices for using amlarc taints:
+
+- **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall` taint to these nodes.
 - **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall taint`
-  - `aml system taint`
+  - `aml overall` taint
+  - `aml system` taint
 - **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall taint`
-  - `aml workloads taint`
+  - `aml overall` taint
+  - `aml workloads` taint
 - **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall taint`
-  - `aml resource group(owns <workspace X>) taint` 
-  - `aml <workspace X> taint`
+  - `aml overall` taint
+  - `aml resource group (has this <workspace X>)` taint 
+  - `aml <workspace X>` taint
 - **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall taint`
-  - `aml resource group(owns <workspace X>) taint` 
-  - `aml workspace (owns <compute X>) taint`
-  - `aml <compute X> taint`
+  - `aml overall` taint
+  - `aml resource group (has this <workspace X>)` taint 
+  - `aml workspace (has this <compute X>)` taint
+  - `aml <compute X>` taint
 
 ## Azureml Extension Release Note
 > [!NOTE]
