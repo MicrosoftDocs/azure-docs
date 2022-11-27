@@ -45,15 +45,15 @@ This procedure describes how to view detected devices in the **Device inventory*
 
 The device details page displays comprehensive device details, including:
 
-- **Attributes**. Displays full device details such as class, data source, firmware details, activity, type, protocols, purdue level sensor, site, zone, and more.
+- **Attributes**. Displays full device details such as class, data source, firmware details, activity, type, protocols, purdue level, sensor, site, zone, and more.
 
-- **Backplane**. Displays the backplane hardware configuration, including MAC address, serial numbers, and slot and rack information.
+- **Backplane**. Displays the backplane hardware configuration, including slot and rack information. Each slot in the Backplane view shows the details of the underlying devices. The backplane tab is visible for PLC, RTU, and DCS devices.
 
-- **Vulnerabilities**. Displays current vulnerabilities on the selected device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to open the full CVE details and description.
+- **Vulnerabilities**. Displays current vulnerabilities on the device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description.
 
-- **Alerts**. Displays current open alerts. Select any alert to view more information, and then select view full details to open the alert page where you can see the full alerts details and take action.
+- **Alerts**. Displays current open alerts. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alert details](how-to-manage-cloud-alerts.md#view-alert-details).
 
-- **Recommendations**. Displays current recommendations for the selected device. Recommendations help users form actionable, prioritized mitigation plans. Recommendations available include Review PLC operating mode and Review unauthorized devices.
+- **Recommendations**. Displays current recommendations for the device. Recommendations help users form actionable, prioritized mitigation plans. Recommendations available include Review PLC operating mode and Review unauthorized devices.
 
     For example:
 
