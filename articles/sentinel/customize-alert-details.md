@@ -19,6 +19,10 @@ With the **alert details** feature, you can override these and other default pro
 
 - Customize the severity, tactics, and other properties of a given instance of an alert (see the full list of properties below) with the values of any relevant fields from the query output. If the selected fields are empty or have values that don't match the field data type, the respective alert properties will revert to their defaults (for tactics and severity, those specified in the first page of the wizard).
 
+> [!IMPORTANT]
+> Some alert details' customizability (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 Follow the procedure detailed below to use the alert details feature. These steps are part of the [analytics rule creation wizard](detect-threats-custom.md), but they're addressed here independently to address the scenario of adding or changing alert details in an existing analytics rule.
 
 ## How to customize alert details
@@ -53,15 +57,15 @@ Follow the procedure detailed below to use the alert details feature. These step
         - Description
         - AlertSeverity
         - Tactics
-        - Techniques (New)
-        - AlertLink (New)
-        - ConfidenceLevel (New)
-        - ConfidenceScore (New)
-        - ExtendedLinks (New)
-        - ProductComponentName (New)
-        - ProductName (New)
-        - ProviderName (New)
-        - RemediationSteps (New)
+        - Techniques (Preview)
+        - AlertLink (Preview)
+        - ConfidenceLevel (Preview)
+        - ConfidenceScore (Preview)
+        - ExtendedLinks (Preview)
+        - ProductComponentName (Preview)
+        - ProductName (Preview)
+        - ProviderName (Preview)
+        - RemediationSteps (Preview)
     
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
