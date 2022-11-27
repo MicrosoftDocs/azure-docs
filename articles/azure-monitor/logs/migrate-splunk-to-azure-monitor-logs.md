@@ -14,36 +14,36 @@ ms.date: 11/22/2022
 This article explains how to plan your migration from Splunk to Azure Monitor Logs for logging and log data analysis, including:  
 
 > [!div class="checklist"]
-> * Introduction to basic concepts 
+> * Introduction to key concepts 
 > * Design and deploy a workspace
 > * Collect data
 > * Migrate applications
 > * Ingest historical data
 > * Analyze log data
 
-## Introduction to basic concepts
+## Introduction to key concepts
 
-|Azure |Splunk|
+|Concept |Description|
 |---|---|
-|[Workspace](../logs/log-analytics-workspace-overview.md)||
-|[Table](../logs/manage-logs-tables.md)|Indexing|
-|[Log data plan](../logs/basic-logs-configure.md)||
-|[Kusto Query Language (KQL)](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/splunk-cheat-sheet)||
+|[Log Analytics workspace](../logs/log-analytics-workspace-overview.md)|A unique environment for log data from Azure Monitor and other Azure services, such as Microsoft Sentinel and Microsoft Defender for Cloud. Each Log Analytics workspace has its own data repository and configuration but might combine data from multiple services. |
+|[Table](../logs/manage-logs-tables.md)|Azure Monitor Logs stores log data in tables. Table configuration lets you define how to store collected data, how long to retain the data, and whether you collect the data for auditing and troubleshooting or for ongoing data analysis and regular use by features and services.|
+|[Log data plan](../logs/basic-logs-configure.md)| Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs. The Basic log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. The Analytics plan makes log data available for interactive queries and use by features and services. |
+|[Kusto Query Language (KQL)](/azure/kusto/query/)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language by using [multiple lessons](logs/get-started-queries.md). Particular guidance is provided to users who are already familiar with  [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).|
 |[Transformation](../essentials/data-collection-transformations.md)
-|[Cost calculations and options](../logs/cost-logs.md)||
+|[Cost calculations and options](../logs/cost-logs.md)|You can significantly reduce your cost for Azure Monitor by understanding configuration options and ways to filter out data you don't need. |
 
 Cost considerations
 ## Deploy and configure a workspace
 
-[Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design)
+[Design a Log Analytics workspace architecture](../logs/workspace-design.md)
 
-[Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access)
+[Manage access to Log Analytics workspaces](../logs/manage-access.md)
 
 [Set a table's log data plan](../logs/basic-logs-configure.md)
 
 ## Collect data
 
-[Data sources](https://learn.microsoft.com/en-us/azure/azure-monitor/data-sources)
+[Data sources](../data-sources.md)
 
 [Data collection rules]()
 
@@ -53,22 +53,8 @@ Cost considerations
 
 ## Migrate applications
 
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
 
 ## Ingest historical data
-
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
 
 ## Analyze log data
 
