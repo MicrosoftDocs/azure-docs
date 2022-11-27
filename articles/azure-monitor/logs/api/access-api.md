@@ -8,10 +8,8 @@ ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
 
-You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.io`, or the `https://management.azure.com` Azure Resource Manager endpoint. To access either endpoint, you must authenticate through Azure Active Directory (Azure AD). 
+You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD). 
 
->[!NOTE]
-> The ARM API endpoint has stricter limitations and does not support all features. For more information, see [XXXXXXXXXXXX](https:learn.microsof.com/) 
 
 ## Authenticating with a demo API key
 
@@ -30,7 +28,7 @@ The API key `DEMO_KEY` can be passed in three different ways, depending on wheth
 This example uses the Workspace ID and API key in the header:
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/DEMO_WORKSPACE/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/DEMO_WORKSPACE/query
     X-Api-Key: DEMO_KEY
     Content-Type: application/json
     
@@ -43,7 +41,7 @@ This example uses the Workspace ID and API key in the header:
 The public API endpoint is:
 
 ```
-    https://api.loganalytics.io/{api-version}/workspaces/{workspaceId}
+    https://api.loganalytics.azure.com/{api-version}/workspaces/{workspaceId}
 ```
 where:
  - **api-version**: The API version. The current version is "v1"
@@ -53,7 +51,7 @@ The query is passed in the request body.
  
 For example, 
  ```
-    https://api.loganalytics.io/v1/workspaces/1234abcd-def89-765a-9abc-def1234abcde
+    https://api.loganalytics.azure.com/v1/workspaces/1234abcd-def89-765a-9abc-def1234abcde
     
     Body:
     {
@@ -83,7 +81,7 @@ The Log Analytics API supports Azure Active Directory authentication with three 
 ### Client Credentials Flow
 
 In the client credentials flow, the token is used with the log analytics endpoint. A single request is made to receive a token, using the credentials provided for your app in the [Register an app for in Azure Active Directory](./register-app-for-token.md) step above.  
-Use the `https://api.loganalytics.io` endpoint. 
+Use the `https://api.loganalytics.azure.com` endpoint. 
 
 ##### Client Credentials Token URL (POST request)
 
@@ -113,7 +111,7 @@ Use the token in requests to the log analytics endpoint:
 
 ```http
     POST /v1/workspaces/your workspace id/query?timespan=P1D
-    Host: https://api.loganalytics.io
+    Host: https://api.loganalytics.azure.com
     Content-Type: application/json
     Authorization: bearer <your access token>
 
@@ -123,19 +121,6 @@ Use the token in requests to the log analytics endpoint:
     }
 ```
 
-To use the ARM API endpoint, substitute `&resource=https://management.azure.com` in the body of the HTTP POST. You can then use the endpoint`https://management.azure.com/` as per the example below:
-
-
-```http
-    GET https://management.azure.com/subscriptions/6c3ac85e-59d5-4e5d-90eb-27979f57cb16/resourceGroups/demo/providers/Microsoft.OperationalInsights/workspaces/demo-ws/api/query
-    
-    Authorization: Bearer <access_token>
-    Prefer: response-v1=true
-    
-    {
-        "query": "AzureActivity | limit 10"
-    }
-```
 
 Example Response:
 
