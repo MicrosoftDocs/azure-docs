@@ -8,18 +8,18 @@ ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
 
-You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.io`, or the `https://management.azure.com` ARM endpoint . To access either endpoint, you must authenticate through Azure Active Directory (Azure AD). 
+You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.io`, or the `https://management.azure.com` Azure Resource Manager endpoint. To access either endpoint, you must authenticate through Azure Active Directory (Azure AD). 
 
 >[!NOTE]
-> The ARM API endpoint has stricter limitations and does not support all features. For more information on ARM limitations for Log Analytics queries see [XXXXXXXXXXXX](https:learn.microsof.com/) 
+> The ARM API endpoint has stricter limitations and does not support all features. For more information, see [XXXXXXXXXXXX](https:learn.microsof.com/) 
 
-## Authenticating with an demo API key
+## Authenticating with a demo API key
 
 To quickly explore the API without Azure Active Directory authentication, use the demonstration workspace with sample data, which supports API key authentication.
 
 To authenticate and run queries against the sample workspace, use `DEMO_WORKSPACE` as the {workspace-id} and pass in the API key `DEMO_KEY`.
 
-If either the Application ID or the API key are incorrect, the API service will return a [403](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error) (Forbidden) error.
+If either the Application ID or the API key is incorrect, the API service will return a [403](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error) (Forbidden) error.
 
 The API key `DEMO_KEY` can be passed in three different ways, depending on whether you prefer to use the URL, a header, or basic authentication.
 
@@ -85,7 +85,7 @@ The Log Analytics API supports Azure Active Directory authentication with three 
 In the client credentials flow, the token is used with the log analytics endpoint. A single request is made to receive a token, using the credentials provided for your app in the [Register an app for in Azure Active Directory](./register-app-for-token.md) step above.  
 Use the `https://api.loganalytics.io` endpoint. 
 
-##### #### Client Credentials Token URL (POST request)
+##### Client Credentials Token URL (POST request)
 
 ```http
     POST /<your-tenant-id>/oauth2/v2.0/token
@@ -123,7 +123,7 @@ Use the token in requests to the log analytics endpoint:
     }
 ```
 
-To use the ARM API endpoint, substitute `&resource=https://management.azure.com` in the body of the HTTP POST. You can then use the endpoint`https://management.azure.com/` as per the exam[ple below:
+To use the ARM API endpoint, substitute `&resource=https://management.azure.com` in the body of the HTTP POST. You can then use the endpoint`https://management.azure.com/` as per the example below:
 
 
 ```http
@@ -181,19 +181,19 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
 
 ```
     GET https://login.microsoftonline.com/YOUR_Azure AD_TENANT/oauth2/authorize?
-    client_id=YOUR_CLIENT_ID
+    client_id=<app-client-id>
     &response_type=code
-    &redirect_uri=YOUR_REDIRECT_URI
+    &redirect_uri=<app-redirect-uri>
     &resource=https://api.loganalytics.io
 ```
 
-When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the sign in page you provided at sign-up with the authorization code appended to the URL. See the following example:
+When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```
-    http://YOUR_REDIRECT_URI/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
+    http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
 ```
 
-At this point you will have obtained an authorization code, which you need now to request an access token.
+At this point you'll have obtained an authorization code, which you need now to request an access token.
 
 #### Authorization Code Token URL (POST request)
 
@@ -203,25 +203,25 @@ At this point you will have obtained an authorization code, which you need now t
     Content-Type: application/x-www-form-urlencoded
     
     grant_type=authorization_code
-    &client_id=YOUR_CLIENT_ID
-    &code=AUTHORIZATION_CODE
-    &redirect_uri=YOUR_REDIRECT_URI
+    &client_id=<app client id>
+    &code=<auth code fom GET request>
+    &redirect_uri=<app-client-id>
     &resource=https://api.loganalytics.io
-    &client_secret=YOUR_CLIENT_SECRET
+    &client_secret=<app-client-secret>
 ```
 
-All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Azure AD App. If you did not save the key, you can delete it and create a new one from the keys tab of the Azure AD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Azure AD App. If you didn't save the key, you can delete it and create a new one from the keys tab of the Azure AD App menu. The response is a JSON string containing the token with the following schema. Types are indicated for the token values.
 
 Response example:
 
 ```
     {
-        "access_token": "YOUR_ACCESS_TOKEN",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
         "expires_in": "3600",
         "ext_expires_in": "1503641912",
         "id_token": "not_needed_for_log_analytics",
         "not_before": "1503638012",
-        "refresh_token": "YOUR_REFRESH_TOKEN",
+        "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az",
         "resource": "https://api.loganalytics.io",
         "scope": "Data.Read",
         "token_type": "bearer"
@@ -235,11 +235,11 @@ The access token portion of this response is what you present to the Log Analyti
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     
-    client_id=YOUR_CLIENT_ID
-    &refresh_token=YOUR_REFRESH_TOKEN
+    client_id=<app-client-id>
+    &refresh_token=<refresh-token>
     &grant_type=refresh_token
     &resource=https://api.loganalytics.io
-    &client_secret=YOUR_CLIENT_SECRET
+    &client_secret=<app-client-secret>
 ```
 
 Response example:
@@ -250,8 +250,8 @@ Response example:
       "expires_in": "3600",
       "expires_on": "1460404526",
       "resource": "https://api.loganalytics.io",
-      "access_token": "YOUR_TOKEN_HERE",
-      "refresh_token": "YOUR_REFRESH_TOKEN_HERE"
+      "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
+      "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az"
     }
 ```
 
@@ -263,9 +263,9 @@ The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-director
 
 ```
     GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
-    client_id=YOUR_CLIENT_ID
+    client_id=<app-client-id>
     &response_type=token
-    &redirect_uri=YOUR_REDIRECT_URI
+    &redirect_uri=<app-redirect-uri>
     &resource=https://api.loganalytics.io
 ```
 
