@@ -15,9 +15,9 @@ In the process of creating a scheduled analytics rule, as the first step you def
 
 With the **alert details** feature, you can override these and other default properties of alerts in two ways:
 
-- Create custom, variable names and descriptions for your alerts. You can select alert properties or fields in your alert's query whose contents can be included in the name or description of each instance of the alert. If the selected field has no value in a given instance, the alert details for that instance will revert to the defaults specified in the first page of the wizard.
+- Create custom, variable names and descriptions for your alerts. You can select fields in your alert's query output whose contents can be included in the name or description of each instance of the alert. If the selected field has no value in a given instance, the alert details for that instance will revert to the defaults specified in the first page of the wizard.
 
-- Customize the severity, tactics, and other properties of a given instance of an alert (see the full list of properties below) with the values of any relevant fields from the query results. If the selected fields are empty or have values that don't match the field data type, the respective alert properties will revert to their defaults (for tactics and severity, those specified in the first page of the wizard).
+- Customize the severity, tactics, and other properties of a given instance of an alert (see the full list of properties below) with the values of any relevant fields from the query output. If the selected fields are empty or have values that don't match the field data type, the respective alert properties will revert to their defaults (for tactics and severity, those specified in the first page of the wizard).
 
 Follow the procedure detailed below to use the alert details feature. These steps are part of the [analytics rule creation wizard](detect-threats-custom.md), but they're addressed here independently to address the scenario of adding or changing alert details in an existing analytics rule.
 
@@ -35,7 +35,7 @@ Follow the procedure detailed below to use the alert details feature. These step
 
 1. In the now-expanded **Alert details** section, add free text that includes properties corresponding to the details you want to display in the alert:
 
-    1. In the **Alert Name Format** field, enter the text you want to appear as the name of the alert (the alert text), and include, in double curly brackets, any properties or fields you want to be part of the alert text.
+    1. In the **Alert Name Format** field, enter the text you want to appear as the name of the alert (the alert text), and include, in double curly brackets, any query output fields you want to be part of the alert text.
 
         Example: `Alert from {{ProviderName}}: {{AccountName}} failed to sign in to computer {{ComputerName}}.`
 
