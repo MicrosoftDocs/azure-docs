@@ -133,23 +133,45 @@ spec:
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
 
-## Sample YAML definition of Kubernetes secret for TLS/SSL
+## Supported AzureML taints and tolerations
 
-To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded TLS/SSL certificate and key. The best practice is to save the certificate and key in a Kubernetes secret in the `azureml` namespace.
+[Taint and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concept they work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
-The sample YAML definition of the TLS/SSL secret is as follows,
+Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azureml taints and tolerations, allowing users to add specific azureml taints on the Azureml-dedicated nodes/nodel pools, to prevent non-azureml workloads from being scheduled onto these dedicated nodes.
 
-```
-apiVersion: v1
-data:
-  cert.pem: <PEM-encoded SSL certificate> 
-  key.pem: <PEM-encoded SSL key>
-kind: Secret
-metadata:
-  name: <secret name>
-  namespace: azureml
-type: Opaque
-```
+You must add the amlarc-specific taints on your Azureml-dedicated nodes/node pools with definition as follows:
+| Taint Description|  Key | Value | Effect |
+|--|--|--|--|
+| amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| amlarc system | ml.azure.com/amlarc/ amlarc -system	| true	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| amlarc workload| 	ml.azure.com/amlarc/ amlarc -workload	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| amlarc resource group| 	ml.azure.com/resource-group| <\resource group name> | `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| amlarc workspace | 	ml.azure.com/workspace | 	<\workspace name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+| amlarc compute| 	ml.azure.com/compute	| <\compute name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 
+
+> [!TIPS]
+> 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
+> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl` command to add taints to nodes, more example you can find in [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
+According to your scheduling requirements of the Azureml-dedicated nodes/node pools, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. Below, we list best practices for using amlarc taints:
+
+- **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall taint` to these nodes.
+- **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+  - `aml overall taint`
+  - `aml system taint`
+- **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+  - `aml overall taint`
+  - `aml workloads taint`
+- **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+  - `aml overall taint`
+  - `aml resource group(owns <workspace X>) taint` 
+  - `aml <workspace X> taint`
+- **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+  - `aml overall taint`
+  - `aml resource group(owns <workspace X>) taint` 
+  - `aml workspace (owns <compute X>) taint`
+  - `aml <compute X> taint`
+
 ## Azureml Extension Release Note
 > [!NOTE]
  >
