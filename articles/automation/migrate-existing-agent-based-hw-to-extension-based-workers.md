@@ -1,6 +1,6 @@
 ---
 title: Migrate an existing agent-based hybrid workers to extension-based-workers in Azure Automation
-description: This article provides information on how to migrate an existing agent-based hybrid workers to extension based workers.
+description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/27/2022
@@ -29,15 +29,15 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - **Seamless onboarding** – The Agent-based approach for onboarding Hybrid Runbook worker is dependent on the Log Analytics Agent, which is a multi-step, time-consuming, and error-prone process. The Extension-based approach offers more security and is no longer dependent on the Log Analytics Agent. 
 
-- **Ease of Manageability** – It offers native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates. 
+- **Ease of Manageability** – It offers native integration with Azure Resource Manager (ARM) identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates. 
 
 - **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials. 
 
 - **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines. 
 
-- **Multiple onboarding channels** – You can choose to onboard and manage Extension-based workers through the Azure Portal, PowerShell cmdlets, Bicep, ARM templates, REST API and Azure CLI.  
+- **Multiple onboarding channels** – You can choose to onboard and manage Extension-based workers through the Azure portal, PowerShell cmdlets, Bicep, ARM templates, REST API and Azure CLI.  
 
-- **Default Automatic upgrade** – It offers Automatic upgrade of minor versions by default, significantly reducing the manageability of staying updated on the latest version. We recommend enabling Automatic upgrades to take advantage of any security or feature updates without the manual overhead. You can also opt-out of automatic upgrades at any time. Any major version upgrades are currently not supported and should be managed manually.
+- **Default Automatic upgrade** – It offers Automatic upgrade of minor versions by default, significantly reducing the manageability of staying updated on the latest version. We recommend enabling Automatic upgrades to take advantage of any security or feature updates without the manual overhead. You can also opt out of automatic upgrades at any time. Any major version upgrades are currently not supported and should be managed manually.
 
 >[!NOTE]
 > The Extension-based Hybrid Runbook Worker only supports the User Hybrid Runbook Worker type, and doesn't include the System Hybrid Runbook Worker required for the Update Management feature.
@@ -53,7 +53,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, fol
 1. Select the checkbox next to the existing Agent based (V1) Hybrid worker.
 1. Select **Add** to append the machine to the group.
 
-The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
+The **Platform** column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
 
 :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
    
