@@ -100,8 +100,7 @@ Use the `https://api.loganalytics.io` endpoint.
 
 A successful request receives an access token in the response:
 
-``` http
-
+```http
     {
         token_type": "Bearer",
         "expires_in": "86399",
