@@ -104,6 +104,7 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 - [Get started with Azure Cosmos DB for Apache Cassandra](cassandra/manage-data-dotnet.md)
 - [Get started with Azure Cosmos DB for Apache Gremlin](gremlin/quickstart-dotnet.md)
 - [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
+- [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-app-stacks-python.md)
 - [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 - Trying to do capacity planning for a migration to Azure Cosmos DB?
   - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md)

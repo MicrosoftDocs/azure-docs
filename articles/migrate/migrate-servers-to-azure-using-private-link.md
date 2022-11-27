@@ -6,7 +6,8 @@ ms.author: deseelam
 ms.manager: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 09/20/2022
+ms.custom: engagement-fy23
 ---
 
 # Migrate servers to Azure using Private Link (Preview)

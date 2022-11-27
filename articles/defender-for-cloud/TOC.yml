@@ -323,8 +323,8 @@
       - name: Find vulnerabilities and software inventory with agentless scanning
         href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
-        displayName: mde, tvm, vulnerability, va, arc, hybrid
-        href: deploy-vulnerability-assessment-tvm.md
+        displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
+        href: deploy-vulnerability-assessment-defender-vulnerability-management.md
       - name: Find vulnerabilities with the integrated Qualys scanner
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
@@ -583,7 +583,9 @@
     - name: Defender for DevOps
       href: episode-nineteen.md
     - name: Cloud security explorer and attack path analysis
-      href: episode-twenty.md   
+      href: episode-twenty.md
+    - name: Latest updates in the regulatory compliance dashboard
+      href: episode-twenty-one.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
