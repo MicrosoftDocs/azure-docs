@@ -182,6 +182,8 @@
           items:
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md
+            - name: Migrate existing Agent-based Hybrid Workers to Extension-based Workers
+              href: migrate-existing-agent-based-hw-to-extension-based-workers.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
             - name: Deploy agent-based Linux worker
