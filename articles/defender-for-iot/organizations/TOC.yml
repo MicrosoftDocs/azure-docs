@@ -89,11 +89,13 @@
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices per zone
       href: how-to-view-information-per-zone.md
-  - name: Manage alerts
+  - name: Investigate and manage alerts
     items:
-    - name: Azure portal
+    - name: Investigate an OT network alert
+      href: respond-ot-alert.md
+    - name: Manage alerts from the Azure portal
       href: how-to-manage-cloud-alerts.md
-    - name: Sensor console
+    - name: Manage alerts from the sensor console
       items:
       - name: View alerts from a sensor console
         href: how-to-view-alerts.md
@@ -103,7 +105,7 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert data from a sensor console
         href: how-to-forward-alert-information-to-partners.md
-    - name: On-premises management console
+    - name: Manage alerts from the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Visualize and monitor data
     items:
