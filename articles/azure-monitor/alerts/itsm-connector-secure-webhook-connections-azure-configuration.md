@@ -36,7 +36,7 @@ Action groups provide a modular and reusable way of triggering actions for Azure
 To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
 
 > [!NOTE]
-> If you are using a log alert, the query results must include a “Computer” column containing the configuration items list.
+> Notice that when you are defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping will enable to map the configuration items to the ITSM payload.
 
 To add a webhook to an action, follow these instructions for Secure Webhook:
 
