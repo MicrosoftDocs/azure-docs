@@ -100,6 +100,7 @@ Use the `https://api.loganalytics.io` endpoint.
 
 A successful request receives an access token in the response:
 
+``` http
 
     {
         token_type": "Bearer",
@@ -139,7 +140,7 @@ To use the ARM API endpoint, substitute `&resource=https://management.azure.com`
 
 Example Response:
 
-```
+```http
     {
         "tables": [
             {
@@ -179,7 +180,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
 
 #### Authorization Code URL (GET request):
 
-```
+```http
     GET https://login.microsoftonline.com/YOUR_Azure AD_TENANT/oauth2/authorize?
     client_id=<app-client-id>
     &response_type=code
@@ -189,7 +190,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
 
 When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
-```
+```http
     http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
 ```
 
@@ -197,7 +198,7 @@ At this point you'll have obtained an authorization code, which you need now to 
 
 #### Authorization Code Token URL (POST request)
 
-```
+```http
     POST /YOUR_Azure AD_TENANT/oauth2/token HTTP/1.1
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
@@ -214,7 +215,7 @@ All values are the same as before, with some additions. The authorization code i
 
 Response example:
 
-```
+```http
     {
         "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
         "expires_in": "3600",
@@ -230,7 +231,7 @@ Response example:
 
 The access token portion of this response is what you present to the Log Analytics API in the `Authorization: Bearer` header. You may also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are:
 
-```
+```http
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
@@ -244,7 +245,7 @@ The access token portion of this response is what you present to the Log Analyti
 
 Response example:
 
-```
+```http
     {
       "token_type": "Bearer",
       "expires_in": "3600",
@@ -261,7 +262,7 @@ The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-director
 
 #### Implicit Code Authorize URL
 
-```
+```http
     GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
     client_id=<app-client-id>
     &response_type=token
@@ -271,7 +272,7 @@ The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-director
 
 A successful request will produce a redirect to your redirect URI with the token in the URL as follows.
 
-```
+```http
     http://YOUR_REDIRECT_URI/#access_token=YOUR_ACCESS_TOKEN&token_type=Bearer&expires_in=3600&session_state=STATE_GUID
 ```
 
