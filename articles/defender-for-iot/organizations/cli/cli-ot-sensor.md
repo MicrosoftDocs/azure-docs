@@ -497,6 +497,8 @@ root@xsense:/#
 
 ## Update sensor software from CLI
 
+<!--here for review purposes only. otherwise move them to the update section of the how-tos and reference out. these are standard linux CLI commands, not something specific for D4IoT-->
+
 This procedure describes how to update OT sensor software via the CLI.
 
 1. Use SFTP or SCP to copy the update file to the sensor machine.
