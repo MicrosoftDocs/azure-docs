@@ -15,7 +15,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |---------|---------|
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
-|**Physical specifications** | Mounting: 1U <br> Minimum dimensions ( H x W x D)1.70 x 17.11 x 15.05 in<br>Minimum dimensions ( H x W x D)4.32 x 43.46 x 38.22 cm||
+|**Physical specifications** | Mounting: 1U <br> Minimum dimensions ( H x W x D)1.70 x 17.11 x 15.05 in<br>Minimum dimensions ( H x W x D)4.32 x 43.46 x 38.22 cm|
 |**Status** | Supported, available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
