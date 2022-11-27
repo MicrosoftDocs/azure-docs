@@ -60,7 +60,7 @@ The following recommendations are displayed for detected OT devices:
 
 ## Next steps
 
-Find recommendation details for a specific device on a device details page, accessed either from the [**Device inventory** page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory), or from the list of healthy or unhealthy devices on a recommendation details page.
+Find full recommendation details for a specific device on a device details page, such as to handle them all at the same time. 
 
-For example, you might want to review all recommendations for a current device in order to handle them all together.
+Access a device details page from the [list of healthy or unhealthy devices](#view-recommendation-details) on a recommendation detials page, or from the [**Device inventory** page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
