@@ -210,6 +210,10 @@ az identity federated-credential create --name ${FICID} --identity-name ${UAID} 
 
 Run the following to deploy a pod that references the service account created in the previous step.
 
+```azurecli
+export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+```
+
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
