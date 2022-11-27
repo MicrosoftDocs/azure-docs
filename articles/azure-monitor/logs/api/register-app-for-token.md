@@ -34,7 +34,7 @@ To access the log analytics API, you can generate a token based on a client ID a
    > [!NOTE]
    > Client secret values can only be viewed immediately after creation. Be sure to save the secret before leaving the page.  
 
-     :::image type="content" source="../media/api-register-app/client-secret.png" alt-text="A screenshot showing the Add client secret page.":::
+     :::image type="content" source="../media/api-register-app/client-secret.png" alt-text="A screenshot showing the client secrets page.":::
 
 ## Grant your app access to a Log Analytics Workspace
 
