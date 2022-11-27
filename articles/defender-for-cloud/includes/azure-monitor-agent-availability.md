@@ -4,7 +4,7 @@ ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 11/24/2022
+ms.date: 11/27/2022
 ---
 
 | Aspect | Details |
