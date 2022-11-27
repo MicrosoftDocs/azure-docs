@@ -210,23 +210,17 @@ Failures might occur because:
 
 - There's not enough room allocated to the on-premises management console to complete the backup.  
 
-You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **System Notifications**. 
+You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **Forwarding**.
 
-### Restoring sensors 
+### Restoring sensors
 
-You can restore backups from the on-premises management console and by using the CLI.  
+You can restore backups from the sensor console and by using the CLI.  
 
-**To restore from the console:**
+To restore by using the CLI:
 
-- Select **Restore Image** from the **Sensor System** setting window.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
-  :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/restore.png" alt-text="Restore a backup of your image.":::
-
-  The console then displays restore failures.  
-
-To restore by using the CLI: 
-
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`. 
+To restore from the sensor console, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ### Save a sensor backup to an external SMB server
 

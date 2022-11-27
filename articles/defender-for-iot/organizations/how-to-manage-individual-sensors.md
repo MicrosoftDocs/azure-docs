@@ -240,17 +240,17 @@ When you control a sensor by using the on-premises management console, you can u
 
 **What is backed up**: Configurations and data.
 
-**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs.
+**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs. For more information, see [Upload and play PCAP files](#upload-and-play-pcap-files).
 
 Sensor backup files are automatically named through the following format: `<sensor name>-backup-version-<version>-<date>.tar`. An example is `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`.
 
 **To configure backup:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-backup`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-backup`.
 
 **To restore the latest backup file:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
 **To save the backup to an external SMB server:**
 
@@ -296,15 +296,29 @@ You can restore backups from the sensor console and by using the CLI.
 
 **To restore from the console:**
 
-- Select **Restore Image** from the sensor's **System Settings** window.
+To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
-:::image type="content" source="media/how-to-manage-individual-sensors/restore-image-screen.png" alt-text="Restore your image by selecting the button.":::
+- **To download a backup file:**
+    
+    1. Access the sensor using an SFTP client.
+    
+    1. Sign in using the sensor IP address and an administrative user.
+    
+    1. Download the backup file from your chosen location and save it. The default location is `/var/cyberx/backups`.
+    
+- **To restore the sensor**:
+    
+     1. Sign in to the sensor console and go to **System settings** > **Sensor management** > **Backup & restore** > **Restore**. For example:
+     
+        :::image type="content" source="media/how-to-manage-individual-sensors/restore-sensor-screen.png" alt-text="Screenshot of Restore tab in sensor console.":::
+    
+    1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
+    
+    1. When the restore process is complete, select **Close**.
 
-The console will display restore failures.
+**To restore the latest backup file by using the CLI:**
 
-**To restore by using the CLI:**
-
-- Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
 ## Forward sensor failure alerts
 
