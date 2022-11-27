@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 11/25/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -247,6 +247,9 @@ In summary, the **Availability Zone** will only appear when
 
 
 ![Choose availability zone](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
+
+>[!Note]
+>Cross-region restore jobs can't be canceled.
 
 ### Monitoring secondary region restore jobs
 
