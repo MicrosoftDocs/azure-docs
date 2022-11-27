@@ -245,6 +245,7 @@
       displayName: sensitivity, data, purview, inventory, information protection
       href: information-protection.md
     - name: Mitigate risks on specific resources in the asset inventory
+      displayName: asset, inventory, resources
       href: asset-inventory.md
     - name: Maintain network security best practices
       displayName: map, network map
@@ -253,25 +254,32 @@
       displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
       href: multi-factor-authentication-enforcement.md
     - name: Other threat protections
+      displayName: network layer, display recommendations, stream, security, alerts, DDoS, Entra
       href: other-threat-protections.md
   - name: Manage security by subscriptions, users, and permissions
     items:
     - name: Organize management groups and subscriptions
+      displayName: management groups, subscriptions, organize, azure roles, assign, users, elevated access
       href: management-groups-roles.md
     - name: Grant and request tenant-wide permissions
       displayName: global admin, Azure Active Directory (AD), AAD
       href: tenant-wide-permissions-management.md
     - name: Enable Defender for Cloud for a management group
+      displayName: management group
       href: onboard-management-group.md
     - name: Set up cross-tenant management
+      displayName: cross tenant, cross-tenant
       href: cross-tenant-management.md
     - name: Automate onboarding using PowerShell
+      displayName: automate, onboard, onboarding
       href: powershell-onboarding.md
   - name: Alerts, incidents, and threat reports
     items:
     - name: Respond to security alerts
+      displayName: security alerts, alerts
       href: managing-and-responding-alerts.md
     - name: Create and manage alerts suppression rules
+      displayName: alert suppression, alert suppression, create, suppressions rules, rules
       href: alerts-suppression-rules.md
     - name: Export alerts and recommendations
       items:
@@ -279,17 +287,22 @@
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
       - name: Prepare Azure resources for exporting to Splunk and QRadar
+        displayName: azure, resources, Splunk, QRadar
         href: export-to-splunk-or-qradar.md
       - name: Export to a Log Analytics workspace or Azure Event Hubs
-        displayName: continuous
+        displayName: continuous, log analytics, workspace, event hubs, azure
         href: continuous-export.md
       - name: Download a CSV report of all alerts
+        displayName: CSV report, alerts
         href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
       - name: Alerts schemas
+        displayName: Alerts schemas
         href: alerts-schemas.md
     - name: Manage security incidents
+      displayName: security incidents
       href: incidents.md
     - name: Generate threat intelligence reports
+      displayName: threat intelligence reports
       href: threat-intelligence-reports.md
     - name: Validate your alert configuration
       displayname: eicar, Kubernetes, Linux
@@ -306,8 +319,10 @@
       displayName: auto, provisioning, auto-provisioning, Settings & monitoring
       href: monitoring-components.md
     - name: Deploy the Azure Monitor agent
+      displayName: AMA, Azure monitor agent
       href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent
+      displayName: log analytics, agent
       href: working-with-log-analytics-agent.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
@@ -321,6 +336,7 @@
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities and software inventory with agentless scanning
+        displayName: vulnerability, software inventory, agentless scanning
         href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
@@ -383,6 +399,7 @@
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud, Hardening, Vulnerability assessment, Run-time protection
       href: defender-for-containers-introduction.md
     - name: How does Defender for Containers work?
+      displayName: containers
       href: defender-for-containers-architecture.md
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
@@ -405,6 +422,7 @@
   - name: Database protection
     items:
     - name: Enable database protection
+      displayName: database, protections
       href: quickstart-enable-database-protections.md
     - name: Defender for Azure SQL Databases
       items: 
@@ -433,8 +451,10 @@
     - name: Defender for Azure Cosmos DB
       items: 
       - name: Overview
+        displayName: Cosmos, DB, Cosmos DB
         href: concept-defender-for-cosmos.md
       - name: Enable Microsoft Defender for Azure Cosmos DB
+        displayName: Cosmos, DB, Cosmos db
         href: defender-for-databases-enable-cosmos-protections.md 
   - name: Defender for App Service
     items:
@@ -442,6 +462,7 @@
       displayName: Azure Defender for App Service, defender for app
       href: defender-for-app-service-introduction.md
     - name: Enable Defender for App Service
+      displayName: App service
       href: enable-enhanced-security.md
   - name: Defender for Storage
     items:
@@ -459,6 +480,7 @@
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
     - name: Enable Defender for Key Vault
+      displayName: Key vault
       href: enable-enhanced-security.md
     - name: Handle Defender for Key Vault alerts
       displayName: akv, kv
@@ -479,8 +501,10 @@
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
     - name: Enable Defender for DNS
+      displayName: DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
+      displayName: DNS
       href: defender-for-dns-alerts.md 
   - name: Defender for DevOps
     items:
@@ -491,8 +515,10 @@
       displayName: GitHuB, DevOps, 
       href: github-action.md
     - name: Configure the Microsoft Security DevOps Azure DevOps extension
+      displayName: DevOps extension, Security, DevOps
       href: azure-devops-extension.md
     - name: Discover misconfigurations in Infrastructure as Code
+      displayName: misconfiguration, iac, infrastructure
       href: iac-vulnerabilities.md
     - name: Detect exposed secrets in code
       displayName: DevOps, CredScan, Credentials, leaks, 
@@ -585,7 +611,7 @@
     - name: Cloud security explorer and attack path analysis
       href: episode-twenty.md
     - name: Latest updates in the regulatory compliance dashboard
-      href: episode-twenty-one.md   
+      href: episode-twenty-one.md  
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
