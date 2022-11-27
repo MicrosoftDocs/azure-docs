@@ -140,6 +140,7 @@ spec:
 Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azureml taints and tolerations, allowing users to add specific azureml taints on the Azureml-dedicated nodes/nodel pools, to prevent non-azureml workloads from being scheduled onto these dedicated nodes.
 
 You must add the amlarc-specific taints on your Azureml-dedicated nodes/node pools with definition as follows:
+
 | Taint Description|  Key | Value | Effect |
 |--|--|--|--|
 | amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| 

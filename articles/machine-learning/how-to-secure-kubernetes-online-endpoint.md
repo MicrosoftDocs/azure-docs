@@ -102,8 +102,6 @@ metadata:
 type: Opaque
 ```
 
-For more information on configuring `sslSecret`, see [Reference for configuring a Kubernetes cluster for Azure Machine Learning](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
-
 After you save the secret in your cluster, you can use the following Azure CLI command to specify `sslSecret` as the name of this Kubernetes secret. (This command will work only if you're using AKS.)
 
 ```azurecli
