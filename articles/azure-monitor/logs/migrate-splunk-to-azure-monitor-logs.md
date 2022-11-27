@@ -33,7 +33,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |[Cost calculations and options](../logs/cost-logs.md)|You can significantly reduce your cost for Azure Monitor by understanding configuration options and ways to filter out data you don't need. |
 
 Cost considerations
-## Deploy and configure a workspace
+## 1. Deploy and configure a workspace
 
 [Design a Log Analytics workspace architecture](../logs/workspace-design.md)
 
@@ -41,7 +41,7 @@ Cost considerations
 
 [Set a table's log data plan](../logs/basic-logs-configure.md)
 
-## Collect data
+## 2. Collect data
 
 [Data sources](../data-sources.md)
 
@@ -51,12 +51,12 @@ Cost considerations
 
 [Logs Ingestion API]()
 
-## Migrate applications
+## 3. Migrate applications
 
 
-## Ingest historical data
+## 4. Ingest historical data
 
-## Analyze log data
+## 5. Analyze log data
 
 [Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
 [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
