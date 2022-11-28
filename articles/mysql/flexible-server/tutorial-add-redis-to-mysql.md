@@ -94,7 +94,9 @@ mysqlcnx.close()
 ```
 
 ## Using Redis with PHP
-Follow the steps below to write a PHP script that caches a sql query from MySQL database. Install and enable [Redis PECL extension](https://pecl.php.net/package/redis) to use Redis with your PHP script. See [how to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) 
+Follow the steps below to write a PHP script that caches a sql query from MySQL database. Here are few pre-requisites before running the script:
+1. Install and enable [Redis PECL extension](https://pecl.php.net/package/redis) to use Redis with your PHP script. See [how to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) 
+2. Install and enable [MySQL PDO extension](https://www.php.net/manual/en/ref.pdo-mysql.php)
 
 ```php
 <?php
@@ -106,7 +108,7 @@ $redis->auth('azure-redis-primary-access-key');
 $key = 'tasks';
 
 if (!$redis->get($key)) {
-    $source = 'MySQL Server';
+    /*Pulling data from MySQL database*/
     $database_name     = 'database-name';
     $database_user     = 'your-database-user';
     $database_password = 'your-database-password';
@@ -127,7 +129,7 @@ if (!$redis->get($key)) {
     $redis->expire($key, 10);
 
 } else {
-     $source = 'Redis Server';
+     /*Pulling data from Redis*/
      $tasks = unserialize($redis->get($key));
 
 }
@@ -154,7 +156,7 @@ define( 'WP_REDIS_READ_TIMEOUT', 1 );
 define( 'WP_REDIS_DATABASE', 0 );
 
 // automatically delete cache keys after 7 days
-// define( 'WP_REDIS_MAXTTL', 60 * 60 * 24 * 7 );
+define( 'WP_REDIS_MAXTTL', 60 * 60 * 24 * 7 );
 
 // bypass the object cache, useful for debugging
 // define( 'WP_REDIS_DISABLED', true );
