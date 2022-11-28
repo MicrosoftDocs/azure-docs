@@ -1,5 +1,5 @@
 ---
-title: Mount SMB Azure file share on Windows | Microsoft Docs
+title: Mount SMB Azure file share on Windows
 description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: khdownie
 ms.service: storage
@@ -119,7 +119,7 @@ For Azure Government Cloud, simply change the servername to:
 \\storageaccountname.file.core.usgovcloudapi.net\myfileshare
 
 ### Accessing share snapshots from Windows
-If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0), or [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot).
+If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare), or [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.

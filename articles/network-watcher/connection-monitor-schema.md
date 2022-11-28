@@ -5,14 +5,13 @@ services: network-watcher
 documentationcenter: na
 author: mjha
 manager: vinigam
-editor:
-
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/05/2021
+ms.date: 08/14/2021
 ms.author: mjha
+ms.custom: engagement-fy23
 ---
 
 # Azure Network Watcher Connection Monitor schemas

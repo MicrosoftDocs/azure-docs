@@ -86,7 +86,7 @@ You can also create your own custom environment. Define your conda dependencies 
 
 ```yaml
 dependencies:
-  - python=3.6.2
+  - python=3.7
   - scikit-learn
   - numpy
   - pip:

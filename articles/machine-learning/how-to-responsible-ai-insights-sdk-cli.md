@@ -341,7 +341,7 @@ There are two output ports:
 ---
 
 
-## How to generate a Responsible AI scorecard?
+## How to generate a Responsible AI scorecard (preview)
 
 The configuration stage requires you to use your domain expertise around the problem to set your desired target values on model performance and fairness metrics. 
 

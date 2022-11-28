@@ -1,5 +1,5 @@
 ---
-title: Mount SMB Azure file share on macOS | Microsoft Docs
+title: Mount SMB Azure file share on macOS
 description: Learn how to mount an Azure file share over SMB with macOS using Finder or Terminal. Azure Files is Microsoft's easy-to-use cloud file system.
 author: khdownie
 ms.service: storage

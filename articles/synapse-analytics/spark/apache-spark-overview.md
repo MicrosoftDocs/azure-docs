@@ -60,11 +60,16 @@ Spark pools in Azure Synapse Analytics enable the following key scenarios:
 
 - Data Engineering/Data Preparation
 
-  Apache Spark includes language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Azure Synapse Analytics. This approach is enabled through multiple languages, including C#, Scala, PySpark, and Spark SQL, and supplied libraries for processing and connectivity.
+Apache Spark includes many language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Azure Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
 
 - Machine Learning
 
-  Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Azure Synapse Analytics. Spark pools in Azure Synapse Analytics also include Anaconda, a Python distribution with various packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Azure Synapse Analytics. Spark pools in Azure Synapse Analytics also include Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+
+- Streaming Data
+
+Synapse Spark supports Spark structured streaming as long as you are running supported version of Azure Synapse Spark runtime release. All jobs are supported to live for seven days. This applies to both batch and streaming jobs, and generally, customers automate restart process using Azure Functions.
+
 
 ## Where do I start
 
