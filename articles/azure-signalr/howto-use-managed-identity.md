@@ -4,7 +4,7 @@ description: Learn how managed identities work in Azure SignalR Service, and how
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 06/8/2020
+ms.date: 11/28/2022
 ms.author: lianwei
 ---
 
