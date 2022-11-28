@@ -29,6 +29,6 @@ Azure Lab Services integration with Microsoft Teams will help educators set up a
 
 See the following articles:
 
-* [Configure Microsoft Teams to access lab plans](how-to-get-started-create-lab-within-teams.md).
+* [Configure Microsoft Teams to access lab plans](how-to-configure-teams-for-lab-plans.md).
 * [Create and manage labs within Teams](./how-to-manage-labs-within-teams.md).
 * [Access a VM within Teams – Student view](how-to-access-vm-for-students-within-teams.md).
