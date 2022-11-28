@@ -4,7 +4,7 @@ description: Discovery and insights (formerly Security Wizard) help you convert 
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

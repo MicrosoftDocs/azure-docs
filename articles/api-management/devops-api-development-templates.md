@@ -27,7 +27,7 @@ An API developer writes an API definition by providing a specification, settings
 There are several tools to assist producing the API definition:
 
 * The [Azure API Management DevOps Resource Toolkit][4] includes two tools that provide an Azure Resource Manager (ARM) template.  The _extractor_ creates an ARM template by extracting an API definition from an API Management service. The _creator_ produces the ARM template from a YAML specification.  The DevOps Resource Toolkit supports SOAP, REST, and GraphQL APIs.
-* The [Azure API Ops Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ similar to the DevOps Resource Toolkit to produce an API definition that is then applied to a target API Management service.  API Ops supports REST only at this time.
+* The [Azure APIOps Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ similar to the DevOps Resource Toolkit to produce an API definition that is then applied to a target API Management service.  APIOps supports REST and GraphQL APIs at this time.
 * The [dotnet-apim][6] tool converts a well-formed YAML definition into an ARM template for later deployment.  The tool is focused on REST APIs.
 * [Terraform][7] is an alternative to Azure Resource Manager to configure resources in Azure.  You can create a Terraform configuration (together with policies) to implement the API in the same way that an ARM template is created.
 
@@ -54,12 +54,12 @@ Once the automated tools have been run, the API definition is reviewed by the hu
 The API definition will be published to an API Management service through a release pipeline.  The tools used to publish the API definition depend on the tool used to produce the API definition:
 
 * If using the [Azure API Management DevOps Resource Toolkit][4] or [dotnet-apim][6], the API definition is represented as an ARM template.  Tasks are available for [Azure Pipelines][17] and [GitHub Actions][18] to deploy an ARM template.
-* If using the [Azure API Ops Toolkit][5], the toolkit includes a publisher that writes the API definition to the service.
+* If using the [Azure APIOps Toolkit][5], the toolkit includes a publisher that writes the API definition to the service.
 * If using [Terraform][7], CLI tools will deploy the API definition on your service.  There are tasks available for [Azure Pipelines][19] and [GitHub Actions][20]
 
 > **Can I use other source code control and CI/CD systems?**
 >
-> Yes. The process described works with any source code control system (although API Ops does require that the source code control system is [git][21] based).  Similarly, you can use any CI/CD platform as long as it can be triggered by a check-in and run command line tools that communicate with Azure.
+> Yes. The process described works with any source code control system (although APIOps does require that the source code control system is [git][21] based).  Similarly, you can use any CI/CD platform as long as it can be triggered by a check-in and run command line tools that communicate with Azure.
 
 ## Best practices
 
@@ -67,23 +67,23 @@ There's no industry standard for setting up a DevOps pipeline for publishing API
 
 * [Azure Repos][23] stores the API definitions in a [git][21] repository.
 * [Azure Pipelines][17] runs the automated API approval and API publication processes.
-* [Azure API Ops Toolkit][5] provides tools and workflows for publishing APIs.
+* [Azure APIOps Toolkit][5] provides tools and workflows for publishing APIs.
 
 We've seen the greatest success in customer deployments, and recommend the following practices:
 
 * Set up either [GitHub][22] or [Azure Repos][23] for your source code control system.  This choice will determine your choice of pipeline runner as well.  GitHub can use [Azure Pipelines][17] or [GitHub Actions][18], whereas Azure Repos must use Azure Pipelines.
 * Set up an Azure API Management service for each API developer so that they can develop API definitions along with the API service.  Use the consumption or developer SKU when creating the service.
 * Use [policy fragments][24] to reduce the new policy that developers need to write for each API.
-* Use the [Azure API Ops Toolkit][5] to extract a working API definition from the developer service.
+* Use the [Azure APIOps Toolkit][5] to extract a working API definition from the developer service.
 * Set up an API approval process that runs on each pull request.  The API approval process should include breaking change detection, linting, and automated API testing. 
-* Use the [Azure API Ops Toolkit][5] publisher to publish the API to your production API Management service.
+* Use the [Azure APIOps Toolkit][5] publisher to publish the API to your production API Management service.
 
-Review [Automated API deployments with API Ops][28] in the Azure Architecture Center for more details on how to configure and run a CI/CD deployment pipeline with API Ops.
+Review [Automated API deployments with APIOps][28] in the Azure Architecture Center for more details on how to configure and run a CI/CD deployment pipeline with APIOps.
 
 ## References
 
 * [Azure DevOps Services][25] includes [Azure Repos][23] and [Azure Pipelines][17].
-* [Azure API Ops Toolkit][5] provides a workflow for API Management DevOps.
+* [Azure APIOps Toolkit][5] provides a workflow for API Management DevOps.
 * [Spectral][12] provides a linter for OpenAPI specifications.
 * [openapi-diff][13] provides a breaking change detector for OpenAPI v3 definitions.
 * [Newman][15] provides an automated test runner for Postman collections.
@@ -105,7 +105,7 @@ Review [Automated API deployments with API Ops][28] in the Azure Architecture Ce
 [14]: https://owasp.org/www-community/api_security_tools
 [15]: https://github.com/postmanlabs/newman
 [16]: https://learning.postman.com/docs/getting-started/creating-the-first-collection/
-[17]: /azure/azure-resource-manager/templates/deployment-tutorial-pipeline
+[17]: ../azure-resource-manager/templates/deployment-tutorial-pipeline.md
 [18]: https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template
 [19]: https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform
 [20]: https://learn.hashicorp.com/tutorials/terraform/github-actions

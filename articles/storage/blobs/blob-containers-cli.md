@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Manage blob containers using Azure CLI
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Microsoft Azure Blob Storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 The Azure CLI is Azure's cross-platform command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it locally from the command line.
 
@@ -32,7 +32,7 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -357,10 +357,10 @@ az storage container generate-sas \
 
 ## Next steps
 
-In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, select an option below.
+In this how-to article, you learned how to manage containers in Blob Storage. To learn more about working with blob storage by using Azure CLI, select an option below.
 
 > [!div class="nextstepaction"]
 > [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
-> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=/azure/storage/blobs/toc.json)

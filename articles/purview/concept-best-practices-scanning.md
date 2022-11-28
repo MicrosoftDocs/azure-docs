@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 09/14/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -17,6 +17,9 @@ Microsoft Purview supports automated scanning of on-premises, multicloud, and so
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
 The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft Purview compliance portal.
+
+> [!IMPORTANT]
+> If you have any [Azure Policies](../governance/policy/overview.md) preventing **updates to Storage accounts**, this will cause errors for Microsoft Purview's scanning process. Follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts. 
 
 ## Why do you need best practices to manage data sources?
 

@@ -2,7 +2,7 @@
 title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
-ms.date: 11/22/2020
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -151,7 +151,7 @@ Either run it in debug mode on your development machine, or publish to your serv
 ## View your telemetry in Application Insights
 Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
-HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data appears on the overview pane. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
@@ -287,6 +287,8 @@ Application Insights can test your website at regular intervals to check that it
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/java-2x-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 * [Monitor dependency calls](java-2x-agent.md)

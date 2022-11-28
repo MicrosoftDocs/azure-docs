@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/14/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -44,6 +44,8 @@ To configure the integration of TMWS into Azure AD, you need to add TMWS from th
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, enter **Trend Micro Web Security (TMWS)** in the search box.
 1. Select **Trend Micro Web Security (TMWS)** in the search results and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for TMWS
 
@@ -195,7 +197,8 @@ Complete these steps to configure TMWS SSO on the application side.
     f. Select **Save**.
  
  > [!NOTE]
- > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx).
+ > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration/directory-services/azure-active-directo/configuring-azure-ad.aspx
+).
 
 ## Test SSO 
 

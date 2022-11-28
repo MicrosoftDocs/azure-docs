@@ -57,6 +57,8 @@
         href: certificate-signing-options.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -75,8 +77,8 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
       - name: Admin consent workflow overview
         href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
@@ -122,7 +124,7 @@
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
         href: custom-security-attributes-apps.md
-      - name: Disable user sign-on
+      - name: Disable user sign-in
         href: disable-user-sign-in-portal.md
       - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
@@ -168,6 +170,8 @@
           href: datawiza-with-azure-ad.md 
         - name: Configure Oracle JDE with Azure AD 
           href: datawiza-azure-ad-sso-oracle-jde.md
+        - name: Configure Oracle PeopleSoft with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -208,11 +212,13 @@
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
@@ -234,7 +240,7 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
-    - name: Deprecate
+    - name: Delete and restore apps
       items:
       - name: Delete an enterprise application
         href: delete-application-portal.md

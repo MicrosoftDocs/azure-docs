@@ -11,9 +11,13 @@ ms.topic: how-to
 
 # Self-host the API Management developer portal
 
-This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting gives you flexibility to extend the developer portal with custom logic and widgets that dynamically customize pages on runtime. You can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
+This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting is one of several options to [extend the functionality](developer-portal-extend-custom-functionality.md) of the developer portal. For example, you can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
 
-The following steps show how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure storage account.
+> [!IMPORTANT]
+> Consider self-hosting the developer portal only when you need to modify the core of the developer portal's codebase. This option requires advanced configuration, including:
+> * Deployment to a hosting platform, optionally fronted by a solution such as CDN for increased availability and performance
+> * Maintaining and managing hosting infrastructure
+> * Manual updates, including for security patches, which may require you to resolve code conflicts when upgrading the codebase
 
 If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
 

@@ -163,5 +163,5 @@ Advance to the next tutorial to learn how to deploy an application to the cluste
 [quotas-skus-regions]: quotas-skus-regions.md
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential

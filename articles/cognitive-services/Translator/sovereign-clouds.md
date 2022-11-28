@@ -42,8 +42,8 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 |--|--|
 |Azure portal | <ul><li>[Azure Government Portal](https://portal.azure.us/)</li></ul>|
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
-|Available pricing tiers|<ul><li>Free (F0) and Standard (S0). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
-|Supported Features | <ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li><li>[Document Translation](document-translation/overview.md)</li><li>[Custom Translator](custom-translator/overview.md)</li></ul>|
+|Available pricing tiers|<ul><li>Free (F0) and Standard (S1). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
+|Supported Features | <ul><li>[Text Translation](reference/v3-0-reference.md)</li><li>[Document Translation](document-translation/overview.md)</li><li>[Custom Translator](custom-translator/overview.md)</li></ul>|
 |Supported Languages| <ul><li>[Translator language support](language-support.md)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
@@ -112,7 +112,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 ```
 
 > [!div class="nextstepaction"]
-> [Azure Government: Translator text reference](reference/rest-api-guide.md)
+> [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md#translator)
 
 ### [Azure China 21 Vianet](#tab/china)
 
@@ -187,11 +187,11 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.cn/translator/text/batch
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+                "sourceUrl": "https://<storage_acount>.blob.core.chinacloudapi.cn/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-zh-Hans?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "targetUrl": "https://<storage_acount>.blob.core.chinacloudapi.cn/target-zh-Hans?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
                     "language": "zh-Hans"
                 }
             ]

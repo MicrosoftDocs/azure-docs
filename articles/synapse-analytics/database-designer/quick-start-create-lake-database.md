@@ -52,7 +52,7 @@ To ingest data to the lake database, you can execute [pipelines](../data-integra
 
 ```Spark
 %%sql
-INSERT INTO `retail_mil`.`customer` VALUES (1,'2021-02-18',1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
+INSERT INTO `retail_mil`.`customer` VALUES (1,date('2021-02-18'),1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
 ```
 
 ## Query the data

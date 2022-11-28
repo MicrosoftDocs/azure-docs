@@ -48,7 +48,7 @@ See the [quotas guide](quotas.md) for limitation details.
 
 You can move between Free or Standard plans via the Azure portal.
 
-1. Navigate to your Static Web Apps resource in the Azure portal.
+1. Go to your Static Web Apps resource in the Azure portal.
 
 1. Under the _Settings_ menu, select **Hosting plan**.
 

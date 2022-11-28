@@ -2,7 +2,6 @@
 title: Developer guide for Azure IoT Embedded C SDK | Microsoft Docs
 description: Get started with the Azure IoT Embedded C SDK and learn how to create device apps that communicate with an IoT hub.
 author: danewalton
-
 ms.author: dawalton
 ms.service: iot-hub
 services: iot-hub

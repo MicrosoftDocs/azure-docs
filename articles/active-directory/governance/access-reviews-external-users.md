@@ -4,7 +4,7 @@ description: Use Access Reviews to extend of remove access from members of partn
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

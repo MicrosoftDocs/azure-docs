@@ -4,12 +4,14 @@ description: Explains how to configure your device for remote management and how
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/02/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 
 ---
 # Connect remotely to your StorSimple 8000 series device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

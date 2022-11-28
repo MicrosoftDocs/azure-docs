@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 06/01/2022
+ms.date: 09/05/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -58,6 +58,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Field Service
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
+
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
 >[!TIP]
@@ -509,6 +510,29 @@ If all of your source records map to the same target entity and your source data
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
 
+## Writing data to a lookup field via alternative keys
+
+To write data into a lookup field using alternate key columns, follow this guidance and example: 
+
+1. Ensure your source contains all the lookup key columns. 
+
+2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_name}@{alternate_key_column_name}`. The column doesn't exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
+
+3. Go to **Mapping** tab in the sink transformation of mapping data flows. Select the alternate key as output columns under the Lookup field. The value after indicates the key columns of this alternate key.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/select-alternate-key-columns.png" alt-text="Screenshot shows selecting alternate key columns.":::
+
+4. Once selected, the alternate key columns will automatically display in below.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-1.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 1.":::
+
+5. Map your input columns on left with the output columns.
+
+    :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-2.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 2.":::
+
+> [!Note]
+> Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read from and write to tables in Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
@@ -587,6 +611,7 @@ IncomingStream sink(allowSchemaDrift: true,
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> DynamicsSink
 ```
+
 ## Lookup activity properties
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).

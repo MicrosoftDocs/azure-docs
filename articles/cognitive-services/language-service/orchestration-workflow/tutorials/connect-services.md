@@ -87,6 +87,7 @@ Now your orchestration project is ready to be used. Any incoming request will be
 ```powershell
 dotnet add package Azure.AI.Language.Conversations
 ```
+Alternatively, you can search for "Azure.AI.Language.Conversations" in the NuGet package manager and install the latest release.
 
 3. In `Program.cs`, replace `{api-key}` and the `{endpoint}` variables. Use the key and endpoint for the Language resource you created earlier. You can find them in the **Keys and Endpoint** tab in your Language resource in Azure.
 
@@ -95,10 +96,11 @@ Uri endpoint = new Uri("{endpoint}");
 AzureKeyCredential credential = new AzureKeyCredential("{api-key}");
 ```
 
-4. Replace the orchestrationProject parameters to **Orchestrator** and **Testing** as below if they are not set already.
+4. Replace the project and deployment parameters to **Orchestrator** and **Testing** as below if they are not set already.
 
 ```csharp
-ConversationsProject orchestrationProject = new ConversationsProject("Orchestrator", "Testing");
+string projectName = "Orchestrator";
+string deploymentName = "Testing";
 ```
 
 5. Run the project or press F5 in Visual Studio. 

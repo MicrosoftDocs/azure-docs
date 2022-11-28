@@ -4,7 +4,7 @@ description: Learn how to view the user assignments report and audit logs in Azu
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity

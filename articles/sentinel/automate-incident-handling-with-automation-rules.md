@@ -31,13 +31,11 @@ Automation rules apply to the following categories of use cases:
 
 - Inspect the contents of an incident (alerts, entities, and other properties) and take further action by calling a playbook.
 
-- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts-preview) in response to an **alert** *not associated with an incident*.
+- Automation rules can also be the mechanism by which you run a playbook in response to an **alert** *not associated with an incident*.
 
     > [!IMPORTANT]
     >
     > **Automation rules for alerts** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-
 
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your threat response orchestration processes.
 
@@ -150,7 +148,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 Also, you can define an action to [**run a playbook**](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. The playbooks available to be used in an automation rule depend on the [**trigger**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) on which the playbooks *and* the automation rule are based: Only incident-trigger playbooks can be run from incident-trigger automation rules, and only alert-trigger playbooks can be run from alert-trigger automation rules. You can define multiple actions that call playbooks, or combinations of playbooks and other actions.  Actions will run in the order in which they are listed in the rule.
 
-Playbooks using [either version of Logic Apps (Standard or Consumption)](automate-responses-with-playbooks.md#two-types-of-logic-apps) will be available to run from automation rules.
+Playbooks using [either version of Azure Logic Apps (Standard or Consumption)](automate-responses-with-playbooks.md#logic-app-types) will be available to run from automation rules.
 
 ### Expiration date
 

@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/14/2022
 ms.reviewer: azfuncdf
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, ignite-2022
 ---
 
 # Create your first durable function in Java (Preview)
@@ -127,7 +127,7 @@ Add a `host.json` file to your project directory. It should look similar to the 
 It's important to note that only the Azure Functions v4 _Preview_ bundle currently has the necessary support for Durable Functions for Java.
 
 > [!WARNING]
-> Be aware that the Azure Functions v4 preview bundles do not yet support Cosmos DB bindings for Java function apps. For more information, see [Azure Cosmos DB trigger and bindings reference documentation](../functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-java#install-bundle).
+> Be aware that the Azure Functions v4 preview bundles do not yet support Azure Cosmos DB bindings for Java function apps. For more information, see [Azure Cosmos DB trigger and bindings reference documentation](../functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-java#install-bundle).
 
 Add a `local.settings.json` file to your project directory. You should have the connection string of your Azure Storage account configured for `AzureWebJobsStorage`:
 

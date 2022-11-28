@@ -97,7 +97,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
     In the output, find the workspace name of interest. The `id` field of that represents the Azure Resource Manager identifier of that Log Analytics workspace.
 
     >[!TIP]
-    > This `id` can also be found in the *Overview* blade of the Log Analytics workspace through the Azure portal.
+    > This `id` can also be found in the *Overview* pane of the Log Analytics workspace through the Azure portal.
 
 ## Create extension instance 
 
@@ -156,11 +156,11 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
 
-### Onboarding from the Azure Arc-enabled Kubernetes resource blade
+### Onboarding from the Azure Arc-enabled Kubernetes resource pane
 
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
 
-2. Select the 'Insights' item under the 'Monitoring' section of the resource blade.
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 
 3. On the onboarding page, select the 'Configure Azure Monitor' button
 
@@ -170,9 +170,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
-### Onboarding from Azure Monitor blade
+### Onboarding from Azure Monitor pane
 
-1. In the Azure portal, navigate to the 'Monitor' blade, and select the 'Containers' option under the 'Insights' menu.
+1. In the Azure portal, navigate to the 'Monitor' pane, and select the 'Containers' option under the 'Insights' menu.
 
 2. Select the 'Unmonitored clusters' tab to view the Azure Arc-enabled Kubernetes clusters that you can enable monitoring for.
 
@@ -210,7 +210,7 @@ Once you have successfully created the Azure Monitor extension for your Azure Ar
 
 ### [Azure portal](#tab/verify-portal)
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
-2. Select the 'Extensions' item under the 'Settings' section of the resource blade
+2. From the resource pane on the left, select the 'Extensions' item under the 'Settings' section.
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
 ### [CLI](#tab/verify-cli)
 Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
@@ -267,7 +267,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 ```
 
 ## Disconnected cluster
-If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights blade may display incorrect information about your cluster state.
+If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights pane may display incorrect information about your cluster state.
 
 ## Troubleshooting
 For issues with enabling monitoring, we have provided a [troubleshooting script](https://aka.ms/azmon-ci-troubleshooting) to help diagnose any problems.

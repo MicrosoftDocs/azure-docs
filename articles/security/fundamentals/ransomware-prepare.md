@@ -4,38 +4,38 @@ description: Prepare for a ransomware attack
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
+ms.custom: ignite-2022
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022
-
 ---
 
 # Prepare for a ransomware attack
 
 ## Adopt a Cybersecurity framework
 
-A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
+A good place to start is to adopt the [Microsoft cloud security benchmark](/security/benchmark/azure) (MCSB) to secure the Azure environment. The Microsoft cloud security benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
 
 :::image type="content" source="./media/ransomware/ransomware-13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
-The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) to monitor their live Azure environment status with all the Azure Security Benchmark controls.
+The Microsoft cloud security benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) to monitor their live Azure environment status with all the MCSB controls.
 
 Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks.
 
-| Azure Security Benchmark stack |
+| Microsoft cloud security benchmark stack |
 |--|
-| [Network&nbsp;security&nbsp;(NS)](/security/benchmark/azure/security-controls-v3-network-security) |
-| [Identity&nbsp;Management&nbsp;(IM)](/security/benchmark/azure/security-controls-v3-identity-management) |
-| [Privileged&nbsp;Access&nbsp;(PA)](/security/benchmark/azure/security-controls-v3-privileged-access) |
-| [Data&nbsp;Protection&nbsp;(DP)](/security/benchmark/azure/security-controls-v3-data-protection) |
-| [Asset&nbsp;Management&nbsp;(AM)](/security/benchmark/azure/security-controls-v3-asset-management) |
+| [Network&nbsp;security&nbsp;(NS)](/security/benchmark/azure/mcsb-network-security) |
+| [Identity&nbsp;Management&nbsp;(IM)](/security/benchmark/azure/mcsb-identity-management) |
+| [Privileged&nbsp;Access&nbsp;(PA)](/security/benchmark/azure/mcsb-privileged-access) |
+| [Data&nbsp;Protection&nbsp;(DP)](/security/benchmark/azure/mcsb-data-protection) |
+| [Asset&nbsp;Management&nbsp;(AM)](/security/benchmark/azure/mcsb-asset-management) |
 | [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](/security/benchmark/azure/security-controls-v2-logging-threat-detection) |
-| [Incident&nbsp;Response&nbsp;(IR)](/security/benchmark/azure/security-controls-v3-incident-response) |
-| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management) |
-| [Endpoint&nbsp;Security&nbsp;(ES)](/security/benchmark/azure/security-controls-v3-endpoint-security) |
-| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](/security/benchmark/azure/security-controls-v3-backup-recovery) |
-| [DevOps&nbsp;Security&nbsp;(DS)](/security/benchmark/azure/security-controls-v3-devops-security) |
-| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](/security/benchmark/azure/security-controls-v3-governance-strategy) |
+| [Incident&nbsp;Response&nbsp;(IR)](/security/benchmark/azure/mcsb-incident-response) |
+| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](/security/benchmark/azure/mcsb-posture-vulnerability-management) |
+| [Endpoint&nbsp;Security&nbsp;(ES)](/security/benchmark/azure/mcsb-endpoint-security) |
+| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](/security/benchmark/azure/mcsb-backup-recovery) |
+| [DevOps&nbsp;Security&nbsp;(DS)](/security/benchmark/azure/mcsb-devops-security) |
+| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](/security/benchmark/azure/mcsb-governance-strategy) |
 
 ## Prioritize mitigation
 
@@ -164,7 +164,7 @@ Local (operational) backups with Azure Backup
 - Azure Disks
 
 Built-in backups from Azure services
-- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Cosmos DB, and ANF offer built-in backup capabilities
+- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Azure Cosmos DB, and ANF offer built-in backup capabilities
 
 ## What's Next
 

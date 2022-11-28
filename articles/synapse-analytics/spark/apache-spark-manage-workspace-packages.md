@@ -4,14 +4,14 @@ description: Learn how to add and manage libraries to workspace in Azure Synapse
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/03/2022
 ms.author: shuaijunye
 ms.subservice: spark
 ---
 
 # Workspace packages
 
-Workspace packages can be custom or private wheel or jar files. You can upload these packages to your workspace and later assign them to a specific Spark pool.
+Workspace packages can be custom or private wheel (Python), jar (Scala/Java), or tar.gz (R) files. You can upload these packages to your workspace and later assign them to a specific Spark pool.
 
 To add workspace packages:
 1. Navigate to the **Manage** > **Workspace packages** tab.
@@ -24,6 +24,9 @@ To add workspace packages:
 >- Within Azure Synapse, an Apache Spark pool can leverage custom libraries that are either uploaded  as Workspace Packages or uploaded within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool. If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
 >
 >- Once Workspace Packages are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
+
+> [!NOTE]
+> It's recommended that you don't have multiple wheel packages with the same name in a workspace. If you want to use a different version of the same wheel package, you have to delete the existing version and upload the new one.
 
 ## Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 

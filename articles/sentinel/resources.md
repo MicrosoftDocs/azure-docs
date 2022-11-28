@@ -68,7 +68,7 @@ Download sample content from the private community GitHub repository to create c
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get certified!](/learn/paths/security-ops-sentinel/)
+> [Get certified!](/training/paths/security-ops-sentinel/)
 
 > [!div class="nextstepaction"]
 > [Read customer use case stories](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)

@@ -195,7 +195,24 @@ You can exclude certain types of telemetry from sampling. In this example, data 
 ```
 ---
 
-For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration differs from the sampling configuration in your function app. In such cases, use the same sampling configuration as the function app. For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+
+## Enable SQL query collection
+
+Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md#applicationinsightsdependencytrackingoptions): 
+
+```json
+"logging": {
+    "applicationInsights": {
+        "enableDependencyTracking": true,    
+        "dependencyTrackingOptions": {
+            "enableSqlCommandTextInstrumentation": true
+        }
+    }
+}
+```
+
+For more information, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 ## Configure scale controller logs
 
@@ -418,6 +435,10 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
+
+## Monitor function apps using Health check
+
+The Health Check feature can be used to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check is not an option for the Consumption plan. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the 'Path' parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
 
 ## Next steps
 

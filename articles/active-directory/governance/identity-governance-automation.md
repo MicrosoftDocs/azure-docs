@@ -4,7 +4,7 @@ description: Learn how to write PowerShell scripts in Azure Automation to intera
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: daveba
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 1/20/2022
+ms.date: 9/20/2022
 ms.author: amsliu
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -57,6 +57,7 @@ To generate a self-signed certificate,
 
    ```powershell
     $cert | ft Thumbprint
+   ```
 
 1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
 
@@ -84,7 +85,7 @@ By default, Azure Automation does not have any PowerShell modules preloaded for 
 
 1. If you are using the cmdlets for Azure AD identity governance features, such as entitlement management, then repeat the import process for the module **Microsoft.Graph.Identity.Governance**.
 
-1. Import other modules that your script may require.  For example, if you are using Identity Protection, then you may wish to import the **Microsoft.Graph.Identity.SignIns** module.
+1. Import other modules that your script may require, such as **Microsoft.Graph.Users**.  For example, if you are using Identity Protection, then you may wish to import the **Microsoft.Graph.Identity.SignIns** module.
 
 ## Create an app registration and assign permissions
 
@@ -110,12 +111,12 @@ Next, you will create an app registration in Azure AD, so that Azure AD will rec
 
 1. Select each of the permissions that your Azure Automation account will require, then select **Add permissions**.
 
- * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
- * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
- * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
- * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
+   * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
+   * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
+   * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
+   * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
 
-10. Select **Grant admin permissions** to give your app those permissions.
+1. Select **Grant admin permissions** to give your app those permissions.
 
 ## Create Azure Automation variables
 
@@ -148,7 +149,7 @@ Import-Module Microsoft.Graph.Authentication
 $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
-Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
+Connect-MgGraph -clientId $ClientId -tenantId $TenantId -certificatethumbprint $Thumbprint
 ```
 
 5. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.
@@ -179,9 +180,24 @@ $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
 
 3. If the run was successful, the output instead of the welcome message will be a JSON array. The JSON array will include the ID and display name of each access package returned from the query.
 
+## Provide parameters to the runbook (optional)
+
+You can also add input parameters to your runbook, by adding a `Param` section at the top of the PowerShell script. For instance,
+
+```powershell
+Param
+(
+    [String] $AccessPackageAssignmentId
+)
+```
+
+The format of the allowed parameters depends upon the calling service. If your runbook does take parameters from the caller, then you will need to add validation logic to your runbook to ensure that the parameter values supplied are appropriate for how the runbook could be started.  For example, if your runbook is started by a [webhook](../../automation/automation-webhooks.md), Azure Automation doesn't perform any authentication on a webhook request as long as it's made to the correct URL, so you will need an alternate means of validating the request.
+
+Once you [configure runbook input parameters](../../automation/runbook-input-parameters.md), then when you test your runbook you can provide values through the Test page. Later, when the runbook is published, you can provide parameters when starting the runbook from PowerShell, the REST API, or a Logic App.
+
 ## Parse the output of an Azure Automation account in Logic Apps (optional)
 
-Once your runbook is published, your can create a schedule in Azure Automation, and link your runbook to that schedule to run automatically.  Scheduling runbooks from Azure Automation is suitable for runbooks that do not need to interact with other Azure or Office 365 services.
+Once your runbook is published, your can create a schedule in Azure Automation, and link your runbook to that schedule to run automatically.  Scheduling runbooks from Azure Automation is suitable for runbooks that do not need to interact with other Azure or Office 365 services that do not have PowerShell interfaces.
 
 If you wish to send the output of your runbook to another service, then you may wish to consider using [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to start your Azure Automation runbook, as Logic Apps can also parse the results.
 
@@ -189,11 +205,11 @@ If you wish to send the output of your runbook to another service, then you may 
 
 1. Add the operation **Create job** from **Azure Automation**.  Authenticate to Azure AD, and select the Subscription, Resource Group, Automation Account created earlier.  Select **Wait for Job**.
 
-1. Add the parameter **Runbook name** and type the name of the runbook to be started.
+1. Add the parameter **Runbook name** and type the name of the runbook to be started.  If the runbook has input parameters, then you can provide the values to them.
 
 1. Select **New step** and add the operation **Get job output**.  Select the same Subscription, Resource Group, Automation Account as the previous step, and select the Dynamic value of the **Job ID** from the previous step.
 
-1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](../../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), that use the **Content** returned when the runbook completes.
+1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](../../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) that uses the **Content** returned when the runbook completes.  (If you're auto-generating the **Parse JSON** schema from a sample payload, be sure to account for PowerShell script potentially returning null; you might need to change some of the `"type": ​"string"` to `"type": [​"string",​ "null"​]` in the schema.)
 
 Note that in Azure Automation, a PowerShell runbook can fail to complete if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed by the Logic App, such as by using the `Select-Object -Property` cmdlet to exclude unneeded properties.
 
@@ -208,4 +224,4 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-account-portal.md)
+- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-azure-automation-account-portal.md)

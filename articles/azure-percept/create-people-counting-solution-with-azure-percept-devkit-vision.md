@@ -1,16 +1,19 @@
 ---
 title: Create a people counting solution with Azure Percept Vision
 description: This guide will focus on detecting and counting people using the Azure Percept DK hardware, Azure IoT Hub, Azure Stream Analytics, and Power BI dashboard. 
-author: nkhuyent
+author: yvonne-dq
 ms.author: sbhasale
 ms.service: azure-percept 
 ms.topic: tutorial 
-ms.date: 01/19/2021 
+ms.date: 10/06/2022
 ms.custom: template-tutorial 
 ---
 
 
 # Create a people counting solution with Azure Percept Vision  
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 This guide will focus on detecting and counting people using the Azure Percept DK hardware, Azure IoT Hub, Azure Stream Analytics, and Power BI dashboard. 
 
 The tutorial is intended to show detailed steps on how users can create, configure, and implement the basic components of this solution. Users can easily expand the tutorial and create additional ways to visualize people counting data. 
@@ -41,7 +44,6 @@ In this tutorial, you learn how to:
 [ ![Power BI](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-mini.png) ](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi.png#lightbox)
 
 
-- Percept DK ([Purchase](https://www.microsoft.com/store/build/azure-percept/8v2qxmzbz9vc))
 - Azure Subscription: ([Free trial account](https://azure.microsoft.com/free/))
 - Power BI subscription: ([Try Power BI for free](https://go.microsoft.com/fwlink/?LinkId=874445&clcid=0x409&cmpid=pbi-gett-hero-try-powerbifree))
 - Power BI workspace: ([Create the new workspaces in Power BI](https://github.com/MicrosoftDocs/powerbi-docs/blob/main/powerbi-docs/collaborate-share/service-create-the-new-workspaces.md))

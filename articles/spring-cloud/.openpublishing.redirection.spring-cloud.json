@@ -56,11 +56,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "disaster-recovery.md",
-            "redirect_url": "/azure/spring-apps/disaster-recovery",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "expose-apps-gateway-end-to-end-tls.md",
             "redirect_url": "/azure/spring-apps/expose-apps-gateway-end-to-end-tls",
             "redirect_document_id": false
@@ -193,11 +188,6 @@
         {
             "source_path": "how-to-elastic-diagnostic-settings.md",
             "redirect_url": "/azure/spring-apps/how-to-elastic-diagnostic-settings",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "how-to-enable-availability-zone.md",
-            "redirect_url": "/azure/spring-apps/how-to-enable-availability-zone",
             "redirect_document_id": false
         },
         {
@@ -552,7 +542,7 @@
         },
         {
             "source_path": "tutorial-managed-identities-mysql.md",
-            "redirect_url": "/azure/spring-apps/tutorial-managed-identities-mysql",
+            "redirect_url": "/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app",
             "redirect_document_id": false
         },
         {
@@ -933,6 +923,16 @@
         {
             "source_path": "quickstart-setup-application-configuration-service-enterprise.md",
             "redirect_url": "/azure/spring-apps/quickstart-deploy-apps-enterprise",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "disaster-recovery.md",
+            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-enable-availability-zone.md",
+            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
             "redirect_document_id": false
         }
     ]

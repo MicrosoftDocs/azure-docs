@@ -4,8 +4,8 @@ description: Article describes how to set a maintenance window
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 03/31/2022
 ms.topic: how-to

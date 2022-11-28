@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep'
 description: In this Quickstart, learn how to create an Azure Red Hat OpenShift cluster using an Azure Resource Manager template or a Bicep file.
-author: rahulm23
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm
-ms.author: rahulmehta
+ms.author: johnmarc
 ms.date: 03/17/2022
 keywords: azure, openshift, aro, red hat, arm, bicep
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
@@ -453,7 +453,10 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
-var contribRole = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
+var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+var workerSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
 
 resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01' = {
   name: clusterVnetName
@@ -493,26 +496,24 @@ resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01'
   }
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, aadObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(aadObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: aadObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, rpObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(rpObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: rpObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
 resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-04-30' = {
@@ -522,7 +523,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
   properties: {
     clusterProfile: {
       domain: domain
-      resourceGroupId: '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+      resourceGroupId: resourceGroupId
       pullSecret: pullSecret
     }
     networkProfile: {
@@ -535,14 +536,14 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
     }
     masterProfile: {
       vmSize: masterVmSize
-      subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+      subnetId: masterSubnetId
     }
     workerProfiles: [
       {
         name: 'worker'
         vmSize: workerVmSize
         diskSizeGB: workerVmDiskSize
-        subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
+        subnetId: workerSubnetId
         count: workerCount
       }
     ]
@@ -754,7 +755,7 @@ az group create --name $RESOURCEGROUP --location $LOCATION
 - Azure CLI
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" --role Contributor > app-service-principal.json
+az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" > app-service-principal.json
 SP_CLIENT_ID=$(jq -r '.appId' app-service-principal.json)
 SP_CLIENT_SECRET=$(jq -r '.password' app-service-principal.json)
 SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
@@ -812,7 +813,7 @@ az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
 ```
 
 > [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Red Hat Openshift (ARO) repo](https://github.com/Azure/OpenShift).
 
 ## Next steps
 

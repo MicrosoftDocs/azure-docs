@@ -4,7 +4,7 @@ description: Learn how to grant a user access to Azure resources using Azure Pow
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: role-based-access-control

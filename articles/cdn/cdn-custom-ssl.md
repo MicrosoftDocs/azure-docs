@@ -180,7 +180,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
     - The available certificate/secret versions.
 
     > [!NOTE]
-    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
+    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
 
 5. Select **On** to enable HTTPS.
 

@@ -95,7 +95,7 @@ In this tutorial, you learn how to:
    print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} region")
 
    # For details on the previous code, see Example: Use the Azure libraries to provision a resource group
-   # at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+   # at https://learn.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
 
    # Step 2: Provision a virtual network
 

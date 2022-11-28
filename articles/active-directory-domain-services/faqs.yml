@@ -4,7 +4,7 @@ metadata:
   description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
   services: active-directory-ds
   author: justinha
-  manager: karenhoran
+  manager: amycolannino
   
   ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
   ms.service: active-directory
@@ -164,6 +164,11 @@ sections:
           How are Windows Updates applied in Azure AD Domain Services?
         answer: |
           Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
+          
+      - question: |
+          Why do my domain controllers change names?
+        answer: |
+          It is possible that during the maintenance of domain controllers there is a change in their names. To avoid problems with this type of change, it is recommended to not use the names of the domain controllers hardcoded in applications and/or other domain resources, but the FQDN of the domain. This way, no matter what the names of the domain controllers are, you won't need to reconfigure anything after a name change.
 
   - name: Billing and availability
     questions:

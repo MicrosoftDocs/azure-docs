@@ -1,6 +1,6 @@
 ---
-title: SAP deployment automation framework hands-on lab
-description: Hands-on lab for the SAP deployment automation framework on Azure.
+title: SAP on Azure Deployment Automation Framework hands-on lab
+description: Hands-on lab for the SAP on Azure Deployment Automation Framework.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
@@ -11,9 +11,9 @@ ms.service: virtual-machines-sap
 
 
 
-# Enterprise Scale for SAP deployment automation framework - Hands-on Lab
+# Enterprise Scale for SAP on Azure Deployment Automation Framework - Hands-on Lab
 
-This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
 
 You'll perform the following tasks during this lab:
 
@@ -55,7 +55,7 @@ The following diagram shows the dependency between the control plane and the app
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP deployment automation framework environment.":::
+:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework environment.":::
 
 
 
@@ -75,7 +75,7 @@ You configure the deployer and library in a Terraform `.tfvars` variable file. S
 
 #### Workload Zone
 
-An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as workload zones.
+An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP on Azure Deployment Automation Framework refers to these tiers as workload zones.
 
 :::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Workload zone.":::
 
@@ -91,7 +91,7 @@ The system deployment consists of the virtual machines that will be running the 
 
 ### Prerequisites
 
-The [SAP deployment automation framework repository](https://github.com/Azure/sap-automation) is available on GitHub.
+The [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation) is available on GitHub.
 
 You need an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
 

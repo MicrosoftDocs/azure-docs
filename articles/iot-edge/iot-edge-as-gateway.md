@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # How an IoT Edge device can be used as a gateway
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 

@@ -66,11 +66,7 @@ Below are the devices and the possible groups that can be created for them.
 | Device3 | Group2                        |
 | Device4 | DefaultGroup1-(deviceClassId) |
 
-## Invalid group
 
-A corresponding invalid group is created for every user-defined group. A device is added to the invalid group if it doesn't meet the compatibility requirements of the user-defined group. This grouping can be resolved by either re-tagging and regrouping the device under a new group, or modifying its compatibility properties through the agent configuration file.
-
-An invalid group only exists for diagnostic purposes. Updates cannot be deployed to invalid groups.
 
 ## Next steps
 

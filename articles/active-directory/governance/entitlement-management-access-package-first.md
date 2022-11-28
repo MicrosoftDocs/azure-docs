@@ -4,7 +4,7 @@ description: Step-by-step tutorial for how to create your first access package u
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

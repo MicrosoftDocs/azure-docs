@@ -47,7 +47,7 @@ Return to this document for details on using the preview features.
 
 Microsoft provides many storage options for deploying databases such as SAP HANA.  Many of these options are detailed on the 
 [Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md) web page.  Additionally there's a 
-[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#cost-conscious-solution-with-azure-premium-storage).  
+[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#cost-conscious-solution-with-azure-premium-storage).  
 
 AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the set up 
 for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 

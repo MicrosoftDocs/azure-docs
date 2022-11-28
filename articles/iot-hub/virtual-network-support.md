@@ -3,7 +3,7 @@
  description: How to use virtual networks connectivity pattern with IoT Hub
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: conceptual
  ms.date: 10/20/2021
  ms.author: kgremban

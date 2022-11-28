@@ -13,7 +13,7 @@ You can enable Azure Arc-enabled servers for one or more Windows machines in you
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.
 
-* Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration ](/windows-server/manage/windows-admin-center/azure/azure-integration).
+* Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration](/windows-server/manage/windows-admin-center/azure/azure-integration).
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

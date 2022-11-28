@@ -16,7 +16,7 @@ In this quickstart, you'll deploy and configure the Azure Connected Machine agen
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
-* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers), or while completing the steps in this quickstart.
+* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. Please [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers).
 * Before you get started, be sure to review the [agent prerequisites](../prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../prerequisites.md#required-permissions).
@@ -51,8 +51,6 @@ Use the Azure portal to create a script that automates the agent download and in
    1. Select **Next**.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards. Then select **Next**.
-
-1. On the **Download and run script** page, select the **Register** button to register the required resource providers in your subscription, if you haven't already done so.
 
 1. In the **Download or copy the following script** section, review the script. If you want to make any changes, use the **Previous** button to go back and update your selections. Otherwise, select **Download** to save the script file.
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/10/2022
+ms.date: 09/07/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -152,7 +152,7 @@ The following example generates a JSON string based on the claim value of "email
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
     <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.verify-email" />
+    <InputClaim ClaimTypeReferenceId="copiedEmail" TransformationClaimType="personalizations.0.dynamic_template_data.verify-email" />
   </InputClaims>
   <InputParameters>
     <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
@@ -169,6 +169,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 - Input claims:
   - **email**,  transformation claim type  **personalizations.0.to.0.email**: "someone@example.com"
+  - **copiedEmail**,  transformation claim type  **personalizations.0.dynamic_template_data.verify-email**: "someone@example.com"
   - **otp**, transformation claim type **personalizations.0.dynamic_template_data.otp** "346349"
 - Input parameter:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
@@ -239,6 +240,26 @@ The following claims transformation outputs a JSON string claim that will be the
     {
        "customerEntity":{
           "email":"john.s@contoso.com",
+          "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+          "firstName":"John",
+          "lastName":"Smith",
+          "role":{
+             "name":"Administrator",
+             "id": 1
+          }
+       }
+    }
+    ```
+
+The **GenerateJson** claims transformation accepts plain strings. If an input claim contains a JSON string, that string will be escaped. In the following example, if you use email output from [CreateJsonArray above](json-transformations.md#example-of-createjsonarray), that is ["someone@contoso.com"], as an input parameter, the email will look like as shown in the following JSON claim:
+
+- Output claim:
+  - **requestBody**:
+
+    ```json
+    {
+       "customerEntity":{
+          "email":"[\"someone@contoso.com\"]",
           "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
           "firstName":"John",
           "lastName":"Smith",
