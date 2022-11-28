@@ -180,7 +180,7 @@ To export data to an Azure Event hub or Log Analytics workspace in a different t
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
 1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
 
-You can also configure export to another tenant through the REST API. [Refer to the automations table](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
+You can also configure export to another tenant through the REST API. For more information, see the automations REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
 
 ##  View exported alerts and recommendations in Azure Monitor
 
