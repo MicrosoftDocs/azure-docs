@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 11/07/2022
+ms.date: 11/28/2022
 ms.topic: how-to
 ---
 
@@ -152,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
-Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
+Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configure-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 ## Change the name of a sensor
 
