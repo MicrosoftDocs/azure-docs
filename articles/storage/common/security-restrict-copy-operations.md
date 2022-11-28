@@ -62,9 +62,9 @@ After you create the diagnostic setting, requests to the storage account are sub
 
 ### Query logs for copy requests
 
-Azure Storage logs include all requests to copy data to a storage account from another source. The log entries include the name of the destination storage account and the URI of the source object, along with information to help identify the client requesting the copy. For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
+Azure Storage logs include all requests to copy data to a storage account from another source. The log entries include the name of the destination storage account and the URI of the source object, along with information to help identify the client requesting the copy. For a complete reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
-To retrieve logs for copy requests made in the last seven days, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the source objects most frequently referenced in requests to copy data to the account. In the following example, replace the placeholder text *`<account-name>`* with your own storage account name.
+To retrieve logs for copy requests made in the last seven days, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the source objects most frequently referenced in requests to copy data to the specified storage account. In the following example, replace the placeholder text *`<account-name>`* with your own storage account name.
 
 ```kusto
 StorageBlobLogs
@@ -113,11 +113,13 @@ To configure the permitted scope for copy operations for an existing storage acc
 1. Under **Settings**, select **Configuration**.
 1. Set **Permitted scope for copy operations (preview)** to one of the following:
 
-    - ***From any storage account***
-    - ***From storage accounts in the same Azure AD tenant***
-    - ***From storage accounts that have a private endpoint to the same virtual network***
+    - *From any storage account*
+    - *From storage accounts in the same Azure AD tenant*
+    - *From storage accounts that have a private endpoint to the same virtual network*
 
     :::image type="content" source="media\security-restrict-copy-operations\portal-set-scope.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account." lightbox="media\security-restrict-copy-operations\portal-set-scope.png":::
+
+1. Select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -143,7 +145,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
 
 To configure the permitted scope for copy operations for a new or existing storage account with Azure CLI, install Azure CLI version 2.20.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowed-copy-scope** property for a new or existing storage account.
 
-The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
+The following example shows how to configure the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```azurecli-interactive
 az storage account update \
@@ -164,7 +166,7 @@ az storage account update \
 ---
 
 ## Next steps
-<!-- Add a context sentence for the following links 
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
--->
+
+- [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md)
+- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
+- [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)
