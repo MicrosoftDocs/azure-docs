@@ -3,7 +3,7 @@ title: Industrial IoT patterns with Azure IoT Central | Microsoft Docs
 description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/27/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,9 +11,9 @@ services: iot-central
 
 # Industrial IoT (IIoT) architecture patterns with Azure IoT Central
 
-:::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial I O T architecture." border="false":::
+:::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial IoT architecture." border="false":::
 
-IoT Central enables you to evaluate your IIoT scenario by using the following built-in capabilities:
+IoT Central lets you evaluate your IIoT scenario by using the following built-in capabilities:
 
 - Connect industrial assets either directly or through a gateway device
 - Collect data at scale from your industrial assets
@@ -21,9 +21,10 @@ IoT Central enables you to evaluate your IIoT scenario by using the following bu
 - Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
 - Integrate and extend your solution by connecting to first and third party applications and services
 
-Powered by the Azure IoT Platform, IoT Central enables you to model highly available, scalable, and secure solutions.
+Powered by the Azure IoT Platform, IoT Central lets you evaluate highly available, scalable, and secure solutions.
 
 ## Connect your industrial assets
+
 Operational technology (OT) is the hardware and software that monitors and controls the equipment and infrastructure in industrial facilities. There are four ways to connect your industrial assets to Azure IoT Central:
 
 - Proxy through on-premises partner solutions that have built-in support to connect to Azure IoT Central.

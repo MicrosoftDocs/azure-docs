@@ -3,7 +3,7 @@ title: Azure IoT Central application security guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to secure your IoT Central application. IoT Central security includes users, devices, API access, and authentication to other services for data export.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 07/25/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # IoT Central security guide
 
-An IoT Central application lets you monitor and manage your devices, thereby allowing you to evaluate your IoT journey. This guide is for administrators who manage security in IoT Central applications.
+An IoT Central application lets you monitor and manage your devices, letting you quickly evaluate your IoT scenario. This guide is for administrators who manage security in IoT Central applications.
 
 In IoT Central, you can configure and manage security in the following areas:
 

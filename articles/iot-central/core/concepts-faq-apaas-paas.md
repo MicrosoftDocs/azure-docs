@@ -3,7 +3,7 @@ title: Move from IoT Central to a PaaS solution | Microsoft Docs
 description: How do I move between aPaaS and PaaS solution approaches?
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,10 +11,11 @@ services: iot-central
 
 # How do I move between aPaaS and PaaS solutions?
 
-IoT Central is the fastest and easiest way to evaluate your IoT journey. You can use the *IoT Central migrator tool* to migrate devices seamlessly from IoT Central to a PaaS solution that uses the Device Provisioning Service (DPS) and IoT Hub service.
+IoT Central is the fastest and easiest way to evaluate your IoT scenario. You can use the *IoT Central migrator tool* to migrate devices seamlessly from IoT Central to a platform as a service (PaaS) solution that uses IoT Hub and the Device Provisioning Service (DPS).
+
 ## Move devices with the IoT Central migrator tool
 
-Use the migrator tool to move devices with no downtime from IoT Central to your own DPS instance. In a PaaS solution, you link a DPS instance to your IoT hub. The migrator tool disconnects devices from IoT Central and connects them to your PaaS solution. From this point forward, new devices are created in your IoT hub. 
+Use the migrator tool to move devices with no downtime from IoT Central to your own DPS instance. In a PaaS solution, you link a DPS instance to your IoT hub. The migrator tool disconnects devices from IoT Central and connects them to your PaaS solution. From this point forward, new devices are created in your IoT hub.
 
 Download the [migrator tool from GitHub](https://github.com/Azure/iotc-migrator).
 
@@ -46,7 +47,7 @@ So that you can seamlessly migrate devices from your IoT Central applications to
 - The device must follow the [IoT Central data formats for telemetry, property, and commands](concepts-telemetry-properties-commands.md).
 
 - IoT Central uses the DPS to provision the devices. The PaaS solution must also use DPS to provision the devices.
-- The updateable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
+- The updatable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
 
 ## Move existing data out of IoT Central
 
