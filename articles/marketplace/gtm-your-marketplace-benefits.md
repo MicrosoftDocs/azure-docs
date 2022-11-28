@@ -4,7 +4,7 @@ description: Go-To-Market Services - Describes Microsoft resources that publishe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/31/2022
+ms.date: 11/16/2022
 author: pavankumarMSFT
 ms.author: vgandhikota
 ---
@@ -18,7 +18,9 @@ Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Part
 > [!NOTE]
 > Currencies ($) referenced in images in this article are Marketplace Reward benefit tiers, which are based on cumulative billed sales or seats sold through Microsoft AppSource and Azure Marketplace.
 
-## Marketplace Rewards
+## ISV Success program and Marketplace rewards
+
+Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available at no cost to all participants of the program.
 
 Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
 
@@ -61,7 +63,7 @@ Each time you publish on Microsoft AppSource or Azure Marketplace, you will have
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
-[![Go-To-Market benefits](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png#lightbox)
+:::image type="content" alt-text="Table that shows eligibility requirements." source="./media/gtm-marketplace/summary-table.png" lightbox="./media/gtm-marketplace/summary-table.png":::
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
@@ -78,15 +80,15 @@ All partners who have a live transactable offer get to work with a dedicated eng
 
 ### Marketing benefits for transact offers
 
-[![Marketing benefits](media/marketplace-publishers-guide/marketing-benefit.png)](media/marketplace-publishers-guide/marketing-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows marketing benefits for transact offers." source="./media/gtm-marketplace/marketing-benefits.png" lightbox="./media/gtm-marketplace/marketing-benefits.png":::
 
 ### Sales benefits for transact offers
 
-[![Sales benefits](media/marketplace-publishers-guide/sales-benefit.png)](media/marketplace-publishers-guide/sales-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows sales benefits for transact offers." source="./media/gtm-marketplace/sales-benefits.png" lightbox="./media/gtm-marketplace/sales-benefits.png":::
 
 ### Technical benefits for transact offers
 
-[![Technical benefits](media/marketplace-publishers-guide/technical-benefit.png)](media/marketplace-publishers-guide/technical-benefit.png#lightbox)
+:::image type="content" alt-text="Table that shows technical benefits for transact offers." source="./media/gtm-marketplace/technical-benefits.png" lightbox="./media/gtm-marketplace/technical-benefits.png":::
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 

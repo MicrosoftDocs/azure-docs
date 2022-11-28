@@ -81,7 +81,7 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
-1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
+1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. You can also do **incremental changes only** if you want to create an ODP delta subscription in the SAP source system in the first run of your pipeline without returning any data, and with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
 
@@ -89,7 +89,7 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
 1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
-1. If **Run mode** is set to **Full on every run**, the tab **Optimize** offers additional selection and partitioning options. Each partition condition (the screenshot below shows an example with two conditions) will trigger a separate extraction process in the connected SAP system. Up to three of these extraction process are executed in parallel.
+1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers additional selection and partitioning options. Each partition condition (the screenshot below shows an example with two conditions) will trigger a separate extraction process in the connected SAP system. Up to three of these extraction process are executed in parallel.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
