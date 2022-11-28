@@ -80,9 +80,9 @@ Here are the important steps from the code:
     
     // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when events are being published or read regularly.
-    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
+    // TODO: Replace the <EVENT_HUB_NAMESPACE> and <HUB_NAME> placeholder values
     EventHubProducerClient producerClient = new EventHubProducerClient(
-        "<SERVICE_BUS_NAMESPACE>.servicebus.windows.net",
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
         "<HUB_NAME>",
         new DefaultAzureCredential());
     
@@ -181,15 +181,15 @@ This section shows how to write a .NET Core console application that receives ev
 > If you run this code on **Azure Stack Hub**, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
 >
 > For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
- 
 
-### Create an Azure Storage and a blob container
+
+### Create an Azure Storage Account and a blob container
 In this quickstart, you use Azure Storage as the checkpoint store. Follow these steps to create an Azure Storage account. 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container
-
+    
 ## [Passwordless](#tab/passwordless)
 
 [!INCLUDE [assign-roles](../../includes/assign-roles.md)]
@@ -247,15 +247,16 @@ Here are the important steps from the code:
     
     // Create a blob container client that the event processor will use 
     BlobContainerClient storageClient = new BlobContainerClient(
-        new URI("<AZURE_STORAGE_CONTAINER_URI>"),
+        new Uri("<AZURE_STORAGE_CONTAINER_URI>"),
         new DefaultAzureCredential());
     
     // Create an event processor client to process events in the event hub
+    // TODO: Replace the <EVENT_HUBS_NAMESPACE> and <HUB_NAME> placeholder values
     var processor = new EventProcessorClient(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
         "<EVENT_HUBS_NAMESPACE>",
-        "<EVENT_HUB_NAME>",
+        "<HUB_NAME>",
         new DefaultAzureCredential());
     
     // Register handlers for processing events and handling errors
@@ -314,7 +315,7 @@ Here are the important steps from the code:
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
         "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
-        "<EVENT_HUB_NAME>");
+        "<HUB_NAME>");
     
     // Register handlers for processing events and handling errors
     processor.ProcessEventAsync += ProcessEventHandler;
