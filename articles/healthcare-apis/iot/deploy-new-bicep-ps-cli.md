@@ -21,33 +21,17 @@ For more information about Bicep, see [What is Bicep?](/azure/azure-resource-man
 
 ## Deployment prerequisites
 
-Before you can begin this quickstart, you'll need to have the following prerequisites completed:
+To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+- An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- **Owner** or **Contributor + User Access Administrator** access to the Azure subscription. For more information about Azure role-based access control, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
-- **Microsoft.HealthcareApis** and **Microsoft.EventHub** resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+- The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- [Azure PowerShell](/powershell/azure/install-az-ps) and/or [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
+- [Azure PowerShell](/powershell/azure/install-az-ps) and/or [Azure CLI](/cli/azure/install-azure-cli) installed locally.
 
-Once you've successfully completed the prerequisites, you're ready to deploy the Bicep file.
-
-## Resources deployed by the Bicep file
-
-The Bicep file will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
-
-- Azure Event Hubs namespace and device message event hub. The device message event hub is named `devicedata`.
-- Azure event hub consumer group. The consumer group is named `$Default`.
-- Azure event hub sender role. The sender role is named `devicedatasender`.
-- Azure Health Data Services workspace.
-- Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
-- Azure Health Data Services MedTech service. This resource includes setup for:
-  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access role needed to read from the device message event hub. The role is named `Azure Events Hubs Receiver`.
-  - system-assigned managed identity access role needed to read and write to the FHIR service. The role is named `FHIR Data Writer`.
-- An output file containing the Bicep file deployment results. The file named `medtech_service_BICEP_file_deployment_results.txt` and will be located in the directory from which you ran the deployment code.
-
-To see an architecture overview diagram with information on the MedTech service deployment, see: [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the steps of deployment and how the MedTech service processes data into a FHIR Observation.
+When you have these prerequisites, you're ready to deploy the Bicep file.
 
 ## Review the Bicep file
 
@@ -57,7 +41,7 @@ The Bicep file used for this deployment is available from the [Azure Quickstart 
 
 Complete the following six steps to deploy the MedTech service using Azure PowerShell:
 
-1. Save the Bicep file located on GitHub as `main.bicep` on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
+1. Locally save the Bicep file on GitHub as `main.bicep`. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
 
 2. Sign-in into Azure.
 
@@ -97,16 +81,16 @@ Complete the following six steps to deploy the MedTech service using Azure Power
 6. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurepowershell
-   New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile main.bicep -basename <BaseName> -location <AzureRegion> | Out-File medtech_service_BICEP_file_deployment_results.txt
+   New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile main.bicep -basename <BaseName> -location <AzureRegion>
    ```
 
-   For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus | Out-File medtech_service_BICEP_file_deployment_results.txt`
+   For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
 ## Deploy the MedTech service with the Bicep file and Azure CLI
 
 Complete the following six steps to deploy the MedTech service using Azure CLI:
 
-1. Save the Bicep file located on GitHub as `main.bicep` on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
+1. Locally save the Bicep file on GitHub as `main.bicep`. You'll need to have the working directory of your Azure CLI console pointing to the location where this file is saved.
 
 2. Sign-in into Azure.
 
@@ -145,14 +129,30 @@ Complete the following six steps to deploy the MedTech service using Azure CLI:
 6. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurecli
-   az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=<BaseName> location=<AzureRegion> | Out-File medtech_service_BICEP_file_deployment_results.txt
+   az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=<BaseName> location=<AzureRegion>
    ```
 
-   For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus | Out-File medtech_service_BICEP_file_deployment_results.txt`
+   For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
 
-## Deployment completion
+## Review deployed resources and access permissions
 
-The deployment takes a few minutes to complete. You can check the status and results of your deployment by reading the `medtech_service_BICEP_file_deployment_results.txt` file located in your local console working directory. The local console working directory will be the same directory as the location of the locally saved `main.bicep` file.
+When deployment is completed, the following resources and access roles are created in the Bicep file deployment:
+
+- Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named `devicedata`.
+
+- An event hub consumer group. In this deployment, the consumer group is named `$Default`.
+
+- The Azure Event Hubs Data Sender role. In this deployment, the sender role is named `devicedatasender`.
+
+- A Health Data Services workspace.
+
+- A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+
+- An instance of the MedTech service for Health Data Services, with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+
+  - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
+
+  - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 ## Post-deployment mappings
 
