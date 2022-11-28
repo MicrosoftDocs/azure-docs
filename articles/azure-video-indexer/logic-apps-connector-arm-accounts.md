@@ -109,7 +109,7 @@ The following image shows the first flow:
 1. <a name="access_token"></a>Generate an access token.
     
     > [!NOTE]
-    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP).
+    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/preview/generate/access-token).
     >
     > Press **Try it** to get the correct values for your account.
 
@@ -176,7 +176,8 @@ The following image shows the first flow:
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
         
-        ![Screenshot of the upload and index action.](./media/logic-apps-connector-arm-accounts/upload-and-index.png)
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png" alt-text="Screenshot of the upload and index action." lightbox="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png":::
 
         Select **Save**.
 

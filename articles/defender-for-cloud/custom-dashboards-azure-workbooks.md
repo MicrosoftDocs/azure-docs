@@ -91,7 +91,7 @@ Defender for Cloud includes vulnerability scanners for your machines, containers
 
 Learn more about using these scanners:
 
-- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
+- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
 - [Scan your ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
