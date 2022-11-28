@@ -164,8 +164,6 @@ The manual setup consists of the following steps:
 
 1. Copy the **Role ARN** and paste it aside.
 
-   :::image type="content" source="media/connect-aws/aws-copy-role-arn.png" alt-text="Screenshot of copying role A R N.":::
-
 1. In the AWS SQS dashboard, select the SQS queue you created, and copy the URL of the queue.
 
     :::image type="content" source="media/connect-aws/aws-copy-queue-url.png" alt-text="Screenshot of copying S Q S queue U R L.":::
