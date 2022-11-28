@@ -69,7 +69,7 @@ The SDK v2 is useful in the following scenarios:
 
 * Use Python functions to build a single step or a complex workflow
 
-    SDK v2 allows you to build a single command or a chain of commands like python functions - the command has a name, parameters, expects input, and returns output.
+    SDK v2 allows you to build a single command or a chain of commands like Python functions - the command has a name, parameters, expects input, and returns output.
 
 * Move from simple to complex concepts incrementally
 
