@@ -62,7 +62,7 @@ To publish a template VM in Teams:
 
 1. In the **Publish template** window, select **Publish**.
 
-As an educator, you can access student VMs directly from the **Virtual machine pool** tab. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
+As an educator, you can access student VMs directly from the **Virtual machine pool** tab. You can start, stop, reset, or connect to a student VM. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
 
 :::image type="content" source="./media/how-to-manage-vm-pool-with-teams/vm-pool.png" alt-text="Screenshot of the VM pool tab in Teams.":::
 
