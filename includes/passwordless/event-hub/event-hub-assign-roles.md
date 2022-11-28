@@ -21,7 +21,7 @@ For Azure Event Hub, the management of namespaces and all related resources thro
 - [Azure Event Hub Data Sender](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give the send access to Event Hub namespace and its entities.
 - [Azure Event Hub Data Receiver](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give the receive access to Event Hub namespace and its entities.
 
-If you want to create a custom role, see [Rights required for Event Hub operations](../../../articles/event-hub-messaging/event-hub-sas.md#rights-required-for-event-hub-operations).
+If you want to create a custom role, see [Rights required for Event Hub operations](../../../articles/service-bus-messaging/service-bus-sas.md#rights-required-for-service-bus-operations).
 
 
 
