@@ -178,6 +178,17 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
+## Which Language service feature should I use?
+
+|What do you want to do?  |Document format  |Your best solution  |
+|---------|---------|---------|
+| Extract and redact Personally Identifiable Information (PII) and Personally identifying Information (PHI). | Unstructured text | [PII detection](./personally-identifiable-information/overview.md) |
+| Extract categories of information.     | Unstructured text         | Check the [list of entities](named-entity-recognition/concepts/named-entity-categories.md) that are recognized by the [pre-configured NER feature](./named-entity-recognition/overview.md). If the feature can't recognize the entities in your text, you can use [custom NER](./custom-named-entity-recognition/overview.md) to build your own recognition model.         |
+|Extract key phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md)         |
+| Determine the sentiment of text, and opinions about specific topics. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) |
+| Summarize long chunks of text or conversations | Unstructured text, formatted textual or transcribed conversations. | [Summarization](./summarization/overview.md) | 
+| Disambiguate entities and get links to Wikipedia. | Unstructured text | [entity linking](./entity-linking/overview.md) | 
+
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
 Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
