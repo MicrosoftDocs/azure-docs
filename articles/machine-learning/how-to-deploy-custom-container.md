@@ -14,7 +14,7 @@ ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint
+# Deploy a TensorFlow model served with TensorFlow Serving using a custom container in an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
