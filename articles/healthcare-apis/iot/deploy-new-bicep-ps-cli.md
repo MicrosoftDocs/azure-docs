@@ -1,15 +1,15 @@
 ---
-title: Using Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file - Azure Health Data Services
+title: Use Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file - Azure Health Data Services
 description: In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using a Bicep file.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/23/2022
+ms.date: 11/28/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Using Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file
+# Quickstart: Use Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file
 
 In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using a Bicep file. 
 
@@ -37,31 +37,45 @@ Once you've successfully completed the prerequisites, you're ready to deploy the
 
 The Bicep file will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
 
-- Azure Event Hubs namespace and device message event hub. The device message event hub is named **devicedata**.
-- Azure event hub consumer group. The consumer group is named **$Default**.
-- Azure event hub sender role. The sender role is named **devicedatasender**.
+- Azure Event Hubs namespace and device message event hub. The device message event hub is named `devicedata`.
+- Azure event hub consumer group. The consumer group is named `$Default`.
+- Azure event hub sender role. The sender role is named `devicedatasender`.
 - Azure Health Data Services workspace.
 - Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 - Azure Health Data Services MedTech service. This resource includes setup for:
-  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access role needed to read from the device message event hub. The role is named **Azure Events Hubs Receiver**.
-  - system-assigned managed identity access role needed to read and write to the FHIR service. The role is named **FHIR Data Writer**.
-- An output file containing the Bicep file deployment results. The file named **medtech_service_BICEP_file_deployment_results.txt** and will be located in the directory from which you ran the deployment code.
+  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access role needed to read from the device message event hub. The role is named `Azure Events Hubs Receiver`.
+  - system-assigned managed identity access role needed to read and write to the FHIR service. The role is named `FHIR Data Writer`.
+- An output file containing the Bicep file deployment results. The file named `medtech_service_BICEP_file_deployment_results.txt` and will be located in the directory from which you ran the deployment code.
 
 To see an architecture overview diagram with information on the MedTech service deployment, see: [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the steps of deployment and how the MedTech service processes data into a FHIR Observation.
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the **main.bicep** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
+The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the `main.bicep` file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
-Complete the following four steps to deploy the MedTech service using Azure PowerShell:
+Complete the following six steps to deploy the MedTech service using Azure PowerShell:
 
-1. Save the Bicep file located on GitHub as **main.bicep** on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
+1. Save the Bicep file located on GitHub as `main.bicep` on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
 
-2. Confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is available.
+2. Sign-in into Azure.
 
-   You can also review the **location** section of the locally saved **main.bicep** file.
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+
+3. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+
+   ```azurepowershell
+   Set-AzContext <YourAzureSubscriptionId>
+   ```
+
+   For example: `Set-AzContext abcdef01-2345-6789-0abc-def012345678`
+   
+4. Confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is available.
+
+   You can also review the **location** section of the locally saved `main.bicep` file.
 
    If you need a list of the Azure regions location names, you can use this code to display a list:
 
@@ -69,7 +83,7 @@ Complete the following four steps to deploy the MedTech service using Azure Powe
    Get-AzLocation | Format-Table -Property DisplayName,Location
    ```
 
-3. If you don't already have a resource group created for this quickstart, you can use this code to create one:
+5. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurepowershell
    New-AzResourceGroup -name <ResourceGroupName> -location <AzureRegion>
@@ -80,7 +94,7 @@ Complete the following four steps to deploy the MedTech service using Azure Powe
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources. The minimum basename requirement is three characters with a maximum of 16 characters.
 
-4. Use the following code to deploy the MedTech service using the Bicep file:
+6. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurepowershell
    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile main.bicep -basename <BaseName> -location <AzureRegion> | Out-File medtech_service_BICEP_file_deployment_results.txt
@@ -90,13 +104,26 @@ Complete the following four steps to deploy the MedTech service using Azure Powe
 
 ## Deploy the MedTech service with the Bicep file and Azure CLI
 
-Complete the following four steps to deploy the MedTech service using Azure CLI:
+Complete the following six steps to deploy the MedTech service using Azure CLI:
 
-1. Save the Bicep file located on GitHub as **main.bicep** on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
+1. Save the Bicep file located on GitHub as `main.bicep` on your local computer. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
 
-2. Confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is available.
+2. Sign-in into Azure.
 
-   You can also review the **location** section of the locally saved **main.bicep** file. 
+   ```azurecli
+   az login
+   ```
+3. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+
+   ```azurecli
+   az account set <AzureSubscriptionId>
+   ```
+
+   For example: `az account set abcdef01-2345-6789-0abc-def012345678`
+
+4. Confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is available.
+
+   You can also review the **location** section of the locally saved `main.bicep` file. 
 
    If you need a list of the Azure regions location names, you can use this code to display a list:
 
@@ -104,7 +131,7 @@ Complete the following four steps to deploy the MedTech service using Azure CLI:
    az account list-locations -o table
    ```
 
-3. If you don't already have a resource group created for this quickstart, you can use this code to create one:
+5. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurecli
    az group create --resource-group <ResourceGroupName> --location <AzureRegion>
@@ -115,7 +142,7 @@ Complete the following four steps to deploy the MedTech service using Azure CLI:
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources.
 
-4. Use the following code to deploy the MedTech service using the Bicep file:
+6. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurecli
    az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=<BaseName> location=<AzureRegion> | Out-File medtech_service_BICEP_file_deployment_results.txt
@@ -125,19 +152,19 @@ Complete the following four steps to deploy the MedTech service using Azure CLI:
 
 ## Deployment completion
 
-The deployment takes a few minutes to complete. You can check the status of your deployment by reading the **medtech_service_BICEP_file_deployment_results.txt** file to find out the results of the Bicep file deployment.
+The deployment takes a few minutes to complete. You can check the status and results of your deployment by reading the `medtech_service_BICEP_file_deployment_results.txt` file located in your local console working directory. The local console working directory will be the same directory as the location of the locally saved `main.bicep` file.
 
 ## Post-deployment mappings
 
-After you successfully deploy the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
+After you've successfully deploy the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
  - To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
 
- - To learn more about FHIR destination mappings, see [How to configure HIR destination mappings](how-to-use-fhir-mappings.md).
+ - To learn more about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Clean up Azure PowerShell deployed resources
 
-When your resource group and deployed Bicep file resources are no longer needed, delete the resource group, which deletes the resources in the resource group. Delete them with this code:
+When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name <ResourceGroupName>
@@ -147,7 +174,7 @@ For example: `Remove-AzResourceGroup -Name BicepTestDeployment`
 
 ## Clean up Azure CLI deployed resources
 
-When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group. Delete them with this code:
+When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
 ```azurecli
 az group delete --name <ResourceGroupName>
