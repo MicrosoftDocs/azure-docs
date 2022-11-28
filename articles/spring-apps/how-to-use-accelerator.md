@@ -158,7 +158,7 @@ For more information, see [How to use permissions in Azure Spring Apps | Microso
 
 You can start with several predefined accelerators to bootstrap your new projects. You can disable or enable the built-in accelerators according to your own preference.
 
-You can manager predefined accelerators using the Azure portal or Azure CLI.
+You can manage predefined accelerators using the Azure portal or Azure CLI.
 
 ### [Portal](#tab/Portal)
 
@@ -216,62 +216,62 @@ Use to following steps to create and maintain your own accelerators.
   
 1. Publish the new accelerator.
 
-    After you create your *accelerator.yaml* file, you can publish your accelerator. You can then view it on the Accelerator portal. You can publish the new accelerator using the Azure portal or Azure CLI.
+   After you create your *accelerator.yaml* file, you can create your accelerator. You can then view it in Azure portal or the Applicaiton Accelerator page in Dev Tools Portal. You can publish the new accelerator using the Azure portal or Azure CLI.
 
-    ### [Azure portal](#tab/Portal)
+   ### [Azure portal](#tab/Portal)
 
-    To create your own accelerator, open the **Accelerators** section and click **Add Accelerator** under the Customized Accelerators section.
+   To create your own accelerator, open the **Accelerators** section and click **Add Accelerator** under the Customized Accelerators section.
 
-    ![Add-accelerator](./media/how-to-use-accelerator/add-accelerator.png)
+   :::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Customized Accelerators section." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
 
-    ### [CLI](#tab/Azure-CLI)
+   ### [Azure CLI](#tab/Azure-CLI)
 
-      Use the following command to create your own accelerator:
+   Use the following command to create your own accelerator in Azure CLI:
 
-      ```azurecli
-      az spring application-accelerator customized-accelerator add --name <customized accelerator name>
-      --service <service instance name>
-      --resource-group <resource group name>
-      --display-name <display name>
-      --git-url <git repo url>
-      [--description <description>]
-      [--icon-url <icon url>]
-      [--accelerator-tags <tags on accelerator>]
-      [--git-interval-in-seconds <interval in seconds>]
-      [--git-branch <branch name>]
-      [--git-commit <commit id>]
-      [--git-tag <tag in git>]
-      [--username]
-      [--password]
-      [--private-key]
-      [--host-key]
+     ```azurecli
+     az spring application-accelerator customized-accelerator add \
+       --name <customized-accelerator-name> \
+       --service <service-instance-name> \
+       --resource-group <resource-group-name> \
+       --display-name <display-name> \
+       --git-url <git-repo-url> \
+      [--description <description>] \
+      [--icon-url <icon-url>] \
+      [--accelerator-tags <tags-on-accelerator>] \
+      [--git-interval-in-seconds <interval-in-seconds>] \
+      [--git-branch <branch-name>] \
+      [--git-commit <commit-id>] \
+      [--git-tag <tag-in-git>] \
+      [--username] \
+      [--password] \
+      [--private-key] \
+      [--host-key] \
       [--host-key-algorithm]
       ```
 
-	The accelerator has the following fields which you are available to customize.
+   The following table describes the customizable accelerator fields.
 
-	| Portal     | CLI   | Description                                                  | Required/Optional |
-	| -------------- | ------ | ------------------------------------------------------------ | ----------------- |
-	| Name    | name    | A uique name used for an Accelerator which can not change after created. | Required      |
-	| Display name    | description  | A short descriptive name used for an Accelerator.            | Optional       |
-	| Description    | display-name    | A longer description of an Accelerator.                      | Optional       |
-	| Icon url        | icon-url    | A URL for an image to represent the Accelerator in the UI.     | Optional       |
-	| Tags           | accelerator-tags    | An array of strings defining attributes of the Accelerator that can be used in a search in the UI. | Optional      |
-	| Git url        | git-url    | The repository URL of the accelerator source Git repository, can be a HTTP/S or SSH address.          | Required    |
-	| Git interval   | git-interval-in-seconds    | The interval at which to check for repository updates. If not provided it defaults to 10 min. There is an additional refresh interval (currently 10s) involved before accelerators may appear in the UI. There could be a 10s delay before changes are reflected in the UI. | Optional     |
-	| Git branch | git-branch    | The Git branch to checkout and monitor for changes. Only one of git branch, git commit and git tag should be provided.    | Optional     |
-	| Git commit | git-commit    | The Git commit SHA to checkout. Only one of git branch, git commit and git tag should be provided. | Optional     |
-	| Git tag | git-tag    | The Git commit tag to checkout. Only one of git branch, git commit and git tag should be provided. | Optional     |
-	| Authentication type | N/A    | The authentication type of the accelerator source repository, can be `Public`, `Basic auth` or `SSH`.  Note: Unlike using git, the [shorter scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) is not supported for SSH addresses (e.g. `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required     |
-	| User name | username    | The user name to access the accelerator source repository whose authentication type is `Basic auth`. | Required when authentication type is `Basic auth`     |
-	| Password/Personal access token | password    | The password to access the accelerator source repository whose authentication type is `Basic auth`. | Required when authentication type is `Basic auth`     |
-	| Private key | private-key    | The private key to access the accelerator source repository whose authentication type is `SSH`. Note: Only OpenSSH private key is supported.   | Required when authentication type is `SSH`     |
-	| Host key | host-key    | The host key to access the accelerator source repository whose authentication type is `SSH`. | Required when authentication type is `SSH`     |
-	| Host key algorithm | host-key-algorithm    | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.  | Required when authentication type is `SSH`     |
+   | Portal                         | CLI                     | Description                                                                                                                                                                                                                                                                                                                                                                                                               | Required/Optional                                     |
+   |---------------------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+   | Name                           | name                    | A unique name for the accelerator. The name can't change after you create it.                                                                                                                                                                                                                                                                                                                                             | Required                                              |  | Display name | description | A short descriptive name used for the accelerator. | Optional |
+   | Description                    | display-name            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                                                                  | Optional                                              |
+   | Icon url                       | icon-url                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                                                                | Optional                                              |
+   | Tags                           | accelerator-tags        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                                                                        | Optional                                              |
+   | Git url                        | git-url                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address.                                                                                                                                                                                                                                                                                                                     | Required                                              |
+   | Git interval                   | git-interval-in-seconds | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There is an additional refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                                                           | Optional                                              |
+   | Git branch                     | git-branch              | The Git branch to checkout and monitor for changes. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                  | Optional                                              |
+   | Git commit                     | git-commit              | The Git commit SHA to checkout. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
+   | Git tag                        | git-tag                 | The Git commit tag to checkout. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
+   | Authentication type            | N/A                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth` or `SSH`.  Note: Unlike using git, the [shorter scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) is not supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                              |
+   | User name                      | username                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                      | Required when the authentication type is `Basic auth` |
+   | Password/Personal access token | password                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                       | Required when the authentication type is `Basic auth` |
+   | Private key                    | private-key             | The private key to access the accelerator source repository whose authentication type is `SSH`. Note: Only OpenSSH private key is supported.                                                                                                                                                                                                                                                                              | Required when authentication type is `SSH`            |
+   | Host key                       | host-key                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                                                              | Required when the authentication type is `SSH`        |
+   | Host key algorithm             | host-key-algorithm      | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                                                                        | Required when authentication type is `SSH`            |
 
 ---
 
-1. Click App Accelerator URL to access Dev Tools Portal to see all the published accelerators.
+To view all the published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
 	![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
 
