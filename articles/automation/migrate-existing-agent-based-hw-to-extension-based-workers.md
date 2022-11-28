@@ -15,13 +15,13 @@ This article describes the benefits of Extension-based User Hybrid Runbook Worke
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines. 
 
 There are two Hybrid Runbook Workers installation platforms supported by Azure Automation:
-- **Agent based hybrid runbook worker** (V1) -  The Agent-based Hybrid Runbook Worker depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md).
-- **Extension based hybrid runbook worker** (V2) - The Extension-based provides native integration of the Hybrid Runbook Worker role through the Virtual machine (VM) extension framework. 
+- **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md).
+- **Extension based hybrid runbook worker** (V2) - The Extension-based hybrid runbook worker provides native integration of the hybrid runbook worker role through the Virtual machine (VM) extension framework. 
 
 The process of executing runbooks on Hybrid Runbook Workers remains the same for both.
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension based (V2). If you install Extension based (V2) on a hybrid worker that already has the Agent based (V1) running on it, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [Learn more](../automation/extension-based-hybrid-runbook-worker-install.md).
+> A hybrid worker can co-exist with both Agent based (V1) and Extension based (V2) platforms. If you install Extension based (V2) on a hybrid worker that already has the Agent based (V1) running on it, then you would see two entries of the Hybrid Runbook Worker in the group, one with Platform Extension based (V2) and the other Agent based (V1). [Learn more](../automation/extension-based-hybrid-runbook-worker-install.md).
 
 ## Benefits of Extension-based User Hybrid Runbook Workers over Agent-based workers
 
@@ -762,5 +762,5 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 ## Next steps
 
 - To learn more about Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md).
-- To deploy Extension-based Hybrid Worker, see [Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation](troubleshoot/extension-based-hybrid-runbook-worker.md).
+- To deploy Extension-based Hybrid Worker, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation](extension-based-hybrid-runbook-worker-install.md).
 - To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
