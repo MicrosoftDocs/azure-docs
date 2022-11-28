@@ -47,7 +47,7 @@ landingContent:
       - text: How a savings plan discount is applied
         url: discount-application.md
       - text: Decide between savings plans and reservations
-        url: decide-between-savings-plan-reservations.md
+        url: decide-between-savings-plan-reservation.md
     - linkListType: learn
       links:
       - text: Training - Azure savings plan for compute
