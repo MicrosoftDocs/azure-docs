@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 11/04/2022
+ms.date: 11/25/2022
 ms.author: mbaldwin
 ---
 # Enable multi-region replication on Managed HSM (Preview)
@@ -85,7 +85,7 @@ az keyvault region remove --hsm-name ContosoMHSM --region centraluseuap
 az keyvault region list --hsm-name ContosoMHSM
 ```
 
-## Resources
+## Next steps
 
 - [Managed HSM role management](role-management.md)
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
