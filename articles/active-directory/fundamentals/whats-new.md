@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** N/A          
 **Product capability:** User Authentication     
 
-For users who do not know or use a password, the Temporary Access Pass can now be used to recover Azure AD-joined PCs when the EnableWebSignIn policy is enabled on the device. For more information, see: [Authentication/EnableWebSignIn](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin).
+For users who don't know or use a password, the Temporary Access Pass can now be used to recover Azure AD-joined PCs when the EnableWebSignIn policy is enabled on the device. For more information, see: [Authentication/EnableWebSignIn](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin).
 
 
 ---
@@ -77,7 +77,7 @@ For more information, see:
 **Service category:** Microsoft Authenticator App              
 **Product capability:** User Authentication     
 
-Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Password-less Phone Sign-In (PSI), and time-based one-time pass-codes (TOTP). No changes in configuration are required in the Authenticator app or Azure Portal to enable this capability. For more information, see: [FIPS 140 compliant for Azure AD authentication](../authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication).
+Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Password-less Phone Sign-In (PSI), and time-based one-time pass-codes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [FIPS 140 compliant for Azure AD authentication](../authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication).
 
 
 ---
@@ -90,9 +90,9 @@ Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all
 **Service category:** Enterprise Apps                 
 **Product capability:** 3rd Party Integration        
 
-In November 2022 we have added the following 22 new applications in our App gallery with Federation support
+In November 2022, we've added the following 22 new applications in our App gallery with Federation support
 
-[Adstream](/active-directory/saas-apps/adstream-tutorial), [Databook](/active-directory/saas-apps/databook-tutorial), [Ecospend IAM](https://ecospend.com/), [Digital Pigeon](/active-directory/saas-apps/digital-pigeon-tutorial), [Drawboard Projects](/active-directory/saas-apps/drawboard-projects-tutorial), [Vellum](https://www.vellum.ink/request-demo), [Veracity](https://aie-veracity.com/connect/azure), [Microsoft OneNote to Bloomberg Note Sync](https://www.bloomberg.com/professional/support/software-updates/), [DX NetOps Portal](/active-directory/saas-apps/dx-netops-portal-tutorial), [itslearning Outlook integration](https://itslearning.com/global/), [Tranxfer](/active-directory/saas-apps/tranxfer-tutorial), [Occupop](https://app.occupop.com/), [Nialli Workspace](https://ws.nialli.com/), [Tideways](https://app.tideways.io/login), [SOWELL](https://manager.sowellapp.com/#/?sso=true), [Prewise Learning](https://prewiselearning.com/), [CAPTOR for InTune](https://www.inkscreen.com/microsoft), [wayCloud Platform](https://app.way-cloud.de/login), [Nura Space Meeting Room](https://play.google.com/store/apps/details?id=com.meetingroom.prod), [Flexopus Exchange Integration](https://help.flexopus.com/de/microsoft-graph-integration), [Ren Systems](https://app.rensystems.com/login), [Nudge Security](https://www.nudgesecurity.io/login)
+[Adstream](/active-directory/saas-apps/adstream-tutorial), [Databook](/active-directory/saas-apps/databook-tutorial), [Ecospend IAM](https://ecospend.com/), [Digital Pigeon](/active-directory/saas-apps/digital-pigeon-tutorial), [Drawboard Projects](/active-directory/saas-apps/drawboard-projects-tutorial), [Vellum](https://www.vellum.ink/request-demo), [Veracity](https://aie-veracity.com/connect/azure), [Microsoft OneNote to Bloomberg Note Sync](https://www.bloomberg.com/professional/support/software-updates/), [DX NetOps Portal](/active-directory/saas-apps/dx-netops-portal-tutorial), [itslearning Outlook integration](https://itslearning.com/global/), [Tranxfer](/active-directory/saas-apps/tranxfer-tutorial), [Occupop](https://app.occupop.com/), [Nialli Workspace](https://ws.nialli.com/), [Tideways](https://app.tideways.io/login), [SOWELL](https://manager.sowellapp.com/#/?sso=true), [Prewise Learning](https://prewiselearning.com/), [CAPTOR for Intune](https://www.inkscreen.com/microsoft), [wayCloud Platform](https://app.way-cloud.de/login), [Nura Space Meeting Room](https://play.google.com/store/apps/details?id=com.meetingroom.prod), [Flexopus Exchange Integration](https://help.flexopus.com/de/microsoft-graph-integration), [Ren Systems](https://app.rensystems.com/login), [Nudge Security](https://www.nudgesecurity.io/login)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
@@ -140,7 +140,7 @@ Admins can now pause, and resume, the processing of individual dynamic groups in
 **Service category:** Authentications (Logins)          
 **Product capability:** User Authentication     
 
-Update the Azure AD and Microsoft 365 login experience with new company branding capabilities. You can apply your company’s brand guidance to authentication experiences with pre-defined templates. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
+Update the Azure AD and Microsoft 365 sign in experience with new company branding capabilities. You can apply your company’s brand guidance to authentication experiences with pre-defined templates. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
 
 
 ---
@@ -153,7 +153,7 @@ Update the Azure AD and Microsoft 365 login experience with new company branding
 **Service category:** Directory Management             
 **Product capability:** Directory       
 
-Update the company branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
+Update the company branding functionality on the Azure AD/Microsoft 365 sign in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
 
 
 ---
@@ -169,6 +169,33 @@ Update the company branding functionality on the Azure AD/Microsoft 365 login ex
 Administrative Units now support soft deletion. Admins can now list, view properties of, perform ad hoc hard delete, or restore deleted Administrative Units using Microsoft Graph. This functionality restores all configuration for the Administrative Unit when restored from soft delete including: memberships, admin roles, processing rules, and processing rules state.
 
 This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted, it can be restored quickly to the same state it was at time of deletion. This removes uncertainty around how things were configured, and makes restoration quick and easy. For more information, see: [Soft deletions](../fundamentals/recover-from-deletions.md#soft-deletions).
+
+
+---
+
+### Public Preview - IPv6 coming to Azure AD
+
+
+
+**Type:** Plan for change      
+**Service category:** Identity Protection            
+**Product capability:** Platform     
+
+With the growing adoption and support of IPv6 across enterprise networks, service providers, and devices, many customers are wondering if their users can continue to access their services and applications from IPv6 clients and networks. Today, we’re excited to announce our plan to bring IPv6 support to Microsoft Azure Active Directory (Azure AD). This will allow customers to reach the Azure AD services over both IPv4 and IPv6 network protocols (dual stack).
+For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to de-prioritize IPv4 in any Azure Active Directory features or services.
+We'll begin introducing IPv6 support into Azure AD services in a phased approach, beginning March 31, 2023.
+We have guidance below which is specifically for Azure AD customers who use IPv6 addresses and also use Named Locations in their Conditional Access policies.
+
+Customers who use named locations to identify specific network boundaries in their organization need to:
+1. Conduct an audit of existing named locations to anticipate potential impact.
+1. Work with your network partner to identify egress IPv6 addresses in use in your environment.
+1. Review and update existing named locations to include the identified IPv6 ranges.
+
+Customers who use Conditional Access location based policies to restrict and secure access to their apps from specific networks need to:
+1. Conduct an audit of existing Conditional Access policies to identify use of named locations as a condition to anticipate potential impact.
+1. Review and update existing Conditional Access location based policies to ensure they continue to meet your organization’s security requirements.
+
+We'll continue to share additional guidance on IPv6 enablement in Azure AD at this easy to remember link https://aka.ms/azureadipv6.
 
 
 ---
