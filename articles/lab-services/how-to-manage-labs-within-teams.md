@@ -39,7 +39,16 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 
 ## Configure lab schedules and settings in Teams
 
-## Delete a lab in Teams
+## Delete a lab
+
+To delete a lab that was created in Teams, you use the [Azure Lab Services web portal](https://labs.azure.com). For more information, see [Delete a lab in the Azure Lab Services portal](manage-labs.md#delete-a-lab).
+
+Azure Lab Services also triggers lab deletion for labs you created in Teams, when the team is deleted. The lab will be automatically deleted after 24 hours of the team deletion, when the automatic user list sync is triggered.
+
+Users can't access their VMs through the [Azure Lab Services web portal](https://labs.azure.com) if the team or the lab is deleted.
+
+> [!IMPORTANT]
+> Deletion of the tab or uninstalling the app will not result in deletion of the lab. Users can still access the lab VMs on the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 
 ## Next steps
 
