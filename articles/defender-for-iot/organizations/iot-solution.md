@@ -38,7 +38,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Start by enabling the **Defender for IoT** data connector to stream all your Defender for IoT events into Microsoft Sentinel.
+Start by enabling the [Defender for IoT data connector](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
 
 **To enable the Defender for IoT data connector**:
 
@@ -158,16 +158,37 @@ The following types of updates generate new records in the **SecurityAlert** tab
 - A new device is added to an existing alert
 - The device properties for an alert are updated
 
+
+## Investigate Defender for IoT incidents
+
+By default, Microsoft Sentinel generates incidents for each new Defender for IoT alert detected.
+
+Identify your Defender for IoT incidents by the incident's **Product name** value. For example:
+
+:::image type="content" source="media/respond-ot-alert/ot-alert-in-sentinel.png" alt-text="Screenshot of an OT alert in the Microsoft Sentinel Incidents page.":::
+
+Select  **View full details** in Microsoft Sentinel to view details like device entities and MITRE ATT&CK tactics and techniques, run playbooks, add comments, manage the incident, and more.
+
+
+To fully investigate an OT network alertHowever, to fully investigate an OT network alert, you'll need resources available only in Defender for IoT.
+
+**To go to the alert in Defender for IoT**:
+
+1. On the Microsoft Sentinel **Incidents** page, select the incident you want to investigate, and then select **View full details**.
+
+1. On the incident details page, select the **Timeline** tab, and then select the alert you want to investigate.
+
+1. On the alert details pane on the right, scroll down and select the link in the **Alert link** field. For example:
+
+    :::image type="content" source="media/respond-ot-alert/alert-link.png" alt-text="Screenshot of the Alert link field on an incident details page.":::
+
+    The alert details page opens in Defender for IoT. For example:
+
+    :::image type="content" source="media/respond-ot-alert/alert-details-iot.png" alt-text="Screenshot of the alert details page in Defender for IoT.":::
+
 ## Next steps
 
-[Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
+The [Microsoft Defender for IoT](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
-The **Microsoft Defender for IoT** solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
-
-For more information, see:
-
-- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
-- [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
-- [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
-- [Microsoft Defender for IoT data connector](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-iot)
-
+> [!div class="nextstepaction"]
+> [Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md)

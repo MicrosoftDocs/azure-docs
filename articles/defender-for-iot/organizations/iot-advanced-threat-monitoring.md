@@ -79,7 +79,7 @@ The **Microsoft Defender for IoT** solution includes a more detailed set of out-
 
 ## Investigate Defender for IoT incidents
 
-After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel as you would other incidents.
+After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel [as you would other incidents](/sentinel/investigate-cases).
 
 **To investigate Microsoft Defender for IoT incidents**:
 
@@ -95,14 +95,11 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
     :::image type="content" source="media/iot-solution/investigate-iot-incidents.png" alt-text="Screenshot of a Microsoft Defender for IoT incident in Microsoft Sentinel.":::
 
-    > [!TIP]
-    > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
-
-For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases).
-
 ### Investigate further with IoT device entities
 
-When investigating an incident in Microsoft Sentinel, in an incident details pane, select an IoT device entity from the **Entities** list to open its device entity page. You can identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
+When investigating an incident in Microsoft Sentinel, in an incident details pane, select an IoT device entity from the **Entities** list to open its [device entity page]](/azure/sentinel/entity-pages).
+
+You can identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
 
 If you don't see your IoT device entity right away, select **View full details** under the entities listed to open the full incident page. In the **Entities** tab, select an IoT device to open its entity page. For example:
 
@@ -141,7 +138,7 @@ The following table describes the workbooks included in the **Microsoft Defender
 
 ## Automate response to Defender for IoT alerts
 
-Playbooks are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+[Playbooks](/azure/sentinel/tutorial-respond-threats-playbook) are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 The [Microsoft Defender for IoT](#install-the-defender-for-iot-solution) solution includes out-of-the-box playbooks that provide the following functionality:
 
@@ -320,22 +317,21 @@ To add a device owner, edit the site owner on the **Sites and sensors** page in 
 
 This playbook updates the incident severity according to the importance level of the devices involved.
 
+## Access the alert in Defender for IoT
+
+To open an alert in Defender for IoT for further investigation, go to your incident details page and select  **Investigate in Microsoft Defender for IoT**.
+
+The Defender for IoT alert details page opens for the related alert. For example:
+
+:::image type="content" source="media/respond-ot-alert/alert-details-iot.png" alt-text="Screenshot of the alert details page in Defender for IoT.":::
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize data](/azure/sentinel/get-visibility.md)
+> [Investigate alerts in Defender for IoT](respond-ot-alert.md)
 
 > [!div class="nextstepaction"]
-> [Create custom analytics rules](/azure/sentinel/detect-threats-custom.md)
-
-> [!div class="nextstepaction"]
-> [Investigate incidents](/sentinel/investigate-cases)
-
-> [!div class="nextstepaction"]
-> [Investigate entities](/azure/sentinel/entity-pages.md)
-
-> [!div class="nextstepaction"]
-> [Use playbooks with automation rules](/azure/sentinel/tutorial-respond-threats-playbook.md)
+> [Create custom analytics rules](/azure/sentinel/detect-threats-custom)
 
 For more information, see our blog: [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 
