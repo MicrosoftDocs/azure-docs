@@ -14,8 +14,7 @@ ms.author: jasteppe
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
-> - Use Azure PowerShell to deploy an instance of the MedTech service using a Bicep file. 
-> - Use Azure CLI to deploy an instance of the MedTech service using a Bicep file.
+> - Use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -34,26 +33,27 @@ To begin your deployment and complete the quickstart, you must have the followin
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Azure PowerShell](/powershell/azure/install-az-ps) and/or [Azure CLI](/cli/azure/install-azure-cli) installed locally.
+  - For Azure PowerShell, you'll also need to install [Bicep CLI](/azure/azure-resource-manager/bicep/install#windows) to deploy the Bicep file used in this quickstart.
 
 When you have these prerequisites, you're ready to deploy the Bicep file.
 
 ## Review the Bicep file
 
-The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the `main.bicep` file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
+The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the `main.bicep` file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+
+Locally save the Bicep file as `main.bicep`. You'll need to have the working directory of your Azure PowerShell or Azure CLI console pointing to the location where this file is saved.
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
-Complete the following six steps to deploy the MedTech service using Azure PowerShell:
+Complete the following five steps to deploy the MedTech service using Azure PowerShell:
 
-1. Locally save the Bicep file on GitHub as `main.bicep`. You'll need to have the working directory of your Azure PowerShell console pointing to the location where this file is saved.
-
-2. Sign-in into Azure.
+1. Sign-in into Azure.
 
    ```azurepowershell
    Connect-AzAccount
    ```
 
-3. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
 
    ```azurepowershell
    Set-AzContext <AzureSubscriptionId>
@@ -61,7 +61,7 @@ Complete the following six steps to deploy the MedTech service using Azure Power
 
    For example: `Set-AzContext abcdef01-2345-6789-0abc-def012345678`
    
-4. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
+3. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
 
    You can also review the **location** section of the locally saved `main.bicep` file.
 
@@ -71,7 +71,7 @@ Complete the following six steps to deploy the MedTech service using Azure Power
    Get-AzLocation | Format-Table -Property DisplayName,Location
    ```
 
-5. If you don't already have a resource group created for this quickstart, you can use this code to create one:
+4. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurepowershell
    New-AzResourceGroup -name <ResourceGroupName> -location <AzureRegion>
@@ -82,7 +82,7 @@ Complete the following six steps to deploy the MedTech service using Azure Power
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources. The minimum basename requirement is three characters with a maximum of 16 characters.
 
-6. Use the following code to deploy the MedTech service using the Bicep file:
+5. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurepowershell
    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile main.bicep -basename <BaseName> -location <AzureRegion>
@@ -94,14 +94,12 @@ Complete the following six steps to deploy the MedTech service using Azure Power
 
 Complete the following six steps to deploy the MedTech service using Azure CLI:
 
-1. Locally save the Bicep file on GitHub as `main.bicep`. You'll need to have the working directory of your Azure CLI console pointing to the location where this file is saved.
-
-2. Sign-in into Azure.
+1. Sign-in into Azure.
 
    ```azurecli
    az login
    ```
-3. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
 
    ```azurecli
    az account set <AzureSubscriptionId>
@@ -109,7 +107,7 @@ Complete the following six steps to deploy the MedTech service using Azure CLI:
 
    For example: `az account set abcdef01-2345-6789-0abc-def012345678`
 
-4. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
+3. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
 
    You can also review the **location** section of the locally saved `main.bicep` file. 
 
@@ -119,7 +117,7 @@ Complete the following six steps to deploy the MedTech service using Azure CLI:
    az account list-locations -o table
    ```
 
-5. If you don't already have a resource group created for this quickstart, you can use this code to create one:
+4. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurecli
    az group create --resource-group <ResourceGroupName> --location <AzureRegion>
@@ -130,7 +128,7 @@ Complete the following six steps to deploy the MedTech service using Azure CLI:
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources.
 
-6. Use the following code to deploy the MedTech service using the Bicep file:
+5. Use the following code to deploy the MedTech service using the Bicep file:
 
    ```azurecli
    az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=<BaseName> location=<AzureRegion>
@@ -160,7 +158,7 @@ When deployment is completed, the following resources and access roles are creat
 
 ## Post-deployment mappings
 
-After you've successfully deploy the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
+After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
  - To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
 
@@ -191,10 +189,10 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this article, you learned how to use Azure PowerShell and Azure CLI to deploy the MedTech service using a Bicep file. To learn more about other methods of deployment, see
+In this article, you learned how to use Azure PowerShell and Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
+> [Choosing a method of deployment for the MedTech service in Azure](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
 > [How to deploy the MedTech service with a Azure Resource Manager template](deploy-02-new-button.md)
