@@ -170,8 +170,4 @@ You may also use [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/)
     
 ## Next steps
 
-In this quickstart, you learned how to create an instance of Azure Cache for Redis.
-
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](../../azure-cache-for-redis/cache-web-app-howto.md)
-> [Create a Node.js web app that uses an Azure Cache for Redis.](../../azure-cache-for-redis/cache-nodejs-get-started.md)
-> [Create an Python web app that uses an Azure Cache for Redis.](../../azure-cache-for-redis/cache-python-get-started.md)
+In this quickstart, you learned how to create an instance of Azure Cache for Redis and use it with Azure database for MySQL. See [additional performance best practices](https://learn.microsoft.com/en-us/azure/mysql/single-server/concept-performance-best-practices) for Azure database for MySQL.
