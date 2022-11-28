@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 10/18/2022
+ms.date: 10/31/2022
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -30,6 +30,8 @@ Managed Grafana has the following known limitations:
 * Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api) and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
+
+* Private endpoints are currently not available in Azure Managed Grafana.
 
 ## Next steps
 

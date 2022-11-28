@@ -14,9 +14,6 @@ ms.subservice: sms
 ms.custom: mode-other
 ---
 # Quickstart: Apply for a short code
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 ## Prerequisites

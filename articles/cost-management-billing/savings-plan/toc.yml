@@ -19,14 +19,16 @@
   items:
   - name: Choose a commitment amount
     href: choose-commitment-amount.md
-  - name: Buy a saving plan
+  - name: Buy an Azure savings plan
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
-  - name: Permissions, view and manage
+  - name: Permissions, view, and manage
     items:
     - name: Permissions to view and manage
       href: permission-view-manage.md
+    - name: Who can buy a savings plan
+      href: buy-savings-plan.md#who-can-buy-a-savings-plan
     - name: Manage saving plan
       href: manage-savings-plan.md
   - name: Utilization and cost reports

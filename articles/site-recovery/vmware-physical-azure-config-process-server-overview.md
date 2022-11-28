@@ -3,6 +3,8 @@ title: About Azure Site Recovery configuration/process/master target servers
 description: This article provides an overview of the configuration, process, and master target servers using when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About Site Recovery components (configuration, process, master target)

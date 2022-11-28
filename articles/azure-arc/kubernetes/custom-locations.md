@@ -1,7 +1,7 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
 ms.service: azure-arc
-ms.date: 10/12/2022
+ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -231,8 +231,15 @@ Optional parameters:
 To delete a custom location, use the following command:
 
 ```azurecli
-az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation delete -n <customLocationName> -g <resourceGroupName> 
 ```
+
+Required parameters:
+
+| Parameter name | Description |
+|----------------|------------|
+| `--name, --n` | Name of the custom location |
+| `--resource-group, --g` | Resource group of the custom location  |
 
 ## Troubleshooting
 

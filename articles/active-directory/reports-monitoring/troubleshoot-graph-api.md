@@ -3,19 +3,14 @@
 title: 'Troubleshoot errors in Azure Active Directory reporting API | Microsoft Docs'
 description: Provides you with a resolution to errors while calling Azure Active Directory Reporting APIs.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -37,7 +32,7 @@ Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) lice
 
 If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant. 
 
-### Error: Application missing AAD 'Read directory data' permission 
+### Error: Application missing Azure AD 'Read directory data' permission 
 
 Follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 

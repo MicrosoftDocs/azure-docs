@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are virtual machine scale sets?
+  - name: What are Virtual Machine Scale Sets?
     href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
@@ -68,6 +68,9 @@
     href: virtual-machine-scale-sets-autoscale-portal.md
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
+    maintainContext: true
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 

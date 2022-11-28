@@ -14,7 +14,7 @@ This is reference information for Azure Functions developers. If you're new to A
 
 * C# developer references:
     * [In-process class library](../articles/azure-functions/functions-dotnet-class-library.md)
-    * [Isolated process class library](../articles/azure-functions/dotnet-isolated-process-guide.md)
+    * [Isolated worker process class library](../articles/azure-functions/dotnet-isolated-process-guide.md)
     * [C# script](../articles/azure-functions/functions-reference-csharp.md)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  

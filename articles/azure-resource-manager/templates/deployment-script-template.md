@@ -5,11 +5,11 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 11/01/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-
 ---
+
 # Use deployment scripts in ARM templates
 
 Learn how to use deployment scripts in Azure Resource templates (ARM templates). With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
@@ -106,7 +106,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "6.4",  // or "azCliVersion": "2.28.0",
+    "azPowerShellVersion": "8.3",  // or "azCliVersion": "2.40.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -386,10 +386,10 @@ SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 3.0
-StartTime           : 6/18/2020 7:46:45 PM
-EndTime             : 6/18/2020 7:49:45 PM
-ExpirationDate      : 6/19/2020 7:49:45 PM
+AzPowerShellVersion : 8.3
+StartTime           : 6/18/2022 7:46:45 PM
+EndTime             : 6/18/2022 7:49:45 PM
+ExpirationDate      : 6/19/2022 7:49:45 PM
 CleanupPreference   : OnSuccess
 StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
 ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
@@ -417,13 +417,13 @@ The list command output is similar to:
 [
   {
     "arguments": "-name \\\"John Dole\\\"",
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "8.3",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20200625T025902Z",
+    "forceUpdateTag": "20220625T025902Z",
     "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
@@ -448,19 +448,19 @@ The list command output is similar to:
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "endTime": "2022-06-25T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
-      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "expirationTime": "2022-06-26T03:00:16.796923+00:00",
+      "startTime": "2022-06-25T02:59:07.595140+00:00",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
     "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdAt": "2022-06-25T02:59:04.750195+00:00",
       "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedAt": "2022-06-25T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
@@ -509,15 +509,15 @@ The output is similar to:
   "systemData": {
     "createdBy": "someone@contoso.com",
     "createdByType": "User",
-    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "createdAt": "2022-06-25T02:59:04.7501955Z",
     "lastModifiedBy": "someone@contoso.com",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+    "lastModifiedAt": "2022-06-25T02:59:04.7501955Z"
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "forceUpdateTag": "20200625T025902Z",
-    "azPowerShellVersion": "3.0",
+    "forceUpdateTag": "20220625T025902Z",
+    "azPowerShellVersion": "8.3",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -526,9 +526,9 @@ The output is similar to:
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
-      "startTime": "2020-06-25T02:59:07.5951401Z",
-      "endTime": "2020-06-25T03:00:16.7969234Z",
-      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+      "startTime": "2022-06-25T02:59:07.5951401Z",
+      "endTime": "2022-06-25T03:00:16.7969234Z",
+      "expirationTime": "2022-06-26T03:00:16.7969234Z"
     },
     "outputs": {
       "text": "Hello John Dole"
