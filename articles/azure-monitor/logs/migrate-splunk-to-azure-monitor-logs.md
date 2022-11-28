@@ -33,7 +33,6 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to build on your existing knowledge from searching in Splunk. You can [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/)..|
 |[Cost optimization](../logs/cost-logs.md)|You can significantly reduce your cost for Azure Monitor by understanding configuration options and ways to filter out data you don't need. |
 
-Cost considerations
 ## 1. Deploy and configure a workspace
 
 [Design a Log Analytics workspace architecture](../logs/workspace-design.md)
