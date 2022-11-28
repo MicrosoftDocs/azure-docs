@@ -49,7 +49,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
   pip install azureml-synapse
   ```
 
-* Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace with the [Azure Machine Learning Python SDK](../how-to-link-synapse-ml-workspaces.md#link-sdk) or via the [Azure Machine Learning studio](how-to-link-synapse-ml-workspaces.md#link-studio)
+* Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace with the [Azure Machine Learning Python SDK](../how-to-link-synapse-ml-workspaces.md#link-sdk) or via the [Azure Machine Learning studio](../how-to-link-synapse-ml-workspaces.md#link-studio)
 
 * [Attach a Synapse Spark pool](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute) as a compute target.
 
