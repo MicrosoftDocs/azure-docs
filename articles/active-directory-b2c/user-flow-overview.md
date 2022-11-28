@@ -27,7 +27,7 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
-:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot shows the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
+:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
 
 This article gives a brief overview of user flows and custom policies, and helps you decide which method will work best for your business needs.
 
