@@ -1,0 +1,17 @@
+az containerapp create \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --environment <ENVIRONMENT_NAME> \
+  --image <CONTAINER_IMAGE_LOCATION>
+  --min-replicas 4 \
+  --max-replicas 8 \
+  --scale-rule-name azure-servicebus-queue-rule \
+  --scale-rule-type azure-servicebus \
+  --scale-rule-metadata "queueName=functions-sbqueue" \
+                        "namespace=service-bus-namespace" \
+                        "connectionFromEnv=SERVICEBUS_CONNECTIONSTRING_ENV_NAME" \
+                        "messageCount=5" \
+                        "activationMessageCount=2" \
+                        "cloud=Private" \
+                        "endpointSuffix=servicebus.airgap.example" \
+  --scale-rule-auth "connection=connection-string-secret"

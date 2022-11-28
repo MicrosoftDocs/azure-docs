@@ -62,7 +62,7 @@ In the following example, the revision scales out up to five replicas and can sc
 
 ::: zone pivot="azure-resource-manager"
 
-The ARM template uses the `concurrentRequests` and `maxReplicas` properties to define a scale rule.
+The `concurrentRequests` and `maxReplicas` properties to define a scale rule.
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
@@ -102,7 +102,24 @@ The ARM template uses the `concurrentRequests` and `maxReplicas` properties to d
 
 ::: zone pivot="azure-cli"
 
-TODO: create, update, up
+The `concurrentRequests` and `max-replicas` properties to define a scale rule.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
+
+```bash
+az containerapp create \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --environment <ENVIRONMENT_NAME> \
+  --image <CONTAINER_IMAGE_LOCATION>
+  --min-replicas 4 \
+  --max-replicas 8 \
+  --scale-rule-name azure-http-rule \
+  --scale-rule-type http \
+  --scale-rule-metadata "concurrentRequests": "100"
+```
 
 ::: zone-end
 
@@ -140,7 +157,7 @@ In the following example, the container app revision scales out up to five repli
 
 ::: zone pivot="azure-resource-manager"
 
-The ARM template uses the `concurrentRequests` and `maxReplicas` properties to define a scale rule.
+The `concurrentRequests` and `maxReplicas` properties to define a scale rule.
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
@@ -177,13 +194,30 @@ The ARM template uses the `concurrentRequests` and `maxReplicas` properties to d
 
 ::: zone pivot="azure-cli"
 
-TODO
+The `concurrentRequests` and `max-replicas` values to define a scale rule.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of TCP requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `max-replicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+
+```bash
+az containerapp create \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --environment <ENVIRONMENT_NAME> \
+  --image <CONTAINER_IMAGE_LOCATION>
+  --min-replicas 4 \
+  --max-replicas 8 \
+  --scale-rule-name azure-tcp-rule \
+  --scale-rule-type tcp \
+  --scale-rule-metadata "concurrentRequests": "100"
+```
 
 ::: zone-end
 
 ::: zone pivot="azure-portal"
 
-Not supported in portal
+Not supported in the Azure portal.
 
 ::: zone-end
 
@@ -261,14 +295,16 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
 
-1. Find the `TriggerAuthentication` object referenced by the KEDA ScaledObject.
+1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject`.
 
-1. Find each `secretTargetRef` of the `TriggerAuthentication`.
+1. Find each `secretTargetRef` of the `TriggerAuthentication` object.
 
     :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
 
 1. Add all entries to the `auth` array of the scale rule.
+
     1. Set the value of the `triggerParameter` property to the value of the `TriggerAuthentication`'s `key` property.
+
     1. Set the value of the `secretRef` property to the name of the Container Apps secret.
 
     :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="3,4,5,6":::
@@ -281,7 +317,34 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 ::: zone pivot="azure-cli"
 
-TODO
+1. Find the `type` value from the KEDA scaler.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+
+1. Set the `scale-rule-type` parameter to the selected type.
+
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="9":::
+
+1. Find the `metadata` values from the KEDA scaler.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6,7,8,9,10":::
+
+1. Set the `scale-rule-metadata` parameter to the metadata values.
+
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10,11,12,13,14,15,16":::
+
+> [!NOTE]
+> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+
+1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject`. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
+
+1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
+
+1. In the `scale-rule-auth` parameter, create an entry for each KEDA `secretTargetRef` parameter.
+
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="17":::
 
 ::: zone-end
 
@@ -305,9 +368,28 @@ TODO
 
 1. From the *Type* dropdown, select **Custom**.
 
-1. In the *Authentication* section, add... TODO
+1. Find the `type` value from the KEDA scaler.
 
-1. In the *Metadata* section, add... TODO
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+
+1. In the *Custom rule type* box, enter **azure-servicebus**.
+
+1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
+
+> [!NOTE]
+> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+
+1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject`. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
+
+1. In the *Authentication* section, select **Add** to create an entry for each KEDA `secretTargetRef` parameter.
+
+1. Find the `metadata` values from the KEDA scaler.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6,7,8,9,10":::
+
+1. In the *Metadata* section, select **Add** and enter the name and value for each item in the KEDA `ScaledObject` metadata section.
 
 ::: zone-end
 
@@ -336,7 +418,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 
 ## Considerations
 
-- In multiple revision mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
+- In "multiple revision" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
