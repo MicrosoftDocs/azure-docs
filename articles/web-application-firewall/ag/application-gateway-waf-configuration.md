@@ -54,14 +54,14 @@ For example, suppose your requests include this header:
 My-Header: 1=1
 ```
 
-The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** match variable, the operator **contains**, and the selector (`1=1`).
 
 > [!NOTE]
 > Request attributes by key and values are only available in CRS 3.2 and newer.
 >
 > Request attributes by names work the same way as request attributes by values, and are included for backward compatibility with CRS 3.1 and earlier versions. We recommend you use request attributes by values instead of attributes by names. For example, use **RequestHeaderValues** instead of **RequestHeaderNames**.
 
-In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
+In contrast, your WAF might detect the header's name (`My-Header`) as an attack. You can configure an exclusion for the header *key* by using the **RequestHeaderKeys** match variable, the operator **equals**, and the selector (`My-Header`). The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
 
 ## Exclusion scopes
 
