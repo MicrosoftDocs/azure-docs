@@ -152,6 +152,7 @@ The following settings are used to configure an Azure Cosmos DB Kafka sink conne
 | connect.cosmos.master.key | string | The Azure Cosmos DB primary key that the sink connects with. | Required |
 | connect.cosmos.databasename | string | The name of the Azure Cosmos DB database the sink writes to. | Required |
 | connect.cosmos.containers.topicmap | string | Mapping between Kafka topics and Azure Cosmos DB containers, formatted using CSV as shown: `topic#container,topic2#container2`. | Required |
+| connect.cosmos.connection.gateway.enabled | boolean | Flag to indicate whether to use gateway mode. By default it is false. | Optional  |
 | connect.cosmos.sink.bulk.enabled | boolean | Flag to indicate whether bulk mode is enabled. By default it is true. | Optional |
 | connect.cosmos.sink.maxRetryCount | int  | Max retry attempts on transient write failures. By default it is 10 times. | Optional |
 | key.converter | string | Serialization format for the key data written into Kafka topic. | Required |
