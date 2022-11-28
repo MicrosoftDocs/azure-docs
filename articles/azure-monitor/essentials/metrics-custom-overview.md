@@ -224,7 +224,7 @@ Azure Monitor imposes the following usage limits on custom metrics:
 |Total active time series in a subscription across all regions you've deployed to|50,000|
 |Dimension keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
-|Total size of all metric names combined into a single utf string|64kb|
+|Total size of all metric names combined into a single utf-8 string|64kb|
 
 An active time series is defined as any unique combination of metric, dimension key, or dimension value that has had metric values published in the past 12 hours.
 
@@ -247,9 +247,9 @@ Follow the steps below to see your current total active time series metrics, and
 1. Select the **Apply** button.
 1. Choose either **Active Time Series**, **Active Time Series Limit**, or **Throttled Time Series**.
 
-There is a limit on the total size of all metric names concatenated into a single utf string for indexing metric names. If the 64kb limit is exceeded, the metricdefinitions API and any selection UI in the Azure Portal that lets you choose a metric name will not return new metrics that are emitted after the limit has been hit.
+There is a limit on the total size of all metric names concatenated into a single utf-8 string for indexing metric names. If the 64kb limit is exceeded, the metricdefinitions API and any selection UI in the Azure Portal that lets you choose a metric name will not return new metrics that are emitted after the limit has been hit.
 
-When this happens, reduce the number of metrics you are sending or shorten the length of their names. The limit will reset about a day afterwards.  A common pratice that causes the limit to be hit is to encode some variable in the metric name itself. The best way to resolve the situation is to move the variable out of the metric name and into a dimension.
+When this happens, reduce the number of metrics you are sending or shorten the length of their names. The limit will reset about two days afterwards.  A common pratice that causes the limit to be hit is to encode some variable in the metric name itself. The best way to resolve the situation is to move the variable out of the metric name and into a dimension.
 
 ## Design limitations and considerations
 
