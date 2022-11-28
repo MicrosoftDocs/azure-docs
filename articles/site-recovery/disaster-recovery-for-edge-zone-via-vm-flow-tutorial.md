@@ -52,4 +52,3 @@ To enable replication to a secondary location, follow the below steps:
 ## Next steps
 
 See [Set up disaster recovery using the Recovery Services vault](disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md)
-
