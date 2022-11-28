@@ -38,7 +38,7 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 ### Azure Disks
 
-Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types include:
+Use [Azure Disks](azure-disk-csi) to create a Kubernetes *DataDisk* resource. Disks types include:
 
 * Ultra Disks
 * Premium SSDs
@@ -52,7 +52,7 @@ Because Azure Disks are mounted as *ReadWriteOnce*, they're only available to a 
 
 ### Azure Files
 
-Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
+Use [Azure Files][azure-files-csi] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
 
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
@@ -65,7 +65,7 @@ Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) vers
 
 ### Azure Blob Storage
 
-Use *Azure Blob Storage* to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
+Use [Azure Blob Storage](azure-blob-csi) to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
 
 * Block Blobs
 
