@@ -77,19 +77,19 @@ Prospective customers accessing Defender EASM with a 30-day trial can also see t
 1. From the Defender EASM resource, select **Billable assets** from the **Manage** section of the left-hand navigation menu.
 
 
-![Screenshot of Billable assets dashboard with left-hand Manage section highlighted in navigation pane](https://user-images.githubusercontent.com/106117711/204360701-d6ba6c32-e2b7-454c-b73a-d86a8aeb4c36.png)
+![Screenshot of Billable assets dashboard with left-hand Manage section highlighted in navigation pane.](https://user-images.githubusercontent.com/106117711/204360701-d6ba6c32-e2b7-454c-b73a-d86a8aeb4c36.png)
 
 
 2. The chart displays billable asset counts over the past 30 days (if we have 30 days of data). The individual bars are segmented by asset type so users can quickly understand how their billable assets are distributed across their attack surface. Users can view the daily counts for each kind of asset by hovering their mouse over the chart. 
 
-![Screenshot of Billable assets chart showing asset counts when hovering over bar](https://user-images.githubusercontent.com/106117711/204360837-be952c09-c374-4c4e-b017-5f1bd79d7228.png)
+![Screenshot of Billable assets chart showing asset counts when hovering over bar.](https://user-images.githubusercontent.com/106117711/204360837-be952c09-c374-4c4e-b017-5f1bd79d7228.png)
 
 
 3. Beneath the chart, users can view their current billable asset counts. These numbers are useful when approximating your monthly spend to best protect your organization’s attack surface.  
 
-![Screenshot of Billable assets counts beneath dashboard](https://user-images.githubusercontent.com/106117711/204360961-d11d37a6-e6fe-46d8-8fce-6cbbd0547ede.png)
+![Screenshot of Billable assets counts beneath dashboard.](https://user-images.githubusercontent.com/106117711/204360961-d11d37a6-e6fe-46d8-8fce-6cbbd0547ede.png)
 
 
-## Next Steps 
+## Next steps 
 
 - [Microsoft Defender External Attack Surface Management (Defender EASM) overview](index.md)   
