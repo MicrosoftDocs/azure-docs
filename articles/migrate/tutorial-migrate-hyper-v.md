@@ -1,17 +1,17 @@
 ---
-title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration
-description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+title: Migrate Hyper-V VMs to Azure with Azure Migrate Migration and modernization
+description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Migration and modernization.
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 08/18/2022
+ms.date: 11/28/2022
 ms.custom: MVC, fasttrack-edit, engagement-fy23
 ---
 
 # Migrate Hyper-V VMs to Azure
 
-This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Migration and modernization](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate machines to Azure.
 
@@ -21,7 +21,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migrate: Server Migration tool.
+> * Add the Migration and modernization tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -44,19 +44,19 @@ Before you begin this tutorial, you should:
 
 ## Download the provider
 
-For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
+For migrating Hyper-V VMs, Migration and modernization installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
 
-1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
+1. In the Azure Migrate project > **Servers, databases and web apps**, in **Migration and modernization**, click **Discover**.
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
 1. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
-    - If you've already set up migration with Azure Migrate: Server Migration, this option won't appear since resources were set up previously.
+    - If you've already set up migration with Migration and modernization, this option won't appear since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
 
 1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file.
-    - The registration key is needed to register the Hyper-V host with Azure Migrate: Server Migration.
+    - The registration key is needed to register the Hyper-V host with Migration and modernization.
     - The key is valid for five days after you generate it.
 
     ![Download provider and key](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
@@ -132,27 +132,25 @@ Run the following commands on each host, as described below:
 
 After installing the provider on hosts, go to the Azure portal and in **Discover machines**, click **Finalize registration**.
 
- ![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
+ ![Screenshot of the Finalize registration screen.](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
 
-It can take up to 15 minutes after finalizing registration until discovered VMs appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
-
- ![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
+It can take up to 15 minutes after finalizing registration until discovered VMs appear in the Migration and modernization tile. As VMs are discovered, the **Discovered servers** count rises.
 
 ## Replicate Hyper-V VMs
 
-With discovery completed, you can begin replication of Hyper-V VMs to Azure.
+With discovery completed, you can begin the replication of Hyper-V VMs to Azure.
 
 > [!NOTE]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
+1. In the Azure Migrate project > **Servers, databases and web apps**, **Migration and modernization**, select **Replicate**.
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then click **Next: Virtual machines**.
 1. In **Virtual machines**, select the machines you want to replicate.
     - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option.
     - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** options.
     - If you selected to use the assessment, select the VM group, and assessment name.
 
-        ![Select assessment](./media/tutorial-migrate-hyper-v/select-assessment.png)
+        ![Screenshot of the Select assessment screen.](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
 1. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Then, click **Next: Target settings**.
 
@@ -195,7 +193,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 ## Provision for the first time
 
-If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate: Server Migration automatically provisions these resources in same resource group as the project.
+If this is the first VM you're replicating in the Azure Migrate project, Migration and modernization automatically provisions these resources in same resource group as the project.
 - **Cache storage account**: The Azure Site Recovery provider software installed on Hyper-V hosts uploads replication data for the VMs configured for replication to a storage account (known as the cache storage account, or log storage account) in your subscription. The Azure Migrate service then copies the uploaded replication data from the storage account to the replica-managed disks corresponding to the VM. The cache storage account needs to be specified while configuring replication for a VM and The Azure Migrate portal automatically creates one for the Azure Migrate project when replication is configured for the first time in the project.
 
 ## Track and monitor
@@ -207,7 +205,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
+You can monitor replication status by clicking on **Replications** in **Migration and modernization**.
 ![Monitor replication](./media/tutorial-migrate-hyper-v/replicating-servers.png)
 
 
@@ -224,34 +222,31 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, click **Test migrated servers**.
 
-     ![Test migrated servers](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
+     ![Screenshot of Test migrated servers in Migration and modernization tile.](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
 
 1. Right-click the VM to test, and click **Test migrate**.
 
-    ![Test migration](./media/tutorial-migrate-hyper-v/test-migrate.png)
+    ![Screenshot of Test migration screen.](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
 1. In **Test Migration**, select the Azure virtual network in which the Azure VM will be located after the migration. We recommend you use a non-production virtual network.
 1. The **Test migration** job starts. Monitor the job in the portal notifications.
 1. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
-1. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
+1. After the test is done, right-click the Azure VM in **Replications**, and click **Clean up test migration**.
 
-    ![Clean up migration](./media/tutorial-migrate-hyper-v/clean-up.png)
+    ![Screenshot of Clean up migration option.](./media/tutorial-migrate-hyper-v/clean-up.png)
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
-    >- Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
+    >- Select **Manage** > **Replications** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
     >- Select Azure Hybrid benefit for SQL Server if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.hs.
 
 ## Migrate VMs
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
-
-    ![Replicating servers](./media/tutorial-migrate-hyper-v/replicate-servers.png)
-
-1. In **Replicating machines**, right-click the VM > **Migrate**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, click **Replications**.
+1. In **Replications**, right-click the VM > **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**
@@ -262,7 +257,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
     - Stops replication for the on-premises machine.
-    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Removes the machine from the **Replicating servers** count in Migration and modernization.
     - Cleans up replication state information for the VM.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
 1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
