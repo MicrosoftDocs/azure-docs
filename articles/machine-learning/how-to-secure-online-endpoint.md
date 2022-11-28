@@ -105,7 +105,7 @@ When `public_network_access` is `Disabled`, inbound scoring requests are receive
 
 ## Outbound (resource access)
 
-To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough—your workspace must also have a private link that allows access to Azure services using a private endpoint. See the [Prerequisites](#prerequisites) for more details.
+To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough—your workspace must also have a private link that allows access to Azure resources via a private endpoint. See the [Prerequisites](#prerequisites) for more details.
 
 > [!WARNING]
 > You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
