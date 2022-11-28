@@ -1,17 +1,15 @@
 ---
-title: Provision access to Arc-enabled SQL Server for DevOps actions (preview)
+title: Provision access to Arc-enabled SQL Server for DevOps actions
 description: Step-by-step guide on provisioning access to Arc-enabled SQL Server through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 11/16/2022
 ms.custom:
 ---
-# Provision access to system metadata in Arc-enabled SQL Server (preview)
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Provision access to system metadata in Arc-enabled SQL Server
 
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
 
@@ -40,13 +38,15 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 
 1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply** at the bottom
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
+## Enable policies in Arc-enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
 
 ## Create a new DevOps policy
 Follow this link for the steps to [create a new DevOps policy in Microsoft Purview](how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy).

@@ -108,6 +108,10 @@ When using Node.js to send device to cloud messages with the AMQP protocol to an
 :::moniker-end
 <!-- end 1.1 -->
 
+### NTLM Authentication
+
+IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allow-list.
+
 ## Next steps
 
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).
