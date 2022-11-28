@@ -165,8 +165,6 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     1. Select the save button at the top of the page to save the changes.
 
-    CORS should now be configured to use the storage account from Form Recognizer Studio.
-
 ### Use the Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
