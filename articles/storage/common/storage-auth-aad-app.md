@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 09/28/2022
 ms.author: tamram
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: "devx-track-csharp"
 ---
 

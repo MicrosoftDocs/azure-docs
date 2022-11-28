@@ -11,6 +11,7 @@ ms.date: 05/10/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
