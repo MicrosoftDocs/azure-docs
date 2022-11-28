@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/28/2012
+ms.date: 11/28/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
