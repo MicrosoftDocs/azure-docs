@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 11/23/2022
 ms.custom: template-how-to
 ---
 
@@ -196,11 +196,14 @@ Before you can create policies, you must register the Azure Arc-enabled SQL Serv
 
 1. Enable **Data use management**. **Data use management** needs certain permissions and can affect the security of your data, because it delegates to certain Microsoft Purview roles to manage access to the data sources. Go through the secure practices related to **Data use management** in this guide: [Enable Data use management on your Microsoft Purview sources](./how-to-enable-data-use-management.md).
 
-1. After you enable **Data use management**, Microsoft Purview automatically captures the application ID of the app registration that's related to this Azure Arc-enabled SQL Server instance. Come back to this screen and select the refresh button, in case the association between Azure Arc-enabled SQL Server and the app registration changes in the future.
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply**.
 
 ![Screenshot that shows selections for registering a data source for a policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
+
+### Enable policies in Arc-enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
 
 ### Create a policy
 
