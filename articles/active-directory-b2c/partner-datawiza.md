@@ -59,8 +59,8 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 Go to docs.datawiza.com to: 
 
-1. To learn how to register your web application in an Azure AD B2C tenant. See [Microsoft Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
-2. To [configure a user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in the Azure portal.
+1. Learn how to register your web application in an Azure AD B2C tenant. See, [Microsoft Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+2. [Configure a user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in the Azure portal.
 
 >[!NOTE]
 >When you set up DAB in the DCM, you need the tenant name, user flow name, client ID, and client secret.
