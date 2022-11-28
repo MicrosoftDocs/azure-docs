@@ -38,13 +38,15 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 ## View and follow incident tasks
 
-1. In the **Incidents** page, select an incident from the list, and select **View full details** in the details panel.
+1. In the **Incidents** page, select an incident from the list, and select **View full details**  under **Tasks (Preview)** in the details panel, or select **View full details** at the bottom of the details panel.
 
-1. In the incident details page, select **Tasks (Preview)** from the top banner.
+:::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
+
+1. If you opted to enter the full details page, select **Tasks (Preview)** from the top banner.
 
     :::image type="content" source="media/work-with-tasks/incident-details-screen.png" alt-text="Screenshot shows incident details screen with tasks panel open." lightbox="media/work-with-tasks/incident-details-screen.png":::
 
-1. A new panel will open on the right side of the screen. You'll see the list of tasks defined for this incident, along with how or by whom it was created - whether manually or by an automation rule or a playbook.
+1. The **Incident tasks (Preview)** panel will open on the right side of whichever screen you were in (the main incidents page or the incident details page). You'll see the list of tasks defined for this incident, along with how or by whom it was created - whether manually or by an automation rule or a playbook.
 
     :::image type="content" source="media/work-with-tasks/incident-tasks-panel.png" alt-text="Screenshot shows incident tasks panel as seen from incident details page.":::
 
@@ -78,6 +80,6 @@ You can also add tasks for yourself, on the spot, to an incident's task list. Th
 
 - Learn more about [incident tasks](incident-tasks.md).
 - Learn how to [investigate incidents](investigate-cases.md).
-- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
+- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md), and [when to use which](incident-tasks.md#use-automation-rules-or-playbooks-to-add-tasks).
 - Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) and how to [create them](./create-manage-use-automation-rules.md).
 - Learn more about [playbooks](automate-responses-with-playbooks.md) and how to [create them](tutorial-respond-threats-playbook.md).

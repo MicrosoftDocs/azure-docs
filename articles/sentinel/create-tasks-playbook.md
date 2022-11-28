@@ -38,7 +38,7 @@ Another article, at the following links, addresses scenarios that apply more to 
 
 The **Microsoft Sentinel Responder** role is required to view and edit incidents, which is necessary to add, view, and edit tasks.
 
-The **Logic Apps Contributor** role is required to create and edit playbooks. ***VERIFY???***
+The **Logic Apps Contributor** role is required to create and edit playbooks.
 
 ## Add tasks to incidents with playbooks
 
@@ -71,7 +71,10 @@ To add and configure these actions, take the following steps:
 
 1. Inside the **For each** loop, select **Add an action**.  
     Search for and select the  **Azure AD Identity Protection** connector, and select the **Confirm a risky user as compromised (Preview)** action.  
-    Add the **Accounts PUID** dynamic content item to the **userIds Item - 1** field.
+    Add the **Accounts AAD user ID** dynamic content item to the **userIds Item - 1** field.
+
+    > [!NOTE]
+    > This field (Accounts AAD user ID) is one way to identify a user in AADIP. It is not necessarily the best way, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Azure AD Identity Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
 
     This action sets in motion processes inside Azure AD Identity Protection that will reset the user's password.
 
@@ -104,7 +107,7 @@ In this example we're going to add a playbook action that researches an IP addre
 
 1. Inside the **For each** loop, select **Add an action**.  
     Add a **Condition** from the **Control** actions library.  
-    Add the **Last analysis statistics** dynamic content item from the **Get an IP report** output, select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
+    Add the **Last analysis statistics Malicious** dynamic content item from the **Get an IP report** output (you may have to select "See more" to find it), select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
 
     :::image type="content" source="media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook.":::
 
