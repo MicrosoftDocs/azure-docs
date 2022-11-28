@@ -11,6 +11,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL trigger for Functions (preview)
 
+> [!NOTE]
+> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported.
+
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted.
 
 For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).

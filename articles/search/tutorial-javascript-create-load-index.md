@@ -21,7 +21,7 @@ Continue to build your Search-enabled website by:
 
 ## Create an Azure Search resource 
 
-Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
+Create a new Search resource with the Azure Cognitive Search extension for Visual Studio Code.
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 

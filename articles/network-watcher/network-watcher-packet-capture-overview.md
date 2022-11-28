@@ -8,9 +8,9 @@ ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/07/2022
 ms.author: damendo
-
+ms.custom: engagement-fy23
 ---
 
 # Introduction to variable packet capture in Azure Network Watcher

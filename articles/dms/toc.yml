@@ -63,15 +63,15 @@
   items:
   - name: Migrate SQL Server
     items:
-    - name: to Azure SQL Database (offline) using Azure Data Studio
+    - name: to Azure SQL Database (offline) in Azure Data Studio
       href: tutorial-sql-server-azure-sql-database-offline-ads.md
-    - name: to Azure SQL Managed Instance (online) using Azure Data Studio
+    - name: to Azure SQL Managed Instance (online) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
-    - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
+    - name: to Azure SQL Managed Instance (offline) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-offline-ads.md
-    - name: to Azure SQL VM (online) using Azure Data Studio
+    - name: to SQL Server for Azure Virtual Machines (online) in Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-online-ads.md
-    - name: to Azure SQL VM (offline) using Azure Data Studio
+    - name: to SQL Server for Azure Virtual Machines (offline) in Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-offline-ads.md
     - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
@@ -86,11 +86,11 @@
   - name: Migrate Azure DB for MySQL - Single Server
     items:
     - name: to Azure DB for MySQL Flexible Server (online)
-      href: tutorial-mysql-azure-single-to-flex-online-portal.md  
+      href: tutorial-mysql-azure-single-to-flex-online-portal.md
     - name: to Azure DB for MySQL Flexible Server (offline)
-      href: tutorial-mysql-azure-single-to-flex-offline-portal.md   
+      href: tutorial-mysql-azure-single-to-flex-offline-portal.md
     - name: Frequently Asked Questions
-      href: faq-mysql-single-to-flex.md        
+      href: faq-mysql-single-to-flex.md
   - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL

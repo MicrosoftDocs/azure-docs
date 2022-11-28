@@ -16,7 +16,7 @@ To begin using Service Bus messaging entities in Azure, you must first create a 
 To create a namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-2. In the left navigation pane of the portal, select **+ Create a resource**, select **Integration**, and then select **Service Bus**.
+2. In the left navigation pane of the portal, select **All services**, select **Integration** from the list of categories, hover the mouse over **Service Bus**, and then select **Create** on the Service Bus tile.
 
     :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
@@ -32,7 +32,7 @@ To create a namespace:
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
     
         > [!IMPORTANT]
-        > If you want to use [Topics and subscriptions](../../../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions aren't supported in the Basic pricing tier. 
+        > If you want to use [Topics and subscriptions](../../../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or [Premium](../../../articles/service-bus-messaging/service-bus-premium-messaging.md). Topics/subscriptions aren't supported in the Basic pricing tier. 
 
         If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../../../articles/service-bus-messaging/service-bus-premium-messaging.md).
 
@@ -45,4 +45,4 @@ To create a namespace:
     :::image type="content" source="./media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Image showing the deployment succeeded page with the Go to resource link.":::
 5. You see the home page for your service bus namespace. 
 
-    :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
+    :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" lightbox="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
