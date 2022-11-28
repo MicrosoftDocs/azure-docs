@@ -1,6 +1,6 @@
 ---
 title: Replicate multiple objects from SAP via SAP CDC
-description: Learn how to use a solution template to replicate multiple objects from SAP via SAP CDC by using Azure Data Factory.
+description: Learn how to use a solution template to replicate multiple objects from SAP via SAP CDC in Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
@@ -17,7 +17,7 @@ This article describes a solution template that you can use to replicate multipl
 
 ## About this solution template
 
-This template reads an external control file in csv format on your storage store, which contains your SAP ODP context, SAP ODP object and key columns to be loaded from SAP system as well as your Azure storage containers, folders and partitions to be written into delta format on the destination store. It then copies each of the SAP ODP object from SAP system to Azure Data Lake Gen2 in Delta format.
+This template reads an external control file in csv format on your storage store, which contains your SAP ODP contexts, SAP ODP objects and key columns from SAP source system as well as your containers, folders and partitions from Azure Data Lake Gen2 destination store. It then copies each of the SAP ODP object from SAP system to Azure Data Lake Gen2 in Delta format.
 
 The template contains three activities:
 - **Lookup** retrieves the SAP ODP objects list to be loaded and the destination store path from an external control file on your Azure Data Lake Gen2 store.
@@ -49,7 +49,7 @@ An external control file in csv format is required for in this template. The sch
 
 	:::image type="content" source="media/solution-template-replicate-multiple-objects-SAP-CDC/sap-cdc-template-use-template.png" alt-text="Screenshot of SAP CDC use template.":::
 	
-4. Click **Use this template** and and your will see the pipeline has been ready to use.
+4. Click **Use this template** and your will see the pipeline has been ready to use.
 
 	:::image type="content" source="media/solution-template-replicate-multiple-objects-SAP-CDC/sap-cdc-template-pipeline.png" alt-text="Screenshot of SAP CDC pipeline.":::
 	   
