@@ -137,7 +137,7 @@ For more information, see [Active Directory support on sensors and on-premises m
     |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.       |
     |**Domain Controller Port**     |  The port on which your LDAP is configured.       |
     |**Primary Domain**     |  The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
-    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--what?-->|
+    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users.|
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
@@ -194,7 +194,7 @@ Before you create access groups, we also recommend that you:
 
 1. Select **ADD RULE**, and then select the business topology options that you want to include in the access group. The options that appear  in the **Add Rule** dialog are the entities that you'd created in the **Enterprise View** and **Site Management** pages. For example:
 
-   :::image type="content" source="media/how-to-define-global-user-access-control/add-rule.png" alt-text="Add a rule to your system.":::
+   :::image type="content" source="media/how-to-define-global-user-access-control/add-rule.png" alt-text="Screenshot of the Add Rule dialog box." lightbox="media/how-to-define-global-user-access-control/add-rule.png":::
 
     If they don't otherwise exist yet, default global business units and regions are created for the first group you create. If you don't select any business units or regions, users in the access group will have access to all business topology entities.
 
@@ -202,13 +202,13 @@ Before you create access groups, we also recommend that you:
 
     Any rules you create are listed in the **Add Access Group** dialog box, where you can edit them further or delete them as needed. For example:
 
-    :::image type="content" source="media/how-to-define-global-user-access-control/edit-access-groups.png" alt-text="View and edit all of your access groups from this window.":::
+    :::image type="content" source="media/how-to-define-global-user-access-control/edit-access-groups.png" alt-text="Screenshot of the Add Access Group dialog box." lightbox="media/how-to-define-global-user-access-control/edit-access-groups.png":::
 
 1. Add users with one or both of the following methods:
 
     - If the **Assign an Active Directory Group** option appears, assign an Active Directory group of users to this access group as needed. For example:
 
-       :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
+       :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Screenshot of adding an Active Directory group to a Global Access Group." lightbox="media/how-to-define-global-user-access-control/add-access-group.png":::
 
        If the option doesn't appear, and you want to include Active Directory groups in access groups, make sure that you've included your Active Directory group in your Active Directory integration. For more information, see [Integrate on-premises users with Active Directory](#integrate-users-with-active-directory).
 

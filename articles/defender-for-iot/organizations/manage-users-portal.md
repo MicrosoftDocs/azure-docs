@@ -13,6 +13,10 @@ In the Azure portal, user management is managed at the *subscription* level with
 
 For OT network monitoring, Defender for IoT has the additional *site* level, which you can use to add granularity to your user management. For example, assign roles at the site level to apply different permissions for the same users across different sites.
 
+> [!NOTE]
+> Site-based access control is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 ## Define Azure users for Defender for IoT per subscription
 
 Manage user access for Defender for IoT using Azure RBAC, applying the roles to users or user groups as needed to access required functionality.
@@ -21,7 +25,7 @@ Manage user access for Defender for IoT using Azure RBAC, applying the roles to 
 - [Grant a group access to Azure resources using Azure PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell)
 - [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
 
-## Manage site-based access control
+## Manage site-based access control (Public preview)
 
 Define user roles per site to add a level of granularity and apply different user roles across different Defender for IoT sites. You can also use site-based access control resources to do any of the following:
 

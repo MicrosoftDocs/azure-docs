@@ -7,12 +7,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/integrate-with-active-directory.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/sensor-users#integrate-on-premises-users-with-active-directory",
+            "redirect_url": "/azure/defender-for-iot/organizations/manage-users-sensor#integrate-ot-sensor-users-with-active-directory",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-define-global-user-access-control.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/management-users#define-global-access-permission-for-on-premises-users",
+            "redirect_url": "/azure/defender-for-iot/organizations/manage-users-on-premises-management-console#define-global-access-permission-for-on-premises-users",
             "redirect_document_id": false
         },
         {

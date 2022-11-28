@@ -49,7 +49,7 @@ In addition to bringing up the **Share this account with others** dialog by clic
 
 ## Next steps
 
-You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
+You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video.
 
 ## See also
 
