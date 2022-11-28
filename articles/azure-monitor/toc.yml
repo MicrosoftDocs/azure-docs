@@ -1089,6 +1089,17 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Network insights
+    items:
+    - name: Overview
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-overview.md
+    - name: Topology
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-topology.md
+    - name: Troubleshooting
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
   - name: Log Analytics workspace insights
@@ -1529,8 +1540,6 @@ items:
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: Endpoint overrides
-      href: app/custom-endpoints.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
