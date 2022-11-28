@@ -87,7 +87,7 @@ Visual authoring with Azure Repos Git integration supports source control and co
 
 ### Azure Repos settings
 
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configure the code repository settings":::
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configure the code repository settings.":::
 
 The configuration pane shows the following Azure Repos code repository settings:
 
@@ -107,15 +107,15 @@ The configuration pane shows the following Azure Repos code repository settings:
 > [!NOTE]
 > If you are using Microsoft Edge and do not see any values in your Azure DevOps Account dropdown, add https://*.visualstudio.com to the trusted sites list.
 
-### Editing Repo Settings
+### Editing repo settings
 
 If any adjustments need to be made to the settings of your configured Azure Repos Git repository, you can choose to **Edit**.
 
-:::image type="content" source="media/author-visually/repo-settings2.png" alt-text="Screenshot showing the edit button for editing a Azure Repos Git repository.":::
+:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing a Azure Repos Git repository.":::
 
 You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
 
-:::image type="content" source="media/author-visually/repo-settings3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Data Factory studio.":::
+:::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Data Factory studio.":::
 
 
 ### Use a different Azure Active Directory tenant
@@ -172,15 +172,15 @@ The configuration pane shows the following GitHub repository settings:
 | **Import existing resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Import resource into this branch** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported.  |  |
 
-### Editing Repo Settings
+### Editing repo settings
 
 If any adjustments need to be made to the settings of your configured GitHub repository, you can choose to **Edit**.
 
-:::image type="content" source="media/author-visually/repo-settings4.png" alt-text="Screenshot showing the edit button for editing a GitHub repository.":::
+:::image type="content" source="media/author-visually/repo-settings-4.png" alt-text="Screenshot showing the edit button for editing a GitHub repository.":::
 
 You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
 
-:::image type="content" source="media/author-visually/repo-settings3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Azure Data Factory studio.":::
+:::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Azure Data Factory studio.":::
 
 ### GitHub organizations
 
