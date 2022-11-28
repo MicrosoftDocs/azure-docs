@@ -3,7 +3,7 @@ title: "F5 Advanced WAF Integration via Telemetry Streaming connector for Micros
 description: "Learn how to install the connector F5 Advanced WAF Integration via Telemetry Streaming to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

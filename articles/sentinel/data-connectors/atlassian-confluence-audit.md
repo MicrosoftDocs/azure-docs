@@ -1,14 +1,14 @@
 ---
-title: "Atlassian Confluence Audit (Preview) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Atlassian Confluence Audit (Preview) to connect your data source to Microsoft Sentinel."
+title: "Atlassian Confluence Audit connector for Microsoft Sentinel"
+description: "Learn how to install the connector Atlassian Confluence Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Atlassian Confluence Audit (Preview) connector for Microsoft Sentinel
+# Atlassian Confluence Audit connector for Microsoft Sentinel
 
 The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit data connector provides the capability to ingest [Confluence Audit Records](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -37,7 +37,7 @@ ConfluenceAudit
 
 ## Prerequisites
 
-To integrate with Atlassian Confluence Audit (Preview) make sure you have: 
+To integrate with Atlassian Confluence Audit make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **ConfluenceAccessToken**, **ConfluenceUsername** is required for REST API. [See the documentation to learn more about API](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/). Check all [requirements and follow  the instructions](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth) for obtaining credentials.

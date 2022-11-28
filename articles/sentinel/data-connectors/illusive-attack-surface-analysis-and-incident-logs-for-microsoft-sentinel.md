@@ -3,7 +3,7 @@ title: "Illusive Attack Surface Analysis and Incident Logs connector for Microso
 description: "Learn how to install the connector Illusive Attack Surface Analysis and Incident Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

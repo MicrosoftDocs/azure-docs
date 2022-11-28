@@ -187,6 +187,10 @@ Data connectors are available as part of the following offerings:
 
 - [Flare for Microsoft Sentinel](data-connectors/flare-for-microsoft-sentinel.md)
 
+## Forescout
+
+- [Forescout eyeExtend for Microsoft Sentinel](data-connectors/forescout-eyeextend-for-microsoft-sentinel.md)
+
 ## GitLab
 
 - [Gitlab](data-connectors/gitlab.md)
@@ -250,7 +254,7 @@ Data connectors are available as part of the following offerings:
 ## Microsoft
 
 - [Akamai Security](data-connectors/akamai-security.md)
-- [Atlassian Confluence Audit (Preview)](data-connectors/atlassian-confluence-audit-preview.md)
+- [Atlassian Confluence Audit](data-connectors/atlassian-confluence-audit.md)
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
 - [Azure Active Directory solution for Sentinel](data-connectors/azure-active-directory-solution-for-sentinel.md)
 - [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
@@ -388,10 +392,6 @@ Data connectors are available as part of the following offerings:
 
 - [SecurityBridge App for Microsoft Sentinel](data-connectors/securitybridge-app-for-microsoft-sentinel.md)
 
-## Semperis
-
-- [Semperis Directory Services Protector Solution](data-connectors/semperis-directory-services-protector-solution.md)
-
 ## Senserva, LLC
 
 - [Senserva Offer for Microsoft Sentinel](data-connectors/senserva-offer-for-microsoft-sentinel.md)
@@ -442,6 +442,7 @@ Data connectors are available as part of the following offerings:
 
 ## Trend Micro
 
+- [Trend Micro TippingPoint for Microsoft Sentinel](data-connectors/trend-micro-tippingpoint-for-microsoft-sentinel.md)
 - [Trend Micro Vision One for Microsoft Sentinel](data-connectors/trend-micro-vision-one-for-microsoft-sentinel.md)
 
 ## TrendMicro
@@ -480,6 +481,10 @@ Data connectors are available as part of the following offerings:
 ## WireX Systems
 
 - [WireX Network Forensics Platform for Microsoft Sentinel](data-connectors/wirex-network-forensics-platform-for-microsoft-sentinel.md)
+
+## ZERO NETWORKS LTD
+
+- [Zero Networks Segment for Microsoft Sentinel](data-connectors/zero-networks-segment-for-microsoft-sentinel.md)
 
 ## Zscaler
 

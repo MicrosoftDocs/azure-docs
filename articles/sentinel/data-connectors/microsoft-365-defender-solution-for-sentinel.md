@@ -3,7 +3,7 @@ title: "Microsoft 365 Defender solution for Sentinel connector for Microsoft Sen
 description: "Learn how to install the connector Microsoft 365 Defender solution for Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -3,7 +3,7 @@ title: "Google Cloud Platform IAM connector for Microsoft Sentinel"
 description: "Learn how to install the connector Google Cloud Platform IAM to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Forcepoint NGFW connector for Microsoft Sentinel"
-description: "Learn how to install the connector Forcepoint NGFW to connect your data source to Microsoft Sentinel."
+title: "Trend Micro TippingPoint connector for Microsoft Sentinel"
+description: "Learn how to install the connector Trend Micro TippingPoint to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 11/28/2022
@@ -8,64 +8,70 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Forcepoint NGFW connector for Microsoft Sentinel
+# Trend Micro TippingPoint connector for Microsoft Sentinel
 
-The Forcepoint NGFW (Next Generation Firewall) connector allows you to automatically export user-defined Forcepoint NGFW logs into Microsoft Sentinel in real-time. This enriches visibility into user activities recorded by NGFW, enables further correlation with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Microsoft Sentinel.
+The Trend Micro TippingPoint connector allows you to easily connect your TippingPoint SMS IPS events with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's networks/systems and improves your security operation capabilities.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | CommonSecurityLog (ForcePointNGFW)<br/> |
+| **Kusto function url** | https://aka.ms/sentinel-trendmicrotippingpoint-function |
+| **Log Analytics table(s)** | CommonSecurityLog (TrendMicroTippingPoint)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Community](https://github.com/Azure/Azure-Sentinel/issues) |
+| **Supported by** | [Trend Micro](https://success.trendmicro.com/dcx/s/contactus?language=en_US) |
 
 ## Query samples
 
-**Show all terminated actions from the Forcepoint NGFW**
+**TippingPoint IPS Events**
    ```kusto
 
-CommonSecurityLog
+TrendMicroTippingPoint
 
-   | where DeviceVendor == "Forcepoint"
-
-   | where DeviceProduct == "NGFW"
-
-   | where DeviceAction == "Terminate"
-
+            
+   | sort by TimeGenerated
    ```
 
-**Show all Forcepoint NGFW with suspected compromise behaviour**
+**Top IPS Events**
    ```kusto
 
-CommonSecurityLog
+TrendMicroTippingPoint
 
-   | where DeviceVendor == "Forcepoint"
-
-   | where DeviceProduct == "NGFW"
-
-   | where Activity contains "compromise"
-
+            
+   | summarize EventCountTotal = sum(EventCount) by DeviceEventClassID, Activity, SimplifiedDeviceAction
+            
+   | sort by EventCountTotal desc
    ```
 
-**Show chart grouping all Forcepoint NGFW events by Activity type**
+**Top Source IP for IPS Events**
    ```kusto
 
-CommonSecurityLog
+TrendMicroTippingPoint
 
-   | where DeviceVendor == "Forcepoint"
+            
+   | summarize EventCountTotal = sum(EventCount) by SourceIP
+            
+   | sort by EventCountTotal desc
+   ```
 
-   | where DeviceProduct == "NGFW"
+**Top Destination IP for IPS Events**
+   ```kusto
 
-   | summarize count=count() by Activity
- 
-   | render barchart
+TrendMicroTippingPoint
 
+            
+   | summarize EventCountTotal = sum(EventCount) by DestinationIP
+            
+   | sort by EventCountTotal desc
    ```
 
 
 
 ## Vendor installation instructions
+
+
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-trendmicrotippingpoint-function) to create the Kusto functions alias, **TrendMicroTippingPoint**
 
 1. Linux Syslog agent configuration
 
@@ -89,9 +95,9 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
 
-2. Forward Common Event Format (CEF) logs to Syslog agent
+2. Forward Trend Micro TippingPoint SMS logs to Syslog agent
 
-Set your security solution to send Syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+Set your TippingPoint SMS to send Syslog messages in ArcSight CEF Format v4.2 format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
 
 3. Validate connection
 
@@ -103,7 +109,7 @@ Open Log Analytics to check if the logs are received using the CommonSecurityLog
 
 If the logs are not received, run the following connectivity validation script:
 
-> 1. Make sure that you have Python on your machine using the following command: python - version 
+> 1. Make sure that you have Python on your machine using the following command: python -version
 
 >2. You must have elevated permissions (sudo) on your machine
 
@@ -118,14 +124,8 @@ Make sure to configure the machine's security according to your organization's s
 
 [Learn more >](https://aka.ms/SecureCEF)
 
-5. Forcepoint integration installation guide 
-
-To complete the installation of this Forcepoint product integration, follow the guide linked below.
-
-[Installation Guide >](https://frcpnt.com/ngfw-sentinel)
-
 
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-forcepoint-ngfw?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trendmicro.trend_micro_tippingpoint_mss?tab=Overview) in the Azure Marketplace.
