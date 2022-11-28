@@ -42,7 +42,7 @@ You can also set the owner of the resources that are affected by the specified r
 
 The owner is shown as unspecified when the owner wasn't found on the resource, the associated resource group, or the associated subscription based on the specified tag.
 
-:::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
+:::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="Screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
 
 By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
 
