@@ -246,6 +246,6 @@ Test your custom policy again by using the same *Email Address*. Instead of an I
 
 - Learn how to [define custom attributes in your custom policy](user-flow-custom-attributes.md?pivots=b2c-custom-policy).
  
-- Learn how to [add password expiration to custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-after-90-days ).
+- Learn how to [add password expiration to custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-after-90-days).
 
 - Learn more [about Azure AD Technical Profile](active-directory-technical-profile.md). 
