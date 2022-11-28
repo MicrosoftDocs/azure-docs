@@ -59,9 +59,7 @@ After publishing the lab and VM creation completes, Azure Lab Services automatic
 To publish a template VM in Teams:
 
 1. Go to the **Azure Lab Services** tab in your team.
-
 1. Select the **Template** tab, and then select **Publish**.
-
 1. In the **Publish template** window, select **Publish**.
 
 As an educator, you can access student VMs directly from the **Virtual machine pool** tab. You can start, stop, reset, or connect to a student VM. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
