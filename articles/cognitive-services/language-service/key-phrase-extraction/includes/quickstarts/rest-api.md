@@ -1,16 +1,16 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
-ms.author: aahi
+ms.date: 10/31/2022
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send key phrase extraction requests using the REST API. In the following example, you will use cURL to identify key words and phrases found in text.
 

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 11/05/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -20,27 +20,109 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 
 Make sure to check back here often to keep up with new updates.
 
+## October 2022
+
+Here's what changed in October 2022:
+
+### Background effects for macOS Teams on Azure Virtual Desktop now generally available
+
+Background effects for Teams on Azure Virtual Desktop is now generally available for the macOS version of Teams on Azure Virtual Desktop. This feature lets meeting participants select an available image in Teams to change their background or choose to blur their background. Background effects are only compatible with version 10.7.10 or later of the Azure Virtual Desktop macOS client. For more information, see [What’s new in the macOS client](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json#updates-for-version-10710).
+
+### Host pool deployment support for Azure availability zones now generally available
+
+We've improved the host pool deployment process. You can now deploy host pools into up to three availability zones in supported Azure regions. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262).
+
+### FSLogix version 2210 now in public preview
+
+FSLogix version 2210 is now public preview. This new version includes new features, bug fixes, and other improvements. One of the new features is Disk Compaction, which lets you remove white space in a disk to shrink the disk size. Disk Compaction will save you significant amounts of storage capacity in the storage spaces where you keep your FSLogix disks. For more information, see [What’s new in FSLogix](/fslogix/whats-new#fslogix-2210-29830844092---public-preview) or [the FSLogix Disk Compaction blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-fslogix-disk-compaction/ba-p/3644807).
+
+### Universal Print for Azure Virtual Desktop now generally available
+
+The release of Windows 11 22H2 includes an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd).
+
+## September 2022
+
+Here's what changed in September 2022:
+
+### Single sign-on and passwordless authentication now in public preview
+
+The ability to enable an Azure Active Directory (AD)-based single sign-on experience and support for passwordless authentication, using Windows Hello and security devices (like FIDO2 keys) is now in public preview. This feature is available for Windows 10, Windows, 11 and Windows Server 2022 session hosts with the September Cumulative Update Preview installed. The single sign-on experience is currently compatible with the Windows Desktop and web clients. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-sso-and-passwordless-authentication/ba-p/3638244). 
+
+### Connection graphics data logs for Azure Virtual Desktop now in public preview
+
+The ability to collect graphics data for your Azure Virtual Desktop connections through Azure Log Analytics is now in public preview. This data can help administrators understand factors across the server, client, and network that contribute to slow or choppy experiences for a user. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/collect-and-query-graphics-data-for-azure-virtual-desktop/m-p/3638565). 
+
+### Multimedia redirection enhancements now in public preview
+
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, remote app browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+
+### Grouping costs by Azure Virtual Desktop host pool now in public preview
+
+Microsoft Cost Management has a new feature in public preview that lets you group Azure Virtual Desktop costs with Azure tags by using the cm-resource-parent tag key. Cost grouping makes it easier to understand and manage costs by host pool. Learn more at [Tag Azure Virtual Desktop resources to manage costs](tag-virtual-desktop-resources.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/group-costs-by-host-pool-with-cost-management-now-in-public/ba-p/3638285). 
+
+## August 2022
+
+Here's what changed in August 2022:
+
+### Azure portal updates
+
+We've made the following updates to the Azure portal:
+
+- Improved search, filtering, and performance.
+- Added Windows Server 2022 images to the image selection list.
+- Added "Preferred group type" to the "Basics" tab in the host pool creation process.
+- Enabled custom images for trusted launch VMs.
+- New selectable cards, including the following:
+  - Unavailable machines.
+  - User session.
+- Removed the "Advanced" tab for the process to add a VM to the host pool.
+- Removed the storage blob image option from the host pool creation and adding VM processes.
+- Bug fixes.
+- Made the following improvements to the "getting started" setup process:
+  - Unchecked link Azure template.
+  - Removed validation on existing domain admins.
+
+### Updates to the preview version of FSLogix profiles for Azure AD-joined VMs
+
+We've updated the public preview version of the Azure Files integration with Azure AD Kerberos for hybrid identities so that it's now simpler to deploy and manage. The update should give users using FSLogix user profiles on Azure AD-joined session host an overall better experience. For more information, see [the Azure Files blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).  
+
+### Single sign-on and passwordless authentication now in Windows Insider preview
+
+In the Windows Insider build of Windows 11 22H2, you can now enable a preview version of the Azure AD-based single sign-on experience. This Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
+
+### Universal Print for Azure Virtual Desktop now in Windows Insider preview
+
+The Windows Insider build of Windows 11 22H2 also includes a preview version of the Universal Print for Azure Virtual Desktop feature. We hope this feature will provide an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
+
+### Autoscale for pooled host pools now generally available
+
+Autoscale on Azure Virtual Desktop for pooled host pools is now generally available. This feature is a native automated scaling solution that automatically turns session host virtual machines on and off according to the schedule and capacity thresholds that you define to fit your workload. Learn more at [How autoscale works](autoscale-scenarios.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462). 
+
+### Azure Virtual Desktop with Trusted Launch update
+
+Azure Virtual Desktop now supports provisioning Trusted Launch virtual machines with custom images stored in an Azure Compute Gallery. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/avd-now-supports-azure-compute-gallery-custom-images-with/m-p/3593955). 
+
 ## July 2022
 
 Here's what changed in July 2022: 
 
-## Scheduled agent updates now generally available
+### Scheduled agent updates now generally available
 
 Scheduled agent updates on Azure Virtual Desktop are now generally available. This feature gives IT admins control over when the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent get updated. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-scheduled-agent-updates-on/ba-p/3579236). 
 
-## FSLogix 2201 hotfix 2 
+### FSLogix 2201 hotfix 2 
 
 The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, Cloud Cache meta tracking files, and registry cleanup operations. This update doesn't include new fatures. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2201-hotfix-2-29822850276) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-2-2-9-8228-50276-has-been/m-p/3579409). 
 
-## Japan and Australia metadata service now generally available
+### Japan and Australia metadata service now generally available
 
 The Azure Virtual Desktop metadata database located in Japan and Australia is now generally available. This update allows customers to store their Azure Virtual Desktop objects and metadata within a database located within that geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-the-azure-virtual-desktop/ba-p/3570756). 
 
-## Azure Virtual Desktop moving away from Storage Blob image type
+### Azure Virtual Desktop moving away from Storage Blob image type
 
 Storage Blob images are created from unmanaged disks, which means they lack the availability, scalability, and frictionless user experience that managed images and Shared Image Gallery images offer. As a result, Azure Virtual Desktop will be deprecating support for Storage Blobs image types by August 22, 2022. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-is-moving-away-from-storage-blob-image/ba-p/3568364). 
 
-## Azure Virtual Desktop Custom Configuration changing to PowerShell
+### Azure Virtual Desktop Custom Configuration changing to PowerShell
 
 Starting July 21, 2022, Azure Virtual Desktop will replace the Custom Configuration Azure Resource Manager template parameters for creating host pools, adding session hosts to host pools, and the Getting Started feature with a PowerShell script URL parameter stored in a publicly accessible location. This replacement includes the parameters' respective Azure Resource Manager templates. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-custom-configuration-breaking-change/m-p/3568069). 
 
@@ -471,9 +553,9 @@ The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and 
 
 Based on customer feedback, we've released a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
 
-### Azure Monitor for Azure Virtual Desktop is now in General Availability
+### Azure Virtual Desktop Insights is now in General Availability
 
-Azure Monitor for Azure Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+Azure Virtual Desktop Insights is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](insights.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
 
 ### March 2021 updates for Teams on Azure Virtual Desktop
 
@@ -553,15 +635,15 @@ Microsoft Defender for Endpoint integration is now generally available. This fea
 
 ### Azure Security baseline for Azure Virtual Desktop
 
-We've recently published [an article about the Azure security baseline](security-baseline.md) for Azure Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Azure Security Benchmark, version 2.0 to Azure Virtual Desktop. The Azure Security Benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
+We've recently published [an article about the Azure security baseline](security-baseline.md) for Azure Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Microsoft cloud security benchmark to Azure Virtual Desktop. The Microsoft cloud security benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
 
 ## December 2020
 
 Here's what changed in December 2020: 
 
-### Azure Monitor for Azure Virtual Desktop
+### Azure Virtual Desktop Insights
 
-The public preview for Azure Monitor for Azure Virtual Desktop is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Azure Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
+The public preview for Azure Virtual Desktop Insights is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Azure Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
 
 ### Azure Resource Manager template change 
 

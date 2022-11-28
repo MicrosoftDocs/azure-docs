@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 10/13/2022
 ---
 
 # Index data from Azure SQL
@@ -44,7 +44,7 @@ Other approaches for creating an Azure SQL indexer include Azure SDKs or [Import
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
+1. [Create data source](/rest/api/searchservice/create-data-source) or [Update data source](/rest/api/searchservice/update-data-source) to set its definition: 
 
    ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30

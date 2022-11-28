@@ -33,6 +33,9 @@ deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
+> [!WARNING]
+> There has been a temporary reduction in lookback retention to 7 days.
+
 > [!NOTE]
 > Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's

@@ -141,7 +141,6 @@ You can generate the following alert reports:
 
 - Export information on one, all or selected alerts to a CSV file
 - Export PDF reports
-- Download a full or filtered PCAP file for a specific alert.
 
 **To export to CSV file:**
 
@@ -153,13 +152,16 @@ You can generate the following alert reports:
 1. Select one or several alerts from the Alerts page.
 1. Select **Export to PDF**.
 
+### Download PCAP files
+
+Download a full or filtered PCAP file for a specific alert directly from the sensor. PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
+
 **To download a PCAP file:**
 
 1. Select an alert
 1. Select **View full details**.
 1. Select **Download Full PCAP** or **Download Filtered PCAP**.
 
-PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
 
 ## View alerts in the Defender for IoT portal
 

@@ -101,13 +101,13 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 4. Now, convert the RAW disk back to a fixed-size VHD.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
-   Or, with qemu version 2.6+, include the `force_size` option.
+   Or, with qemu versions before 2.6, remove the `force_size` option.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
 ## Linux Kernel Requirements

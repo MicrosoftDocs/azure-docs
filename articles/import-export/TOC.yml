@@ -51,7 +51,7 @@
 - name: Resources
   items:
   - name: Export data offline
-    href: /learn/modules/export-data-with-azure-import-export
+    href: /training/modules/export-data-with-azure-import-export
   - name: Other offline transfer options
     href: ../databox/index.yml
    

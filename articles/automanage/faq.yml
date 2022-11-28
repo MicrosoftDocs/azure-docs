@@ -10,7 +10,7 @@ metadata:
   ms.author: memccror
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
-  This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
+  This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](overview-about.md).
   
   If your Azure issue isn't addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
@@ -41,13 +41,13 @@ sections:
       - question: |
           What regions are supported?
         answer: |
-          The full list of supported regions is available [here](./automanage-virtual-machines.md#supported-regions).
+          The full list of supported regions is available [here](./overview-about.md#supported-regions).
           
           
       - question: |
           Which capabilities does Azure Automanage automate?
         answer: |
-          Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
+          Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](overview-about.md).
           
       - question: |
           Does Azure Automanage work with Azure Arc-enabled servers?
@@ -62,7 +62,7 @@ sections:
       - question: |
           Can I customize configurations on Azure Automanage?
         answer: |
-          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#custom-profiles).
+          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](overview-configuration-profiles.md#custom-profiles).
           
           
       - question: |

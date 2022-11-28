@@ -10,6 +10,8 @@ ms.date: 08/21/2022
 
 # Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 When you create enterprise integration
 solutions with automated workflows in
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md),

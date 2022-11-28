@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/10/2022
+ms.date: 10/10/2022
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -134,6 +134,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - User needs to enroll for second factor authentication (interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge. |
 | AADSTS50076 | UserStrongAuthClientAuthNRequired - Due to a configuration change made by the admin, or because you moved to a new location, the user must use multi-factor authentication to access the resource. Retry with a new authorize request for the resource. |
+| AADSTS50078 | UserStrongAuthExpired- Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access '{resource}'.|
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - Due to a configuration change made by the administrator, or because the user moved to a new location, the user is required to use multi-factor authentication. |
 | AADSTS50085 | Refresh token needs social IDP login. Have user try signing-in again with username -password |
 | AADSTS50086 | SasNonRetryableError |
@@ -267,6 +268,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS90020 | The SAML 1.1 Assertion is missing ImmutableID of the user. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format isn't valid, or doesn't meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
 | AADSTS90023 | InvalidRequest - The authentication service request isn't valid. |
+| AADSTS900236| InvalidRequestSamlPropertyUnsupported- The SAML authentication request property '{propertyName}' is not supported and must not be set.
 | AADSTS9002313 | InvalidRequest - Request is malformed or invalid. - The issue here is because there was something wrong with the request to a certain endpoint. The suggestion to this issue is to get a fiddler trace of the error occurring and looking to see if the request is actually properly formatted or not. |
 | AADSTS9002332 | Application '{principalId}'({principalName}) is configured for use by Azure Active Directory users only. Please do not use the /consumers endpoint to serve this request. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
@@ -347,6 +349,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
+| AADSTS7000218 | The request body must contain the following parameter: 'client_assertion' or 'client_secret'. |
 | AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |

@@ -28,27 +28,7 @@ These actions may be disabled if there no more cores that can be enabled for you
 
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-To create a support request, you must be an [Owner](../role-based-access-control/built-in-roles.md), [Contributor](../role-based-access-control/built-in-roles.md), or be assigned to the [Support Request Contributor](../role-based-access-control/built-in-roles.md) role at the subscription level. For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-The admin can follow these steps to request a limit increase:  
-
-1. Open your [lab plan](how-to-manage-lab-plans.md) or [lab account](how-to-manage-lab-accounts.md).
-1. On the **Overview** page of the lab plan, select the **Request core limit increase** button from the menu bar at the top.
-1. On the **Basics** page of **New support request** wizard, enter a short summary that will help you remember the support request in the **Summary** textbox.  The issue type, subscription, and quota type information are automatically filled out for you.  Select **Next: Solutions**.
-
-    :::image type="content" source="./media/capacity-limits/new-support-request.png" alt-text="Screenshot of new support request to request more core capacity.":::
-
-1. The **New support request** wizard will automatically advance from the **Solutions** page to the **Details** page.
-1. One the **Details** page, enter the following information in the **Description** page.
-    - VM size. For size details, see [VM sizing](administrator-guide.md#vm-sizing).
-    - Number of VMs.
-    - Location.  Location will be a [geography](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) or region, if using the [August 2022 Update](lab-services-whats-new.md).
-1. Under **Advanced diagnostic information**, select **No**.
-1. Under **Support method** section, select your preferred contact method. Verify contact information is correct.
-1. Select **Next: Review + create**
-1. On the **Review + create** page, select **Create** to submit the support request.
-
-Once you submit the support request, we'll review the request. If necessary, we'll contact you to get more details.
+To create a support request, see [Request a core limit increase](./how-to-request-capacity-increase.md).
 
 ## Subscriptions with default limit of zero cores
 
@@ -64,5 +44,6 @@ Before you set up a large number of VMs across your labs, we recommend that you 
 
 See the following articles:
 
-- [As an admin, see VM sizing](administrator-guide.md#vm-sizing).
+- As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
+- As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)
 - [Frequently asked questions](classroom-labs-faq.yml).

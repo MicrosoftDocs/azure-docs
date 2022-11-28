@@ -14,11 +14,11 @@ ms.custom: "include file"
 
 Revoking a customer-managed key removes the association between the storage account and the key vault.
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/azure-portal)
 
 To revoke customer-managed keys with the Azure portal, disable the key as described in [Disable customer-managed keys](#disable-customer-managed-keys).
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 You can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key with PowerShell, call the [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 

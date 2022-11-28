@@ -39,7 +39,7 @@ Log Analytics workspace data export continuously exports data that is sent to yo
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage Account must be unique across rules in workspace.
-- Tables names can be no longer than 60 characters when exporting to Storage Account and 47 characters to Event Hubs. Tables with longer names will not be exported.
+- Tables names can be 60 characters long when exporting to Storage Account, and 47 characters to Event Hubs. Tables with longer names won't be exported.
 - Data export isn't supported in China currently.
 
 ## Data completeness
@@ -151,8 +151,7 @@ If you have configured your Storage Account to allow access from selected networ
 Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage Account must be unique across rules in workspace. Multiple rules can use the same Event Hubs namespace when sending to separate Event Hubs.
 
 > [!NOTE]
-> - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
-> - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
+> - You can include tables that aren't yet supported in rules, but no data will be exported for these until tables get supported.
 > - Export to Storage Account - a separate container is created in Storage Account for each table.
 > - Export to Event Hubs - if Event Hubs name isn't provided, a separate Event Hubs is created for each table. The [number of supported Event Hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different Event Hubs namespaces, or provide an Event Hubs name in the rule to export all tables to it.
 

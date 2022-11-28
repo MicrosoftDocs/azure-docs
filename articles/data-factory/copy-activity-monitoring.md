@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.author: jianleishen
 ---
 # Monitor copy activity
@@ -76,7 +76,7 @@ Copy activity execution details and performance characteristics are also returne
 | logPath | Path to the session log of skipped data in the blob storage. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips) for details. | Array |
-| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Object |
+| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level-in-azure-data-factory). | Object |
 | durationInQueue | Queueing duration in second before the copy activity starts to execute. | Object |
 
 **Example:**

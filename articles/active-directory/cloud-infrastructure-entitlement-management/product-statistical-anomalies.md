@@ -2,13 +2,14 @@
 title: Create and view statistical anomalies and anomaly triggers in Permissions Management
 description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Create and view statistical anomalies and anomaly triggers
@@ -69,7 +70,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - The **Controller** column displays if the controller is enabled or disabled.
 
 
-1. On the **Configuration** tab, to update the **Time Interval**, from the **Time Range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
+1. Select **Save**.
 
 ## View statistical anomaly triggers
 

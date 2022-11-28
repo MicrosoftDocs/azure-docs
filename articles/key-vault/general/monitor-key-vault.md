@@ -168,7 +168,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
     AzureDiagnostics
     | where TimeGenerated > ago(30d) // Time range specified in the query. Overrides time picker in portal.
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
-    | where OperationName == "VaultPut" or OperationName = "VaultPatch"
+    | where OperationName == "VaultPut" or OperationName == "VaultPatch"
     | sort by TimeGenerated desc
     ```
 

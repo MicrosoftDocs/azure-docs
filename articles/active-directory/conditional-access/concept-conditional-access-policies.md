@@ -36,14 +36,14 @@ All policies are enforced in two phases:
    - Use the session details gathered in phase 1 to identify any requirements that haven't been met. 
    - If there's a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
    - The user will be prompted to complete more grant control requirements that weren't satisfied during phase 1 in the following order, until policy is satisfied:  
-      - [Multi-factor authentication​](concept-conditional-access-grant.md#require-multi-factor-authentication)
-      - [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
-      - [Hybrid Azure AD joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
-      - [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
-      - [App protection policy](./concept-conditional-access-grant.md#require-app-protection-policy)
-      - [Password change](./concept-conditional-access-grant.md#require-password-change)
-      - [Terms of use](concept-conditional-access-grant.md#terms-of-use)
-      - [Custom controls](./concept-conditional-access-grant.md#custom-controls-preview)
+      1. [Multi-factor authentication​](concept-conditional-access-grant.md#require-multi-factor-authentication)
+      2. [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
+      3. [Hybrid Azure AD joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
+      4. [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
+      5. [App protection policy](./concept-conditional-access-grant.md#require-app-protection-policy)
+      6. [Password change](./concept-conditional-access-grant.md#require-password-change)
+      7. [Terms of use](concept-conditional-access-grant.md#terms-of-use)
+      8. [Custom controls](./concept-conditional-access-grant.md#custom-controls-preview)
    - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Defender for Cloud Apps, and token Lifetime) 
    - Phase 2 of policy evaluation occurs for all enabled policies. 
 

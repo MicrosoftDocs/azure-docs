@@ -1,17 +1,22 @@
 ---
-title: People's featured clothing
-description: This article gives an overview of featured clothing images appearing in a video.
-ms.topic: conceptual
-ms.date: 11/15/2021
+title: Enable featured clothing of an observed person
+description: When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. 
+ms.topic: how-to
+ms.date: 10/10/2022
 ms.author: juliako
 ---
 
-# People's featured clothing (preview)
+# Enable featured clothing of an observed person (preview)
 
-Azure Video Indexer enables you to get data on the featured clothing of an observed person. The people's featured clothing feature, helps to enable the following scenarios: 
+When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
 
-- Ads placement - using the featured clothing insight information, you can enable more targeted ads placement.  
-- Video summarization - you can create a summary of the most interesting outfits appearing in the video. 
+This article discusses how to view the featured clothing insight and how the featured clothing images are ranked.
+
+## View an intro video
+
+You can view the following short video that discusses how to view and use the featured clothing insight.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed//RE5b4JJ]
 
 ## Viewing featured clothing
 
@@ -22,7 +27,7 @@ The featured clothing insight is available when indexing your file by choosing t
 The featured clothing images are ranked based on some of the following factors: key moments of the video, general emotions from text or audio. The `id` property indicates the ranking index. For example, `"id": 1` signifies the most important featured clothing.
 
 > [!NOTE]
-> The featured clothing currently can be viewed only from the artifact file.  
+> The featured clothing currently can only be viewed from the artifact file.  
 
 1. In the right-upper corner, select to download the artifact zip file: **Download** -> **Artifact (ZIP)**
 1. Open `featuredclothing.zip`. 

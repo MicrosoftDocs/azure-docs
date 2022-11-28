@@ -3,6 +3,7 @@ title: Reserved compute pricing - Azure Database for PostgreSQL
 description: Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
 ms.service: postgresql
 ms.subservice: single-server
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
@@ -21,7 +22,7 @@ Azure Database for PostgreSQL now helps you save money by prepaying for compute 
 You don't need to assign the reservation to specific Azure Database for PostgreSQL servers. An already running Azure Database for PostgreSQL (or ones that are newly deployed) will automatically get the benefit of reserved pricing. By purchasing a reservation, you're pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure database for PostgreSQL compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the PostgreSQL Database servers. At the end of the reservation term, the billing benefit expires, and the Azure Database for PostgreSQL are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Reserved capacity pricing is available for the Azure Database for PostgreSQL in [Single server](./overview.md#azure-database-for-postgresql---single-server), [Flexible Server](../flexible-server/overview.md), and [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus) deployment options. For information about RI pricing on Hyperscale (Citus), see [this page](../hyperscale/concepts-reserved-pricing.md).
+> Reserved capacity pricing is available for the Azure Database for PostgreSQL in [Single server](./overview.md#azure-database-for-postgresql---single-server) and [Flexible Server](../flexible-server/overview.md) deployment options.
 
 You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 

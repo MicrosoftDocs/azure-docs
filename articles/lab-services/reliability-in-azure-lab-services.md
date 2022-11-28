@@ -2,17 +2,17 @@
 title: Reliability in Azure Lab Services 
 description: Learn about reliability in Azure Lab Services
 ms.topic: overview
-ms.custom: 'subject-resiliency, references_regions'
+ms.custom: subject-resiliency, references_regions, ignite-2022
 ms.date: 08/18/2022
 ---
 
 # What is reliability in Azure Lab Services?
 
-This article describes reliability support in Azure Lab Services, and covers regional resiliency with availability zones. For a more detailed overview of reliability in Azure, see [Azure resiliency](/azure/availability-zones/overview.md).
+This article describes reliability support in Azure Lab Services, and covers regional resiliency with availability zones. For a more detailed overview of reliability in Azure, see [Azure resiliency](../availability-zones/overview.md).
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones allow the services to fail over to the other availability zones to provide continuity in service with minimal interruption. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones allow the services to fail over to the other availability zones to provide continuity in service with minimal interruption. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](../availability-zones/az-overview.md).
 
 Azure availability zones-enabled services are designed to provide the right level of resiliency and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
@@ -24,7 +24,7 @@ Currently, the service is not zonal. That is, you can’t configure a lab or the
 
 There are no increased SLAs available for availability in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
 
-The Azure Lab Services infrastructure uses Cosmos DB storage. The Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Cosmos DB](/azure/cosmos-db/high-availability#slas).
+The Azure Lab Services infrastructure uses Azure Cosmos DB storage. The Azure Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Azure Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Azure Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Azure Cosmos DB](../cosmos-db/high-availability.md#slas).
 
 ### Zone down experience
 
@@ -48,7 +48,7 @@ In the event of a zone outage in these regions, you can still perform the follow
 - Configure lab schedules
 - Create/manage labs and VMs in regions unaffected by the zone outage.
 
-Data loss may occur only with an unrecoverable disaster in the Cosmos DB region. For more information, see [Region Outages](/azure/cosmos-db/high-availability#region-outages).
+Data loss may occur only with an unrecoverable disaster in the Azure Cosmos DB region. For more information, see [Region outages](../cosmos-db/high-availability.md#region-outages).
 
 For regions not listed, access to the Azure Lab Services infrastructure is not guaranteed when there is a zone outage in the region containing the lab plan. You will only be able to perform the following tasks:
 
@@ -121,9 +121,9 @@ Azure Lab Services does not provide regional failover support. If you want to pr
 
 ### Outage detection, notification, and management
 
-Azure Lab Services does not provide any service-specific signals about an outage, but is dependent on Azure communications that inform customers about outages. For more information on service health, see [Resource health overview](/azure/service-health/resource-health-overview).
+Azure Lab Services does not provide any service-specific signals about an outage, but is dependent on Azure communications that inform customers about outages. For more information on service health, see [Resource health overview](../service-health/resource-health-overview.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](../availability-zones/overview.md)

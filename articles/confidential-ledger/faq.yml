@@ -58,7 +58,7 @@ sections:
       - question: |
           How can I manage users on a ledger?
         answer: |
-          You can manage users on a ledger through the portal or one of the available SDKs: [python](https://pypi.org/project/azure-confidentialledger/), [.NET](/dotnet/api/overview/azure/security.confidentialledger-readme-pre), or [Java (preview)](/java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview).
+          You can manage users on a ledger through the portal or one of the available SDKs: [python](https://pypi.org/project/azure-confidentialledger/), [.NET](/dotnet/api/overview/azure/security.confidentialledger-readme), or [Java (preview)](/java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview).
 
       - question: |
           Can Microsoft help me manage users on a ledger I have created?

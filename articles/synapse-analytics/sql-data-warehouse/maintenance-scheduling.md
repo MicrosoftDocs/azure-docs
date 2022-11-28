@@ -29,7 +29,7 @@ All maintenance operations should finish within the specified maintenance window
 
 Integration with Service Health notifications and the Resource Health Check Monitor allows customers to stay informed of impending maintenance activity. This automation takes advantage of Azure Monitor. You can decide how you want to be notified of impending maintenance events. Also, you can choose which automated flows will help you manage downtime and minimize operational impact.
 
-A 24-hour advance notification precedes all maintenance events that aren't for the DWC400c and lower tiers.
+A 24-hour advance notification precedes all maintenance events that aren't for the DW400c and lower tiers.
 
 > [!NOTE]
 > In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced. This could occur outside an identified maintenance window due to the critical nature of the update.
@@ -57,6 +57,10 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 ## Change a maintenance schedule
 
 A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
+
+> [!NOTE]
+> In case you are using DW400c or lower, you will not be able to change the maintenance schedule because DW400c and lower data warehouse tiers could complete maintenance outside of a designated maintenance window.
+
 
 ## Identifying the primary and secondary windows
 

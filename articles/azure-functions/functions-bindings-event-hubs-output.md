@@ -3,6 +3,7 @@ title: Azure Event Hubs output binding for Azure Functions
 description: Learn to write messages to Azure Event Hubs streams using Azure Functions.
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -210,13 +211,13 @@ public String sendTime(
  }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 

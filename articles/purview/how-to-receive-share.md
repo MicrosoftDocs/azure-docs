@@ -61,7 +61,8 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
     > - Redundancy options: LRS, GRS, RA-GRS
  
 * You'll need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
-* If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
+* If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It is automatically registered at the time of share consumer mapping the asset and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 
+This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 * A storage account needs to be registered in the collection where you'll receive the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages.
 * Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later. 
 

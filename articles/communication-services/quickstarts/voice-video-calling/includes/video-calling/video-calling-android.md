@@ -18,7 +18,7 @@ If you want to get started with sample code, you can [download the sample app](h
 - A [user access token](../../../access-tokens.md) for Communication Services. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).

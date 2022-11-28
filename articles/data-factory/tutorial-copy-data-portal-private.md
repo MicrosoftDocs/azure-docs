@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 09/26/2022
 ms.author: jianleishen
 ---
 
@@ -118,7 +118,8 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button highlighted.":::
+
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.

@@ -7,23 +7,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
-ms.author: sgilley
-author: sdgilley
+author: swatig007
+ms.author: swatig
 ms.reviewer: sgilley
 ms.date: 05/02/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance with CLI v1
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [CLI v1](how-to-create-manage-compute-instance.md)
-> * [CLI v2 (current version)](../how-to-create-manage-compute-instance.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [v1](how-to-create-manage-compute-instance.md)
+> * [v2 (current version)](../how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](../concept-compute-target.md#train) or for an [inference target](../concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](../concept-compute-target.md#training-compute-targets) or for an [inference target](../concept-compute-target.md#compute-targets-for-inference).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 Compute instances can run jobs securely in a [virtual network environment](../how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -39,7 +39,10 @@ In this article, you learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md)
+* The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md) or [Azure Machine Learning Python SDK (v1)](/python/api/overview/azure/ml/intro).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 
 ## Create
 
@@ -56,6 +59,47 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The following example demonstrates how to create a compute instance:
 
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+```python
+import datetime
+import time
+
+from azureml.core.compute import ComputeTarget, ComputeInstance
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your instance
+# Compute instance name should be unique across the azure region
+compute_name = "ci{}".format(ws._workspace_id)[:10]
+
+# Verify that instance does not exist already
+try:
+    instance = ComputeInstance(workspace=ws, name=compute_name)
+    print('Found existing instance, use it.')
+except ComputeTargetException:
+    compute_config = ComputeInstance.provisioning_configuration(
+        vm_size='STANDARD_D3_V2',
+        ssh_public_access=False,
+        # vnet_resourcegroup_name='<my-resource-group>',
+        # vnet_name='<my-vnet-name>',
+        # subnet_name='default',
+        # admin_user_ssh_public_key='<my-sshkey>'
+    )
+    instance = ComputeInstance.create(ws, compute_name, compute_config)
+    instance.wait_for_completion(show_output=True)
+```
+
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
+
+* [ComputeInstance class](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
+
+
+# [Azure CLI](#tab/azure-cli)
+
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
@@ -64,6 +108,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 
 For more information, see [Az PowerShell module `az ml computetarget create computeinstance`](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-computeinstance) reference.
 
+---
 
 ## Manage
 
@@ -71,6 +116,52 @@ Start, stop, restart, and delete a compute instance. A compute instance doesn't 
 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](../how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+In the examples below, the name of the compute instance is **instance**.
+
+
+* Get status
+
+    ```python
+    # get_status() gets the latest status of the ComputeInstance target
+    instance.get_status()
+    ```
+
+* Stop
+
+    ```python
+    # stop() is used to stop the ComputeInstance
+    # Stopping ComputeInstance will stop the billing meter and persist the state on the disk.
+    # Available Quota will not be changed with this operation.
+    instance.stop(wait_for_completion=True, show_output=True)
+    ```
+
+* Start
+
+    ```python
+    # start() is used to start the ComputeInstance if it is in stopped state
+    instance.start(wait_for_completion=True, show_output=True)
+    ```
+
+* Restart
+
+    ```python
+    # restart() is used to restart the ComputeInstance
+    instance.restart(wait_for_completion=True, show_output=True)
+    ```
+
+* Delete
+
+    ```python
+    # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name
+    instance.delete(wait_for_completion=True, show_output=True)
+    ```
+
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
@@ -108,7 +199,9 @@ In the examples below, the name of the compute instance is **instance**
 
     For more information, see [Az PowerShell module `az ml computetarget delete computeinstance`](/cli/azure/ml(v1)/computetarget#az-ml-computetarget-delete).
 
-[Azure RBAC](../../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+---
+
+[Azure RBAC](../../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio running on the instance. Compute instance will have single-user sign in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*

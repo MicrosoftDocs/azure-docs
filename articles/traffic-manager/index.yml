@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enhance your service availability and data locality
-            url: /learn/modules/distribute-load-with-traffic-manager/
+            url: /training/modules/distribute-load-with-traffic-manager/
           
          
 

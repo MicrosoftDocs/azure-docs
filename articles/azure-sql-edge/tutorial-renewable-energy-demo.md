@@ -16,7 +16,7 @@ This Azure SQL Edge demo is based on a Contoso Renewable Energy, a wind turbine 
 This demo will walk you through resolving an alert being raised because of wind turbulence being detected at the device. You will train a model and deploy it to SQL DB Edge that will correct the detected wind wake and ultimately optimize power output.
 
 Azure SQL Edge - renewable Energy demo video on Channel 9:
-> [!VIDEO https://docs.microsoft.com/shows/Data-Exposed/Azure-SQL-Edge-Demo-Renewable-Energy/player]
+> [!VIDEO https://learn.microsoft.com/shows/Data-Exposed/Azure-SQL-Edge-Demo-Renewable-Energy/player]
 
 ## Setting up the demo on your local computer
 Git will be used to copy all files from the demo to your local computer. 

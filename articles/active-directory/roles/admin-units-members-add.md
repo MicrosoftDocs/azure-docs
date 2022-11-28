@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/30/2022
+ms.date: 10/05/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -17,10 +17,6 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add users, groups, or devices to an administrative unit
-
-> [!IMPORTANT]
-> Administrative units support for devices is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In Azure Active Directory (Azure AD), you can add users, groups, or devices to an administrative unit to restrict the scope of role permissions. Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
 
@@ -30,9 +26,11 @@ This article describes how to add users, groups, or devices to administrative un
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
-- AzureADPreview module when using PowerShell for devices
+- To add existing users, groups, or devices:
+    - Privileged Role Administrator or Global Administrator
+- To create new groups:
+    - Groups Administrator (scoped to the administrative unit or entire directory) or Global Administrator
+- Microsoft Graph PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -125,47 +123,51 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ## PowerShell
 
-Use the [Add-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/add-azureadmsadministrativeunitmember) command to add users or groups to an administrative unit.
-
-Use the [Add-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/add-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) command to add devices to an administrative unit.
-
-Use the [New-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/new-azureadmsadministrativeunitmember) to create a new group in an administrative unit. Currently, only group creation is supported with this command.
+Use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands#using-invoke-mggraphrequest) command to add user, groups, or devices to an administrative unit or create a new group in an administrative unit.
 
 ### Add users to an administrative unit
 
 ```powershell
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$userObj = Get-AzureADUser -Filter "UserPrincipalName eq 'bill@example.com'"
-Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $userObj.ObjectId
+Invoke-MgGraphRequest -Method POST -Uri https://graph.microsoft.com/v1.0/directory/administrativeUnits/{ADMIN_UNIT_ID}/members/ -Body '{
+         "@odata.id": "https://graph.microsoft.com/v1.0/users/{USER_ID}"
+       }'
 ```
 
 ### Add groups to an administrative unit
 
 ```powershell
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$groupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $groupObj.ObjectId
+Invoke-MgGraphRequest -Method POST -Uri https://graph.microsoft.com/v1.0/directory/administrativeUnits/{ADMIN_UNIT_ID}/members/ -Body '{
+         "@odata.id": https://graph.microsoft.com/v1.0/groups/{GROUP_ID}
+       }'
 ```
 
 ### Add devices to an administrative unit
 
 ```powershell
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$deviceObj = Get-AzureADDevice -Filter "displayname eq 'TestDevice'"
-Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $deviceObj.ObjectId
+Invoke-MgGraphRequest -Method POST -Uri https://graph.microsoft.com/v1.0/directory/administrativeUnits/{ADMIN_UNIT_ID}/members/ -Body '{
+         "@odata.id": https://graph.microsoft.com/v1.0/devices/{DEVICE_ID}
+       }'
 ```
 
 ### Create a new group in an administrative unit
 
 ```powershell
-$exampleGroup = New-AzureADMSAdministrativeUnitMember -Id "<admin unit object id>" -OdataType "Microsoft.Graph.Group" -DisplayName "<Example group name>" -Description "<Example group description>" -MailEnabled $True -MailNickname "<examplegroup>" -SecurityEnabled $False -GroupTypes @("Unified")
+$exampleGroup = Invoke-MgGraphRequest -Method POST -Uri https://graph.microsoft.com/v1.0/directory/administrativeUnits/{ADMIN_UNIT_ID}/members/ -Body '{
+         "@odata.type": "#Microsoft.Graph.Group",
+         "description": "{Example group description}",
+         "displayName": "{Example group name}",
+         "groupTypes": [
+              "Unified"
+          ],
+         "mailEnabled": true,
+          "mailNickname": "{exampleGroup}",
+          "securityEnabled": false
+       }'
 ```
 
 ## Microsoft Graph API
 
-Use the [Add a member](/graph/api/administrativeunit-post-members) API to add users or groups to an administrative unit.
-
-Use the [Add a member (Beta)](/graph/api/administrativeunit-post-members?view=graph-rest-beta&preserve-view=true) API to add devices to an administrative unit or create a new group in an administrative unit.
+Use the [Add a member](/graph/api/administrativeunit-post-members) API to add users, groups, or devices to an administrative unit or create a new group in an administrative unit.
 
 ### Add users to an administrative unit
 
@@ -220,14 +222,14 @@ Example
 Request
 
 ```http
-POST https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/$ref
+POST https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/$ref
 ```
 
 Body
 
 ```http
 {
-    "@odata.id":"https://graph.microsoft.com/beta/devices/{device-id}"
+    "@odata.id":"https://graph.microsoft.com/v1.0/devices/{device-id}"
 }
 ```
 
@@ -236,7 +238,7 @@ Body
 Request
 
 ```http
-POST https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/
+POST https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/
 ```
 
 Body

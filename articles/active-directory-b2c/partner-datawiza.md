@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 7/07/2021
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -77,9 +77,9 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 ## Run DAB with a header-based application
 
 1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Follow [these instructions](https://docs.datawiza.com/step-by-step/step3.html#important-step).
- 
-   ```yaml
-   version: '3'
+
+    ```yaml
+    version: '3'
 
     services:
     datawiza-access-broker:
@@ -102,7 +102,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
       - "3001:3001"
     ```
 
- 2. After executing `docker-compose -f docker-compose.yml up`, the header-based application should have SSO enabled with Azure AD B2C. Open a browser and type in `http://localhost:9772/`.
+2. After executing `docker-compose -f docker-compose.yml up`, the header-based application should have SSO enabled with Azure AD B2C. Open a browser and type in `http://localhost:9772/`.
 
 3. An Azure AD B2C login page will show up.
 

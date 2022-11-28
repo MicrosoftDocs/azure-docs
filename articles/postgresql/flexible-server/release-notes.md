@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 08/25/2022
+ms.date: 11/05/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -15,6 +15,19 @@ ms.date: 08/25/2022
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+
+## Release: October 2022
+
+* Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.
+* Support for [Azure Active Directory](concepts-azure-ad-authentication.md) authentication in public preview.
+* Support for [Customer managed keys](concepts-data-encryption.md) in public preview.
+* Published [Security and compliance certifications](./concepts-compliance.md) for Flexible Server.
+* Postgres 14 is now the default PostgreSQL version.
+  
+## Release: September 2022
+
+* Support for [Fast Restore](./concepts-backup-restore.md) feature.
+* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md). See the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
 
 ## Release: August 2022
 
@@ -25,7 +38,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: July 2022
 
-* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore-preview) in [additional regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
+* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore) in [more regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
 
 ## Release: June 2022
 
@@ -84,7 +97,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
 * Support for [new regions](overview.md#azure-regions) Central India and Japan West.
 * Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
-* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for `log_line_prefix` server parameter, which adds the string at the beginning of each log line.
 * Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
 * Several bug fixes, stability, and performance improvements.
 
@@ -148,7 +161,7 @@ In addition, consider the following points of contact as appropriate:
 
  Will Flexible Server replace Single Server or Will Single Server be retired soon?
 
-We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+We continue to support Single Server and encourage you to adopt Flexible Server, which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
   
 
 ## Next steps
