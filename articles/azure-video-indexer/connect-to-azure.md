@@ -70,7 +70,7 @@ If your storage account is behind a firewall, see [storage account that is behin
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. 
-1. Before you can play your videos in the Azure Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
+1. Before you can play your videos in the [Azure Video Indexer](https://www.videoindexer.ai/) website, you must start the default **Streaming Endpoint** of the new Media Services account.
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
@@ -96,7 +96,7 @@ The following Azure Media Services related considerations apply:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
-    Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Azure Video Indexer web app.
+    Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 * If you connect to an existing Media Services account, Azure Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Azure Video Indexer.
 
 ## Create a classic account

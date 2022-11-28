@@ -63,7 +63,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by filing a support ticket.
 
 
 > [!NOTE]
@@ -269,7 +269,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by filing a support ticket.
 
 
 ### TTL indexes

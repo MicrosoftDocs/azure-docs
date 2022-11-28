@@ -202,4 +202,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-microsoft-store.md).

@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure API Management to availability zone support
 description: Learn how to migrate your Azure API Management instances to availability zone support.
-author: anaharris-ms
+author: shaunjacob 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2022
