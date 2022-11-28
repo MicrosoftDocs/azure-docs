@@ -53,24 +53,28 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Select the Azure Storage service for which you want to log requests. For example, choose **blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
+1. Under **Categories**, in the **Logs** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
+1. Under **Destination details**, select **Send to Log Analytics workspace**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image, then select Save.
 
     :::image type="content" source="media\security-restrict-copy-operations\create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests." lightbox="media\security-restrict-copy-operations\create-diagnostic-setting-logs.png":::
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
-
 ### Query logs for copy requests
 
-Azure Storage logs include all requests to copy data to a storage account from another source. The log entries include the name of the destination storage account and the URI of the source object, along with information to help identify the client requesting the copy. To retrieve logs for copy requests made in the last seven days, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the most frequently-referenced source objects in requests to copy data to the account. Remember to replace the placeholder values in brackets with your own values:
+Azure Storage logs include all requests to copy data to a storage account from another source. The log entries include the name of the destination storage account and the URI of the source object, along with information to help identify the client requesting the copy. For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
+
+To retrieve logs for copy requests made in the last seven days, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the source objects most frequently referenced in requests to copy data to the account. In the following example, replace the placeholder text *`<account-name>`* with your own storage account name.
 
 ```kusto
 StorageBlobLogs
 | where OperationName has "CopyBlobSource" and TimeGenerated > ago(7d) and AccountName == "<account-name>"
 | summarize count() by Uri, CallerIpAddress, UserAgentHeader
 ```
+
+The results of the query should look similar to the following:
+
+:::image type="content" source="media\security-restrict-copy-operations\log-query-results.png" alt-text="Screenshot showing how a Copy Blob Source log query might look." lightbox="media\security-restrict-copy-operations\log-query-results.png":::
 
 The URI is the full path to the source object being copied, which includes the storage account name, the container name and the file name. From the list of URIs, determine whether the copy operations would be blocked if a specific AllowedCopyScope setting was applied.
 
@@ -111,7 +115,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 
     - ***From any storage account***
     - ***From storage accounts in the same Azure AD tenant***
-    - ***From storage accounts that have a private link to the same virtual network***
+    - ***From storage accounts that have a private endpoint to the same virtual network***
 
     :::image type="content" source="media\security-restrict-copy-operations\portal-set-scope.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account." lightbox="media\security-restrict-copy-operations\portal-set-scope.png":::
 
@@ -119,7 +123,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 
 To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 3.4.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account.
 
-The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts with private links to the same virtual network. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts with private links to the same virtual network. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -127,7 +131,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
     -allowedCopyScope "PrivateLink"
 ```
 
-The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -139,7 +143,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
 
 To configure the permitted scope for copy operations for a new or existing storage account with Azure CLI, install Azure CLI version 2.20.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowed-copy-scope** property for a new or existing storage account.
 
-The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```azurecli-interactive
 az storage account update \
@@ -148,7 +152,7 @@ az storage account update \
     --allowed-copy-scope "AAD"
 ```
 
-The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts with private links to the same virtual network. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts with private links to the same virtual network. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```azurecli-interactive
 az storage account update \
