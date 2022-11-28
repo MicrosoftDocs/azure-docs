@@ -43,7 +43,7 @@ Educators can use the **Sync** button to manually trigger a sync, for example wh
 
 :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
-When the lab is published, the lab capacity is automatically updated:
+After publishing the lab, Lab Services automatically updates the lab capacity:
 
 - If there are any new additions to the team, new VMs are created.
 - If a user is deleted from the team, the associated VM is deleted.
