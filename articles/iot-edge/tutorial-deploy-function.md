@@ -47,7 +47,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [The .NET Core SDK](https://dotnet.microsoft.com/en-us/download).
+* [The .NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a function project
 

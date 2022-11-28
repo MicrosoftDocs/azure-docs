@@ -55,7 +55,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To complete these tutorials, prepare the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a module project
 

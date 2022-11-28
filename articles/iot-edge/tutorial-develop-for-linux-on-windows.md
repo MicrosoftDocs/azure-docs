@@ -36,7 +36,7 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
 * Quickstart: [Deploy your first IoT Edge module to a Windows device](./quickstart.md)
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C#** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) to add the required workloads.
 

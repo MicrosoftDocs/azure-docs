@@ -39,7 +39,7 @@ A development machine:
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 An Azure IoT Edge device:
 

@@ -92,7 +92,7 @@ Install prerequisites specific to the language you're developing in:
 
 # [C\# / Azure Functions](#tab/csharp+azfunctions)
 
-- Install [.NET Core SDK](https://dotnet.microsoft.com/en-us/download)
+- Install [.NET Core SDK](https://dotnet.microsoft.com/download)
 - Install [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 # [Java](#tab/java)

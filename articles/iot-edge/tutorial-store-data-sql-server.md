@@ -47,7 +47,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 This tutorial uses an Azure Functions module to send data to the SQL Server. To develop an IoT Edge module with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a function project
 

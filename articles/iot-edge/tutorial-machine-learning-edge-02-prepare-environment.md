@@ -40,7 +40,7 @@ The development VM will be set up with:
 * [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
 * [Git for Windows](https://gitforwindows.org/)
 * [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.NET Core SDK](https://dotnet.microsoft.com/en-us/download)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/)
