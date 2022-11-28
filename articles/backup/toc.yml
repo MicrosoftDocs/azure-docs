@@ -118,6 +118,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Backup center
+    href: backup-center-overview.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: About HANA database backup
@@ -162,8 +164,6 @@
         href: backup-vault-overview.md
   - name: Backup center
     items:
-    - name: Overview
-      href: backup-center-overview.md
     - name: Monitor and Operate
       href: backup-center-monitor-operate.md
     - name: Obtain insights
@@ -172,8 +172,6 @@
       href: backup-center-govern-environment.md
     - name: Perform actions
       href: backup-center-actions.md
-    - name: Community resources
-      href: backup-center-community.md
   - name: Azure VM backup
     items:
     - name: Overview
