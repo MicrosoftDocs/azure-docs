@@ -100,9 +100,15 @@ With a few configurations, Azure Functions or ASP.NET projects start Azurite aut
 
 #### Running Azurite from the command line
 
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio you have installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio you have installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: 
 
-After you run the executable file, Azurite listens for connections. 
+`C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
+
+If you use the enterprise version of the Visual Studio, please open the following location:
+
+`C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
+
+Open the required location and start the `azurite.exe`. After you run the executable file, Azurite listens for connections. 
 
 > [!div class="mx-imgBorder"]
 > ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)

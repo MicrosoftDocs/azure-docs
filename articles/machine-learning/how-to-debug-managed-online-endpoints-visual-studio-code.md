@@ -15,7 +15,7 @@ ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
 
-# Debug online endpoints locally in Visual Studio Code (preview)
+# Debug online endpoints locally in Visual Studio Code
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
