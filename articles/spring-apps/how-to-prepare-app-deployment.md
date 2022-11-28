@@ -179,7 +179,7 @@ For more information, see the following pages:
 * [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
 
 > [!NOTE]
-> - The support for spring boot 3.0 is still in preview, do not suggest you to use it in production.
+> - The support for Spring Boot 3.0 is still in preview, so you shouldn't use it in production.
 
 ### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
 
