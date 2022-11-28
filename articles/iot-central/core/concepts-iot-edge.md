@@ -218,8 +218,6 @@ Downstream devices connect to a module in the gateway that provides IoT Central 
 
 The IoT Edge device is provisioned in IoT Central along with the downstream devices connected to the IoT Edge device. Currently, IoT Central doesn't have runtime support for a gateway to provide an identity and to provision downstream devices. If you bring your own identity translation module, IoT Central can support this pattern.
 
-The [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub uses this pattern.
-
 ### Downstream device relationships with a gateway and modules
 
 If the downstream devices connect to an IoT Edge gateway device through the *IoT Edge hub* module, the IoT Edge device is a transparent gateway:

@@ -101,7 +101,7 @@ sections:
 
       - question: Can a storage account connected to the Media Services account be behind a firewall?
         answer: |
-          Your paid Azure Video Indexer account uses the specified Media Services account that is connected to a storage account. Currently, the use of a connected storage account that is behind a firewall and not publicly accessible is not supported. We plan to add this capability soon through [Azure Storage Trusted Service](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-to-trusted-azure-services).
+          Your paid Azure Video Indexer account uses the specified Media Services account that is connected to a storage account. Currently, the use of a connected storage account that is behind a firewall and not publicly accessible is not supported.
 
       - question: What is the SLA for Azure Video Indexer?
         answer: |
@@ -170,7 +170,7 @@ sections:
     questions:
       - question: What APIs does Azure Video Indexer offer?
         answer: |
-          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/).
 
       - question: What client SDKs does Azure Video Indexer offer?
         answer: There are currently no client SDKs offered. The Azure Video Indexer team is working on the SDKs and plans to deliver them soon.

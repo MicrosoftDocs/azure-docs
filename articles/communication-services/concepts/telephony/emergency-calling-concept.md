@@ -65,7 +65,7 @@ The Emergency service is temporarily free to use for Azure Communication Service
 ## Emergency calling with Azure Communication Services direct routing
 
 Emergency call is a regular call from a direct routing perspective. If you want to implement emergency calling with Azure Communication Services direct routing, you need to make sure that there is a routing rule for your emergency number (911, 112, etc.). You also need to make sure that your carrier processes emergency calls properly.
-There is also an option to use purchased number as a caller ID for direct routing calls, in such case if there is no voice routing rule for emergency number, the call will fall back to Microsoft network, and we will treat it as a regular emergency call. Learn more about [voice routing fall back](./direct-routing-provisioning.md#voice-routing-considerations).
+There is also an option to use purchased number as a caller ID for direct routing calls, in such case if there is no voice routing rule for emergency number, the call will fall back to Microsoft network, and we will treat it as a regular emergency call. Learn more about [voice routing fall back](./direct-routing-provisioning.md#outbound-voice-routing-considerations).
 
 ## Next steps
 

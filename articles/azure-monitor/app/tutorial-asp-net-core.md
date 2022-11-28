@@ -111,7 +111,7 @@ In order to provide globally unique names to resources, a six-character suffix i
     <!-- The long description for app-service-app-setting-button.png: Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted. -->
    :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
 
-3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
+3. In the Add/Edit application setting pane, complete the form as follows and select **OK**.
 
     | Field | Value |
     |-------|-------|
