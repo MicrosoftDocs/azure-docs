@@ -195,13 +195,13 @@ The following steps show you how to create and publish a report using the Power 
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
-## Cleanup resources
+## Clean up resources
 
 In this tutorial, you've created a resource group, an IoT hub, a Stream Analytics job, and a dataset in Power BI. 
 
-If you plan to complete other tutorials, you may want to leave the resource group and IoT hub and reuse them later. 
+If you plan to complete other tutorials, you may want to keep the resource group and IoT hub, so you can reuse them later. 
 
-If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
+If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the Azure portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
 
 ### Use the Azure CLI to clean up Azure resources
 
