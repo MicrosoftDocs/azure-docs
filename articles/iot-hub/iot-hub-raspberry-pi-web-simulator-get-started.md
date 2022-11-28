@@ -53,7 +53,7 @@ Click the following button to start Raspberry Pi online simulator.
 
 There are three areas in the web simulator.
 
-1. Assembly area - A graphic depiction of the Pi simulator, as well as any simulated devices and connections.
+1. Assembly area - A graphic depiction of the Pi simulator, and any simulated devices and connections.
 
    By default, the assembly area simulates connections from the Pi to two devices:
    * A BME280 humidity sensor connected to I2C.1
@@ -69,7 +69,7 @@ There are three areas in the web simulator.
 
    * **Reset** - Reset the coding area to the default sample application.
 
-   * **Fold/Expand** - On the right side, there is a button for you to fold/expand the console window.
+   * **Fold/Expand** - On the right side, there's a button for you to fold/expand the console window.
 
 > [!NOTE]
 > The Raspberry Pi web simulator is currently available as a preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
@@ -86,7 +86,7 @@ There are three areas in the web simulator.
 
 ## Run a sample application on Pi web simulator
 
-1. In the coding area, make sure you are working with the default sample application. Replace the placeholder in line 15 with the Azure IoT hub device connection string.
+1. In the coding area, make sure you're working with the default sample application. Replace the placeholder in line 15 with the Azure IoT hub device connection string.
  
    ![Replace the device connection string](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
