@@ -3,12 +3,12 @@ title: Authorize access to blob or queue data from a native or web application
 titleSuffix: Azure Storage
 description: Use Azure Active Directory to authenticate from within a client application, acquire an OAuth 2.0 access token, and authorize requests to Azure Blob storage and Queue storage.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/28/2022
-ms.author: tamram
+ms.author: pauljewell
 ms.subservice: common
 ms.devlang: csharp
 ms.custom: "devx-track-csharp"
