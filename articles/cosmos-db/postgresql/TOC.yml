@@ -132,6 +132,7 @@
       items:
         - name: Azure Blob Storage (ABS)
           href: howto-ingest-azure-blob-storage.md
+          displayName: pg_azure_storage, azure_storage
         - name: Azure Stream Analytics (ASA)
           href: howto-ingest-azure-stream-analytics.md
         - name: Azure Data Factory (ADF)
