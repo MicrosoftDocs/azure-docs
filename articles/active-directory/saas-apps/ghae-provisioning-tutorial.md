@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2022
-ms.author: twimmers
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure GHAE for automatic user provisioning
