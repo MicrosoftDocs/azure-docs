@@ -45,10 +45,10 @@ To reset a user's redemption status, you'll need one of the following roles:
 1. (Optional) If the user wants to sign in using a different email:
    - Select the **Edit properties** icon.
    - Scroll to **Email** and type the new email.
-   - Next to **Other emails**, select **Edit**. Select **Add**, type the new email, and select **Save**.
+   - Next to **Other emails**, select **Add email**. Select **Add**, type the new email, and select **Save**.
    - Select the **Save** button at the bottom of the page to save all changes.
 
-1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**.
+1. On the **Overview** tab, under **My Feed**, select the **Manage (resend invitation / reset status)** link in the **B2B collaboration** tile.
 
     [ ![Screenshot showing the B2B collaboration reset link](./media/reset-redemption-status/user-profile-b2b-collaboration.png) ](media/reset-redemption-status/user-profile-b2b-collaboration.png#lightbox)
 
