@@ -162,6 +162,118 @@ def test_function(mytimer: func.TimerRequest) -> None:
         logging.info('The timer is past due!')
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
+
+## Durable Functions
+
+Durable Functions also provides preview support of the V2 programming model. To try it out, install the Durable Functions SDK (PyPI package `azure-functions-durable`) from version `1.2.0` or greater.
+
+The Durable Functions SDK exports a `DFApp` object representing the app, like `FunctionApp` in the samples above. It provides all the Durable Functions Triggers and bindings _as well as_ the standard Triggers and Bindings built-in to Azure Functions. You may use this object to specify Durable Functions Triggers and Bindings.
+
+> [!NOTE]
+> You are not required to use either `FunctionApp` or `DFApp` exclusively, you may use them both in a single Azure Functions app. The runtime will automatically combine the Functions declared by all the `FunctionApp` and `DFApp` objects.
+
+Below is a simple Durable Functions app that declares a simple sequential orchestrator, all in one file!
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.orchestration_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client, message):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
+
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result1 = yield context.call_activity("Hello", "Seattle")
+    result2 = yield context.call_activity("Hello", "Tokyo")
+    result3 = yield context.call_activity("Hello", "London")
+
+    return [result1, result2, result3]
+
+@myApp.activity_trigger(input_name="my_input")
+def my_activity(my_input: str):
+    return "Hello " + my_input    
+```
+
+> [!NOTE]
+> Previously, Durable Functions orchestrators needed an extra piece of boilerplate to be recognized: `main = df.Orchestrator.create(<name_of_orchestrator_function>)`. This is no longer needed in V2 of the Python programming model. This applies to Entities as well, which required a similar boilerplate through `main = df.Entity.create(<name_of_entity_function>)`.
+
+For reference, all Durable Functions Triggers and Bindings may be found below:
+
+### Orchestration Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result = yield context.call_activity("Hello", "Tokyo")
+    return result
+```
+
+### Activity Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.activity_trigger(input_name="my_input")
+def my_activity(my_input: str):
+    return "Hello " + my_input
+```
+
+### DF Client Binding
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.orchestration_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client, message):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
+```
+
+### Entity Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.entity_trigger(context_name="context")
+def entity_function(context):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        pass
+    
+    context.set_state(current_value)
+    context.set_result(current_value)
+```
+
 ## Next steps
 
 + [Python developer guide](./functions-reference-python.md)
