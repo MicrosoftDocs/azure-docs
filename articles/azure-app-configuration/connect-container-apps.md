@@ -67,7 +67,7 @@ git clone https://github.com/docker/awesome-compose/
     fd7ad0ef680e   aspnetapp   "dotnet aspnetapp.dl…"   05 minutes ago   Up 02 minutes   0.0.0.0:8080->80/tcp   myapp
     ```
 
-1. Open an internet browser and navigate to [localhost:8080](localhost:8080) to check if you can display your webpage.
+1. Open an internet browser and navigate to `localhost:8080` to check if you can display your application.
 
     :::image type="content" border="true" source="media\connect-container-app\localhost-display.png" alt-text="Screenshot of an internet browser displaying the app running.":::
 
