@@ -35,7 +35,7 @@ The password reset flow involves the following steps:
 > - If a user knows their password and wants to change it, use a [password change flow](add-password-change-policy.md).
 > - If you want to force a user to reset their password (for example, when they sign in for the first time, when their passwords have been reset by an admin, or after they've been migrated to Azure AD B2C with random passwords), use a [force password reset](force-password-reset.md) flow.
 
-The default name of the **Change email** button in *selfAsserted.html* is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool like Inspect.
+The default name of the **Change email** button in *selfAsserted.html* is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool such as _Inspect_.
 
 ## Prerequisites
 
