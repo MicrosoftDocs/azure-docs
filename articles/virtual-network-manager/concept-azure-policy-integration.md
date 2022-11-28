@@ -87,7 +87,7 @@ If you're following management group best practices using [Azure management grou
 
 ### Deleting an Azure Policy definition associated with a network group
 
-You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have a unused Policy no longer need. To delete the Policy, you need to delete the Policy association object and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition#clean-up-resources). Once this has been completed, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
+You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have a unused Policy no longer need. To delete the Policy, you need to delete the Policy association object and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition#clean-up-resources.md). Once this has been completed, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
 
 ## Next steps
 
