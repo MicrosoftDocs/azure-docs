@@ -101,7 +101,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource **all lower case**.
 * `1234...` is the instrumentation key of the Application Insights resource, **omitting dashes**. 
-* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-data-model.md).
+* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
 * `/{date}/{time}` is a pattern written literally.
 
 > [!NOTE]
@@ -209,5 +209,5 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 
 ## Next steps
 * [Continuous export](../azure-monitor/app/export-telemetry.md)
-* [Detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
+* [Detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
 * [Application Insights](../azure-monitor/app/app-insights-overview.md)

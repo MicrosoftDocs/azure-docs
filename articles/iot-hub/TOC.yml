@@ -425,6 +425,20 @@
             - name: Use a template from Azure PowerShell
               displayName: create IoT Hub,  change settings, shared access policies, register device, message routing, delete IoT hub, Azure Resource Manager, PowerShell script
               href: iot-hub-rm-template-powershell.md
+        - name: Create message routes and endpoints
+          items:
+            - name: Azure portal
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-portal.md
+            - name: Azure CLI
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-azure-cli.md
+            - name: PowerShell
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-powershell.md
+            - name: Azure Resource Manager
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-arm.md
         - name: Configure managed identities
           displayName: Azure AD, egress connectivity, ARM template, user-assigned identity, message routing, file upload, bulk device import export, REST API SDK
           href: iot-hub-managed-identity.md
@@ -519,9 +533,6 @@
         - name: Data Visualization in a web app
           displayName: real-time sensor data, Node.js,  Azure Cloud Shell, consumer group, App Service, Web Sockets protocol, Azure App Service
           href: iot-hub-live-data-visualization-in-web-apps.md
-        - name: Weather forecast using Azure Machine Learning
-          displayName: sensor data, Machine Learning Studio, ML Studio, data science, weather prediction model, Azure AI Gallery, R-script module, temperature and humidity data, predictive web service, Stream Analytics job, Azure Storage Explorer
-          href: iot-hub-weather-forecast-machine-learning.md
         - name: Device management with Azure IoT Tools for VS Code
           displayName: device twins, Azure Az PowerShell module, direct methods, cloud-to-device messages
           href: iot-hub-device-management-iot-toolkit.md

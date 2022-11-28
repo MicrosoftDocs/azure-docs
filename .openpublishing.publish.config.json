@@ -219,6 +219,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-kafka-extension",
       "url": "https://github.com/Azure/azure-functions-kafka-extension",
       "branch": "dev",
@@ -970,6 +976,7 @@
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
     ".openpublishing.redirection.baremetal-infrastructure.json",
-    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
+    "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json"
   ]
 }

@@ -297,6 +297,8 @@ az containerapp revision set-mode `
 
 Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
+To create a traffic rule that always routes traffic to the latest revision, set its `latestRevision` property to `true` and don't set `revisionName`. 
+
 The following example shows how to split traffic between three revisions. 
 
 ```json

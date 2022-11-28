@@ -5,8 +5,8 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 09/01/2022
-
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 

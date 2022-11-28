@@ -1,13 +1,12 @@
 ---
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate ASP.NET applications to Azure Kubernetes Service.
-services:
-author: jyothisuri
-manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.custom: subject-rbac-steps
 ms.topic: tutorial
-ms.date: 6/30/2021
-ms.author: jsuri
+ms.date: 03/24/2022
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
