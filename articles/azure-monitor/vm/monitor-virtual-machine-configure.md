@@ -53,7 +53,8 @@ One reason you might consider multihoming, though, is if you have an environment
 ### Workspace permissions
 The access mode of the workspace defines which users can access different sets of data. For details on how to define your access mode and configure permissions, see [Manage access to log data and workspaces in Azure Monitor](../logs/manage-access.md). If you're just getting started with Azure Monitor, consider accepting the defaults when you create your workspace and configure its permissions later.
 
-## Send an Activity log to a Log Analytics workspace
+## Send 
+Activity log to a Log Analytics workspace
 You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Send this data into the same Log Analytics workspace as VM insights to analyze it with the other monitoring data collected for the virtual machine. You might have already done this task when you configured monitoring for other Azure resources because there's a single Activity log for all resources in an Azure subscription.
 
 There's no cost for ingestion or retention of Activity log data. For details on how to create a diagnostic setting to send the Activity log to your Log Analytics workspace, see [Create diagnostic settings](../essentials/diagnostic-settings.md).
@@ -100,6 +101,10 @@ After you enable VM insights on a machine, it installs the Azure Monitor agent a
 You can enable VM insights on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Azure Resource Manager templates or enabling machines at scale by using Azure Policy. There's no direct cost for VM insights, but there is a cost for the ingestion and retention of data collected in the Log Analytics workspace.
 
 For different options to enable VM insights for your machines, see [Enable VM insights overview](vminsights-enable-overview.md). To create a policy that automatically enables VM insights on any new machines as they're created, see [Enable VM insights by using Azure Policy](vminsights-enable-policy.md).
+
+When you enable VM insights, you have the option of enabling collection of 
+
+With Azure Monitor agent, the [map feature](vminsights-maps.md) is optional. When you enable it it, you have the option of 
 
 
 ## Send guest performance data to Metrics
