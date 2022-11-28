@@ -38,7 +38,7 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 ### Azure Disks
 
-Use [Azure Disks](azure-disk-csi) to create a Kubernetes *DataDisk* resource. Disks types include:
+Use [Azure Disks][azure-disk-csi] to create a Kubernetes *DataDisk* resource. Disks types include:
 
 * Ultra Disks
 * Premium SSDs
@@ -65,7 +65,7 @@ Use [Azure Files][azure-files-csi] to mount a Server Message Block (SMB) version
 
 ### Azure Blob Storage
 
-Use [Azure Blob Storage](azure-blob-csi) to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
+Use [Azure Blob Storage][azure-blob-csi] to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
 
 * Block Blobs
 
