@@ -43,7 +43,7 @@ The TheAccessHub Admin Tool runs in the N8ID Azure subscription or the customer 
 
 ![Diagram of the n8identity architecture.](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-1. User arrives on a log-in page, creates an account, and enters information. Azure AD B2C collects user attributes.
+1. User arrives on a sign-in page, creates an account, and enters information. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the TheAccessHub Admin Tool and passes the user attributes.
 3. TheAccessHub Admin Tool checks your database for current user information.  
 4. User records synchronize from the database to TheAccessHub Admin Tool.
@@ -61,10 +61,10 @@ To create a Global Administrator:
 2. Go to **Azure Active Directory** > **Users**.
 3. Select **New User**.
 4. Choose **Create User** to create a regular directory user and not a customer.
-5. On the identity information for enter the **username**, such as theaccesshub and the **account name**, such as TheAccessHub Service Account.
+5. On the identity information form, enter the **username**, such as theaccesshub and the **account name**, such as TheAccessHub Service Account.
 6. Select **Show Password** 
 7. Copy and save the initial password.
-8. To ssign the Global Administrator role, for **User**, select the user's current role.
+8. To assign the Global Administrator role, for **User**, select the user's current role.
 9. Select the **Global Administrator** record.
 10. Select **Create**.
 
@@ -75,13 +75,9 @@ TheAccessHub Admin Tool uses the Microsoft Graph API to read and make changes to
 To authorize TheAccessHub Admin Tool to access your directory:
 
 1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
-
 2. Go to **System Admin** > **Azure AD B2C Config**.
-
 3. Select **Authorize Connection**.
-
-4. In the new window, sign in with your Global Administrator account.  When you sign in for the first time with the new service account, a prompt to reset your password can appear.
-
+4. In the new window, sign in with your Global Administrator account. When you sign in for the first time with the new service account, a prompt to reset your password can appear.
 5. Follow the prompts and select **Accept**.
 
 ## Configure a new CSR user with your enterprise identity
@@ -114,7 +110,7 @@ Create a CSR or Helpdesk user to access TheAccessHub Admin Tool with a new local
 4. For **Colleague Type**, select **Local Administrator**.
 5. For the profile information, select a home organization to control who has permission to manage this user.
 6. On the **TheAccessHub Roles** tab, select the **Helpdesk** managed role. 
-7. Copy the **Login ID/Email** and **One Time Password** attributes. Provide them to the new user to log in to TheAccessHub Admin Tool. 
+7. Copy the **Login ID/Email** and **One Time Password** attributes. Provide them to the new user to sign in to TheAccessHub Admin Tool. 
 8. Select **Submit**.
 
 > [!NOTE]
@@ -159,7 +155,7 @@ Use this function to visualize colleague and group management.
 
 ## Customize the welcome notification
 
-If you're using TheAccessHub Admin Tool to migrate users from one solution into Azure AD B2C, you can customize the user welcome notification. The notification goes to users during migration and can includes a link to set a new password in the Azure AD B2C directory.
+If you're using TheAccessHub Admin Tool to migrate users from one solution into Azure AD B2C, you can customize the user welcome notification. The notification goes to users during migration and can include a link to set a new password in the Azure AD B2C directory.
 
 To customize the notification:
 
@@ -199,7 +195,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 * **Host**: host name, or IP address, of the machine on which the LDAP server runs, such as `mysite.com`
 * **Port**, port number in which the LDAP server is listening
 * **SSL**, select the box for the TheAccessHub Admin Tool to communicate to the LDAP with SSL (recommended)
-* **Login DN**: user account distinguished name (DN) to log in and do the LDAP search
+* **Login DN**: user account distinguished name (DN) to sign in and do the LDAP search
 * **Password**: user password 
 * **Base DN**: DN at the top of the hierarchy in which to do the search
 * **Filter**: LDAP filter string to obtain your customer records
@@ -223,7 +219,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 7. To update customer accounts, change the second policy, **IF source and TheAccessHub data mismatch THEN**: **Do Nothing**.
 8. Select **Next**.
 9. In **Search-Mapping configuration**, identify load-record correlation with customers in TheAccessHub Admin Tool. 
-10. Select source identifying attributes. Match attributes TheAccessHub Admin Tool attributes with the same values. If there is a match, the record is overridden. Otherwise, a new customer is created. 
+10. Select source identifying attributes. Match attributes TheAccessHub Admin Tool attributes with the same values. If there's a match, the record is overridden. Otherwise, a new customer is created. 
 11. Sequence the number of checks. For example, check email first, then first and last name.
 12. On the left-side menu, select **Data Mapping**.
 13. In **Data-Mapping configuration**, assign the TheAccessHub Admin Tool attributes to be populated from your source attributes. Unmapped attributes remain unchanged for customers. If you map the attribute `org_name` with a current organization value, created customers go in the organization.
@@ -257,7 +253,7 @@ To synchronize data from Azure AD B2C into TheAccessHub Admin Tool:
 10. Select **Submit**.
 11. If you selected **Now**, a new record appears on **Data Synchronizations**. After validation is 100 percent, select the new record to see the load outcome. For scheduled loads, records appear after the scheduled time.
 12. If there are no errors, select **Run**. Otherwise, to remove the load, from the **More** menu, select **Remove**. 
-13. If there are errors, manually update the each records and select **Update**. .
+13. If there are errors, manually update each record and select **Update**.
 14. When **Data Synchronization** is 100 percent, the changes are initiated.
 
 > [!TIP]
