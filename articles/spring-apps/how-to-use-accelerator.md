@@ -273,27 +273,39 @@ Use to following steps to create and maintain your own accelerators.
 
 To view all the published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
-	![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
-    You need to refresh the Dev Tools Portal to reveal the newly published accelerator.
+Refresh the Dev Tools Portal to see the newly-published accelerator.
 
-    ![tap-gui-accelerator](./media/how-to-use-accelerator/tap-gui-accelerator.png)   
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
-    > [!NOTE]
-    > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
+> [!NOTE]
+> It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
 
 ### Use accelerators to bootstrap a new project
 
-Click **App Accelerator URL** to access Dev Tools Portal.
+Use the following steps to bootstrap a new project using accelerators:
+
+1. Click **App Accelerator URL** to access Dev Tools Portal.
+
 ![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
-Jump to Dev Tools Portal, you can choose one accelerator to explore file and download as zip file.
+
+1. Jump to Dev Tools Portal, you can choose one accelerator to explore file and download as zip file.
+
 In the "Configure accelerator" step, you can input values for your input options.
-![configure-accelerator](./media/how-to-use-accelerator/configure-accelerator.png)   
-Click **EXPLORE FILE**, you will see the project structure and view source code.
-![explore-accelerator-project](./media/how-to-use-accelerator/explore-accelerator-project.png)   
-Go to the "Review and generate" step, you can review your provided paramenters and generator your project.
-![generate-accelerator-](./media/how-to-use-accelerator/generate-accelerator.png)   
-Click **GENERATE ACCELERATOR**, it will start a task to process provided paramenters and zip files from accelerator. After the task is completed, you're free to download the project as zip file.
+
+![configure-accelerator](./media/how-to-use-accelerator/configure-accelerator.png)
+   
+1. Click **EXPLORE FILE**, you will see the project structure and view source code.
+
+![explore-accelerator-project](./media/how-to-use-accelerator/explore-accelerator-project.png)
+   
+1. Go to the "Review and generate" step, you can review your provided paramenters and generator your project.
+
+![generate-accelerator-](./media/how-to-use-accelerator/generate-accelerator.png) 
+  
+1. Click **GENERATE ACCELERATOR**, it will start a task to process provided paramenters and zip files from accelerator. After the task is completed, you're free to download the project as zip file.
+
 ![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
 
 ## Manage App Accelerator in existing Enterprise tier instances
