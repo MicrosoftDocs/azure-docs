@@ -25,7 +25,7 @@ Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data, an
 
 |Aspect|Details|
 |----|:----|
-|Release state:| GA | 
+|Release state:| General Availability (GA) | 
 | Protected Azure Cosmos DB API | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Cosmos DB for NoSQL <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Cassandra <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for MongoDB <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Table <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Gremlin |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
