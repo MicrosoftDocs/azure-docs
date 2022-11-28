@@ -64,7 +64,7 @@ $ export DB_NAME=tutorial
 Note that the values for mysql_endpoint, redis_endpoint, and password are those that you saved in the previous steps.
 ```
 
-## Caching result of query 
+## Caching result of query using Python 
 
 The first of the two methods implemented in the code sample works by caching a serialized representation of the SQL query result. The following Python snippet illustrates the logic:
 ```
@@ -96,7 +96,41 @@ syntax: python
 [{'title': 'Task1', 'completed': 0}]
  ```
  
- ## Cache a record as redis hash
+ ## Using Redis with WordPress
+ 
+The benefit of enabling Redis Cache to your WordPress application will allow you to deliver content faster since all of the WordPress content is stored in the database. You can cache content that is mostly read only from WordPress database to make the query lookups faster. You can use either of these plugins to setup Redis.
+
+### Pre-requisite
+PLease install and enable [Redis PECL extension](https://pecl.php.net/package/redis). See [ow to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) or [ow to install the extension in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux#enable-php-extensions).
+
+1. [Redis Object cache](https://wordpress.org/plugins/redis-cache/): Install and activate this plugin. Now update the wp-config.php file right above the statement */* That's all, stop editing! Happy blogging. */**
+
+```php
+define( 'WP_REDIS_HOST', '127.0.0.1' );
+define( 'WP_REDIS_PORT', 6379 );
+// define( 'WP_REDIS_PASSWORD', 'secret' );
+define( 'WP_REDIS_TIMEOUT', 1 );
+define( 'WP_REDIS_READ_TIMEOUT', 1 );
+
+// change the database for each site to avoid cache collisions
+// values 0-15 are valid in a default redis config.
+define( 'WP_REDIS_DATABASE', 0 );
+
+// automatically delete cache keys after 7 days
+// define( 'WP_REDIS_MAXTTL', 60 * 60 * 24 * 7 );
+
+// bypass the object cache, useful for debugging
+// define( 'WP_REDIS_DISABLED', true );
+
+/* That's all, stop editing! Happy blogging. */
+
+```
+Go to wordpress admin dashboard and select the Redis settings page on the menu. Now select **enable Object Cache**. Plugin will read the redis server information from wp-config.php file.
+
+4. [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/):
+
+
+Furthermore you can [Query Monitor](https://wordpress.org/plugins/query-monitor/) allows you to debug database queries and it also shows total database queries grouped by a plugin. Query monitor plugin has other capabilties as well that help with debugging such as PHP errors, hooks and actions, HTTP API calls and more. 
  
  ## Expire content 
  
