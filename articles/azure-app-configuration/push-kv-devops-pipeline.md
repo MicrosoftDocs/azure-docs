@@ -74,9 +74,9 @@ The following parameters are used by the App Configuration Push task:
         "TestApp:Settings:Message": "Message data"
     }
     ```
-- **File Content Profile**: The Configuration File's [content profile](https://docs.microsoft.com/azure/azure-app-configuration/concept-config-file). Default value is **Default**.
+- **File Content Profile**: The Configuration File's [content profile](./concept-config-file.md). Default value is **Default**.
      - **Default**: Refers to the conventional configuration file formats that are directly consumable by applications.
-     - **Kvset**: Refers to a [file schema](https://github.com/Azure/AppConfiguration/blob/main/docs/KVSet/KVSet.v1.0.0.schema.json) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not supported when using the Kvset profile.
+     - **Kvset**: Refers to a [file schema](https://aka.ms/latest-kvset-schema) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not supported when using the Kvset profile.
 - **Import Mode**: The default value is **All**. Determines the behavior when importing key-values.
     - **All**: Imports all key-values in the configuration file to App Configuration. 
     - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration. Matching key-values are considered to be key-values with the same key, label, value, content type and tags.
