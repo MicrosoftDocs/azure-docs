@@ -78,7 +78,7 @@ You can use Docker or Kubernetes to run DAB. Use the Docker image for users to c
 
 Learn more: To configure DAB and SSO integration, see [Deploy Datawiza Access Proxy With Your App](https://docs.datawiza.com/step-by-step/step3.html) 
 
-A sample docker image `docker-compose.yml file` is provided. Log in to the container registry to download DAB images and the header-based application. 
+A sample docker image `docker-compose.yml file` is provided. Sign in to the container registry to download DAB images and the header-based application. 
 
 1. [Deploy Datawiza Access Proxy With Your App](https://docs.datawiza.com/step-by-step/step3.html#important-step).
 
@@ -112,7 +112,7 @@ A sample docker image `docker-compose.yml file` is provided. Log in to the conta
 
 ## Pass user attributes to the header-based application
 
-DAB gets user attributes from IdP and passes user attributes to the application with header or cookie. After you configureuser attributes, the green check sign appears for user attributes.
+DAB gets user attributes from IdP and passes user attributes to the application with header or cookie. After you configure user attributes, the green check sign appears for user attributes.
 
 Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. 
 
@@ -123,8 +123,8 @@ Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.
 1. Navigate to the on-premises application URL.
 2. The DAB redirects to the page you configured in your user flow.
 3. From the list, select the IdP.
-4. At the prompt, enter your credentials, including a Azure AD Multi-Factor Authentication (MFA) token if required.
-5. You are redirected to Azure AD B2C, which forwards the application request to the DAB redirect URI.
+4. At the prompt, enter your credentials, including an Azure AD Multi-Factor Authentication (MFA) token, if necessary.
+5. You're redirected to Azure AD B2C, which forwards the application request to the DAB redirect URI.
 6. The DAB evaluates policies, calculates headers, and sends the user to the upstream application. 
 7. The requested application appears.
 
