@@ -21,7 +21,7 @@ When deploying a new Personalizer resource, it's initialized with an untrained, 
 
 Similar to how an apprentice can learn a craft by observing an expert, Apprentice mode enables Personalizer to learn by observing the decisions made by your application's current logic. The Personalizer model trains by mimicking the same decision output as the application. With each Rank API call, Personalizer can learn without impacting the existing logic and outcomes. Metrics, available from the Azure portal and the API, help you understand the performance as the model learns. Specifically, how well Personalize is matching your existing logic (also known as the baseline policy).
 
-Once Personalizer achieves reasonably well compared to your existing logic, you can change the behavior from Apprentice mode to *Online mode*. At that time, Personalizer returns the best actions in the Rank API as determined by the underlying model and can learn how to make better decisions than your baseline
+Once Personalizer is able to reasonably match your existing logic 60-80% of the time, you can change the behavior from Apprentice mode to *Online mode*. At that time, Personalizer returns the best actions in the Rank API as determined by the underlying model and can learn how to make better decisions than your baseline
 
 ## Why use Apprentice mode?
 
@@ -47,7 +47,7 @@ Apprentice mode is useful for developers, data scientists, and business decision
 
 * **Developers** can use Apprentice mode to ensure the Rank and Reward APIs are implemented correctly in the application, and that features being sent to Personalizer are free from errors and common mistakes. Learn more about creating good [Context and Action features](concepts-features.md).
 
-* **Data scientists** can use Apprentice mode to validate that the features are effective at training the Personalizer models. That is, there's useful information in the features that Personalizer can learn the existing decision logic.
+* **Data scientists** can use Apprentice mode to validate that the features are effective at training the Personalizer models. That is, the features contain useful information that allow Personalizer to learn the existing decision logic.
 
 * **Business Decision Makers** can use Apprentice mode to assess the potential of Personalizer to improve results (that is, rewards) compared to existing business logic. Specifically, whether or not Personalizer can learn from the provided data before going into Online mode. This allows them to make an informed decision about impacting user experience, where real revenue and user satisfaction are at stake.
 
@@ -74,7 +74,7 @@ Apprentice Mode trains Personalizer model by attempting to imitate your existing
 In some scenarios such as news or entertainment, the baseline item could be manually assigned by an editorial team. This means humans are using their knowledge about the broader world, and understanding of what may be appealing content, to choose specific articles or media out of a pool, and flagging them as "preferred" or "hero" articles. Because these editors aren't an algorithm, and the factors considered by editors can be subjective and possibly unrelated to the Context or Action features. In this case, Apprentice mode may have difficulty in predicting the baseline action. In these situations you can:
 
 * Test Personalizer in Online Mode: Consider putting Personalizer in Online Mode for time or in an A/B test if you have the infrastructure, and then run an Offline Evaluation to assess the difference between your application's baseline logic and Personalizer.
-* Add editorial considerations and recommendations as features: Ask your editors what factors influence their choices, and see if you can add those as features in your context and action. For example, editors in a media company may highlight content while a certain celebrity often is in the news: This knowledge could be added as a Context feature.
+* Add editorial considerations and recommendations as features: Ask your editors what factors influence their choices, and see if you can add those as features in your context and action. For example, editors in a media company may highlight content when a certain celebrity is often in the news: This knowledge could be added as a Context feature.
 
 ### Factors that will improve and accelerate Apprentice Mode
 If apprentice mode is learning and attaining a matching performance above zero, but performance is improving slowly (not getting to 60% to 80% matched rewards within two weeks), it's possible that there's too little data being sent to Personalizer. The following steps may help facilitate faster learning:
@@ -88,15 +88,15 @@ If you have a significant amount of historical data that you would like to use t
 
 Set up the Personalizer in Apprentice Mode and create a script that calls Rank with the actions and context features from the historical data. Call the Reward API based on your calculations of the records in this data. You may need approximately 50,000 historical events to see Personalizer attain a 60-80% match with your application's baseline logic. You may be able to achieve satisfactory results with fewer or more events.
 
-When training from historical data, it's recommended that the data sent in (features for context and actions, their layout in the JSON used for Rank requests, and the calculation of reward in this training data set), matches the data (features and calculation of reward) available from your existing application.
+When training from historical data, it's recommended that the data sent in [features for context and actions, their layout in the JSON used for Rank requests, and the calculation of reward in this training data set], matches the data [features and calculation of reward] available from your existing application.
 
-Offline and historical data tends to be more incomplete and noisier and can differ in format from your in production (or online) scenario. While training from historical data is possible, the results from doing so may be inconclusive and aren't necessarily a good predictor of how well Personalizer will learn in Online mode, especially if the features vary between the historical data and the current scenario.
+Offline and historical data tends to be more incomplete and noisier and can differ in format from your in-production (or online) scenario. While training from historical data is possible, the results from doing so may be inconclusive and aren't necessarily a good predictor of how well Personalizer will learn in Online mode, especially if the features vary between the historical data and the current scenario.
 
 ## Using Apprentice Mode versus A/B Tests
 
 It's only useful to do A/B tests of Personalizer treatments once it has been validated and is learning in Online mode, since in  Apprentice mode, only the baseline action is used, and the existing logic is learned. This essentially means Personalizer is returning the action of the "control" arm of your A/B test, hence an A/B test in Apprentice mode has no value.
 
-Once you have a use case using Personalizer and learning online, A/B experiments can allow you to create controlled cohorts and conduct comparisons of results that may be more complex than the signals used for rewards. An example question an A/B test could answer is: `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
+Once you have a use case using Personalizer and learning online, A/B experiments can allow you to create controlled cohorts and conduct comparisons of results that may be more complex than the signals used for rewards. An example question an A/B test could answer is: "In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?"
 
 ## Next steps
 
