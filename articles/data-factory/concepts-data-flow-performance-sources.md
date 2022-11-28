@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 10/11/2022
+ms.date: 11/27/2022
 ---
 
 # Optimizing sources
@@ -45,11 +45,17 @@ When using Azure Synapse Analytics, a setting called **Enable staging** exists i
 
 ## File-based sources
 
+### Parquet vs. delimited text
+
 While data flows support a variety of file types, the Spark-native Parquet format is recommended for optimal read and write times.
 
 If you're running the same data flow on a set of files, we recommend reading from a folder, using wildcard paths or reading from a list of files. A single data flow activity run can process all of your files in batch. More information on how to configure these settings can be found in the **Source transformation** section of the [Azure Blob Storage connector](connector-azure-blob-storage.md#source-transformation) documentation.
 
 If possible, avoid using the For-Each activity to run data flows over a set of files. This will cause each iteration of the for-each to spin up its own Spark cluster, which is often not necessary and can be expensive. 
+
+### Inline datasets vs. shared datasets
+
+ADF and Synapse datasets are shared resources in your factories and workspaces. However, when you are reading large numbers of source folders and files with delimited text and JSON sources, you can improve the performance of data flow file discovery by setting the option "User projected schema" inside the Projection | Schema options dialog. This option turns off ADF's default schema auto-discovery and will greatly improve the performance of file discovery. Before setting this option, make sure to import the projection so that ADF has an existing schema for projection. This option does not work with schema drift.
 
 ## Next steps
 
