@@ -37,18 +37,34 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 
 When you [create a lab within Teams](#create-a-lab-in-teams), Azure Lab Services automatically syncs the lab user list with the team membership. Everyone on the team, including owners, members, and guests are automatically added to the lab user list. Azure Lab Services adds or deletes users from the lab user list as per changes to the team membership when the sync operation completes.
 
-Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours.
-
-Educators can use the **Sync** button to manually trigger a sync, for example when the team membership is updated.
+Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours. Educators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
 
 :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
-After publishing the lab, Lab Services automatically updates the lab capacity:
+After publishing the lab, Azure Lab Services automatically updates the lab capacity:
 
 - If there are any new additions to the team, new VMs are created.
 - If a user is deleted from the team, the associated VM is deleted.
 
 ## Manage a lab VM pool in Teams
+
+Virtual Machine (VM) creation starts as soon as you publish the template VM. Azure Lab Services creates a number of VMs, known as the VM poool, equivalent to the number of users in the lab user list.
+
+The lab capacity (number of VMs in the lab) automatically matches the team membership. Whenever you add or remove a user from the team, the capacity increases or decreases accordingly. For more information, see [How to manage users within Teams](#manage-lab-user-lists-in-teams).
+
+After the lab publishing and VM creation completes, Azure Lab Services automatically registers users to the lab. Azure Lab Services assigns a lab VM to a user when they first access the **Azure Lab Services** tab in Teams.
+
+To publish a template VM in Teams:
+
+1. Go to the **Azure Lab Services** tab in your team.
+
+1. Select the **Template** tab, and then select **Publish**.
+
+1. In the **Publish template** window, select **Publish**.
+
+As an educator, you can access student VMs directly from the **Virtual machine pool** tab. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
+
+:::image type="content" source="./media/how-to-manage-vm-pool-with-teams/vm-pool.png" alt-text="Screenshot of the VM pool tab in Teams.":::
 
 ## Configure lab schedules and settings in Teams
 
