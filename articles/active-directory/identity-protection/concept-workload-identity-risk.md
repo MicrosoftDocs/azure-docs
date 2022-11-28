@@ -34,7 +34,7 @@ These differences make workload identities harder to manage and put them at high
 
 To make use of workload identity risk, including the new **Risky workload identities** blade and the **Workload identity detections** tab in the **Risk detections** blade in the portal, you must have the following.
 
-- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://entra.microsoft.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Entra Portal.
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
 - One of the following administrator roles assigned
    - Global Administrator
    - Security Administrator
@@ -61,12 +61,12 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Navigate to the [Entra portal](https://entra.microsoft.com).
-1. Browse to **Protect and Secure** > **Identity Protection** > **Risky workload identities**.
-1. Or browse to **Protect and Secure** > **Identity Protection** > **Risk detections**.
-   1. Select the **Workload identity detections** tab.
-
-![image](https://user-images.githubusercontent.com/39064520/204153542-33716b9c-f04d-4a98-b5b3-79557f613b46.png)
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
+1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
+   1. Select the **Workload identity detections** tab.'
+   
+:::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
 ### Graph APIs
 
@@ -98,7 +98,7 @@ The [Azure Active Directory security operations guide for Applications](../funda
 
 Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
-![image](https://user-images.githubusercontent.com/39064520/204153448-8c3755a2-c070-4e91-9808-1e8949645009.png)
+:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
 ## Remediate risky workload identities
 
