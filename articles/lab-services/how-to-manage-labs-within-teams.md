@@ -33,13 +33,15 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 
 ## Create a lab in Teams
 
+As an educator, you can create a new lab in Teams or by using the Azure Lab Services web portal (https://labs.azure.com). For more details, see how to [create and publish a lab](./tutorial-setup-lab.md).
+
 ## Manage lab user lists in Teams
 
 When you [create a lab within Teams](#create-a-lab-in-teams), Azure Lab Services automatically syncs the lab user list with the team membership. Everyone on the team, including owners, members, and guests are automatically added to the lab user list. Azure Lab Services adds or deletes users from the lab user list as per changes to the team membership when the sync operation completes.
 
 Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours. Educators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
 
-:::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Sync users":::
+:::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Teams.":::
 
 After publishing the lab, Azure Lab Services automatically updates the lab capacity:
 
