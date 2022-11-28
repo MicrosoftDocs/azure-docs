@@ -5,7 +5,8 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/06/2020
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Migrating to Azure

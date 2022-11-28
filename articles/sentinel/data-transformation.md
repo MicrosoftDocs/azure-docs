@@ -50,7 +50,7 @@ The following image shows where ingestion-time data transformation enters the da
 
 Microsoft Sentinel collects data into the Log Analytics workspace from multiple sources. 
 - Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations in the workspace DCR. This data can be stored in standard tables or in a specific set of custom tables.
-- Data ingested directly into the Logs ingestion API endpoint is processed by a DCR that may include an ingestion-time transformation, and then stored in either standard or custom tables. This data can then be stored in either standard or custom tables of any kind.
+- Data ingested directly into the Logs ingestion API endpoint is processed by a standard DCR that may include an ingestion-time transformation. This data can then be stored in either standard or custom tables of any kind.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
@@ -127,3 +127,4 @@ For more in-depth information on ingestion-time transformation, the Custom Logs 
 - [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+

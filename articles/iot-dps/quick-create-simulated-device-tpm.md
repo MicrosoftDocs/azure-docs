@@ -133,7 +133,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [azure-utpm-c](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+2. Clone the [azure-utpm-c](https://github.com/Azure/azure-utpm-c) GitHub repository using the following command:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-utpm-c.git --recursive

@@ -77,7 +77,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+1. For **User attributes and token claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 

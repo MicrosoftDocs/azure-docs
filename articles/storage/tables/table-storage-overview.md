@@ -1,5 +1,5 @@
 ---
-title: Introduction to Table storage - Object storage in Azure | Microsoft Docs
+title: Introduction to Table storage - Object storage in Azure
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 ms.service: storage

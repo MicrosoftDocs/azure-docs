@@ -56,7 +56,7 @@ To get started, fork the IoT Central CI/CD GitHub repository and then clone your
 
 1. Clone your fork of the repository to your local machine by opening a console or bash window and running the following command.
 
-    ```cmd\bash
+    ```cmd/sh
     git clone https://github.com/{your GitHub username}/iot-central-CICD-sample
     ```
 
@@ -271,7 +271,7 @@ Now that you have a configuration file that represents the settings for your dev
 
 1. To upload the *Configuration* folder to your GitHub repository, run the following commands from the *IoTC-CICD-howto* folder.
 
-   ```cmd/bash
+   ```cmd/sh
     git add Config
     git commit -m "Adding config directories and files"
     git push
