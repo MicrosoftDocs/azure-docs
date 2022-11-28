@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
+      "redirect_url": "/graph/api/resources/identitygovernance-workflow",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-offboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-offboard-custom-workflow",
       "redirect_document_id": false
