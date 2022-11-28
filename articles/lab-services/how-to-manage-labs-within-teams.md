@@ -33,7 +33,7 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 
 ## Create a lab in Teams
 
-As an educator, you can create a new lab in Teams or by using the Azure Lab Services web portal (https://labs.azure.com). For more details, see how to [create and publish a lab](./tutorial-setup-lab.md).
+As an educator, you can create a new lab in Teams or by using the Azure Lab Services web portal (https://labs.azure.com). For more information, see how to [create and publish a lab](./tutorial-setup-lab.md).
 
 ## Manage lab user lists in Teams
 
@@ -43,18 +43,18 @@ Azure Lab Services automatically synchronizes the team membership with the lab u
 
 :::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Teams.":::
 
-After publishing the lab, Azure Lab Services automatically updates the lab capacity:
+Azure Lab Services automatically updates the lab capacity after publishing the lab:
 
 - If there are any new additions to the team, new VMs are created.
 - If a user is deleted from the team, the associated VM is deleted.
 
 ## Manage a lab VM pool in Teams
 
-Virtual Machine (VM) creation starts as soon as you publish the template VM. Azure Lab Services creates a number of VMs, known as the VM poool, equivalent to the number of users in the lab user list.
+Virtual Machine (VM) creation starts as soon as you publish the template VM. Azure Lab Services creates a number of VMs, known as the VM pool, equivalent to the number of users in the lab user list.
 
 The lab capacity (number of VMs in the lab) automatically matches the team membership. Whenever you add or remove a user from the team, the capacity increases or decreases accordingly. For more information, see [How to manage users within Teams](#manage-lab-user-lists-in-teams).
 
-After the lab publishing and VM creation completes, Azure Lab Services automatically registers users to the lab. Azure Lab Services assigns a lab VM to a user when they first access the **Azure Lab Services** tab in Teams.
+After publishing the lab and VM creation completes, Azure Lab Services automatically registers users to the lab. Azure Lab Services assigns a lab VM to a user when they first access the **Azure Lab Services** tab in Teams.
 
 To publish a template VM in Teams:
 
