@@ -1,6 +1,5 @@
 ---
 title: Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier
-titleSuffix: Azure Spring Apps Enterprise Tier
 description: Learn how to use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: zlhe
