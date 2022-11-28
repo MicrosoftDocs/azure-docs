@@ -754,7 +754,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-acr.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
             "redirect_document_id": true
-        }
-    
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-tvm.md",
+            "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
+            "redirect_document_id": true
+        }    
       ]
 }

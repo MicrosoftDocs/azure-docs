@@ -20,6 +20,8 @@ By default, each sensor and on-premises management console is [installed](how-to
 
 Privileged users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with one of the privileged users. Then create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
+On the sensor, the default passwords created for the *cyber* and *cyberx_host* users are identical.
+
 The following table describes each default privileged user in detail:
 
 |Username  |Connects to  |Permissions  |
