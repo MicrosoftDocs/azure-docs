@@ -40,7 +40,7 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 1. In the **Incidents** page, select an incident from the list, and select **View full details**  under **Tasks (Preview)** in the details panel, or select **View full details** at the bottom of the details panel.
 
-:::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
+    :::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
 
 1. If you opted to enter the full details page, select **Tasks (Preview)** from the top banner.
 

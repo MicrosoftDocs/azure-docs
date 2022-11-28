@@ -35,13 +35,17 @@ The **Logic Apps Contributor** role is required to create and edit playbooks.
 
 #### Follow tasks when handling an incident
 
-When you select an incident and **View full details**, on the incident details page you'll see on the right-hand panel all the tasks that have been added to that incident, whether manually or by automation rules. You can also add tasks to an open incident on the spot. 
+When you select an incident and **View full details**, on the incident details page you'll see on the right-hand panel all the tasks that have been added to that incident, whether manually or by automation rules.
 
 Expand a task to see its full description, including the user, automation rule, or playbook that created it.
 
 Mark a task complete by selecting its "checkbox" circle.
 
-:::image type="content" source="media/incident-tasks/incident-details-screen.png" alt-text="Screenshot of incident tasks panel for analysts on incident details screen.":::
+:::image type="content" source="media/incident-tasks/incident-details-screen.png" alt-text="Screenshot of incident tasks panel for analysts on incident details screen." lightbox="media/incident-tasks/incident-details-screen.png":::
+
+#### Add tasks to an incident on the spot
+
+You can add tasks to an open incident that you're working on, either to give yourself reminders of actions you've discovered a need to take, or to record actions that you've taken of your own initiative that don't appear in the task list. Tasks added in this way will apply only to the open incident.
 
 ### Workflow creator
 
@@ -57,8 +61,6 @@ Consider that the order in which tasks appear in your incident is determined by 
 
 See which incidents are covered by existing automation rules and tasks, before you create a new automation rule.  
 Use the **Action** filter on the **Automation rules** list to see only those rules that add tasks to incidents, and see which analytics rules those automation rules apply to, to understand which incidents those tasks will be added to.
-
-:::image type="content" source="media/incident-tasks/create-automation-rule-tasks.png" alt-text="Screenshot of automation rule with Add Task actions.":::
 
 #### Add tasks to incidents with playbooks
 

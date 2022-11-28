@@ -74,7 +74,7 @@ To add and configure these actions, take the following steps:
     Add the **Accounts AAD user ID** dynamic content item to the **userIds Item - 1** field.
 
     > [!NOTE]
-    > This field (Accounts AAD user ID) is one way to identify a user in AADIP. It is not necessarily the best way, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Azure AD Identity Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
+    > This field (Accounts AAD user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Azure AD Identity Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
 
     This action sets in motion processes inside Azure AD Identity Protection that will reset the user's password.
 
