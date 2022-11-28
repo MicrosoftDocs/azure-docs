@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 11/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -23,9 +23,6 @@ This topic covers how to enable number matching in Microsoft Authenticator push 
 
 - Your organization needs to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
 
-  >[!NOTE]
-  >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
-
 - If your organization is using AD FS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
@@ -39,9 +36,6 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [Combined SSPR and MFA registration during Authenticator app set up](howto-registration-mfa-sspr-combined.md)
 - [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
 - [NPS extension](howto-mfa-nps-extension.md)
-
->[!NOTE]
->For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
 Number matching is available for sign-in for Azure Government. However, it's currently not available for Authenticator setup in combined registration. Number matching will be available for Authenticator setup in [combined registration](howto-registration-mfa-sspr-combined.md) by November 30, 2022 for Azure Government.
 
@@ -67,9 +61,8 @@ The AD FS adapter supports number matching after installing an update. Unpatched
 
 | Version | Update |
 |---------|--------|
-| Windows Server 2022 | [October 26, 2021—KB5006745 (OS Build 20348.320) Preview](https://support.microsoft.com/topic/october-26-2021-kb5006745-os-build-20348-320-preview-8ff9319a-19e7-40c7-bbd1-cd70fcca066c) |
-| Windows Server 2019 | [October 19, 2021—KB5006744 (OS Build 17763.2268) Preview](https://support.microsoft.com/topic/october-19-2021-kb5006744-os-build-17763-2268-preview-e043a8a3-901b-4190-bb6b-f5a4137411c0) |
-| Windows Server 2016 | [October 12, 2021—KB5006669 (OS Build 14393.4704)](https://support.microsoft.com/topic/october-12-2021-kb5006669-os-build-14393-4704-bcc95546-0768-49ae-bec9-240cc59df384) |
+| Windows Server 2022 | [November 9, 2021—KB5007205 (OS Build 20348.350)](https://support.microsoft.com/topic/november-9-2021-kb5007205-os-build-20348-350-af102e6f-cc7c-4cd4-8dc2-8b08d73d2b31) |
+| Windows Server 2019 | [November 9, 2021—KB5007206 (OS Build 17763.2300)](https://support.microsoft.com/topic/november-9-2021-kb5007206-os-build-17763-2300-c63b76fa-a9b4-4685-b17c-7d866bb50e48) |
 
 
 ### NPS extension
