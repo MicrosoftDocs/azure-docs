@@ -39,7 +39,7 @@ When you [create a lab within Teams](#create-a-lab-in-teams), Azure Lab Services
 
 Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours. Educators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
 
-:::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
+:::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Sync users":::
 
 After publishing the lab, Azure Lab Services automatically updates the lab capacity:
 
@@ -64,7 +64,7 @@ To publish a template VM in Teams:
 
 As an educator, you can access student VMs directly from the **Virtual machine pool** tab. You can start, stop, reset, or connect to a student VM. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
 
-:::image type="content" source="./media/how-to-manage-vm-pool-with-teams/vm-pool.png" alt-text="Screenshot of the VM pool tab in Teams.":::
+:::image type="content" source="./media/how-to-manage-labs-within-teams/vm-pool.png" alt-text="Screenshot of the VM pool tab in Teams.":::
 
 ## Configure lab schedules and settings in Teams
 
