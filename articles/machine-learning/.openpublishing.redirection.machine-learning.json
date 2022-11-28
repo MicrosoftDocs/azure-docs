@@ -1476,11 +1476,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-export-delete-data.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-export-delete-data",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-enable-virtual-network.md",
         "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
         "redirect_document_id": true
@@ -1553,6 +1548,16 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-authenticate-web-service.md",
         "redirect_url": "/azure/machine-learning/how-to-authenticate-online-endpoint",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-safely-rollout-managed-endpoints-sdk-v2.md",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-safely-rollout-managed-endpoints.md",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -1822,8 +1827,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/azure-machine-learning-release-notes.md",
-        "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
-        "redirect_document_id": true
+        "redirect_url": "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/azure-machine-learning-release-notes.md",
+        "redirect_url": "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/sample-designer-datasets.md",
@@ -2477,7 +2487,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-continuously-deploy.md",
-        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -3501,24 +3511,95 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoint.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-use-batch-endpoint",
-        "redirect_document_id": true
-    },
-        {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoint-sdk-v2.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoints-studio.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-batch-endpoints.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-troubleshoot-batch-endpoints",
+        "source_path_from_root": "/articles/machine-learning/concept-responsible-ml.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ai",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-responsible-ai-dashboard-ui.md",
+        "redirect_url": "/azure/machine-learning/how-to-responsible-ai-insights-ui",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-responsible-ai-dashboard-sdk-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-responsible-ai-insights-sdk-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-access-data-batch-endpoints-jobs.md",
+        "redirect_url": "/azure/machine-learning/how-to-access-data-batch-endpoints-jobs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-authenticate-batch-endpoint.md",
+        "redirect_url": "/azure/machine-learning/how-to-authenticate-batch-endpoint",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-batch-scoring-script.md",
+        "redirect_url": "/azure/machine-learning/how-to-batch-scoring-script",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-deploy-model-custom-output.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-model-custom-output",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-image-processing-batch.md",
+        "redirect_url": "/azure/machine-learning/how-to-image-processing-batch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-mlflow-batch.md",
+        "redirect_url": "/azure/machine-learning/how-to-mlflow-batch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-nlp-processing-batch.md",
+        "redirect_url": "/azure/machine-learning/how-to-nlp-processing-batch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-secure-batch-endpoint.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-batch-endpoint",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-troubleshoot-batch-endpoints.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-batch-endpoints",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-batch-azure-data-factory.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-batch-azure-data-factory",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-batch-endpoint.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-event-grid-batch.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-event-grid-batch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-low-priority-batch.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-low-priority-batch",
         "redirect_document_id": true
     }
+    
 ]
 }

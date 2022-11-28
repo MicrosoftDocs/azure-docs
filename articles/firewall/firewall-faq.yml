@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 10/07/2022
+  ms.date: 10/27/2022
   ms.author: victorh
 
 title: Azure Firewall FAQ
@@ -44,7 +44,7 @@ sections:
 
       - question: Does Azure Firewall support inbound traffic filtering?
         answer: |
-          Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md).
+          Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP protocols like RDP, SSH, and FTP protocols. For inbound HTTP and HTTPS protection, use a web application firewall such as [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md) or the TLS offload and deep packet inspection capabilities of [Azure Firewall Premium](./premium-features.md).
 
       - question: Which logging and analytics services are supported by the Azure Firewall?
         answer: |
@@ -212,9 +212,9 @@ sections:
         answer: |
          When a connection has an idle timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
 
-      - question: How does Azure Firewall handle VM instance shutdowns during virtual machine scale set scale in (scale down) or fleet software upgrades?
+      - question: How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
         answer: |
-         An Azure Firewall VM instance shutdown may occur during virtual machine scale set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
+         An Azure Firewall VM instance shutdown may occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
 
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |

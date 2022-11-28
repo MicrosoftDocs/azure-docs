@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 11/10/2022
 ms.author: jianleishen
 ---
 
@@ -34,12 +34,9 @@ This file system connector is supported for the following capabilities:
 
 Specifically, this file system connector supports:
 
-- Copying files from/to local machine or network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
+- Copying files from/to network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
 - Copying files using **Windows** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
-
-> [!NOTE]
-> Mapped network drive is not supported when loading data from a network file share. Use the actual path instead e.g. ` \\server\share`.
 
 ## Prerequisites
 
@@ -91,11 +88,14 @@ The following properties are supported for file system linked service:
 
 | Scenario | "host" in linked service definition | "folderPath" in dataset definition |
 |:--- |:--- |:--- |
-| Local folder on Integration Runtime machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |In JSON: `D:\\`<br/>On UI: `D:\` |In JSON: `.\\` or `folder\\subfolder`<br>On UI: `.\` or `folder\subfolder` |
 | Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |In JSON: `\\\\myserver\\share`<br/>On UI: `\\myserver\share` |In JSON: `.\\` or `folder\\subfolder`<br/>On UI: `.\` or `folder\subfolder` |
 
 >[!NOTE]
 >When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
+
+>[!NOTE]
+>Copying files from local machine is not supported under Azure Integration Runtime.<br>
+>Refer to the command line from [here](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) to enable the access to the local machine under Self-hosted integration runtime. By default, it's disabled.
 
 **Example:**
 

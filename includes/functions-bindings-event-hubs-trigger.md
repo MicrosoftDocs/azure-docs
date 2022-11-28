@@ -347,7 +347,7 @@ public class EventHubReceiver {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 

@@ -89,7 +89,7 @@ The maxPod per node setting can be defined when you create a new node pool. If y
 
 When you create an AKS cluster, the following parameters are configurable for Azure CNI networking:
 
-**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. If you want to select an existing virtual network, make sure it is in the same location and Azure subscription as your Kubernetes cluster. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
 
@@ -185,7 +185,7 @@ The pods per node values when using Azure CNI with dynamic allocation of IPs hav
 |Traditional Azure CNI|30|Yes (up to 250)|
 |Azure CNI with dynamic allocation of IPs|250|Yes (up to 250)|
 
-All other guidance related to configuring the maximum nodes per pod remains the same.
+All other guidance related to configuring the maximum pods per node remains the same.
 
 ### Additional deployment parameters
 
@@ -295,7 +295,7 @@ The following questions and answers apply to the **Azure CNI network configurati
 Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
-* [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 * [Enable the HTTP application routing add-on][aks-http-app-routing]

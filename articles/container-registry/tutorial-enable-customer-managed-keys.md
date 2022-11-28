@@ -13,7 +13,7 @@ This article is part two in a four-part tutorial series. [Part one](tutorial-cus
 ## Prerequisites
 
 * [Install the Azure CLI][azure-cli] or prepare to use [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+* Sign in to the [Azure portal](https://portal.azure.com/). 
 
 ## Enable a customer-managed key by using the Azure CLI
 

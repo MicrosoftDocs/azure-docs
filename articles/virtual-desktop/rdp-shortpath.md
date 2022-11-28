@@ -139,17 +139,17 @@ If your users are in a scenario where RDP Shortpath for both managed network and
 
 #### Session host virtual network
 
-| Name                          | Source    | Source Port | Destination                                                                                            | Destination Port | Protocol | Action |
-|-------------------------------|-----------|-------------|--------------------------------------------------------------------------------------------------------|------------------|----------|--------|
-| RDP Shortpath Server Endpoint | VM subnet | Any         | Any                                                                                                    | 1024-65535       | UDP      | Allow  |
-| STUN Access                   | VM subnet | Any         | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478             | UDP      | Allow  |
+| Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
+|---|---|:---:|---|:---:|:---:|:---:|
+| RDP Shortpath Server Endpoint | VM subnet | Any | Any | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
+| STUN Access | VM subnet | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
 
 #### Client network
 
-| Name                          | Source         | Source Port | Destination                                                                                            | Destination Port | Protocol | Action |
-|-------------------------------|----------------|-------------|--------------------------------------------------------------------------------------------------------|------------------|----------|--------|
-| RDP Shortpath Server Endpoint | Client network | Any         | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint)          | 1024-65535       | UDP      | Allow  |
-| STUN Access                   | Client network | Any         | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478             | UDP      | Allow  |
+| Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
+|---|---|:---:|---|:---:|:---:|:---:|
+| RDP Shortpath Server Endpoint | Client network | Any | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint) | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
+| STUN Access | Client network | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
 
 ### Teredo support
 

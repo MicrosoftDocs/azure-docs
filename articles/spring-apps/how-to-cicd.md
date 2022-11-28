@@ -64,6 +64,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: $(serviceName)
     AppName: 'testapp'
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(workingDirectory)/src/$(planetAppName)/publish-deploy-planet.zip
@@ -77,6 +78,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: $(serviceName)
     AppName: 'testapp'
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(workingDirectory)/src/$(solarAppName)/publish-deploy-solar.zip
@@ -132,6 +134,7 @@ To deploy using a pipeline, follow these steps:
        Action: 'Deploy'
        AzureSpringCloud: <your Azure Spring Apps service>
        AppName: <app-name>
+       DeploymentType: 'Artifacts'
        UseStagingDeployment: false
        DeploymentName: 'default'
        Package: ./target/your-result-jar.jar
@@ -158,6 +161,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: <your Azure Spring Apps service>
     AppName: <app-name>
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: true
     Package: ./target/your-result-jar.jar
 - task: AzureSpringCloud@0
@@ -220,9 +224,30 @@ To deploy directly to Azure without a separate build step, use the following pip
     Action: 'Deploy'
     AzureSpringCloud: <your Azure Spring Apps service>
     AppName: <app-name>
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(Build.SourcesDirectory)
+```
+
+### Deploy from custom image
+
+To deploy directly from an existing container image, use the following pipeline template.
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your Azure Spring Apps service>'
+    AppName: '<app-name>'
+    DeploymentType: 'CustomContainer'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    ContainerRegistry: 'docker.io'  # or your Azure Container Registry, e.g: 'contoso.azurecr.io'
+    RegistryUsername: '$(username)'
+    RegistryPassword: '$(password)'
+    ContainerImage: '<your image tag>'
 ```
 
 ::: zone-end

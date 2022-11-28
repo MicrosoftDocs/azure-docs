@@ -17,14 +17,14 @@ sections:
   - name: The Basics
     questions:
       - question: |
-          Where is Azure Payment HSM preview available? 
+          Where is Azure Payment HSM available? 
         answer: |
-          Azure Payment HSM is available for preview in East US and North Europe regions. 
+          Azure Payment HSM is available in the East US and North Europe regions. 
 
       - question: |
           How does Azure Payment HSM work? 
         answer: |
-          After HSMs are provisioned, they’re connected directly to a user’s virtual network, and HSMs are under users’ sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
+          After HSMs are provisioned, they're connected directly to a user's virtual network, and HSMs are under users' sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
           
       - question: |
           Which industries might use Azure Payment HSM? 
@@ -39,4 +39,14 @@ sections:
       - question: |
           How do I get started with the service? 
         answer: |
-          As Azure Payment HSM is a specialized service, you can request access [via email](mailto:paymentHSMRequest@microsoft.com).
+          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).
+        
+      - question: |
+          What HSM SKUs are supported for Azure Payment HSM?
+        answer: |
+          See [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus).
+
+      - question: |
+          How do I change the performance level or SKU of my payment HSM?
+        answer: |
+          See [How to change the performance level of a payment HSM](change-performance-level.md).

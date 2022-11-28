@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/09/2022
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -54,31 +54,6 @@ Two settings are available for network features:
 
 * Conversion between Basic and Standard networking features in either direction is not currently supported.
   
-## Register the feature 
-
-Follow the registration steps if you're using the feature for the first time.
-
-1.  Register the feature by running the following commands:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
-
-    Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
-
-    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ## Set the Network Features option
 
 This section shows you how to set the Network Features option. 

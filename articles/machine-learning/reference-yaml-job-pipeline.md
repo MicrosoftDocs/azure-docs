@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-author: s-polly
-ms.author: scottpolly
+author: cloga
+ms.author: lochen
 ms.date: 08/08/2022
-ms.reviewer: nibaccam
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) pipeline job YAML schema

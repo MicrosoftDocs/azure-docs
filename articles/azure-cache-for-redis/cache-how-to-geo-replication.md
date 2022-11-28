@@ -20,7 +20,7 @@ Compare _active-passive_ to _active-active_, where you can write to either side 
 
 With passive geo-replication, the cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary.
 
-Failover is not automatic. For more information and information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+Failover is not automatic. For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
 
 > [!NOTE]
 > Geo-replication is designed as a disaster-recovery solution.
@@ -66,13 +66,13 @@ After geo-replication is configured, the following restrictions apply to your li
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
 - You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Failover is not automatic. You must start the failover from the primary to the secondary inked cache.  For more information and information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
+- Failover is not automatic. You must start the failover from the primary to the secondary inked cache.  For more information on how to use failover, see [Initiate a failover from geo-primary to geo-secondary (preview)](#initiate-a-failover-from-geo-primary-to-geo-secondary-preview).
 
 - Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ## Add a geo-replication link
 
-1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from the working pane.
+1. To link two caches together for geo-replication, first select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from the working pane.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Screenshot showing the cache's Geo-replication menu.":::
 

@@ -35,18 +35,19 @@
       items:
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
+        - name: Delegated access
+          href: delegated-access-primer.md
+        - name: Scopes and permissions
+          href: scopes-oidc.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
           href: custom-rbac-for-developers.md
-        - name: Scopes, permissions, and consent
-          displayName: Scopes
-          href: v2-permissions-and-consent.md
+        - name: Requesting permissions through consent
+          href: consent-types-developer.md
         - name: Application consent experiences
           displayName: App consent experiences
           href: application-consent-experience.md
-        - name: Consent framework
-          href: consent-framework.md
         - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
           displayName: ca
@@ -182,6 +183,8 @@
           href: app-resilience-continuous-access-evaluation.md
         - name: Claims challenges and requests
           href: claims-challenge.md
+        - name: Configure app instance property lock
+          href: howto-configure-app-instance-property-locks.md
     - name: Test
       items:
         - name: Build a test environment
@@ -278,45 +281,6 @@
               href: scenario-spa-call-api.md
             - name: Move to production
               href: scenario-spa-production.md
-    - name: Reference
-      items:
-        - name: MSAL.js
-          displayName: Angular, JavaScript, Node.js, React
-          items:
-            - name: Library initialization
-              items:
-                - name: Init MSAL.js 2.x and 1.x clients
-                  href: msal-js-initializing-client-applications.md
-                - name: Running and debugging in IE
-                  href: msal-js-use-ie-browser.md
-                - name: Integrate with Azure AD B2C
-                  href: msal-b2c-overview.md
-            - name: Authentication and single sign-on (SSO)
-              items:
-                - name: Single sign-on with MSAL.js
-                  href: msal-js-sso.md
-                - name: Pass custom state in authentication requests
-                  href: msal-js-pass-custom-state-authentication-request.md
-                - name: Prompt behavior
-                  href: msal-js-prompt-behavior.md
-                - name: Avoid page reloads
-                  href: msal-js-avoid-page-reloads.md
-            - name: Migration
-              items:
-                - name: Migrate to MSAL.js
-                  href: msal-compare-msal-js-and-adal-js.md
-                - name: Migrate SPA from implicit to auth code flow
-                  displayName: authorization, single-page app, 2.0
-                  href: migrate-spa-implicit-to-auth-code.md
-            - name: Logging and error handling
-              items:
-                - name: Logging in MSAL.js
-                  href: msal-logging-js.md
-                - name: Handle errors and exceptions in MSAL.js
-                  displayName: handling, catch
-                  href: msal-error-handling-js.md
-                - name: Known issues - IE and Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
 - name: Web app
   items:
     - name: Web app authentication documentation
@@ -660,6 +624,43 @@
               href: msal-error-handling-java.md
             - name: Logging in MSAL for Java
               href: msal-logging-java.md
+        - name: MSAL.js
+          displayName: Angular, JavaScript, Node.js, React
+          items:
+            - name: Library initialization
+              items:
+                - name: Init MSAL.js 2.x and 1.x clients
+                  href: msal-js-initializing-client-applications.md
+                - name: Running and debugging in IE
+                  href: msal-js-use-ie-browser.md
+                - name: Integrate with Azure AD B2C
+                  href: msal-b2c-overview.md
+            - name: Authentication and single sign-on (SSO)
+              items:
+                - name: Single sign-on with MSAL.js
+                  href: msal-js-sso.md
+                - name: Pass custom state in authentication requests
+                  href: msal-js-pass-custom-state-authentication-request.md
+                - name: Prompt behavior
+                  href: msal-js-prompt-behavior.md
+                - name: Avoid page reloads
+                  href: msal-js-avoid-page-reloads.md
+            - name: Migration
+              items:
+                - name: Migrate to MSAL.js
+                  href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrate SPA from implicit to auth code flow
+                  displayName: authorization, single-page app, 2.0
+                  href: migrate-spa-implicit-to-auth-code.md
+            - name: Logging and error handling
+              items:
+                - name: Logging in MSAL.js
+                  href: msal-logging-js.md
+                - name: Handle errors and exceptions in MSAL.js
+                  displayName: handling, catch
+                  href: msal-error-handling-js.md
+                - name: Known issues - IE and Microsoft Edge
+                  href: msal-js-known-issues-ie-edge-browsers.md
         - name: MSAL.NET
           displayName: ASP.NET Core, Xamarin
           items:
