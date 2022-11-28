@@ -40,9 +40,9 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Price Estimation' workbook](#use-the-price-estimation-workbook) - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and do not provide actual billing data.
 - ['Governance workbook'](#use-the-governance-preview-workbook) -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
 
-In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support.
+In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud." lightbox="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 Choose one of the supplied workbooks or create your own.
 
@@ -74,7 +74,6 @@ The secure score over time workbook has five graphs for the subscriptions report
 |**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="Recommendations with the most unhealthy resources.":::|
 |**Scores for specific security controls**<br>Defender for Cloud's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period.":::|
 |**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="Recommendations with the most resources that have changed health state.":::|
-
 
 ### Use the 'System Updates' workbook
 
