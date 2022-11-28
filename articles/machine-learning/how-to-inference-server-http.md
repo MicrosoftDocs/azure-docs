@@ -106,13 +106,14 @@ The server is listening on port 5001 at these routes.
 
 The following table contains the parameters accepted by the server:
 
-| Parameter                       | Required | Default | Description                                                                            |
-| ------------------------------- | -------- | ------- | -------------------------------------------------------------------------------------- |
-| entry_script                    | True     | N/A     | The relative or absolute path to the scoring script.                                   |
-| model_dir                       | False    | N/A     | The relative or absolute path to the directory holding the model used for inferencing. |
-| port                            | False    | 5001    | The serving port of the server.                                                        |
-| worker_count                    | False    | 1       | The number of worker threads that will process concurrent requests.                    |
-| appinsights_instrumentation_key | False    | N/A     | The instrumentation key to the application insights where the logs will be published.  |
+| Parameter                       | Required | Default | Description                                                                                                        |
+| ------------------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| entry_script                    | True     | N/A     | The relative or absolute path to the scoring script.                                                               |
+| model_dir                       | False    | N/A     | The relative or absolute path to the directory holding the model used for inferencing.                             |
+| port                            | False    | 5001    | The serving port of the server.                                                                                    |
+| worker_count                    | False    | 1       | The number of worker threads that will process concurrent requests.                                                |
+| appinsights_instrumentation_key | False    | N/A     | The instrumentation key to the application insights where the logs will be published.                              |
+| access_control_allow_origins    | False    | N/A     | Enable CORS for the specified origins. Separate multiple origins with ",". <br> Example: "microsoft.com, bing.com" |
 
 ## Request flow
 
