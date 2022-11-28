@@ -496,8 +496,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
     - name: Common (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
