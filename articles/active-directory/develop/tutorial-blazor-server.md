@@ -7,6 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
+ms.custom: "engagement-fy23"
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
 
@@ -19,7 +20,7 @@ We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
 In this tutorial:
 
 > [!div class="checklist"]
-> * Create a new Blazor Server app configured to use Azure Active Directory (Azure AD) for authentication
+> * Create a new Blazor Server app configured to use Azure AD for authentication
 > * Handle both authentication and authorization using Microsoft.Identity.Web
 > * Retrieve data from a protected web API, Microsoft Graph
 
@@ -30,7 +31,7 @@ In this tutorial:
 
 ## Register the app in the Azure portal
 
-Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these additions:
+Every app that uses Azure AD for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these additions:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
@@ -41,14 +42,14 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 
 1. Within the same app registration, under **Manage**, select **Certificates & secrets** and then **Client secrets**.
 2. Create a **New client secret** that never expires.
-3. Make note of the secret's **Value** as you will use it in the next step. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
+3. Make note of the secret's **Value** as you'll use it in the next step. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
 
 ## Create the app using the .NET CLI
 
-Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial.
+Run the following command to download the templates for Microsoft.Identity.Web, which we'll make use of in this tutorial.
 
 ```dotnetcli
-dotnet new --install Microsoft.Identity.Web.ProjectTemplates
+dotnet new install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
@@ -86,7 +87,7 @@ In your browser, navigate to `https://localhost:5001`, and log in using an Azure
 
 Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 
-Now you will update your app's registration and code to pull a user's email and display the messages within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages.
+Now you'll update your app's registration and code to pull a user's email and display the messages within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages.
 
 1. In the Azure portal, select your app in **App registrations**.
 1. Under **Manage**, select **API permissions**.
@@ -100,7 +101,7 @@ In the *appsettings.json* file, update your code so it fetches the appropriate t
 "Scopes": "user.read mail.read"
 ```
 
-Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following:
+Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
 
 ```csharp
 @page "/fetchdata"
