@@ -29,7 +29,7 @@ In [Call a REST API by using Azure Active Directory B2C custom policy](custom-po
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-create-user-record.png" alt-text="A flowchart of creating a user account in Azure AD.":::   
 
 
-# Prerequisites
+## Prerequisites
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
@@ -39,7 +39,7 @@ In [Call a REST API by using Azure Active Directory B2C custom policy](custom-po
 
 - Complete the steps in [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
-## Step 1 - Declare or update claims 
+## Step 1 - Declare and update claims 
 
 You need to update the `objectId` claim, and declare two more claims, `userPrincipalName`, `passwordText`, and `passwordPolicies`:
 
@@ -127,27 +127,125 @@ You need to configure the [Azure AD Technical Profile](active-directory-technica
         </TechnicalProfile>
     ```
 
-    We've added a new Azure AD Technical Profile, *AAD-UserWrite*. You need to take note of the following characteristics: 
+    We've added a new Azure AD Technical Profile, *AAD-UserWrite*. You need to take note of the following important parts of the technical profile: 
     
-    -  *Operation*: The operation specifies the operation to be performed, in this case, *Write*.
-    - 
-    - *InputClaims*: The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles.
+    -  *Operation*: The operation specifies the operation to be performed, in this case, *Write*. Learn more about other [operations in an Azure AD technical provider](active-directory-technical-profile.md#azure-ad-technical-provider-operations).
+    
+    - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Azure AD storage.
+    
+    - *InputClaims*: The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles. This technical profile uses the *email* claim, as the key identifier for the user account. Learn more about [other key identifiers you can use uniquely identify a user account](active-directory-technical-profile.md#inputclaims).   
 
 ## Step 3 - Create a copy of password 
 
+Azure AD B2C treats the *password* claim as a special value. When you collect the password claim value in the Self-Asserted Technical Profile, that value is only available within the same technical profile or within Validation Technical Profiles that are referenced by that same Self-Asserted Technical Profile. Once execution completes, and moves to another technical profile, the value is lost. 
 
-Discuss special handling of password
-## Updating the User Journey Orchestration Steps 
+In our [Scenario overview](#scenario-overview), after we collect user inputs, we need to validate the *accessCode* by running another technical profile, before we finally store the values in Azure AD storage. By this time, we would've lost the password value. 
+
+To address this behavior, we create a copy of our password in another claim. The copy of password claim name is *passwordText*, which we declared in [step 1](#step-1---declare-and-update-claims).
+
+Follow these steps to create a copy of the password: 
+
+1. Add the following code inside the `ClaimsTransformations` element:
+
+    ```xml
+        <ClaimsTransformation Id="CopyPasswordClaimsTransformation" TransformationMethod="CopyClaim">
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="inputClaim" />
+            </InputClaims>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="passwordText" TransformationClaimType="outputClaim" />
+            </OutputClaims>
+        </ClaimsTransformation>
+    ```   
+    We've defined a claims transformation, *CopyPasswordClaimsTransformation*. The claims transformation uses the [CopyClaim](general-transformations.md#copyclaim) method copy a value from one claim to another claim.  
+
+1. Locate the *UserInformationCollector* technical profile, and then add the following Claims Transformation Technical Profile after it:
+
+    ```xml
+        <TechnicalProfile Id="CreatePasswordCopy">
+            <DisplayName>Copy Password Profile</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <InputClaimsTransformations>
+                <InputClaimsTransformation ReferenceId="CopyPasswordClaimsTransformation" />
+            </InputClaimsTransformations>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="passwordText" Required="true" />
+            </OutputClaims>
+        </TechnicalProfile> 
+    ```
+
+   The *CreatePasswordCopy* technical profile executes the *CopyPasswordClaimsTransformation*, that's, it copies *password* claim value to *passwordText* claim.   
+
+1.  Add the *CreatePasswordCopy* as a Validation Technical Profile (in the ValidationTechnicalProfiles element) in the UserInformationCollector Self-Asserted Technical Profile by using the following code:
+
+    ```xml
+        <ValidationTechnicalProfile ReferenceId="CreatePasswordCopy"/>
+    ```  
+
+1. In the *UserInformationCollector* Technical Profile, add *passwordText* as a output claim by using the following code:   
+
+    ```xml
+        <OutputClaim ClaimTypeReferenceId="passwordText"/>
+    ```
+
+## Step 4 - Update the User Journey Orchestration Steps 
+
+Now that your *AAD-UserWrite* Technical Profile is ready, you can update the user journey orchestration steps to call the *AAD-UserWrite* Technical Profile as one of the steps. 
+
+1. In the *UserJourney* element, add an orchestration step just before the *SendClaims* step by using the following code: 
+
+    ```xml
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+            <ClaimsExchanges>
+                <ClaimsExchange Id="AADUserWriterExchange" TechnicalProfileReferenceId="AAD-UserWrite" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+    ```
+
+1. Update the Order of the *SendClaims* step to *5*.
+
+## Step 5 - Upload policy 
+
+Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
+
+## Step 6 - Test policy 
+
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy.
+
+After the policy finishes execution, and you receive your ID token, check that the user record has been stored: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
+
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    
+    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
+
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select Switch.
+
+1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
+
+1. Under **Manage**, select **Users**.
+
+1. Locate the user account that you just created, and select it. The account profile looks similar to the screenshot below:
+
+    :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-create-users-custom-policy.png" alt-text="A screenshot of creating a user account in Azure AD.":::   
 
 
-## Upload policy 
+In our *AAD-UserWrite* Azure AD Technical Profile, we've specified that if the user already exists, we raise an error.
 
+Test your custom policy again by using the same *Email Address*. Instead of an ID token, you should see an error similar to the screenshot below.
 
-## Test policy 
+:::image type="content" source="media/custom-policies-series-store-user/screenshot-of-error-account-already-exists.png" alt-text="A screenshot of error as account already exists.":::  
 
+> [!NOTE]
+> The *password* claim value is a very important piece of information, so be very careful how you handle it in your custom policy.   
 
 ## Next steps 
 
+- Learn how to [Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md).
 
-if you want to store custom attributes, provide a link to creating custom attributes with custom policies 
-if you want to include a claim that you can't store in Azure AD B2C in a JWT token, you can obtain by making an REST call, and then include in the token claims.  
+- Learn how to [define custom attributes in your custom policy](user-flow-custom-attributes.md?pivots=b2c-custom-policy).
+ 
+- Learn how to [add password expiration to custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-after-90-days ).
+
+- Learn more [about Azure AD Technical Profile](active-directory-technical-profile.md). 
