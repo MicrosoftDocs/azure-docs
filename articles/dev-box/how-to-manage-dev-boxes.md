@@ -10,7 +10,6 @@ ms.date: 09/18/2022
 ms.topic: how-to
 ---
 
-<!-- Intent: As a dev box user, I want to be able to manage my dev boxes so that I can use them most effectively. -->
 
 # Manage a dev box using the developer portal
 You can pre-configure a dev box to manage all of your tools, services, source-code and pre-built binaries specific to your project so you can immediately start working. Dev box enables you to get started quickly with an environment that's ready to build on so you can run your app in minutes. 
