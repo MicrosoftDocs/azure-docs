@@ -1,19 +1,19 @@
 ---
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore-microsoft
+ms.manager: vijain
 ms.topic: troubleshooting
-ms.date: 08/10/2022
+ms.date: 11/28/2022
 ms.custom: engagement-fy23
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration
 
-This article describes some common issues and specific errors you might encounter when you replicate on-premises VMware VMs using the Azure Migrate: Server Migration agentless method.
+This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Azure Migrate: Server Migration agentless method.
 
-When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine&#39;s disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
+When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
 You may occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
 
@@ -24,16 +24,16 @@ You may occasionally see replication cycles failing for a VM. These failures can
 
 Use the following steps to monitor the replication status for your virtual machines:
 
-  1. Go to the Servers page in Azure Migrate on the Azure portal.
-  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
-  1. Navigate to the "Replicating machines" page by selecting **Replicating servers** in the Server Migration tile.
-  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
-  1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Error Details**. The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
-  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
+  ![Screenshot of the Get started screen of Azure Migrate.](./media/troubleshoot-changed-block-tracking-replication/Overview.png)
+  1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM** .
+  ![Screenshot of the Migration and modernization screen.](./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png)
+  1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot. 
+  ![Screenshot of Health error details option in the Replication machines screen.](./media/troubleshoot-changed-block-tracking-replication/health-error-details.png)
   1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
   ![Image 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
   1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
- ![Image 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+ ![Screenshot of error message in the Error details screen.](./media/troubleshoot-changed-block-tracking-replication/error-details.png)
 
 ## Common Replication Errors
 
