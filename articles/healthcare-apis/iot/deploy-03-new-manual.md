@@ -5,11 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 11/18/2022
 ms.author: jasteppe
 ---
 
-# How to manually deploy MedTech service using the Azure portal
+# Quickstart: How to manually deploy MedTech service using the Azure portal
 
 You may prefer to manually deploy MedTech service if you need to track every step of the developmental process. Manual deployment might be necessary if you have to customize or troubleshoot your deployment. Manual deployment will help you by providing all the details for implementing each task.
 

@@ -6,6 +6,8 @@
       href: introduction.md
     - name: Wire protocol support
       href: support.md
+    - name: Tokens and the Token function
+      href: tokens.md
     - name: FAQ
       href: cassandra-faq.yml
 - name: Quickstarts
@@ -352,8 +354,6 @@
           href: error-codes-solution.md
         - name: Monitor and debug with insights in API for Apache Cassandra
           href: monitor-insights.md
-        - name: Advanced diagnostics for API for Apache Cassandra
-          href: diagnostic-queries.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -396,8 +396,8 @@
           href: ../how-to-configure-private-endpoints.md
         - name: Connect privately to an Azure Cosmos DB account
           href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Use Azure Key Vault to access data
-          href: ../access-secrets-from-keyvault.md
+        - name: Store credentials in Azure Key Vault
+          href: ../store-credentials-key-vault.md
         - name: Access Azure Key Vault with managed identity
           href: ../access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
@@ -432,10 +432,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

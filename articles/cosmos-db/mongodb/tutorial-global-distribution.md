@@ -68,7 +68,7 @@ var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
+For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *primary preferred*. A read preference of *primary preferred* is configured to read from the secondary region when the primary region is unavailable.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

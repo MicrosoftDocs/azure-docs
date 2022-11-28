@@ -6,6 +6,23 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.24.2: November 2022 release
+
+#### New features
+- No new features, just an embedded engine fix to support new model files.
+
+#### Bug fixes
+
+- **All programing languages**
+    - Fixed an issue with encryption of embedded speech recognition models.
+- **JavaScript SDK**
+    - not included in this release
+
+- **Java**
+    - none
+- **Python**
+    - none
+
 ### Speech SDK 1.24.1: November 2022 release
 
 #### New features
@@ -21,7 +38,7 @@ ms.author: eur
 - **Java**
     - Temporarily Published updated POM and Javadocs files to Maven Central to enable the docs pipeline to update online reference docs.
 - **Python**
-    - Fix regression where python speak_text(ssml) returns void.
+    - Fix regression where Python speak_text(ssml) returns void.
 
 
 ### Speech SDK 1.24.0: October 2022 release

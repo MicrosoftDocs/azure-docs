@@ -152,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
-Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
+Continue with additional configurations, such as [adding users](manage-users-on-premises-management-console.md), [configuring forwarding exclusion rules](how-to-forward-alert-information-to-partners.md) and more. For more information,, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 ## Change the name of a sensor
 
@@ -379,7 +379,7 @@ This procedure describes how to download a diagnostics log to send to support in
 This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console
-- **22.1.3** - For locally-managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -391,7 +391,28 @@ This feature is supported for the following sensor versions:
 
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-1. For a locally-managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+
+## Clearing sensor data
+
+In cases where the sensor needs to be relocated or erased, the sensor can be reset.
+
+Clearing data deletes all detected or learned data on the sensor. After clearing data on a cloud connected sensor, cloud inventory will be updated accordingly. Additionally, some actions on the corresponding cloud alerts such as downloading PCAPs or learning alerts will not be supported.
+
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+
+**To clear system data**:
+
+1. Sign in to the sensor as the *cyberx* user.
+
+1. Select **Support** > **Clear data**.
+
+1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+
+A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
 ## Next steps
 
