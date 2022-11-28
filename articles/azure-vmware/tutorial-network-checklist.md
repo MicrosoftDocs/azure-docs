@@ -89,6 +89,7 @@ The subnets:
 | HCX NE, Interconnect (HCX-IX) at Source| HCX NE, Interconnect (HCX-IX) at Destination)| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
 | Interconnect (HCX-IX) local | Interconnect (HCX-IX) (remote)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |     
+
 [For a full list of HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
 
 ## DHCP and DNS resolution considerations
