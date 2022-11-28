@@ -52,7 +52,7 @@ Because Azure Disks are mounted as *ReadWriteOnce*, they're only available to a 
 
 ### Azure Files
 
-Use [Azure Files][azure-files-volume.md] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
+Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
 
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
@@ -247,6 +247,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-disk-csi]: azure-disk-csi.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-files-csi]: azure-files-csi.md
+[azure-files-volume]: azure-files-volume.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
