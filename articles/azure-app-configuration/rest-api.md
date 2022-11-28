@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 11/28/2022
 ---
 
-# Azure App Configuration REST API
+# Azure App Configuration Data Plane REST API
 
 The documentation on the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) REST API for Azure App Configuration is available in the [Azure REST documentation](/rest/api/appconfiguration/). This section contains details for developers working with the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) REST API of Azure App Configuration.
 
