@@ -33,7 +33,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 
 The [OAuth2.0 spec](https://tools.ietf.org/html/rfc6749#section-5.2) provides guidance on how to handle errors during authentication using the `error` portion of the error response. 
 
-Here is a sample error response:
+Here's a sample error response:
 
 ```json
 {
@@ -57,7 +57,7 @@ Here is a sample error response:
 | `timestamp`   | The time at which the error occurred. |
 | `trace_id`    | A unique identifier for the request that can help in diagnostics. |
 | `correlation_id` | A unique identifier for the request that can help in diagnostics across components. |
-| `error_uri` |  A link to the error lookup page with additional information about the error.  This is for developer usage only, do not present it to users.  Only present when the error lookup system has additional information about the error - not all error have additional information provided.|
+| `error_uri` |  A link to the error lookup page with additional information about the error.  This is for developer usage only, don't present it to users.  Only present when the error lookup system has additional information about the error - not all error have additional information provided.|
 
 The `error` field has several possible values - review the protocol documentation links and OAuth 2.0 specs to learn more about specific errors (for example, `authorization_pending` in the [device code flow](v2-oauth2-device-code.md)) and how to react to them.  Some common ones are listed here:
 
@@ -68,7 +68,7 @@ The `error` field has several possible values - review the protocol documentatio
 | `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
 | `unsupported_grant_type` | The authorization server doesn't support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
-| `invalid_resource` | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  During development, this usually indicates an incorrectly setup test tenant or a typo in the name of the scope being requested. |
+| `invalid_resource` | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  During development, this usually indicates an incorrectly setup test tenant or a typo in the name of the scope being requested. |
 | `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource, interactively, so that the user can complete any challenges required.  |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
@@ -77,15 +77,15 @@ The `error` field has several possible values - review the protocol documentatio
 | Error | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if `prompt=none` is specified. |
-| AADSTS16001 | UserAccountSelectionInvalid - You'll see this error if the user clicks on a tile that the session select logic has rejected. When triggered, this error allows the user to recover by picking from an updated list of tiles/sessions, or by choosing another account. This error can occur because of a code defect or race condition. |
-| AADSTS16002 | AppSessionSelectionInvalid - The app-specified SID requirement was not met.  |
+| AADSTS16001 | UserAccountSelectionInvalid - You'll see this error if the user selects on a tile that the session select logic has rejected. When triggered, this error allows the user to recover by picking from an updated list of tiles/sessions, or by choosing another account. This error can occur because of a code defect or race condition. |
+| AADSTS16002 | AppSessionSelectionInvalid - The app-specified SID requirement wasn't met.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant - Indicates that the user hasn't been explicitly added to the tenant. |
 | AADSTS17003 | CredentialKeyProvisioningFailed - Azure AD can't provision the user key. |
 | AADSTS20001 | WsFedSignInResponseError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS20012 | WsFedMessageInvalid - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS20033 | FedMetadataInvalidTenantName - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
-| AADSTS28002 | Provided value for the input parameter scope '{scope}' isn't valid when requesting an access token. Please specify a valid scope. |
-| AADSTS28003 | Provided value for the input parameter scope can't be empty when requesting an access token using the provided authorization code. Please specify a valid scope.|
+| AADSTS28002 | Provided value for the input parameter scope '{scope}' isn't valid when requesting an access token. Specify a valid scope. |
+| AADSTS28003 | Provided value for the input parameter scope can't be empty when requesting an access token using the provided authorization code. Specify a valid scope.|
 | AADSTS40008 | OAuth2IdPUnretryableServerError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS40009 | OAuth2IdPRefreshTokenRedemptionUserError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS40010 | OAuth2IdPRetryableServerError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
@@ -354,7 +354,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
-| AADSTS100007 | AAD Regional ONLY supports auth either for MSIs OR for requests from MSAL using SN+I for 1P apps or 3P apps in Microsoft infrastructure tenants.|
+| AADSTS100007 | Azure AD Regional ONLY supports auth either for MSIs OR for requests from MSAL using SN+I for 1P apps or 3P apps in Microsoft infrastructure tenants.|
 | AADSTS1000031 | Application {appDisplayName} can't be accessed at this time. Contact your administrator. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
 | AADSTS7000114| Application 'appIdentifier' isn't allowed to make application on-behalf-of calls.|
