@@ -102,8 +102,8 @@ You can get access to the environment's unique identifier by querying the enviro
 
 By default, ingress does not filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
 
-* Allow access from a list of IP address ranges, deny all other inbound traffic
-* Deny access from a list of IP address ranges, allow all other inbound traffic
+* Allow list - deny all inbound traffic, but allow access from a list of IP address ranges
+* Deny list - allow all inbound traffic, but deny access from a list of IP address ranges
 
 > [!NOTE]
 > If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
