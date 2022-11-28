@@ -231,7 +231,7 @@ After the policy finishes execution, and you receive your ID token, check that t
     :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-create-users-custom-policy.png" alt-text="A screenshot of creating a user account in Azure AD.":::   
 
 
-In our *AAD-UserWrite* Azure AD Technical Profile, we've specified that if the user already exists, we raise an error.
+In our *AAD-UserWrite* Azure AD Technical Profile, we specify that if the user already exists, we raise an error.
 
 Test your custom policy again by using the same *Email Address*. Instead of an ID token, you should see an error similar to the screenshot below.
 
