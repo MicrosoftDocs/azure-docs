@@ -13,7 +13,7 @@ ms.date: 08/15/2022
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article demonstrates how to connect improve the performance of an Azure Database for MySQL using Azure cache for Redis. 
+This article demonstrates how to boost the performance of an Azure Database for MySQL using [Azure cache for Redis](../../azure-cache-for-redis). Azure cache for Redis is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
 
 ## Prerequisites
 
@@ -22,8 +22,8 @@ For this quickstart you need:
 - An Azure account with an active subscription. 
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
-- Configure networking setting of Azure Database for MySQL Flexible server to make sure your IP has access to it. If you are using Azure App Service or Azure Kubernetes service, please enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal. 
+- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
+- Configure networking setting of Azure Database for MySQL Flexible server to make sure your IP has access to it. If you're using Azure App Service or Azure Kubernetes service, enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal. 
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
@@ -57,7 +57,7 @@ INSERT INTO tasks (id,title, completed) VALUES
 Follow the steps below to use Redis to cache SQL queries from MySQL database.
 
 ### Pre-requisite
-Setup latest version of Python on your local environment or on Azure virtual machine or Azure App Service. Use pip to install redis-py:
+Install the latest version of [Python](https://www.python.org/) on your local environment or on Azure virtual machine or Azure App Service. Use pip to install redis-py:
 ```python
 pip install redis
 ```
@@ -94,7 +94,7 @@ mysqlcnx.close()
 ```
 
 ## Using Redis with PHP
-Follow the steps below to write a PHP script that caches a sql query from MySQL database. Here are few pre-requisites before running the script:
+Install [PHP](https://www.php.net/manual/en/install.php) on your local environment. Follow the steps below to write a PHP script that caches a sql query from MySQL database. Here are few pre-requisites before running the script:
 1. Install and enable [Redis PECL extension](https://pecl.php.net/package/redis) to use Redis with your PHP script. See [how to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) 
 2. Install and enable [MySQL PDO extension](https://www.php.net/manual/en/ref.pdo-mysql.php)
 
@@ -166,8 +166,8 @@ define( 'WP_REDIS_MAXTTL', 60 * 60 * 24 * 7 );
 ```
 Go to wordpress admin dashboard and select the Redis settings page on the menu. Now select **enable Object Cache**. Plugin will read the redis server information from wp-config.php file.
 
-You may also use [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/) to configure Redis cache on your WordPress app. To test and evaluate the performance improvemens you can use [Query Monitor plugin](https://wordpress.org/plugins/query-monitor/) which allows you to debug database queries and it also shows total database queries grouped by a plugin.  
+You may also use [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/) to configure Redis cache on your WordPress app. You can evaluate the performance improvements using [Query Monitor plugin](https://wordpress.org/plugins/query-monitor/) which allows you to debug database queries and it also shows total database queries grouped by a plugin.  
     
 ## Next steps
 
-In this quickstart, you learned how to create an instance of Azure Cache for Redis and use it with Azure database for MySQL. See [additional performance best practices](https://learn.microsoft.com/en-us/azure/mysql/single-server/concept-performance-best-practices) for Azure database for MySQL.
+In this quickstart, you learned how to create an instance of Azure Cache for Redis and use it with Azure database for MySQL. See [performance best practices](https://learn.microsoft.com/en-us/azure/mysql/single-server/concept-performance-best-practices) for Azure database for MySQL.
