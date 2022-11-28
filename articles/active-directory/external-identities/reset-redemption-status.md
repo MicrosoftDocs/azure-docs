@@ -7,11 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-<<<<<<< HEAD
 ms.date: 11/28/2022
-=======
-ms.date: 11/11/2022
->>>>>>> fcf9c47ca7c891f1c393552b4ffa6177afbe3bf5
 
 ms.author: mimart
 author: msmimart
@@ -42,7 +38,6 @@ To reset a user's redemption status, you'll need one of the following roles:
 
 ## Use the Azure portal to reset redemption status
 
-<<<<<<< HEAD
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
 1. Search for and select **Azure Active Directory**.
 1. Select **Users**.
@@ -61,25 +56,6 @@ To reset a user's redemption status, you'll need one of the following roles:
 
     ![Screenshot showing the reset invitation status setting](./media/reset-redemption-status/reset-status.png)
 
-1. Select **Yes** to confirm.
-=======
-1. Sign in to the [Azure portal](https://portal.azure.com/) using an account that has one of the [required Azure AD roles](#required-azure-ad-roles).
-2. Search for and select **Azure Active Directory**.
-3. Select **Users**.
-4. In the list, select the user's name to open their user profile.
-5. If the user wants to sign in using a different email:
-   - Select **Edit properties**.
-   - Select the **Contact Information** tab.
-   - Next to **Email**, type the new email.
-   - Update **Other emails** to also include the new email.
-   - Select the **Save** button at the bottom of the page.
-
-1. On the **Overview** tab, under **My Feed**,  select the **Manage (resend invitation / reset status)** link in the **B2B collaboration** tile.
->>>>>>> fcf9c47ca7c891f1c393552b4ffa6177afbe3bf5
-
-    :::image type="content" source="media/reset-redemption-status/user-profile-b2b-collaboration.png" alt-text="Screenshot of the guest user's profile overview." lightbox="media/reset-redemption-status/user-profile-b2b-collaboration.png":::
-
-1. In the **Manage invitations** pane, under **Redemption status**, set **Reset invitation status? (Preview)** to **Yes**.
 1. Select **Yes** to confirm.
 
 ## Use PowerShell or Microsoft Graph API to reset redemption status
