@@ -43,8 +43,6 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
    ![Screenshot of Connect to Azure Key Vault screen.](../media/vs-key-vault-add-connected-service/connect-to-azure-key-vault.png)
 
-## Next steps
-
 Now, connection to Key Vault is established and you can access your secrets in code. If you just created a new key vault, test it by creating a secret that you can reference in code. You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
 
 See code examples of working with secrets at [Azure Key Vault Secrets client library for .NET - Code examples](../secrets/quick-create-net.md?tabs=azure-cli#code-examples).
