@@ -3,8 +3,8 @@ title: 'Tutorial: Configure GHAE for automatic user provisioning with Azure Acti
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GHAE.
 services: active-directory
 documentationcenter: ''
-author: Thwimmer
-writer: Thwimmer
+author: Twimmer
+writer: Twimmer
 manager: beatrizd
 
 ms.assetid: 4dfc1903-b12e-4b5a-9938-5ebf95189232
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2022
-ms.author: Thwimmer
+ms.date: 11/28/2022
+ms.author: Twimmer
 ---
 
 # Tutorial: Configure GHAE for automatic user provisioning
