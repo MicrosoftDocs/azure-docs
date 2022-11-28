@@ -15,7 +15,7 @@ When a [lab is created within Canvas](how-to-get-started-create-lab-within-canva
 
 Educators can use the **Sync** button to trigger a manual sync once the course membership is updated.
 
-:::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
+:::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Sync users":::
 
 Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-a-lab) or not.
 

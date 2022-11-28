@@ -112,7 +112,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Add and manage lab users**. To add users to your lab, see:
    - [Add users to the lab](./tutorial-setup-lab.md#add-users-to-the-lab)
    - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails-to-users)
-   - [Manage Lab Services user lists in Teams](./how-to-manage-user-lists-within-teams.md)
+   - [Manage Lab Services user lists in Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams)
 
     For information about the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#student-accounts).
   
