@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/18/2022
 ---
 
-# Tutorial: Prepare an application for authentication 
+# Tutorial: Prepare an application for authentication
 
 In this tutorial, you learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
-* A working version of one of the following IDEs. These can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac
@@ -36,7 +36,7 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 1. Open Visual Studio, and then select **Create a new project**.
 1. Search for and choose the **ASP.NET Core Web App** template, and then select **Next**.
 1. Enter a name for the project, such as *NewApp1*.
-1. Accept the default location for the project or choose a different location, and then select **Next**.
+1. Choose a location for the project or accept the default option, and then select **Next**.
 1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**.
 
 > [!NOTE]
@@ -47,8 +47,8 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar or the **Terminal**.
-1. Create a new folder, and give it the same name that you gave the app when you registered it online, for example *NewApp1*.
+1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar to create a new folder or use the **Terminal**.
+1. Provide the app a similar name to what you registered in the Azure portal, for example *NewApp1*.
 1. Run the following command in the terminal:
 
 ```powershell

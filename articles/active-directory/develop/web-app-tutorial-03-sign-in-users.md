@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/18/2022
 ---
 
-# Tutorial: Add sign-in to an application in Azure Active Directory 
+# Tutorial: Add sign-in to an application in Azure Active Directory
 
 In this tutorial, you learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md).
-* A working version of one of the following IDEs. These can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac
@@ -93,7 +93,7 @@ The same steps can be implemented in Visual Studio for Windows.
     app.UseRouting();
     ```
 
-## Create the *_LoginPartial.cshtml* file
+## Create the *_LoginPartial.cshtml* file to enable the Login experience
 
 ### [Visual Studio](#tab/visual-studio)
 

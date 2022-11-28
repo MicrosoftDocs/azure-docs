@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md).
-* A working version of one of the following IDEs. These can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac

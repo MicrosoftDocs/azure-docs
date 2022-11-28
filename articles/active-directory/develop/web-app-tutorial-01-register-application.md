@@ -42,11 +42,11 @@ Organizations may have more than one Azure AD tenant. Choose the tenant where th
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/select-tenant.png" alt-text="Screenshot of selecting a tenant in Azure Active Directory."::: 
 <!-- Refined screenshot required -->
-1. Once your tenant is selected, for example _Contoso_, close the page, and you will be brought to your tenant's **Overview** page.
+1. Once your tenant is selected, for example *Contoso*, close the page, and you will be brought to your tenant's **Overview** page.
 
 ### Start registration and enter a name for the application
 
-Provide a name for the application. The name is seen by users in the various portals.
+Provide a name for the application. This will be seen by users who will use your application, and can be changed later if required.
 
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
