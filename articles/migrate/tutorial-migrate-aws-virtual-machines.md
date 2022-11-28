@@ -5,8 +5,8 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 08/19/2020
-ms.custom: MVC
+ms.date: 08/18/2022
+ms.custom: MVC, engagement-fy23
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure

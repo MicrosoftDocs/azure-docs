@@ -1,8 +1,8 @@
 ---
 title: Deploy the Azure Industrial IoT Platform
 description: In this tutorial, you learn how to deploy the IIoT Platform.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.custom: ignite-2022
 ms.topic: tutorial

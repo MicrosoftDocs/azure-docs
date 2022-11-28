@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with Adstream
 
-In this article, you'll learn how to integrate Adstream with Azure Active Directory (Azure AD). Adstream provides the safest and easiest to use business solution for sending and receiving files. When you integrate Adstream with Azure AD, you can:
+In this article, you'll learn how to integrate Adstream with Azure Active Directory (Azure AD). Adstream is a content management system that provides the ability for multiple teams to collaborate on assets and distribute content. When you integrate Adstream with Azure AD, you can:
 
 * Control in Azure AD who has access to Adstream.
 * Enable your users to be automatically signed-in to Adstream with their Azure AD accounts.

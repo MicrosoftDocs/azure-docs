@@ -244,6 +244,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-disk-csi]: azure-disk-csi.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-files-csi]: azure-files-csi.md
+[azure-files-volume]: azure-files-volume.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

@@ -172,8 +172,8 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
-- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#sample-requests)
+- [Python](../azure-monitor/logs/data-collector-api.md#sample-requests)
 
 ## Connect with Azure Functions
 

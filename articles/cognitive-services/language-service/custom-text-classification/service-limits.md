@@ -69,6 +69,7 @@ Custom text classification is only available in some Azure regions. Some regions
 | UAE North          |           | ✓           |
 | UK South           | ✓         | ✓           |
 | West Central US    |           | ✓           |
+| West Europe        | ✓         | ✓           |
 
 ## API limits
 
