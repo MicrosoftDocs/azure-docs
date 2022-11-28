@@ -27,7 +27,7 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
 
-In your AWS environment (See the instructions below):
+In your AWS environment:
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
 - Create a **Simple Queue Service (SQS) queue** to provide notifications.
@@ -35,7 +35,7 @@ In your AWS environment (See the instructions below):
 
     - Attach the appropriate **IAM permissions policies** to grant Microsoft Sentinel access to the appropriate resources (S3 bucket, SQS).
 
-In Microsoft Sentinel (See the instructions below):
+In Microsoft Sentinel:
 - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. 
 Each side's process produces information used by the other side. This sharing creates secure communication.
 
