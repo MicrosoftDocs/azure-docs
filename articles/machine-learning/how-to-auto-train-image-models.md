@@ -334,8 +334,8 @@ You can control the resources spent on your AutoML Image training job by specify
 
 Parameter | Detail
 -----|----
-`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. default value is 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency. default value is 1.
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. Default value is 1.
+`max_concurrent_trials`| Maximum number of runs out of `max_trials` that can run concurrently. If specified, must be an integer between 1 and 100.  Default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> If user assigns `max_concurrent_trials` a value greater than that of `max_trials`, then  `max_concurrent_trials` would be set to a value same as that of `max_trials`. For example, user sets `max_concurrent_trials=4`, `max_trials=2`; values would be updated `max_concurrent_trials=2`, `max_trials=2`.
 `timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
 
 # [Azure CLI](#tab/cli)
