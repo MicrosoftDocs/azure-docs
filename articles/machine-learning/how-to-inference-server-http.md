@@ -15,7 +15,7 @@ ms.date: 07/14/2022
 
 # Azure Machine Learning inference HTTP server (preview)
 
-The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that wraps the server code and dependencies into a singular package. It's included in [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package by itself, you can easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
 The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with the candidate script and run the test suite against the local endpoint.
 
@@ -97,22 +97,22 @@ Now you can modify the scoring script and test your changes by running the serve
 
 The server is listening on port 5001 at these routes.
 
-| Name | Route|
-| --- | --- |
-| Liveness Probe | 127.0.0.1:5001/|
-| Score | 127.0.0.1:5001/score|
+| Name           | Route                |
+| -------------- | -------------------- |
+| Liveness Probe | 127.0.0.1:5001/      |
+| Score          | 127.0.0.1:5001/score |
 
 ## Server parameters
 
 The following table contains the parameters accepted by the server:
 
-| Parameter | Required | Default | Description |
-| ---- | --- | ---- | ----|
-| entry_script | True | N/A | The relative or absolute path to the scoring script.|
-| model_dir	| False | N/A | The relative or absolute path to the directory holding the model used for inferencing.
-| port | False | 5001 | The serving port of the server.|
-| worker_count | False | 1 | The number of worker threads that will process concurrent requests. |
-| appinsights_instrumentation_key | False | N/A | The instrumentation key to the application insights where the logs will be published. |
+| Parameter                       | Required | Default | Description                                                                            |
+| ------------------------------- | -------- | ------- | -------------------------------------------------------------------------------------- |
+| entry_script                    | True     | N/A     | The relative or absolute path to the scoring script.                                   |
+| model_dir                       | False    | N/A     | The relative or absolute path to the directory holding the model used for inferencing. |
+| port                            | False    | 5001    | The serving port of the server.                                                        |
+| worker_count                    | False    | 1       | The number of worker threads that will process concurrent requests.                    |
+| appinsights_instrumentation_key | False    | N/A     | The instrumentation key to the application insights where the logs will be published.  |
 
 ## Request flow
 
