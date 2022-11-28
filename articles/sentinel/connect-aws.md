@@ -27,20 +27,16 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
 
-1. In your AWS environment:
-
+In your AWS environment (See the instructions below):
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
-    - Create a **Simple Queue Service (SQS) queue** to provide notification.
-
+- Create a **Simple Queue Service (SQS) queue** to provide notifications.
     - Create an **assumed role** to grant permissions to your Microsoft Sentinel account (external ID) to access your AWS resources.
 
     - Attach the appropriate **IAM permissions policies** to grant Microsoft Sentinel access to the appropriate resources (S3 bucket, SQS).
 
-1. In Microsoft Sentinel:
-
-    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. See the instructions below.
-
+In Microsoft Sentinel (See the instructions below):
+- Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. 
 Each side's process produces information used by the other side. This sharing creates secure communication.
 
 We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
@@ -155,7 +151,7 @@ The manual setup consists of the following steps:
 1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next: Permissions**.
 1. Enter a **Role name**:
 1. Add **permissions** and enter a **Tag** (optional). Then select **Create Role**.
-1. For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](/azure/sentinel/connect-aws?tabs=s3) in our GitHub repo.
+1. [Apply IAM permissions policies](/azure/sentinel/connect-aws?tabs=s3&branch=main). For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](/azure/sentinel/connect-aws?tabs=s3) in our GitHub repo.
     
 
 1. In the **Roles** list, select the new role you created.
@@ -207,8 +203,7 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 - AmazonSQSReadOnlyAccess
 - AWSLambdaSQSQueueExecutionRole
 - AmazonS3ReadOnlyAccess
-- KMS access
-
+- KMS (Key Management Service) access
    For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in our GitHub repo.
 
 ## Known issues and troubleshooting
