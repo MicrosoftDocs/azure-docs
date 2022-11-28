@@ -255,8 +255,6 @@
         href: how-to-get-started-create-lab-within-teams.md
       - name: Create & manage labs
         href: how-to-manage-labs-within-teams.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
