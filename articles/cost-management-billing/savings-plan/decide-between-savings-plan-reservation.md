@@ -24,7 +24,7 @@ With an Azure savings plan, you commit to spend a fixed hourly amount collective
 
 ## Choose a reservation
 
-For highly stable workloads that run continuously and where you have no expected changes to the machine series or region, consider a reservation.Reservations provide the greatest savings.
+For highly stable workloads that run continuously and where you have no expected changes to the machine series or region, consider a reservation. Reservations provide the greatest savings.
 
 ## Choose a savings plan
 
