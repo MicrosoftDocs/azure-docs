@@ -106,9 +106,9 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* *https:\//strongauthenticationservice.auth.microsoft.com*
-* *https:\//strongauthenticationservice.auth.microsoft.us*
-* *https:\//strongauthenticationservice.auth.microsoft.cn*
+* *https:\//strongauthenticationservice.auth.microsoft.com* (for Azure Public cloud customers).
+* *https:\//strongauthenticationservice.auth.microsoft.us* (for Azure Government customers).
+* *https:\//strongauthenticationservice.auth.microsoft.cn* (for Azure China 21Vianet customers). 
 * *https:\//adnotifications.windowsazure.com*
 * *https:\//login.microsoftonline.com*
 * *https:\//credentials.azure.com*
