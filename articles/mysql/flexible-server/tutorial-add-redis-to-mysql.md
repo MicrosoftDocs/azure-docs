@@ -23,12 +23,13 @@ For this quickstart you need:
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
+- Configure networking setting of Azure Database for MySQL Flexible server to make sure your IP has access to it. If you are using Azure App Service or Azure Kubernetes service, please enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal. 
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Populate the mysql database
 
-Use mysql workbench, and connect to the server 
+Connect to [MySQL Server using MySQL Workbench](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/connect-workbench) and run the following query to populate the database. 
 
 ```sql
 CREATE DATABASE tododb;
@@ -40,75 +41,111 @@ CREATE TABLE tasks
 	completed TINYINT(1) NOT NULL
 );
 
-INSERT INTO tasks (title, completed) VALUES
-('Task1', 0),
-('Task2', 0),
-('Task3', 1),
-('Task4', 1),
-('Task5', 0);
+INSERT INTO tasks (id,title, completed) VALUES
+(1,'Task1', 0),
+(2,'Task2', 0),
+(3,'Task3', 1),
+(4,'Task4', 1),
+(5,'Task5', 0);
 
 ```
 
 ## Create a Redis cache 
 [!INCLUDE [redis-cache-create](../../azure-cache-for-redis/includes/redis-cache-create.md)]
 
-## Configure app service env variables 
-In the repository you will find some Python code that you can run in your EC2 instance. But first you need to configure some environment variables:
-```
-syntax: shell
-$ export REDIS_URL=redis://your_AZURE_redis_endpoint:6379/
-$ export DB_HOST=your_mysql_endpoint
-$ export DB_USER=admin
-$ export DB_PASS=your_admin_password
-$ export DB_NAME=tutorial
-Note that the values for mysql_endpoint, redis_endpoint, and password are those that you saved in the previous steps.
-```
-
 ## Caching result of query using Python 
-
-The first of the two methods implemented in the code sample works by caching a serialized representation of the SQL query result. The following Python snippet illustrates the logic:
-```
-syntax: python
-def fetch(sql):
-
-  result = cache.get(sql)
-  if result:
-    return deserialize(result)
-  else:
-    result = db.query(sql)
-    cache.setex(sql, ttl, serialize(result))
-    return result
- ```   
- 
- First, the SQL statement is used as a key in Redis, and the cache is examined to see if a value is present. If a value is not present, the SQL statement is used to query the database. The result of the database query is stored in Redis. The ttl variable must be set to a sensible value, dependent on the nature of your application. When the ttl expires, Redis evicts the key and frees the associated memory. This code is available in the tutorial repository and you can run it as is, but feel free to add print statements here and there if you want to see the value of a variable at a certain point in time.
-
-In terms of strategy, the drawback of this approach is that when data is modified in the database, the changes won’t be reflected automatically to the user if a previous result was cached and its ttl has not elapsed yet.
-
-An example of how you would use the fetch function:
-```
-syntax: python
-print(fetch("SELECT * FROM tasks"))
-```
-
-The result would be:
-```
-syntax: python
-[{'title': 'Task1', 'completed': 0}]
- ```
- 
- ## Using Redis with WordPress
- 
-The benefit of enabling Redis Cache to your WordPress application will allow you to deliver content faster since all of the WordPress content is stored in the database. You can cache content that is mostly read only from WordPress database to make the query lookups faster. You can use either of these plugins to setup Redis.
+Follow the steps below to use Redis to cache SQL queries from MySQL database.
 
 ### Pre-requisite
-PLease install and enable [Redis PECL extension](https://pecl.php.net/package/redis). See [ow to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) or [ow to install the extension in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux#enable-php-extensions).
+Setup latest version of Python on your local environment or on Azure virtual machine or Azure App Service. Use pip to install redis-py:
+```python
+pip install redis
+```
+The following code creates a connection to Redis using redis-py:
+
+```python
+import redis
+import mysql.connector
+
+r = redis.Redis(
+    host='your-azure-redis-server-name.redis.cache.windows.net',
+    port=6379, 
+    password='azure-redis-primary-access-key')
+    
+mysqlcnx = mysql.connector.connect(user='your-admin-username', password='db-user-password',
+                              host='database-servername.mysql.database.azure.com',
+                              database='your-databsae-name')
+			      
+mycursor = mysqlcnx.cursor()
+mycursor.execute("SELECT * FROM tasks where completed=1")
+myresult = mycursor.fetchall()
+
+#Set the result of query in a key 
+if result:
+          cache.hmset(mykey, myresult)
+          cache.expire(mykey, 3600)
+      return result
+      
+#Get value of mykey
+getkeyvalue= cache.hgetall(mykey)
+
+#close mysql connection
+mysqlcnx.close()
+```
+
+## Using Redis with PHP
+Follow the steps below to write a PHP script that caches a sql query from MySQL database. Install and enable [Redis PECL extension](https://pecl.php.net/package/redis) to use Redis with your PHP script. See [how to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) 
+
+```php
+<?php
+
+$redis = new Redis();
+$redis->connect('azure-redis-servername.redis.cache.windows.net, 6379);
+$redis->auth('azure-redis-primary-access-key');
+
+$key = 'tasks';
+
+if (!$redis->get($key)) {
+    $source = 'MySQL Server';
+    $database_name     = 'database-name';
+    $database_user     = 'your-database-user';
+    $database_password = 'your-database-password';
+    $mysql_host        = 'database-servername.mysql.database.azure.com';
+
+    $pdo = new PDO('mysql:host=' . $mysql_host . '; dbname=' . $database_name, $database_user, $database_password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql  = "SELECT * FROM tasks";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+       $tasks[] = $row;
+    }
+
+    $redis->set($key, serialize($tasks));
+    $redis->expire($key, 10);
+
+} else {
+     $source = 'Redis Server';
+     $tasks = unserialize($redis->get($key));
+
+}
+
+echo $source . ': <br>';
+print_r($tasks);
+```
+
+## Using Redis with WordPress
+ 
+The benefit of enabling Redis Cache to your WordPress application will allow you to deliver content faster since all of the WordPress content is stored in the database. You can cache content that is mostly read only from WordPress database to make the query lookups faster. You can use either of these plugins to setup Redis.  Install and enable [Redis PECL extension](https://pecl.php.net/package/redis). See [ow to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) or [ow to install the extension in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux#enable-php-extensions).
 
 1. [Redis Object cache](https://wordpress.org/plugins/redis-cache/): Install and activate this plugin. Now update the wp-config.php file right above the statement */* That's all, stop editing! Happy blogging. */**
 
 ```php
 define( 'WP_REDIS_HOST', '127.0.0.1' );
 define( 'WP_REDIS_PORT', 6379 );
-// define( 'WP_REDIS_PASSWORD', 'secret' );
+define( 'WP_REDIS_PASSWORD', 'secret' );
 define( 'WP_REDIS_TIMEOUT', 1 );
 define( 'WP_REDIS_READ_TIMEOUT', 1 );
 
@@ -127,13 +164,7 @@ define( 'WP_REDIS_DATABASE', 0 );
 ```
 Go to wordpress admin dashboard and select the Redis settings page on the menu. Now select **enable Object Cache**. Plugin will read the redis server information from wp-config.php file.
 
-4. [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/):
-
-
-Furthermore you can [Query Monitor](https://wordpress.org/plugins/query-monitor/) allows you to debug database queries and it also shows total database queries grouped by a plugin. Query monitor plugin has other capabilties as well that help with debugging such as PHP errors, hooks and actions, HTTP API calls and more. 
- 
- ## Expire content 
- 
+You may also use [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/) to configure Redis cache on your WordPress app. To test and evaluate the performance improvemens you can use [Query Monitor plugin](https://wordpress.org/plugins/query-monitor/) which allows you to debug database queries and it also shows total database queries grouped by a plugin.  
     
 ## Next steps
 
