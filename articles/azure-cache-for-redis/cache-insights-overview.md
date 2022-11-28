@@ -65,7 +65,7 @@ There's a counter tile under the drop-down lists. The tile shows the total numbe
 
 Selecting a drop-down list arrow next to one of the Azure Cache for Redis resources reveals a breakdown of the performance metrics at the individual resource level.
 
-:::image type="content" source="./media/cache-insights-overview/overview.png" alt-text="Screenshot of the overview experience":::
+:::image type="content" source="./media/cache-insights-overview/overview.png" alt-text="Screenshot of the overview experience.":::
 
 When you select the Azure Cache for Redis resource name highlighted in blue, you see the default **Overview** table for the associated account. It shows these columns:
 
@@ -88,7 +88,7 @@ When you select **Operations** at the top of the page, the **Operations** table 
 - **Gets**
 - **Sets**
 
-:::image type="content" source="./media/cache-insights-overview/operations.png" alt-text="Screenshot of the operations experience":::
+:::image type="content" source="./media/cache-insights-overview/operations.png" alt-text="Screenshot of the operations experience.":::
 
 ### Usage
 
@@ -100,7 +100,7 @@ When you select **Usage** at the top of the page, the **Usage** table of the wor
 - **Cache Hits**
 - **Cache Misses**
 
-:::image type="content" source="./media/cache-insights-overview/usage.png" alt-text="Screenshot of the usage experience":::
+:::image type="content" source="./media/cache-insights-overview/usage.png" alt-text="Screenshot of the usage experience.":::
 
 ### Failures
 
@@ -115,7 +115,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 - **Dataloss/Errors**
 - **Import/Errors**
 
-:::image type="content" source="./media/cache-insights-overview/failures.png" alt-text="Screenshot of failures with a breakdown by HTTP request type":::
+:::image type="content" source="./media/cache-insights-overview/failures.png" alt-text="Screenshot of failures with a breakdown by HTTP request type.":::
 
 ### Metric definitions
 
@@ -129,7 +129,7 @@ To access Azure Monitor for Azure Cache for Redis directly from an individual re
 
 2. From the list, choose an individual Azure Cache for Redis resource. In the monitoring section, choose Insights.
 
-    :::image type="content" source="./media/cache-insights-overview/insights.png" alt-text="Screenshot of Menu options with the words 'Insights' highlighted in a red box":::
+    :::image type="content" source="./media/cache-insights-overview/insights.png" alt-text="Screenshot of Menu options with the words 'Insights' highlighted in a red box.":::
 
 These views are also accessible by selecting the resource name of an Azure Cache for Redis resource from the Azure Monitor level workbook.
 
@@ -141,43 +141,43 @@ On the **Overview** workbook for the Azure Redis Cache, it shows several perform
 
 - Metrics and status tiles highlighting shard performance, total number of connected clients, and overall latency.
 
-:::image type="content" source="./media/cache-insights-overview/resource-overview.png" alt-text="Screenshot of overview dashboard displaying information on CPU performance, used memory, connected clients, errors, expired keys, and evicted keys":::
+:::image type="content" source="./media/cache-insights-overview/resource-overview.png" alt-text="Screenshot of Insight overview dashboard displaying information such as Server load, CPU performance, used memory, connected clients, errors, expired keys, and evicted keys.":::
 
-Selecting any of the other tabs for **Performance** or **Operations** opens the respective workbooks.
+Selecting any of the other tabs for **Performance** or **Operations** opens that workbooks.
 
 ### Resource-level performance
 
-:::image type="content" source="./media/cache-insights-overview/resource-performance.png" alt-text="Screenshot of resource performance graphs":::
+:::image type="content" source="./media/cache-insights-overview/resource-performance.png" alt-text="Screenshot of Azure cache for Redis graphs on the performance tab.":::
 
 ### Resource-level operations
 
-:::image type="content" source="./media/cache-insights-overview/resource-operations.png" alt-text="Screenshot of resource operations graphs":::
+:::image type="content" source="./media/cache-insights-overview/resource-operations.png" alt-text="Screenshot  Azure of cache for Redis graphs on the operations tab.":::
 
 ## Pin, export, and expand
 
 To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
 
-:::image type="content" source="../cosmos-db/media/insights-overview/pin.png" alt-text="A metric section with the pushpin symbol highlighted":::
+:::image type="content" source="../cosmos-db/media/insights-overview/pin.png" alt-text="Screenshot of metrics with the pushpin symbol highlighted.":::
 
 To export your data into an Excel format, select the down arrow symbol to the left of the pushpin symbol.
 
-:::image type="content" source="../cosmos-db/media/insights-overview/export.png" alt-text="A highlighted export-workbook symbol":::
+:::image type="content" source="../cosmos-db/media/insights-overview/export.png" alt-text="Screenshot showing a highlighted export-workbook symbol.":::
 
 To expand or collapse all views in a workbook, select the expand symbol to the left of the export symbol.
 
-:::image type="content" source="../cosmos-db/media/insights-overview/expand.png" alt-text="A highlighted expand-workbook symbol":::
+:::image type="content" source="../cosmos-db/media/insights-overview/expand.png" alt-text="Screenshot of  highlighted expand-workbook symbol.":::
 
 ## Customize Azure Monitor for Azure Cache for Redis
 
 Because this experience is built atop Azure Monitor workbook templates, you can select **Customize** > **Edit** > **Save** to save a copy of your modified version into a custom workbook.
 
-:::image type="content" source="../cosmos-db/media/insights-overview/customize.png" alt-text="A command bar with Customize highlighted":::
+:::image type="content" source="../cosmos-db/media/insights-overview/customize.png" alt-text="Screenshot of command bar with customize highlighted.":::
 
 Workbooks are saved within a resource group in either the **My Reports** section or the **Shared Reports** section. **My Reports** is available only to you. **Shared Reports** is available to everyone with access to the resource group.
 
 After you save a custom workbook, go to the workbook gallery to open it.
 
-:::image type="content" source="../cosmos-db/media/insights-overview/gallery.png" alt-text="A command bar with Gallery highlighted":::
+:::image type="content" source="../cosmos-db/media/insights-overview/gallery.png" alt-text="Screenshot of a command bar with Gallery highlighted.":::
 
 ## Troubleshooting
 
