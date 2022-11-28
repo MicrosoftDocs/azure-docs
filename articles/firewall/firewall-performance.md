@@ -37,23 +37,31 @@ The following set of performance results demonstrates the maximal Azure Firewall
 |---------|---------|---------|
 |Standard     |30|30|
 |Premium (no TLS/IDPS)     |100|100|
-|Premium with TLS     |-|100|
-|Premium with IDS     |100|100|
-|Premium with IPS      |10|10|
+|Premium with TLS (no IDS/IPS)     |-|100|
+|Premium with TLS and IDS     |100|100|
+|Premium with TLS and IPS      |10|10|
 
 > [!NOTE]
 > IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
 
-Azure Firewall also supports the following throughput for single connections:
+### Throughput for single connections
 
+#### Full scale
+|Firewall use case  |Throughput (Gbps)|
+|---------|---------|
+|Standard<br>Max bandwidth for single TCP connection     |up to 1.5 per VM|
+|Premium<br>Max bandwidth for single TCP connection     |up to 9 per VM|
+|Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
+
+#### No auto-scale
 
 |Firewall use case  |Throughput (Gbps)|
 |---------|---------|
-|Standard<br>Max bandwidth for single TCP connection     |2.5 - 3|
-|Premium<br>Max bandwidth for single TCP connection     |18 - 20|
+|Standard<br>Max bandwidth for single TCP connection     |up to 3 |
+|Premium<br>Max bandwidth for single TCP connection     |up to 18|
 |Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
 
-Performance values are calculated with Azure Firewall at full scale. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
+Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
 ## Next steps
 
