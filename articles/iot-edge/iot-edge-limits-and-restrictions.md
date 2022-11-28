@@ -90,11 +90,11 @@ The recommended way to automatically restart unhealthy IoT Edge modules is noted
 
 ### Troubleshooting logs
 
-When updating modules, for example with a deployment, expect that accessing device logs could be delayed. 
+Accessing module logs from Azure portal could be delayed while modules are being updated. 
 
 If you view the **Troubleshoot** tab from your device in IoT Edge in the Azure portal, you may see the message "Unable to retrieve logs. The request failed with status code 504." The request times out and the **Runtime Status** might show as "Error" for all modules. 
 
-This request to see the logs will resume in time. The reason the access is delayed is because **edgeAgent** may be busy starting modules so it can't simultaneously retrieve logs. Logs are pulled from Moby/Docker, so this process takes time, and the request can time out if **edgeAgent** is busy.
+This ability to see the logs will resume in time. The reason the access is delayed is because **edgeAgent** may be busy starting modules so it can't simultaneously retrieve logs. Logs are pulled from Moby/Docker, so this process takes time, and the request can time out if **edgeAgent** is busy.
 
 ### File upload
 
