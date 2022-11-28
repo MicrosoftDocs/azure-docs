@@ -339,3 +339,6 @@ You can learn more about change feed in Azure Cosmo DB with the following docs:
 
 * [Introduction to the change feed](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html)
 * [Reading from change feed](read-change-feed.md)
+
+You can learn more about bulk operations in V4 Java SDK with the following docs:
+* [Perform bulk operations on Azure Cosmos DB data](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/bulk-executor-java)
