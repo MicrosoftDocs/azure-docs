@@ -65,7 +65,7 @@ For more information, see [Threat intelligence research and packages](how-to-wor
 
 ### Support model
 
-Versions **22.1.7**, **22.2.7**, and any later versions are supported for 1 year from their release. For example, version **22.2.7** was released in **October 2022** and is supported through **September 2023**.
+Versions **22.1.7, 22.2.7, and any later versions** are supported for 1 year from their release. For example, version **22.2.7** was released in **October 2022** and is supported through **September 2023**.
 
 Other versions use a legacy support model. For more information, see the tables and sections for each version below.
 
