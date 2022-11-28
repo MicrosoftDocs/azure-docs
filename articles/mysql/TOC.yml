@@ -130,8 +130,10 @@
         href: flexible-server/concepts-backup-restore.md
   - name: Integrations
     items:
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Azure advisor
-      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
+      href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
