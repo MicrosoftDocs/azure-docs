@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 
-In this tutorial, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/waf/) solution for Azure Active Directory (Azure AD) business-to-consumer (B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection (SQLi), and cross-site scripting (XSS).
+In this tutorial, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/waf/) solution for Azure Active Directory (Azure AD) business-to-consumer (B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
 
 >[!NOTE]
 >This feature is in public preview.
@@ -34,7 +34,7 @@ To get started, you'll need:
 
 Cloudflare WAF integration includes the following components:
 
-- **Azure AD B2C tenant** – The authorization server that verifyies user credentials using the custom policies defined in the tenant. It's known as the identity provider.
+- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant. It's known as the identity provider.
 
 - [**Azure Front Door**](../frontdoor/front-door-overview.md) – Enables custom domains for Azure B2C tenant. Traffic from Cloudflare WAF is routed to Azure Front Door before arriving at Azure AD B2C tenant.
 
@@ -48,7 +48,7 @@ After a custom domain for Azure AD B2C is configured using Azure Front Door, [te
 
 ## Onboard with Cloudflare
 
-On cloudflare.com you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services]([https://www.cloudflare.com/plans/](https://www.cloudflare.com/plans/#price-matrix) select **Pro**, which is required.
+On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services]([https://www.cloudflare.com/plans/](https://www.cloudflare.com/plans/#price-matrix) select **Pro**, which is required.
 
 ### Configure DNS
 
@@ -64,7 +64,7 @@ The final setting appears in the following image.
 
 ### Configure WAF
 
-In your Cloudfare settings, [Configure WAF](https://www.cloudflare.com/waf/).
+In your Cloudflare settings, [Configure WAF](https://www.cloudflare.com/waf/).
 
 ### Configure firewall rule
 
@@ -76,16 +76,16 @@ Learn more: [About Cloudflare Firewall Rules](https://support.cloudflare.com/hc/
 
 ### Test the settings
 
-1. After saving the rule, complete CAPTCHA when access to the custom domain is requested.
+1. Complete CAPTCHA when access to the custom domain is requested.
 
-   ![Image shows cloudflare waf enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
+   ![Image shows cloudflare WAF enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
 
 > [!NOTE]
 > Cloudflare has functionality to customize block pages. See, [Configuring Custom Pages (Error and Challenge)](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-).  
 
 2. The Azure AD B2C policy appears.
 
-   ![Image shows Azure AD B2C policy login](./media/partner-cloudflare/azure-ad-b2c-policy.png)
+   ![Image shows Azure AD B2C policy log in](./media/partner-cloudflare/azure-ad-b2c-policy.png)
 
 
 ## Resources
