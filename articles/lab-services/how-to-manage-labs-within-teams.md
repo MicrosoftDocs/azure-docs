@@ -68,6 +68,35 @@ As an educator, you can access student VMs directly from the **Virtual machine p
 
 ## Configure lab schedules and settings in Teams
 
+Lab schedules allow you to configure a classroom lab such that the VMs automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule.
+
+Lab schedules affect lab virtual machines in the following way:
+
+- A template VM isn't included in schedules.
+- Only assigned VMs are started. If a machine isn't claimed by a user (student), the VM won't start on the scheduled hours.
+- All virtual machines, whether claimed by a user or not, are stopped based on the lab schedule.
+
+> [!IMPORTANT]
+> The scheduled run time of VMs doesn't count against the quota allotted to a user. The alloted quota is for the time that a student spends on VMs outside of schedule hours.
+
+### Create a lab schedule
+
+As an educator, you can create, edit, and delete lab schedules within Teams or in the Azure Lab Services web portal (https://labs.azure.com). In Teams, go to the **Schedule** tab, and then select **Add scheduled event** to add a schedule for a lab. 
+
+:::image type="content" source="./media/how-to-manage-labs-within-teams/add-scheduled-event-in-teams.png" alt-text="Screenshot of the Schedule tab in Teams.":::
+
+Learn more about [creating and managing schedules](how-to-create-schedules.md).
+
+### Configure automatic shutdown and disconnect settings
+
+You can enable several automatic shutdown cost control features to prevent extra costs when the VMs aren't being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
+
+- Automatically disconnect users from virtual machines that the OS considers idle.
+- Automatically shut down virtual machines when users disconnect.
+- Automatically shut down virtual machines that are started but users don't connect.
+
+In Teams, go to the **Settings** tab to configure these settings. For more information, see the article on [configuring auto-shutdown settings for a lab](how-to-enable-shutdown-disconnect.md).
+
 ## Delete a lab
 
 To delete a lab that was created in Teams, you use the [Azure Lab Services web portal](https://labs.azure.com). For more information, see [Delete a lab in the Azure Lab Services portal](manage-labs.md#delete-a-lab).
