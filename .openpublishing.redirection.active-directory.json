@@ -1927,7 +1927,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-add-user-without-invite.md",
-      "redirect_url": "/articles/active-directory/active-directory-b2b-redemption-experience.md#redemption-through-a-direct-link",
+      "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
       "redirect_document_id": false
     },
     {
