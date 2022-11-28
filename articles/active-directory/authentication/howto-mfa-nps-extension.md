@@ -104,7 +104,7 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 ### Network requirements
 
-The NPS server must be able to communicate with the following URLs over ports 80 and 443:
+The NPS server must be able to communicate with the following URLs over TCP port 443:
 
 * *https:\//strongauthenticationservice.auth.microsoft.com*
 * *https:\//strongauthenticationservice.auth.microsoft.us*
