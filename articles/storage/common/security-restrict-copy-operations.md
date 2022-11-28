@@ -17,6 +17,10 @@ For security reasons, storage administrators might want to limit the environment
 
 This article shows you how to limit the source accounts of copy operations to accounts within the same tenant as the destination account, or with private links to the same virtual network as the destination.
 
+> [!IMPORTANT]
+> **Permitted scope for copy operations** is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## About the **Permitted scope for copy operations** setting
 
 The **AllowedCopyScope** property of a storage account defines the environments from which data can be copied to the account. The property is not set by default and does not return a value until you explicitly set it. The property has three possible settings:
@@ -32,10 +36,6 @@ The setting applies to [Copy Blob operations of the REST API](/rest/api/storages
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 and error message "This request is not authorized to perform this operation."
 
 The **AllowedCopyScope** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> **Permitted scope for copy operations** is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Identify the source storage accounts of copy operations
 
@@ -147,8 +147,6 @@ az storage account update \
     --resource-group <resource-group> \
     --allowed-copy-scope "AAD"
 ```
-
----
 
 The following example shows how to configure the permitted scope of copy operations for an existing storage account to allow copying data only from storage accounts with private links to the same virtual network. Remember to replace the placeholder values in brackets with your own values:
 
