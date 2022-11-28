@@ -5,15 +5,19 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 11/22/2022
 ms.author: jasteppe
 ---
 
-# Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
+# Quickstart: Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
 
-In this Quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
+In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
 
-## Resources provided by the ARM template
+For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
+
+The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
+
+## Resources provided by the Azure Resource Manager template
 
 The ARM template will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
 
@@ -26,8 +30,6 @@ The ARM template will help you automatically configure and deploy the following 
   - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (named **Azure Events Hubs Receiver**)
   - system-assigned managed identity access roles needed to read and write to the FHIR service (named **FHIR Data Writer**)
 - An output file containing the ARM template deployment results (named **medtech_service_ARM_template_deployment_results.txt**). The file is located in the directory from which you ran the script.
-
-The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json).
 
 If you need to see a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a FHIR Observation.
 
@@ -51,7 +53,7 @@ Before you can begin, you need to have the following prerequisites if you're usi
 
   - Use [Azure CLI](/cli/azure/install-azure-cli).
 
-## Deploy MedTech service with the ARM template and Azure PowerShell
+## Deploy MedTech service with the Azure Resource Manager template and Azure PowerShell
 
 Complete the following five steps to deploy the MedTech service using Azure PowerShell:
 
@@ -98,7 +100,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 > [!NOTE]
 > If you want to run the Azure PowerShell commands locally, first enter `Connect-AzAccount` into your PowerShell command-line shell and enter your Azure credentials.
 
-## Deploy MedTech service with the ARM template and Azure CLI
+## Deploy MedTech service with the Azure Resource Manager template and Azure CLI
 
 Complete the following five steps to deploy the MedTech service using Azure CLI:
 

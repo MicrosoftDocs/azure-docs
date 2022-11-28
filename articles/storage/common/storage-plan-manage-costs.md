@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 11/11/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -35,8 +35,12 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their affect on your estimate.
 
-> [!TIP]
-> To estimate the cost of archiving data that is rarely used, see [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
+   > [!TIP]
+   > - To view an Excel template which can help you to itemize the amount of storage and number of operations required by your workloads, see [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/). 
+   > 
+   >   You can use that information as input to the Azure pricing calculator.
+   >
+   > - For more information about how to estimate the cost of archiving data that is rarely used, see [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
 
 ## Understand the full billing model for Azure Blob Storage
 
