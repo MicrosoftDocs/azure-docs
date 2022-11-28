@@ -10,6 +10,9 @@
   - name: What are the enhanced security features?
     displayName: azure defender
     href: enhanced-security-features-overview.md
+  - name: Security posture at-a-glance with the Overview dashboard
+    displayName: overview, compliance, inventory
+    href: overview-page.md
   - name: What's new?
     displayName: changelog, news, release notes
     href: release-notes.md
@@ -181,9 +184,6 @@
   items:
   - name: Cloud security posture
     items:
-    - name: Security posture at-a-glance with the Overview dashboard
-      displayName: overview, compliance, inventory
-      href: overview-page.md
     - name: See all of your workloads in the workload protections dashboard
       displayName: workloads, dashboard, protections
       href: workload-protections-dashboard.md
