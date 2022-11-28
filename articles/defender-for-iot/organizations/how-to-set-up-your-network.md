@@ -175,7 +175,7 @@ Open these ports to allow extra services for Defender for IoT.
 
 ## Import firewall rules
 
-You can import firewall rules to your OT sensor from these supported vendors:
+Import firewall rules to your OT sensor for analysis in **Risk assessment** reports. Importing firewall rules is supported for Checkpoint, Fortinet, and Juniper firewalls.
 
 - Checkpoint
 - Fortinet
@@ -183,10 +183,12 @@ You can import firewall rules to your OT sensor from these supported vendors:
 
 **To import firewall rules**:
 
-1. On the side menu, select **System Settings**.
-1. Select **Import settings**, and then select **Firewall rules**.
-1. In the **Firewall rules** pane, choose a firewall type from the dropdown menu.
-1. Once you've selected a firewall type, select **+ Import file** to upload a file.
+1. Sign in to your sensor as an **Admin** user and elect **System Settings** > **Import settings** > **Firewall rules**.
+1. In the **Firewall rules** pane:
+
+    - Select a firewall type from the dropdown menu
+    - Select **+ Import file** to browse to and select the file you want to import.
+For example:
 
 :::image type="content" source="media/how-to-set-up-your-network/import-firewall-rules.png" alt-text="Screenshot of how to import firewall rules." lightbox="media/how-to-set-up-your-network/import-firewall-rules.png":::
 
