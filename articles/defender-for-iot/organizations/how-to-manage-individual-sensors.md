@@ -429,7 +429,7 @@ Clearing data deletes all detected or learned data on the sensor. After clearing
 
 **To clear system data**:
 
-1. Sign in to the sensor as the **cyberx** user.
+1. Sign in to the sensor as the *cyberx* user.
 
 1. Select **Support** > **Clear data**.
 

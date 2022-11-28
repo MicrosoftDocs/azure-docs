@@ -261,7 +261,7 @@ Each backup is a complete offline copy of your app, not an incremental update.
 
 #### Does Azure Functions support automatic backups?
 
-Automatic backups are available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers aren't supported for automatic backups.
+Automatic backups are available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Basic** or **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers aren't supported for automatic backups.
 
 #### What's included in an automatic backup?
 

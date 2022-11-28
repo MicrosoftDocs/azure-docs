@@ -30,7 +30,7 @@ In this article, we demonstrate options of connecting your **existing** Azure Vi
 Connecting a classic account to be ARM-based triggers a 30 days of a transition state. In the transition state, an existing account can be accessed by generating an access token using both:
 
 * Access token [generated through API Management](https://aka.ms/avam-dev-portal)(classic way) 
-* Access token [generated through ARM](/rest/api/videoindexer/generate/access-token) 
+* Access token [generated through ARM](/rest/api/videoindexer/preview/generate/access-token) 
 
 The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
@@ -49,7 +49,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
 ## Get started
 
-### Browse to [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
+### Browse to the [Azure Video Indexer website](https://aka.ms/vi-portal-link)
 
 1. Sign in using your Azure AD account.
 1. On the top right bar press *User account* to open the side pane account list.
@@ -84,8 +84,8 @@ Before the end of the 30 days of transition state, you can remove access from us
 
 ## After connecting to ARM is complete 
 
-After successfully connecting your account to ARM, it is recommended to make sure your account management APIs are replaced with [Azure Video Indexer REST API](/rest/api/videoindexer/accounts?branch=videoindex).
-As mentioned in the beginning of this article, during the 30 days of the transition state, “[Get-access-token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)” will be supported side by side the ARM-based “[Generate-Access token](/rest/api/videoindexer/generate/access-token)”.
+After successfully connecting your account to ARM, it is recommended to make sure your account management APIs are replaced with [Azure Video Indexer REST API](/rest/api/videoindexer/preview/accounts).
+As mentioned in the beginning of this article, during the 30 days of the transition state, “[Get-access-token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)” will be supported side by side the ARM-based “[Generate-Access token](/rest/api/videoindexer/preview/generate/access-token)”.
 Make sure to change to the new "Generate-Access token" by updating all your solutions that use the API.
  
 APIs to be changed:
@@ -95,7 +95,7 @@ APIs to be changed:
 - Get accounts – List of all account in a region.
 - Create paid account – would create a classic account.
  
-For a full description of [Azure Video Indexer REST API](/rest/api/videoindexer/accounts?branch=videoindex) calls and documentation, follow the link.
+For a full description of [Azure Video Indexer REST API](/rest/api/videoindexer/preview/accounts) calls and documentation, follow the link.
 
 For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
 

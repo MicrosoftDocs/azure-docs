@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/22/2022
 ms.author: cherylmc
 ---
 
@@ -124,7 +124,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
 
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
+   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
 
    * The client certificate isn't installed locally on the client computer.
    * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
@@ -134,7 +134,13 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 1. In the left pane, locate the **VPN connection**, then click **Connect**.
 
-Azure VPN client provides high availability by allowing you to add a secondary VPN client profile, providing a more resilient way to access VPN. You can choose to add a secondary client profile using any of the already imported client profiles and that **enables the high availability** option for windows. In case of any **region outage** or failure to connect to the primary VPN client profile, Azure VPN provides the capability to auto-connect to the secondary client profile without causing any disruptions.
+#### Secondary VPN client profile
+
+Azure VPN client provides high availability by allowing you to add a secondary VPN client profile, providing a more resilient way to access VPN. You can choose to add a secondary client profile using any of the already imported client profiles and that **enables the high availability** option for windows. In case of any **region outage** or failure to connect to the primary VPN client profile, Azure VPN provides the capability to auto-connect to the secondary client profile without causing any disruptions. This setting requires the Azure VPN Client version **2.2124.51.0**, which is currently in the process of being rolled out.
+
+#### Optional Azure VPN Client configuration settings
+
+You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## <a name="openvpn"></a>OpenVPN - OpenVPN Client steps
 

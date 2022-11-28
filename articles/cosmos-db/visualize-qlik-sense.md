@@ -44,7 +44,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Create a database and a collection](nosql/quickstart-java.md#add-a-container) – You can use set the collection throughput value to 1000 RU/s. 
 
-* Load the sample video game sales data to your Azure Cosmos DB account. You can import the data by using Azure Cosmos DB data migration tool, you can do a [sequential](import-data.md#SQLSeqTarget) or a [bulk import](import-data.md#SQLBulkTarget) of data. It takes around 3-5 minutes for the data to import to the Azure Cosmos DB account.
+* Load the sample video game sales data to your Azure Cosmos DB account.
 
 * Download, install, and configure the ODBC driver by using the steps in the [connect to Azure Cosmos DB with ODBC driver](odbc-driver.md) article. The video game data is a simple data set and you don’t have to edit the schema, just use the default collection-mapping schema.
 
