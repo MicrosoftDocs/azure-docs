@@ -36,13 +36,13 @@ Minimize business impact by following these steps:
 
 - When you've migrated all the devices to the PaaS solution and fully exported your data from IoT Central, you can remove the devices from the IoT Central solution.
 
-After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, they're no longer be billed. Eventually, remove the IoT Central application.
+After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, you're no longer billed for them. Eventually, remove the IoT Central application.
 
 ## Firmware best practices
 
 So that you can seamlessly migrate devices from your IoT Central applications to PaaS solution, follow these guidelines:
 
-- The device must be an IoT Plug and Play device that uses a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) model. IoT Central requires all devices to have a DTDL model. This simplifies the interoperability between an IoT PaaS solution and IoT Central.
+- The device must be an IoT Plug and Play device that uses a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) model. IoT Central requires all devices to have a DTDL model. These models simplify the interoperability between an IoT PaaS solution and IoT Central.
 
 - The device must follow the [IoT Central data formats for telemetry, property, and commands](concepts-telemetry-properties-commands.md).
 

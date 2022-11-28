@@ -12,7 +12,7 @@ ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 
 # What is Azure IoT Central?
 
-IoT Central is an IoT [application platform as a service (aPaaS)](../../iot-fundamentals/iot-solution-apaas-paas.md) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure allowing you to focus your efforts on determining the business impact you can create with the IoT data stream.
+IoT Central is an IoT [application platform as a service (aPaaS)](../../iot-fundamentals/iot-solution-apaas-paas.md) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus your efforts on determining the business impact you can create with the IoT data stream.
 
 The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Once you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise ready solutions by using the power of Azure IoT platform.  
 
@@ -42,8 +42,8 @@ Every device connected to IoT Central uses a _device template_. A device templat
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
 - Device properties that are set by a device and are read-only in the application. For example, the state of a valve as either open or shut.
-- Properties that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
-- Commands that an operator can call, that run on a device. For example, a command to remotely reboot a device.
+- Properties that are set by an operator and that determine the behavior of the device. For example, a target temperature for the device.
+- Commands that are called by an operator and that run on a device. For example, a command to remotely reboot a device.
 
 Every [device template](howto-set-up-template.md) includes:
 
