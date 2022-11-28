@@ -22,15 +22,15 @@ In this tutorial, learn how to integrate Azure Active Directory (AD) business-to
 
 To get started, you'll need:
 
-- An Azure AD subscription. 
+- An Azure AD subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
-- [Docker](https://docs.docker.com/get-docker/), an open platform for developing, shipping, and running applications, is required to run DAB. 
+- [Docker](https://docs.docker.com/get-docker/), an open platform for developing, shipping, and running applications, is required to run DAB
   - Your applications can run on platforms such as virtual machine and bare metal
-- An on-premises application to transition from a legacy identity system, to Azure AD B2C. 
-  - In this tutorial, DAB is deployed on the same server as the application. 
-  - The application runs on localhost: 3001 and DAB proxies traffic to applications via localhost: 9772. 
-  - The application traffic reaches DAB first and then is proxied to the application.
+- An on-premises application to transition from a legacy identity system, to Azure AD B2C
+  - In this tutorial, DAB is deployed on the same server as the application
+  - The application runs on localhost: 3001 and DAB proxies traffic to applications via localhost: 9772
+  - The application traffic reaches DAB first and then is proxied to the application
 
 ## Scenario description
 
