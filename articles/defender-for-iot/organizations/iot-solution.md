@@ -159,32 +159,6 @@ The following types of updates generate new records in the **SecurityAlert** tab
 - The device properties for an alert are updated
 
 
-## Investigate Defender for IoT incidents
-
-By default, Microsoft Sentinel generates incidents for each new Defender for IoT alert detected.
-
-Identify your Defender for IoT incidents by the incident's **Product name** value. For example:
-
-:::image type="content" source="media/respond-ot-alert/ot-alert-in-sentinel.png" alt-text="Screenshot of an OT alert in the Microsoft Sentinel Incidents page.":::
-
-Select  **View full details** in Microsoft Sentinel to view details like device entities and MITRE ATT&CK tactics and techniques, run playbooks, add comments, manage the incident, and more.
-
-
-To fully investigate an OT network alertHowever, to fully investigate an OT network alert, you'll need resources available only in Defender for IoT.
-
-**To go to the alert in Defender for IoT**:
-
-1. On the Microsoft Sentinel **Incidents** page, select the incident you want to investigate, and then select **View full details**.
-
-1. On the incident details page, select the **Timeline** tab, and then select the alert you want to investigate.
-
-1. On the alert details pane on the right, scroll down and select the link in the **Alert link** field. For example:
-
-    :::image type="content" source="media/respond-ot-alert/alert-link.png" alt-text="Screenshot of the Alert link field on an incident details page.":::
-
-    The alert details page opens in Defender for IoT. For example:
-
-    :::image type="content" source="media/respond-ot-alert/alert-details-iot.png" alt-text="Screenshot of the alert details page in Defender for IoT.":::
 
 ## Next steps
 
