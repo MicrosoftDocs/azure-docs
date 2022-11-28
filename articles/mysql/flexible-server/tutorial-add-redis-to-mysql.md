@@ -29,7 +29,7 @@ For this quickstart you need:
 
 ## Populate the mysql database
 
-Connect to [MySQL Server using MySQL Workbench](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/connect-workbench) and run the following query to populate the database. 
+Connect to [MySQL Server using MySQL Workbench](connect-workbench.md) and run the following query to populate the database. 
 
 ```sql
 CREATE DATABASE tododb;
@@ -140,7 +140,7 @@ print_r($tasks);
 
 ## Using Redis with WordPress
  
-The benefit of enabling Redis Cache to your WordPress application will allow you to deliver content faster since all of the WordPress content is stored in the database. You can cache content that is mostly read only from WordPress database to make the query lookups faster. You can use either of these plugins to setup Redis.  Install and enable [Redis PECL extension](https://pecl.php.net/package/redis). See [ow to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) or [ow to install the extension in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux#enable-php-extensions).
+The benefit of enabling Redis Cache to your WordPress application will allow you to deliver content faster since all of the WordPress content is stored in the database. You can cache content that is mostly read only from WordPress database to make the query lookups faster. You can use either of these plugins to setup Redis.  Install and enable [Redis PECL extension](https://pecl.php.net/package/redis). See [ow to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) or [ow to install the extension in Azure App Service](../../app-service/configure-language-php.md).
 
 1. [Redis Object cache](https://wordpress.org/plugins/redis-cache/): Install and activate this plugin. Now update the wp-config.php file right above the statement */* That's all, stop editing! Happy blogging. */**
 
