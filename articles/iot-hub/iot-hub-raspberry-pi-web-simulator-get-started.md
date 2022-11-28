@@ -46,7 +46,7 @@ You first connect simulated Raspberry Pi to an IoT hub that you create. You then
 
 ## Overview of Raspberry Pi web simulator
 
-Click the following button to start Raspberry Pi online simulator.
+Select the following button to start Raspberry Pi online simulator.
 
 > [!div class="button"]
 > <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
