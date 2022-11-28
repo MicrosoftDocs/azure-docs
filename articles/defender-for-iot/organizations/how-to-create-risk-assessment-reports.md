@@ -17,6 +17,10 @@ Risk assessment reports provide:
 
 - A breakdown of the number of vulnerable devices, devices that need improvement and secure devices.
 
+- Data about firewall rule risk. Defender for IoT [imports firewall rules](how-to-set-up-your-network.md#import-firewall-rules) from supported vendors and analyzes them. The Risk Assessment report highlights if a rule is not secure, or if there's a mismatch between the rule and the monitored network. For example:
+
+    :::image type="content" source="media/how-to-create-risk-assessment-reports/weak-firewall-rule.png" alt-text="Screenshot of a weak firewall rule that appears in a risk assessment report." lightbox="media/how-to-create-risk-assessment-reports/weak-firewall-rule.png":::
+
 -  Insight into security and operational issues:
 
     - Configuration issues
@@ -36,10 +40,6 @@ Risk assessment reports provide:
     - Protocol issues
 
     - Attack vectors
-
-- Data about firewall rule risk. Defender for IoT imports firewall rules from supported vendors and analyzes them. The Risk Assessment report highlights if a rule is not secure, or if there's a mismatch between the rule and the monitored network. For example:
-
-Image to be added.
 
 ### Risk mitigation
 
