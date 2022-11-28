@@ -272,8 +272,8 @@
         href: data-connectors/armorblox-for-azure-sentinel.md
       - name: Aruba ClearPass
         href: data-connectors/aruba-clearpass.md
-      - name: Atlassian Confluence Audit (Preview)
-        href: data-connectors/atlassian-confluence-audit-preview.md
+      - name: Atlassian Confluence Audit
+        href: data-connectors/atlassian-confluence-audit.md
       - name: Atlassian Jira Audit
         href: data-connectors/atlassian-jira-audit.md
       - name: Auth0
@@ -376,6 +376,8 @@
         href: data-connectors/forcepoint-dlp.md
       - name: Forcepoint NGFW
         href: data-connectors/forcepoint-ngfw.md
+      - name: Forescout eyeExtend for Microsoft Sentinel
+        href: data-connectors/forescout-eyeextend-for-microsoft-sentinel.md
       - name: Gitlab
         href: data-connectors/gitlab.md
       - name: Google Cloud Platform Cloud Monitoring Solution
@@ -490,8 +492,6 @@
         href: data-connectors/salesforce-service-cloud.md
       - name: SecurityBridge App for Microsoft Sentinel
         href: data-connectors/securitybridge-app-for-microsoft-sentinel.md
-      - name: Semperis Directory Services Protector Solution
-        href: data-connectors/semperis-directory-services-protector-solution.md
       - name: Senserva Offer for Microsoft Sentinel
         href: data-connectors/senserva-offer-for-microsoft-sentinel.md
       - name: SentinelOne
@@ -526,6 +526,8 @@
         href: data-connectors/thehive-solution.md
       - name: Trend Micro Apex One Solution
         href: data-connectors/trend-micro-apex-one-solution.md
+      - name: Trend Micro TippingPoint for Microsoft Sentinel
+        href: data-connectors/trend-micro-tippingpoint-for-microsoft-sentinel.md
       - name: Trend Micro Vision One for Microsoft Sentinel
         href: data-connectors/trend-micro-vision-one-for-microsoft-sentinel.md
       - name: Ubiquiti UniFi
@@ -556,6 +558,8 @@
         href: data-connectors/wirex-network-forensics-platform-for-microsoft-sentinel.md
       - name: Workplace from Facebook
         href: data-connectors/workplace-from-facebook.md
+      - name: Zero Networks Segment for Microsoft Sentinel
+        href: data-connectors/zero-networks-segment-for-microsoft-sentinel.md
       - name: Zscaler Internet Access for Microsoft Sentinel
         href: data-connectors/zscaler-internet-access-for-microsoft-sentinel.md
       - name: Zscaler Private Access
