@@ -21,7 +21,7 @@ When deploying a new Personalizer resource, it's initialized with an untrained, 
 
 Similar to how an apprentice can learn a craft by observing an expert, Apprentice mode enables Personalizer to learn by observing the decisions made by your application's current logic. The Personalizer model trains by mimicking the same decision output as the application. With each Rank API call, Personalizer can learn without impacting the existing logic and outcomes. Metrics, available from the Azure portal and the API, help you understand the performance as the model learns. Specifically, how well Personalize is matching your existing logic (also known as the baseline policy).
 
-Once Personalizer is able to reasonably match your existing logic 60-80% of the time, you can change the behavior from Apprentice mode to *Online mode*. At that time, Personalizer returns the best actions in the Rank API as determined by the underlying model and can learn how to make better decisions than your baseline
+Once Personalizer is able to reasonably match your existing logic 60-80% of the time, you can change the behavior from Apprentice mode to *Online mode*. At that time, Personalizer returns the best actions in the Rank API as determined by the underlying model and can learn how to make better decisions than your baseline policy.
 
 ## Why use Apprentice mode?
 
@@ -63,7 +63,7 @@ Learning when in Apprentice mode differs from Online mode in the following ways.
 |Rank API return value for rewardActionId| The _rewardActionId_ will always be the Id of the default action. That is, the action you send as the first action in the Rank API request JSON. In other words, the Rank API does nothing visible for your application during Apprentice mode. |The  _rewardActionId_ will be one of the Ids provided in then Rank API call as determined by the Personalizer model.|
 |Evaluations|Personalizer keeps a comparison of the reward totals received by your current application logic, and the reward totals Personalizer would be getting if it was in Online mode at that point. This comparison is available to view in the *Monitor* blade of your Personalizer resource in the Azure portal.|Evaluate Personalizer’s effectiveness by running [Offline evaluations](concepts-offline-evaluation.md), which let you compare the total rewards Personalizer has achieved against the potential rewards of the application’s baseline.|
 
-Note: It's worth reiterating that it's unlikely for Personalizer to achieve a 100% performance match with the application's baseline logic, and it will never exceed it. Performance matching of 60%-80% should be sufficient to switch Personalizer to Online mode, where Personalizer can learn better decisions and exceed the performance of your application's baseline logic.
+Note: Personalizer is unlikely to achieve a 100% performance match with the application's baseline logic, and it will never exceed it. Performance matching of 60%-80% should be sufficient to switch Personalizer to Online mode, where Personalizer can learn better decisions and exceed the performance of your application's baseline logic.
 
 ## Limitations of Apprentice Mode
 Apprentice Mode trains Personalizer model by attempting to imitate your existing application's baseline logic, using the Context and Action features present in the Rank calls. The following factors will affect Apprentice mode's ability to learn.
