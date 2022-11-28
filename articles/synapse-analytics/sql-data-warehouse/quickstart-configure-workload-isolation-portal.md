@@ -35,9 +35,9 @@ This quickstart assumes you already have a dedicated SQL pool instance in Synaps
 
 ## Configure workload isolation
 
-Dedicated SQL pool resources can be isolated and reserved for specific workloads by creating workload groups.  See the [Workload Isolation](sql-data-warehouse-workload-isolation.md) concept documentation for more details on how workload groups help you achieve managing your workload.  The [Create and Connect - portal](create-data-warehouse-portal.md) quickstart created `mySampleDataWarehouse` and initialized it at DW100c. The following steps create a workload group in `mySampleDataWarehouse`.
+Dedicated SQL pool resources can be isolated and reserved for specific workloads by creating workload groups. For more information on how workload groups help you achieve managing your workload, see [Workload Isolation](sql-data-warehouse-workload-isolation.md). The [Create and Connect - portal](create-data-warehouse-portal.md) quickstart created `mySampleDataWarehouse` and initialized it at DW100c. The following steps create a workload group in `mySampleDataWarehouse`.
 
-To create a workload group with 20% isolation:
+To create a workload group with 20 percent isolation:
 1. Navigate to your `mySampleDataWarehouse` dedicated SQL pool page.
 1. Select  **Workload management**.
 1. Select **New workload group**.
@@ -65,7 +65,7 @@ To delete the `DataLoads` workload group created in this tutorial:
 1. Select on **Yes** when prompted to confirm deletion of the workload group.
 1. Select on **Save**.
 
-   :::image type="content" source="./media/quickstart-configure-workload-isolation-portal/delete-wg.png" alt-text="A screenshot of the Azure portal, the workload management page for a dedicated SQL pool. Select Delete.":::
+   :::image type="content" source="./media/quickstart-configure-workload-isolation-portal/delete-wg.png" alt-text="A screenshot of the Azure portal, the workload management page for a dedicated SQL pool. Select Delete workload group.":::
 
 You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
 
