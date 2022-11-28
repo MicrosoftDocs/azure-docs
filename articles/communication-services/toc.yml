@@ -443,9 +443,9 @@ items:
   - name: Call Automation libraries
     items:
     - name: Call Automation (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
-      href: https://azure.github.io/azure-sdk-for-java/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
   - name: Chat libraries
     items:
     - name: Chat (JavaScript)
