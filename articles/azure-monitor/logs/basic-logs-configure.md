@@ -1,6 +1,6 @@
 ---
-title: Set a table's log data plan in Azure Monitor Logs
-description: Learn how to configure the table log data plan to optimize log ingestion and retention costs in Azure Monitor Logs.
+title: Set a table's log data plan to Basic Logs or Analytics Logs
+description: Learn how to use Basic Logs and Analytics Logs to optimize reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/09/2022
 ---
 
-# Set a table's log data plan in Azure Monitor Logs
+# Set a table's log data plan to Basic or Analytics
 
 Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs: 
 
