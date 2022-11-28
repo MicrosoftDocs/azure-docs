@@ -75,11 +75,11 @@ The following parameters are used by the App Configuration Push task:
     }
     ```
 - **File Content Profile**: The Configuration File's [content profile](https://docs.microsoft.com/azure/azure-app-configuration/concept-config-file). Default value is **Default**.
-     - **Default**: Refers to the conventional configuration file schema widely adopted.
-     - **Kvset**: Refers to a [file schema](https://github.com/Azure/AppConfiguration/blob/main/docs/KVSet/KVSet.v1.0.0.schema.json) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags.
+     - **Default**: Refers to the conventional configuration file formats that are directly consumable by applications.
+     - **Kvset**: Refers to a [file schema](https://github.com/Azure/AppConfiguration/blob/main/docs/KVSet/KVSet.v1.0.0.schema.json) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not supported when using the Kvset profile.
 - **Import Mode**: The default value is **All**. Determines the behavior when importing key-values.
     - **All**: Imports all key-values in the configuration file to App Configuration. 
-    - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration.
+    - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration. Matching key-values are considered to be key-values with the same key, label, value, content type and tags.
 - **Dry Run**: Default value is **Unchecked**.
    - **Checked**: No updates will be performed to App Configuration. Instead any updates that would have been performed in a normal run will be printed to the console for review.
    - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
@@ -114,3 +114,37 @@ To create Key Vault references, set the "Content Type" parameter to *application
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
 A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+
+**How can I create FeatureFlags using this task ?**
+
+To create feature flags, specify a **FeatureManagement** section in the configuration file and define the feature flags under the **FeatureManagement** section. The feature filters can be defined using the **EnabledFor** property. For the schema see [feature flag schema](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/docs/schemas). The following is an example of a json configuration file with feature flags defined.
+```json
+{
+    "FeatureManagement": {
+        "FeatureA": {
+            "EnabledFor": [
+                {
+                    "Name": "AlwaysOn"
+                }
+            ]
+        },
+        "FeatureB": {
+            "EnabledFor": [
+                {
+                    "Name": "TimeWindow",
+                    "Parameters": {
+                        "Start": "Wed, 23 November 2022 13:59:59 GMT",
+                        "End": "Mon, 05 December 2022 00:00:00 GMT"
+                    }
+                },
+                {
+                    "Name": "Percentage",
+                    "Parameters": {
+                        "PercentageFilterSetting": "50"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
