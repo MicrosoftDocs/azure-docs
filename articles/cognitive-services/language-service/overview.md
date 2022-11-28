@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/30/2022
+ms.date: 11/28/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -25,7 +25,9 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
 
 > [!TIP]
-> [**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
+> Unsure which feature to use? See [Which Language service feature should I use?](#which-language-service-feature-should-i-use) to help you decide.
+
+[**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
 
 ### Named Entity Recognition (NER)
 
@@ -179,6 +181,8 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 :::row-end:::
 
 ## Which Language service feature should I use?
+
+This section will help you decide which Language service feature you should use for your application:
 
 |What do you want to do?  |Document format  |Your best solution  |
 |---------|---------|---------|
