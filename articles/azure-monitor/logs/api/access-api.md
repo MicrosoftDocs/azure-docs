@@ -9,8 +9,8 @@ ms.topic: article
 # Access the Azure Monitor Log Analytics API
 
 You can submit a query request to a workspace using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD). 
-
-
+>[!Note]
+> The `api.loganalytics.io` endpoint is being replaced by `api.loganalytics.azure`. `api.loganalytics.io` will continue to be be supported for the forseeable future.
 ## Authenticating with a demo API key
 
 To quickly explore the API without Azure Active Directory authentication, use the demonstration workspace with sample data, which supports API key authentication.
@@ -262,10 +262,17 @@ A successful request will produce a redirect to your redirect URI with the token
 
 This access\_token can be used as the `Authorization: Bearer` header value when passed to the Log Analytics API to authorize requests.
 
-
 ## More Information
 
 You can find documentation about OAuth2 with Azure AD here:
  - [Azure AD Authorization Code flow](/azure/active-directory/develop/active-directory-protocols-oauth-code)
  - [Azure AD Implicit Grant flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
  - [Azure AD S2S Client Credentials flow](/azure/active-directory/develop/active-directory-protocols-oauth-service-to-service)
+
+
+## Next steps
+
+- [Request format](./request-format.md)  
+- [Response format](./response-format.md)  
+- [Querying logs for Azure resources](./azure-resource-queries.md)  
+- [Batch queries](./batch-queries.md)  
