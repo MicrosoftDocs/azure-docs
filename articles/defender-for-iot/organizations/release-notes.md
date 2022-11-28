@@ -67,7 +67,7 @@ For more information, see [Threat intelligence research and packages](how-to-wor
 
 Defender for IoT provides **1 year of support** for every new version, starting with versions **22.1.7** and **22.2.7**. For example, version **22.2.7** was released in **October 2022** and is supported through **September 2023**.
 
-Earlier versions use a legacy support model, with support dates detailed below for each version.
+Earlier versions use a legacy support model, with support dates [detailed for each version](#on-premises-monitoring-software-versions).
 
 > [!IMPORTANT]
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
