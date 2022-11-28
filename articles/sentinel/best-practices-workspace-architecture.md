@@ -48,7 +48,7 @@ In Microsoft Sentinel, data is mostly stored and processed in the same geography
 
 For more information, see:
 
-- [Geographical availability and data residency](quickstart-onboard.md#geographical-availability-and-data-residency)
+- [Geographical availability and data residency](geographical-availability-data-residency.md)
 - [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
 - [Storing and processing EU data in the EU - EU policy blog](https://blogs.microsoft.com/eupolicy/2021/05/06/eu-data-boundary/)
 
