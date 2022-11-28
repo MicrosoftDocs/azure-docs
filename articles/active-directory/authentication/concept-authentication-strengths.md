@@ -80,7 +80,7 @@ The following table lists the combinations of authentication methods for each bu
 |Email One-time pass (Guest)| | | |
 -->
 
-<sup>1</sup> Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. Hardware OATH token is currently not supported. 
+<sup>1</sup> Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token and Hardware OATH token.
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
@@ -201,11 +201,7 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
 
-- **Authentication methods that are currently not supported by authentication strength** - The following authentication methods are included in the available combinations but currently have limited functionality:
-  - Email one-time pass (Guest)
-  - Hardware-based OATH token
-
-- **Authentication strength is not enforced on Register security information user action** – If an Authentication strength Conditional Access policy targets **Register security information** user action, the policy would not apply. 
+- **Authentication methods that are currently not supported by authentication strength** - The  Email one-time pass (Guest) authentication method is not included in the available combinations.
 
 - **Using 'Require one of the selected controls' with 'require authentication strength' control** - After you select authentication strengths grant control and additional controls, all the selected controls must be satisfied in order to gain access to the resource. Using **Require one of the selected controls** isn't applicable, and will default to requiring all the controls in the policy.
 
