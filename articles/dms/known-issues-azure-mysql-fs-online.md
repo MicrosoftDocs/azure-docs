@@ -43,7 +43,7 @@ One or more incompatible SQL modes can cause a number of different errors. Below
 
 ## Timeout Obtaining Table Locks
 
-- **Error**: An exception ocurred while attempting to acquire a read lock on the server '{server}' for consistent view creation.
+- **Error**: An exception occurred while attempting to acquire a read lock on the server '{server}' for consistent view creation.
 
   **Limitation**: This error occurs when there is a timeout while obtaining locks on all the tables when transactional consistency is enabled.
 
