@@ -308,11 +308,13 @@ The console will display restore failures.
 
 ## Configure SMTP settings
 
-Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers. You'll need an SMTP mail server configured to detect disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the management console, as well as to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers. 
+
+You'll need an SMTP mail server configured to detect disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the sensor management port. 
+Make sure you can reach the SMTP server from the [sensor's management port](/best-practices/understand-network-architecture). 
 
 **To configure an SMTP server on your sensor**:
 
