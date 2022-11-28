@@ -188,6 +188,12 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 | Determine the sentiment of text, and opinions about specific topics. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) |
 | Summarize long chunks of text or conversations | Unstructured text, formatted textual or transcribed conversations. | [Summarization](./summarization/overview.md) | 
 | Disambiguate entities and get links to Wikipedia. | Unstructured text | [entity linking](./entity-linking/overview.md) | 
+| Classify documents into categories you define. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md)
+| Extract and label medical information from clinical/medical documents | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) |
+| Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) |
+| Detect the language a text was written in | Unstructured text | [Language detection](./language-detection/overview.md) | 
+| Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) |
+| Connect apps from: conversational language understanding, LUIS, and question answering | Unstructured user inputs | [Orchestration workflow](./orchestration-workflow/overview.md) | 
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
