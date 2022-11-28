@@ -185,7 +185,7 @@ endpoint = ManagedOnlineEndpoint(
 
 ### Configure online deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
 > [!TIP]
 > - `name` - Name of the deployment.
@@ -307,7 +307,7 @@ blue_deployment = ManagedOnlineDeployment(
 
 ---
 
-then your model will be located at `/var/tfserving-model-mount/tfserving-deployment/1` in your deployment. Note that it is no longer under `azureml-app/azureml-models`, but under the mount path you specified:
+then your model will be located at `/var/tfserving-model-mount/tfserving-deployment/1` in your deployment. Note that it's no longer under `azureml-app/azureml-models`, but under the mount path you specified:
 
 :::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Diagram showing a tree view of the deployment directory structure when using mount_model_path.":::
 
@@ -331,7 +331,7 @@ az ml online-deployment create --name tfserving-deployment -f endpoints/online/c
 
 # [Python SDK](#tab/python)
 
-Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 ```python
 ml_client.begin_create_or_update(endpoint)
@@ -355,12 +355,12 @@ Once your deployment completes, see if you can make a scoring request to the dep
 
 # [Python SDK](#tab/python)
 
-Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 - `endpoint_name` - Name of the endpoint
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/custom-container).
+We'll send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data
