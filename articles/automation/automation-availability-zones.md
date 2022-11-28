@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Availability zones support for Azure Automation
 
-[Azure availability zones](../reliability/availability-zones-overview.md) provides an improved resiliency and high availability to a service instance in a specific Azure region to provide improved resiliency and high availability to a service instance in a specific Azure region. Azure Automation now supports Availability zones to provide improved resiliency and reliability high availability to the service, runbooks, and other automation assets.
+[Azure availability zones](../reliability/availability-zones-overview.md) provides an improved resiliency and high availability to a service instance in a specific Azure region. Azure Automation now supports Availability zones to provide improved resiliency and reliability high availability to the service, runbooks, and other automation assets.
  
 Azure availability zones is a high-availability offering that protects your applications and data from data center failures. Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
 
