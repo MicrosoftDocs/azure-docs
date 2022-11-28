@@ -51,7 +51,8 @@ Microsoft Defender External Attack Surface Management contains both global data 
 
 For security purposes, Microsoft collects users' IP addresses when they log in. This data is stored for up to 30 days but may be stored longer if needed to investigate potential fraudulent or malicious use of the product.
 
-In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup regions.
+In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup region.
+
 
 Defender EASM processes customer data. By default, customer data is replicated to the paired region.
 
