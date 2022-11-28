@@ -192,7 +192,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
     
 ## [Passwordless](#tab/passwordless)
 
-[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
+[!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
     
 ## [Connection String](#tab/connection-string)
 

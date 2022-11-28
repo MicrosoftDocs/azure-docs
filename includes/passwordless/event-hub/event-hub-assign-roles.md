@@ -10,18 +10,20 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that connects to Azure Event Hub has the correct permissions. You'll need the [Azure Event Hub Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hub-data-owner) role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
+When developing locally, make sure that the user account that connects to Azure Event Hub has the correct permissions. You'll need the [Azure Event Hub Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
 
 The following example assigns the `Azure Event Hub Data Owner` role to your user account, which provides full access to Azure Event Hub resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to give users only the minimum permissions needed for a more secure production environment.
 
 ### Azure built-in roles for Azure Event Hub
 For Azure Event Hub, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to a Event Hub namespace:
 
-- [Azure Event Hub Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hub-data-owner): Enables data access to Event Hub namespace and its entities (queues, topics, subscriptions, and filters)
-- [Azure Event Hub Data Sender](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hub-data-sender): Use this role to give the send access to Event Hub namespace and its entities.
-- [Azure Event Hub Data Receiver](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hub-data-receiver): Use this role to give the receive access to Event Hub namespace and its entities.
+- [Azure Event Hub Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Enables data access to Event Hub namespace and its entities (queues, topics, subscriptions, and filters)
+- [Azure Event Hub Data Sender](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give the send access to Event Hub namespace and its entities.
+- [Azure Event Hub Data Receiver](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give the receive access to Event Hub namespace and its entities.
 
 If you want to create a custom role, see [Rights required for Event Hub operations](../../../articles/event-hub-messaging/event-hub-sas.md#rights-required-for-event-hub-operations).
+
+
 
 > [!IMPORTANT]
 > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
