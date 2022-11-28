@@ -159,10 +159,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # [Azure portal](#tab/portal)
 
-> [!IMPORTANT]
-> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
-
-1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
 1. Select one of the zones.
