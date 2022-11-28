@@ -132,20 +132,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Update Cassandra configuration
 
-The service allows update to a limited set of Cassandra configurations on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). The following YAML settings are supported:
-
-- column_index_size_in_kb
-- allocate_tokens_for_keyspace
-- compaction_throughput_mb_per_sec
-- read_request_timeout_in_ms
-- range_request_timeout_in_ms
-- aggregated_request_timeout_in_ms
-- write_request_timeout_in_ms
-- request_timeout_in_ms
-- internode_compression
-- batchlog_replay_throttle_in_kb
-
-To update settings in the portal:
+The service allows update to Cassandra YAML configuration on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). To update settings in the portal:
 
 1. Find `Cassandra Configuration` under settings. Highlight the data center whose configuration you want to change, and click update:
 
@@ -160,7 +147,34 @@ To update settings in the portal:
    :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="Screenshot of the updated Cassandra config." lightbox="./media/create-cluster-portal/update-config-3.png" border="true":::
 
    > [!NOTE]
-   > Only overridden Cassandra configuration values are shown in the portal. 
+   > Only overridden Cassandra configuration values are shown in the portal.
+
+   > [!IMPORTANT]
+   > Ensure the Cassandra yaml settings you provide are appropriate for the version of Cassandra you have deployed. See [here](https://github.com/apache/cassandra/blob/cassandra-3.11/conf/cassandra.yaml) for Cassandra v3.11 settings and [here](https://github.com/apache/cassandra/blob/cassandra-4.0/conf/cassandra.yaml) for v4.0. The following YAML settings are **not** allowed to be updated:
+   >
+   > - cluster_name
+   > - seed_provider
+   > - initial_token
+   > - autobootstrap
+   > - client_ecncryption_options
+   > - server_encryption_options
+   > - transparent_data_encryption_options
+   > - audit_logging_options
+   > - authenticator
+   > - authorizer
+   > - role_manager
+   > - storage_port
+   > - ssl_storage_port
+   > - native_transport_port
+   > - native_transport_port_ssl
+   > - listen_address
+   > - listen_interface
+   > - broadcast_address
+   > - hints_directory
+   > - data_file_directories
+   > - commitlog_directory
+   > - cdc_raw_directory
+   > - saved_caches_directory 
 
 ## Troubleshooting
 
@@ -171,7 +185,12 @@ If you encounter an error when applying permissions to your Virtual Network usin
 
 ## Connecting to your cluster
 
-Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses, so to connect to your newly created Cassandra cluster, you will need to create another resource inside the VNet. This could be an application, or a Virtual Machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) installed. You can use a [template](https://azure.microsoft.com/resources/templates/vm-simple-linux/) to deploy an Ubuntu Virtual Machine. When deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
+Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses, so to connect to your newly created Cassandra cluster, you will need to create another resource inside the VNet. This could be an application, or a Virtual Machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) installed. You can use a [template](https://azure.microsoft.com/resources/templates/vm-simple-linux/) to deploy an Ubuntu Virtual Machine. 
+
+
+### Connecting from CQLSH
+
+After the virtual machine is deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
 
 ```bash
 # Install default-jre and default-jdk
@@ -193,6 +212,16 @@ host=("<IP>")
 initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
+### Connecting from an application
+
+As with CQLSH, connecting from an application using one of the supported [Apache Cassandra client drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) requires SSL to be enabled. See samples for connecting to Azure Managed Instance for Apache Cassandra using [Java](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-getting-started) and [.NET](https://github.com/Azure-Samples/azure-cassandra-mi-dotnet-core-getting-started). For Java, we highly recommend enabling [speculative execution policy](https://docs.datastax.com/en/developer/java-driver/4.10/manual/core/speculative_execution/). You can find a demo illustrating how this works and how to enable the policy [here](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-speculative-execution).
+
+Disabling certificate verification is recommended because certificate verification will not work unless you either store and validate against locally held copies of our certificates, or map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by either:
+
+- Storing our certificates locally and verifying against them. Our certificates are signed with Digicert - see [here](../active-directory/fundamentals/certificate-authorities.md). You would need to ensure that you keep this up-to-date. 
+- Adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
+
+
 
 
 ## Clean up resources

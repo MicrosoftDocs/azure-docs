@@ -22,7 +22,7 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Creating VMs from a direct shared gallery is open to all Azure users.
+> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). We will follow up within 5 business days after submitting the form. No additional access required to consume images, Creating VMs from a direct shared gallery is open to all Azure users in the target subscription or tenant the gallery is shared with.
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
@@ -33,27 +33,30 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant (all users, service principals and managed identities) |
 | [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
 ## Limitations
 
 During the preview:
-- You can only share to subscriptions that are also in the preview.
 - You can only share to 30 subscriptions and 5 tenants.
 - Only images can be shared. You can't directly share a [VM application](vm-applications.md) during the preview.
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+- TrustedLaunch and ConfidentialVM are not supported
 - PowerShell, Ansible, and Terraform aren't supported at this time.
+- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
+- Not available in Government clouds
+- For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
 
 You need to create a [new direct shared gallery ](./create-gallery.md#create-a-direct-shared-gallery). A direct shared gallery has the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
-## Share to subscriptions and tenants
+## How sharing with direct shared gallery works
 
 First you create a gallery under `Microsoft.Compute/Galleries` and choose `groups` as a sharing option.
 
@@ -61,6 +64,9 @@ When you are ready, you share your gallery with subscriptions and tenants. Only 
 
 ### [Portal](#tab/portaldirect)
 
+> [!NOTE]
+> **Known issue**: In the Azure portal, If you get an error "Failed to update Azure compute gallery", please verify if you have owner (or) compute gallery sharing admin permission on the gallery.
+>
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
@@ -86,6 +92,7 @@ To share the gallery:
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
 1. When you are done adding items, select **Save**.
+
 
 ### [CLI](#tab/clidirect)
 
@@ -221,4 +228,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) image from a direct shared image in the target subscription or tenant.

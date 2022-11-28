@@ -3,13 +3,13 @@ title: What is key phrase extraction in Azure Cognitive Service for Language?
 titleSuffix: Azure Cognitive Services
 description: An overview of key phrase extraction in Azure Cognitive Services, which helps you identify main concepts in unstructured text
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 06/15/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
 

@@ -21,11 +21,11 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 - Identify the Kubernetes - Azure Arc resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
 - Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Kubernetes - Azure Arc resource.
-- Ensure your local machine has kubectl access to the Azure Arc-enabled Kubernetes cluster. 
+- Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this.
 
 ## Create an Azure Monitor extension
 
-Follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) to create an Azure Monitor extension for the Azure Arc-enabled Kubernetes cluster. Ensure that you use the instructions for the Azure CLI, and that you choose **Option 4 - On Azure Stack Edge** when you carry out [Create extension instance using Azure CLI](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli).
+Follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) to create an Azure Monitor extension for the Azure Arc-enabled Kubernetes cluster. Ensure that you use the instructions for the Azure CLI, and that you choose **Option 4 - On Azure Stack Edge** when you carry out [Create extension instance using Azure CLI](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?tabs=cli#create-extension-instance).
 
 ## Configure and deploy the ConfigMap
 
@@ -189,13 +189,13 @@ In this step, you'll configure and deploy a ConfigMap which will allow Container
     
     `kubectl apply -f 99-azure-monitoring-configmap.yml`
 
-   The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+   The command will return quickly with a message that's similar to the following: `configmap "container-azm-ms-agentconfig" created`. However, the configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time.
 
 ## Run a query
 
 In this step, you'll run a query in the Log Analytics workspace to confirm that you can retrieve logs for the packet core instance.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the Log Analytics workspace you used when creating the Azure Monitor extension in [Create an Azure Monitor extension](#create-an-azure-monitor-extension).
 1. Select **Logs** from the resource menu.
    :::image type="content" source="media/log-analytics-workspace.png" alt-text="Screenshot of the Azure portal showing a Log Analytics workspace resource. The Logs option is highlighted.":::

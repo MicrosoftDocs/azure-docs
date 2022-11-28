@@ -270,3 +270,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/disk/
     - name: Data Box partners
       href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
+    - name: Data Box hardware additional terms
+      href: data-box-hardware-additional-terms.md

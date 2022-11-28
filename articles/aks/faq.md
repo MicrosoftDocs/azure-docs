@@ -216,7 +216,7 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
+No, all data is stored in the cluster's region.
 
 ## Are AKS images required to run as root?
 
@@ -303,7 +303,11 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modif
 
 ## How does Time syncronization work in AKS?
 
-AKS nodes run the "chrony" service which pulls time from the localhost, which in turn sync time with ntp.ubuntu.com.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
+AKS nodes run the "chrony" service which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
+
+## How are AKS addons updated?
+
+Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
 
 <!-- LINKS - internal -->
 

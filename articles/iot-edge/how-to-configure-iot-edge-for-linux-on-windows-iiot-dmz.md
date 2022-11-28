@@ -12,7 +12,7 @@ ms.author: patricka
 
 # How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks. By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, and at the same time, use IoT Edge to send data to the cloud.
 
@@ -125,9 +125,9 @@ EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) servi
     >[!TIP]
     >The previous image shows the route command output with the two NIC's assigned (*eth0* and *eth1*). The virtual machine creates two different *default* destinations rules with different metrics. A lower metric value has a higher priority. This routing table will vary depending on the networking scenario configured in the previous steps.
 
-###  Static routes fix
+###  Static routes configuration
 
-Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To work around this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes every time the VM starts and use the `route` command to set the desired route priorities.
+Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To work around this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes on every VM boot and uses the `route` command to set the desired route priorities.
 
 First, create a bash script that executes the necessary commands to set the routes. For example, following the networking scenario mentioned earlier, the EFLOW VM has two NICs (offline and online networks). NIC *eth0* is connected using the gateway IP xxx.xxx.xxx.xxx. NIC *eth1* is connected using the gateway IP yyy.yyy.yyy.yyy. 
 

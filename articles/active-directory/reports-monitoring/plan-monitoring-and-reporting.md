@@ -3,14 +3,14 @@
 title: Plan reports & monitoring deployment - Azure AD
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
-author: gargi-sinha
-manager: martinco
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: gasinh
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: plenzke 
 
 # Customer intent: As an Azure AD administrator, I want to monitor logs and report on access to increase security 
@@ -23,7 +23,7 @@ Your Azure Active Directory (Azure AD) reporting and monitoring solution depends
 
 ### Benefits of Azure AD reporting and monitoring
 
-Azure AD reporting provides a comprehensive view and logs of Azure AD activity in your environment, including sign in events, audit events, and changes to your directory.
+Azure AD reporting provides a comprehensive view and logs of Azure AD activity in your environment, including sign-in events, audit events, and changes to your directory.
 
 The provided data enables you to:
 
@@ -51,7 +51,7 @@ With Azure AD monitoring, you can route logs to:
 
 ### Licensing and prerequisites for Azure AD reporting and monitoring
 
-You'll need an Azure AD premium license to access the Azure AD sign in logs.
+You'll need an Azure AD premium license to access the Azure AD sign-in logs.
 
 For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
@@ -71,7 +71,7 @@ In this project, you'll define the audiences that will consume and monitor repor
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on effect, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
@@ -99,11 +99,11 @@ Reporting and monitoring are used to meet your business requirements, gain insig
 
 |Area |Description |
 |-|-|
-|Retention| **Log retention of more than 30 days**. ‎Due to legal or business requirements it is required to store audit logs and sign in logs of Azure AD longer than 30 days. |
+|Retention| **Log retention of more than 30 days**. ‎Due to legal or business requirements it's required to store audit logs and sign in logs of Azure AD longer than 30 days. |
 |Analytics| **The logs need to be searchable**. ‎The stored logs need to be searchable with analytic tools. |
 | Operational Insights| **Insights for various teams**. The need to give access for different users to gain operational insights such as application usage, sign in errors, self-service usage, trends, etc. |
 | Security Insights| **Insights for various teams**. The need to give access for different users to gain operational insights such as application usage, sign in errors, self service usage, trends, etc. |
-| Integration in SIEM systems      | **SIEM integration**. ‎The need to integrate and stream Azure AD sign in logs and audit logs to existing SIEM systems. |
+| Integration in SIEM systems      | **SIEM integration**. ‎The need to integrate and stream Azure AD sign-in logs and audit logs to existing SIEM systems. |
 
 ### Choose a monitoring solution architecture
 
@@ -119,11 +119,11 @@ Learn how to [route data to your storage account](./quickstart-azure-monitor-rou
 
 #### Send logs to Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) consolidate monitoring data from different sources. It also provides a query language and analytics engine that gives you insights into the operation of your applications and use of resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor, and alert on collected data. Use this method when you don't have an existing SIEM solution that you want to send your data to directly but do want queries and analysis. Once your data is in Azure Monitor logs, you can then send it to event hub and from there to a SIEM if you want to.
+[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) consolidate monitoring data from different sources. It also provides a query language and analytics engine that gives you insights into the operation of your applications and use of resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor, and alert on collected data. Use this method when you don't have an existing SIEM solution that you want to send your data to directly but do want queries and analysis. Once your data is in Azure Monitor logs, you can then send it to event hub, and from there to a SIEM if you want to.
 
 Learn how to [send data to Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
 
-You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign in and audit events.
+You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign-in and audit events.
 
 Learn how to [install and use log analytics views for Azure AD activity logs](./howto-install-use-log-analytics-views.md).
 
@@ -190,4 +190,4 @@ Depending on the decisions you have made earlier using the design guidance above
 
 Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 
 
-Consider implementing [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
+Consider implementing [Azure role-based access control](../../role-based-access-control/overview.md)

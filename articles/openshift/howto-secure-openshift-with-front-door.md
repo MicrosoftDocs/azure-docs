@@ -1,11 +1,11 @@
 ---
 title: Secure access to Azure Red Hat OpenShift with Azure Front Door 
 description: This article explains how to use Azure Front Door to secure access to Azure Red Hat OpenShift applications.
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 12/07/2021  
+ms.date: 12/07/2021
 keywords: azure, openshift, red hat, front, door
 #Customer intent: I need to understand how to secure access to Azure Red Hat OpenShift applications with Azure Front Door.
 ---
@@ -18,7 +18,7 @@ This article explains how to use Azure Front Door Premium to secure access to Az
 
 The following prerequisites are required: 
 
-- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
+- You have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
 
 - The cluster is configured with private ingress visibility.
 
@@ -90,7 +90,7 @@ This section explains how to register a domain in Azure DNS.
 
 3. Note the four nameservers that are present in Azure DNS for apps.example.com.
 
-4. Create a new **NS** record set in the example.com zone that points to **app** and specify the four nameservers that were present when the **apps** zone was created.
+4. Create a new **NS** record set in the example.com zone that points to **apps** and specify the four nameservers that were present when the **apps** zone was created.
 
 ## Create a new Azure Front Door Premium service
 
@@ -254,6 +254,6 @@ Because Azure Front Door is a global service, the application can take up to 30 
 
 ## Next steps
 
-Create a Azure Web Application Firewall on Azure Front Door using the Azure portal:
+Create an Azure Web Application Firewall on Azure Front Door using the Azure portal:
 > [!div class="nextstepaction"]
 > [Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal](../web-application-firewall/afds/waf-front-door-create-portal.md)

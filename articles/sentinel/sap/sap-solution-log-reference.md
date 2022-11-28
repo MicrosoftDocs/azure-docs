@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Threat Monitoring for SAP solution - data reference | Microsoft Docs
-description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel Threat Monitoring for SAP solution.
+title: Microsoft Sentinel Solution for SAP - data reference
+description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel Solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
@@ -8,21 +8,18 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel Threat Monitoring for SAP solution data reference (public preview)
-
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+# Microsoft Sentinel Solution for SAP data reference
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
->
 
-This article describes the functions, logs, and tables available as part of the Microsoft Sentinel Threat Monitoring for SAP solution and its data connector. It is intended for advanced SAP users.
+This article describes the functions, logs, and tables available as part of the Microsoft Sentinel Solution for SAP and its data connector. It is intended for advanced SAP users.
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel Solution for SAP. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -31,6 +28,14 @@ Users are *strongly encouraged* to use the functions as the subjects of their an
 - [SAPUsersAuthorizations](#sapusersauthorizations)
 - [SAPConnectorHealth](#sapconnectorhealth)
 - [SAPConnectorOverview](#sapconnectoroverview)
+- [SAPUsersEmail](#sapusersemail)
+- [SAPAuditLogConfiguration](#sapauditlogconfiguration)
+- [SAPAuditLogAnomalies](#sapauditloganomalies)
+- [SAPAuditLogConfigRecommend](#sapauditlogconfigrecommend)
+- [SAPSystems](#sapsystems)
+- [SAPUsersGetVIP](#sapusersgetvip)
+- [SAPUsersHeader](#sapusersheader)
+
 
 ### SAPUsersAssignments
 
@@ -65,7 +70,7 @@ Users are considered privileged when they are listed in the *SAP - Privileged Us
 **Parameters:**
 - TimeAgo
     - Optional
-    - Default value: 7 days
+    - Default value: Seven days
     - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 The **SAPUsersGetPrivileged** function returns the following data:
@@ -84,7 +89,7 @@ The **SAPUsersAuthorizations** function brings together data from several tables
 **Parameters:**
 - TimeAgo
     - Optional
-    - Default value: 7 days
+    - Default value: Seven days
     - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 The **SAPUsersAuthorizations** function returns the following data:
@@ -112,17 +117,16 @@ The **SAPConnectorHealth** function reflects the status of the agent's and the u
 | LastSeen        | Timestamp of latest activity |
 | StatusCode      | Code reflecting the system's status |
 
-
 ### SAPConnectorOverview
 
 The **SAPConnectorOverview** function shows row counts of each SAP table per System ID. It returns a list of data records per system ID, and their time generated.
 
 **Parameters:**
-- TimeAgo
-    - Optional
-    - Default value: 7 days
-    - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
+- TimeAgo
+  - Optional
+  - Default value: Seven days
+  - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 | Field           | Description |
 | --------------- | ----------- |
@@ -136,19 +140,267 @@ SAPConnectorOverview(7d)
 | summarize count() by bin(TimeGenerated, 1d), SystemID_s
 ```
 
+### SAPUsersEmail
+
+The **SAPUsersEmail** function allows for a performance oriented lookup of an SAP user's email address per SAP system and client, normally used to associate it with an active directory account. 
+Using data extracted from SAP tables USR21 (User Name/Address Key Assignment) and ADR6 (E-Mail Addresses), the SAPUsersEmail function looks for an Email address. In case one is not found, the user ID is returned instead of an Email address. This behavior ensures that SAP service accounts (such as DDIC), that often are not associated with an email addresses, will be logged as pseudo AD accounts, enabling some UEBA features, aiding in the investigation of incidents and hunting activities.
+
+| Field           | Description |
+| --------------- | ----------- |
+| ClientID | The SAP Client ID |
+| SystemID | The SAP System ID  |
+| User | The SAP User ID |
+| Email | The Email address of the SAP User | 
+
+### SAPSystems
+
+The **SAPSystems** function is used to centrally present the per-system configuration made using the 'SAP - Systems' watchlist.
+
+**Parameters:**
+
+- SelectedSystems
+  - Optional
+  - Default value: "All Systems"
+  - Used to filter specific SAP systems
+- SelectedSystemRoles
+  - Optional
+  - Default value: "All System Roles"
+  - Determines the roles of the SAP Systems to be looked at (as defined in the "SAP - Systems" watchlist)
+
+| Field | Description | Data Source/Notes  
+| ------------- | ------------- | -------------  
+| SearchKey | Search Key | Indexed field for SAP System ID  
+| SystemRole | The SAP System's Role | Production, UAT  
+| SystemUsage | The main usage of the SAP system | ERP, CRM  
+| SystemID | The SAP System ID |
+
+
+### SAPAuditLogConfiguration
+
+The **SAPAuditLogConfiguration** function returns the local configuration of the SAP audit log alerting of the Sentinel workspace, to be used for the different SAP audit log related alerts.
+It joins the data in the 'SAP Dynamic Audit Log Monitor Configuration' and 'SAP - Systems' watchlists to provide a per-system configuration at a per-system-role effort.
+
+**Parameters:**
+
+- SelectedSystems
+  - Optional
+  - Default value: "All Systems"
+  - Used to filter specific SAP systems to look at.
+- SelectedSystemRoles
+  - Optional
+  - Default value: "All System Roles"
+  - Determines the roles of the SAP Systems to be looked at (as defined in the "SAP - Systems" watchlist).
+- SelectedSeverities
+  - Optional
+  - Default value: ["High", "Medium"]
+  - Used to determine events to be looked at in terms of their severities. Severities per SAP audit log message ID and system role are defined in the "SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist. 
+- SelectedRuleTypes
+  - Optional
+  - Default value: "All RuleTypes"
+  - Determines what events are relevant for detecting the anomalies on. Rule types per SAP audit log message ID and system role are defined in the "SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist.
+
+| Field | Description | Data Source/Notes  
+| ------------- | ------------- | -------------  
+| CategoryName | SAP given event category | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| DestinationEmail | Email address of the Assigned Team | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| DetailedDescription | A markdown formatted text to be displayed on alerts | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| MessageID | The SAP audit log message ID | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| MessageText | A sample message text | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| RolesTagsToExclude | an ABAP Role, Profile or free text tag | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| RuleType | Anomaly or deterministic | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| Tactics | The MITRE ATTA&CK tactic | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| TeamsChannelID | Teams Channel | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| SystemID | The SAP System ID | 'SAP - Systems' watchlist  
+| SystemRole | The SAP System's Role | 'SAP - Systems' watchlist  
+| SystemUsage | The main usage of the SAP system | 'SAP - Systems' watchlist  
+| IsProd | Production system flag | 'SAP - Systems' watchlist  
+| Severity | The derived severity | Severity per system usage  
+| Threshold | The derived threshold | Event count per system Usage  
+| BagOfDetails | Bag of Details | A dictionary detailing the event definition
+
+
+### SAPAuditLogAnomalies
+
+The **SAPAuditLogAnomalies** uses Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
+Developed for the “SAP - (Experimental) Dynamic Anomaly based Audit Log Monitor Alerts” alert rule, this function was initially designed to alert on recent anomalies but it can also help to highlight historical anomalies (see examples below).
+
+**Parameters:**
+
+- LearningTime
+  - Optional
+  - Default Value: 14 days
+  - Determines the timespan used for the model learning
+- DetectingTime
+  - Optional
+  - Default value: One hour
+  - Determines the timespan to be looked at for detecting anomalies. Calling this function with DetectingTime = 0h will highlight anomalies across the entire LearningTime timespan
+- SelectedSystems
+  - Optional
+  - Default value: "All Systems"
+  - Used to filter specific SAP systems to look at.
+- SelectedSystemRoles
+  - Optional
+  - Default value: "All System Roles"
+  - Determines the roles of the SAP Systems to be looked at (as defined in the "SAP - Systems" watchlist).
+- SelectedSeverities
+  - Optional
+  - Default value: ["High", "Medium"]
+  - Used to determine events to be looked at in terms of their severities. Severities per SAP audit log message ID and system role are defined in the "SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist. 
+- SelectedPrefixMask
+  - Optional
+  - Default value: 24
+  - Used to determine the subnet mask level used for learning and detecting.
+- SelectedRuleTypes
+  - Optional
+  - Default value: "AnomaliesOnly"
+  - Determines what events are relevant for detecting the anomalies on. Rule types per SAP audit log message ID and system role are defined in the "SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist.
+
+#### Logic
+
+The function learns the slice of the history defined by the different input parameters, at the user, network attributes, system, seasonality, and activity levels. It then judges events occurring within the last DetectingTime timespan according to what it has learned, applying thresholds and other configurable exclusion criteria obtained from the SAP audit log configuration watchlist. Once a sliding window of user activity was deemed anomalous, a second query returns the entire user activity as evidence supporting the decision.
+
+#### Additional notes
+
+As with any machine learning solution, this function performs better with time. Further adjustments can be made using local configuration.
+It is advisable to restrict the size of the learned database to be under 100 million records using the many available input parameters.
+
+Example: looking for anomalies for events of high severity that occurred within the past hour on production systems for event types which are marked as "AnomaliesOnly" in the "SAP_Dynamic_Audit_Log_Monitor_Configuration"
+
+```kusto
+SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=1h, SelectedSystemRoles= dynamic(["Production"]), 
+SelectedSeverities= dynamic(["High"]), SelectedRuleTypes= dynamic(["AnomaliesOnly"]))
+```
+
+Example: Looking for all anomalies in the last 14 days in system "BIP"
+
+```kusto
+SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dynamic(["BIP"]))
+```
+
+| Field           | Description |
+| --------------- | ----------- |
+| **Multiple fields from SAPAuditLog** | Key fields from the SAP Audit log |
+| **Multiple fields from SAPAuditLogConfiguration** | Key fields from the Sentinel for SAP audit log configuration |
+| DiscoveredOn | The rounded hour on which the anomaly was observed on |
+| EventCount | Number of events counted per row returned|
+| AnomalCount | Number of events observed within relevant sliding window|
+| MinTime | Time of first event observed |
+| MaxTime | Time of last event observed|
+| Score | the anomaly scores as produced by the anomaly model|
+
+See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
+
+### SAPAuditLogConfigRecommend
+The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
+
+### SAPUsersGetVIP
+
+The Sentinel for SAP solution uses a concept of central user tagging, designed to allow for lower false positive rate with minimal effort on the customer end:
+
+- Users can be tagged using the "SAP User Config" watchlist (for example DDIC is assigned with “RunObsoleteProgOK”). Multiple users can have multiple tags.
+- An alert rule sends the relevant tags to the **SAPUsersGetVIP** function asking for a list of users to be excluded. The alert rule “SAP - Execution of an Obsolete or an Insecure Program” can ask for users bearing the tag “RunObsoleteProgOK”. 
+
+Here is a KQL query demonstrating the use case described below:
+
+```kusto
+// Execution of Obsolete/Insecure Program
+let ObsoletePrograms = _GetWatchlist("SAP - Obsolete Programs");
+// here you can exclude system users which are OK to run obsolete/ sensitive programs
+// by adding those users in the SAP_User_Config watchlist with a tag of 'RunObsoleteProgOK'
+let excludeUsersTags= dynamic(['RunObsoleteProgOK']);
+let excludedUsers= SAPUsersGetVIP(SearchForTags= dynamic(["RunObsoleteProgOK"]))| summarize by User2Exclude=SAPUser;
+// Query logic
+SAPAuditLog 
+| where MessageID == 'AUW'
+| where ABAPProgramName in (ObsoletePrograms) // The program is obsolete
+| join kind=leftantisemi excludedUsers on $left.User == $right.User2Exclude
+```
+
+This functionality is heavily used in the Deterministic and Anomalous Audit Log Monitor Alerts, 'where tags can be associated with SAP audit log message ID, and can also be easily extended to custom alert rules. 
+**Parameters:**
+
+- SearchForTags
+  - Optional
+  - Default value: dynamic('All Tags')
+  - When SearchForTags equals 'All Tags', all users are returned along with their tags, else, only users bearing the tags specified in SearchForTags are returned. TagsIntersect will show which tags were found, and IntersectionSize will hold the count of those.
+- SpecialFocusTags
+  - Optional
+  - Default value: "Do not return any in-focus users"
+  - The function returns all users bearing the tags specified in SpecialFocusTags, and marked those with specialFocusTagged = true.
+
+| Source | Field | Description | Notes  
+| ------------- | ------------- | ------------- | -------------  
+| The "SAP User Config" watchlist | SearchKey | Search Key |
+| The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
+| The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
+| The "SAP User Config" watchlist | User's Microsoft Azure Active Directory (Azure AD) Object ID | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User Identifier | AD User Identifier |
+| The "SAP User Config" watchlist | User on-premises Sid |  |
+| The "SAP User Config" watchlist | User Principal Name |  |
+| The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
+| Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
+| Logic | SpecialFocusTagged | Special focus indication | True, False  
+| Logic | IntersectionSize | The number of intersected Tags |
+
+### SAPUsersHeader
+
+The **SAPUsersHeader** function is designed to provide a high-level view of the SAP user. It uses data extracted from both the SAP user master data tables and recent activity on the SAP audit log to gather Email and IP addresses. It then returns last known email and IP addresses along with primary email and IP addresses.
+**Parameters:**
+SelectedSystemRoles:dynamic = dynamic(["All System Roles"]) SelectedSystems:dynamic = dynamic(["All Systems"]) SelectedUsers:dynamic = dynamic(["All Users"]) SelectedUser:string = "All Users"
+
+- SelectedSystems
+  - Optional
+  - Default value: "All Systems"
+  - Used to filter specific SAP systems to look at.
+- SelectedSystemRoles
+  - Optional
+  - Default value: "All System Roles"
+  - Determines the roles of the SAP Systems to be looked at (as defined in the "SAP - Systems" watchlist).
+- SelectedUsers
+  - Optional
+  - Default value: "All Users"
+  - Can input lists of users.
+- SelectedUser
+  - Optional
+  - Default value: "All Users"
+  - Accepts a single user only
+
+#### Additional notes
+For performance considerations, only a few days of audit activity are considered.
+For a full history of user activity, run a custom KQL query against the SAPAuditLog function.
+
+| Source | Field | Description | Notes  
+| ------------- | ------------- | ------------- | -------------  
+|  | User | The SAP user |
+| SAP tables ADR6 and USR21 | Email | Taken from user's master data | OSS, DDIC  
+| SAP table USR02 | UserType | string of tags assigned to user | RunObsoleteProgOK  
+| SAP table USR02 | Timezone | Azure AD Object ID |
+| SAP table USR02 | LockedStatus | AD User Identifier |
+| SAP audit log | LastSeen | A timestamp | last audit event observed for the user  
+| SAP audit log | LastSeenDaysAgo | days passed since LastSeen |
+| SAP audit log | PrimaryIP | Most frequently used IP address | ChangeUserMasterDataOK;RunObsoleteProgOK  
+| SAP audit log | LastKnownIP | Most recently used IP address | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
+| SAP audit log | PrimaryEmail | Most frequently used Email address | True, False  
+| SAP audit log | KnownIPs | List of known IP addresses | sorted by most frequent first  
+| SAP audit log | KnownEmails | List of known Email addresses | sorted by most frequent first  
+|  | Client | The SAP Client ID |
+|  | SystemID | The SAP system ID |
+|  | SystemRole | The SAP System's Role | Production, UAT
+|  | SystemUsage | The main usage of the SAP system | ERP, CRM
+
 
 ## Logs produced by the data connector agent
 
-This section describes the SAP logs available from the Microsoft Sentinel Threat Monitoring for SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+This section describes the SAP logs available from the Microsoft Sentinel Solution for SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 For best results, use the Microsoft Sentinel functions listed below to visualize, access, and query the data.
 
 - [ABAP Application log](#abap-application-log)
 - [ABAP Change Documents log](#abap-change-documents-log)
 - [ABAP CR log](#abap-cr-log)
-- [ABAP DB table data log](#abap-db-table-data-log)
-- [ABAP Gateway log](#abap-gateway-log)
-- [ABAP ICM log](#abap-icm-log)
+- [ABAP DB table data log](#abap-db-table-data-log-preview) (PREVIEW)
+- [ABAP Gateway log](#abap-gateway-log-preview) (PREVIEW)
+- [ABAP ICM log](#abap-icm-log-preview) (PREVIEW)
 - [ABAP Job log](#abap-job-log)
 - [ABAP Security Audit log](#abap-security-audit-log)
 - [ABAP Spool log](#abap-spool-log)
@@ -168,7 +420,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
-    Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
+    Available by using RFC based on standard SAP table and standard services of XBP interface. This log is generated per client.
 
 #### ABAPAppLog_CL log schema
 
@@ -219,7 +471,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
     - Other entities in the SAP system, such as user data, roles, addresses.
 
-    Available by using RFC with a custom service based on standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPChangeDocsLog_CL log schema
 
@@ -263,7 +515,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Includes the Change & Transport System (CTS) logs, including the directory objects and customizations where changes were made.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated with data across all clients.
+    Available by using RFC based on standard tables and standard SAP services. This log is generated with data across all clients.
 
 > [!NOTE]
 > In addition to application logging, change documents, and table recording, all changes that you make to your production system using the Change & Transport System are documented in the CTS and TMS logs.
@@ -291,7 +543,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 | ViewName     | View name                         |
 
 
-### ABAP DB table data log
+### ABAP DB table data log (PREVIEW)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -325,7 +577,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | VersionNumber    | Version number                        |
 
 
-### ABAP Gateway log
+### ABAP Gateway log (PREVIEW)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -335,7 +587,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-#### ABAPOS_GW_CL log schema
+#### ABAPOS_GW_CL log schema 
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -347,8 +599,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 
 
-### ABAP ICM log
-
+### ABAP ICM log (PREVIEW)
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_ICM
@@ -379,7 +630,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Combines all background processing job logs (SM37).
 
-    Available by using RFC with a custom service based on standard services of XBP interfaces. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table and standard services of XBP interfaces. This log is generated with data across all clients.
 
 #### ABAPJobLog_CL log schema
 
@@ -473,7 +724,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Serves as the main log for SAP Printing with the history of spool requests. (SP01).
 
-    Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table. This log is generated with data across all clients.
 
 #### ABAPSpoolLog_CL log schema
 
@@ -616,7 +867,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     For example, unmapped business processes may be simple release or approval procedures, or more complex business processes such as creating base material and then coordinating the associated departments.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPWorkflowLog_CL log schema
 
@@ -762,7 +1013,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Provides heartbeat and other health information on the connectivity between the agents and the different SAP systems.
 
-    Automatically created for any agents of the SAP Connector for Microsoft Sentinel.
+    Automatically created for any agents of the Microsoft Sentinel for SAP data connector.
 
 #### SAP_HeartBeat_CL log schema
 
@@ -807,7 +1058,8 @@ For best results, refer to these tables using the name in the **Sentinel functio
 | AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
 | AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
-
+| SNCSYSACL (PREVIEW)| SNC Access Control List (ACL): Systems        | SAP_SNCSYSACL   |
+| USRACL (PREVIEW)| SNC Access Control List (ACL): User              | SAP_USRACL      |
 
 
 ## Next steps
@@ -815,8 +1067,8 @@ For best results, refer to these tables using the name in the **Sentinel functio
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
+- [Microsoft Sentinel Solution for SAP detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution: built-in security content](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel Solution for SAP: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)

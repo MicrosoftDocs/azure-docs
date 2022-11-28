@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -89,19 +89,20 @@ To enable a policy-based (scheduled) backup:
 2. Select your Azure NetApp Files account.
 3. Select **Backups**. 
 
-    ![Screenshot that shows how to navigate to Backups option.](../media/azure-netapp-files/backup-navigate.png)
+  :::image type="content" source="../media/azure-netapp-files/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="../media/azure-netapp-files/backup-navigate.png":::
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
 6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.
 
-    ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
-
+    :::image type="content" source="../media/azure-netapp-files/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="../media/azure-netapp-files/backup-policy-window-daily.png":::
+    
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
     * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
 
-        ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
+    :::image type="content" source="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png" alt-text="Screenshot that shows the Backup Policy window with Snapshot Policy selected." lightbox="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png":::
+
  
 ### Example of a valid configuration
 
@@ -144,7 +145,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is pre-populated.  
 
-    ![Screenshot that shows Configure Backups window.](../media/azure-netapp-files/backup-configure-window.png)
+    :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot that shows Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
 
 
 ## Next steps  

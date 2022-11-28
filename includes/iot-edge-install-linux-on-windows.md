@@ -35,7 +35,11 @@ Install IoT Edge for Linux on Windows on your target device.
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
 
-   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
+   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command. For example, if you want to use the _D:\EFLOW_ folder for installation and the _D:\EFLOW-VHDX_ for the VHDX, you can use the following PowerShell cmdlet.
+
+   ```powershell
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn","INSTALLDIR=D:\EFLOW", "VHDXDIR=D:\EFLOW-VHDX"
+   ```
 
 1. Set the execution policy on the target device to `AllSigned` if it is not already. See the PowerShell prerequisites for commands to check the current execution policy and set the execution policy to `AllSigned`.
 
@@ -160,21 +164,53 @@ Install IoT Edge for Linux on Windows on your target device.
 > [!NOTE]
 > The following PowerShell process outlines how to deploy IoT Edge for Linux on Windows onto the local device. To deploy to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range="iotedge-2020-11"
+
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-      * **X64/AMD64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
-         ```
+   * **X64/AMD64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+      ```
 
-      * **ARM64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
-         ```
+   * **ARM64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+      ```
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+
+   * **X64/AMD64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+      ```
+
+   * **ARM64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+      ```
+:::moniker-end
+<!-- end iotedge-1.4 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -182,7 +218,11 @@ Install IoT Edge for Linux on Windows on your target device.
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
 
-   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
+   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command. For example, if you want to use the _D:\EFLOW_ folder for installation and the _D:\EFLOW-VHDX_ for the VHDX, you can use the following PowerShell cmdlet.
+
+   ```powershell
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn","INSTALLDIR=D:\EFLOW", "VHDXDIR=D:\EFLOW-VHDX"
+   ```
 
 1. Set the execution policy on the target device to `AllSigned` if it is not already. See the PowerShell prerequisites for commands to check the current execution policy and set the execution policy to `AllSigned`.
 

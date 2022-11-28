@@ -3,13 +3,13 @@ title: Azure Virtual Network - Concepts and best practices
 description: Learn about Azure Virtual Network concepts and best practices. 
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
-ms.author: mbender
+ms.author: allensu
 ---
 
 # Azure Virtual Network concepts and best practices

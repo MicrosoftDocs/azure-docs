@@ -1,8 +1,8 @@
 ---
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
-ms.topic: conceptual
-ms.date: 11/09/2021
+ms.topic: how-to
+ms.date: 10/28/2022
 ms.custom: devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
@@ -31,6 +31,23 @@ The following sections discuss the steps involved in creating and using private 
 Private endpoints for Backup can be only created for Recovery Services vaults that don't have any items protected to it (or haven't had any items attempted to be protected or registered to it in the past). So we suggest you create a new vault to start with. For more information about creating a new vault, see  [Create and configure a Recovery Services vault](backup-create-rs-vault.md).
 
 See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled.
+
+## Deny public network access to the vault
+
+You can configure your vaults to deny access from public networks.
+
+Follow these steps:
+
+1. Go to the *vault* > **Networking**.
+
+2. On the **Public access** tab, select **Deny** to prevent access from public networks.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
+
+   >[!Note]
+   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+
+3. Select **Apply** to save the changes.
 
 ## Enable Managed Identity for your vault
 
@@ -218,7 +235,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 
 In the VM in the locked down network, ensure the following:
 
-1. The VM should have access to AAD.
+1. The VM should have access to Azure AD.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup

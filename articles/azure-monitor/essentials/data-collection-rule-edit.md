@@ -2,6 +2,7 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
@@ -60,11 +61,11 @@ code "temp.dcr"
 Let’s modify the KQL transformation within DCR to drop rows where RequestType is anything, but “GET”.
 1.	Open the file created in the previous part for editing using an editor of your choice.
 2.	Locate the line containing `”transformKql”` attribute, which, if you followed the tutorial for custom log creation, should look similar to this:
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 3.	Modify KQL transformation to include additional filter by RequestType
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 4.	Save the file with modified DCR content.

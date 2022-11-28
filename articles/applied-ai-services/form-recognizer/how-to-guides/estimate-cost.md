@@ -7,12 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 10/20/2022
 ms.author: luzhan
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
 # Check my Form Recognizer usage and estimate the price
+
+[!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v3-0-and-v2-1.md)]
 
  In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure Form Recognizer. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
 

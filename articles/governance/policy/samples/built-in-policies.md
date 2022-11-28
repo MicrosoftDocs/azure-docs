@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/26/2022
+ms.date: 11/04/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -67,6 +67,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
 
+## Azure Load Testing
+
+[!INCLUDE [azure-policy-reference-policies-azure-load-testing](../../../../includes/policy/reference/bycat/policies-azure-load-testing.md)]
+
 ## Azure Purview
 
 [!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
@@ -103,9 +107,9 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
-## Container App
+## Container Apps
 
-[!INCLUDE [azure-policy-reference-policies-container-app](../../../../includes/policy/reference/bycat/policies-container-app.md)]
+[!INCLUDE [azure-policy-reference-policies-container-apps](../../../../includes/policy/reference/bycat/policies-container-apps.md)]
 
 ## Container Instance
 
@@ -163,6 +167,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-health-bot](../../../../includes/policy/reference/bycat/policies-health-bot.md)]
 
+## Health Data Services workspace
+
+[!INCLUDE [azure-policy-reference-policies-health-data-services-workspace](../../../../includes/policy/reference/bycat/policies-health-data-services-workspace.md)]
+
 ## Healthcare APIs
 
 [!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
@@ -202,10 +210,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Managed Identity
 
 [!INCLUDE [azure-policy-reference-policies-managed-identity](../../../../includes/policy/reference/bycat/policies-managed-identity.md)]
-
-## Managed Labs
-
-[!INCLUDE [azure-policy-reference-policies-managed-labs](../../../../includes/policy/reference/bycat/policies-managed-labs.md)]
 
 ## Maps
 

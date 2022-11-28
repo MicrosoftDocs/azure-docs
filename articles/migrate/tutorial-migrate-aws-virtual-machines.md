@@ -5,8 +5,8 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 08/19/2020
-ms.custom: MVC
+ms.date: 08/18/2022
+ms.custom: MVC, engagement-fy23
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
@@ -371,7 +371,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

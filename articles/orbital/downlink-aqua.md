@@ -88,6 +88,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 - Ensure that the VM has at least one standard public IP
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
+sudo mkdir /media/aqua
 sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```
 4. Ensure that SOCAT is installed on the machine:
@@ -129,7 +130,7 @@ sudo apt install socat
    | IP Address | Enter the Private IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
-   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](mailto:msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
+   | Demodulation Configuration | Select the 'Preset Named Modem Configuration' option and choose **Aqua Direct Broadcast**|
    | Decoding Configuration | Leave this field **blank** |
 
 

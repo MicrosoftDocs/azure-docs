@@ -14,6 +14,9 @@ ms.date: 06/20/2022
 # Azure CLI samples for Azure Database for MySQL 
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.
 
 | Sample link | Description  |

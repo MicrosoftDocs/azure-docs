@@ -3,7 +3,7 @@ title: Concepts - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 03/04/2022
+ms.date: 08/19/2022
 ---
 
 # Azure VMware Solution network design considerations
@@ -40,6 +40,8 @@ To reach vCenter Server and NSX Manager, more specific routes from on-prem need 
 Now that you've covered Azure VMware Solution network design considerations, you might consider learning more.
 
 - [Network interconnectivity concepts - Azure VMware Solution](concepts-networking.md)
+- [Plan the Azure VMware Solution deployment](plan-private-cloud-deployment.md)
+- [Networking planning checklist for Azure VMware Solution](tutorial-network-checklist.md)
 
 ## Recommended content
 

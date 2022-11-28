@@ -97,7 +97,7 @@ To change the IP, you'll associate a new public IP address created previously wi
 
 ## Add public IP prefix
 
-Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,000 ephemeral ports that can be used.
+Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,512 ephemeral ports to NAT gateway for connecting outbound.
 
 > [!NOTE] 
 > When assigning a public IP prefix to a NAT gateway, the entire range will be used. 

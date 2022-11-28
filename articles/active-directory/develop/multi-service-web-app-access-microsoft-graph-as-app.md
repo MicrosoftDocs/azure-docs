@@ -5,15 +5,16 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/25/2022
+ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Microsoft Graph from a secured app as the app
@@ -90,7 +91,7 @@ webAppName="SecureWebApp-20201106120003"
 
 spId=$(az resource list -n $webAppName --query [*].identity.principalId --out tsv)
 
-graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].objectId --out tsv)
+graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].id --out tsv)
 
 appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
 

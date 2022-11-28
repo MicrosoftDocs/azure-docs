@@ -55,6 +55,8 @@
         href: configure-host-scaling.md
       - name: Azure PowerShell
         href: configure-host-scaling-powershell.md
+    - name: Configure a shareable link
+      href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
   - name: Connect to a virtual machine

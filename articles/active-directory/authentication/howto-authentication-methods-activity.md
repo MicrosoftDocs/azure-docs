@@ -10,7 +10,7 @@ ms.date: 07/13/2021
 
 ms.author: justinha
 author: sopand
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management

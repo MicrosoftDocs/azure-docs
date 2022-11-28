@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 07/01/2022
+ms.date: 10/08/2022
 ms.topic: conceptual
 ---
 
@@ -42,10 +42,10 @@ VM extension functionality is available only in the list of [supported regions](
 
 In this release, we support the following VM extensions on Windows and Linux machines.
 
-To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
+To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md).
 
 > [!NOTE]
-> The Desired State Configuration VM extension is no longer available for Azure Arc-enabled servers. Alternatively, we recommend [migrating to guest configuration](../../governance/policy/how-to/guest-configuration-azure-automation-migration.md) or using the Custom Script Extension to manage the post-deployment configuration of your server.
+> The Desired State Configuration VM extension is no longer available for Azure Arc-enabled servers. Alternatively, we recommend [migrating to machine configuration](../../governance/machine-configuration/machine-configuration-azure-automation-migration.md) or using the Custom Script Extension to manage the post-deployment configuration of your server.
 
 Arc-enabled servers support moving machines with one or more VM extensions installed between resource groups or another Azure subscription without experiencing any impact to their configuration. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). This support is enabled starting with the Connected Machine agent version **1.8.21197.005**. For more information about moving resources and considerations before proceeding, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
@@ -89,7 +89,7 @@ Be sure to review the documentation for each VM extension referenced in the prev
 
 ### Log Analytics VM extension
 
-The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine. 
+The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
 Before you install the extension we suggest you review the [deployment options for the Log Analytics agent](concept-log-analytics-extension-deployment.md) to understand the different methods available and which meets your requirements.
 

@@ -13,7 +13,7 @@ ms.date: 11/30/2021
 
 # Connect Azure Database for PostgreSQL Flexible Server with the private access connectivity method
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL Flexible Server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 

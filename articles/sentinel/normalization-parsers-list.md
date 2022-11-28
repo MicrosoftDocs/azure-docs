@@ -37,18 +37,18 @@ Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.m
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific DNS parsers:
 
-| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
-| --- | --------------------------- | ------------------------------ | 
-|**Microsoft DNS Server**<br>Collected by the DNS connector<br> and the Log Analytics Agent | `_ASim_Dns_MicrosoftOMS` (regular) <br> `_Im_Dns_MicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
-| **Microsoft DNS Server**<br>Collected by NXlog| `_ASim_Dns_MicrosoftNXlog` (regular)<br>`_Im_Dns_MicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
-| **Azure Firewall** | `_ASim_Dns_AzureFirewall` (regular)<br> `_Im_Dns_AzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
-| **Sysmon for Windows**  (event 22)<br> Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_Dns_MicrosoftSysmon` (regular)<br> `_Im_Dns_MicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
-| **Cisco Umbrella**  | `_ASim_Dns_CiscoUmbrella` (regular)<br> `_Im_Dns_CiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
-| **Infoblox NIOS**<br><br>The InfoBlox parsers<br>require [configuring the relevant sources](normalization-manage-parsers.md#configure-the-sources-relevant-to-a-source-specific-parser).<br> Use `InfobloxNIOS` as the source type. | `_ASim_Dns_InfobloxNIOS` (regular)<br> `_Im_Dns_InfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
-| **GCP DNS** | `_ASim_Dns_Gcp` (regular)<br> `_Im_Dns_Gcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
-| **Corelight Zeek DNS events** | `_ASim_Dns_CorelightZeek` (regular)<br> `_Im_Dns_CorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
-| **Vectra AI** |`_ASim_Dns_VectraIA` (regular)<br> `_Im_Dns_VectraIA` (filtering)  | `AsimDnsVectraAI` (regular)<br> `vimDnsVectraAI` (filtering)  |
-| **Zscaler ZIA** |`_ASim_Dns_ZscalerZIA` (regular)<br> `_Im_Dns_ZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
+| **Source** | **Notes** | **Parser**
+| --- | --------------------------- | ---------- |
+| **Normalized DNS Logs** | Any event normalized at ingestion to the `ASimDnsActivityLogs` table. The DNS connector for the Azure Monitor Agent uses the `ASimDnsActivityLogs` table and is supported by the `_Im_Dns_Native` parser. | `_Im_Dns_Native` |
+| **Azure Firewall** | | `_Im_Dns_AzureFirewallVxx` |
+| **Cisco Umbrella**  | | `_Im_Dns_CiscoUmbrellaVxx` |
+| **Corelight Zeek** | | `_Im_Dns_CorelightZeekVxx` |
+| **GCP DNS** | | `_Im_Dns_GcpVxx` |
+| - **Infoblox NIOS**<br> - **BIND**<br> - **BlucCat** | The same parsers support multiple sources. | `_Im_Dns_InfobloxNIOSVxx` |
+| **Microsoft DNS Server** | Collected using:<br>- DNS connector for the Log Analytics Agent<br>- DNS connector for the Azure Monitor Agent<br>- NXlog | <br>`_Im_Dns_MicrosoftOMSVxx`<br>See Normalized DNS logs.<br>`_Im_Dns_MicrosoftNXlogVxx` | 
+| **Sysmon for Windows**  (event 22) | Collected using:<br>- the Log Analytics Agent<br>- the Azure Monitor Agent<br><br>For both agents, both collecting to the<br> `Event` and `WindowsEvent` tables are supported. | `_Im_Dns_MicrosoftSysmonVxx` |
+| **Vectra AI** | |`_Im_Dns_VectraIAVxx`  |
+| **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
 ||||
 
 Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
@@ -57,9 +57,16 @@ Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub reposi
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific File Activity parsers:
 
-- **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
+- **Windows file activity**
+    - Reported by **Windows (event 4663)**:
+        - Collected using the Log Analytics Agent based Security Events connector to the SecurityEvent table.
+        - Collected using the Azure Monitor Agent based Security Events connector to the SecurityEvent table.
+        - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
+    - Reported using **Sysmon file activity events** (Events 11, 23, and 26):
+        - Collected using the Log Analytics Agent to the Event table.
+        - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
+    - Reported by **Microsoft 365 Defender for Endpoint**, collected using the Microsoft 365 Defender connector.
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
-- **Microsoft 365 Defender for Endpoint file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
 Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimFileEvent).
@@ -68,21 +75,30 @@ Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.m
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
 
-| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
+| **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
-| **AppGate SDP** ip connection logs collected using Syslog |`_ASim_NetworkSession_AppGateSDP` (regular)<br> `_Im_NetworkSession_AppGateSDP` (filtering)<br> (Pending deployment) | `ASimNetworkSessionAppGateSDP` (regular)<br> `vimNetworkSessionAppGateSDP` (filtering)  |
-| **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
-| **Azure Network Security Groups (NSG) logs** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_AzureNSG` (regular)<br> `_Im_NetworkSession_AzureNSG` (filtering)  | `ASimNetworkSessionAzureNSG` (regular)<br> `vimNetworkSessionAzureNSG` (filtering)  |
-| **Fortigate FortiOS** ip connection logs collected using Syslog |`_ASim_NetworkSession_FortinetFortiGate` (regular)<br> `_Im_NetworkSession_FortinetFortiGate` (filtering)<br> (Pending deployment) | `ASimNetworkSessionFortinetFortiGate` (regular)<br> `vimNetworkSessionFortinetFortiGate` (filtering)  |
-| **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
-| **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
-| **Palo Alto PanOS traffic logs** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
-| **Sysmon for Linux**  (event 3)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent |`_ASim_NetworkSession_LinuxSysmon` (regular)<br><br>`_Im_NetworkSession_LinuxSysmon` (filtering) | `ASimNetworkSessionLinuxSysmon` (regular)<br><br> `vimNetworkSessionLinuxSysmon` (filtering) |
-| **Vectra AI** |`_ASim_NetworkSession_VectraIA` (regular)<br> `_Im_NetworkSession_VectraIA` (filtering)  | `AsimNetworkSessionVectraAI` (regular)<br> `vimNetworkSessionVectraAI` (filtering)  |
-| **Windows Firewall logs**<br>Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. |`_ASim_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br>`_Im_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (filtering) | `ASimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br> `vimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (filtering) |
-| **Zscaler ZIA firewall logs** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
+| **Normalized Network Session Logs** | Any event normalized at ingestion to the `ASimNetworkSessionLogs` table. The Firewall connector for the Azure Monitor Agent uses the `ASimNetworkSessionLogs` table and is supported by the `_Im_NetworkSession_Native` parser. | `_Im_NetworkSession_Native` |
+| **AppGate SDP** | IP connection logs collected using Syslog. | `_Im_NetworkSession_AppGateSDPVxx` |
+| **AWS VPC logs** | Collected using the AWS S3 connector. | `_Im_NetworkSession_AWSVPCVxx` |
+| **Azure Firewall logs** | |`_Im_NetworkSession_AzureFirewallVxx`|
+| **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_VMConnectionVxx`  |
+| **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_AzureNSGVxx` |
+| **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx` |
+| **Cisco ASA** | Collected using the CEF connector. | `_Im_NetworkSession_CiscoASAVxx` |
+| **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |
+| **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
+| **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
+| **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
+| **Microsoft Defender for IoT micro agent** | | `_Im_NetworkSession_MD4IoTAgentVxx` |
+| **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` * |
+| **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
+| **Sysmon for Linux**  (event 3) | Collected using the Log Analytics Agent<br> or the Azure Monitor Agent. |`_Im_NetworkSession_LinuxSysmonVxx`  |
+| **Vectra AI** | | `_Im_NetworkSession_VectraIAVxx`  |
+| **Windows Firewall logs** | Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. | `_Im_NetworkSession_MicrosoftWindowsEventFirewallVxx`|
+| **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
+| **Zscaler ZIA firewall logs** | Collected using CEF. | `_Im_NetworkSessionZscalerZIAVxx` |
+
+Note that the parsers marked with (*) are available for deployment from GitHub and are not yet built into workspaces.
 
 Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimNetworkSession).
 
@@ -112,11 +128,11 @@ Deploy Registry Event parsers from the [Microsoft Sentinel GitHub repository](ht
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific Web Session parsers:
 
-| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
+| **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
-|**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
-| **Vectra AI Streams** |`_ASim_WebSession_VectraAI` (regular)<br> `_Im_WebSession_VectraAI` (filtering) <br> (Pending deployment) | `ASimWebSessionVectraAI` (regular)<br> `vimWebSessionVectraAI` (filtering)  |
-| **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
+| **Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
+| **Vectra AI Streams** | | `_Im_WebSession_VectraAIVxx`  |
+| **Zscaler ZIA** | Collected using CEF | `_Im_WebSessionZscalerZIAVxx` |
 
 
 These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).

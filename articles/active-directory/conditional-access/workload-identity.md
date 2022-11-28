@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 11/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ This preview enables blocking service principals from outside of trusted public 
 
 Create a location based Conditional Access policy that applies to service principals.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -56,11 +56,11 @@ Create a location based Conditional Access policy that applies to service princi
 
 ### Create a risk-based Conditional Access policy
 
-Create a location based Conditional Access policy that applies to service principals.
+Create a risk-based Conditional Access policy that applies to service principals.
 
 :::image type="content" source="media/workload-identity/conditional-access-workload-identity-risk-policy.png" alt-text="Creating a Conditional Access policy with a workload identity and risk as a condition." lightbox="media/workload-identity/conditional-access-workload-identity-risk-policy.png":::
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -124,7 +124,7 @@ Sample JSON for location-based configuration using the Microsoft Graph beta endp
       ],
       "excludeServicePrincipals": [
         "[Service principal Object ID]"
-      ],
+      ]
     },
     "locations": {
       "includeLocations": [

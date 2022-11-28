@@ -16,6 +16,25 @@ manager: femila
 
 Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
 
+You can create host pools in the following Azure regions:
+
+- Australia East
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+
 ## Create a host pool
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -25,7 +44,7 @@ If you haven't already done so, follow the instructions in [Set up the PowerShel
 Run the following cmdlet to sign in to the Azure Virtual Desktop environment:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> -PreferredAppGroupType <appgrouptype>
 ```
 
 This cmdlet will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.
@@ -101,7 +120,7 @@ You can create a virtual machine in multiple ways:
 >[!NOTE]
 >If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Azure Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](apply-windows-license.md#manually-apply-a-windows-license-to-a-windows-client-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
 
 ## Prepare the virtual machines for Azure Virtual Desktop agent installations
 

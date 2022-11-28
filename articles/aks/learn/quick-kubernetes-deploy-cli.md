@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 11/01/2022
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -81,10 +81,10 @@ The following output example resembles successful creation of the resource group
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Container insights][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-addons monitoring` and `--enable-msi-auth-for-monitoring` parameter to enable [Azure Monitor Container insights][azure-monitor-containers] with managed identity authentication (preview). The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -229,6 +229,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
       selector:
         app: azure-vote-front
     ```
+
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 

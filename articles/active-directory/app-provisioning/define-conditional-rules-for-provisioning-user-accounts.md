@@ -3,7 +3,7 @@ title: Use scoping filters in Azure Active Directory Application Provisioning
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity

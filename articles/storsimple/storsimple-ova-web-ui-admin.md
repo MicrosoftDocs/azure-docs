@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/1/2016
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # Use the Web UI to administer your StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Overview

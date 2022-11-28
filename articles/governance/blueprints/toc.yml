@@ -33,7 +33,7 @@
     href: ./tutorials/protect-new-resources.md
   - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
+    href: /training/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index

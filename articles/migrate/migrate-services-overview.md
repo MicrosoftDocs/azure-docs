@@ -1,11 +1,11 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
-author: ms-psharma
-ms.author: panshar
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 07/08/2022
 ms.custom: mvc
 ---
 

@@ -22,7 +22,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope. <!-- Need to confirm whether these access requirements are correct. -->
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope. 
 - Carry out the steps in [Enabling Log Analytics for Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md).
 - Collect the following information.
 
@@ -30,10 +30,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
   - The name of the resource group containing the **Kubernetes - Azure Arc** resource.
 
 ## Review the template
-
-<!--
-Need to confirm whether the following link is correct.
--->
 
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-dashboard). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-dashboard/azuredeploy.json).
 

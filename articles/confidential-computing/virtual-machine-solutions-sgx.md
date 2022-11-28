@@ -1,13 +1,13 @@
 ---
 title: Deploy Intel SGX virtual machines
 description: Learn about using Intel SGX virtual machines (VMs) in Azure confidential computing.
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/20/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
 

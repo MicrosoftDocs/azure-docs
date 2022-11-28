@@ -12,7 +12,10 @@ ms.author: pgibson
 This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS) by using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *1.1.1* of OSM on clusters running Kubernetes version 1.23.5 and higher. The OSM add-on installs version *1.0.0.* on clusters running a Kubernetes version below 1.23.5.
+> Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM:
+> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.0* of OSM.
+> - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.1* of OSM.
+> - If your cluster is running a version of Kubernetes below 1.23.5, the OSM add-on installs version *1.0.0* of OSM.
 
 [Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language that uses declarative syntax to deploy Azure resources. You can use Bicep in place of creating [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to deploy your infrastructure-as-code Azure resources.
 
@@ -53,7 +56,7 @@ touch osm.aks.bicep && touch osm.aks.parameters.json
 Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
 ```azurecli-interactive
-// https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
+// https://learn.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
 @minLength(3)
 @maxLength(63)
 @description('Provide a name for the AKS cluster. The only allowed characters are letters, numbers, dashes, and underscore. The first and last character must be a letter or a number.')

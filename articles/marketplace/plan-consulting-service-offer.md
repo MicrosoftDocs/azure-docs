@@ -72,7 +72,7 @@ To learn more about the differences between AppSource and Azure Marketplace, see
 To demonstrate to customers your expertise in a field, you must meet a set of eligibility requirements before publishing a consulting service offer. The requirements depend on the product at the core of your offer. The complete list of eligibility requirements for each primary product is in the [certification policies for consulting services](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
-> For some primary products, you must have a Gold or Silver Microsoft competency in your solution area. For more information, see [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies).
+> For some primary products, you must have a Gold or Silver Microsoft competency in your solution area. For more information, see [Microsoft Cloud Partner Program Competencies](https://partner.microsoft.com/membership/competencies).
 
 ## Service type and duration
 

@@ -94,9 +94,9 @@ landingContent:
 
 
   # Card
-  - title: Microsoft Learn
+  - title: Microsoft Learn training
     linkLists:
       - linkListType: learn
         links:
           - text: Manage secrets in your server apps with Azure Key Vault
-            url: /learn/modules/manage-secrets-with-azure-key-vault/
+            url: /training/modules/manage-secrets-with-azure-key-vault/

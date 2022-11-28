@@ -4,7 +4,7 @@ description: Provides information about how password hash synchronization works 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
@@ -124,6 +124,9 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
+> [!NOTE]
+> The Set-AzureADUser PowerShell command will not work on federated domains. 
+
 #### Synchronizing temporary passwords and "Force Password Change on Next Logon"
 
 It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
@@ -229,7 +232,7 @@ For reference, this snippet is what it should look like:
     </configuration>
 ```
 
-For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
+For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/aad-password-sync-encryption-and-fips-compliance/ba-p/243709).
 
 ## Troubleshoot password hash synchronization
 If you have problems with password hash synchronization, see [Troubleshoot password hash synchronization](tshoot-connect-password-hash-synchronization.md).

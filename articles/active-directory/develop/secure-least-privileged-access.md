@@ -54,7 +54,7 @@ A reducible permission is a permission that has a lower-privileged counterpart t
 
 ## Use consent to control access to data
 
-Most applications require access to protected data, and the owner of that data needs to [consent](application-consent-experience.md#consent-and-permissions) to that access. Consent can be granted in several ways, including by a tenant administrator who can consent for *all* users in an Azure AD tenant, or by the application users themselves who can grant access.
+Most applications require access to protected data, and the owner of that data needs to [consent](consent-types-developer.md) to that access. Consent can be granted in several ways, including by a tenant administrator who can consent for *all* users in an Azure AD tenant, or by the application users themselves who can grant access.
 
 Whenever an application that runs in a device requests access to protected data, the application should ask for the consent of the user before granting access to the protected data. The user is required to grant (or deny) consent for the requested permission before the application can progress.
 

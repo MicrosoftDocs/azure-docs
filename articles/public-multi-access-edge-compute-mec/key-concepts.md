@@ -62,7 +62,7 @@ Azure public MEC supports specific compute and GPU VM SKUs. The following table 
 
 | Type | Series | VM size |
 | ---- | ------ | ------- |
-| VM | D-series | D2s_v3, D4s_v3, D8s_v3 |
+| VM | D-series | D1s_v2, D2s_v2, D2s_v3, D4s_v3, D8s_v3 |
 | VM | E-series | E4s_v3, E8s_v3 |
 | GPU | NCasT4_v3-series | Standard_NC4asT4_v3, Standard_NC8asT4_v3 |
 

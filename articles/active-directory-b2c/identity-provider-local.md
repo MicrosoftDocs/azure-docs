@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/02/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -34,6 +34,11 @@ To configure settings for social or enterprise identities, where the identity of
 
 ::: zone pivot="b2c-user-flow"
 
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+
 ## Configure local account identity provider settings
 
 
@@ -57,7 +62,7 @@ To set your local account sign-in options at the tenant level:
 ## Configure your user flow
 
 1. In the left menu of the Azure portal, select **Azure AD B2C**.
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select the user flow for which you'd like to configure the sign-up and sign-in experience.
 1. Select **Identity providers**
 1. Under the **Local accounts**, select one of the following: **Email signup**,  **User ID signup**, **Phone signup**, **Phone/Email signup**, or **None**.

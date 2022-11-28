@@ -10,7 +10,7 @@ ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
@@ -200,7 +200,7 @@ To configure role assignments for your Azure AD-enabled Windows Server 2019 Data
 
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. You obtain the username of your current Azure account by using [az account show](/cli/azure/account#az-account-show), and you set the scope to the VM created in a previous step by using [az vm show](/cli/azure/vm#az-vm-show). 
 
-You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure by using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
+You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply.
 
 ```AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -297,7 +297,7 @@ The AADLoginForWindows extension must be installed successfully for the VM to co
 1. View the device state by running `dsregcmd /status`. The goal is for the device state to show as `AzureAdJoined : YES`.
 
    > [!NOTE]
-   > Azure AD join activity is captured in Event Viewer under the *User Device Registration\Admin* log at *Event Viewer (local)\Applications* and *Services Logs\Windows\Microsoft\User Device Registration\Admin*.
+   > Azure AD join activity is captured in Event Viewer under the *User Device Registration\Admin* log at *Event Viewer (local)\Applications* and *Services Logs\Microsoft\Windows\User Device Registration\Admin*.
 
 If the AADLoginForWindows extension fails with an error code, you can perform the following steps.
 
@@ -361,7 +361,7 @@ You might get the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verify that you've [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
+Verify that you've [configured Azure RBAC policies](#configure-role-assignments-for-the-vm) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
 
 > [!NOTE]
 > If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#limits).

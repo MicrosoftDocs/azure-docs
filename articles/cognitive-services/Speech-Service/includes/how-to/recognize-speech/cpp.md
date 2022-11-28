@@ -20,7 +20,7 @@ Create a `SpeechConfig` instance by using your key and region. Create a Speech r
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 
-auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
 ```
 
 You can initialize `SpeechConfig` in a few other ways:
@@ -183,16 +183,6 @@ recognitionEnd.get_future().get();
 recognizer->StopContinuousRecognitionAsync().get();
 ```
 
-## Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) method on [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
-
-```cpp
-config->EnableDictation();
-```
-
 ## Change the source language
 
 A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to German. In your code, find your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance and add this line directly below it:
@@ -201,7 +191,7 @@ A common task for speech recognition is specifying the input (or source) languag
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Use a custom endpoint
 

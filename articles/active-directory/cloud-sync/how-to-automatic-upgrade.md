@@ -4,7 +4,7 @@ description: This article describes the built-in automatic upgrade feature in th
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to

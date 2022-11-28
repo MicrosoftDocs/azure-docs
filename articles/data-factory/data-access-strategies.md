@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 08/03/2022
 ---
 
 # Data access strategies
@@ -41,7 +41,7 @@ This should work in many scenarios, and we do understand that a unique Static IP
 For more information about supported network security mechanisms on data stores in Azure Integration Runtime and Self-hosted Integration Runtime, see below two tables.
 * **Azure Integration Runtime**
 
-    | Data Stores                  | Supported Network Security Mechanism on Data Stores | Private Link     | Trusted Service     | Static IP range | Service Tags | Allow Azure Services |
+   | Data Stores                  | Supported Network Security Mechanism on Data Stores | Private Link     | Trusted Service     | Static IP range | Service Tags | Allow Azure Services |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
     | Azure PaaS Data stores       | Azure Cosmos DB                                     | Yes              | -                   | Yes             | -            | Yes                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Yes*            | Yes*         | -                    |
@@ -52,9 +52,11 @@ For more information about supported network security mechanisms on data stores 
     |                              | Azure SQL DB,  Azure Synapse Analytics), SQL   Ml  | Yes (only Azure SQL DB/DW)        | -                   | Yes             | -            | Yes                  |
     |                              | Azure Key Vault (for fetching secrets/   connection string) | yes      | Yes                 | Yes             | -            | -                    |
     | Other PaaS/ SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Yes             | -            | -                    |
+    |                               | Snowflake                                         |   Yes             |   -                 | Yes             | -         | -                         |
     | Azure IaaS                   | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | Yes          | -                    |
-    | On-premises IaaS              | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | -            | -                    |
-
+    | On-premises IaaS              | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | -            | - 
+    
+    
     **Applicable only when Azure Data Explorer is virtual network injected, and IP range can be applied on NSG/ Firewall.*
 
 * **Self-hosted Integration Runtime (in VNet/on-premises)**

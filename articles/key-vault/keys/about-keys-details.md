@@ -62,7 +62,7 @@ Following table shows a summary of key types and supported algorithms.
 - **RSNULL** - See [RFC2437](https://tools.ietf.org/html/rfc2437), a specialized use-case to enable certain TLS scenarios.  
 
 > [!NOTE]
-> The DigestInfo is constructed on the server side for Sign operations that algorithms RS256, RS384 and RS512 generate
+> The DigestInfo is constructed on the server side for Sign operations that algorithms RS256, RS384 and RS512 generate.
 
 ##  Symmetric key algorithms (Managed HSM only)
 - **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
@@ -84,8 +84,9 @@ Key Vault, including Managed HSM, supports the following operations on key objec
 - **List versions**: Allows a client to list all versions of a given key in a given Key Vault.  
 - **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 - **Backup**: Exports a key in a protected form.  
-- **Restore**: Imports a previously backed up key.  
-- **Rotate (preview)**: Rotate an existing key by generating new version of the key (Key Vault only).
+- **Restore**: Imports a previously backed up key.
+- **Release**: It securely releases a key to authorized code running within a confidential compute environment. It requires an attestation that the Trusted Execution Environment (TEE) meets the requirements of the key’s release_policy.
+- **Rotate**: Rotate an existing key by generating new version of the key (Key Vault only).
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
@@ -108,8 +109,8 @@ For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
-- **Get Rotation Policy**: Allows a client to retrieve rotation policy configuration
-- **Set Rotation Policy**: Allows a client to set rotation policy configuration 
+- **Get Rotation Policy**: Retrieve rotation policy configuration
+- **Set Rotation Policy**: Set rotation policy configuration 
 
 ## Key attributes
 
@@ -168,6 +169,12 @@ The following permissions can be granted, on a per user / service principal basi
     
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted key
+  - *release*: Release a key to a confidential compute environment which matches the release_policy of the key
+
+- Permissions for rotation policy operations
+  - *rotate*: Rotate an existing key by generating new version of the key (Key Vault only) 
+  - *get rotation policy*: Retrieve rotation policy configuration
+  - *set rotation policy*: Set rotation policy configuration
 
 For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 

@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 

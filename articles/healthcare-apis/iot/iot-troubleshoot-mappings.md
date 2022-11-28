@@ -1,31 +1,34 @@
 ---
-title: Troubleshoot MedTech service Device and FHIR destination mappings - Azure Health Data Services
-description: This article helps users troubleshoot the MedTech service Device and FHIR destination mappings.
+title: Troubleshoot MedTech service device and FHIR destination mappings - Azure Health Data Services
+description: This article helps users troubleshoot the MedTech service device and FHIR destination mappings.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/16/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
-# Troubleshoot MedTech service Device and FHIR destination mappings
+# Troubleshoot MedTech service device and FHIR destination mappings
 
-This article provides the validation steps MedTech service performs on the Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings and can be used for troubleshooting mappings error messages and conditions. 
-
-> [!IMPORTANT]
-> Having access to MedTech service Metrics is essential for monitoring and troubleshooting.  MedTech service assists you to do these actions through [Metrics](./how-to-display-metrics.md).
+This article provides the validation steps the MedTech service performs on the device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings and can be used for troubleshooting mappings error messages and conditions. 
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
+> Having access to metrics and logs are essential tools for assisting you in troubleshooting and assessing the overall performance of your MedTech service. Check out these MedTech service articles to learn more about how to enable, configure, and use these monitoring features:
+>  
+> [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
+>
+> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+>
+> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
 > [!NOTE]
-> When you open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
+> When you open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your device and FHIR destination mappings](how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
 ## Device and FHIR destination mappings validations
 
-This section describes the validation process that the MedTech service performs. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
+The validation process validates the device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the device and FHIR destination mappings templates.
 
 **Device mappings**
 
@@ -58,7 +61,7 @@ This section describes the validation process that the MedTech service performs.
 
 In this article, you learned the validation process that the MedTech service performs on the Device and FHIR destination mappings. To learn how to troubleshoot MedTech service errors and conditions, see
 
->[!div class="nextstepaction"]
->[Troubleshoot MedTech service error messages and conditions](iot-troubleshoot-error-messages-and-conditions.md)
+> [!div class="nextstepaction"]
+> [Troubleshoot MedTech service error messages and conditions](iot-troubleshoot-error-messages-and-conditions.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

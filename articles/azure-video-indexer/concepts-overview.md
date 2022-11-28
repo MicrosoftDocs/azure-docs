@@ -10,6 +10,12 @@ ms.author: juliako
 
 This article gives a brief overview of Azure Video Indexer terminology and concepts.
 
+## Artifact files
+
+If you plan to download artifact files, beware of the following: 
+	
+[!INCLUDE [artifacts](./includes/artifacts.md)]
+
 ## Confidence scores
 
 The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score the greater the confidence in the answer. For example: 
@@ -39,11 +45,8 @@ Use textual and visual content moderation models to keep your users safe from in
 
 ## Insights	
 
-Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. For more information about available models, see [overview](video-indexer-overview.md).
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
- 
 [!INCLUDE [insights](./includes/insights.md)]
 
 The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows. For more information, see [Use editor to create projects](use-editor-create-project.md).
@@ -63,4 +66,4 @@ Azure Video Indexer supports embedding widgets in your apps. For more informatio
 ## Next steps
 
 - [overview](video-indexer-overview.md)
-- [Insights](video-indexer-output-json-v2.md)
+- Once you [set up](video-indexer-get-started.md), start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
