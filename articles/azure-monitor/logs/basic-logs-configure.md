@@ -59,7 +59,7 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 | [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
 | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
 | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
-| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources, e.g. dev boxes and environments stop, start, deletes. |
+| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources; for example, dev boxes and environment stop, start, delete. |
 
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.
