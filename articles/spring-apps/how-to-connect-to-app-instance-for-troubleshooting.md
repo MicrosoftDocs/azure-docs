@@ -49,14 +49,21 @@ az role assignment create \
 ### Portal
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Open your existing Azure Spring Apps service instance.
-3. Select **Access Control(IAM)** from the left menu.
-4. Select **Add** in the command bar, then click **Add role assignment**.
-5. Search for **Azure Spring Apps Connect Role** the list and click next.
-6. Click **Select members** and search for your username.
-7. Click **Review + assign**.
+1. Open your existing Azure Spring Apps service instance.
+1. Select **Access Control(IAM)** from the left menu.
+1. Select **Add** in the command bar, then click **Add role assignment**.
+   
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-1.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-1.png":::
 
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role.png":::
+1. Search for **Azure Spring Apps Connect Role** the list and click next.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-2.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-2.png":::
+
+1. Click **Select members** and search for your username.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png":::
+
+1. Click **Review + assign**.
 
 ## Connect to an app instance
 
@@ -109,11 +116,17 @@ If your app is deployed with a custom image and shell, you can also use the `--s
 1. Open your existing Azure Spring Apps service instance.
 1. Select **Apps** from left the menu, then select one of your apps.
 1. Select **Console** from the left menu.
-1. Choose an application instance and a shell to run in the container.
+1. Choose an application instance.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-1.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-1.png":::
+
+1. Select or input a shell to run in the container.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-2.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-2.png":::
+
 1. Click the **Connect** button.
 
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade.png":::
-
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-3.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-3.png":::
 
 ## Troubleshoot your app instance
 
