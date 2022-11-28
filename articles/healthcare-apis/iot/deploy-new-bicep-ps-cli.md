@@ -1,6 +1,6 @@
 ---
-title: Use Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file - Azure Health Data Services
-description: In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using a Bicep file.
+title: Deploy the MedTech service using Azure PowerShell and Azure CLI with a Bicep file - Azure Health Data Services
+description: In this quickstart, you'll learn how to deploy the MedTech service using Azure PowerShell or Azure CLI using a Bicep file.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 11/28/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Use Azure PowerShell and Azure CLI to deploy the MedTech service with a Bicep file
+# Quickstart: Deploy the MedTech service using Azure PowerShell and Azure CLI with a Bicep file
 
 In this quickstart, you'll learn how to:
 
