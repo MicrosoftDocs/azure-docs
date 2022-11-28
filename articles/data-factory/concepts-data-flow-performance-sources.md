@@ -15,7 +15,7 @@ ms.date: 11/27/2022
 
 For every source except Azure SQL Database, it is recommended that you keep **Use current partitioning** as the selected value. When reading from all other source systems, data flows automatically partitions data evenly based upon the size of the data. A new partition is created for about every 128 MB of data. As your data size increases, the number of partitions increase.
 
-Any custom partitioning happens *after* Spark reads in the data and will negatively impact your data flow performance. As the data is evenly partitioned on read, this is not recommended. 
+Any custom partitioning happens *after* Spark reads in the data and will negatively impact your data flow performance. As the data is evenly partitioned on read, is not recommended unless you understand the shape and cardinality of your data first.
 
 > [!NOTE]
 > Read speeds can be limited by the throughput of your source system.
@@ -31,7 +31,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 
 ### Isolation level
 
-The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels).
+The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels).
 
 ### Read using query
 
