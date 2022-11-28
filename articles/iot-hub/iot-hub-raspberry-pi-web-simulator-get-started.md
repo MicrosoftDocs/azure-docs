@@ -34,7 +34,7 @@ If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-
 
 * Run a sample application on Pi to send simulated sensor data to your IoT hub.
 
-You first connect simulated Raspberry Pi to an IoT hub that you create. You then run a sample application with the simulator to generate sensor data. Finally, you send the sensor data to your IoT hub.
+You first connect the simulated Raspberry Pi to an IoT hub that you create. You then run a sample application with the simulated Pi to generate sensor data. Finally, you send the sensor data to your IoT hub.
 
 ## What you learn
 
@@ -69,10 +69,10 @@ There are three areas in the web simulator.
 
    * **Reset** - Reset the coding area to the default sample application.
 
-   * **Fold/Expand** - On the right side, there's a button for you to fold/expand the console window.
+   * **Collapse/Expand** - On the right side, there's a button for you to collapse or expand the console window.
 
 > [!NOTE]
-> The Raspberry Pi web simulator is currently available as a preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> The Raspberry Pi web simulator is currently available in a preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
