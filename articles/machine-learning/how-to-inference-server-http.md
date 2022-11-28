@@ -70,7 +70,7 @@ python -m pip install azureml-inference-server-http
     ' > score.py
     ```
 
-1. Start the server and set `score.py` as the entry script:
+1. Start the server (azumlinfsrv) and set `score.py` as the entry script:
 
     ```bash
     azmlinfsrv --entry_script score.py
@@ -117,7 +117,7 @@ The following table contains the parameters accepted by the server:
 
 ## Request flow
 
-The following steps explain how the Azure Machine Learning inference HTTP server works handles incoming requests:
+The following steps explain how the Azure Machine Learning inference HTTP server (azumlinfsrv) works handles incoming requests:
 
 1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
 1. A client sends a request to the server.
