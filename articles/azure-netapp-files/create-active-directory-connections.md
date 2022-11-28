@@ -246,7 +246,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot that shows Active Directory credentials fields showing username, password and confirm password fields.](../media/azure-netapp-files/active-directory-credentials.png)
 
         >[!IMPORTANT]
-        >Active Directory passwords with Azure NetApp Files cannot exceed 64 characters. 
+        >Although Active Directory supports 256-character passwords, Active Directory passwords with Azure NetApp Files **cannot** exceed 64 characters. 
 
 3. Select **Join**.  
 
