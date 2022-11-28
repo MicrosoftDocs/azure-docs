@@ -21,6 +21,16 @@ To access the log analytics API, you can generate a token based on a client ID a
 1. Select **New registration**
 1. On the Register an application page, enter a **Name** for the application. 
 1. Select **Register**
+1. On the app's overview page, select **API permissions**  
+1. Select **Add a permission**
+1. In the **APIs my organization uses** tab search for *log analytics* and select **Log Analytics API** from the list.  
+:::image type="content" source="../media/api-register-app/request-api-permissions.png" alt-text="A screenshot showing the Request API permissions page.":::
+
+1. Select **Delegated permissions**
+1. Check the checkbox for **Data.Read**
+1. Select **Add permissions**
+:::image type="content" source="../media/api-register-app/add-requested-permissions.png" alt-text="A screenshot showing the continuation of the Request API permissions page.":::  
+
 1. On the app's overview page, select **Certificates and Secrets**
 1. Note the **Application (client) ID**. It's used in the HTTP request for a token.
 :::image type="content" source="../media/api-register-app/app-registration-overview.png" alt-text="A screenshot showing the App registrations overview page in Azure Active Directory.":::

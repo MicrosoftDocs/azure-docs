@@ -92,7 +92,7 @@ Use the `https://api.loganalytics.azure.com` endpoint.
     
     grant_type=client_credentials
     &client_id=<app-client-id>
-    &scope=https://api.loganalytics.io/.default
+    &resource=https://api.loganalytics.io
     &client_secret=<app-client-secret>
 ```
 
