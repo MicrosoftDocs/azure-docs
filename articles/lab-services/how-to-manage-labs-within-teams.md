@@ -15,11 +15,11 @@ In this article, you learn how to create and manage Azure Lab Services labs in M
 
 This article describes how to:
 
-- Create a lab in Microsoft Teams.
-- Manage lab user lists.
-- Manage a lab virtual machine (VM) pool.
-- Configure lab schedules and settings.
-- Delete a lab.
+- [Create a lab in Microsoft Teams](#create-a-lab-in-teams).
+- [Manage lab user lists](#manage-lab-user-lists-in-teams).
+- [Manage a lab virtual machine (VM) pool](#manage-a-lab-vm-pool-in-teams).
+- [Configure lab schedules and settings](#configure-lab-schedules-and-settings-in-teams).
+- [Delete a lab](#delete-a-lab).
 
 For more information about adding lab plans to Microsoft Teams, see [Configure Microsoft Teams to access Azure Lab Services lab plans](./how-to-get-started-create-lab-within-teams.md).
 
@@ -34,6 +34,19 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 ## Create a lab in Teams
 
 ## Manage lab user lists in Teams
+
+When you [create a lab within Teams](#create-a-lab-in-teams), Azure Lab Services automatically syncs the lab user list with the team membership. Everyone on the team, including owners, members, and guests are automatically added to the lab user list. Azure Lab Services adds or deletes users from the lab user list as per changes to the team membership when the sync operation completes.
+
+Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours.
+
+Educators can use the **Sync** button to manually trigger a sync, for example when the team membership is updated.
+
+:::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
+
+When the lab is published, the lab capacity is automatically updated:
+
+- If there are any new additions to the team, new VMs are created.
+- If a user is deleted from the team, the associated VM is deleted.
 
 ## Manage a lab VM pool in Teams
 
