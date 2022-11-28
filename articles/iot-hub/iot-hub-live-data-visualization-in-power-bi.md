@@ -76,7 +76,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Subscription**: Select the Azure subscription you're using for this tutorial.
 
-   **IoT Hub**: Select the IoT Hub you're using for this tutorial.
+   **IoT Hub**: Select the IoT hub you're using for this tutorial.
 
    **Consumer group**: Select the consumer group you created previously.
 
@@ -173,7 +173,7 @@ The following steps show you how to create and publish a report using the Power 
      > Depending on the device or simulated device that you use to send telemetry data, you may have a slightly different list of fields.
      >
 
-8. Select **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
+8. Select **File** > **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
 
 10. Still on the report pane, select **File** > **Embed report** > **Website or portal**.
 
