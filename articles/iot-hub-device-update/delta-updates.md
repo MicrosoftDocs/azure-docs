@@ -39,13 +39,7 @@ An update handler integrates with the Device Update agent to perform the actual 
 
 The delta processor re-creates the original SWU image file on your device after the delta file has been downloaded, so your update handler can install the SWU file. You'll find all the delta processor code in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
 
-To add the delta processor component to your device image and configure it for use, use apt-get to install the proper Debian package for your platform (it should be named `ms-adu_diffs_x.x.x_amd64.deb` for amd64):  
-
-```bash
-sudo apt-get install <path to Debian package>
-```
-
-Alternatively, on a non-Debian Linux device you can install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
+To add the delta processor component to your device image and configure it for use, follow the README.md instructions to use CMAKE to build the delta processor from source. From there, install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
 
 ```bash
 sudo cp <path to libadudiffapi.so> /usr/lib/libadudiffapi.so
@@ -80,7 +74,7 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) Github repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
 | .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Dependencies

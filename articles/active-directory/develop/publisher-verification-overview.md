@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/01/2021
+ms.date: 11/09/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, jesakowi
+ms.reviewer: ardhanap, brianokoyo, jesakowi
 ---
 
 # Publisher verification
@@ -60,7 +60,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant.
 
-- The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.
+- The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.  The user who initiates the verification must have one of the required roles in both Azure AD and Partner Center.
 
   - In Azure AD, this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin.
 

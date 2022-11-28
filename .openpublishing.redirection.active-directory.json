@@ -46,6 +46,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
       "redirect_document_id": false
@@ -10948,7 +10953,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
-      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal",
       "redirect_document_id": false
     },
     {

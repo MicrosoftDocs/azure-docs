@@ -3,7 +3,7 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/08/2022
 ---
 
 # Manage AWS assessments and standards
@@ -81,7 +81,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Save**.
 
-## Create a new custom assessment for your AWS account
+## Create a new custom assessment for your AWS account (Preview)
 
 **To create a new custom assessment for your AWS account**:
 
