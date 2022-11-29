@@ -64,7 +64,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ## Custom lexicon
 
-Sometimes text-to-speech doesn't accurately pronounce a word. Examples might be the name of a company, a medical term, or an emoji. You can define how single entities are read in SSML by using the [phoneme](#phoneme-element) and [sub](#sub-element) elements. If you need to define how multiple entities are read, you can create a custom lexicon by using the `lexicon` tag.
+You can define how single entities (such as company, a medical term, or an emoji) are read in SSML by using the [phoneme](#phoneme-element) and [sub](#sub-element) elements. To define how multiple entities are read, create an XML structured custom lexicon file. Then you upload the custom lexicon XML file and reference it with the SSML `lexicon` element.
 
 > [!NOTE]
 > For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
@@ -75,19 +75,20 @@ Usage of the `lexicon` element's attributes are described in the following table
 
 | Attribute | Description | Required or optional |
 | --------- | ---------- | ---------- |
-| `uri`     | The URI of the external `.xml` or `.pls` file. We don't have restrictions on where this file can be stored, but we recommend that you use [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md). For more information about the custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).| Required |
+| `uri`     | The URI of the publicly accessible custom lexicon XML file with either the `.xml` or `.pls` file extension. Using [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md) is recommended but not required. For more information about the custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).| Required |
 
-After you've published your custom lexicon, you can reference it from your SSML.
+### Custom lexicon examples
 
-> [!NOTE]
-> The `lexicon` element must be inside the `voice` element.
+The supported values for attributes of the `lexicon` element were [described previously](#custom-lexicon).
+
+After you've published your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
     </voice>
@@ -96,7 +97,30 @@ After you've published your custom lexicon, you can reference it from your SSML.
 
 ### Custom lexicon file
 
-To define how multiple entities are read, you can create a custom lexicon, which is stored as a `.xml` or `.pls` file. The following code is a sample `.xml` file.
+To define how multiple entities are read, you can define them in a custom lexicon XML file with either the `.xml` or `.pls` file extension.
+
+> [!NOTE]
+> The custom lexicon file is a valid XML document, but it cannot be used as an SSML document. 
+
+Here are some limitations of the custom lexicon file:
+
+- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100 KB limit, the synthesis request fails.
+- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text-to-speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
+
+The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
+
+- The `lexicon` element contains at least one `lexeme` element. Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work. The `lexicon` element also has an `alphabet` attribute to indicate the alphabet used in the lexicon. The possible values are `ipa` and `x-microsoft-sapi`.
+- Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello."
+- The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). 
+- The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. 
+- The `phoneme` element provides text that describes how the `lexeme` is pronounced. The syllable boundary is '.' in the IPA alphabet. The `phoneme` element can't contain white space when you use the IPA alphabet.
+- When the `alias` and `phoneme` elements are provided with the same `grapheme` element, `alias` has higher priority.
+
+Microsoft provides a [validation tool for the custom lexicon](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomLexiconValidation) that helps you find errors (with detailed error messages) in the custom lexicon file. Using the tool is recommended before you use the custom lexicon XML file in production with the Speech service.
+
+#### Custom lexicon file examples
+
+The following XML example (not SSML) would be contained in a custom lexicon `.xml` file. When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,43 +130,41 @@ To define how multiple entities are read, you can create a custom lexicon, which
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
       alphabet="ipa" xml:lang="en-US">
-  <lexeme>
-    <grapheme>BTW</grapheme>
-    <alias>By the way</alias>
-  </lexeme>
-  <lexeme>
-    <grapheme> Benigni </grapheme>
-    <phoneme> bɛˈniːnji</phoneme>
-  </lexeme>
-  <lexeme>
-    <grapheme>😀</grapheme>
-    <alias>test emoji</alias>
-  </lexeme>
+    <lexeme>
+        <grapheme>BTW</grapheme>
+        <alias>By the way</alias>
+    </lexeme>
+    <lexeme>
+        <grapheme> Benigni </grapheme>
+        <phoneme> bɛˈniːnji</phoneme>
+    </lexeme>
+    <lexeme>
+        <grapheme>😀</grapheme>
+        <alias>test emoji</alias>
+    </lexeme>
 </lexicon>
 ```
-
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text that describes how the `lexeme` is pronounced. When the `alias` and `phoneme` elements are provided with the same `grapheme` element, `alias` has higher priority.
-
-> [!IMPORTANT]
-> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello."
-
-Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work.
 
 You can't directly set the pronunciation of a phrase by using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, and then associate the `phoneme` with that `alias`. For example:
 
 ```xml
-  <lexeme>
-    <grapheme>Scotland MV</grapheme>
-    <alias>ScotlandMV</alias>
-  </lexeme>
-  <lexeme>
-    <grapheme>ScotlandMV</grapheme>
-    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
-  </lexeme>
+<?xml version="1.0" encoding="UTF-8"?>
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+    <lexeme>
+        <grapheme>Scotland MV</grapheme>
+        <alias>ScotlandMV</alias>
+    </lexeme>
+    <lexeme>
+        <grapheme>ScotlandMV</grapheme>
+        <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+    </lexeme>
+</lexicon>
 ```
-
-> [!NOTE]
-> The syllable boundary is '.' in the IPA.
 
 You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
 
@@ -153,21 +175,7 @@ You could also directly provide your expected `alias` for the acronym or abbrevi
   </lexeme>
 ```
 
-> [!IMPORTANT]
-> The `phoneme` element can't contain white spaces when you use the IPA.
-
-When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
-
-It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomLexiconValidation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
-
-**Limitations**
-
-- **File size**: The custom lexicon file size maximum limit is 100 KB. If a file is beyond this size, the synthesis request fails.
-- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text-to-speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
-
-**Speech service phonetic sets**
-
-In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
+The preceding custom lexicon XML file examples use the IPA alphabet, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
 The Speech service defines a phonetic set for these locales: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, `zh-HK`, and `zh-TW`. For more information on the detailed Speech service phonetic alphabet, see the [Speech service phonetic sets](speech-ssml-phonetic-sets.md).
 
