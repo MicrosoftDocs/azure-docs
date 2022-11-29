@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ — Microsoft Defender for Servers
-  description: This article provides answers to common questions about Microsoft Defender for Servers
+  title: FAQ — Microsoft Defender for Servers;
+  description: This article provides answers to common questions about [Microsoft Defender for Servers](./plan-defender-for-servers.md).
   ms.topic: faq
   ms.service: defender-for-cloud
   author: bmansheim
@@ -15,12 +15,12 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Can I enable Defender for Servers on a subset of machines in a subscription?
+          Can I enable on a subset of machines in a subscription?
         answer: |
           No. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account/GCP project, all of the connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics/Azure Monitor agent installed.
 
       - question: |
-          Can I get a discount if I have a Microsoft Defender for Endpoint license?
+          Can I get a discount with a Microsoft Defender for Endpoint license?
         answer: |
           If you already have a license for Microsoft Defender for Endpoint for Servers Plan 2, you won't have to pay for that part of your Microsoft Defender for Servers license. 
 
@@ -33,7 +33,8 @@ sections:
         answer: |
           When you enable Defender for Servers on a subscription, you're charged for all machines, in accordance with their power state.
 
-          Azure VMs:
+          **Azure VMs:**
+
           State | Details | Billing
           --- | --- | ---
           Starting | VM starting up | Not billed
@@ -43,7 +44,8 @@ sections:
           Deallocating | Transitional, will move to Deallocated state when complete. | Not billed
           Deallocated | VM stopped and removed from the host. | Not billed 
 
-          Azure Arc machines
+          **Azure Arc machines:**
+
           **State** | **Details* | **Billing**
           --- | --- | ---
           Connecting | Servers connected but heartbeat not yet received | Not billed
@@ -51,15 +53,9 @@ sections:
           Offline/Disconnected | No heartbeat received with 15-30 minutes | Not billed
           Expired | If disconnected for 45 days status can change to Expired. | Not billed
 
+  
       - question: |
-          If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers??
-        answer: |
-          If you already have a license for Microsoft Defender for Endpoint for Servers Plan 2, you won't have to pay for that part of your Microsoft Defender for Servers license. [Learn more](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
-          To request your discount, contact Defender for Cloud's support team. You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
-          The discount will be effective starting from the approval date, and won't take place retroactively.
-     
-      - question: |
-          If I enable Defender for Clouds Servers plan on the subscription level, do I need to enable it on the workspace level?
+          Do I need to enable it on the subscription and workspace?
         answer: |
           When you enable the Servers plan on the subscription level, Defender for Cloud automatically enables the plan on your default workspaces automatically. If you're using a custom workspace, you need to select it to enable the plan on it. Note that:
           
@@ -68,14 +64,14 @@ sections:
           - There's a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
           
       - question: |
-          What data types are included in the 500-MB data daily allowance?
+          Is the free allowance per workspace or per machine?
         answer: |
           You get 500-MB free data ingestion per day, for every VM connected to the workspace. This is specifically for the security data types that are directly collected by Defender for Cloud.
           
           This data is a daily rate averaged across all nodes. Your total daily free limit is equal to [number of machines] x 500 MB. So even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
 
       - question: |
-          What data types are included in the 500-MB data daily allowance?
+          What data types are included in the daily allowance?
         answer: |
           Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
@@ -92,30 +88,19 @@ sections:
           If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
       - question: |
-          Am I charged for machines without the Log Analytics license installed?
+          Am I charged for machines without Log Analytics installed?
         answer: |
           Yes. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account, you'll be charged for all machines that are connected to your Azure subscription or AWS account. The term machines include Azure virtual machines, Azure Virtual Machine Scale Sets instances, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
-          If an agent reports to multiple workspaces, will I be charged twice?
+          If an agent reports to multiple workspaces, am I charged twice?
         answer: |
           If a machine, reports to multiple workspaces, and all of them have Defender for Servers enabled, the machines will be billed for each attached workspace.
 
-      - question: |
-          Is the 500 MB free data ingestion for an entire workspace or per machine?
-        answer: |
-          You'll get 500-MB free data ingestion per day, for every VM connected to the workspace. Specifically for the security data types that are directly collected by Defender for Cloud.
-
-          This data is a daily rate averaged across all nodes. Your total daily free limit is equal to [number of machines] x 500 MB. So even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
-
-      - question: |
-          Is the 500 MB free data ingestion for an entire workspace or per machine?
-        answer: |
-          You'll get
-
+      
 
 additionalContent: |
 
   ## Next steps
   
-  [Plan  your Defender for Servers deployment](./plan-defender-for-servers.md).
+  [Plan  your Defender for Servers deployment](./plan-defender-for-servers.md)
