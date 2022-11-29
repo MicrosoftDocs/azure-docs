@@ -189,7 +189,7 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this article, you learned how to use Azure PowerShell and Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
+In this article, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choosing a method of deployment for the MedTech service in Azure](deploy-iot-connector-in-azure.md)

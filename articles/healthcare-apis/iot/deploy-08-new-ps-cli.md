@@ -11,7 +11,7 @@ ms.author: jasteppe
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
 
-In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
+In this quickstart, you'll learn how to use Azure PowerShell or Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
 
 For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
 
@@ -21,14 +21,14 @@ The ARM template used in this article is available from the [Azure Quickstart Te
 
 The ARM template will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
 
-- Azure Event Hubs namespace and device message event hub (the device message event hub is named: **devicedata**).
-- Azure event hub consumer group  (named **$Default**).
-- Azure event hub sender role (named **devicedatasender**).
+- Azure Event Hubs namespace and device message event hub (the device message event hub is named: `devicedata`).
+- Azure event hub consumer group  (named `$Default`).
+- Azure event hub sender role (named `devicedatasender`).
 - Azure Health Data Services workspace.
 - Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 - Azure Health Data Services MedTech service. This resource includes setup for:
-  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (named **Azure Events Hubs Receiver**)
-  - system-assigned managed identity access roles needed to read and write to the FHIR service (named **FHIR Data Writer**)
+  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (named `Azure Events Hubs Receiver`)
+  - system-assigned managed identity access roles needed to read and write to the FHIR service (named `FHIR Data Writer`)
 - An output file containing the ARM template deployment results (named **medtech_service_ARM_template_deployment_results.txt**). The file is located in the directory from which you ran the script.
 
 If you need to see a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a FHIR Observation.
@@ -182,7 +182,7 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 ## Next steps
 
-In this article, you learned how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. To learn more about other methods of deployment, see
+In this article, you learned how to use Azure PowerShell or Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. To learn more about other methods of deployment, see
 
 > [!div class="nextstepaction"]
 > [Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
