@@ -46,7 +46,7 @@ Organizations can select individual policy templates and:
 - Export the JSON definition for use in programmatic workflows.
    - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
 
-## Common policies
+## Conditional Access template policies
 
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)\*
@@ -62,17 +62,15 @@ Organizations can select individual policy templates and:
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
 - [Require compliant or Hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
 - [Use application enforced restrictions for unmanaged devices](howto-policy-app-enforced-restriction.md)
-- [Block access by location](howto-conditional-access-policy-location.md)
-- [Block access except specific apps](howto-conditional-access-policy-block-access.md)
 
 > \* These four policies when configured together, provide similar functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
 
-## Emergency access accounts
+## Other common policies
 
-More information about emergency access accounts and why they're important can be found in the following articles: 
+- [Block access by location](howto-conditional-access-policy-location.md)
+- [Block access except specific apps](howto-conditional-access-policy-block-access.md)
 
-- [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
-- [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ## Next steps
 
