@@ -733,6 +733,9 @@ for endpoint in ml_client.online_endpoints.list():
 
 # [ARM template](#tab/arm)
 
+> [!TIP]
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
+
 The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
@@ -775,6 +778,9 @@ ml_client.online_deployments.get_logs(
 ```
 
 # [ARM template](#tab/arm)
+
+> [!TIP]
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
@@ -830,6 +836,9 @@ ml_client.online_endpoints.invoke(
 ```
 
 # [ARM template](#tab/arm)
+
+> [!TIP]
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
