@@ -50,9 +50,9 @@ There are three types of migration staretgies that you can choose while building
 Although the business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
 ## Build a business case
 1. On the **Overview** page > **Servers, databases and web apps**, click **Discover, assess and migrate**.
-    ![Location of discover, assess and migrate servers button](./media/tutorial-businesscase/assess.png)
+    ![Screenshot of the discover, assess and migrate servers button.](./media/how-to-build-a-business-case/assess.png)
 1. In **Azure Migrate: Discovery and assessment**, click **Build business case**.
-    ![Location of the build business case button](./media/tutorial-businesscase/build.png)
+    ![Screenshot of the build business case button.](./media/how-to-build-a-business-case/build.png)
      We recommend that you wait at least a day after starting discovery before you build a business case so that enough performance/resource utilization data points are collected. Also, review the notifications/ resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the business case recommendations will be more valuable.
 1. In **Business case name** > specify a name for the business case. Make sure the business case name is unique within a project, else the previous business case with the same name will get recomputed.
 1. In **target location** > specify the Azure region to which you want to migrate.
@@ -65,10 +65,10 @@ Although the business case picks Azure recommendations from certain assessments,
 1. In **Discount (%) on Pay as you go**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. Note that the discount is not applicable on top of reserved instance savings option.
 1. **Currency** is defaulted to USD and can't be edited.
 1. Review the chosen inputs, and click **Build business case**.
-    ![Location of the button to intitate the buisiness case creation](./media/tutorial-businesscase/build-button.png)
+    ![Screenshot of the button to intitate the buisiness case creation.](./media/how-to-build-a-business-case/build-button.png)
 1. You will be directed to the newly created business case with a banner that says that your business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the business case page after ~30 minutes and click on refresh.
     
-    ![Location of refresh button](./media/tutorial-businesscase/refresh.png)
+    ![Screenshot of the refresh button.](./media/how-to-build-a-business-case/refresh.png)
     
 ## Review the business case
 There are four major reports that you need to review:
@@ -83,7 +83,7 @@ There are four major reports that you need to review:
 ### View a business case
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > Click the number below **Total migration business cases**.
 1. In **Business Case**, select a business case to open it. As an example (estimations and costs for example only): 
-![Business Case Overview](./media/tutorial-businesscase/overview.png)
+![Screenshot of the Business Case Overview.](./media/how-to-build-a-business-case/overview.png)
 ### Overview
 #### Potential savings
 This card covers your potential total cost of ownership savings based on the chosen migration strategy. It includes one year savings from compute, storage, network, labor and facilities cost (based on assumptions) to help you envision how Azure benefits can turn into cost savings. You can see the insights of different cost categories in the *On-premises Vs Azure* report.
@@ -109,9 +109,8 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 - These servers were on but do not have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
 ### On-premises Vs Azure
-It covers cost components for on-premises and Azure, savings and insights to understand the savings better. 
+It covers cost components for on-premises and Azure, savings, and insights to understand the savings better. 
 ### Azure IaaS
-It covers:
 In Azure tab:
 - Cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - Azure VM:
@@ -128,7 +127,6 @@ In on-premises tab:
 - Contribution of Zombie servers in the on-premises cost.
 - Distribution of servers by OS, virtualization and activity state.
 ### Azure PaaS
-It covers:
 In Azure tab:
 - Cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - Azure SQL:
