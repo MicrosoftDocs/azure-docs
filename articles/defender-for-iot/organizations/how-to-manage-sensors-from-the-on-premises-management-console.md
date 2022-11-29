@@ -212,16 +212,6 @@ Failures might occur because:
 
 You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **Forwarding**.
 
-### Restoring sensors
-
-You can restore backups from the sensor console and by using the CLI.  
-
-To restore by using the CLI:
-
-- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
-
-To restore from the sensor console, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
-
 ### Save a sensor backup to an external SMB server
 
 **To set up an SMB server so you can save a sensor backup to an external drive:**
@@ -278,6 +268,16 @@ To restore from the sensor console, see [Restore sensors](how-to-manage-individu
    
 
 1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
+
+### Restoring sensors
+
+You can restore backups from the sensor console and by using the CLI.  
+
+To restore by using the CLI:
+
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+To restore from the sensor console, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ## Next steps
 

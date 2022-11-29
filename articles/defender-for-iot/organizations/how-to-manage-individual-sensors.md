@@ -236,7 +236,7 @@ You can automatically transfer this file to the internal network.
 > - The backup and restore procedure can be performed between the same versions only.
 > - In some architectures, the backup is disabled. You can enable it in the `/var/cyberx/properties/backup.properties` file.
 
-When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server.
+When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server. For more information, see [Define sensor backup schedules](how-to-manage-sensors-from-the-on-premises-management-console.md#define-sensor-backup-schedules).
 
 **What is backed up**: Configurations and data.
 
@@ -302,9 +302,9 @@ To restore a backup from the sensor console, the backup file must be accessible 
     
     1. Access the sensor using an SFTP client.
     
-    1. Sign in using the sensor IP address and an administrative user.
+    1. Sign in to an administrative account and enter the sensor IP address.
     
-    1. Download the backup file from your chosen location and save it. The default location is `/var/cyberx/backups`.
+    1. Download the backup file from your chosen location and save it. The default location for system backup files is `/var/cyberx/backups`.
     
 - **To restore the sensor**:
     
