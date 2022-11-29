@@ -576,18 +576,7 @@ There are two things that can help prevent 503 status codes:
 
 ## Common network isolation issues
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-tscoring errors with online endpoints.
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: mlops
-author: shohei1029
-ms.author:  shnagata
-ms.reviewer: mopeakande
-ms.date: 11/04/2022
-ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
-#Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
----
+[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-tscoring errors with online endpoints.]
 
 ## Troubleshooting online endpoints deployment and scoring
 
