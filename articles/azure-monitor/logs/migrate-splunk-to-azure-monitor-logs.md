@@ -15,7 +15,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 > [!div class="checklist"]
 > * Introduction to key concepts 
-> * Design and deploy a workspace
+> * Deploy a Log Analytics workspace
 > * Collect data
 > * Migrate applications
 > * Ingest historical data
@@ -31,9 +31,9 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |[Archiving and quick access to archived data](../logs/data-retention-archive.md)| Azure Monitor logs provides a cost-effective archive option that keeps your logs in your Log Analytics workspace and lets you access archived log data immediately, when you need it. Archive configuration changes are also effective immediately because data is not physically transferred to external storage. |
 |[Data transformations](../essentials/data-collection-transformations.md)|Transformations let you filter or modify incoming data before it's sent to a Log Analytics workspace. Use transformations to remove sensitive data, enrich data in your Log Analytics workspace with additional or calculated information, and reduce data costs. |
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to build on your existing knowledge from searching in Splunk. You can [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/).|
-|[Cost optimization](../logs/cost-logs.md)|You can significantly reduce your cost for Azure Monitor by understanding configuration options and ways to filter out data you don't need. |
+|[Cost optimization](../../azure-monitor/best-practices-cost.md)|Reduce your costs by understanding [Azure Monitor Logs cost calculations](../logs/cost-logs.md) and following [best practices for configuring a Log Analytics workspace and filtering out data you don't need before ingestion](../../azure-monitor/best-practices-cost.md). |
 
-## 1. Deploy and configure a workspace
+## 1. Deploy a Log Analytics workspace
 
 [Design a Log Analytics workspace architecture](../logs/workspace-design.md)
 
