@@ -31,7 +31,7 @@ ORAS Artifacts support is not available in the government or China clouds, but a
 
 ## ORAS installation
 
-Download and install a preview ORAS release for your operating system. See [ORAS installation instructions][oras-install-docs] for how to extract and install the file for your operating system. This article uses ORAS CLI 0.14.1 to demonstrate how to manage supply chain artifacts in ACR.
+Download and install a preview ORAS release for your operating system. See [ORAS installation instructions][oras-install-docs] for how to extract and install the file for your operating system. This article uses ORAS CLI 0.16.0 to demonstrate how to manage supply chain artifacts in ACR.
 
 ## Configure a registry
 
@@ -177,7 +177,7 @@ Attach the multi-file artifact as a reference.
 ```bash
 oras attach $IMAGE \
     ./readme.md:application/markdown \
-    ./readme-details.md:application/markdown
+    ./readme-details.md:application/markdown \
     --artifact-type readme/example
 ```
 
@@ -226,7 +226,7 @@ Artifacts that are pushed as references, typically do not have tags as they are 
 ```bash
 SBOM_DIGEST=$(oras discover -o json \
                 --artifact-type sbom/example \
-                $IMAGE | jq -r ".referrers[0].digest")
+                $IMAGE | jq -r ".manifests[0].digest")
 ```
 
 Create a signature of an SBoM
@@ -270,7 +270,7 @@ To pull a referenced type, the digest of reference is discovered with the `oras 
 ```bash
 DOC_DIGEST=$(oras discover -o json \
               --artifact-type 'readme/example' \
-              $IMAGE | jq -r ".referrers[0].digest")
+              $IMAGE | jq -r ".manifests[0].digest")
 ```
 
 ### Create a clean directory for downloading
@@ -384,7 +384,8 @@ az acr manifest list-metadata \
 [docker-windows]:       https://docs.docker.com/docker-for-windows/
 [oras-install-docs]:    https://oras.land/cli/
 [oras-docs]:       https://oras.land/
-[oras-artifacts]:       https://github.com/oras-project/artifacts-spec/
+[oras-artifacts-referrers]: 
+[oras-artifacts]:       https://github.com/oras-project/artifacts-spec/blob/main/manifest-referrers-api.md
 <!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
