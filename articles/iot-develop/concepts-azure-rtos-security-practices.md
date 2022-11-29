@@ -5,7 +5,7 @@ author: edlamie80
 ms.author: v-edlamie
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 11/29/2022
 ---
 
 # Develop secure embedded applications with Azure RTOS
