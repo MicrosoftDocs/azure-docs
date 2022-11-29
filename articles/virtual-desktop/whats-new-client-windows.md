@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: heidilohr
 manager: femila
 ms.author: helohr
-ms.date: 11/29/2022
+ms.date: 11/30/2022
 ---
 # What's new in the Remote Desktop client for Windows
 
@@ -17,8 +17,21 @@ The client can be configured to enable Windows Insider releases. The following t
 
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
-| Public  | 1.2.3577       | 1.2.1672                  |
+| Public  | 1.2.3667       | 1.2.1672                  |
 | Insider | 1.2.3770       | 1.2.1672                  |
+
+## Updates for version 1.2.3667
+
+*Date published: 11/30/2022*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+- Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
+- Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
+- Fixed an issue where the application crashes when calling reset manually from the command line.
+- Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
+- Fixed an issue where the client stops responding when coming out of sleep mode.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.3770 (Insider)
 
@@ -29,30 +42,17 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 - Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
-## Updates for version 1.2.3667 (Insider)
-
-*Date published: 10/25/2022*
-
-- Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
-- Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
-- Fixed an issue where the application crashes when calling reset manually from the command line.
-- Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
-- Fixed an issue where the client stops responding when coming out of sleep mode.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-
 ## Updates for version 1.2.3577
 
 *Date published: 10/10/2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R78), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE591Lx), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R77)
 
 Fixed a bug related to tracing that was blocking reconnections.
 
 ## Updates for version 1.2.3576
 
 *Date published: 10/6/2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE59ekJ), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFG)
 
 Fixed a bug that affected users of some third-party plugins.
 
