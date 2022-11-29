@@ -134,7 +134,7 @@ When the default sensor backup location is changed, the on-premises management c
 
 When the sensors aren't registered with the on-premises management console, the **Sensor Backup Schedule** dialog box indicates that no sensors are managed.  
 
-The restore process is the same regardless of where the files are stored.
+The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ### Backup storage for sensors
 
@@ -268,16 +268,6 @@ You can send an email notification, syslog updates, and system notifications whe
    
 
 1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
-
-### Restoring sensors
-
-You can restore backups from the sensor console and by using the CLI.  
-
-To restore by using the CLI:
-
-- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
-
-To restore from the sensor console, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ## Next steps
 
