@@ -107,7 +107,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
 >[!Note]
->You need to grant SharePoint Online site permission. Refer to [Prerequisites](#preequisites) for the configuration steps.
+>You need to grant SharePoint Online site permission. Refer to [Prerequisites](#prerequisites) for the configuration steps.
 
 **Example:**
 
