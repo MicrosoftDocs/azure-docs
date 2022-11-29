@@ -124,7 +124,7 @@ az containerapp ingress access-restriction set \
    --action Allow
 ```
 
-Add more allow rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more allow rules, any traffic from an IP address that doesn't match any of the rules is denied.
+Add more allow rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more allow rules, only traffic that matches at least one rule is allowed. All other traffic is denied.
 
 ### Configure a denylist
 
@@ -140,7 +140,7 @@ az containerapp ingress access-restriction set \
   --action Deny
 ```
 
-Add more deny rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more deny rules, any traffic from an IP address that doesn't match any of the rules is allowed.
+Add more deny rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more deny rules, any traffic that matches at least one rule is denied. All other traffic is allowed.
 
 ### Remove access restrictions
 
