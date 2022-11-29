@@ -167,7 +167,7 @@ settings and objects. To find out more, see
 
 Here are a few pointers and tips to keep in mind:
 
-- Start with an `audit` or `auditIfNotExist` effect instead of a enforcement (`deny`, `modify`, `deployIfNotexist`) effect to track impact of your policy definition on
+- Start with an `audit` or `auditIfNotExist` effect instead of a enforcement (`deny`, `modify`, `deployIfNotExist`) effect to track impact of your policy definition on
   the resources in your environment. If you have scripts already in place to autoscale your
   applications, setting an enforcement effect may hinder such automation tasks already in place.
 
