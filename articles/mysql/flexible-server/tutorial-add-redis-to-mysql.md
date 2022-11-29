@@ -100,7 +100,7 @@ Install [PHP](https://www.php.net/manual/en/install.php) on your local environme
 <?php
 
 $redis = new Redis();
-$redis->connect('azure-redis-servername.redis.cache.windows.net, 6379);
+$redis->connect('azure-redis-servername.redis.cache.windows.net', 6379);
 $redis->auth('azure-redis-primary-access-key');
 
 $key = 'tasks';
@@ -143,9 +143,9 @@ The benefit of enabling Redis Cache to your WordPress application will allow you
 1. [Redis Object cache](https://wordpress.org/plugins/redis-cache/): Install and activate this plugin. Now update the wp-config.php file right above the statement */* That's all, stop editing! Happy blogging. */**
 
 ```php
-define( 'WP_REDIS_HOST', '127.0.0.1' );
+define( 'WP_REDIS_HOST', 'azure-redis-servername.redis.cache.windows.net' );
 define( 'WP_REDIS_PORT', 6379 );
-define( 'WP_REDIS_PASSWORD', 'secret' );
+define( 'WP_REDIS_PASSWORD', 'azure-redis-primary-access-key' );
 define( 'WP_REDIS_TIMEOUT', 1 );
 define( 'WP_REDIS_READ_TIMEOUT', 1 );
 
