@@ -21,7 +21,7 @@ IoT Central lets you evaluate your IIoT scenario by using the following built-in
 - Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
 - Integrate and extend your solution by connecting to first and third party applications and services
 
-By using the Azure IoT platform, IoT Central lets you evaluate highly available, scalable, and secure solutions.
+By using the Azure IoT platform, IoT Central lets you evaluate solutions that are scalable and secure.
 
 ## Connect your industrial assets
 
