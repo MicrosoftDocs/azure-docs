@@ -223,16 +223,31 @@ Note down the connection string and the container name. You'll use them in the r
 1. Enter **EventHubsReceiver** for the **Project name**, and select **Create**. 
 1. In the **Solution Explorer** window, right-click **EventHubsReceiver**, and select **Set as a Startup Project**. 
 
-### Add the Event Hubs NuGet package
+### Add the NuGet packages to the project
 
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
+### [Passwordless](#tab/passwordless)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. In the **Package Manager Console** window, confirm that **EventHubsReceiver** is selected for the **Default project**. If not, use the drop-down list to select **EventHubsReceiver**.
+1. Run the following command to install the **Azure.Messaging.EventHubs** and the **Azure.Identity** NuGet packages.
+
+    ```powershell
+    Install-Package Azure.Messaging.EventHubs
+    Install-Package Azure.Messaging.EventHubs.Processor
+    Install-Package Azure.Identity
+    ```
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
-    ```cmd
+    ```powershell
     Install-Package Azure.Messaging.EventHubs
     Install-Package Azure.Messaging.EventHubs.Processor
     ```
+
+---
 
 ### Update the code
 
@@ -245,7 +260,9 @@ Here are the important steps from the code:
 1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the event hub namespace and the event hub name. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
 1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+
+Make sure to replace the `<STORAGE_ACCOUNT_NAME>`, `<EVENT_HUBS_NAMESPACE>` and `<HUB_NAME>` placeholder values in the code sample below.
 
     ```csharp
     using Azure.Identity;
@@ -255,9 +272,10 @@ Here are the important steps from the code:
     using Azure.Storage.Blobs;
     using System.Text;
     
-    // Create a blob container client that the event processor will use 
+    // Create a blob container client that the event processor will use
+    // TODO: Replace the <STORAGE_ACCOUNT_NAME> placeholder value
     BlobContainerClient storageClient = new BlobContainerClient(
-        new Uri("<AZURE_STORAGE_CONTAINER_URI>"),
+        new Uri("https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<BLOB_CONTAINER_NAME>"),,
         new DefaultAzureCredential());
     
     // Create an event processor client to process events in the event hub
@@ -265,7 +283,7 @@ Here are the important steps from the code:
     var processor = new EventProcessorClient(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
-        "<EVENT_HUBS_NAMESPACE>",
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
         "<HUB_NAME>",
         new DefaultAzureCredential());
     
@@ -307,7 +325,9 @@ Here are the important steps from the code:
 1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
 1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+
+Make sure to replace the `<AZURE_STORAGE_CONNECTION_STRING>`, `<BLOB_CONTAINER_NAME>`, `<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values in the code sample below.
 
     ```csharp
     using Azure.Messaging.EventHubs;
