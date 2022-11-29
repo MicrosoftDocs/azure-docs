@@ -16324,7 +16324,7 @@
             "redirect_document_id": ""
         },
         {
-            "source_path_from_root": "/articles/search-how-to-index-power-query-data-sources.md",
+            "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
             "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
             "redirect_document_id": false
         },
