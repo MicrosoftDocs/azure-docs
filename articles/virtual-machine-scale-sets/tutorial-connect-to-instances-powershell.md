@@ -155,7 +155,7 @@ Sku                      : {
 
 Remote Desktop to your machine using the Public IP address of the load balancer and the Port mapping to the machine instance you want to connect to.
 
-:::image type="content" source="media/virtual-machine-scale-sets-connect-to-instances/tutorial-connect-to-instances-powershell-rdp.png" alt-text="Image of remote desktop application from Windows machine.":::
+:::image type="content" source="media/virtual-machine-scale-sets-connect-to-instances/tutorial-connect-to-instances-powershell-rdp.png" alt-text="Screenshot of remote desktop application from Windows machine.":::
 
 ## Next steps
 In this tutorial, you learned how to list the instances in your scale set and connect via SSH to an individual instance.
