@@ -470,7 +470,8 @@ items:
             href: logs/manage-logs-tables.md      
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
-          - name: Set log data plan
+          - name: Set Basic or Analytics log data plan
+            displayName: Basic logs
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
