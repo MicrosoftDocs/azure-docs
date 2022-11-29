@@ -21,7 +21,7 @@ The offline backup process involves these steps:
 1. Azure Backup copies the backup data from the storage account to the Recovery Services vault, and incremental backups are scheduled.
 
 >[!Note]
->Ensure that you use the latest MARS agent (version 2.0.9250.0 or above) before following the below sections. [Learn More](backup-azure-mars-troubleshoot.md).
+>Ensure that you use the latest MARS agent (version 2.0.9250.0 or above) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-your-own-disks-importexport-is-not-working).
 
 ## Supported configurations
 
@@ -144,7 +144,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
-1. After successful copy of the data from the staging location to the disks, the tool appears and requests for a few details to create the *Import/Export Job*:
+1. After a successful copy of the data from the staging location to the disks, the tool appears. Enter the required details to create the *Import/Export Job*:
 
    - The list of disks prepared for seeding. 
    - The name of the storage account, resource group, country and region of the import/export job. 
@@ -162,7 +162,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
    You can edit these parameters in future in the Azure portal for the *Import/Export Job*.    
 
-   :::image type="content" source="./media/backup-azure-backup-import-export/create-import-export-jobs.png" alt-text="Screenshot shows to create the import/export jobs.":::
+   :::image type="content" source="./media/backup-azure-backup-import-export/create-import-export-jobs.png" alt-text="Screenshot shows how to create the import/export jobs.":::
 
    After you enter these parameters and run the tool successfully, you receive a confirmation of the successful creation of the import job.
 
@@ -209,7 +209,7 @@ To update the tracking details, follow these steps:
 
 ### Add return shipping details 
 
-To add retuen shipping details, follow these steps:
+To add the return shipping details, follow these steps:
 
 1. Select **Job Details** under **General**, and then **Edit Address**.
 1. Update the *carrier*, *carrier account number*, *contact details*, and the *return shipping address details*
@@ -233,7 +233,7 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 ### Monitor Azure import job status
 
-To monitor the statuys of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
+To monitor the status of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
 
 For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview).
 

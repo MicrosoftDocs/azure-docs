@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/30/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -118,11 +118,11 @@ The security features mentioned in this article provide defense mechanisms again
 
 ## Immutability support (preview)
 
-When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked. 
+When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked.
 
 ### Immutability support for DPM
 
-This feature is supported from DPM 2022 UR1 with MARS agent version *2.0.9250.0* and later.
+This feature is supported from DPM 2022 UR1 with MARS agent version *2.0.9250.0* and higher.
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
@@ -135,7 +135,7 @@ The following table lists the disallowed operations on DPM connected to an immut
 
 ### Immutability support for MARS
 
-The following table lists the disallowed operations for MARS when immutability is enabled on the Recovery Services vault. Other operations, such as increasing retention and excluding a file/folder from backup, are allowed.
+The following table lists the disallowed operations for MARS when immutability is enabled on the Recovery Services vault. Other operations, such as increasing retention and excluding a file/folder from backup are allowed.
 
 | Disallowed operation | Result with latest MARS agent | Result with old MARS agent |
 | --- | --- | --- |
