@@ -44,14 +44,16 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 ## 2. Collect data
 
-| Monitored resource | Collection options | Data collection method | Collected data |
+| Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
-| Azure tenant, subscription, or resource |  |  | |
-| Applications |  | [Application insights](../app/app-insights-overview.md) | |
-| Containers | |[Container insights](../containers/container-insights-overview.md)| |
-| Virtual machines | | [VM insights](../vm/vminsights-overview.md) | - All logs and metrics collected by Azure Monitor Agent<br/> VM dependencies on other resources |
-| Operating systems |  | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
-| Non-Azure sources | | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
+| Azure |  | |
+|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |- Azure tenant<br/>- Azure resource|
+|  |  |- Azure subscription|
+| Applications | [Application insights](../app/app-insights-overview.md) | |
+| Containers |[Container insights](../containers/container-insights-overview.md)| |
+| Virtual machines | [VM insights](../vm/vminsights-overview.md) | - All logs and metrics collected by Azure Monitor Agent<br/> VM dependencies on other resources |
+| Operating systems | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
+| Non-Azure sources | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
 
 [Data sources](../data-sources.md)
 
