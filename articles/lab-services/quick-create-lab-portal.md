@@ -66,6 +66,10 @@ On the tile for the lab, select three dots (...) in the corner, and then select 
 
 On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 In this quickstart, you created a lab with Azure Lab Services.  To learn more about advanced options for labs, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md).
