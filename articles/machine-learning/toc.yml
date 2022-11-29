@@ -749,6 +749,16 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
+            - name: Image Classification
+              href: automl-ref-image-classification.md
+            - name: Image Instance Segmentation
+              href: automl-ref-image-instance-segmentation.md
+            - name: Image Multilabel Classification
+              href: automl-ref-image-multilabel-classification.md
+            - name: Image Object Detection
+              href: automl-ref-image-object-detection.md
+            - name: Image Hyperparameters
+              href: reference-automl-images-hyperparameters.md
         - name: Datastore
           items:
             - name: Azure Blob
