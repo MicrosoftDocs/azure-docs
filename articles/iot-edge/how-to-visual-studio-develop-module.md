@@ -27,7 +27,21 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
-::: zone pivot="iotedge-dev-cli"
+<!-- ::: zone pivot="iotedge-dev-ext" -->
+
+* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
+
+    * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
+    * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup will open. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
+
+    You may have to restart Visual Studio.
+
+   > [!TIP]
+   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
+
+<!-- >::: zone-end
+
+::: zone pivot="iotedge-dev-cli" -->
 
 * Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
 
@@ -41,32 +55,7 @@ This article assumes that you use a machine running Windows as your development 
     >
     > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
 
-::: zone-end
-
-::: zone pivot="iotedge-dev-ext"
-
-* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
-
-    * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
-    * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup will open. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
-
-    You may have to restart Visual Studio.
-
-   > [!TIP]
-   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
-
-* Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (3.5/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal.
-
-   ```cmd
-   pip install --upgrade iotedgehubdev
-   ```
-    
-    > [!TIP]
-    >Make sure your Azure IoT EdgeHub Dev Tool version is greater than 0.3.0. You'll need to have a pre-existing IoT Edge device in the Azure portal and have your connection string ready during setup.
-
-   You may need to restart Visual Studio to complete the installation.
-
-::: zone-end
+<!-- ::: zone-end -->
 
 * Install the **Vcpkg** library manager
 
