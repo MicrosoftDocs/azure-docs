@@ -10,7 +10,13 @@ ms.date: 11/22/2022
 
 # Geographical availability and data residency in Microsoft Sentinel
 
-When you set up Microsoft Sentinel or prepare for compliance checks, you might need to know where Microsoft Sentinel data is stored. In this article, you learn where Microsoft Sentinel data is stored so you can understand the system and meet compliance guidelines.
+When you set up Microsoft Sentinel or prepare for compliance checks, you need the ability to validate and prove who has access to what data in your environment. In this article, you learn where Microsoft Sentinel data is stored so you can meet compliance requirements.
+
+## Why geographical availability and data residency is important
+
+After your data is collected, stored, and processed, compliance can become an important design requirement, with a significant impact on your Microsoft Sentinel architecture. Having the ability to validate and prove who has access to what data under all conditions is a critical data sovereignty requirement in many countries and regions, and assessing risks and getting insights in Microsoft Sentinel workflows is a priority for many customers.
+
+Learn more about [compliance considerations](best-practices-workspace-architecture.md#compliance-considerations).
 
 ## Where Microsoft Sentinel data is stored
 
