@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 11/29/2022
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---

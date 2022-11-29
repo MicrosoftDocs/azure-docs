@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/29/2022
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
