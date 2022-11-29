@@ -26,16 +26,16 @@ Below is a summary of the data flow in this solution.
 *	The UA Cloud Twin reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
 *	The UA Cloud Twin also automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
 *	The UA Cloud Twin also automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
-*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](concepts-data-history.md) feature. This generates time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
+*	Updates to digital twins in Azure Digital Twins are automatically historized to an Azure Data Explorer cluster via the [data history](concepts-data-history.md) feature. Data history generates time-series data, which can be used for analytics, such as OEE calculation and predictive maintenance scenarios.
 
 Below is a description of the components in this solution.
 
 | Component | Description |
 | --- | --- |
 | Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
-| [UA Cloud Publisher](https://github.com/barnstee/ua-cloudpublisher) | This edge application converts OPC UA Client/Server requests into OPC UA PubSub cloud messages. It is hosted in a Docker container. |
-| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. Separately, it is also used to forward data history events emitted from the ADT instance to the ADX cluster. |
-| [UA Cloud Twin](https://github.com/digitaltwinconsortium/UA-CloudTwin) | This cloud application converts OPC UA PubSub cloud messages into digital twin updates. It also creates digital twins automatically by processing the cloud messages. Twins are instantiated from models in ISA95-compatible DTDL ontology. It is hosted in a Docker container. |
+| [UA Cloud Publisher](https://github.com/barnstee/ua-cloudpublisher) | This edge application converts OPC UA Client/Server requests into OPC UA PubSub cloud messages. It's hosted in a Docker container. |
+| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. Separately, it's also used to forward data history events emitted from the ADT instance to the ADX cluster. |
+| [UA Cloud Twin](https://github.com/digitaltwinconsortium/UA-CloudTwin) | This cloud application converts OPC UA PubSub cloud messages into digital twin updates. It also creates digital twins automatically by processing the cloud messages. Twins are instantiated from models in ISA95-compatible DTDL ontology. It's hosted in a Docker container. |
 | [Azure Digital Twins](overview.md) | The platform that enables the creation of a digital representation of real-world assets, places, business processes, and people. |
 | [Azure Data Explorer](../synapse-analytics/data-explorer/data-explorer-overview.md) | The time-series database and front-end dashboard service for advanced cloud analytics, including built-in anomaly detection and predictions. |
 
@@ -43,7 +43,7 @@ Below is a description of the components in this solution.
 
 * UA Cloud Twin takes the OPC UA Publisher ID and creates ISA95 Area assets for each one.
 
-* UA Cloud Twin takes the combination of the OPC UA Application URI and the OPC UA Namespace URIs discovered in the OPC UA telemetry stream (specifically, in the OPC UA PubSub metadata messages) and creates ISA95 Work Center assets for each one. UA Cloud Publisher sends the OPC UA PubSub metadata messages to a seperate broker topic to make sure all metadata can be read by UA Cloud Twin before the processing of the telemetry messags starts.
+* UA Cloud Twin takes the combination of the OPC UA Application URI and the OPC UA Namespace URIs discovered in the OPC UA telemetry stream (specifically, in the OPC UA PubSub metadata messages) and creates ISA95 Work Center assets for each one. UA Cloud Publisher sends the OPC UA PubSub metadata messages to a separate broker topic to make sure all metadata can be read by UA Cloud Twin before the processing of the telemetry messages starts.
 
 * UA Cloud Twin takes each OPC UA Field discovered in the received Dataset metadata and creates an ISA95 Work Unit asset for each.
 
@@ -63,13 +63,13 @@ On the deployed VM, download the required files from [here](https://github.com/d
 StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
 ```
 
-Note: The StartSimulation script will launch UA Cloud Twin as its last step. Please log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
+Note: The StartSimulation script will launch UA Cloud Twin as its last step. Log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/uacloudtwin.png" alt-text="Screenshot of configuring the settings of Ua Cloud Twin." lightbox="media/how-to-ingest-opcua-data/uacloudtwin.png":::
+:::image type="content" source="media/how-to-ingest-opcua-data/uacloudtwin.png" alt-text="Screenshot of configuring the settings of UA Cloud Twin." lightbox="media/how-to-ingest-opcua-data/uacloudtwin.png":::
 
-Note: If you restart Docker Desktop at any time, you will need to stop and then restart the simulation, too!
+Note: If you restart Docker Desktop at any time, you'll need to stop and then restart the simulation, too!
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](https://learn.microsoft.com/en-us/azure/digital-twins/how-to-set-up-instance-portal#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](https://learn.microsoft.com/en-us/azure/digital-twins/quickstart-azure-digital-twins-explorer#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add additional context, you can add "Next" and "Previous" relationships between machines on each production line.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](https://learn.microsoft.com/en-us/azure/digital-twins/how-to-set-up-instance-portal#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](https://learn.microsoft.com/en-us/azure/digital-twins/quickstart-azure-digital-twins-explorer#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add more context, you can add "Next" and "Previous" relationships between machines on each production line.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates." lightbox="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png":::
 
