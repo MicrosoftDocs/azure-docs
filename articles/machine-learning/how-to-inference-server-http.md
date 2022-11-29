@@ -164,6 +164,31 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 
 ### Startup logs
 
+When the server is started, the server settings are first displayed as shown below followed by the logs.
+
+```
+Azure ML Inferencing HTTP server <version>
+
+
+Server Settings
+---------------
+Entry Script Name: <entry_script>
+Model Directory: <model_dir>
+Worker Count: <worker_count>
+Worker Timeout (seconds): None
+Server Port: 5001
+Application Insights Enabled: false
+Application Insights Key: <appinsights_instrumentation_key>
+Inferencing HTTP server version: azmlinfsrv/<version>
+CORS for the specified origins: <access_control_allow_origins>
+
+
+Server Routes
+---------------
+Liveness Probe: GET   127.0.0.1:5001/
+Score:          POST  127.0.0.1:5001/score
+
+```
 
 ### Log format
 
@@ -174,6 +199,7 @@ The logs from the inference server are generated in the following format, except
 Here <pid\> is the process ID and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
 ### Access logs
+
 
 ## Frequently asked questions
 
