@@ -52,6 +52,9 @@ Reindex API allows users to reindex a kind without reingesting the records via s
 
 OSDU&trade; is a trademark of The Open Group.
 
+## Elasticsearch
+The platform uses Elasticsearch _(Enterprise License)_ internally to index the documents. The Elasticsearch APIs can be accessed only by the internal services like **Search** and **Indexer**. Each instance of the MEDS resource contains one or more Elasticsearch clusters - one for each data partition.
+
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
