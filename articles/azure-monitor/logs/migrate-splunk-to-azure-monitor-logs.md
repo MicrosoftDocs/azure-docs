@@ -43,6 +43,15 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 ## 2. Collect data
 
+| Monitored resource | Collected data | Collection method |
+| --- | --- | --- |
+| Azure  | --- | --- |
+| Applications | --- | [Application insights](../app/app-insights-overview.md) |
+| Containers | |[Container insights](../containers/container-insights-overview.md)|
+| Operating systems | --- | [Azure Monitor Agent](../agents/agents-overview.md) |
+| Virtual machines | | [VM insights](../vm/vminsights-overview.md) |
+| Non-Azure sources | | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) |
+
 [Data sources](../data-sources.md)
 
 [Data collection rules]()
