@@ -14,22 +14,24 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 # Tune your uploads and downloads with Azure Storage client library for .NET
 
-When transferring data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. Each time a client method is called, an HTTP request is sent to the service. This request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance and reliability during data transfers, it's important to be proactive in configuring transfer options based on the needs of your app and the environment it will run in.
+When an application transfers data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. Each time a client method is called, an HTTP request is sent to the service. This service request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance and reliability during data transfers, it's important to be proactive in configuring client library transfer options based on the needs of your app, and the environment it will run in.
 
-This article walks through several considerations and best practices to improve performance for data transfers using client library methods. 
+This article walks through several considerations and best practices to tune data transfer options using client library methods. 
 
 ## Performance tuning with `StorageTransferOptions`
 
-Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers, or workers, based on the values defined in this struct. The following sections describe each property in `StorageTransferOptions` and offer guidance for proper tuning.
+Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in this struct. The following sections describe each property in `StorageTransferOptions` and offer guidance for proper tuning.
 
-This article will focus primarily on block blobs, but the guidance applies to APIs that accept `StorageTransferOptions` as a parameter. The following `BlobClient`  methods:
+This article will focus primarily on block blobs, but the guidance applies to APIs that accept `StorageTransferOptions` as a parameter. The following `BlobClient` upload methods accept `StorageTransferOptions` as part of a `BlobUploadOptions` parameter:
 
 - [BlobClient.UploadAsync(Stream stream, ...)](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#azure-storage-blobs-blobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken))
 - [BlobClient.UploadAsync(string path, ...)](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#azure-storage-blobs-blobclient-uploadasync(system-string-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken))
-- [BlobClient.DownloadToAsync(Stream stream, ...)](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync?view=azure-dotnet#azure-storage-blobs-specialized-blobbaseclient-downloadtoasync(system-io-stream-azure-storage-blobs-models-blobdownloadtooptions-system-threading-cancellationtoken))
+
+The following `BlobClient` download methods accept `StorageTransferOptions` as part of a `BlobDownloadToOptions` parameter:
+- [BlobClient.DownloadToAsync(Stream stream, ...)](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync#azure-storage-blobs-specialized-blobbaseclient-downloadtoasync(system-io-stream-azure-storage-blobs-models-blobdownloadtooptions-system-threading-cancellationtoken))
 - [BlobClient.DownloadToAsync(string path, ...)](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync#azure-storage-blobs-specialized-blobbaseclient-downloadtoasync(system-string-azure-storage-blobs-models-blobdownloadtooptions-system-threading-cancellationtoken))
 
-The following code example shows how to define values for `StorageTransferOptions` and pass these configuration options into the call to `UploadAsync`:
+The following code example shows how to define values for `StorageTransferOptions` and pass these configuration options into a call to `UploadAsync`:
 
 ```csharp
 // Specify the StorageTransferOptions
@@ -37,14 +39,14 @@ BlobUploadOptions options = new BlobUploadOptions
 {
     TransferOptions = new StorageTransferOptions
     {
-        // Set the maximum number of parallel transfer workers to 1
-        MaximumConcurrency = 1,
+        // Set the maximum number of parallel transfer workers
+        MaximumConcurrency = maxConcurrency,
 
-        // Set the initial transfer length to 4 MiB
-        InitialTransferSize = 4 * 1024 * 1024,
+        // Set the initial transfer length
+        InitialTransferSize = initialTransferSize,
 
-        // Set the maximum length of a transfer to 4 MiB
-        MaximumTransferSize = 4 * 1024 * 1024
+        // Set the maximum length of a transfer
+        MaximumTransferSize = maxTransferSize
     }
 };
 
@@ -56,9 +58,9 @@ await blobClient.UploadAsync(localFilePath, options);
 
 [InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
-It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. In fact, it's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger. `InitialTransferSize` defines a separate size limitation for an initial attempt to perform the entire operation at once with no subtransfers. This cuts down on overhead for some data sizes relative to `MaximumTransferSize`. 
+It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. In fact, it's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger. `InitialTransferSize` defines a separate size limitation for an initial attempt to perform the entire operation at once with no subtransfers. This approach cuts down on overhead for some data sizes relative to `MaximumTransferSize`. 
 
-If you're unsure of what value is best for your app, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
+If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
 ### `MaximumConcurrency` property details
 [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers, or subtransfers, that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations will ignore this value and work in sequence.
@@ -67,7 +69,7 @@ The effectiveness of this value is subject to connection pool limits in .NET, wh
 
 ### `MaximumTransferSize` property details
 
-[MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *doesn't* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. To keep data moving efficiently, the client libraries may not always reach this value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+[MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *doesn't* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 While the `StorageTransferOptions` struct contains nullable values, the client libraries will use defaults for each individual value, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned `StorageTransferOptions` can result in excessively long operations and even request timeouts. It's best to be proactive in testing the values in `StorageTransferOptions`, and tuning them based on the needs of your application and environment.
 
@@ -107,4 +109,9 @@ The Storage client libraries will make one download range request using `Initial
 
 ## Example scenarios
 
-A place to describe some typical development environments (home network, VM in Azure) and offer some suggested values, with all the caveats that your mileage may vary.
+TODO: A place to describe some typical development environments (machine on home network, VM in Azure) and offer some suggested values to test with as a baseline, with all the caveats that your mileage may vary and you need to do your own testing.
+
+## Next steps
+
+- To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
+- To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).
