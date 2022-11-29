@@ -47,12 +47,12 @@ Customers are now assigned their own [dedicated VM cores quota](/azure/lab-servi
 
 #### Tips for requesting capacity
 
-- The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested. To ensure you have the resources you require when you need them, you should:
-  - Request capacity as far in advance as possible.
-  - Make incremental requests for VM cores rather than making large, bulk requests.  
- For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested. To ensure you have the resources you require when you need them, you should:
+
+- Request capacity as far in advance as possible.
+- Make incremental requests for VM cores rather than making large, bulk requests. Breaking requests for large numbers of cores into smaller requests gives extra flexibility in how those requests are fulfilled.
+  - For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
 - If possible, be flexible on the region where you're requesting capacity.
-- Make incremental capacity requests. Breaking requests for large numbers of cores into smaller requests gives extra flexibility in how those requests are fulfilled.
 - Capacity remains assigned for the lifetime of a subscription. You only need to request extra capacity if you need more than is already assigned to your subscription.
 
 ## 3. Configure shared resources  
@@ -83,7 +83,7 @@ If you're moving from lab accounts, the following table provides guidance on how
 |[Location](/azure/lab-services/how-to-manage-lab-accounts#create-a-lab-account) </br> - Labs are automatically created within the same geolocation as the lab account. </br> - You can't specify the exact region where a lab is created. |Lab plans enable specific control over which regions labs are created. </br> - [Configure regions for labs](/azure/lab-services/create-and-configure-labs-admin).|
 |[Attached Azure Compute Gallery (Shared Image Gallery)](/azure/lab-services/how-to-attach-detach-shared-image-gallery-1)|Lab plans can be attached to the same gallery used by lab accounts. </br>1. [Attach an Azure Compute Gallery](/azure/lab-services/how-to-attach-detach-shared-image-gallery). </br>2. Ensure that you [enable images for the lab plan](/azure/lab-services/how-to-attach-detach-shared-image-gallery#enable-and-disable-images).|
 |Teams integration|Configure lab plans with [Teams integration](/azure/lab-services/lab-services-within-teams-overview) by [adding the app to Teams groups](/azure/lab-services/how-to-get-started-create-lab-within-teams).|
-|[Firewall settings](/azure/lab-services/how-to-configure-firewall-settings-1). </br> - Create inbound and outbound rules for the lab's public IP address and the port range 49152 - 65535.|[Firewall settings](/azure/lab-services/how-to-configure-firewall-settings). </br> - Create inbound and outbound rules for the lab's public IP address and the port ranges 4980-4989, 5000-6999, and 7000-8999.|
+|[Firewall settings](/azure/lab-services/how-to-configure-firewall-settings-1) </br> - Create inbound and outbound rules for the lab's public IP address and the port range 49152 - 65535.|[Firewall settings](/azure/lab-services/how-to-configure-firewall-settings) </br> - Create inbound and outbound rules for the lab's public IP address and the port ranges 4980-4989, 5000-6999, and 7000-8999.|
 
 ## 5. Validate images
 
@@ -105,7 +105,7 @@ You cannot migrate existing labs to the August 2022 Update. Instead, you must cr
 
   Some schools reuse the same labs each class session and change the student roster. With this approach, you must plan the creation of new labs to transition to, typically at the start of a new session.
 
-> [!TIP]
+> [!NOTE]
 > Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
 
 ## 7. Update cost management reports
