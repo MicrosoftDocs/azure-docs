@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Private 5G Core metrics with Azure Monitor
-description: Information on using Azure Monitor to monitor activity and analyze statistics in your private mobile network. 
+title: Monitor Azure Private 5G Core with Azure Monitor platform metrics
+description: Information on using Azure Monitor platform metrics to monitor activity and analyze statistics in your private mobile network. 
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
@@ -9,14 +9,14 @@ ms.date: 11/22/2022
 ms.custom: template-concept
 ---
 
-# Monitor Azure Private 5G Core metrics with Azure Monitor
+# Monitor Azure Private 5G Core with Azure Monitor platform metrics
 
 You can use [Azure Monitor](/azure/azure-monitor/) to collect and analyze Azure Private 5G Core logs and metrics in the cloud.
 
 - Logs are records of events collected by [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). You can use Log Analytics to query for Azure Private 5G Core logs and monitor activity in your private mobile network.
 - Metrics are measurements over time stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or the Azure Monitor REST API to query for metrics which you can then analyze elsewhere.
 
-This article covers monitoring Azure Private 5G Core metrics in the cloud using Azure Monitor. For more information on monitoring Azure Private 5G Core logs in the cloud, see [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md). For more information on monitoring Azure Private 5G Core metrics locally, see [Packet core dashboards](packet-core-dashboards.md).
+This article covers monitoring Azure Private 5G Core metrics in the cloud using Azure Monitor. For more information on monitoring Azure Private 5G Core logs in the cloud, see [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md). For more information on monitoring Azure Private 5G Core metrics locally, see [Packet core dashboards](packet-core-dashboards.md).
 
 Azure Private 5G Core metrics are collected at the site level. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
@@ -39,7 +39,7 @@ You can use the Azure portal to monitor your deployment's health and performance
 1. Select the **Monitoring** tab.
     <!-- TODO: add screenshot -->
 
-Under **Key Metrics**, you should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and throughput. You can select individual dashboards to open an expanded view where you can specify details such as the time range and time granularity. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
+Under **Key Metrics**, you should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and throughput. You can select individual dashboards to open an expanded view where you can specify details such as the time range and time granularity. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) and [Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics).
 
 ## Retrieve metrics using the Azure Monitor REST API
 
@@ -55,4 +55,4 @@ Not all metrics displayed in the Azure portal will be available for retrieval us
 ## Next steps
 
 - [Learn more about the Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics)
-- [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)

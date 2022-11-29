@@ -63,6 +63,6 @@ To check which version your packet core instance is currently running, and wheth
 
 You may want to use Azure Monitor or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
 
-- [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md)
-- [Monitor Azure Private 5G Core metrics with Azure Monitor](monitor-private-5g-core-metrics-with-azure-monitor.md)
+- [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
+- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
