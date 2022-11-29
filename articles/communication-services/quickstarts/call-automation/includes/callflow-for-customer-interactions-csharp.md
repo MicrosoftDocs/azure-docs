@@ -12,6 +12,10 @@ ms.custom: include file
 ms.author: askaur
 ---
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_SimpleIvr).
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
@@ -65,9 +69,9 @@ using System.Text.Json.Nodes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
-var callbackUriBase = "<public_url_generated_by_ngrok>";
-var mediaFileSource = new Uri("<link_to_media_file>");
+var client = new CallAutomationClient("<resource_connection_string>"); //noted from pre-requisite step
+var callbackUriBase = "<public_url_generated_by_ngrok>"; 
+var mediaFileSource = new Uri("<url_to_media_file>"); //This URL should be public accessible and the file format should be WAV, 16KHz, Mono.
 var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
 var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in format of +1...
 

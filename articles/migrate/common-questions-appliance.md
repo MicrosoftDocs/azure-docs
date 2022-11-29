@@ -26,7 +26,7 @@ Here's more information about the Azure Migrate appliance:
 
 - The appliance is deployed on-premises as a physical server or a virtualized server.
 - The appliance discovers on-premises servers and continually sends server metadata and performance data to Azure Migrate.
-- Appliance discovery is agentless. Nothing is installed on discovered servers.
+- Appliance discovery is agentless. Nothing is installed on the discovered servers.
 
 [Learn more](migrate-appliance.md) about the appliance.
 

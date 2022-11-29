@@ -3,14 +3,15 @@ title: Create a service SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
