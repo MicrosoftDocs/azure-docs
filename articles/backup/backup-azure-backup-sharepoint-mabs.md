@@ -18,6 +18,7 @@ Microsoft Azure Backup Server (MABS) enables you to back up a SharePoint farm to
 In this article, you'll learn about:
 
 > [!div class="checklist"]
+> - SharePoint supported scenarios
 > - Prerequisites
 > - Configure the backup
 > - Monitor the operations
