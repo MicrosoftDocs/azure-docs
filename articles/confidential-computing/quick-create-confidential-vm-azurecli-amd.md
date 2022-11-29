@@ -21,7 +21,7 @@ This quickstart shows you how to use the Azure Command-Line Interface (Azure CLI
 
 If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
@@ -29,7 +29,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-## Create a resource group
+### Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 > [!NOTE]
@@ -44,7 +44,7 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
 For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
 
-Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For more information on disk encryption, vTPM, and secure boot see [confidential OS disk encryption](confidential-vm-overview.md).
+Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Enabling secure boot is optional, but recommended. For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
 ```azurecli-interactive
 az vm create \
@@ -55,11 +55,11 @@ az vm create \
   --admin-username <azure-username> \
   --admin-password <azure-password> \
   --enable-vtpm true \
-  --enable-secure-boot true \
   --image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
   --public-ip-sku Standard \
   --security-type ConfidentialVM \
   --os-disk-security-encryption-type VMGuestStateOnly \
+  --enable-secure-boot true \
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
@@ -71,8 +71,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
   "location": "eastus",
   "macAddress": "<MAC-address>",
   "powerState": "VM running",
-  "privateIpAddress": "10.0.0.5",
-  "publicIpAddress": "20.232.225.109",
+  "privateIpAddress": "10.20.255.255",
+  "publicIpAddress": "192.168.255.255",
   "resourceGroup": "myResourceGroup",
   "zones": ""
 }
@@ -84,7 +84,7 @@ Make a note of the `publicIpAddress` to use later.
 
 Create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The following example uses Azure Key Vault Premium. 
 
-1.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys).
+1.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
   az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
   ```
@@ -108,7 +108,7 @@ az keyvault set-policy -n keyVaultName -g myResourceGroup --object-id $desIdenti
   ```azurecli-interactive
 $diskEncryptionSetID=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
   ```
-6. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key.
+6. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
   ```azurecli-interactive
 az vm create \
@@ -134,8 +134,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
   "location": "eastus",
   "macAddress": "<MAC-address>",
   "powerState": "VM running",
-  "privateIpAddress": "10.0.0.5",
-  "publicIpAddress": "20.127.249.106",
+  "privateIpAddress": "10.20.255.255",
+  "publicIpAddress": "192.168.255.255",
   "resourceGroup": "myResourceGroup",
   "zones": ""
 }
