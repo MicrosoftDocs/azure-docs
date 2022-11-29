@@ -64,7 +64,7 @@ vnetResourceGroup | specify vnet resource group where virtual network is | exist
 vnetName | virtual network name | existing virtual network name | No | if empty, driver will use the `vnetName` value in Azure cloud config file
 subnetName | subnet name | existing subnet name of the agent node | No | if empty, driver will use the `subnetName` value in Azure cloud config file
 fsGroupChangePolicy | indicates how volume's ownership will be changed by the driver, pod `securityContext.fsGroupChangePolicy` is ignored  | `OnRootMismatch`(by default), `Always`, `None` | No | `OnRootMismatch`
---- | **Following parameters are only for experimental [VHD disk feature](../deploy/example/disk)** | --- | --- |
+--- | **Following parameters are only for the [VHD disk feature][vhd-disk-feature]** | --- | --- |
 fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs` | Yes | `ext4`
 diskName | existing VHD disk file name | `pvc-062196a6-6436-11ea-ab51-9efb888c0afb.vhd` | No |
 
@@ -463,6 +463,7 @@ The output of the commands resembles the following example:
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/master/storage/share.go
+[vhd-disk-feature]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/disk
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
