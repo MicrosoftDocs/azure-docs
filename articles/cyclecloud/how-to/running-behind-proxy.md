@@ -24,7 +24,7 @@ Changes to the proxy settings will not take effect until after a restart. To res
 
 ## Add storage endpoint for Blob access
 
-CycleCloud requires access to a Blob Storage container in your subscription in order to cache installation files for nodes. When operating behind a proxy or on a locked down network, you should configure a [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to the storage service. This will route requests to the storage container through the Azure backbone network instead of through the public management URLs.
+CycleCloud requires access to a Blob Storage container in your subscription in order to cache installation files for nodes. When operating behind a proxy or on a locked down network, you should configure a [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) or a [Private Endpoint](/azure/storage/common/storage-private-endpoints) to the storage service. This will route requests to the storage container through the Azure backbone network instead of through the public management URLs.
 
 > [!TIP]
 > When combining a Service Endpoint for Azure Storage access with an HTTPS Proxy for outbound Azure API traffic, CycleCloud itself can be configured to avoid the Proxy and send Storage requests directly via the Service Endpoint.
