@@ -145,7 +145,15 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
 
-### 13. What if I have further questions?
+### 13. How can I check the certificate that is sent by the server?
+
+There are many tools that you can use. For example, DigiCert has a handy [tool](https://www.digicert.com/help/) that will show you the certificate chain of any server name. (This tool will only work with publicly accessible server; it cannot connect to server that is contained in a virtual network (VNET)). 
+Another tool you can use is OpenSSL in the command line, you can use the syntax below:
+```bash
+openssl s_client -showcerts -connect <your-postgresql-server-name>:443
+```
+
+### 14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request):
 * For *Issue type*, select *Technical*.  
 * For *Subscription*, select your *subscription*.  

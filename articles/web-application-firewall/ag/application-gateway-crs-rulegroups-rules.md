@@ -18,7 +18,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
-CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
@@ -52,9 +52,9 @@ When you use CRS, your WAF is configured to use anomaly scoring by default. Traf
 | Warning | 3 |
 | Notice | 2 |
 
-If the anomaly score is 5 or greater, WAF blocks the request.
+If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the request is blocked. If the anomaly score is 5 or greater, and the WAF is in Detection mode, the request is logged but not blocked.
 
-For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
+For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
 ### OWASP CRS 3.2
 

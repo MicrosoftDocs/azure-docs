@@ -13,7 +13,7 @@ ms.date: 11/16/2022
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]
-> For the latest `api-version`, chose the latest stable version in our documentation.
+> For the latest `api-version`, chose the latest stable version in [our REST documentation](/rest/api/videoindexer/stable/generate).
 
 To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
@@ -109,18 +109,18 @@ The following image shows the first flow:
 1. <a name="access_token"></a>Generate an access token.
     
     > [!NOTE]
-    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP).
+    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/preview/generate/access-token).
     >
     > Press **Try it** to get the correct values for your account.
 
     Search and create an **HTTP** action.
     
-    |Key| Value|
-    |----|----|
-    |Method | **POST**|
-    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). |
-    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
-    | Add new parameter | **Authentication**  |
+    |Key| Value|Notes|
+    |----|----|---|
+    |Method | **POST**||
+    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). ||
+    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |See the [REST doc example](/rest/api/videoindexer/preview/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor), make sure to delete the **POST** line.|
+    | Add new parameter | **Authentication**  ||
     
     ![Screenshot of the HTTP access token.](./media/logic-apps-connector-arm-accounts/http-with-param.png)
      
@@ -176,7 +176,8 @@ The following image shows the first flow:
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
         
-        ![Screenshot of the upload and index action.](./media/logic-apps-connector-arm-accounts/upload-and-index.png)
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png" alt-text="Screenshot of the upload and index action." lightbox="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png":::
 
         Select **Save**.
 

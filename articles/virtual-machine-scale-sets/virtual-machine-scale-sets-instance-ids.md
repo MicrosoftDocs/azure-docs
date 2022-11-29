@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 02/22/2018
+ms.date: 11/22/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
