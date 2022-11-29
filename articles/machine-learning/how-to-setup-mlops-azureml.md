@@ -14,7 +14,17 @@ ms.custom: cli-v2, sdk-v2
 
 # Setup MLOps with AzureML and Azure DevOps
 
-This is an end-to-end machine learning pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. We are going to be using the [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly set up an MLOps project in AzureML.
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
+Azure Machine Learning allows you to integration with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
+
+* Deployment of AzureML infrastructure
+* Data preparation (extract, transform, load operations)
+* Training machine learning models with on-demand scale-out and scale-up
+* Deployment of machine learning models as public or private web services
+* Monitoring deployed machine learning models (such as for performance or data-drift analysis)
+
+In this article, you learn about using Azure Machine Learning to setup an end-to-end MLOps pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. We are going to be using the [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly set up an MLOps project in AzureML.
 
 ## Prerequisites
 
@@ -22,10 +32,10 @@ This is an end-to-end machine learning pipeline which runs a linear regression t
 - An Azure Machine Learning workspace.
 - The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
 - The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
-- An [organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps.
+- An [organization](/azure/devops/organizations/accounts/create-organization) in Azure DevOps.
 - [Azure DevOps project](how-to-devops-machine-learning.md) that will host the source repositories and pipelines.
 - The [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) if you are using Azure DevOps + Terraform to spin up infrastructure
-- Git bash, WSL or another shell script editor on your local machine;
+- Git bash, WSL or another shell script editor on your local machine.
 
 > [!NOTE]
 >
@@ -33,18 +43,20 @@ This is an end-to-end machine learning pipeline which runs a linear regression t
 
 ## Setup Authentication with Azure and DevOps
 
+Before we can setup an MLOps project with AzureML we need to make sure we have the correct authentication setup for Azure DevOps.
+
 ### Create Service Principal
    For the use of the demo, the creation of one or two service principles is required, depending on how many environments, you want to work on (Dev or Prod or Both). These principles can be created using one of the methods below:
 
 # [Create from Azure Cloud Shell](#tab/azure-shell)
 
-1. Launch the <a href="https://shell.azure.com"> Azure Cloud Shell </a>. (If this the first time you have launched the cloud shell, you will be required to creata storage account for the cloud shell.)
+1. Launch the [Azure Cloud Shell](https://shell.azure.com). (If this the first time you have launched the cloud shell, you will be required to creata storage account for the cloud shell.)
 
 2. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
 
 ![PS_CLI_1](./media/how-to-setup-mlops-azureml/PS_CLI1_1.png)
 
-3. Copy the bash commands below to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for youproject. If you are creating both a Dev and Prod environment you will need to run this script once for each environment, creating a service principal for eachThis command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly deploresources to that subscription. 
+3. Copy the bash commands below to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. If you are creating both a Dev and Prod environment you will need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription. 
 
 ``` bash
 projectName="<your project name>"
@@ -75,7 +87,7 @@ echo "Please ensure that the information created here is properly save for futur
 }
 ```
 
-6. Repeat step 3 if you are creating service principals for Dev and Prod environments.
+6. Repeat **Step 3.** if you are creating service principals for Dev and Prod environments.
 
 7. Close the Cloud Shell once the service principals are created. 
       
@@ -88,19 +100,19 @@ echo "Please ensure that the information created here is properly save for futur
 
 ![PS2](./media/how-to-setup-mlops-azureml/SP-setup2.png)
 
-3. Go through the process of creating a Service Principle (SP) selecting "Accounts in any organizational directory (Any Azure AD directory - Multitenant)" and name it  "Azure-ARM-Dev-ProjectName". Once created, repeat and create a new SP named "Azure-ARM-Prod-ProjectName". Please replace "ProjectName" with the name of your project so that the service principal can be uniquely identified. 
+3. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Please replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
-4. Go to "Certificates & Secrets" and add for each SP "New client secret", then store the value and secret separately.
+4. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 
-5. To assign the necessary permissions to these principals, select your respective [subscription](https://portal.azure.com/#view/Microsoft_Azure_BillingSubscriptionsBlade?) and go to IAM. Select +Add then select "Add Role Assignment.
+5. To assign the necessary permissions to these principals, select your respective [subscription](https://portal.azure.com/#view/Microsoft_Azure_BillingSubscriptionsBlade?) and go to IAM. Select **+Add** then select **Add Role Assignment**.
 
 ![PS3](./media/how-to-setup-mlops-azureml/SP-setup3.png)
 
-6. Select Contributor and add members selecting + Select Members. Add the member "Azure-ARM-Dev-ProjectName" as create before.
+6. Select Contributor and add members selecting + Select Members. Add the member **Azure-ARM-Dev-ProjectName** as create before.
 
 ![SP4](./media/how-to-setup-mlops-azureml/SP-setup4.png)
 
-7. Repeat step here, if you deploy Dev and Prod into the same subscription, otherwise change to the prod subscription and repeat with"Azure-ARM-Prod-ProjectName". The basic SP setup is successfully finished.
+7. Repeat step here, if you deploy Dev and Prod into the same subscription, otherwise change to the prod subscription and repeat with **Azure-ARM-Prod-ProjectName**. The basic SP setup is successfully finished.
 
 ---
 
@@ -116,11 +128,11 @@ echo "Please ensure that the information created here is properly save for futur
    
 ![ADO1](./media/how-to-setup-mlops-azureml/ADO-setup1.png)
    
-4. Select "New Service Connection".
+4. Select **New Service Connection**.
 
 ![ADO2](./media/how-to-setup-mlops-azureml/ADO-setup2.png)
 
-5. Select "Azure Resource Manager", select "Next", select "Service principal (manual)", select "Next", select your subscription where your Service Principal is stored and name the service connection "Azure-ARM-Dev". Fill in the details of the Dev service principal created in step 1. Select "Grant access permission to all pipelines", then select "Save". Repeat this step to create another service connection "Azure-ARM-Prod" using the details of the Prod service principal created in step 1.
+5. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next**, select your subscription where your Service Principal is stored and name the service connection **Azure-ARM-Dev**. Fill in the details of the Dev service principal created in **Step 1.** Select **Grant access permission to all pipelines**, then select **Save**. Repeat this step to create another service connection **Azure-ARM-Prod** using the details of the Prod service principal created in **Step 1.**
 
 ![ADO3](./media/how-to-setup-mlops-azureml/ado-service-principal-manual.png)
 
@@ -134,7 +146,7 @@ The Azure DevOps setup is successfully finished.
 
 ![ADO import repo](./media/how-to-setup-mlops-azureml/ado-import-repo.png)
 
-3. Enter https://github.com/Azure/mlops-templates into the Clone URL field. Click import at the bottem of the page
+3. Enter https://github.com/Azure/mlops-templates into the Clone URL field. Click import at the bottom of the page
 
 ![ADO import MLops](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
 
@@ -155,7 +167,7 @@ The Azure DevOps setup is successfully finished.
 
 ![Open project settings](./media/how-to-setup-mlops-azureml/ado-open-projectSettings.png)
 
-8.  Under the Repos section, click **Repositories**. Select the repository you created in step 3.5.2. Select the **Security** tab
+8.  Under the Repos section, click **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
 
 9. Under the User permissions section, select the \<projectname> Build Service user and **Allow**
    ![ADO permissions](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
@@ -229,6 +241,9 @@ You will need to complete the required parameters to configure your project
 ## Deploying Infrastructure via Azure DevOps
 This step deploys the training pipeline to the Azure Machine Learning workspace created in the previous steps. 
 
+> [!TIP]
+> Make sure you understand the [Architectural Patterns](https://github.com/Azure/mlops-v2#-pattern-architectures-key-concepts) of the solution accelerator before you deploy the infrastructure. In examples we will use the [classical ML project type](https://github.com/Azure/mlops-v2/blob/main/documentation/architecturepattern/AzureML_CML_Architecture.png).
+
 ### Run Azure Infrastructure pipeline
  1. Go to your Github cloned repo and select the `config-infra-prod.yml` file.
    
@@ -249,11 +264,11 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
    
-   3. Select "New Pipeline".
+   3. Select **New Pipeline**.
    
    ![ADO Run1](./media/how-to-setup-mlops-azureml/ADO-run1.png)
    
-   4. Select "Github".
+   4. Select **Github**.
    
    ![ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
@@ -261,14 +276,14 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![ADO Run2](./media/how-to-setup-mlops-azureml/ADO-run2.png)
    
-   If your new repository is not visible, then click on the "provide access" link and on the next screen, click on the "grant" button next to the organization name to grant access to your organization.
+   If your new repository is not visible, then click on the **provide access** link and on the next screen, click on the **grant** button next to the organization name to grant access to your organization.
    
-   6. Select "Existing Azure Pipeline YAML File"
+   6. Select **Existing Azure Pipeline YAML File**
    
    ![ADO Run3](./media/how-to-setup-mlops-azureml/ADO-run3.png)
    
    
-   7. Select `main` as a branch and choose based on your deployment method your preferred yml path. For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select "Continue". For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select "Continue".
+   7. Select `main` as a branch and choose based on your deployment method your preferred yml path. For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
    
    ![Select Infrastructure Pipeline](./media/how-to-setup-mlops-azureml/ado-select-pipeline-yaml-file.png)
    
@@ -285,19 +300,19 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![ADO Run6](./media/how-to-setup-mlops-azureml/ADO-run-infra-pipeline.png)
 
 > [!NOTE]
-> The "Unable move and reuse existing repository to required location" warnings may be ignored.
+> The **Unable move and reuse existing repository to required location** warnings may be ignored.
 
-## Deploying Classical ML Model Development / Moving to Test Environment - Azure DevOps
+## Deploying Model Training Pipeline and Moving to Test Environment
 
    1. Go to ADO pipelines
    
    ![ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
 
-   2. Select "New Pipeline".
+   2. Select **New Pipeline**.
    
    ![ADO Run1](./media/how-to-setup-mlops-azureml/ADO-run1.png)
    
-   3. Select "Github".
+   3. Select **Github**.
    
    ![ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
@@ -305,11 +320,11 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![ADO Run2](./media/how-to-setup-mlops-azureml/ADO-run2.png)
    
-   5. Select "Existing Azure Pipeline YAML File"
+   5. Select **Existing Azure Pipeline YAML File**
    
    ![ADO Run3](./media/how-to-setup-mlops-azureml/ADO-run3.png)
    
-   6. Select "main" as a branch and choose `/mlops/devops-pipelines/deploy-model-training-pipeline.yml`, then select "Continue".  
+   6. Select `main` as a branch and choose `/mlops/devops-pipelines/deploy-model-training-pipeline.yml`, then select **Continue**.  
 
    ![ADO Run9](./media/how-to-setup-mlops-azureml/ADO-run9.png)
 
@@ -317,10 +332,8 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 > [!NOTE]
 > At this point, the infrastructure is configured and the Inner Loop of the MLOps Architecture is deployed. We are ready to move to our trained model to production.      
 
-## Moving to Production - Introduction
+## Moving to Production Environment and Deploying Model 
          
-   > [!NOTE] 
-   > This is an end-to-end machine learning pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs.**
 
    **Prepare Data**
    - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
@@ -343,30 +356,28 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    - Input: Trained model and the deploy flag.
    - Output: Registered model in Azure Machine Learning.
 
-## Moving to Production - Azure DevOps
-
 ### Deploy ML model endpoint
    1. Go to ADO pipelines
    
    ![ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
 
-   2. Select "New Pipeline".
+   2. Select **New Pipeline**.
    
    ![ADO Run1](./media/how-to-setup-mlops-azureml/ADO-run1.png)
    
-   3. Select "Github".
+   3. Select **Github**.
    
    ![ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
-   4. Select your /MLOps-Test repository! ("Empty" repository you created in 2.3)
+   4. Select your /MLOps-Test repository! (**Empty** repository you created in the "Set up source repository with Azure DevOps" section)
    
    ![ADO Run2](./media/how-to-setup-mlops-azureml/ADO-run2.png)
    
-   5. Select "Existing Azure Pipeline YAML File"
+   5. Select **Existing Azure Pipeline YAML File**
    
    ![ADO Run3](./media/how-to-setup-mlops-azureml/ADO-run3.png)
    
-   6. Select "main" as a branch and choose:
+   6. Select `main` as a branch and choose:
         
         For Classical Machine Learning:
          - Managed Batch Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
@@ -375,11 +386,11 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
         For Computer Vision: 
          - Managed Online Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
       
-      Then select "Continue".  
+      Then select **Continue**.  
    
    ![ADO Run10](./media/how-to-setup-mlops-azureml/ADO-run10.png)
    
-   7. Batch/Online endpoint names need to be unique, so please change [your endpointname] to another unique name and then select "Run".
+   7. Batch/Online endpoint names need to be unique, so please change [your endpointname] to another unique name and then select **Run**.
 
    ![ADO Run11](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
@@ -403,3 +414,4 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
 * Learn more about [Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md)
 * Learn more about [GitHub Actions with Azure Machine Learning](how-to-github-actions-machine-learning.md)
+* Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)
