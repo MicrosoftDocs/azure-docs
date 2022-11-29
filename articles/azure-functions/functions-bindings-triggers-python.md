@@ -167,7 +167,7 @@ def test_function(mytimer: func.TimerRequest) -> None:
 
 Durable Functions also provides preview support of the V2 programming model. To try it out, install the Durable Functions SDK (PyPI package `azure-functions-durable`) from version `1.2.0` or greater.
 
-The Durable Functions Triggers and Bindings may be accessed from a instance `DFApp`, a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
+The Durable Functions Triggers and Bindings may be accessed from an instance `DFApp`, a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
 
 Below is a simple Durable Functions app that declares a simple sequential orchestrator, all in one file!
 
@@ -202,7 +202,10 @@ def my_activity(my_input: str):
 ```
 
 > [!NOTE]
-> Previously, Durable Functions orchestrators needed an extra line of boilerplate, usually at the end of the file, to be indexed: `main = df.Orchestrator.create(<name_of_orchestrator_function>)`. This is no longer needed in V2 of the Python programming model. This applies to Entities as well, which required a similar boilerplate through `main = df.Entity.create(<name_of_entity_function>)`.
+> Previously, Durable Functions orchestrators needed an extra line of boilerplate, usually at the end of the file, to be indexed:
+> `main = df.Orchestrator.create(<name_of_orchestrator_function>)`.
+> This is no longer needed in V2 of the Python programming model. This applies to Entities as well, which required a similar boilerplate through
+> `main = df.Entity.create(<name_of_entity_function>)`.
 
 For reference, all Durable Functions Triggers and Bindings are listed below:
 
