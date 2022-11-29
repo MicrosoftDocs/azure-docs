@@ -121,7 +121,6 @@ The table below summarizes the relationship between *vCores* and *vCPUs* for Azu
 * [Learn about Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Learn how to plan and manage costs for Azure Cosmos DB](plan-manage-costs.md)
 * [Review options for migrating to Azure Cosmos DB](migration-choices.md)
-* [Migrate to Azure Cosmos DB for NoSQL](import-data.md)
 * [Plan your migration to Azure Cosmos DB for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
 
 [regions]: https://azure.microsoft.com/regions/
