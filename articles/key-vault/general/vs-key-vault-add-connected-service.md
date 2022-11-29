@@ -31,11 +31,11 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
    ![Choose "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Select the subscription you want to use, and then if you already have a Key Vault you want to use, click **Finish**.
+1. Select the subscription you want to use, and then if you already have a Key Vault you want to use, select it and click **Next**.
 
    ![Screenshot Select your subscription](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
-1. If you don't have an existing Key Vault, click on **Create New**. You'll be asked to provide the resource group, location, and SKU.
+1. If you don't have an existing Key Vault, click on **Create new Key Vault**. You'll be asked to provide the resource group, location, and SKU.
 
    ![Screenshot of "Create Azure Key Vault" screen](../media/vs-key-vault-add-connected-service/create-new-key-vault.png)
 
