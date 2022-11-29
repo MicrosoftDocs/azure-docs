@@ -299,7 +299,7 @@ $AppArgs = @{
     IngressTargetPort = 3500
     IngressExternal = $true
 }
-$FrontEndApp = NewFQDN-AzContainerApp @AppArgs
+$FrontEndApp = New-AzContainerApp @AppArgs
 
 # show the app's FQDN
 
