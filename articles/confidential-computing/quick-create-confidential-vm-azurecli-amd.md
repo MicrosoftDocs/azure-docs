@@ -1,27 +1,29 @@
 ---
 title: Create an AMD-based confidential VM with the Azure CLI for Azure confidential computing
-description: In this quickstart, you learn how to use the Azure CLI to create a Confidential virtual machine
+description: Learn how to use the Azure CLI to create an AMD-based confidential virtual machine for use with Azure confidential computing.
 author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/26/2022
+ms.date: 11/29/2022
 ms.author: simranparkhe
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create a Confidential Virtual Machine with the Azure CLI
+# Quickstart: Create an AMD-based confidential VM with the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
-This quickstart shows you how to use the Azure CLI to deploy a Confidential virtual machine (VM) in Azure. The Azure CLI is used to create and manage Azure resources via either the command line or scripts.
+This quickstart shows you how to use the Azure Command-Line Interface (Azure CLI) to deploy a confidential virtual machine (confidential VM) in Azure. The Azure CLI is used to create and manage Azure resources via either the command line or scripts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
@@ -35,12 +37,12 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 ```azurecli - interactive
 az group create --name myResourceGroup --location eastus
 ```
-## Create Confidential virtual machine using a Platform Managed Key
+## Create Confidential virtual machine using a platform-managed key
 
 Create a VM with the [az vm create](/cli/azure/vm) command.
 
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
-For Size, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
+For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
 
 Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For more information on disk encryption, vTPM, and secure boot see [confidential OS disk encryption](confidential-vm-overview.md).
 
@@ -50,8 +52,8 @@ az vm create \
   --name myVM \
   --generate-ssh-keys \
   --size Standard_DC4as_v5 \
-  --admin-username azureuser \
-  --admin-password AzurePassword@123 \
+  --admin-username <azure-username> \
+  --admin-password <azure-password> \
   --enable-vtpm true \
   --enable-secure-boot true \
   --image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
@@ -67,7 +69,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
-  "macAddress": "00-0D-3A-4D-DE-5C",
+  "macAddress": "<MAC-address>",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "20.232.225.109",
@@ -80,7 +82,7 @@ Make a note of the `publicIpAddress` to use later.
 
 ## Create Confidential virtual machine using a Customer Managed Key
 
-Create a Confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The example below will use Azure Key Vault Premium. 
+Create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The following example uses Azure Key Vault Premium. 
 
 1.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys).
   ```azurecli-interactive
@@ -113,8 +115,8 @@ az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --size Standard_DC4as_v5 \
-  --admin-username azureuser \
-  --admin-password AzurePassword@123 \
+  --admin-username <azure-user> \
+  --admin-password <azure-password> \
   --enable-vtpm true \
   --enable-secure-boot true \
   --image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
@@ -130,7 +132,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
-  "macAddress": "60-45-BD-A8-F0-3E",
+  "macAddress": "<MAC-address>",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "20.127.249.106",
@@ -142,7 +144,7 @@ Make a note of the `publicIpAddress` to use later.
   
 ## Connect and attest the CVM through Microsoft Azure Attestation Sample App
 
-To use a sample application in C++ for use with the guest attestation APIs, follow the instructions. This example will use a Linux confidential virtual machine. For Windows, see [build instructions for Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-attestation-sample-app).
+To use a sample application in C++ for use with the guest attestation APIs, use the following steps. This example uses a Linux confidential virtual machine. For Windows, see [build instructions for Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-attestation-sample-app).
 
 1. Sign in to your confidential VM using its public IP address.
 
@@ -159,7 +161,7 @@ sudo apt-get install libjsoncpp-dev
 sudo apt-get install libboost-all-dev
 sudo apt install nlohmann-json3-dev
 ```
-5. Download the attestation package from <https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/>.
+5. Download the [attestation package](https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/).
 
 6. Install the attestation package. Make sure to replace `<version>` with the version that you downloaded.
 ```bash
