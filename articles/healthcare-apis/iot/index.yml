@@ -44,6 +44,8 @@ landingContent:
             url: deploy-02-new-button.md
           - text: Azure PowerShell and Azure CLI
             url: deploy-08-new-ps-cli.md
+          - text: Azure Bicep
+            url: deploy-new-bicep-ps-cli.md
           - text: Azure portal
             url: deploy-03-new-manual.md
 
