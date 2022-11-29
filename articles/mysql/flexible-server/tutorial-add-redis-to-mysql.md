@@ -11,7 +11,7 @@ ms.date: 08/15/2022
 
 # Tutorial: Boost performance of Azure Database for MySQL - Flexible Server with Azure cache for Redis 
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article demonstrates how to boost the performance of an Azure Database for MySQL using [Azure cache for Redis](../../azure-cache-for-redis/cache-overview.md). Azure cache for Redis is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
 
@@ -54,14 +54,12 @@ INSERT INTO tasks (id,title, completed) VALUES
 [!INCLUDE [redis-cache-create](../../azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Caching result of query using Python 
-Follow the steps below to use Redis to cache SQL queries from MySQL database.
+Install the latest version of [Python](https://www.python.org/) on your local environment or on Azure virtual machine or Azure App Service. Use pip to install redis-py.
 
-### Pre-requisite
-Install the latest version of [Python](https://www.python.org/) on your local environment or on Azure virtual machine or Azure App Service. Use pip to install redis-py:
 ```python
 pip install redis
 ```
-The following code creates a connection to Redis using redis-py:
+The following code creates a connection to Redis using redis-py, stores the query result into the redis cache and fetch the value from the cache.
 
 ```python
 import redis
