@@ -38,7 +38,7 @@ In this tutorial, you can use the following attributes in CrossCore risk analysi
 To get started, you'll need:
 
 - An Azure AD subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 ## Scenario description
