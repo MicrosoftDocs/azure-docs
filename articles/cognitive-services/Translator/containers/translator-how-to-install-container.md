@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 11/29/2022
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Translator containers (preview)
+# Install and run Translator containers
 
 Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
@@ -24,7 +24,7 @@ See the list of [languages supported](../language-support.md) when using Transla
 
 > [!IMPORTANT]
 >
-> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
+> * To use Translator container, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
 > * Translator container supports limited features compared to the cloud offerings.  Form more information, _see_ [**Container translate methods**](translator-container-supported-parameters.md).
 
 <!-- markdownlint-disable MD033 -->
