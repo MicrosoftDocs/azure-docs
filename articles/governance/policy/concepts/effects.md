@@ -18,6 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
+- [DenyAction (preview)](#denyAction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -50,7 +51,10 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is evaluated last.
+- **Audit** is evaluated. 
+- **Manual** is evaluated. 
+- **AuditIfNotExist** is evaluated. 
+- **denyAction** is evaluated last. 
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
@@ -447,6 +451,69 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
         "apiGroups": [""],
         "kinds": ["Pod"]
     }
+}
+```
+## DenyAction (preview)
+
+`DenyAction` is used to block request based on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidential deletion of critical resources.
+
+### DenyAction evaluation
+
+When submitting a request to a matched resource in a Resource Manager mode, `denyAction` prevents the request
+from succeeding. The request is returned as a `403 (Forbidden)`. In the
+portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment. 
+
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios. 
+
+**Subscription deletion**
+Policy will not block removal of resources that happens during a subscription deletion. 
+
+**Resource group deletion** 
+Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy will not block removal of resources that do not support location and tags nor any policy with `mode:all`. 
+
+**Cascade Deletion** 
+Cascade Deletion ocurs when deleting of a parent resources is implicately deletes all its child resources. Policy will not block removal of child resources when an deletion action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implictely delete the diagnostic setting (child). 
+
+[!INCLUDE [policy-denyAction](../../../includes/azure-policy-denyAction.md)]
+
+### DenyAction properties
+
+The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
+
+- **actionType** (required)
+  - An _array_  that specifies what actions to prevent from being executed. 
+  - Supported action type is: `delete`. 
+- **cascadeBehaviors** (optional)
+  - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group. 
+  - Only supported for `mode:indexed`.
+  - Allowed values are `allow` or `deny`. 
+  - Default value is `deny`. 
+
+### DenyAction example
+Example: Deny deletion of database accounts where tag environment equals prod. 
+
+```json
+{
+   "if": {
+      "allOf": [
+         {
+            "field": "type",
+            "equals": "Microsoft.DocumentDb/accounts"
+         },
+         {
+            "field": "tags.environment",
+            "equals": "prod"
+         }
+      ]
+   },
+   "then": {
+      "effect": "DenyAction",
+      "details": {
+         "actionNames": [ "delete" ],
+         "cascadeBehaviors": { "resourceGroup": "deny" }
+      }
+   }
 }
 ```
 

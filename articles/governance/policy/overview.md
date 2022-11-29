@@ -27,7 +27,7 @@ All Azure Policy data and objects are encrypted at rest. For more information, s
 
 ## Overview
 
-Azure Policy evaluates resources in Azure by comparing the properties of those resources to business
+Azure Policy evaluates resources and actions in Azure by comparing the properties of those resources to business
 rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are
 known as [policy definitions](#policy-definition). To simplify management, several business rules
 can be grouped together to form a [policy initiative](#initiative-definition) (sometimes called a
@@ -70,6 +70,7 @@ how an organization wants the platform to respond to a non-compliant resource in
 - Alter the resource before the change
 - Alter the resource after the change
 - Deploy related compliant resources
+- Block actions on resources
 
 Azure Policy makes each of these business responses possible through the application of
 [effects](./concepts/effects.md). Effects are set in the **policy rule** portion of the
@@ -95,19 +96,12 @@ on Channel 9.
 ### Azure Policy and Azure RBAC
 
 There are a few key differences between Azure Policy and Azure role-based access control (Azure
-RBAC). Azure Policy evaluates state by examining properties on resources that are represented in
-Resource Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions
-(also called _operations_). Azure Policy ensures that resource state is compliant to your business
-rules without concern for who made the change or who has permission to make a change. Some Azure
-Policy resources, such as [policy definitions](#policy-definition),
-[initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to
-all users. This design enables transparency to all users and services for what policy rules are set
+RBAC). Azure Policy evaluates state by examining properties on resources that are represented in Resource Manager and properties of some Resource Providers. Azure Policy ensures that resource state is compliant to your business rules without concern for who made the change or who has permission to make a change. Azure Policy through DenyAction effect can also block certian actions on resources. Some Azure Policy resources, such as [policy definitions](#policy-definition), [initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to all users. This design enables transparency to all users and services for what policy rules are set
 in their environment.
 
 Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
-control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual
-has access to perform an action, if the result is a non-compliant resource, Azure Policy still
+control of an action is required based on user information, then Azure RBAC is the correct tool to use. Even if an individual has access to perform an action, if the result is a non-compliant resource, Azure Policy still
 blocks the create or update.
 
 The combination of Azure RBAC and Azure Policy provides full scope control in Azure.
@@ -176,9 +170,7 @@ settings and objects. To find out more, see
 
 Here are a few pointers and tips to keep in mind:
 
-- Start with an audit effect instead of a deny effect to track impact of your policy definition on
-  the resources in your environment. If you have scripts already in place to autoscale your
-  applications, setting a deny effect may hinder such automation tasks already in place.
+-  Start with an `audit` or `auditIfNotExist` effect instead of a enforcement (`deny`, `modify`, `deployIfNotExist`)  effect to track impact of your policy definition on the resources in your environment. If you have scripts already in place to autoscale yourapplications, setting an enforcement effect may hinder such automation tasks already in place.
 
 - Consider organizational hierarchies when creating definitions and assignments. We recommend
   creating definitions at higher levels such as the management group or subscription level. Then,
