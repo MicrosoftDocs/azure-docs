@@ -1,5 +1,5 @@
 ---
-title: Tune uploads and downloads with Azure Storage client library for .NET - Azure Storage
+title: Tuning uploads and downloads with Azure Storage client library for .NET - Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for .NET. 
 services: storage
 author: pauljewellmsft
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Tune your uploads and downloads with Azure Storage client library for .NET
+# Tuning uploads and downloads with Azure Storage client library for .NET
 
 When an application transfers data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. Each time a client method is called, an HTTP request is sent to the service. This service request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance and reliability during data transfers, it's important to be proactive in configuring client library transfer options based on the needs of your app, and the environment it will run in.
 
 This article walks through several considerations and best practices to tune data transfer options using client library methods. 
 
-## Performance tuning with `StorageTransferOptions`
+## Performance tuning with StorageTransferOptions
 
 Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in this struct. The following sections describe each property in `StorageTransferOptions` and offer guidance for proper tuning.
 
@@ -54,9 +54,7 @@ BlobUploadOptions options = new BlobUploadOptions
 await blobClient.UploadAsync(localFilePath, options);
 ```
 
-### `StorageTransferOptions` property details
-
-#### `InitialTransferSize`
+#### InitialTransferSize
 
 [InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. Blobs equal to or smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
@@ -64,12 +62,12 @@ It's important to note that `MaximumTransferSize` *doesn't* limit the value you 
 
 If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
-#### `MaximumConcurrency`
+#### MaximumConcurrency
 [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers, or subtransfers, that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations will ignore this value and work in sequence.
 
 The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
 
-#### `MaximumTransferSize`
+#### MaximumTransferSize
 
 [MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *doesn't* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
@@ -90,7 +88,7 @@ Another scenario where buffering occurs is when you're uploading data with paral
 
 To avoid this buffering behavior during an asynchronous upload call, you must provide a seekable stream and set `MaximumConcurrency` to 1. While this strategy should work in most situations, it's still possible for buffering to occur if your code is using other client library features that require buffering.
 
-### `InitialTransferSize` on upload
+### InitialTransferSize on upload
 
 When a seekable stream is provided for upload, the stream length will be checked against the value of `InitialTransferSize`. If the stream length is less than this value, the entire stream will be uploaded as a single REST call, regardless of other `StorageTransferOptions` values. Otherwise, upload will be done in multiple parts as described earlier. `InitialTransferSize` has no effect on a non-seekable stream and will be ignored.
 
@@ -105,7 +103,7 @@ During a download, the Storage client libraries will split a given download requ
 
 Receiving multiple HTTP responses simultaneously with body contents has implications for memory usage. However, the Storage client libraries don't explicitly add a buffer step for downloaded contents. Incoming responses are processed in order. The client libraries configure a 16-kilobyte buffer for copying streams from an HTTP response stream to caller-provided destination stream or file path.
 
-### `InitialTransferSize` on download
+### InitialTransferSize on download
 
 The Storage client libraries will make one download range request using `InitialTransferSize` before doing anything else. During this initial download request, the client libraries will know total resource size. If the initial request downloaded all of the content, the operation is complete. Otherwise, the download steps described earlier will continue until the request is completed.
 
