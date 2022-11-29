@@ -1,6 +1,6 @@
 ---
-title: Deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI
+title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI - Azure Health Data Services
+description: In this quickstart, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,9 +9,9 @@ ms.date: 11/28/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI
+# Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
 
-In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
+In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
 
 For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
 
