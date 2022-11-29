@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
 
-List all the instances in your Virtual Machine Scale Set using [get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-9.1.0).
+List all the instances in your Virtual Machine Scale Set using [get-AzVM](/powershell/module/az.compute/get-azvm).
 
 ```azurepowershell-interactive
 get-AzVM -ResourceGroup myResourceGroup
@@ -47,7 +47,7 @@ myResourceGroup   myScaleSet_Instance2   eastus     Standard_DS1_v2    Windows  
 ## Get NIC information
 
 
-Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface?view=azps-9.1.0).
+Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
 
 ```azurepowershell-interactive
 Get-AzNetworkInterface -Name myScaleSet-instance1-nic
@@ -97,7 +97,7 @@ DnsSettings                 : {
 
 
 ## Get backend pool details
-Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0).
+Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig).
 
 ```azurepowershell-interactive
 Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
@@ -107,7 +107,7 @@ Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
     -IpAddress 192.168.1.5
 ```
 
-If you run the above command and find your load balancer does not have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0) and then run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0) again.
+If you run the above command and find your load balancer does not have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) and then run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) again.
 
 ```azurepowershell-interactive 
 $slb = Get-AzLoadBalancer -Name "myScaleSet" -ResourceGroupName "MyResourceGroup"
@@ -125,7 +125,7 @@ BackendPort        : 3389
 
 ## Get public IP of load balancer
 
-Get the public IP of the load balancer using [GetAzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-9.1.0).
+Get the public IP of the load balancer using [GetAzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroup myResourceGroup    
