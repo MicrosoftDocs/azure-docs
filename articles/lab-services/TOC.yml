@@ -237,16 +237,10 @@
       href: lab-user-support-information.md
   - name: Use labs within Canvas
     items:
-      - name: Create a lab from Canvas
-        href: how-to-get-started-create-lab-within-canvas.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-canvas.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-canvas.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-canvas.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-canvas.md
+      - name: Configure Canvas to access lab plans
+        href: how-to-configure-canvas-for-lab-plans.md
+      - name: Create & manage labs
+        href: how-to-manage-labs-within-canvas.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
