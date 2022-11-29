@@ -175,7 +175,7 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
 ### Install the TPM2 Tools
 Sign in to your device, and install the `tpm2-tools` package.
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 
 
    ```bash

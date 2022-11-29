@@ -53,7 +53,6 @@ async function setHTTPHeaders(blobClient, headers) {
 }
 ```
 
-
 ## Set metadata
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs with
