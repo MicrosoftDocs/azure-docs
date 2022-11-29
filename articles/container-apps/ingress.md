@@ -98,7 +98,7 @@ You can get access to the environment's unique identifier by querying the enviro
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
-## Inbound access restrictions by IP address ranges
+## Inbound access restrictions by IP address ranges (preview)
 
 By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
 
@@ -107,6 +107,8 @@ By default, ingress doesn't filter traffic. You can add restrictions to limit ac
 
 > [!NOTE]
 > If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
+>
+> IPv4 addresses are supported. Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ### Configure an allowlist
 
@@ -122,7 +124,7 @@ az containerapp ingress access-restriction set \
    --action Allow
 ```
 
-Add more allow rules by repeating the command with different IP address ranges in the `--ip-address` parameter. When you configure one or more allow rules, any traffic from an IP address that doesn't match any of the rules is denied.
+Add more allow rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more allow rules, any traffic from an IP address that doesn't match any of the rules is denied.
 
 ### Configure a denylist
 
@@ -138,7 +140,7 @@ az containerapp ingress access-restriction set \
   --action Deny
 ```
 
-Add more deny rules by repeating the command with different IP address ranges in the `--ip-address` parameter. When you configure one or more deny rules, any traffic from an IP address that doesn't match any of the rules is allowed.
+Add more deny rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more deny rules, any traffic from an IP address that doesn't match any of the rules is allowed.
 
 ### Remove access restrictions
 
