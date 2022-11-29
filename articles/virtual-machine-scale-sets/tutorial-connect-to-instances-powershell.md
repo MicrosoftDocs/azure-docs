@@ -95,16 +95,6 @@ DnsSettings                 : {
                               }
 ```
 
-## (Optional) Add InboundNatRules
-
-In the above output, we can see that we do not have any inbound NAT rules associated with our load balancer. To add inbound NAT rules, use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0).
-
-```azurepowershell-interactive 
-$slb = Get-AzLoadBalancer -Name "myScaleSet" -ResourceGroupName "MyResourceGroup"
-$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "myNatRule" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -Protocol "Tcp" -IdleTimeoutInMinutes 10 -FrontendPortRangeStart 50000 -FrontendPortRangeEnd 50099 -BackendAddressPool $slb.BackendAddressPools[0] -BackendPort 3389
-$slb | Set-AzLoadBalancer
-```
-
 
 ## Get backend pool details
 Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0).
@@ -115,6 +105,14 @@ Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
     -LoadBalancerName myScaleSet `
     -Name myScaleSet `
     -IpAddress 192.168.1.5
+```
+
+If you run the above command and find your load balancer does not have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0) and then run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0) again.
+
+```azurepowershell-interactive 
+$slb = Get-AzLoadBalancer -Name "myScaleSet" -ResourceGroupName "MyResourceGroup"
+$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "myNatRule" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -Protocol "Tcp" -IdleTimeoutInMinutes 10 -FrontendPortRangeStart 50000 -FrontendPortRangeEnd 50099 -BackendAddressPool $slb.BackendAddressPools[0] -BackendPort 3389
+$slb | Set-AzLoadBalancer
 ```
 
 
