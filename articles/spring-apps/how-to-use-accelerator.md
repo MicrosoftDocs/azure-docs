@@ -200,7 +200,7 @@ Use the following command to enable a built-in predefined accelerator:
 
 In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in GitHub, GitLab, or BitBucket.
 
-Use to following steps to create and maintain your own accelerators.
+Use to following steps to create and maintain your own accelerators:
 
 1. Create a file named *accelerator.yaml* in the root directory of your Git repository.
 
@@ -271,13 +271,13 @@ Use to following steps to create and maintain your own accelerators.
 
 ---
 
-To view all the published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
+To view all published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
    :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
-Refresh the Dev Tools Portal to see the newly-published accelerator.
+To view the newly-published accelerator, refresh Dev Tools Portal.
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
 > [!NOTE]
 > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
@@ -286,47 +286,50 @@ Refresh the Dev Tools Portal to see the newly-published accelerator.
 
 Use the following steps to bootstrap a new project using accelerators:
 
-1. Click **App Accelerator URL** to access Dev Tools Portal.
+1. On the **Developer Tools (Preview) page, select the App Accelerator URL to open the Dev Tools Portal.
 
-![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
-1. Jump to Dev Tools Portal, you can choose one accelerator to explore file and download as zip file.
+1. On the Dev Tools Portal, select an accelerator.
 
-In the "Configure accelerator" step, you can input values for your input options.
+1. Specify input options in the **Configure accelerator** section of the **Generate Accelerators** page.
 
-![configure-accelerator](./media/how-to-use-accelerator/configure-accelerator.png)
-   
-1. Click **EXPLORE FILE**, you will see the project structure and view source code.
+   :::image type="content" source="media/how-to-use-accelerator/configure-accelerator.png" alt-text="Screenshot of the Generate Accelerators page showing the Configure accelerator section." lightbox="media/how-to-use-accelerator/configure-accelerator.png":::
 
-![explore-accelerator-project](./media/how-to-use-accelerator/explore-accelerator-project.png)
-   
-1. Go to the "Review and generate" step, you can review your provided paramenters and generator your project.
+1. Select **EXPLORE FILE** to view the project structure and source code.
 
-![generate-accelerator-](./media/how-to-use-accelerator/generate-accelerator.png) 
-  
-1. Click **GENERATE ACCELERATOR**, it will start a task to process provided paramenters and zip files from accelerator. After the task is completed, you're free to download the project as zip file.
+   :::image type="content" source="media/how-to-use-accelerator/explore-accelerator-project.png" alt-text="Screenshot of the Explore project pane." lightbox="media/how-to-use-accelerator/explore-accelerator-project.png":::
 
-![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
+1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 
-## Manage App Accelerator in existing Enterprise tier instances
+   :::image type="content" source="media/how-to-use-accelerator/generate-accelerator.png" alt-text="Screenshot of the Generate Accelerators page showing the Review and generate section." lightbox="media/how-to-use-accelerator/generate-accelerator.png":::
 
-This section instructs you how to enable the App Accelerator under an existing Azure Spring Apps Enterprise tier instance.
+1. You can then view or download the project as a zip file.
 
-If Dev tools public endpoint has already been exposed, then after enabling App Accelerator here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
+   :::image type="content" source="media/how-to-use-accelerator/download-file.png" alt-text="Screenshot showing the Task Activity pane." lightbox="media/how-to-use-accelerator/download-file.png":::
 
-### [Portal](#tab/Portal)
+## Manage App Accelerator in an existing Enterprise tier instance
 
-1. Navigate to your Service resource. Click "Developer Tools (Preview)".
-1. Click "Manage tools".
-1. Check the App Accelerators checkbox and click "Apply"
+You can enable App Accelerator under an existing Azure Spring Apps Enterprise tier instance using the Azure portal or Azure CLI.
 
-    ![Enable-Application-Accelerator](./media/how-to-use-accelerator/enable-app-accelerator.png)
+If a Dev tools public endpoint has already been exposed, you can enable App Accelerator and then use Ctrl+F5 to deactivate the browser cache to view it on the Dev Tools Portal.
 
-1. After it is saved successfully, you can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable App Accelerator under an existing Azure Spring Apps Enterprise tier instance using the Azure portal:
+
+1. Navigate to your service resource, and then select **Developer Tools (Preview)**.
+1. Select **Manage tools**.
+1. Select the **Enable App Accelerator** checkbox, and then select **Apply**.
+
+   :::image type="content" source="media/how-to-use-accelerator/enable-app-accelerator.png" alt-text="Screenshot showing the Enable App Accelerator option." lightbox="media/how-to-use-accelerator/enable-app-accelerator.png":::
+
+You can view whether App Accelerator is enabled or disabled on the **Developer Tools (Preview)** page.
 
 ### [CLI](#tab/Azure-CLI)
 
-Use the following command to enable App Accelerator for an Azure Spring Apps service instance:
+Use the following command to enable App Accelerator for an Azure Spring Apps service instance using the Azure CLI:
+
 ```azurecli
 az spring application-accelerator create \
     --service <Azure-Spring-Apps-service-instance-name> \
@@ -334,19 +337,21 @@ az spring application-accelerator create \
 ```
 
 Use the following command to disable App Accelerator for an Azure Spring Apps service instance:
+
 ```azurecli
 az spring application-accelerator delete \
     --service <Azure-Spring-Apps-service-instance-name> \
     --resource-group <resource-group-name>
 ```
 
-> To access the Dev Tools Portal, please make sure Dev Tools Portal is enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled.
-> ```azurecli
-> az spring dev-tool create \
->    --resource-group <resource-group-name> \
->    --service <Azure-Spring-Apps-service-instance-name> \
->    --assign-endpoint
-> ```
+To access the Dev Tools Portal, make sure it is enabled with an assigned public endpoint. Use the following command to enable the Dev Tools Portal:
+
+```azurecli
+az spring dev-tool create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --assign-endpoint
+ ```
 
 ---
 
