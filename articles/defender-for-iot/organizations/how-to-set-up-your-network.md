@@ -173,27 +173,6 @@ Open these ports to allow extra services for Defender for IoT.
 | LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to sign in to the system | On-premises management console and Sensor | LDAPS server |
 | Tunneling | TCP | In | 9000 </br></br> In addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console </br></br> Port 22 from the sensor to the on-premises management console | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
 
-## Import firewall rules
-
-Import firewall rules to your OT sensor for analysis in **Risk assessment** reports. Importing firewall rules is supported for Checkpoint, Fortinet, and Juniper firewalls.
-
-- Checkpoint
-- Fortinet
-- Juniper
-
-**To import firewall rules**:
-
-1. Sign in to your sensor as an **Admin** user and elect **System Settings** > **Import settings** > **Firewall rules**.
-1. In the **Firewall rules** pane:
-
-    - Select a firewall type from the dropdown menu
-    - Select **+ Import file** to browse to and select the file you want to import.
-For example:
-
-:::image type="content" source="media/how-to-set-up-your-network/import-firewall-rules.png" alt-text="Screenshot of how to import firewall rules." lightbox="media/how-to-set-up-your-network/import-firewall-rules.png":::
-
-Firewall rules are analyzed in the [Risk Assessment report](how-to-create-risk-assessment-reports.md).
-
 ## Choose a cloud connection method
 
 If you're setting up OT sensors and connecting them to the cloud, understand supported cloud connection methods, and make sure to connect your sensors as needed.
