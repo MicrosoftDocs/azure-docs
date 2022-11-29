@@ -18,13 +18,18 @@ This quick start shows you two ways of connecting to Azure Event Hub: passwordle
 
 [!INCLUDE [event-hub-assign-roles](event-hub-assign-roles.md)]
 
-### Sign in and add the Azure Identity package
+## Launch Visual Studio and sign-in to Azure
 
-You can authorize access to the Event Hub namespace using the following steps:
+You can authorize access to the service bus namespace using the following steps:
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
+1. Select the **Sign in** button in the top right of Visual Studio.
 
-[!INCLUDE [visual-studio-add-identity](../../../includes/passwordless/visual-studio-add-identity.md)]
+    :::image type="content" source="../../../articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
+
+1. Sign-in using the Azure AD account you assigned a role to previously.
+
+    :::image type="content" source="../../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
 ## [Connection String](#tab/connection-string)
 

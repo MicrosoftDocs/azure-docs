@@ -43,14 +43,28 @@ This section shows you how to create a .NET Core console application to send eve
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/project-solution-names.png" alt-text="Image showing the page where you enter solution and project names":::
 
-### Add the Event Hubs NuGet package
+### Add the NuGet packages to the project
 
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
+### [Passwordless](#tab/passwordless)
 
-    ```cmd
-    Install-Package Azure.Messaging.EventHubs
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package.
+
+    ```powershell
+    Install-Package Azure.Messaging.ServiceBus
+    Install-Package Azure.Identity
     ```
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
+
+    ```powershell
+    Install-Package Azure.Messaging.ServiceBus
+    ```
+
+---
 
 ### Authenticate the app to Azure
 
