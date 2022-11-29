@@ -4,13 +4,12 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Microsoft Dynamics 365 Fraud Protection to identify risky and fraudulent account
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/28/2022
+ms.date: 11/29/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
