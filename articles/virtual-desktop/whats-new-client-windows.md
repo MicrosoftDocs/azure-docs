@@ -17,7 +17,7 @@ The client can be configured to enable Windows Insider releases. The following t
 
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
-| Public  | 1.2.3577         | 1.2.1672                  |
+| Public  | 1.2.3577       | 1.2.1672                  |
 | Insider | 1.2.3770       | 1.2.1672                  |
 
 ## Updates for version 1.2.3770 (Insider)
@@ -28,7 +28,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 - Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
-
 
 ## Updates for version 1.2.3667 (Insider)
 
