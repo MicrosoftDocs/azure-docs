@@ -71,7 +71,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
 var tunnelUrl = builder.Configuration["VS_TUNNEL_URL"]; // Visual Studio Dev Tunnel's dynamic FQDN
-var mediaFileSource = new Uri("<link_to_media_file>");
+var mediaFileSource = new Uri("<link_to_media_file>"); //This URL should be public accessible and the file format should be WAV, 16KHz, Mono.
 var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
 var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in E.164 format starting +...
 
