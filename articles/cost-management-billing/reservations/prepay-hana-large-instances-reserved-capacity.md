@@ -2,7 +2,7 @@
 title: Save on SAP HANA Large Instances with an Azure reservation
 description: Understand the things you need to know before you buy a HANA Large Instance reservation and how to make the purchase.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
