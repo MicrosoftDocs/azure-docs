@@ -1,10 +1,8 @@
 ---
 title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 08/30/2022
 ms.topic: how-to
-description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
+description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
 ---
 
 # Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters
