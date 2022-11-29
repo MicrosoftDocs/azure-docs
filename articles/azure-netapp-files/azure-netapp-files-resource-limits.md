@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 11/28/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -99,6 +99,9 @@ You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at 
 ## Request limit increase
 
 You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
+
+>[!NOTE]
+> Depending on available resources in the region and the limit increase requested, Azure support may require additional information in order to determine the feasibility of the request.
 
 1. Go to **New Support Request** under **Support + troubleshooting**.   
 
