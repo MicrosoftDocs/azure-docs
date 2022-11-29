@@ -92,7 +92,17 @@ When you enable Defender for Servers, Defender for Cloud automatically deploys a
 - Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements).
 - There are some [specific requirements](/microsoft-365/security/defender-endpoint/configure-server-endpoints) for some Windows Server versions.
 
-## Agent provisioning
+## Verify operating system support
+
+Before deployment, verify operating system support for agents and extensions.
+
+- Verify that your [operating systems are supported](/microsoft-365/security/defender-endpoint/minimum-requirements) by Defender for Endpoint.
+- [Check requirements](../azure-arc/servers/prerequisites.md) for Azure Arc Connect Machine agent.
+- Check operating system support for the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#supported-operating-systems) and [Azure Monitor agent](../azure-monitor/agents/agents-overview.md)
+
+
+
+## Review agent provisioning
 
 When you enable Defender for Cloud plans, including Defender for Servers, you can select to automatically provision a number of agents. These are the agents that are relevant for Defender for Servers:
 
@@ -124,14 +134,6 @@ Situation | Relevant agent | Details
 You have critical VMs that shouldn't have agents installed. | Log Analytics agent, Azure Monitor agent. | Automatic provisioning is for an entire subscription. You can't opt out for specific machines.
 If you're running the System Center Operations Manager agent version 2012 with Operations Manager 2012  | Log Analytics agent | With this configuration, don't turn on automatic provisioning, otherwise management capabilities might be lost.
 You want to configure a custom workspace | Log Analytics agent, Azure Monitor agent | You have two options with a custom workspace:<br/><br/> - Opt out of automatic provisioning when you first set up Defender for Cloud. Then, configure provisioning on your custom workspace.<br/><br/>- Let automatic provisioning run to install the Log Analytic agents on machines. Set a custom workspace, and then when asked, reconfigure existing VMs with the new workspace setting.
-
-## Verify operating system support
-
-Before deployment, verify operating system support for agents and extensions.
-
-- Verify that your [operating systems are supported](/microsoft-365/security/defender-endpoint/minimum-requirements) by Defender for Endpoint.
-- [Check requirements](../azure-arc/servers/prerequisites.md) for Azure Arc Connect Machine agent.
-- Check operating system support for the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#supported-operating-systems) and [Azure Monitor agent](../azure-monitor/agents/agents-overview.md)
 
 
 ## Next steps
