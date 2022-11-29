@@ -27,13 +27,21 @@ The latest version of the Network Watcher extension is currently `1.4.2423.1`.
 
 ### Identify latest version
 
+Use the 
+
 # [Linux](#tab/linux)
 
-``` az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentLinux -o table ```
+```powershell 
+az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentLinux -o table 
+
+```
 
 # [Windows](#tab/windows)
 
-``` az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentWindows -o table ```
+```powershell
+az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentWindows -o table 
+
+```
 
 ---
 
