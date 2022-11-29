@@ -36,6 +36,8 @@
     items: 
     - name: Azure CLI
       href: tutorial-connect-to-instances-cli.md
+    - name: Azure PowerShell
+      href: connect-to-instances-powershell.md
   - name: Use data disks
     items:
     - name: Azure CLI
