@@ -59,7 +59,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/user-guide/kubectl/). `kubectl` is already installed if you use Azure Cloud Shell.
 
-  Install `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
+  Install `kubectl` locally using the [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command:
 
   ```azurecli
   az aks install-cli
