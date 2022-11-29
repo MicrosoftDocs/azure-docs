@@ -30,9 +30,9 @@ In this tutorial:
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
-  - [Application administrator](../articles/active-directory/roles/permissions-reference.md#application-administrator)
-  - [Application developer](../articles/active-directory/roles/permissions-reference.md#application-developer)
-  - [Cloud application administrator](../articles/active-directory/roles/permissions-reference.md#cloud-application-administrator)
+  - [Application administrator](../roles/permissions-reference.md#application-administrator)
+  - [Application developer](../roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
 
 ## Register the app in the Azure portal
 
@@ -207,4 +207,5 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 Learn about calling building web apps that sign in users in our multi-part scenario series:
 
-> [!div class="nextstepaction"] > [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
+> [!div class="nextstepaction"] 
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
