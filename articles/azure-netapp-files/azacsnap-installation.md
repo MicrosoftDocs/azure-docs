@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 11/14/2022
 ms.author: phjensen
 ---
 
@@ -219,7 +219,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
 ## Enable communication with database
 
-This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
+This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
 
 # [SAP HANA](#tab/sap-hana)
 

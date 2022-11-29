@@ -20,7 +20,7 @@ This article describes how to expand managed disks for a Linux virtual machine (
 > [!WARNING]
 > Always make sure that your filesystem is in a healthy state, your disk partition table type (GPT or MBR) will support the new size, and ensure your data is backed up before you perform disk expansion operations. For more information, see the [Azure Backup quickstart](../../backup/quick-backup-vm-portal.md). 
 
-## Identify Azure data disk object within the operating system
+## <a id="identifyDisk"></a>Identify Azure data disk object within the operating system ##
 
 In the case of expanding a data disk when there are several data disks present on the VM, it may be difficult to relate the Azure LUNs to the Linux devices.  If the OS disk needs expansion, it will be clearly labeled in the Azure portal as the OS disk.
 
@@ -35,11 +35,11 @@ Filesystem                Type      Size  Used Avail Use% Mounted on
 /dev/sde1                 ext4       32G   49M   30G   1% /opt/db/log
 ```
 
-Here we can see, for example, the ```/opt/db/data``` filesystem is nearly full, and is located on the ```/dev/sdd1``` partition.  The output of ```df``` will show the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This will be important later.
+Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` will show the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This will be important later.
 
-Now locate the LUN which correlates to ```/dev/sdd``` by examining the contents of ```/dev/disk/azure/scsi1```.  The output of the following ```ls``` command will show that the device known as ```/dev/sdd``` within the Linux OS is located at LUN1 when looking in the Azure portal.
+Now locate the LUN which correlates to `/dev/sdd` by examining the contents of `/dev/disk/azure/scsi1`.  The output of the following `ls` command will show that the device known as `/dev/sdd` within the Linux OS is located at LUN1 when looking in the Azure portal.
 
-```bash
+```output
 linux:~ # ls -alF /dev/disk/azure/scsi1/
 total 0
 drwxr-xr-x. 2 root root 140 Sep  9 21:54 ./
@@ -126,9 +126,9 @@ In the following samples, replace example parameter names such as *myResourceGro
 
 ## Expand a disk partition and filesystem
 > [!NOTE]
-> While there are several tools that may be used for performing the partition resizing, the tools selected here are the same tools used by certain automated processes such as cloud-init.  Using the ```parted``` tool also provides more universal compatibility with GPT disks, as older versions of some tools such as ```fdisk``` did not support the GUID Partition Table (GPT).
+> While there are many tools that may be used for performing the partition resizing, the tools detailed in the remainder of this document are the same tools used by certain automated processes such as cloud-init.  As described here, the  `growpart` tool with the `gdisk` package provides universal compatibility with GUID Partition Table (GPT) disks, as older versions of some tools such as `fdisk` did not support GPT.
 
-The remainder of this article describes how to increase the size of a volume at the OS level, using the OS disk as the example.  If the disk needing expansion is a data disk, the following procedures can be used as a guideline, substituting the disk device (for example ```/dev/sda```), volume names, mount points, and filesystem formats, as necessary.
+The remainder of this article describes uses the OS disk for the examples of the procedure for increasing the size of a volume at the OS level.  If the disk which needs to be expanded is a data disk, use the [previous guidance for identifying the data disk device](#identifyDisk), and follow these instructions as a guideline, substituting the data disk (for example `/dev/sda`), partition numbers, volume names, mount points, and filesystem formats, as necessary.
 
 ### Increase the size of the OS disk
 
