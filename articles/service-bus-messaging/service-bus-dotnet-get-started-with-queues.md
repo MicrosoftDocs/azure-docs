@@ -44,7 +44,7 @@ You can authorize access to the service bus namespace using the following steps:
 
 1. Sign-in using the Azure AD account you assigned a role to previously.
 
-    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing how to select an account.":::
+    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
 
 ## Send messages to the queue

@@ -20,15 +20,6 @@ This quick start shows you two ways of connecting to Azure Service Bus: password
 
 [!INCLUDE [service-bus-assign-roles](service-bus-assign-roles.md)]
 
-### Sign in and add the Azure Identity package
-
-You can authorize access to the service bus namespace using the following steps:
-
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
-
-[!INCLUDE [visual-studio-add-identity](../../../includes/passwordless/visual-studio-add-identity.md)]
-
-
 ## [Connection String](#tab/connection-string)
 
 ## Get the connection string 
