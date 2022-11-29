@@ -50,7 +50,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 | **Azure** |  | |
 |  | [Diagnostic settings](../essentials/diagnostic-settings.md) |- Azure tenant<br/>- Activity and resource logs from Azure resources|
 |  |  |- Azure subscription|
-| **Applications** | [Application insights](../app/app-insights-overview.md) | |
+| **Applications** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
 | **Containers** |[Container insights](../containers/container-insights-overview.md)| |
 | **Virtual machines** | [VM insights](../vm/vminsights-overview.md) | - All logs and metrics collected by Azure Monitor Agent<br/> - VM dependencies on other resources |
 | **Operating systems** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
