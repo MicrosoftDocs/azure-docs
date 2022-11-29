@@ -51,13 +51,13 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
 1. In your scope resource, select **Private Endpoint connections** in the left-hand resource menu. Select **Private Endpoint** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and selecting **Approve**.
 
-    ![Screenshot of Private Endpoint Connections UX](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
+    :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-connect-3.png" alt-text="Screenshot of Private Endpoint Connections UX." lightbox="./media/private-link-security/ampls-select-private-endpoint-connect-3.png":::
 
 2. Pick the subscription, resource group, and name of the endpoint, and the region it should live in. The region needs to be the same region as the VNet you connect it to.
 
 3. Select **Next: Resource**. 
 
-4. In the Resource screen,
+4. In the Resource tab:
 
    a. Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
 
@@ -65,24 +65,28 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
    c. From the **resource** drop-down, choose your Private Link scope you created earlier. 
 
-   d. Select **Next: Configuration >**.
-      ![Screenshot of select Create Private Endpoint](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
+   d. Select **Next: Virtual Network >**.
 
-5. On the configuration pane,
+      :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-4.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the Resource tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-4.png":::
 
-   a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
- 
-   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
+5. On the Virtual Network tab:
+
+   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources.
+   b. Select **Next: DNS >**.
+   
+   :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-5.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-5.png":::
+
+   c.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
    > [!NOTE]
    > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
  
-   c.    Select **Review + create**.
+   d.    Select **Review + create**.
  
-   d.    Let validation pass. 
+   e.    Let validation pass. 
  
-   e.    Select **Create**. 
+   f.    Select **Create**. 
 
-    ![Screenshot of select Private Endpoint details.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
+    :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-6.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-6.png":::
 
 You've now created a new private endpoint that is connected to this AMPLS.
 
