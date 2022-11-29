@@ -18,7 +18,7 @@ Azure Automanage currently supports the following SDKs:
 - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automanage/azure-resourcemanager-automanage)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automanage/Azure.ResourceManager.Automanage)
-- PowerShell (pending)
+- [PowerShell](https://www.powershellgallery.com/packageAz.Automanage/0.1.0)
 - Azure CLI (pending)
 - Terraform (pending)
 
