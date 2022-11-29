@@ -176,7 +176,7 @@ Entry Script Name: <entry_script>
 Model Directory: <model_dir>
 Worker Count: <worker_count>
 Worker Timeout (seconds): None
-Server Port: 5001
+Server Port: <port>
 Application Insights Enabled: false
 Application Insights Key: <appinsights_instrumentation_key>
 Inferencing HTTP server version: azmlinfsrv/<version>
@@ -185,8 +185,8 @@ CORS for the specified origins: <access_control_allow_origins>
 
 Server Routes
 ---------------
-Liveness Probe: GET   127.0.0.1:5001/
-Score:          POST  127.0.0.1:5001/score
+Liveness Probe: GET   127.0.0.1:<port>/
+Score:          POST  127.0.0.1:<port>/score
 
 ```
 
