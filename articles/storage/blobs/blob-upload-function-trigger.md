@@ -272,24 +272,24 @@ You are now ready to deploy our application to Azure by using Visual Studio.  Yo
 
 1. On the **Publish** dialog screen, select Azure and choose **Next**.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to select Azure as the deployment target." :::
+    :::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to select Azure as the deployment target." :::
  
 1. Select **Azure Function App (Windows)** or **Azure Function App (Linux)** on the next screen, and then choose **Next** again.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-specific-target.png" alt-text="A screenshot showing how to choose Azure Functions as a specific deployment target." :::
+    :::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-specific-target.png" alt-text="A screenshot showing how to choose Azure Functions as a specific deployment target." :::
 
 1. On the **Functions instance** step, make sure to choose the subscription you'd like to deploy to. Next, select the green **+** symbol on the right side of the dialog.
 
 1. A new dialog will open.  Enter the following values for your new Function App.
 
-- **Name**: Enter *msdocsprocessimage* or something similar.
-- **Subscription Name**: Choose whatever subscription you'd like to use.
-- **Resource Group**: Choose the `msdocs-storage-function` resource group you created earlier.
-- **Plan Type**: Select **Consumption**.
-- **Location**: Choose the region closest to you.
-- **Azure Storage**: Select the storage account you created earlier.
+    - **Name**: Enter *msdocsprocessimage* or something similar.
+    - **Subscription Name**: Choose whatever subscription you'd like to use.
+    - **Resource Group**: Choose the `msdocs-storage-function` resource group you created earlier.
+    - **Plan Type**: Select **Consumption**.
+    - **Location**: Choose the region closest to you.
+    - **Azure Storage**: Select the storage account you created earlier.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to create a new Function App in Azure." :::
+    :::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to create a new Function App in Azure." :::
 
 1. Once you have filled in all of those values, select **Create**. Visual Studio and Azure will begin provisioning the requested resources, which will take a few moments to complete.
 
@@ -311,27 +311,27 @@ The Azure Function was deployed successfully, but it cannot connect to our stora
 
 1. On the **Application settings** tab, select **+ New application setting**. In the flyout that appears, enter the following values:
 
-- **Name**: Enter a value of *ComputerVisionKey*.
-- **Value**: Paste in the Computer Vision key you saved from earlier.
+    - **Name**: Enter a value of *ComputerVisionKey*.
+    - **Value**: Paste in the Computer Vision key you saved from earlier.
 
 1. Click **OK** to add this setting to your app.
 
-:::image type="content" source="./media/blob-upload-storage-function/function-app-settings.png" alt-text="A screenshot showing how to add a new application setting to an Azure Function." :::
+    :::image type="content" source="./media/blob-upload-storage-function/function-app-settings.png" alt-text="A screenshot showing how to add a new application setting to an Azure Function." :::
 
 1. Next, let's repeat this process for the endpoint of our Computer Vision service, using the following values:
 
-- **Name**: Enter a value of *ComputerVisionEndpoint*.
-- **Value**: Paste in the endpoint URL you saved from earlier.
+    - **Name**: Enter a value of *ComputerVisionEndpoint*.
+    - **Value**: Paste in the endpoint URL you saved from earlier.
 
 1. Repeat this step again for the storage account connection, using the following values:
 
-- **Name**: Enter a value of *StorageConnection*.
-- **Value**: Paste in the connection string you saved from earlier.
+    - **Name**: Enter a value of *StorageConnection*.
+    - **Value**: Paste in the connection string you saved from earlier.
 
 1. Finally, repeat this process one more time for the storage account name, using the following values:
 
-- **Name**: Enter a value of *StorageAccountName*.
-- **Value**: Enter in the name of the storage account you created.
+    - **Name**: Enter a value of *StorageAccountName*.
+    - **Value**: Enter in the name of the storage account you created.
 
 1. After you have added these application settings, make sure to select **Save** at the top of the configuration page.  When the save completes, you can hit **Refresh** as well to make sure the settings are picked up.
 
@@ -346,13 +346,13 @@ You are now ready to test out our application! You can upload a blob to the cont
 
 1. Next, select **Containers** on the left nav, and then navigate into the **ImageAnalysis** container you created earlier.  From here you can upload a test image right inside the browser. 
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to navigate to a storage container." :::
+    :::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to navigate to a storage container." :::
 
 1. You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own.
 
 1. At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout that opens, select the folder icon on the right to open up a file browser.  Choose the image you'd like to upload, and then select **Upload**.
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
+    :::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
 
 1. The file should appear inside of your blob container. Next, you can verify that the upload triggered the Azure Function, and that the text in the  image was analyzed and saved to Table Storage properly.
 
@@ -360,7 +360,7 @@ You are now ready to test out our application! You can upload a blob to the cont
 
 1. An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
+    :::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
 
