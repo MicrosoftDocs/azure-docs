@@ -16324,6 +16324,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search-how-to-index-power-query-data-sources.md",
+            "redirect_url": "previous-versions/azure/search/search-how-to-index-power-query-data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
