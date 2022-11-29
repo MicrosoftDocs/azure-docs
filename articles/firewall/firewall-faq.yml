@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 10/27/2022
+  ms.date: 11/29/2022
   ms.author: victorh
 
 title: Azure Firewall FAQ
@@ -114,6 +114,25 @@ sections:
           $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
           $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
           $azfw.Allocate($vnet, $pip, $mgmtPip2)
+          $azfw | Set-AzFirewall
+          ```
+
+          For a firewall in a secured virtual hub architecture, stopping is the same but starting must use the virtual hub ID:
+
+          ```azurepowershell
+          # Stop and existing firewall
+
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
+          ```azurepowershell
+          # Start the firewall
+
+          $virtualhub = get-azvirtualhub -ResourceGroupName "RG name of vHUB" -name "vHUB name"
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "Azfw RG Name"
+          $azfw.Allocate($virtualhub.Id)
           $azfw | Set-AzFirewall
           ```
 
