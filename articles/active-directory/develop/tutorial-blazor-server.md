@@ -6,7 +6,7 @@ ms.author: jricketts
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/29/2022
 ms.custom: "engagement-fy23"
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
@@ -20,14 +20,19 @@ We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
 In this tutorial:
 
 > [!div class="checklist"]
-> * Create a new Blazor Server app configured to use Azure AD for authentication
-> * Handle both authentication and authorization using Microsoft.Identity.Web
-> * Retrieve data from a protected web API, Microsoft Graph
+>
+> - Create a new Blazor Server app configured to use Azure AD for authentication
+> - Handle both authentication and authorization using Microsoft.Identity.Web
+> - Retrieve data from a protected web API, Microsoft Graph
 
 ## Prerequisites
 
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-- An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
+- An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+  - [Application administrator](../articles/active-directory/roles/permissions-reference.md#application-administrator)
+  - [Application developer](../articles/active-directory/roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../articles/active-directory/roles/permissions-reference.md#cloud-application-administrator)
 
 ## Register the app in the Azure portal
 
@@ -65,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
 | `{DOMAIN}`    | Primary domain          | `tenantname.onmicrosoft.com`           |
 
-Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
+Now, navigate to your new Blazor app in your editor and add the client secret to the _appsettings.json_ file, replacing the text "secret-from-app-registration".
 
 ```json
 "ClientSecret": "secret-from-app-registration",
@@ -95,13 +100,13 @@ Now you'll update your app's registration and code to pull a user's email and di
 1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.
 1. Select **Add permissions**.
 
-In the *appsettings.json* file, update your code so it fetches the appropriate token with the right permissions. Add "mail.read" after the "user.read" scope under "DownstreamAPI". This is specifying which scopes (or permissions) the app will request access to.
+In the _appsettings.json_ file, update your code so it fetches the appropriate token with the right permissions. Add "mail.read" after the "user.read" scope under "DownstreamAPI". This is specifying which scopes (or permissions) the app will request access to.
 
 ```json
 "Scopes": "user.read mail.read"
 ```
 
-Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
+Next, update the code in the _FetchData.razor_ file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
 
 ```csharp
 @page "/fetchdata"
@@ -202,5 +207,4 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 Learn about calling building web apps that sign in users in our multi-part scenario series:
 
-> [!div class="nextstepaction"]
-> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
+> [!div class="nextstepaction"] > [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
