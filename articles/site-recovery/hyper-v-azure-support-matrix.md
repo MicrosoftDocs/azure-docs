@@ -147,7 +147,7 @@ Secure transfer option | Yes | Yes
 UEFI Secure boot | No | No
 
 > [!NOTE]
-> Striped volumes and dynamic disks are not supported for app-consistent snapshots.
+> Striped volumes and dynamic disks are not supported for app-consistent snapshots. Ensure that the frequency for app-consistent snapshot is set to zero in the selected replication policy. 
 
 ## Azure compute features
 
