@@ -47,7 +47,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next Steps
 
-- Learn about [Call Automation](../concepts/call-automation/call-automation.md) and it's features.
+- Learn about [Call Automation](../concepts/call-automation/call-automation.md) and its features.
 - Learn about [Play action](../concepts/call-automation/play-action.md) to play audio in call.
 - Learn about [Recognize action](../concepts/call-automation/recognize-action.md) to gather user input.
 
