@@ -117,7 +117,7 @@ To call the same API several times, or call multiple APIs, then consider the fol
 
 - **Incremental consent**: The Microsoft identity platform allows apps to get user consent when permissions are required rather than all at the start. Each time your app is ready to call an API, it should request only the scopes that it needs.
 
-- **Conditional Access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires conditional access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for conditional access](../azuread-dev/conditional-access-dev-guide.md).
+- **Conditional Access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires conditional access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for conditional access](v2-conditional-access-dev-guide.md).
 
 ## Call several APIs by using incremental consent and conditional access
 
