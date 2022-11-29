@@ -1,24 +1,24 @@
 ---
-title: Replicate virtual machines running in an Azure Edge Zone (preview) to another zone in the same region
-description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to another Edge Zone connected to the same parent region.
-author: v-pgaddala
+title: Set up disaster recovery to another Public MEC (preview) using PowerShell
+description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Public MEC connected to the same parent region.
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Replicate virtual machines running in an Azure Edge Zone (preview) to another Edge Zone in the same region 
+# Replicate virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC in the same region 
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to another Edge Zone connected to the same parent region. 
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview) connected to the same parent region. 
 
-Edge Zones (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones (preview) are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge.
+Azure Public MECs (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. 
 
-## Disaster recovery in Azure Edge Zone (preview)
+## Disaster recovery in Azure Public MEC (preview)
 
-Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is another Edge Zone connected to the same parent region. 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is another Azure Public MEC (preview) connected to the same parent region. 
 
-## Set up disaster recovery for VMs in an Edge Zone (preview) using PowerShell
+## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
 
 ### Prerequisites
 
@@ -35,19 +35,19 @@ Site Recovery ensure business continuity by keeping workloads running during out
     >[!Note]
     >Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
 
-## Replicate Virtual machines running in an Edge Zone (preview) to another Edge Zone
+## Replicate Virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC (preview)
 
-To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow these steps:
+To replicate VMs running in a Public MEC (preview) to another Azure Public MEC (preview), follow these steps:
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is another Edge Zone connected to the same region. 
+> For this example, the primary location is an Azure Public MEC (preview), and the secondary/recovery location is another Azure Public MEC connected to the same region. 
 
 1. Sign-in to your Azure account.
 
     ```
     Connect-AzAccount
     ```
-1. Select Right subscription.
+1. Select Right subscription. 
 
     ```
     $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>"
@@ -223,7 +223,7 @@ To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow 
 
 1. Create a cache storage account for replication logs in the primary region. The cache storage account is created in the primary region.
 
-    You can use **Local cache** (cache in the Edge Zone) or **Remote cache** (cache in Azure). 
+    You can use **Local cache** (cache in the Public MEC (preview)) or **Remote cache** (cache in Azure). 
     
     In this example, remote cache is used but there is no difference between them in terms of PowerShell commands. ARM ID of the cache storage account we provide to `New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig` is the only difference.
 
@@ -249,7 +249,7 @@ To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow 
     $recoveryNetwork = $recoveryVnet.Id
     ```
 
-1. Use the following PowerShell cmdlet to replicate an Edge Zones (preview) Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
+1. Use the following PowerShell cmdlet to replicate an Azure Public MECs (preview) Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
 
     1. Get the resource group that the virtual machine must be created in when it's failed 
     over.
@@ -457,7 +457,7 @@ To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow 
         Standard_LRS -Kind Storage
         ```
     
-    1. Use the recovery protection container, the new cache storage account in Edge Zone’s (preview) region, and the source region VM resource group. 
+    1. Use the recovery protection container, the new cache storage account in Azure Public MECs (preview) region, and the source region VM resource group. 
     
         ```
         $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
@@ -485,3 +485,4 @@ To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow 
     ```
     Remove-AzResourceGroup -Name $Name -Force
     ```
+

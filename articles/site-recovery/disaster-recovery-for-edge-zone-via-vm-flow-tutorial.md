@@ -1,16 +1,16 @@
 ---
-title: Set up disaster recovery for Edge Zone (preview) using VM Flow
-description: Learn how to set up disaster recovery for Virtual machines on Edge Zone (preview) using VM Flow.
-author: v-pgaddala
+title: Set up disaster recovery when creating a VM 
+description: Learn how to set up disaster recovery for Virtual machines on Azure Public MEC (preview) using VM Flow.
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Tutorial: Set up disaster recovery for Edge Zone (preview) using VM Flow
+# Tutorial: Set up disaster recovery for Azure Public MEC (preview) using VM Flow
 
-This tutorial shows you how to set up disaster recovery for Edge Zone (preview) using VM Flow. In this article, you learn how to:
+This tutorial shows you how to set up disaster recovery for Azure Public MEC (preview) using VM Flow (via the Portal). In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Enable replication for the Azure VMs
@@ -21,20 +21,34 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Enable replication for the Azure VMs
 
-To enable replication to a secondary location, follow the below steps:
+To enable replication to a secondary location, follow the below steps: 
 
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
-1. In **Basics**, select the **Target region** or an edge zone (preview).
-    - Option1: **Edge Zone to Region**
-    - Option2: **Edge Zone to Edge Zone**
+    
+
+1. In **Basics**, select the **Target region** or an Azure Public MEC (preview).
+    - Option1: **Public MEC to Region**
+    
+    - Option2: **Public MEC to Public MEC**
+    
     >[!Note]
-    >This flow proceeds with option1: Edge Zone to Region replication.
+    >This flow proceeds with option1: Public MEC (preview) to Region replication.
+
 1. Select **Next : Advanced settings**.
+
     >[!Note]
     >**Review + Start replication** will appear grey at this step.
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
+    
+    
 1. Select **Next : Review + Start replication**.
+
+
 1. In **Review + Start replication**, review the VM settings and select **Start replication**.
+
+## Next steps
+
+See [Set up disaster recovery using the Recovery Services vault](disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md)
