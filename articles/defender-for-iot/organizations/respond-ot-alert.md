@@ -34,20 +34,17 @@ On an alert details page in the Azure portal, start by changing the alert status
 
 For example:
 
-<image>
+:::image type="content" source="media/respond-ot-alert/change-alert-status.png" alt-text="Screenshot of changing an alert status on the Azure portal.":::
 
 Then, check the alert details page for the following details to aid in your investigation:
 
-- **Source and destination device details**. These devices are also listed as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). Note the details about these devices to [investigate further](#investigate-related-alerts).
-
-- **MITRE ATT&CK** tactics and techniques. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
+- **Source and destination device details**. Source and destination devices are listed in **Alert details** tab, and also in the **Entities** area below, as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). In the **Entities** area, you'll use the links in the **Name** column to open the relevant device details pages for [further investigation](#investigate-related-alerts-on-the-azure-portal).
 
 - **Site and zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack.
 
+- **MITRE ATT&CK** tactics and techniques. If you don't see this area, scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
+
 - **Download PCAP**. At the top of the page, select **Download PCAP** to download the raw traffic files for the selected alert. For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview).
-
-- **Sensor**. Note the name of the sensor that generated the alert so that you can [investigate further](#investigate-alert-details-on-the-sensor) directly on the sensor.
-
 
 ## Investigate related alerts on the Azure portal
 
@@ -57,13 +54,13 @@ For example, if you're investigating an alert that indicates a device is attempt
 
 **To find related alerts in Defender for IoT**:
 
-1. Go to the Defender for IoT **Device inventory** page and find the source and destination devices you'd [noted earlier](#investigate-an-alert-from-the-azure-portal).
+1. On an alert details page, use the device links in the **Entities** area > **Name** column to open the related device details pages, for both a source and destination device.
 
-1. For each device, select **View full details** to view the device details page, and then select the **Alerts** tab to view other alerts that were triggered on the device.
+1. On the device details page, select the **Alerts** tab to view all alerts for that device.
 
-For example:
+    For example:
 
-<image>
+    <image>
 
 ## Investigate alert details on the sensor
 
