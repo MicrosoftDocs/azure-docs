@@ -22,7 +22,7 @@ This article describes a solution for an automated data ingestion path from [OPC
 
 Below is a summary of the data flow in this solution.
 *	The solution simulates the operation of eight OPC UA-enabled production lines in six locations, with each production line featuring assembly, test, and packaging machines. These machines are controlled by separate Manufacturing Execution Systems.
-*	The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure Event Hubs. 
+*	The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub to Azure Event Hubs. 
 *	The UA Cloud Twin reads and processes the OPC UA data from Azure Event Hubs and forwards it to an Azure Digital Twins instance. 
 *	The UA Cloud Twin also automatically creates digital twins in Azure Digital Twins on-the-fly, mapping each OPC UA element (publishers, servers, namespaces and nodes) to a separate digital twin.
 *	The UA Cloud Twin also automatically updates the state of digital twins based on the data changes in their corresponding OPC UA nodes. 
@@ -34,9 +34,18 @@ Below is a description of the components in this solution.
 | --- | --- |
 | Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
 | [UA Cloud Publisher](https://github.com/barnstee/ua-cloudpublisher) | This edge application converts OPC UA Client/Server requests into OPC UA PubSub cloud messages. It is hosted in a Docker container. |
-| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. |
+| [Azure Event Hubs](../event-hubs/event-hubs-about.md) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers like the UA Cloud Twin. Separately, it is also used to forward data history events emitted from the ADT instance to the ADX cluster. |
 | [UA Cloud Twin](https://github.com/digitaltwinconsortium/UA-CloudTwin) | This cloud application converts OPC UA PubSub cloud messages into digital twin updates. It also creates digital twins automatically by processing the cloud messages. Twins are instantiated from models in ISA95 DTDL ontology. It is hosted in a Docker container. |
 | [Azure Digital Twins](overview.md) | The platform that enables the creation of a digital representation of real-world assets, places, business processes, and people. |
+| [Azure Data Explorer](../synapse-analytics/data-explorer/data-explorer-overview.md) | The time-series database and front-end dashboard service for advanced cloud analytics, including built-in anomaly detection and predictions. |
+
+## Mapping OPC UA Data to the ISA95 Hierarchy Model
+
+* UA Cloud Twin takes the OPC UA Publisher ID and creates ISA95 Area assets for each one.
+
+* UA Cloud Twin takes the combination of the OPC UA Application URI and the OPC UA Namespace URIs discovered in the OPC UA telemetry stream (specifically, in the OPC UA PubSub metadata messages) and creates ISA95 Work Center assets for each one. UA Cloud Publisher sends the OPC UA PubSub metadata messages to a seperate broker topic to make sure all metadata can be read by UA Cloud Twin before the processing of the telemetry messags starts.
+
+* UA Cloud Twin takes each OPC UA Field discovered in the received Dataset metadata and creates an ISA95 Work Unit asset for each.
 
 ## Installation
 
@@ -44,11 +53,11 @@ Click on the button below to deploy all required resources.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
 
-Once the deployment is complete, log in to the deployed Windows VM via Remote Desktop (Connect -> Download RDP file in the [Azure portal](https://portal.azure.com)), using the credentials you provided during deployment and download and install Docker Desktop from [here](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation and a required system restart, accept the license terms and install the WSL Linux kernel by following the instructions. Then restart one more time and verify that Docker Desktop is running in the Windows System Tray.
+Once the deployment is complete, log in to the deployed Windows VM via Remote Desktop (Connect -> Download RDP file in the [Azure portal](https://portal.azure.com)), using the credentials you provided during deployment and download and install Docker Desktop from [here](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation on the VM and a required system restart, accept the license terms and install the WSL Linux kernel by following the instructions. Then restart the VM one more time and verify that Docker Desktop is running in the Windows System Tray.
 
 ## Running the Production Line Simulation
 
-On the deployed VM, download the required files from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the StartSimulation command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The azure region needs to be specified as a DNS acronym as listed [here](../automation/how-to/automation-region-dns-records.md), for example for Azure region East US 2 you would pass in eus2 as parameter.
+On the deployed VM, download the required files from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the StartSimulation command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The Azure region needs to be specified as a DNS acronym as listed [here](../automation/how-to/automation-region-dns-records.md), for example for Azure region East US 2 you would pass in eus2 as parameter.
 
 ```
 StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
@@ -56,15 +65,15 @@ StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKey
 
 Note: The StartSimulation script will launch UA Cloud Twin as its last step. Please log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
 
+:::image type="content" source="media/how-to-ingest-opcua-data/uacloudtwin.png" alt-text="Screenshot of configuring the settings of Ua Cloud Twin." lightbox="media/how-to-ingest-opcua-data/uacloudtwin.png":::
+
 Note: If you restart Docker Desktop at any time, you will need to stop and then restart the simulation, too!
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created, for example the order of machines in your production lines.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](https://learn.microsoft.com/en-us/azure/digital-twins/how-to-set-up-instance-portal#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](https://learn.microsoft.com/en-us/azure/digital-twins/quickstart-azure-digital-twins-explorer#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add additional context, you can add "Next" and "Previous" relationships between machines on each production line.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates." lightbox="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png":::
 
-To do so, assign the Azure Digital Twins Data Owner role in the [Azure portal](https://portal.azure.com) to your username and open the Azure Digital Twins Explorer directly from the Azure Digital Twins overview page.
-
-You can set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the Azure Digital Twins service configuration in the [Azure portal](https://portal.azure.com) and follow the wizard to set this up.
+You can also set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the [Azure Digital Twins service configuration](https://learn.microsoft.com/en-us/azure/digital-twins/how-to-use-data-history?tabs=portal#set-up-data-history-connection) in the Azure portal and follow the wizard to set this up.
 
 ## Next steps
 
