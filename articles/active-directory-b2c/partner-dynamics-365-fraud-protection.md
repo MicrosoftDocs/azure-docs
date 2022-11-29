@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Organizations can use Microsoft Dynamics 365 Fraud Protection (DFP) to assess risk during attempts to create fraudulent accounts and sign-ins. Customers use Microsoft DFP assessment to block or challenge suspicious attempts to create new, fake accounts, or to compromise accounts.
 
-In this tutorial, learn how to integrate Microsoft DFP with Azure Active Directory (Azure AD) business-to-consumer (B2C). There is guidance on how to incorporate the Microsoft DFP device fingerprinting and account creation, and sign-in assessment API endpoints, into an Azure AD B2C custom policy.
+In this tutorial, learn how to integrate Microsoft DFP with Azure Active Directory (Azure AD) business-to-consumer (B2C). There's guidance on how to incorporate the Microsoft DFP device fingerprinting and account creation, and sign-in assessment API endpoints, into an Azure AD B2C custom policy.
 
 Learn more: [Overview of Microsoft Dynamics 365 Fraud Protection](https://learn.microsoft.com/dynamics365/fraud-protection/)
 
