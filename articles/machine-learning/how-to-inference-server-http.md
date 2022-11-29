@@ -15,7 +15,7 @@ ms.date: 07/14/2022
 
 # Azure Machine Learning inference HTTP server (preview)
 
-The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that expose your scoring function as a HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package by itself, you can easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package by itself, you can easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
 The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with the candidate script and run the test suite against the local endpoint.
 
@@ -117,15 +117,15 @@ The following table contains the parameters accepted by the server:
 
 ## Request flow
 
-The following steps explain how the Azure Machine Learning inference HTTP server (azumlinfsrv) works handles incoming requests:
+The following steps explain how the Azure Machine Learning inference HTTP server (azumlinfsrv) handles incoming requests:
 
 1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
-1. A client sends a request to the server.
-1. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
+2. A client sends a request to the server.
+3. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
     - [Gunicorn](https://docs.gunicorn.org/) is used on __Linux__.
     - [Waitress](https://docs.pylonsproject.org/projects/waitress/) is used on __Windows__.
-1. The requests are then handled by a [Flask](https://flask.palletsprojects.com/) app, which loads the entry script & any dependencies.
-1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
+4. The requests are then handled by a [Flask](https://flask.palletsprojects.com/) app, which loads the entry script & any dependencies.
+5. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
 
@@ -168,7 +168,7 @@ The logs from the inference server are generated in the following format, with t
 
   <UTC Time\> | <level\> [<pid\>] <logger name\> - <message\> 
 
-Here <pid\> is the process id and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
+Here <pid\> is the process ID and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
 
 
@@ -206,7 +206,7 @@ You have **Flask 2** installed in your python environment but are running a vers
     2022-08-22T17:05:02,190557998+00:00 | gunicorn/run | 
     ```
 
-   The build date of the image appears after "Materialization Build", which in the above example is `20220708`, or July 8, 2022. This image is compatible with Flask 2. If you don't see a banner like this in your container log, your image is out-of-date, and should be updated. If you're using a cuda image, and are unable to find a newer image, check if your image is deprecated in [AzureML-Containers](https://github.com/Azure/AzureML-Containers). If it is, you should be able to find replacements.
+   The build date of the image appears after "Materialization Build", which in the above example is `20220708`, or July 8, 2022. This image is compatible with Flask 2. If you don't see a banner like this in your container log, your image is out-of-date, and should be updated. If you're using a CUDA image, and are unable to find a newer image, check if your image is deprecated in [AzureML-Containers](https://github.com/Azure/AzureML-Containers). If it is, you should be able to find replacements.
 
    If this is an online endpoint, you can also find the logs under "Deployment logs" in the [online endpoint page in Azure Machine Learning studio](https://ml.azure.com/endpoints). If you deploy with SDK v1 and don't explicitly specify an image in your deployment configuration, it will default to using a version of `openmpi4.1.0-ubuntu20.04` that matches your local SDK toolset, which may not be the latest version of the image. For example, SDK 1.43 will default to using `openmpi4.1.0-ubuntu20.04:20220616`, which is incompatible. Make sure you use the latest SDK for your deployment.
 
