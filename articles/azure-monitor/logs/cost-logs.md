@@ -11,6 +11,9 @@ ms.reviwer: dalek git
 
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
+
+
 ## Pricing model
 
 The default pricing for Log Analytics is a pay-as-you-go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. [Pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) is set regionally. The amount of data ingestion can be considerable, depending on:

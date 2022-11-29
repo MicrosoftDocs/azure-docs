@@ -1,11 +1,11 @@
 ---
-title: Defender for Cloud glossary for device builder
+title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
 ms.date: 10/30/2022
 ms.topic: article
 ---
 
-# Defender for Cloud glossary for device builder
+# Defender for Cloud glossary
 
 This glossary provides a brief description of important terms and concepts for the Microsoft Defender for Cloud platform. Select the **Learn more** links to go to related terms in the glossary. This will help you to learn and use the product tools quickly and effectively.
 
@@ -115,7 +115,7 @@ This glossary provides a brief description of important terms and concepts for t
 ## T
 | Term | Description | Learn more |
 |--|--|--|
-|**TVM**|Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.|[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
+|**TVM**|Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.|[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 
 ## Z
 | Term | Description | Learn more |

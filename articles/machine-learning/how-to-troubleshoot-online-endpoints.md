@@ -1157,5 +1157,5 @@ There are two things that can help prevent 503 status codes:
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)

@@ -460,6 +460,9 @@
           href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
+        - name: Debug jobs and monitor training progress
+          displayName: automl
+          href: how-to-interactive-jobs.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
@@ -517,9 +520,6 @@
             - name: Use automated ML with Databricks
               displayName: automl
               href: how-to-configure-databricks-automl-environment.md
-            - name: Debug jobs and monitor training progress
-              displayName: automl
-              href: how-to-interactive-jobs.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -586,35 +586,35 @@
         - name: Batch endpoints
           items:
             - name: Batch scoring with batch endpoints
-              href: batch-inference/how-to-use-batch-endpoint.md
-            - name: Accessing data from batch endpoints jobs
-              href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
+              href: how-to-use-batch-endpoint.md
+            - name: Input data for batch endpoints jobs
+              href: how-to-access-data-batch-endpoints-jobs.md
             - name: Author scoring scripts for batch scoring
-              href: batch-inference/how-to-batch-scoring-script.md
+              href: how-to-batch-scoring-script.md
             - name: Troubleshoot batch endpoints
-              href: batch-inference/how-to-troubleshoot-batch-endpoints.md
+              href: how-to-troubleshoot-batch-endpoints.md
             - name: Security
               items:
                 - name: Authentication on batch endpoints
-                  href: batch-inference/how-to-authenticate-batch-endpoint.md
+                  href: how-to-authenticate-batch-endpoint.md
                 - name: Network isolation in batch endpoints
-                  href: batch-inference/how-to-secure-batch-endpoint.md
+                  href: how-to-secure-batch-endpoint.md
             - name: Scenarios
               items:
                 - name: Use low priority VMs in batch deployments
-                  href: batch-inference/how-to-use-low-priority-batch.md
+                  href: how-to-use-low-priority-batch.md
                 - name: Use MLflow models in batch deployments
-                  href: batch-inference/how-to-mlflow-batch.md
+                  href: how-to-mlflow-batch.md
                 - name: Image processing with batch deployments
-                  href: batch-inference/how-to-image-processing-batch.md
+                  href: how-to-image-processing-batch.md
                 - name: Text processing with batch deployments
-                  href: batch-inference/how-to-nlp-processing-batch.md
+                  href: how-to-nlp-processing-batch.md
                 - name: Customize outputs in batch jobs
-                  href: batch-inference/how-to-deploy-model-custom-output.md
+                  href: how-to-deploy-model-custom-output.md
                 - name: Invoke batch endpoints from Azure Data Factory
-                  href: batch-inference/how-to-use-batch-azure-data-factory.md
+                  href: how-to-use-batch-azure-data-factory.md
                 - name: Invoke batch endpoints from Event Grid events in storage
-                  href: batch-inference/how-to-use-event-grid-batch.md
+                  href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
         - name: Deploying MLflow models
@@ -820,9 +820,9 @@
       href: /cli/azure/ml
 - name: Resources
   items:
-    - name: Python SDK release notes
+    - name: Python SDK (v2) release notes
       displayName: what's, new, issues, bugs
-      href: azure-machine-learning-release-notes.md
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md
     - name: CLI (v2) release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes-cli-v2.md
