@@ -117,7 +117,7 @@ The following table contains the parameters accepted by the server:
 
 ## Request flow
 
-The following steps explain how the Azure Machine Learning inference HTTP server (azumlinfsrv) handles incoming requests:
+The following steps explain how the Azure Machine Learning inference HTTP server (azmlinfsrv) handles incoming requests:
 
 1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
 2. A client sends a request to the server.
