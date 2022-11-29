@@ -11,27 +11,27 @@ ms.custom: engagement-fy23
 
 # Create and manage Azure Lab Services labs in Canvas
 
-In this article, you learn how to create and manage Azure Lab Services labs in Microsoft Teams. As an educator, you can create new labs or configure existing labs in the Teams interface. Manage user lists, VM pools, and configure lab schedules for your labs. Students can then access their labs directly from within Teams. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
+In this article, you learn how to create and manage Azure Lab Services labs in Canvas. As an educator, you can create new labs or configure existing labs in the Canvas interface. Manage user lists, VM pools, and configure lab schedules for your labs. Students can then access their labs directly from within Canvas. Learn more about the [benefits of using Azure Lab Services within Canvas](./lab-services-within-canvas-overview.md).
 
 This article describes how to:
 
-- [Create a lab in Microsoft Teams](#create-a-lab-in-teams).
-- [Manage lab user lists](#manage-lab-user-lists-in-teams).
-- [Manage a lab virtual machine (VM) pool](#manage-a-lab-vm-pool-in-teams).
-- [Configure lab schedules and settings](#configure-lab-schedules-and-settings-in-teams).
+- [Create a lab](#create-a-lab-in-canvas).
+- [Manage lab user lists](#manage-lab-user-lists-in-canvas).
+- [Manage a lab virtual machine (VM) pool](#manage-a-lab-vm-pool-in-canvas).
+- [Configure lab schedules and settings](#configure-lab-schedules-and-settings-in-canvas).
 - [Delete a lab](#delete-a-lab).
 
-For more information about adding lab plans to Microsoft Teams, see [Configure Microsoft Teams to access Azure Lab Services lab plans](./how-to-configure-teams-for-lab-plans.md).
+For more information about adding lab plans to Canvas, see [Configure Canvas to access Azure Lab Services lab plans](./how-to-configure-canvas-for-lab-plans.md).
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 ## Prerequisites
 
 - An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
-- The Azure Lab Services Teams app is added to your Teams channel. Learn how to [configure Teams for Azure Lab Services](./how-to-configure-teams-for-lab-plans.md).
+- The Azure Lab Services Canvas app is enabled. Learn how to [configure Canvas for Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
 - To create and manage labs, your account should have the Lab Creator, or Lab Contributor role on the lab plan.
 
-## Create labs in Canvas
+## Create a lab in Canvas
 
 Once Azure Lab Services is added to your course, you'll see **Azure Lab Services** in the course navigation menu. If you're authenticated in Canvas as an educator, you'll see this sign in screen before you can use the service. You'll need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
     :::image type="content" source="./media/how-to-manage-labs-within-canvas/welcome-to-lab-services.png" alt-text="Screenshot that shows the welcome page in Canvas.":::
@@ -43,42 +43,44 @@ For instructions on how to create a lab, see [Create a lab](quick-create-lab-por
 
 The student list for the course is automatically synced with the course roster. For more information, see [Manage Lab Services user lists from Canvas](how-to-manage-user-lists-within-canvas.md). A lab VM will also be created for the course educator.
 
-## Create a lab in Teams
+## Manage lab user lists in Canvas
 
-As an educator, you can create a new lab in Teams or by using the Azure Lab Services web portal (https://labs.azure.com). For more information, see how to [create and publish a lab](./tutorial-setup-lab.md).
+When you [create a lab within Canvas](#create-a-lab-in-canvas), Azure Lab Services automatically syncs the lab user list with the course membership. Azure Lab Services adds or deletes users from the lab user list as per changes to the course membership when the sync operation completes.
 
-## Manage lab user lists in Teams
+Azure Lab Services automatically synchronizes the course membership with the lab user list every 24 hours. Educators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
 
-When you [create a lab within Teams](#create-a-lab-in-teams), Azure Lab Services automatically syncs the lab user list with the team membership. Everyone on the team, including owners, members, and guests are automatically added to the lab user list. Azure Lab Services adds or deletes users from the lab user list as per changes to the team membership when the sync operation completes.
+:::image type="content" source="./media/how-to-manage-labs-within-canvas/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
 
-Azure Lab Services automatically synchronizes the team membership with the lab user list every 24 hours. Educators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
+Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-a-lab) or not.
 
-:::image type="content" source="./media/how-to-manage-labs-within-teams/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Teams.":::
+If the lab has *not* been published at least once:
 
-Azure Lab Services automatically updates the lab capacity after publishing the lab:
+- Users will be added or deleted from the lab user list as per changes to the course membership.
 
-- If there are any new additions to the team, new VMs are created.
-- If a user is deleted from the team, the associated VM is deleted.
+If the lab has been published at least once:
 
-## Manage a lab VM pool in Teams
+- Users will be added or deleted from the lab user list as per changes to the course membership.
+- New VMs will be created if there are any new students added to the course.
+- VM will be deleted if any student has been deleted from the course.
+- Lab capacity will be automatically updated as needed.
+
+## Manage a lab VM pool in Canvas
 
 Virtual Machine (VM) creation starts as soon as you publish the template VM. Azure Lab Services creates a number of VMs, known as the VM pool, equivalent to the number of users in the lab user list.
 
-The lab capacity (number of VMs in the lab) automatically matches the team membership. Whenever you add or remove a user from the team, the capacity increases or decreases accordingly. For more information, see [How to manage users within Teams](#manage-lab-user-lists-in-teams).
+The lab capacity (number of VMs in the lab) automatically matches the course membership. Whenever you add or remove a user from the course, the capacity increases or decreases accordingly. For more information, see [How to manage users within Canvas](#manage-lab-user-lists-in-canvas).
 
-After publishing the lab and VM creation completes, Azure Lab Services automatically registers users to the lab. Azure Lab Services assigns a lab VM to a user when they first access the **Azure Lab Services** tab in Teams.
+After publishing the lab and VM creation completes, Azure Lab Services automatically registers users to the lab. Azure Lab Services assigns a lab VM to a user when they first access the **Azure Lab Services** tab in Canvas.
 
-To publish a template VM in Teams:
+Educators can access student VMs directly from the **Virtual machine pool** tab. For more information, see [Manage a VM pool in Azure Lab Services](how-to-manage-vm-pool.md)
 
-1. Go to the **Azure Lab Services** tab in your team.
-1. Select the **Template** tab, and then select **Publish**.
-1. In the **Publish template** window, select **Publish**.
+:::image type="content" source="./media/how-to-manage-labs-within-canvas/vm-pool.png" alt-text="Screenshot of the vm pool in the Azure Lab Services app.":::
 
-As an educator, you can access student VMs directly from the **Virtual machine pool** tab. You can start, stop, reset, or connect to a student VM. Educators can also access VMs assigned to themselves either from the **Virtual machine pool** tab, or by selecting **My Virtual Machines** in the top-right corner.
+As part of the publish process, Canvas educators are assigned their own lab VMs. The VM can be accessed by clicking on the **My Virtual Machines** button (top/right corner of the screen).
 
-:::image type="content" source="./media/how-to-manage-labs-within-teams/vm-pool.png" alt-text="Screenshot of the VM pool tab in Teams.":::
+:::image type="content" source="./media/how-to-manage-labs-within-canvas/my-vms.png" alt-text="Screenshot of My Virtual Machines for an educator.":::
 
-## Configure lab schedules and settings in Teams
+## Configure lab schedules and settings in Canvas
 
 Lab schedules allow you to configure a classroom lab such that the VMs automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule.
 
@@ -88,37 +90,19 @@ Lab schedules affect lab virtual machines in the following way:
 - Only assigned VMs are started. If a machine isn't claimed by a user (student), the VM won't start on the scheduled hours.
 - All virtual machines, whether claimed by a user or not, are stopped based on the lab schedule.
 
+The scheduled running time of VMs does not count against the [quota](classroom-labs-concepts.md#quota) given to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
+
+Educators can create, edit, and delete lab schedules within Canvas as in the Azure Lab Services portal. For more information on scheduling, see [Creating and managing schedules](how-to-create-schedules.md).
+
 > [!IMPORTANT]
-> The scheduled run time of VMs doesn't count against the quota allotted to a user. The alloted quota is for the time that a student spends on VMs outside of schedule hours.
-
-### Create a lab schedule
-
-As an educator, you can create, edit, and delete lab schedules within Teams or in the Azure Lab Services web portal (https://labs.azure.com). In Teams, go to the **Schedule** tab, and then select **Add scheduled event** to add a schedule for a lab. 
-
-:::image type="content" source="./media/how-to-manage-labs-within-teams/add-scheduled-event-in-teams.png" alt-text="Screenshot of the Schedule tab in Teams.":::
-
-Learn more about [creating and managing schedules](how-to-create-schedules.md).
-
-### Configure automatic shutdown and disconnect settings
-
-You can enable several automatic shutdown cost control features to prevent extra costs when the VMs aren't being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
-
-- Automatically disconnect users from virtual machines that the OS considers idle.
-- Automatically shut down virtual machines when users disconnect.
-- Automatically shut down virtual machines that are started but users don't connect.
-
-In Teams, go to the **Settings** tab to configure these settings. For more information, see the article on [configuring auto-shutdown settings for a lab](how-to-enable-shutdown-disconnect.md).
+> Schedules will apply at the course level.  If you have many sections of a course, consider using [automatic shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) and/or [quotas hours](how-to-configure-student-usage.md#set-quotas-for-users).
 
 ## Delete a lab
 
-To delete a lab that was created in Teams, you use the [Azure Lab Services web portal](https://labs.azure.com). For more information, see [Delete a lab in the Azure Lab Services portal](manage-labs.md#delete-a-lab).
-
-Azure Lab Services also triggers lab deletion for labs you created in Teams, when the team is deleted. The lab will be automatically deleted after 24 hours of the team deletion, when the automatic user list sync is triggered.
-
-Users can't access their VMs through the [Azure Lab Services web portal](https://labs.azure.com) if the team or the lab is deleted.
+To delete a lab that was created in Canvas, you use the [Azure Lab Services web portal](https://labs.azure.com). For more information, see [Delete a lab in the Azure Lab Services portal](manage-labs.md#delete-a-lab).
 
 > [!IMPORTANT]
-> Deletion of the tab or uninstalling the app will not result in deletion of the lab. Users can still access the lab VMs on the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
+> Uninstalling the Azure Lab Services app from the course will not result in deletion of the lab. Deletion of the course won't cause deletion of the lab. Users can still access the lab VMs on the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 
 ## Troubleshooting
 
@@ -159,5 +143,6 @@ This section outlines common error messages that you may see, along with the ste
 
 ## Next steps
 
+- [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
 - As an admin, [configure Teams to access Azure Lab Services lab plans](./how-to-configure-teams-for-lab-plans.md).
-- As student, [access a lab VM within Teams](how-to-access-vm-for-students-within-teams.md).
+- As a student, [access a lab VM within Teams](how-to-access-vm-for-students-within-teams.md).
