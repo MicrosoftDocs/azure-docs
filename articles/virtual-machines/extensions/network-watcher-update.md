@@ -27,8 +27,6 @@ The latest version of the Network Watcher extension is currently `1.4.2423.1`.
 
 ### Identify latest version
 
-Use the 
-
 # [Linux](#tab/linux)
 
 ```powershell 
@@ -46,7 +44,7 @@ az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher -
 ---
 
 ## Update your extension using a PowerShell script
-Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, please see the next section 
+Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, see the next section. 
 
 ```powershell
 <#
@@ -163,7 +161,8 @@ Run the following command from an Azure CLI prompt:
 az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
 Locate **"AzureNetworkWatcherExtension"** in the output and identify the version number from the *“TypeHandlerVersion”* field in the output.  
-Please note: Information about the extension appears multiple times in the JSON output. Please look under the "extensions" block and you should see the full version number of the extension. 
+
+Information about the extension appears multiple times in the JSON output. The full version number of the extension is available under the Extensions block. 
 
 You should see something like the below:
 ![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
