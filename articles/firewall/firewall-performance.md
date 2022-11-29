@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 11/29/2022
 ms.author: victorh
 ---
 
@@ -46,20 +46,19 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 ### Throughput for single connections
 
-#### Full scale
 |Firewall use case  |Throughput (Gbps)|
 |---------|---------|
-|Standard<br>Max bandwidth for single TCP connection     |up to 1.5 per VM|
-|Premium<br>Max bandwidth for single TCP connection     |up to 9 per VM|
+|Standard<br>Max bandwidth for single TCP connection     |up to 1.5|
+|Premium<br>Max bandwidth for single TCP connection     |up to 9|
 |Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
 
-#### No auto-scale
+### Total throughput  for initial firewall deployment
 
 |Firewall use case  |Throughput (Gbps)|
 |---------|---------|
-|Standard<br>Max bandwidth for single TCP connection     |up to 3 |
-|Premium<br>Max bandwidth for single TCP connection     |up to 18|
-|Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
+|Standard<br>Max bandwidth      |up to 3 |
+|Premium<br>Max bandwidth      |up to 18|
+
 
 Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
