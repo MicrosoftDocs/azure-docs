@@ -36,6 +36,8 @@ items:
           href: how-to-parameterize-load-tests.md
         - name: Use JMeter user properties
           href: how-to-configure-user-properties.md
+        - name: Customize tests with JMeter plugins
+          href: how-to-use-jmeter-plugins.md
     - name: Run tests
       items:
         - name: Create a load test with a JMeter script
