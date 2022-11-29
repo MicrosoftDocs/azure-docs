@@ -296,7 +296,7 @@ $AppArgs = @{
     TemplateContainer = $ContainerObj
     ConfigurationRegistry = $RegistryObj
     ConfigurationSecret = $SecretObj
-    IngressTargetPort = 3500
+    IngressTargetPort = 3000
     IngressExternal = $true
 }
 $FrontEndApp = New-AzContainerApp @AppArgs
