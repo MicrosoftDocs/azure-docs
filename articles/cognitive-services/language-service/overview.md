@@ -186,7 +186,7 @@ This section will help you decide which Language service feature you should use 
 
 |What do you want to do?  |Document format  |Your best solution  |
 |---------|---------|---------|
-| Extract and redact Personally Identifiable Information (PII) and Personally identifying Information (PHI). | Unstructured text | [PII detection](./personally-identifiable-information/overview.md) |
+| Extract and redact Personally Identifiable Information (PII) and Personally identifying Information (PHI). | Unstructured text | [PII detection](./personally-identifiable-information/overview.md) \* |
 | Extract categories of information.     | Unstructured text         | Check the [list of entities](named-entity-recognition/concepts/named-entity-categories.md) that are recognized by the [pre-configured NER feature](./named-entity-recognition/overview.md)\*. If the feature can't recognize the entities in your text, you can use [custom NER](./custom-named-entity-recognition/overview.md)\*\* to build your own recognition model.         |
 |Extract key phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) \*        |
 | Determine the sentiment of text, and opinions about specific topics. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) \* |
@@ -200,6 +200,7 @@ This section will help you decide which Language service feature you should use 
 | Connect apps from: conversational language understanding, LUIS, and question answering | Unstructured user inputs | [Orchestration workflow](./orchestration-workflow/overview.md) \*\* | 
 
 \* This feature is pre-configured, meaning the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
+
 \*\* This feature is customizable, meaning you'll train an AI model using our tools to fit your data specifically.
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
