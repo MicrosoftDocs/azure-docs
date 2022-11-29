@@ -290,10 +290,6 @@ It's recommended to install the micro agent with the Edge agent to enable securi
 
 Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
 
-# [Red Hat Enterprise Linux](#tab/rhel)
-
-IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
-
 # [Linux on Windows](#tab/linuxonwindows)
 
 If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
