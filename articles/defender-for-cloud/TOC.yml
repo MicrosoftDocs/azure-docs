@@ -136,6 +136,12 @@
         href: attack-path-reference.md
   - name: Protect cloud workloads
     items:
+    - name: Protect servers
+      items:
+      - name: Plan Defender for Servers deployment
+        href: plan-defender-for-servers.md
+      - name: Common questions
+        href: faq-defender-for-servers.md
     - name: Agentless scanning
       href: concept-agentless-data-collection.md
     - name: Security alerts and incidents

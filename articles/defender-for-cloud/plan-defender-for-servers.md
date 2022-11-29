@@ -6,13 +6,13 @@ ms.date: 11/06/2022
 ---
 # Plan Defender for Servers deployment
 
-This guide helps you to design and plan an effective Microsoft Defender for Servers deployment to protect Windows and Linux machines in the cloud and on-premises. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
+This guide helps you to design and plan an effective Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 ## About this guide
 
 This planning guide is aimed at cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
 
-- What can Defender for Servers do?
+- What does Defender for Servers do, and how is it deployed?
 - Where will my data be stored?
 - Who needs access?
 - Which Defender for Servers plan should I choose?
@@ -27,19 +27,23 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 - Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 - If you're deploying for AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
 
+## Introduction
+
+Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint provide endpoint detection and response (EDR), and a host of additional threat protection features.
+
 ## Deployment overview
 
 Here's a quick overview of the deployment process.
 
 :::image type="content" source="media/defender-for-servers-introduction/deployment-overview.png" alt-text="Summary overview of the deployment steps for Defender for Servers.":::
 
-- Get more information about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+- Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.
 
 
 ## Understand where data's stored
 
-Data residency is the physical or geographic location of an organization’s data, and often requires planning due to compliance requirements.
+Data residency is the physical or geographic location of an organization’s data.
 
 1. Before you deploy Defender for Servers, review [general Azure data residency considerations](https://azure.microsoft.com/blog/making-your-data-residency-choices-easier-with-azure/).
 1. Review the table below to understand where Defender for Cloud/Defender for Servers stores data.
@@ -48,7 +52,7 @@ Data residency is the physical or geographic location of an organization’s dat
 
 **Data** | **Location** 
 --- | ---  
-**Security alerts and recommendations** | Stored in the Defender for Cloud backend.<br/><br/> For example, if you create an Azure VM in West Europe region, all alert and recommendation information will also be stored in West Europe.
+**Security alerts and recommendations** | Stored in the Defender for Cloud backend, and accessible via the Azure portal, Azure Resource Graph, and REST APIs.<br/><br/> They can be exported to a Log Analytics workspace using [continuous export](continuous-export.md).
 **Machine information** | Stored in a Log Analytics workspace.<br/><br/> Either the Defender for Cloud default workspace, or a custom workspace that you specify. Data is stored in accordance with the workspace location.
 
 
@@ -77,7 +81,9 @@ In addition to the built-in Owner, Contributor, Reader roles for an Azure subscr
 Defender for Servers provides two plans you can choose from.
 
 - **Defender for Servers Plan 1** is entry-level, and must be enabled at the subscription level. Features include:
-    -  Defender for Cloud's free [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) features. These are available for all machines, regardless of whether a Defender for Cloud plan is enabled. Note that on-premises machines must be Azure Arc-enabled
+    -  Defender for Cloud's free [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) features.
+        - <p style="color:red">These features are free and available without a Defender for Cloud plan enabled for Azure VMs, and AWS/GCP machines.
+        - <p style="color:red">Note that to receive recommendations for on-premises machine configuration, a machine must be Azure Arc-enabled and have Defender for Servers enabled.
     - Endpoint detection and response (EDR) features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2).
 - <p style="color:red">**Defender for Servers Plan 2** provides all features. It must be enabled at the subscription level, and at the workspace level to get full feature coverage. Features include:</p>
     - All the functionality provided by Defender for Servers Plan 1.
@@ -247,13 +253,13 @@ Removing the Log Analytics extension | <p style="color:red">If you remove the Lo
 
 ### When shouldn't I use auto provisioning?
 
-You might want to opt out of automatic provisioning in the following circumstances:
+You might want to opt out of automatic provisioning in the following circumstances.
 
-- You have critical VMs that shouldn't have the Log Analytics agent installed. Automatic provisioning is for an entire subscription. You can't opt out for specific machines.
-- If you're running the System Center Operations Manager agent version 2012 with Operations Manager 2012 don't turn on automatic provisioning, otherwise management capabilities might be lost.
-- If you want to configure a custom workspace, you have two options:
-    - Opt out of automatic provisioning when you first set up Defender for Cloud. Then, configure provisioning on your custom workspace.
-    - Let automatic provisioning run to install the Log Analytic agents on machines. Set a custom workspace, and then when asked, reconfigure existing VMs with the new workspace setting.
+Situation | Relevant agent | Details
+--- | --- | ---
+You have critical VMs that shouldn't have agents installed. | Log Analytics agent, Azure Monitor agent. | Automatic provisioning is for an entire subscription. You can't opt out for specific machines.
+If you're running the System Center Operations Manager agent version 2012 with Operations Manager 2012  | Log Analytics agent | With this configuration, don't turn on automatic provisioning, otherwise management capabilities might be lost.
+You want to configure a custom workspace | Log Analytics agent, Azure Monitor agent | You have two options with a custom workspace:<br/><br/> - Opt out of automatic provisioning when you first set up Defender for Cloud. Then, configure provisioning on your custom workspace.<br/><br/>- Let automatic provisioning run to install the Log Analytic agents on machines. Set a custom workspace, and then when asked, reconfigure existing VMs with the new workspace setting.
 
 ### Verify operating system support
 
@@ -316,73 +322,12 @@ Policy definitions can be found in the Azure portal > **Policy** > **Definitions
 
 These common questions that affect Defender for Servers billing might be useful as you plan your deployment.
 
-### Can I enable Defender for Servers on a subset of machines in a subscription?
 
-No. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account/GCP project, all of the connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics/Azure Monitor agent installed.
 
-### What servers do I pay for in a subscription?
-When you enable Defender for Servers on a subscription, you're charged for all machines, in accordance with their power state.
 
-#### Azure VMs
 
-**State** | **Billing**
---- | --- 
-Starting | VM starting up | Not billed
-Running | Normal working state | Billed
-Stopping | Transitional, will move to Stopped state when complete. | Billed
-Stopped | VM shut down from within guest OS or using PowerOff APIs. Hardware is still allocated and the machine remains on the host. | Billed
-Deallocating | Transitional, will move to Deallocated state when complete. | Not billed
-Deallocated | VM stopped and removed from the host. | Not billed
-
-#### Azure Arc machines
-<p style="color:red">
-
-**State** | **Billing**
---- | --- 
-Connecting | Servers connected but heartbeat not yet received | Not billed
-Connected | Receiving regular heartbeat from Connected Machine agent | Billed
-Offline/Disconnected | No heartbeat received with 15-30 minutes | Not billed
-Expired | If disconnected for 45 days status can change to Expired. | Not billed
-</p>
-
-### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?
-
-If you already have a license for Microsoft Defender for Endpoint for Servers Plan 2, you won't have to pay for that part of your Microsoft Defender for Servers license. [Learn more](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
-
-To request your discount, contact Defender for Cloud's support team. You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
-
-The discount will be effective starting from the approval date, and won't take place retroactively.
-
-### If I enable Defender for Clouds Servers plan on the subscription level, do I need to enable it on the workspace level?
-
-When you enable the Servers plan on the subscription level, Defender for Cloud automatically enables the plan on your default workspaces automatically. If you're using a custom workspace, you need to select it to enable the plan on it.
-
-Note that:
-
-- If you turn on Defender for Servers for a subscription and for a connected custom workspace, you aren't charged for both. The system identifies unique VMs.
-- If you enable Defender for Servers on cross-subscription workspaces, connected machines from all subscriptions are billed, including subscriptions that don't have the servers plan enabled.
-- There's a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
-
-### Is the 500-MB free data ingestion calculated for an entire workspace?
-
-You get 500-MB free data ingestion per day, for every VM connected to the workspace. This is specifically for the security data types that are directly collected by Defender for Cloud.
-
-This data is a daily rate averaged across all nodes. Your total daily free limit is equal to [number of machines] x 500 MB. So even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
-
-### What data types are included in the 500-MB data daily allowance?
-Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
-
-- [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
-- [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
-- [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary)
-- [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
-- [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
-- [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
-- [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
-- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
-
-If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
+### 
+.
 
 
 ## Next steps
