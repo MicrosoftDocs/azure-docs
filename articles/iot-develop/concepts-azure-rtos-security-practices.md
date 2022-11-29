@@ -327,7 +327,7 @@ Support current TLS versions:
 
 **Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS because TLS 1.2 is still the de-facto standard.
 
-Also ensure the below corresponding NetX Secure configurations are set. Refer to the [list of configurations](https://learn.microsoft.com/azure/rtos/netx-duo/netx-secure-tls/chapter2#configuration-options) for details.
+Also ensure the below corresponding NetX Secure configurations are set. Refer to the [list of configurations](/azure/rtos/netx-duo/netx-secure-tls/chapter2#configuration-options) for details.
 
 ```c
 /* Enables secure session renegotiation extension */
@@ -337,7 +337,7 @@ Also ensure the below corresponding NetX Secure configurations are set. Refer to
 #define NX_SECURE_TLS_DISABLE_PROTOCOL_VERSION_DOWNGRADE
 ```
 
-When setting up NetX TLS, use [`nx_secure_tls_session_time_function_set()`](https://learn.microsoft.com/azure/rtos/netx-duo/netx-secure-tls/chapter4#nx_secure_tls_session_time_function_set) to set a timing function that returns the current GMT in UNIX 32-bit format to enable checking of the certification expirations.
+When setting up NetX TLS, use [`nx_secure_tls_session_time_function_set()`](/azure/rtos/netx-duo/netx-secure-tls/chapter4#nx_secure_tls_session_time_function_set) to set a timing function that returns the current GMT in UNIX 32-bit format to enable checking of the certification expirations.
 
 **Application**: To use TLS with cloud services, a certificate is required. The certificate must be managed by the application.
 
