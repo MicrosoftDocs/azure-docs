@@ -78,4 +78,4 @@ Educators can now [create and manage labs from within the team channel](./how-to
 - As an admin, [add educators as lab creators to the lab plan](./add-lab-creator.md) in the Azure portal.
 - As an educator, [create and manage labs in Microsoft Teams](./how-to-manage-labs-within-teams.md).
 - As an eductor, [manage user lists in Microsoft Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
-- As student, [access a lab VM within Teams](./how-to-access-vm-for-students-within-teams.md).
+- As a student, [access a lab VM within Teams](./how-to-access-vm-for-students-within-teams.md).
