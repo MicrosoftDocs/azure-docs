@@ -236,14 +236,14 @@ The following steps outline how to set up user identity -based data access for t
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ml.Identity.AzureMLOnBehalfOfCredential](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.identity.azuremlonbehalfofcredential?view=azure-python). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
-    from azure.ml import command
-    from azure.ml.entities import Data, UriReference
-    from azure.ml import Input
-    from azure.ml.constants import AssetTypes
-    from azure.ml.Identity import AzureMLOnBehalfOfCredential
+    from azure.ai.ml import command
+    from azure.ai.ml.entities import Data, UriReference
+    from azure.ai.ml import Input
+    from azure.ai.ml.constants import AssetTypes
+    from azure.ai.ml import UserIdentity
     
     # Specify the data location
     my_job_inputs = {
@@ -257,7 +257,7 @@ The following steps outline how to set up user identity -based data access for t
         inputs=my_job_inputs,
         environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
         compute="<my-compute-cluster-name>",
-        identity= AzureMLOnBehalfOfCredential() 
+        identity= UserIdentity() 
     )
     # submit the command
     returned_job = ml_client.jobs.create_or_update(job)
