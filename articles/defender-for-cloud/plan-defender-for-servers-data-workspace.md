@@ -36,8 +36,8 @@ In Defender for Cloud, you can store server data in the default Defender for Clo
 
 - By default, when you onboard for the first time Defender for Cloud creates a new resource group and default workspace in the region of each subscription with Defender for Cloud enabled.
 - When you use only free foundational cloud security posture management (CSPM), Defender for Cloud sets up the default workspace with the *SecurityCenterFree* solution enabled.
-- Defender for Cloud plans (including Defender for Servers) are enabled on the default workspace, and the *Security* solution is installed.
-- If you have VMs in multiple locations, Defender for Cloud creates multiple workspaces accordingly, to ensure data compliance. 
+- When you turn on Defender for Cloud plans (including Defender for Servers), they're enabled on the default workspace, and the *Security* solution is installed.
+- If you have VMs in multiple locations, Defender for Cloud creates multiple workspaces accordingly, to ensure data compliance.
 - Default workspace naming is in the format: [subscription-id]-[geo].
 
 ## Default workspace 
