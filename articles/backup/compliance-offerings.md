@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations that help organizations to comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data.
 
-In this article, you'll learn about the compliance offerings for Azure Backup to ensure that the service is regulated when you use the Azure Backup service:
+In this article, you'll learn about the various compliance offerings for Azure Backup to ensure that the service is regulated when you use the Azure Backup service.
 
 > [!div class="checklist"]
 > - Global
