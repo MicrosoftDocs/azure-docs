@@ -52,7 +52,7 @@ Before you enable Azure AD DS over SMB for Azure file shares, make sure you've c
     To access an Azure file share by using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD DS. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md). Azure AD DS authentication over SMB with Azure file shares is supported only on Azure VMs running on OS versions above Windows 7 or Windows Server 2008 R2.
 
     > [!NOTE]
-    > Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This requires either site-to-site or point-to-site VPN.
+    > Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS. Usually this requires either site-to-site or point-to-site VPN.
 
 1.  **Select or create an Azure file share.**
 
@@ -181,9 +181,9 @@ Get-ADUser $userObject -properties KerberosEncryptionType
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You've now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in [Assign share-level permissions to an Azure AD identity](#assign-share-level-permissions-to-an-azure-ad-identity) and [Configure Windows ACLs](#configure-windows-acls).
-
 ## Next steps
+
+To grant additional users access to your file share, follow the instructions in [Assign share-level permissions to an Azure AD identity](#assign-share-level-permissions-to-an-azure-ad-identity) and [Configure Windows ACLs](#configure-windows-acls).
 
 For more information about identity-based authentication for Azure Files, see these resources:
 
