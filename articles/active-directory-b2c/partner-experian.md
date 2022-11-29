@@ -45,7 +45,7 @@ To get started, you'll need:
 
 The Experian integration includes the following components:
 
-- **Azure AD B2C**: The authorization server that verifyies user credentials, also known as the identity provider (IdP)
+- **Azure AD B2C**: The authorization server that verifies user credentials, also known as the identity provider (IdP)
 - **Experian CrossCore**: The service takes inputs from the user and verifies their identity
 - **Custom REST API**: This implements the integration between Azure AD B2C and CrossCore
 
@@ -62,7 +62,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard with Experian
 
-1. Create an Experian account. Go to [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) and scroll to the bottom for the contact form.
+1. Create an Experian account. To get started, go to [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) and scroll to the bottom for the contact form.
 2. When an account is created, you receive information for API configuration. The following sections describe the process.
 
 ## Configure Azure AD B2C with Experian
