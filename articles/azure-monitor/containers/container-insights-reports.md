@@ -10,6 +10,7 @@ ms.reviewer: aul
 Reports in Container insights are recommended out-of-the-box [Azure workbooks](../visualize/workbooks-overview.md). This article describes the different reports that are available and how to access them.
 
 ## Viewing reports
+
 From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports** page. 
 
 [![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
@@ -37,6 +38,15 @@ To create a custom workbook based on any of these workbooks, select the **View W
 >[!NOTE]
 > As per the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), GPU metrics collection will be disabled out of the box, please read instructions on how to continue collecting your GPU metrics [here](./container-insights-gpu-monitoring.md)
 
+- **Subnet IP Usage**: Interactive IP usage charts for each node within a cluster by the following perspectives:
+ 
+    - IP's allocated form subnet.
+    - IP's assigned to a pod.
+
+>[!NOTE]
+> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. Please read instructions on how to enable Subnet IP usage Metrics [here](../../aks/concepts-network.md#monitor-ip-subnet-usage)
+
+C:\Users\kparekh\ip-subnet-usage-pr\articles\azure-monitor\containers\aks\concepts-network.md
 ## Resource Monitoring workbooks
 
 - **Deployments**: Status of your deployments & Horizontal Pod Autoscaler(HPA) including custom HPA. 
