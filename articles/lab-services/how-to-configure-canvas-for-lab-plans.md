@@ -41,7 +41,7 @@ To use the  Azure Lab Services Canvas app, first enable the corresponding develo
 
 After enabling the Azure Lab Services app in Canvas, you can link lab plans to Canvas. Only linked lab plans will be available for Canvas educators to use when creating labs.
 
-To link lab plans to Canvas your account must be a Canvas administrator. The Canvas administrator must have the following permissions on the lab plan.
+To link lab plans to Canvas, your account must be a Canvas administrator. The Canvas administrator must have the following permissions on the lab plan.
 
 - Reader role on the subscription.
 - Contributor role on the resource group that contains your lab plan.
