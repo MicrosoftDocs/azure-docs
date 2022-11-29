@@ -43,6 +43,8 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 [Set a table's log data plan](../logs/basic-logs-configure.md)
 
+Should we send metrics to a workspace or metrics?
+
 ## 2. Collect data
 
 | | Data collection tool | Collected data |
@@ -52,7 +54,6 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |  |  |- Azure subscription|
 | **Applications** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
 | **Containers** |[Container insights](../containers/container-insights-overview.md)| |
-| **Virtual machines** | [VM insights](../vm/vminsights-overview.md) | - All logs and metrics collected by Azure Monitor Agent<br/> - VM dependencies on other resources |
 | **Operating systems** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
 | **Non-Azure sources** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
 
