@@ -21,16 +21,14 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## List instances in a scale set
 
-If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md)
+If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
 
-List all the instances in your Virtual Machine Scale Set using [get-AzVM](/powershell).
+List all the instances in your Virtual Machine Scale Set using [get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-9.1.0).
 
 ```azurepowershell-interactive
 get-AzVM -ResourceGroup myResourceGroup
@@ -39,34 +37,34 @@ get-AzVM -ResourceGroup myResourceGroup
 ```output
 ResourceGroupName Name                  Location    VmSize             OsType    NIC 
 ----------------- ----                  --------    ------             ------    --- 
-myResourceGroup   myScaleSet_9d3fcd1e   eastus     Standard_DS1_v2    Windows    myScaleSet-568e204e       
-myResourceGroup   myScaleSet_cf374a15   eastus     Standard_DS1_v2    Windows    myScaleSet-a79ac820     
+myResourceGroup   myScaleSet_Instance1   eastus     Standard_DS1_v2    Windows    myScaleSet-instance1-nic      
+myResourceGroup   myScaleSet_Instance2   eastus     Standard_DS1_v2    Windows    myScaleSet-instance2-nic    
 ```
 
 
 ## Get NIC information
 
 
-Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell).
+Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface?view=azps-9.1.0).
 
 ```azurepowershell-interactive
-Get-AzNetworkInterface -Name myScaleSet-568e204e
+Get-AzNetworkInterface -Name myScaleSet-instance1-nic
 ```
 
 ```output
-Name                        : myScaleSet-568e204e
+Name                        : myScaleSet-instance1-nic
 ResourceGroupName           : myResourceGroup
 Location                    : eastus
-Id                          : /subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myScaleSet-568e204e
+Id                          : /subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myScaleSet-instance1-nic
 ProvisioningState           : Succeeded
 Tags                        : 
 VirtualMachine              : {
-                                "Id": "/subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_9d3fcd1e"
+                                "Id": "/subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_Instance1"
                               }
 IpConfigurations            : [
                                 {
                                   "Name": "myScaleSet",
-                              "/subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myScaleSet-568e204e/ipConfigurations/myScaleSet",
+                              "/subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myScaleSet-instance1-nic/ipConfigurations/myScaleSet",
                                   "PrivateIpAddress": "192.168.1.5",
                                   "PrivateIpAllocationMethod": "Dynamic",
                                   "Subnet": {
@@ -93,31 +91,21 @@ DnsSettings                 : {
                                 "DnsServers": [],
                                 "AppliedDnsServers": [],
                               }
-EnableIPForwarding          : False
-EnableAcceleratedNetworking : False
-VnetEncryptionSupported     : False
-DisableTcpStateTracking     : False
-AuxiliaryMode               : 
-NetworkSecurityGroup        : null
-TapConfigurations           : []
-Primary                     : True
-MacAddress                  : 60-45-BD-A7-67-09
-ExtendedLocation            : null
 ```
 
 ## (Optional) Add InboundNatRules
 
-In the above output, we can see that we do not have any inbound NAT rules associated with our load balancer. To add inbound NAT rules, use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell)
+In the above output, we can see that we do not have any inbound NAT rules associated with our load balancer. To add inbound NAT rules, use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0).
 
 ```azurepowershell-interactive 
 $slb = Get-AzLoadBalancer -Name "myScaleSet" -ResourceGroupName "MyResourceGroup"
-$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "NewNatRuleV2" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -Protocol "Tcp" -IdleTimeoutInMinutes 10 -FrontendPortRangeStart 50000 -FrontendPortRangeEnd 50099 -BackendAddressPool $slb.BackendAddressPools[0] -BackendPort 3389
+$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "myNatRule" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -Protocol "Tcp" -IdleTimeoutInMinutes 10 -FrontendPortRangeStart 50000 -FrontendPortRangeEnd 50099 -BackendAddressPool $slb.BackendAddressPools[0] -BackendPort 3389
 $slb | Set-AzLoadBalancer
 ```
 
 
 ## Get backend pool details
-Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to.
+Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig?view=azps-9.1.0).
 
 ```azurepowershell-interactive
 Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
@@ -129,7 +117,7 @@ Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
 
 
 ```output
-InboundNatRuleName : NewNatRuleV2
+InboundNatRuleName : myNatRule
 Protocol           : Tcp
 FrontendPort       : 50001
 BackendPort        : 3389
@@ -137,7 +125,7 @@ BackendPort        : 3389
 
 ## Get public IP of load balancer
 
-Get the public IP of the load balancer using [GetAzPublicIpAddress](/powershell)
+Get the public IP of the load balancer using [GetAzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-9.1.0).
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroup myResourceGroup    
@@ -147,7 +135,7 @@ Get-AzPublicIpAddress -ResourceGroup myResourceGroup
 Name                     : myScaleSet
 ResourceGroupName        : myResourceGroup
 Location                 : eastus
-Id                       : /subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myScaleSet
+Id                       : /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myScaleSet
 ProvisioningState        : Succeeded
 PublicIpAllocationMethod : Static
 IpAddress                : 40.88.43.135
@@ -157,8 +145,8 @@ IpConfiguration          : {
                              "Id": "/subscriptions//resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myScaleSet/frontendIPConfigurations/myScaleSet"
                            }
 DnsSettings              : {
-                             "DomainNameLabel": "myscaleset-9a39b8",
-                             "Fqdn": "myscaleset-9a39b8.eastus.cloudapp.azure.com"
+                             "DomainNameLabel": "myscaleset-Instance1",
+                             "Fqdn": "myscaleset-Instance1.eastus.cloudapp.azure.com"
                            }
 Zones                    : {}
 Sku                      : {
