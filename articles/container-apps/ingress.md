@@ -102,8 +102,8 @@ You can get access to the environment's unique identifier by querying the enviro
 
 By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
 
-* Allowlist - deny all inbound traffic, but allow access from a list of IP address ranges
-* Denylist - allow all inbound traffic, but deny access from a list of IP address ranges
+* **Allowlist**:  Deny all inbound traffic, but allow access from a list of IP address ranges
+* **Denylist**: Allow all inbound traffic, but deny access from a list of IP address ranges
 
 > [!NOTE]
 > If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
@@ -113,32 +113,42 @@ By default, ingress doesn't filter traffic. You can add restrictions to limit ac
 To allow inbound traffic from a specified IP range, run the following Azure CLI command.
 
 ```azurecli
-az containerapp ingress access-restriction set -n MyContainerapp -g MyResourceGroup --rule-
-    name restrictionName --ip-address 192.168.1.1/28 --description "Restriction description."
-    --action Allow
+az containerapp ingress access-restriction set \
+   --name MyContainerapp \
+   --resource-group MyResourceGroup \
+   --rule-name restrictionName \
+   --ip-address 192.168.1.1/28 \
+   --description "Restriction description." \
+   --action Allow
 ```
 
-Add more allow rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is denied.
+Add more allow rules by repeating the command with different IP address ranges in the `--ip-address` parameter. When you configure one or more allow rules, any traffic from an IP address that doesn't match any of the rules is denied.
 
 ### Configure a denylist
 
 To deny inbound traffic from a specified IP range, run the following Azure CLI command.
 
 ```azurecli
-az containerapp ingress access-restriction set -n MyContainerapp -g MyResourceGroup --rule-
-    name my-restriction --ip-address 192.168.1.1/28 --description "Restriction description."
-    --action Deny
+az containerapp ingress access-restriction set \
+  --name MyContainerapp \
+  --resource-group MyResourceGroup \
+  --rule-name my-restriction \
+  --ip-address 192.168.1.1/28 \
+  --description "Restriction description."
+  --action Deny
 ```
 
-Add more deny rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is allowed.
+Add more deny rules by repeating the command with different IP address ranges in the `--ip-address` parameter. When you configure one or more deny rules, any traffic from an IP address that doesn't match any of the rules is allowed.
 
 ### Remove access restrictions
 
 To remove an access restriction, run the following Azure CLI command.
 
 ```azurecli
-az containerapp ingress access-restriction remove -n MyContainerapp -g MyResourceGroup
-    --rule-name my-restriction
+az containerapp ingress access-restriction remove
+  --name MyContainerapp \
+  --resource-group MyResourceGroup \
+  --rule-name my-restriction
 ```
 
 ## Next steps
