@@ -31,7 +31,7 @@ Share-level permissions on Azure file shares are configured for Azure Active Dir
 
 Most users should assign share-level permissions to specific Azure AD users or groups, and then use Windows ACLs for granular access control at the directory and file level. This is the most stringent and secure configuration.
 
-There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) assigned to all authenticated identities:
+There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow contributor, elevated contributor, or reader access to all authenticated identities:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Azure AD. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
     - Identities that are tied to an AD but aren't synching to Azure AD can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
@@ -57,7 +57,7 @@ The following table lists the share-level permissions and how they align with th
 If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md) that exists in both on-premises AD DS and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync or Azure AD Connect cloud sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
-> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard. To mitigate any unintended future impact, we highly recommend declaring actions and data actions explicitly as opposed to using the wildcard.
+> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.
 
 In order for share-level permissions to work, you must:
 
