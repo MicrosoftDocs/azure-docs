@@ -140,6 +140,8 @@
       items:
       - name: Plan Defender for Servers deployment
         href: plan-defender-for-servers.md
+      - name: Scale Defender for Servers deployment
+        href: plan-defender-for-servers-scale.md
       - name: Common questions
         href: faq-defender-for-servers.md
     - name: Agentless scanning
