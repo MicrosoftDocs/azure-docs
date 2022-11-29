@@ -29511,7 +29511,7 @@
         },
         {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
-          "redirect_url": "/articles/azure-cache-for-redis/cache-insights-overview",
+          "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false
         }
     ]
