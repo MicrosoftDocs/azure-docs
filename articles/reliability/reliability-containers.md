@@ -18,13 +18,13 @@ ms.date: 11/29/2022
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
 
-This article describes reliability support in Azure Container Instances (ACI) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in Azure Container Instances (ACI) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on Disaster Recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](az-service-support.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](az-service-support.md#azure-services-with-availability-zone-support).
+There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
 Azure Container Instances supports *zonal* container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group can't have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
 
@@ -180,7 +180,7 @@ To change your container group's availability zone, you must delete the containe
     }
     ```
 
-2. Create a resource group with the [az group create][az-group-create] command:
+2. Create a resource group with the [az group create][availability-zones-group-create] command:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
