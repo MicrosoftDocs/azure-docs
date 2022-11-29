@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: cli-v2, sdk-v2
 ---
 
-# Quickstart: Setup MLOps with AzureML and Azure DevOps
+# Setup MLOps with AzureML and Azure DevOps
 
 This is an end-to-end machine learning pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. We are going to be using the [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly set up an MLOps project in AzureML.
 
@@ -82,9 +82,9 @@ echo "Please ensure that the information created here is properly save for futur
 
 # [Create from Azure Portal](#tab/azure-portal)
 
-1. Navigate to <a href="https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM">Azure App Registrations</a> 
+1. Navigate to [Azure App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM)
 
-2. Select "new registration".
+2. Select **New Registration**.
 
 ![PS2](./media/how-to-setup-mlops-azureml/SP-setup2.png)
 
@@ -92,7 +92,7 @@ echo "Please ensure that the information created here is properly save for futur
 
 4. Go to "Certificates & Secrets" and add for each SP "New client secret", then store the value and secret separately.
 
-5. To assign the necessary permissions to these principals, select your respective <a href="https://portal.azure.com/#view/Microsoft_Azure_BillingSubscriptionsBlade?">subscription</a>  and go to IAM. Select +Add then select "Add Role Assignment.
+5. To assign the necessary permissions to these principals, select your respective [subscription](https://portal.azure.com/#view/Microsoft_Azure_BillingSubscriptionsBlade?) and go to IAM. Select +Add then select "Add Role Assignment.
 
 ![PS3](./media/how-to-setup-mlops-azureml/SP-setup3.png)
 
@@ -101,6 +101,8 @@ echo "Please ensure that the information created here is properly save for futur
 ![SP4](./media/how-to-setup-mlops-azureml/SP-setup4.png)
 
 7. Repeat step here, if you deploy Dev and Prod into the same subscription, otherwise change to the prod subscription and repeat with"Azure-ARM-Prod-ProjectName". The basic SP setup is successfully finished.
+
+---
 
 ### Set up Azure DevOps
 
