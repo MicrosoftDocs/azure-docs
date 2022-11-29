@@ -70,7 +70,7 @@ python -m pip install azureml-inference-server-http
     ' > score.py
     ```
 
-1. Start the server (azumlinfsrv) and set `score.py` as the entry script:
+1. Start the server (azmlinfsrv) and set `score.py` as the entry script:
 
     ```bash
     azmlinfsrv --entry_script score.py
@@ -162,6 +162,9 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 > [!TIP]
 > If you are using online endpoints, the log from the inference server starts with `Azure ML Inferencing HTTP server <version>`.
 
+### Startup logs
+
+
 ### Log format
 
 The logs from the inference server are generated in the following format, except for the launcher scripts since they aren't part of the python package: 
@@ -170,7 +173,7 @@ The logs from the inference server are generated in the following format, except
 
 Here <pid\> is the process ID and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
-
+### Access logs
 
 ## Frequently asked questions
 
