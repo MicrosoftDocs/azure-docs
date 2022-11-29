@@ -1,13 +1,13 @@
 ---
-title: Connect to instances using the Azure CLI
-description: Learn how to use the Azure CLI to connect to instances in your Virtual Machine Scale Set.
+title: Connect to instances using Azure PowerShell
+description: Learn how to use Azure PowerShell to connect to instances in your Virtual Machine Scale Set.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.date: 11/29/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -21,9 +21,9 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-powershell-prepare-your-environment.md](../../includes/azure-powershell-prepare-your-environment.md)]
 
-This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+This article requires version 2.0.29 or later of the Azure PowerShell. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## List instances in a scale set
@@ -49,7 +49,7 @@ myResourceGroup   myScaleSet_cf374a15   eastus     Standard_DS1_v2    Windows   
 
 Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell).
 
-```azurecli-interactive
+```azurepowershell-interactive
 Get-AzNetworkInterface -Name myScaleSet-568e204e
 ```
 
@@ -183,4 +183,4 @@ In this tutorial, you learned how to list the instances in your scale set and co
 
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets](tutorial-use-disks-cli.md)
+> [Use data disks with scale sets](tutorial-use-disks-powershell.md)
