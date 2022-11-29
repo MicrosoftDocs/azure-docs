@@ -37,7 +37,7 @@ IncomingCall is an Azure Event Grid event for notifying incoming calls to your C
 ![Screenshot of portal page to create a new event subscription.](./media/event-susbcription.png)
 If your local application does not send 200Ok back to EventGrid in time, Event Grid will use exponential backoff retry to send the incoming call event again, please consider set a proper Retry Policy at Additional Features -> RETRY POLICIES,
 Max Event Delivery Attempts to 2 and Event Time to Live to 1 minute.
-[Learn more about retry](https://learn.microsoft.com/en-us/azure/event-grid/delivery-and-retry)
+[Learn more about retry](../../../event-grid/delivery-and-retry.md)
 1. Select create to start the creation of subscription and validation of your endpoint as mentioned previously. The subscription is ready when the provisioning status is marked as succeeded. 
 
 This subscription currently has no filters and hence all incoming calls will be sent to your application. To filter for specific phone number or a communication user, use the Filters tab.
