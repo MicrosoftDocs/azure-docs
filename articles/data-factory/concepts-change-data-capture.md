@@ -90,7 +90,7 @@ The followings are the tutorials to start the change data capture in Azure Data 
 
 The followings are the templates to use the change data capture in Azure Data Factory and Azure Synapse Analytics.
 
-- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-SAP-CDC.md)
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
 
 
 ## Next steps
