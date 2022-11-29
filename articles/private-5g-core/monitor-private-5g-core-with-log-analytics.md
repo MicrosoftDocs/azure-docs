@@ -13,11 +13,6 @@ ms.custom: template-concept
 
 You can use [Azure Monitor](/azure/azure-monitor/) to collect and analyze Azure Private 5G Core logs and metrics in the cloud.
 
-- Logs are records of events collected by [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). You can use Log Analytics to query for Azure Private 5G Core logs and monitor activity in your private mobile network.
-- Metrics are measurements over time stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or the Azure Monitor REST API to query for metrics which you can then analyze elsewhere.
-
-This article covers monitoring Azure Private 5G Core logs in the cloud using Azure Monitor. For more information on monitoring Azure Private 5G Core metrics in the cloud, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
-
 [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network.
 
 > [!IMPORTANT] 
