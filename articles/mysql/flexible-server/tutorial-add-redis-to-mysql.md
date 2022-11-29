@@ -170,4 +170,4 @@ You may also use [W3 Total cache](https://wordpress.org/plugins/w3-total-cache/)
     
 ## Next steps
 
-In this quickstart, you learned how to create an instance of Azure Cache for Redis and use it with Azure database for MySQL. See [performance best practices](../single-server/concept-performance-best-practices,md) for Azure database for MySQL.
+In this quickstart, you learned how to create an instance of Azure Cache for Redis and use it with Azure database for MySQL. See [performance best practices](../single-server/concept-performance-best-practices.md) for Azure database for MySQL.
