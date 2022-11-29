@@ -11,9 +11,9 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Debug information
 
-`DebugInfo` is an object that containts debug information for the currect CallComposite object. 
+`DebugInfo` is an object that contains debug information for the current CallComposite object. 
 
-Call id is used to identify Communication Services calls. `lastCallId` is an id of the last call for the current CallComposite object. When a CallComposite object is created and a call wasn’t started yet, `lastCallId` will return `nil` value. The call id value will be set when call is started and will be preserved while a new call is started or CallComposite istance is deallocated.
+Call ID is used to identify Communication Services calls. `lastCallId` is an ID of the last call for the current CallComposite object. When a CallComposite object is created and a call isn't started yet, `lastCallId` will return `nil` value. The call ID value will be set when a call is started. The value will be preserved until a new call is started or CallComposite instance is deallocated.
 
 The debug information can be retrieved from `CallComposite`:
 
