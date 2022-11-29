@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/30/2022
+ms.date: 11/29/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
@@ -21,7 +21,7 @@ Azure Active Directory B2C (Azure AD B2C) identity data is stored in a geographi
 
 Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C. [Region availability](#region-availability) refers to where a service is available for use whereas [Data residency](#data-residency) refers to where user data is stored.
 
-Azure AD B2C service is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**. If you enable [Local data residency](#local-data-residency), you can store your data exclusively in a specific country.
+Azure AD B2C service is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**. If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country.
 
 ## Region availability
 
@@ -55,17 +55,27 @@ The following countries/regions are in the process of being added to the list. F
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
 
-### Local data residency 
+### Go-Local add-on
 
-To fulfill corporate policies and compliance requirements, Azure AD B2C provides Local Data Residency add-on, which allows you to store user data exclusively within a specific geographical area. Local Data Residency add-on enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
+*Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country. Go-Local is as way fulfilling corporate policies and compliance requirements. You choose the country where you want to store your data when you [create your Azure AD B2C](tutorial-create-tenant.md).  
 
-The Local Data Residency add-on is optional. The Local Data Residency is a paid add-on, so you'll incur extra charge in addition to your Azure AD B2C Premium P1 or P2 licenses. See more information in [Billing model](billing.md). 
+The Go-Local add-on is a paid add-on, but it's optional. If you choose to use it,you'll incur an extra charge in addition to your Azure AD B2C Premium P1 or P2 licenses. See more information in [Billing model](billing.md). 
 
 At the moment, the following countries have the local data residence option:
 
 - Japan 
 
 - Australia 
+
+#### What do I need to do? 
+
+|If you're in  | What to do  |
+|-------------|---------|
+| Australia | If you've existing Azure AD B2C tenant that you created since **April 2021**, your data is resident in Australia. You need to opt-in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
+| Japan | You can enable Go-Local add-on when you create a newAzure AD B2C tenant. |
+
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
 
 ## Remote profile solution
 

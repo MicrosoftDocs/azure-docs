@@ -228,10 +228,6 @@ To get your Azure AD B2C tenant ID, follow these steps:
 
 ![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
-## Enable local data residency 
-
-[For already created tenants and have local data residency available for their country]
-
 ## Next steps
 
 - [Clean up resources and delete tenant](tutorial-delete-tenant.md)

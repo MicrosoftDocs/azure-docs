@@ -27,9 +27,9 @@ A monthly active user (MAU) is a unique user that performs an authentication wit
 - Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
 - Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
 
-If [Local Data Residency](data-residency.md#local-data-residency) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-local-data-residency-add-on)  
+If Azure AD B2C [Go-Local add-on](data-residency.md#go-local-add-on) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-go-local-add-on)  
 
-If you choose to provide higher levels of assurance using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
+Also, if you choose to provide higher levels of assurance by using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
 
 > [!IMPORTANT]
@@ -59,16 +59,14 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 > [!NOTE]
 > Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features, but the **free tier doesn’t apply to free trial, credit-based, or sponsorship subscriptions**. Once the free trial period or credits expire for these types of subscriptions, you'll begin to be charged for Azure AD B2C MAUs. To determine the total number of MAUs, we combine MAUs from all your tenants (both Azure AD and Azure AD B2C) that are linked to the same subscription.
 
-## About Local Data Residency add-on 
+## About Go-Local add-on 
 
-Azure AD B2C's [Local Data Residency](data-residency.md#local-data-residency) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). This feature isn't available in all countries. 
-
-If you're in **Australia**, and you created your Azure AD B2C tenant in Australia since **August 2021** through **March 2022**, you need to opt-into the Local Data Residency, otherwise, there's no guarantee that your data will remain within Australia. If you opt-in, billing for the Local Data Residency add-on begins in **July 2022**.
-
-If you're in **Australia** or **Japan** and are [creating new Azure AD B2C tenant](tutorial-create-tenant.md) beginning **April 2022**, you can enable Local Data Residency and billing begins in **July 2022**. 
+Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). *Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country. This feature isn't available in all countries. 
 
 > [!NOTE]
-> If you enable Local Data Residency, the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for Local Data Residency add-on. You'll incur a charge on the Local Data Residency ad-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
+> If you enable  Go-Local add-on , the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for  Go-Local add-on . You'll incur a charge, **$0.02** per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
 
 ## Link an Azure AD B2C tenant to a subscription
 
