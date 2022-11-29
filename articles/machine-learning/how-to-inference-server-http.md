@@ -166,9 +166,11 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 
 The logs from the inference server are generated in the following format, with the exception of the launcher scripts since they are not part of the python package: 
 
-  <UTC Time> <level> [<pid>] <logger name> - <message> 
+  <UTC Time\> | <level\> [<pid\>] <logger name\> - <message\> 
 
-Here <pid> is the process id and <level> is the first character of the logging level – E for ERROR, I for INFO, etc.  
+Here <pid\> is the process id and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
+
+
 
 ## Frequently asked questions
 
