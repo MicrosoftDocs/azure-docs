@@ -47,7 +47,7 @@ myResourceGroup   myScaleSet_Instance2   eastus     Standard_DS1_v2    Windows  
 ## Get NIC information
 
 
-Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
+Using the NIC name, get the private IP address of the NIC, the backend address pool name and load balancer name using [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
 
 ```azurepowershell-interactive
 Get-AzNetworkInterface -Name myScaleSet-instance1-nic
@@ -93,7 +93,7 @@ IpConfigurations            : [
 
 
 ## Get backend pool details
-Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig).
+Using the backend pool name, load balancer name and private IP address, get the port for associated with private IP address of the instance you want to connect to using [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig).
 
 ```azurepowershell-interactive
 Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
