@@ -46,10 +46,10 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 | Monitored resource | Collection options | Data collection method | Collected data |
 | --- | --- | --- |
-| Azure  | - Azure tenant<br/>- Azure subscription<br/>- Azure resources |  | |
+| Azure tenant, subscription, or resource |  |  | |
 | Applications |  | [Application insights](../app/app-insights-overview.md) | |
 | Containers | |[Container insights](../containers/container-insights-overview.md)| |
-| Virtual machines | | [VM insights](../vm/vminsights-overview.md) | |
+| Virtual machines | | [VM insights](../vm/vminsights-overview.md) | - All logs and metrics collected by Azure Monitor Agent<br/> VM dependencies on other resources |
 | Operating systems |  | [Azure Monitor Agent](../agents/agents-overview.md) | |
 | Non-Azure sources | | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | |
 
