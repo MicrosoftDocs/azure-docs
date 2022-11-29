@@ -157,7 +157,7 @@ In both ways, user can set breakpoint and debug step by step.
 Here we describe logs of the AzureML Inference HTTP Server. You can get the log when you run the `azureml-inference-server-http` locally, or [get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs) if you're using online endpoints. 
 
 > [!NOTE]
-> The logging format has changed since version xxxx. If you find your log in different style, update the azureml-inference-server-http package to the latest version.
+> The logging format has changed since version xxxx. If you find your log in different style, update the `azureml-inference-server-http` package to the latest version.
 
 > [!TIP]
 > If you are using online endpoints, the log from the inference server starts with `Azure ML Inferencing HTTP server <version>`.
@@ -194,9 +194,9 @@ Score:          POST  127.0.0.1:<port>/score
 
 The logs from the inference server are generated in the following format, except for the launcher scripts since they aren't part of the python package: 
 
-  <UTC Time\> | <level\> [<pid\>] <logger name\> - <message\> 
+`<UTC Time\> | <level\> [<pid\>] <logger name\> - <message\>`
 
-Here <pid\> is the process ID and <level\> is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
+Here `<pid\>` is the process ID and `<level\>` is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
 There are six levels of logging in Python, with numbers associated with severity:
 
