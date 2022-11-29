@@ -23,7 +23,7 @@ To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2022**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the connection string later in this quickstart.
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 
 ## Send events 
 This section shows you how to create a .NET Core console application to send events to an event hub. 
@@ -64,8 +64,8 @@ Add the following code to the top of the **Program.cs** file.
 
 Here are the important steps from the code:
 
-1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
-1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
+1. Creates an [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the namespace and the event hub name. 
+1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create an [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
 1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
 1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
     
@@ -217,22 +217,18 @@ Note down the connection string and the container name. You'll use them in the r
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs
-    ```
-1. Run the following command to install the **Azure.Messaging.EventHubs.Processor** NuGet package:
-
-    ```cmd
     Install-Package Azure.Messaging.EventHubs.Processor
-    ```    
+    ```
 
 ### Update the code
 
-1. Replace the contents of **Program.cs** with the following code:
+Replace the contents of **Program.cs** with the following code:
 
 ## [Passwordless](#tab/passwordless)
 
 Here are the important steps from the code:
 
-1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
+1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the event hub namespace and the event hub name. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
 1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
