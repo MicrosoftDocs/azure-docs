@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## List instances in a scale set
 
-If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
+If you don't have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
 
 List all the instances in your Virtual Machine Scale Set using [Get-AzVM](/powershell/module/az.compute/get-azvm).
 
@@ -103,7 +103,7 @@ Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
     -IpAddress 192.168.1.5
 ```
 
-If you run the above command and find your load balancer does not have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) and then run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) again.
+If you run the above command and find your load balancer doesn't have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig). Once complete, run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) again.
 
 ```azurepowershell-interactive 
 $slb = Get-AzLoadBalancer -Name "myScaleSet" -ResourceGroupName "MyResourceGroup"
@@ -111,7 +111,7 @@ $slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "myNatRule" -FrontendIPConfi
 $slb | Set-AzLoadBalancer
 ```
 
-
+    
 ```output
 InboundNatRuleName : myNatRule
 Protocol           : Tcp
