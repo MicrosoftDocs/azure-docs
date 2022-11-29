@@ -72,7 +72,7 @@ You can also add tasks for yourself, on the spot, to an incident's task list. Th
 
     :::image type="content" source="media/work-with-tasks/add-task-ad-hoc-3.png" alt-text="Screenshot shows how to finish defining and save your task.":::
 
-1. See your new task at the bottom of the task list. Note how manually-created tasks have a different color band on the left border, and that your name appears as *Created by:* under the task title and description.
+1. See your new task at the bottom of the task list. Note that manually created tasks have a different color band on the left border, and that your name appears as *Created by:* under the task title and description.
 
     :::image type="content" source="media/work-with-tasks/view-ad-hoc-added-task.png" alt-text="Screenshot showing your new task at the end of the task list.":::
 

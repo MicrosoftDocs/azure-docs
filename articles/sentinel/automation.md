@@ -45,4 +45,4 @@ In this document, you learned how Microsoft Sentinel uses automation to help you
 - To learn about automation of incident handling, see [Automate incident handling in Microsoft Sentinel](automate-incident-handling-with-automation-rules.md).
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 - To get started creating automation rules, see [Create and use Microsoft Sentinel automation rules to manage incidents](create-manage-use-automation-rules.md)
-- For help in implementing advanced automation with playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help with implementing advanced automation with playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

@@ -38,7 +38,7 @@ You also want to determine your use case. What are you trying to accomplish with
 
 ### Determine the trigger
 
-Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or any time an incident gets updated?
+Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or anytime an incident gets updated?
 
 Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**) or **when an alert is created** (also in **Preview**). Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
@@ -211,4 +211,4 @@ In this document, you learned how to use automation rules to centrally manage re
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 - To learn how to use automation rules to add tasks to incidents, see [Create incident tasks in Microsoft Sentinel using automation rules](create-tasks-automation-rule.md).
 - To migrate alert-trigger playbooks to be invoked by automation rules, see [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md)
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help with implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
