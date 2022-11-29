@@ -146,6 +146,9 @@ Modify storage account | No. The target Azure Storage account can't be modified 
 Secure transfer option | Yes | Yes
 UEFI Secure boot | No | No
 
+> [!NOTE]
+> Striped volumes and dynamic disks are not supported for app-consistent snapshots. Ensure that the frequency for app-consistent snapshot is set to zero in the selected replication policy. 
+
 ## Azure compute features
 
 **Feature** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
