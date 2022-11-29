@@ -7,28 +7,19 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 
-### Get debug information
+### Debug information
 
-When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls.
+`DebugInfo` is an object that containts debug information for the currect CallComposite object. 
 
-CallID can be retrieved from `CallComposite`:
+Call id is used to identify Communication Services calls. `lastCallId` is an id of the last call for the current CallComposite object. When a CallComposite object is created and a call wasn’t started yet, `lastCallId` will return `nil` value. The call id value will be set when call is started and will be preserved while a new call is started or CallComposite istance is deallocated.
 
-#### [Kotlin](#tab/kotlin)
+The debug information can be retrieved from `CallComposite`:
 
-```kotlin
-val callComposite: CallComposite = CallCompositeBuilder().build()
+```swift
+let callComposite = CallComposite()
 ...
-val debugInfo = callComposite.debugInfo
-val lastKnowCallId = debugInfo.lastKnownCallId
-```
-
-#### [Java](#tab/java)
-
-```java
-CallComposite callComposite = new CallCompositeBuilder().build();
-...
-CallCompositeDebugInfo debugInfo = callComposite.getDebugInfo();
-String lastKnowCallId = debugInfo.getLastKnownCallId();
+let debugInfo = callComposite.debugInfo
+let lastCallId = debugInfo.lastCallId
 ```
