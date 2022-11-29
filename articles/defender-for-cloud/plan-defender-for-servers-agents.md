@@ -43,7 +43,6 @@ Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is
 
 Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
 - Review the [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
--
 - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
 - Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
