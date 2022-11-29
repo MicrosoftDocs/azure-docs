@@ -48,7 +48,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 | | Data collection tool | Collected data |
 | --- | --- | --- |
 | **Azure** |  | |
-|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |- Azure tenant<br/>- Azure resource|
+|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |- Azure tenant<br/>- Activity and resource logs from Azure resources|
 |  |  |- Azure subscription|
 | **Applications** | [Application insights](../app/app-insights-overview.md) | |
 | **Containers** |[Container insights](../containers/container-insights-overview.md)| |
