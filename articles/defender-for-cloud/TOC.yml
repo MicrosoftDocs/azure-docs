@@ -140,12 +140,16 @@
       items:
       - name: Plan Defender for Servers deployment
         href: plan-defender-for-servers.md
-      - name: Agents and extensions
+      - name: Review data residency, workspace design 
+        href: plan-defender-for-servers-data-workspace.md
+      - name: Determine roles and access
+        href: plan-defender-for-server-roles.md
+      - name: Review agents and extensions
         href: plan-defender-for-servers-agents.md
       - name: Scale Defender for Servers deployment
         href: plan-defender-for-servers-scale.md
       - name: Common questions
-        href: faq-defender-for-servers.md
+        href: faq-defender-for-servers.yml
     - name: Agentless scanning
       href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
