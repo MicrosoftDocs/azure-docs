@@ -30,10 +30,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
 
-List all the instances in your Virtual Machine Scale Set using [get-AzVM](/powershell/module/az.compute/get-azvm).
+List all the instances in your Virtual Machine Scale Set using [Get-AzVM](/powershell/module/az.compute/get-azvm).
 
 ```azurepowershell-interactive
-get-AzVM -ResourceGroup myResourceGroup
+Get-AzVM -ResourceGroup myResourceGroup
 ```
 
 ```output
@@ -47,7 +47,7 @@ myResourceGroup   myScaleSet_Instance2   eastus     Standard_DS1_v2    Windows  
 ## Get NIC information
 
 
-Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
+Using the NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
 
 ```azurepowershell-interactive
 Get-AzNetworkInterface -Name myScaleSet-instance1-nic
@@ -89,10 +89,6 @@ IpConfigurations            : [
                                   "VirtualNetworkTaps": []
                                 }
                               ]
-DnsSettings                 : {
-                                "DnsServers": [],
-                                "AppliedDnsServers": [],
-                              }
 ```
 
 
