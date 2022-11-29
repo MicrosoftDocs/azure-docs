@@ -191,6 +191,23 @@ Server Routes
 Liveness Probe: GET   127.0.0.1:<port>/
 Score:          POST  127.0.0.1:<port>/score
 
+Starting gunicorn 20.1.0
+Listening at: http://0.0.0.0:31311 (12)
+Using worker: sync
+Booting worker with pid: 65
+Initializing logger
+2022-11-29 15:05:01,592 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-11-29 15:05:01,592 | root | INFO | Starting up app insight hooks
+2022-11-29 15:05:01,743 | root | INFO | Found user script at /var/azureml-app/online/score.py
+2022-11-29 15:05:01,744 | root | INFO | run() is not decorated. Server will invoke it with the input in JSON string.
+2022-11-29 15:05:01,744 | root | INFO | Invoking user's init function
+Init complete
+2022-11-29 15:05:02,166 | root | INFO | Users's init has completed successfully
+2022-11-29 15:05:02,167 | root | INFO | Swaggers are prepared for the following versions: [2, 3].
+2022-11-29 15:05:02,167 | root | INFO | Scoring timeout setting is not found. Use default timeout: 3600000 ms
+2022-11-29 15:05:02,167 | root | INFO | AML_FLASK_ONE_COMPATIBILITY is set. Patched Flask to ensure compatibility with Flask 1.
 ```
 
 ### Log format
