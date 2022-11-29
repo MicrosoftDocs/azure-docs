@@ -51,8 +51,8 @@ Once you have the user delegation key, you can use that key to create any number
 
 Use one of the following methods to request the user delegation key:
 
-- [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
-- [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
+- [GetUserDelegationKey](/dotnet/api/azure.storage.blobs.blobserviceclient.getuserdelegationkey)
+- [GetUserDelegationKeyAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getuserdelegationkeyasync)
 
 The following code snippet gets the user delegation key and writes out its properties:
 
