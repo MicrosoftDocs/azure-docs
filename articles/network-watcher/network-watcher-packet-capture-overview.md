@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 # Introduction to variable packet capture in Azure Network Watcher
  
-> [!NEW]
+> [!Important]
 > Packet capture is now also available for **Virtual Machine Scale Sets**. To check it out, visit [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md).
 
 Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
