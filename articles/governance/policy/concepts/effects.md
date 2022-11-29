@@ -18,7 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyAction-preview)
+- [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -475,7 +475,7 @@ Policy will evaluate resources that support location and tags against `DenyActio
 **Cascade Deletion** 
 Cascade Deletion ocurs when deleting of a parent resources is implicately deletes all its child resources. Policy will not block removal of child resources when an deletion action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implictely delete the diagnostic setting (child). 
 
-[!INCLUDE [policy-denyAction](../../../includes/azure-policy-denyAction.md)]
+[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-denyAction.md)]
 
 ### DenyAction properties
 
