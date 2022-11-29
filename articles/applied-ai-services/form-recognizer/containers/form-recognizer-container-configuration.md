@@ -149,3 +149,5 @@ networks:
 
 > [!div class="nextstepaction"]
 > [Learn more about running multiple containers and the docker compose command](form-recognizer-container-install-run.md)
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)

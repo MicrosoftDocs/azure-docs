@@ -73,3 +73,5 @@ Release notes for `v2.1`:
 > [!div class="nextstepaction"]
 > [Install and run Form Recognizer containers](form-recognizer-container-install-run.md)
 >
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)

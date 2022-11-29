@@ -87,8 +87,6 @@ items:
     - name: Container image tags
       displayName: registry, mcr
       href: containers/form-recognizer-container-image-tags.md
-    - name: Use container instances
-      href: ../../cognitive-services/containers/azure-container-instance-recipe.md
   - name: Configure secure communications
     items:
     - name: Set up Virtual Networks

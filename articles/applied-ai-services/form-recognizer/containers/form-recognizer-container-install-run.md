@@ -624,4 +624,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md)
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)
