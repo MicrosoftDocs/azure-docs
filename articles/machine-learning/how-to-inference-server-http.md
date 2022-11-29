@@ -152,6 +152,24 @@ There are two ways to use Visual Studio Code (VSCode) and [Python Extension](htt
 
 In both ways, user can set breakpoint and debug step by step.
 
+## Understanding logs
+
+Here we describe logs of the AzureML Inference HTTP Server. You can get the log when you run the `azureml-inference-server-http` locally, or [get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs) if you're using online endpoints. 
+
+> [!NOTE]
+> The logging format has changed since version xxxx. If you find your log in different style, update the azureml-inference-server-http package to the latest version.
+
+> [!TIP]
+> If you are using online endpoints, the log from the inference server starts with `Azure ML Inferencing HTTP server <version>`.
+
+### Log format
+
+The logs from the inference server are generated in the following format, with the exception of the launcher scripts since they are not part of the python package: 
+
+  <UTC Time> <level> [<pid>] <logger name> - <message> 
+
+Here <pid> is the process id and <level> is the first character of the logging level – E for ERROR, I for INFO, etc.  
+
 ## Frequently asked questions
 
 ### 1. I encountered the following error during server startup:
