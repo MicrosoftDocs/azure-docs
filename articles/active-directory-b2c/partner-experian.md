@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Tutorial: Configure Experian with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign up. CrossCore permits users to sign in, or not.
+In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign-up. CrossCore permits users to sign in, or not.
 
 Learn more about [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) solutions, services, etc. 
 
