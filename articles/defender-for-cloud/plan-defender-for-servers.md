@@ -25,7 +25,7 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 - Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 - If you're deploying for AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
 
-## Introduction
+## Defender for Servers
 
 Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint provide to endpoint detection and response (EDR), and a host of additional threat protection features.
 
