@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.prod: non-product-specific
-ms.date: 11/02/2022
+ms.date: 11/29/2022
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -204,14 +204,11 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 
 ### Zonal failover support
 
-<!-- Indicate here whether the customer can set up resources of the service to failover to another zone. If they can set up failover resources, provide a link to documentation for this procedure. If such documentation doesn’t exist, create the document, and then link to it from here. -->
+A container group of container instances is assigned to a single availability zone. As a result, that group of container instances will not be impacted by an outage that occurs in any other availability zone, even in the same region.
 
+If, however, an outage occurs in the availability zone of the container group, you can expect downtime for all the container instances within that group.
 
-### Fault tolerance
-
-<!-- 3E. Fault tolerance ---------------------------------------------------------------
-To prepare for availability zone failure, customers should over-provision capacity of service to ensure that the solution can tolerate ⅓ loss of capacity and continue to function without degraded performance during zone-wide outages. Provide any information as to how customers should achieve this.
--->
+To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. Doing this ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
 
 
 ## Disaster recovery
