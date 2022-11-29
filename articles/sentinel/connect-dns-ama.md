@@ -5,7 +5,7 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/05/2022
 ms.author: lwainstein
-#Customer intent: As a security operator, I want proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
+#Customer intent: As a security operator, I want to proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
 ---
 
 # Stream and filter data from Windows DNS servers with the AMA connector

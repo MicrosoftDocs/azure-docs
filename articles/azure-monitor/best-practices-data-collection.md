@@ -117,7 +117,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [Java](app/java-in-process-agent.md)
 - [Node.js](app/nodejs.md)
 - [Python](app/opencensus-python.md)
-- [Other platforms](app/platforms.md)
+- [Other platforms](app/app-insights-overview.md#supported-languages)
 
 ### Configure availability testing
 

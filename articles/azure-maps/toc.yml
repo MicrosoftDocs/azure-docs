@@ -163,6 +163,8 @@ items:
       href: rest-sdk-developer-guide.md
     - name: C# REST SDK Developers Guide
       href: how-to-dev-guide-csharp-sdk.md
+    - name: JavaScript / TypeScript REST SDK Developers Guide
+      href: how-to-dev-guide-js-sdk.md
   - name: Develop with the Web SDK
     items:
     - name: Map control

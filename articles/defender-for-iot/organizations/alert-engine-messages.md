@@ -15,8 +15,6 @@ Several alerts are disabled by default, as indicated by asterisks (*) in the tab
 
 If you disable alerts that are referenced in other places, such as alert forwarding rules, make sure to update those references as needed.
 
-See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-microsoft-defender-for-iot) for detailed information about changes made to alerts.
-
 ## Supported alert types
 
 | Alert type | Description |

@@ -100,14 +100,18 @@
       items:
       - name: Standard/Premium
         items:
-        - name: Resource Manager Templates
+        - name: Bicep and Resource Manager Templates
           href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+        - name: Terraform
+          href: terraform-samples.md?pivots=front-door-standard-premium
       - name: Classic
         items:
-        - name: Resource Manager Templates
+        - name: Bicep and Resource Manager Templates
           href: front-door-quickstart-template-samples.md?pivots=front-door-classic
         - name: Deploy custom domain - Azure CLI
           href: scripts/custom-domain.md
+        - name: Terraform
+          href: terraform-samples.md?pivots=front-door-classic
     - name: CDN
       items:
         - name: Code samples

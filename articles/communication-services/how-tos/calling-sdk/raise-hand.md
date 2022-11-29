@@ -9,6 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 09/09/2022
 ms.custom: template-how-to
+zone_pivot_groups: acs-web-android
 
 #Customer intent: As a developer, I want to learn how to send and receive Raise Hand state using SDK.
 ---
@@ -26,7 +27,13 @@ During an active call, you may want to send or receive states from other users. 
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+::: zone pivot="platform-web"
 [!INCLUDE [Raise Hand Client-side JavaScript](./includes/raise-hand/raise-hand-web.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Raise Hand Client-side Android](./includes/raise-hand/raise-hand-android.md)]
+::: zone-end
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)

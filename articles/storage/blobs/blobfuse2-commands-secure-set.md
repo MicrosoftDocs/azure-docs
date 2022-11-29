@@ -1,6 +1,6 @@
 ---
-title: How to use the 'blobfuse2 secure set' command to change the value of a parameter in an encrypted BlobFuse2 configuration file (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
+title: How to use the 'blobfuse2 secure set' command to change the value of a parameter in an encrypted BlobFuse2 configuration file (preview)
+titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 secure set' command to change the value of a parameter in an encrypted BlobFuse2 configuration file (preview)
 author: jimmart-dev
 ms.service: storage
