@@ -292,9 +292,9 @@ Sensor backup files are automatically named through the following format: `<sens
 
 ### Restore sensors
 
-You can restore backups from the sensor console and by using the CLI.
+You can restore a sensor from a backup file using the sensor console or the CLI.
 
-**To restore from the console:**
+**To restore from the sensor console:**
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
