@@ -101,7 +101,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 > [!NOTE]
 > * This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
-> * The following Application ID **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is a fixed value predefined by Azure and is the same regardless of your Tenant, Subscription, Resource, and others.
+> * The Application Id of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is predefined by Azure for Front Door Standard and Premium tier across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different Application Id.
 
 ##### Azure PowerShell
 
