@@ -200,6 +200,15 @@ Here <pid\> is the process ID and <level\> is the first character of the [loggin
 
 ### Access logs
 
+When a request comes into the server, it will be logged except for requests to `/`.
+
+For example, a GET request to `/score` will be logged as follows.
+
+```
+200
+2022-11-29 15:54:39,857 | root | INFO | 200
+127.0.0.1 - - [29/Nov/2022:15:54:39 +0900] "GET /score HTTP/1.1" 200 28 "-" "curl/7.86.0"
+```
 
 ## Frequently asked questions
 
