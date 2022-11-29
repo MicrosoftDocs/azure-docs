@@ -116,7 +116,7 @@ The following table contains the parameters accepted by the server:
 | access_control_allow_origins    | False    | N/A     | Enable CORS for the specified origins. Separate multiple origins with ",". <br> Example: "microsoft.com, bing.com" |
 
 > [!TIP]
-> CORS (Cross-origin resource sharing) is a way to allow resources on a webpage to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia. See [here](/v1/how-to-deploy-advanced-entry-script.md#cross-origin-resource-sharing-cors) for an example of the scoring script.
+> CORS (Cross-origin resource sharing) is a way to allow resources on a webpage to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia. See [here](v1/how-to-deploy-advanced-entry-script.md#cross-origin-resource-sharing-cors) for an example of the scoring script.
 
 ## Request flow
 
@@ -197,7 +197,7 @@ Score:          POST  127.0.0.1:<port>/score
 
 The logs from the inference server are generated in the following format, except for the launcher scripts since they aren't part of the python package: 
 
-`<UTC Time> | <level> [<pid\] <logger name> - <message>`
+`<UTC Time> | <level> [<pid>] <logger name> - <message>`
 
 Here `<pid>` is the process ID and `<level>` is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
