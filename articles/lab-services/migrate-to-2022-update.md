@@ -12,37 +12,21 @@ ms.date: 11/08/2022
 Use the following checklist to get started with Azure Lab Services August 2022 Update:
 
 > [!div class="checklist"]
-> - Create a lab plan.
-> - Request capacity.
-> - Configure shared resources.
-> - Create additional lab plans.
-> - Validate images.
-> - Create and publish labs.
-> - Update cost management reports.
+> - Create a lab plan
+> - Request capacity
+> - Configure shared resources
+> - Create additional lab plans
+> - Validate images
+> - Create and publish labs
+> - Update cost management reports
 
-Migrating from Azure Lab Services to Azure Lab Services August 2022 Update requires planning. This article describes process of migrating to the August 2022 Update in detail, and will help you understand the requirements and sequence of steps you should take for a successful migration.
+Migrating from Azure Lab Services to Azure Lab Services August 2022 Update can be complex, but provides opportunities for enhancing your Lab Services implementation. This article describes process of migrating to the August 2022 Update in detail, and will help you understand the requirements and sequence of steps you should take for a successful migration.
 
 If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both lab accounts and lab plans. Lab plans replace lab accounts in the August 2022 Update. Although similar in functionality, lab plans give you more flexibility in how you manage your Lab Services than lab accounts. You can read more about the differences between lab plans and lab accounts in [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
 
+More than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
+
 Lab accounts and lab plans can coexist in your subscription and share the same external resources. However, lab accounts and lab plans do not share capacity. You must request new capacity for lab plans even if you have existing capacity for lab accounts.
-
-## Lab scenarios
-
-You cannot migrate existing labs to the August 2022 Update. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.
-
-Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
-
-- **Multiple lab plans**
-
-  More than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
-
-- **Deleting and recreating labs**
-
-  Most schools delete their labs and recreate them each semester (or class session). You can schedule the move to the August 2022 Update during one of these transitions.  
-
-- **Reusing existing labs**
-
-  Some schools reuse the same labs each class session and change the student roster. With this approach, you must plan the creation of new labs to transition to, typically at the start of a new session.
 
 ## 1. Create a lab plan
 
@@ -108,6 +92,21 @@ Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](/az
 ## 6. Create and publish labs
 
 Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. Lab administrators and educators should validate performance based on common student workloads.
+
+### Lab strategies
+
+You cannot migrate existing labs to the August 2022 Update. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.
+
+- **Delete and recreate labs**
+
+  Most schools delete their labs and recreate them each semester (or class session). You can schedule the move to the August 2022 Update during one of these transitions.  
+
+- **Reuse existing labs**
+
+  Some schools reuse the same labs each class session and change the student roster. With this approach, you must plan the creation of new labs to transition to, typically at the start of a new session.
+
+> [!TIP]
+> Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
 
 ## 7. Update cost management reports
 
