@@ -276,16 +276,6 @@ public class TodoListController : ApiController
     }
 ```
 
-
-
-
-
-
-
-
-
-
-
 Instead, you can use the [Authorize(Roles = "access_as_application")] attributes on the controller or an action (or a razor page).
 
 ```CSharp
