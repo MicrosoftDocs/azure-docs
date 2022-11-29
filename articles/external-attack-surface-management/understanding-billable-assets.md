@@ -1,5 +1,6 @@
 ---
-title: Understanding billable assets
+title: Understand billable assets
+titleSuffix: Understand billable assets in Microsoft Defender EASM 
 description: This article describes how users will be billed for their Defender EASM resource usage, and guides them to the dashboard that displays their counts. 
 author: danielledennis
 ms.author: dandennis
@@ -8,7 +9,7 @@ ms.date: 11/28/2022
 ms.topic: how-to
 ---
 
-# Understanding billable assets
+# Understand billable assets
 
 When customers create their first Microsoft Defender External Attack Surface Management (Defender EASM) resource, they are automatically granted a 30-day free trial.  Once the trial has completed, customers will automatically be charged based on their count of billable assets.   The charged amount will appear on their core Azure billing, with “Defender EASM” appearing as separate line item on their invoice.
 
@@ -17,9 +18,9 @@ When customers create their first Microsoft Defender External Attack Surface Man
 
 The following kinds of assets are considered billable:  
 
-1. Approved hosts 
-2. Approved domains 
-3. Approved IP addresses 
+- Approved hosts 
+- Approved domains 
+- Approved IP addresses 
   
   
 Assets are only categorized as billable if they have been placed in the Approved Inventory state.  We do not charge for any other state. Additionally, duplicative host assets are NOT included in the billable asset count.  
@@ -47,7 +48,7 @@ The list is then analyzed to identify duplicate entries and eliminate duplicate 
 
 
 
-### Approved IP addressess 
+### Approved IP addresses 
 
 Excluding the IP addresses that resolve to a billable resolving host, all active IP addresses in the Approved Inventory state will be part of the billable IP address count.  
  
