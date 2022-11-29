@@ -298,6 +298,66 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 }
 ```
 
+## Modify disc size on an existing node type
+Service Fabric Managed Clusters enables you to modify the disc size for new nodes in an exsisting node type in place.  As you deploy and run your application, load increases or decreases may cause a need to change the disc size on a node type.  
+
+[!NOTE]
+While Azure is making updates to the node type, other changes cannot be made to the node type.  Service Fabric Managed Clusters will spin up new nodes with the new disc size; therefore, the old nodes have to be scaled down.  See the below on procedure to scale a node type.
+
+### Modify disc size using portal
+In this walkthrough, you will learn how to modify a disc size using portal.
+
+1) Log in to [Azure portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node Types` under the `Settings` section 
+
+4) Select `Change size` under the Data disk size
+
+5) Pick the size you wish and select ok
+
+6) select `Apply` at the bottom and wait for the changes to be applied
+
+
+### Modify disc size using arm template
+To adjust the disc size for a node type using an ARM Template, adjust the dataDiskSizeGB property with the new value(s) and do a cluster deployment for the setting to take effect. The below sample shows three values being set for a node type.
+
+The Service Fabric managed cluster resource apiVersion should be 2021-05-01 or later.
+
+```json
+ },
+            "properties": {
+                "isPrimary": true,
+                "vmImagePublisher": "MicrosoftWindowsServer",
+                "vmImageOffer": "WindowsServer",
+                "vmImageSku": "2019-Datacenter",
+                "vmImageVersion": "latest",
+                "vmSize": "Standard_D2s_v3",
+                "vmInstanceCount": 6,
+                "dataDiskSizeGB": 256,
+                "dataDiskType": "StandardSSD_LRS",
+                "dataDiskLetter": "S",
+                "placementProperties": {},
+                "capacities": {},
+                "applicationPorts": {
+                    "startPort": 20000,
+                    "endPort": 30000
+                },
+                "ephemeralPorts": {
+```
+
+### Modify disc size using powershell
+
+The following example will update and overwrite any existing disc properties for a given node type.
+
+```PowerShell
+$nt = Get-AzServiceFabricManagedNodeType -ResourceGroupName TestRG -ClusterName TestClusterName -Name test
+$nt.DataDiskSizeGB = 257
+$nt | Set-AzServiceFabricManagedNodeType
+```
+
 ## Configure placement properties for a node type
 [Placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) are used to ensure that certain workloads run only on certain node types in the cluster. Service Fabric managed clusters support configuring these properties via portal, ARM template, or PowerShell.
 
