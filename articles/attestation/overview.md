@@ -83,12 +83,12 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
                
 3.	**Validate binding of Azure Attestation SGX quote with the key that signed the attestation token** – Relying party can verify if hash of the public key that signed the attestation token matches the report data field of the Azure Attestation SGX quote. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/e7f296ee2ca1dd93b75acdc6bab0cc9a6a20c17c/sgx.attest.sample.oe.sdk/validatequotes.net/MaaQuoteValidator.cs#L78-L105)  for more information
 
-4.	**Validate if Azure Attestation code measurements match the Azure published values** -  The SGX quote embedded in attestation token signing certificates includes code measurements of Azure Attestation, like mrsigner. If relying party is interested to validate if the SGX quote belongs to Azure Attestation running inside Azure, mrsigner value can be retrieved from the SGX quote in attestation token signing certificate and compared with the value provided by Azure Attestation team. If you are interested to perform this validation, please submit a request on [Azure support](https://azure.microsoft.com/en-us/support/) page.
+4.	**Validate if Azure Attestation code measurements match the Azure published values** -  The SGX quote embedded in attestation token signing certificates includes code measurements of Azure Attestation, like mrsigner. If relying party is interested to validate if the SGX quote belongs to Azure Attestation running inside Azure, mrsigner value can be retrieved from the SGX quote in attestation token signing certificate and compared with the value provided by Azure Attestation team. If you are interested to perform this validation, please submit a request on [Azure support](https://azure.microsoft.com/en-us/support/) page. Azure Attestation team will reach out to you when Mrsigner is planned for rotation. 
 
 Mrsigner of Azure Attestation is expected to change when code signing certificates are rotated. Azure Attestation team will follow the below rollout schedule for every mrsigner rotation:
-1.	Azure Attestation team will notify the upcoming MRSIGNER value with a 2 month grace period for making relevant code changes
-2.	After the 2-month grace period, Azure Attestation will start using the new MRSIGNER value
-3.	3 months post notification date, Azure Attestation will stop using the old MRSIGNER value
+I.	Azure Attestation team will notify the upcoming MRSIGNER value with a 2 month grace period for making relevant code changes
+II.	After the 2-month grace period, Azure Attestation will start using the new MRSIGNER value
+III.	3 months post notification date, Azure Attestation will stop using the old MRSIGNER value
 
 
 ## Business Continuity and Disaster Recovery (BCDR) support
