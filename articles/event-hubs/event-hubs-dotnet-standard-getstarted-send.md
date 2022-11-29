@@ -48,20 +48,20 @@ This section shows you how to create a .NET Core console application to send eve
 ### [Passwordless](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.ServiceBus** and the **Azure.Identity** NuGet packages.
+1. Run the following command to install the **Azure.Messaging.EventHubs** and the **Azure.Identity** NuGet packages.
 
     ```powershell
-    Install-Package Azure.Messaging.ServiceBus
+    Install-Package Azure.Messaging.EventHubs
     Install-Package Azure.Identity
     ```
 
 ### [Connection String](#tab/connection-string)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
+1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```powershell
-    Install-Package Azure.Messaging.ServiceBus
+    Install-Package Azure.Messaging.EventHubs
     ```
 
 ---
