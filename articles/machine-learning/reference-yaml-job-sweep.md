@@ -225,7 +225,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `type` | const | **Required.** Identity type.  | `user_identity` |
 
-#### ManagedIdentityConfiguration| Key | Type | Description | Allowed values | | --- | ---- | ----------- | -------------- | | `type` | const | **Required.** Identity type.  | `managed` or `managed_identity` |
+#### ManagedIdentityConfiguration
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** Identity type.  | `managed` or `managed_identity` |
 
 ## Remarks
 
