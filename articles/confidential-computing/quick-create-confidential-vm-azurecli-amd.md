@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use the Azure CLI to create a Linux VM'
+title: Create an AMD-based confidential VM with the Azure CLI for Azure confidential computing
 description: In this quickstart, you learn how to use the Azure CLI to create a Confidential virtual machine
 author: simranparkhe
 ms.service: virtual-machines
