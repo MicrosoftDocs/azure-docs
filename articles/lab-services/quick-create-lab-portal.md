@@ -44,17 +44,17 @@ The following steps show how to create a lab with Azure Lab Services.
 
         :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
-    1. You can create a lab with a customized template VM, or with a VM image that has no customization. 
-       - Template labs allow you to create a customized template VM for the class and add software to it for the class. Your base image can be from a marketplace image or from your IT department(through a shared image gallery). 
-       - Templateless labs don't allow you to install any further software or tools on your image. You can use an Azure Marketplace image with the tools you need already installed, an image exported from a previous lab, or a pre-configured image supplied by your IT department. Templateless labs take around 5 minutes to create. </br></br>
+    1. You can create a lab with a customizable template VM, or with a VM image that has no customization. 
+       - Template labs allow you to create a customizable template VM for the class and add software to it for the class. Your base image can be from a marketplace image or from your IT department (through a shared image gallery). 
+       - Templateless labs don't allow you to install any further software or tools on your image. You can use an Azure Marketplace image with the tools you need already installed, an image exported from a previous lab, or a pre-configured image supplied by your IT department. Templateless labs take around 5 minutes to create. </br>
        
-       1. To create a lab with a customized template, on the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
+        1. To create a lab with a customizable template, on the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
 
         :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab with a custom template.":::
 
        **Or:**
 
-       ii. To create a templateless lab, on the **Template virtual machine settings** window, select **Use virtual machine image without customization**.
+        ii. To create a templateless lab, on the **Template virtual machine settings** window, select **Use virtual machine image without customization**.
 
         :::image type="content" source="./media/quick-create-lab-portal/templateless-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab without a template."::: 
 
