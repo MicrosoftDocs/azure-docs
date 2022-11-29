@@ -40,7 +40,7 @@ By default, API and SDK requests will use the latest Generally Available model. 
 
 Use the table below to find which model versions are supported by each feature:
 
-| Feature                                             | Supported versions          | Model versions to be deprecated October 30, 2022|
+| Feature                                             | Supported versions          | Model versions deprecated on October 30, 2022|
 |-----------------------------------------------------|-----------------------------|------------------------|
 | Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01*` | `2019-10-01`, `2020-04-01`                       |
 | Language Detection                                  | `2021-11-20*`               | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`                       |
