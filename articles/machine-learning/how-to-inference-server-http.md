@@ -95,7 +95,7 @@ Now you can modify the scoring script and test your changes by running the serve
 
 ## Server Routes
 
-The server is listening on port 5001 at these routes.
+The server is listening on port 5001 (as default) at these routes.
 
 | Name           | Route                |
 | -------------- | -------------------- |
