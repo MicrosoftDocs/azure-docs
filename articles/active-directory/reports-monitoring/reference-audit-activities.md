@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2022
+ms.date: 11/29/2022
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
@@ -17,333 +17,439 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
+Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, or group.
 
-The reporting architecture in Azure AD consists of the following components:
+This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-- **Activity reports** 
-    - [Sign-ins](concept-sign-ins.md) – Provides information about the usage of managed applications and user sign-in activities
-    - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
-    
-- **Security reports** 
-    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who isn't the legitimate owner of a user account. 
-    - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
-
-This article lists the audit activities that can be logged in your audit logs.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Please provide us feedback if you think there is a missing audit category or activity.
 
 ## Access reviews
 
+With [Azure AD Identity Governance access reviews](Manage user access with access reviews - Azure AD - Microsoft Entra | Microsoft Learn), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
+
+
 |Audit Category|Activity|
 |---|---|
-|Access Reviews|Access review ended|
-|Access Reviews|Add approver to request approval|
-|Access Reviews|Add reviewer to access review|
-|Access Reviews|Apply access review|
-|Access Reviews|Create access review|
-|Access Reviews|Create program|
-|Access Reviews|Create request approval|
-|Access Reviews|Delete access review|
-|Access Reviews|Delete program|
-|Access Reviews|Link program control|
-|Access Reviews|Onboard to Azure AD Access Reviews|
-|Access Reviews|Remove reviewer from access review|
-|Access Reviews|Request Stop Review|
-|Access Reviews|Request apply review result|
-|Access Reviews|Review RBAC Role membership|
-|Access Reviews|Review app assignment|
-|Access Reviews|Review group membership|
-|Access Reviews|Review request approval request|
-|Access Reviews|Unlink program control|
-|Access Reviews|Update Access Review|
-|Access Reviews|Update Azure AD Access Reviews Onboarding status|
-|Access Reviews|Update access review mail notification settings|
-|Access Reviews|Update access review recurrence count setting|
-|Access Reviews|Update access review recurrence duration in days setting|
-|Access Reviews|Update access review recurrence end type setting|
-|Access Reviews|Update access review recurrence type setting|
-|Access Reviews|Update access review reminder settings|
-|Access Reviews|Update program|
-|Access Reviews|Update request approval|
-|Access Reviews|User disabled|
+|DirectoryManagement|Create program|
+|DirectoryManagement|Link program control|
+|DirectoryManagement|Unlink program control|
+|Policy|Access review ended|
+|Policy|Apply decision|
+|Policy|Approve decision|
+|Policy|Bulk Approve decisions|
+|Policy|Bulk Deny decisions|
+|Policy|Bulk Reset decisions|
+|Policy|Bulk mark decisions as don't know|
+|Policy|Cancel request|
+|Policy|Create access review|
+|Policy|Create request|
+|Policy|Delete access review|
+|Policy|Delete approvals|
+|Policy|Deny decision|
+|Policy|Don't know decision|
+|Policy|Request expired|
+|Policy|Reset decision|
+|Policy|Update access review|
+|Policy|Update partner directory settings|
+|Policy|Update request|
+|UserManagement|Apply review|
+|UserManagement|Approve all requests in business flow|
+|UserManagement|Auto review|
+|UserManagement|Auto apply review|
+|UserManagement|Create business flow|
+|UserManagement|Create governance policy template|
+|UserManagement|Delete access review|
+|UserManagement|Delete business flow|
+|UserManagement|Delete governance policy template|
+|UserManagement|Deny all decisions|
+|UserManagement|Deny all requests in business flow|
+|UserManagement|Request approved|
+|UserManagement|Request denied|
+|UserManagement|Update business flow|
+|UserManagement|Update governance policy template|
 
 ## Account provisioning
 
 |Audit Category|Activity|
 |---|---|
-|Application Management|Retrieve V2 application permissions grants|
-|Application Management|Retrieve V2 application service principals in the current tenant|
-|Application Management|Update V1 application|
-|Application Management|Update V2 application|
-|Application Management|Update V2 application permission grant|
-|Application Management|Add OAuth2PermissionGrant|
-|Application Management|Add app role assignment to service principal|
+|ProvisioningManagement|Add provisioning configuration|
+|ProvisioningManagement|Delete provisioning configuration|
+|ProvisioningManagement|Disable/pause provisioning configuration|
+|ProvisioningManagement|Enable/restart provisioning configuration|
+|ProvisioningManagement|Enable/start provisioning configuration|
+|ProvisioningManagement|Export|
+|ProvisioningManagement|Import|
+|ProvisioningManagement|Other|
+|ProvisioningManagement|Process escrow|
+|ProvisioningManagement|Quarantine|
+|ProvisioningManagement|Synchronization rule action|
+|ProvisioningManagement|Update attribute mappings or scope|
+|ProvisioningManagement|Update provisioning setting or credentials|
+|ProvisioningManagement|User Provisioning|
 
 ## Application proxy
 
 |Audit Category|Activity|
 |---|---|
 |Application Management|Add application|
-|Application Management|Add owner to application|
-|Application Management|Add owner to service principal|
-|Application Management|Add policy to service principal|
-|Directory Management|Add service principal|
-|Directory Management|Add service principal credentials|
-|Directory Management|Consent to application|
-|Directory Management|Delete application|
-|Directory Management|Hard Delete application|
-|Directory Management|Remove OAuth2PermissionGrant|
-|Directory Management|Remove app role assignment from service principal|
-|Directory Management|Remove owner from application|
-|Resource|Remove owner from service principal|
-|Resource|Remove policy from service principal|
-|Resource|Remove service principal|
+|Application Management|Delete application|
+|Application Management|Update application|
 
+|Authentication|Add a group to feature rollout|
+|Authentication|Create rollout policy for feature|
+|Authentication|Delete rollout policy of feature|
+|Authentication|Remove a group from feature rollout|
+|Authentication|Remove user from feature rollout|
+|Authentication|Update rollout policy of feature|
+|DirectoryManagement|Disable Desktop Sso|
+|DirectoryManagement|Disable Desktop Sso for a specific domain|
+|DirectoryManagement|Disable application proxy|
+|DirectoryManagement|Disable passthrough authentication|
+|DirectoryManagement|Enable Desktop Sso|
+|DirectoryManagement|Enable Desktop Sso for a specific domain|
+|DirectoryManagement|Enable application proxy|
+|DirectoryManagement|Enable passthrough authentication
+|ResourceManagement|Add connector Group|
+|ResourceManagement|Add a Connector to Connector Group|
+|ResourceManagement|Add application SSL certificate|
+|ResourceManagement|Delete Connector Group|
+|ResourceManagement|Delete SSL binding|
+|ResourceManagement|Register connector|
+|ResourceManagement|Update Connector Group|
 
-## Automated password rollover
+## Authentication Methods
 
 |Audit Category|Activity|
 |---|---|
-|Application Management|Remove service principal credentials|
+|ApplicationManagement|Assign Hardware Oath Token|
+|ApplicationManagement|Authentication Methods Policy Reset|
+|ApplicationManagement|Authentication Methods Policy Update|
+|ApplicationManagement|Authentication Strength Combination Configuration Create |
+|ApplicationManagement|Authentication Strength Combination Configuration Delete|
+|ApplicationManagement|Authentication Strength Combination Configuration Update|
+|ApplicationManagement|Authentication Strength Policy Create|
+|ApplicationManagement|Authentication Strength Policy Delete|
+|ApplicationManagement|Authentication Strength Policy Update|
+|ApplicationManagement|Bulk upload Hardware Oath Token|
+|ApplicationManagement|Create Hardware Oath Token|
+|ApplicationManagement|DELETE Subscription.DeleteProviders|
+|ApplicationManagement|DELETE Tenant.DeleteAgentStatuses|
+|ApplicationManagement|DELETE Tenant.DeleteCaches|
+|ApplicationManagement|DELETE Tenant.DeleteGreetings|
+|ApplicationManagement|Delete Hardware Oath Token|
+|ApplicationManagement|PATCH Tenant.Patch|
+|ApplicationManagement|PATCH Tenant.PatchCaches|
+|ApplicationManagement|PATCH UserAuthMethod.PatchSignInPreferencesAsync|
+|ApplicationManagement|POST SoundFile.Post|
+|ApplicationManagement|Subscription.CreateProvider|
+|ApplicationManagement|Subscription.CreateSubscription|
+|ApplicationManagement|POST Tenant.CreateBlockedUser|
+|ApplicationManagement|POST Tenant.CreateBypassedUser|
+|ApplicationManagement|POST Tenant.CreateCacheConfig|
+|ApplicationManagement|POST Tenant.CreateGreeting|
+|ApplicationManagement|POST Tenant.CreateOemTenant|
+|ApplicationManagement|POST Tenant.CreateTenant|
+|ApplicationManagement|POST Tenant.GenerateNewActivationCredentials|
+|ApplicationManagement|POST Tenant.RemoveBlockedUser|
+|ApplicationManagement|POST Tenant.RemoveBypassedUser|
+|ApplicationManagement|Update Hardware Oath Token|
 
+|UserManagement|User deleted security info|
+|UserManagement|User registered security info|
+|UserManagement|User updated security info|
+|UserManagement|Admin deleted security info|
+|UserManagement|Admin registered security info|
+|UserManagement|Admin started password reset|
+|UserManagement|Admin updated security info|
+|UserManagement|User cancelled security info registration|
+|UserManagement|User changed default security info|
+|UserManagement|User deleted security info|
+|UserManagement|User registered all required security info|
+|UserManagement|User registered security info|
+|UserManagement|User reviewed security info|
+|UserManagement|User started password change|
+|UserManagement|user started password reset|
+|UserManagement|User started security info registration|
+
+## Azure AD Recommendations
+
+|Audit Category|Activity|
+|---|---|
+|DirectoryManagement|Dismiss recommendation|
+|DirectoryManagement|Mark recommendation as complete|
+|DirectoryManagement|Postpone recommendation|
+
+## Azure MFA
+
+|Audit Category|Activity|
+|---|---|
+|UserManagement|Fraud reported - no action taken|
+|UserManagement|Fraud reported - user is blocked for MFA|
+|UserManagement|Suspicious activity reported|
+|UserManagement|User registered security info|
 
 ## B2C
 
 |Audit Category|Activity|
 |---|---|
-|Application Management|Restore application|
-|Application Management|Revoke consent|
-|Application Management|Update application|
-|Application Management|Update external secrets|
-|Application Management|Update service principal|
-|Application Management|Issue an access token to the application|
-|Application Management|Issue an authorization code to the application|
-|Application Management|Issue an id_token to the application|
-|Application Management|Validate local account credentials|
-|Application Management|Validate user authentication|
-|Application Management|Add V2 application permissions|
-|Application Management|Add a key based on ASCII secret to a CPIM key container|
-|Application Management|Add a key to a CPIM key container|
-|Application Management|AdminPolicyDatas-SetResources|
-|Application Management|AdminUserJourneys-GetResources|
-|Application Management|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Create IdentityProvider|
-|Authentication|Create V1 application|
-|Authentication|Create V2 application|
-|Authentication|Create a custom domain in the tenant|
-|Authorization|Create a new AdminUserJourney|
-|Authorization|Create localized resource json|
-|Authorization|Create new Custom IDP|
-|Authorization|Create new IDP|
+|ApplicationManagement|Add V2 application permissions|
+|ApplicationManagement|Create V2 application|
+|ApplicationManagement|Delete V2 application|
+|ApplicationManagement|Delete V2 application permission grant|
+|ApplicationManagement|Get V1 and V2 applications|
+|ApplicationManagement|Get V1 application|
+|ApplicationManagement|Get V1 applications|
+|ApplicationManagement|Get V2 application|
+|ApplicationManagement|Get V2 applications|
+|ApplicationManagement|Retrieve V2 application permissions grants|
+|ApplicationManagement|Retrieve V2 application service principals|
+|ApplicationManagement|Update V2 application|
+|ApplicationManagement|Update V2 application permission grant|
+|Authentication|A self-service sign up request was completed|
+|Authentication|An API was called as part of a user flow|
+|Authentication|Delete all available strong authentication devices|
+|Authentication|Evaluate conditional access policies|
+|Authentication|Exchange token|
+|Authentication|Federate with an identity provider|
+|Authentication|Get available strong authentication devices|
+|Authentication|Issue a SAML assertion to the application|
+|Authentication|Issue an access token to the application|
+|Authentication|Issue an authorization code to the application|
+|Authentication|Issue an id_token to the application|
+|Authentication|Make phone call to verify phone number|
+|Authentication|Register TOTP secret|
+|Authentication|Remediate user|
+|Authentication|Send SMS to verify phone number|
+|Authentication|Send verification email|
+|Authentication|Validate Client Credentials|
+|Authentication|Validate local account credentials|
+|Authentication|Validate user authentication|
+|Authentication|Verify email address|
+|Authentication|verify one time password|
+|Authentication|Verify phone number|
+
+|Authorization|Add v2 application permissions|
+|Authorization|Check whether the resource name is available|
+|Authorization|Create Api connector|
+|Authorization|Create Identity Provider|
+|Authorization|Create authenticationEventListener|
+|Authorization|Create authenticationEventsFlow|
+|Authorization|Create custom identity provider|
+|Authorization|Create custom policy|
+|Authorization|Create customAuthenticationExtension|
+|Authorization|Create identity provider|
 |Authorization|Create or update a B2C directory resource|
-|Authorization|Create policy|
-|Authorization|Create trustFramework policy|
-|Authorization|Create trustFramework policy with configurable prefix|
+|Authorization|Create or update a B2C directory tenant and resource|
+|Authorization|Create or update a CIAM directory tenant and resource|
+|Authorization|Create or update a Guest Usages resource|
+|Authorization|Create or update loacalized resource|
+|Authorization|Create policy key|
 |Authorization|Create user attribute|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Creates or Update a new AdminUserJourney|
-|Authorization|Delete IDP|
-|Authorization|Delete IdentityProvider|
-|Authorization|Delete V1 application|
-|Authorization|Delete V2 application|
-|Authorization|Delete V2 application permission grant|
-|Authorization|Delete a B2C directory resource|
-|Authorization|Delete a CPIM key container|
-|Authorization|Delete trustFramework policy|
+|Authorization|Create user flow|
+|Authorization|Create v2 application|
+|Authorization|Delete Api connector|
+|Authorization|Delete B2C Tenant where the caller is an administrator|
+|Authorization|B2C directory resource|
+|Authorization|Delete CIAM directory resource|
+|Authorization|Delete Guest Usages resource|
+|Authorization|Delete Identity Provider|
+|Authorization|Delete authenticationEventlistener|
+|Authorization|Delete authenticationEventsFlow|
+|Authorization|Delete custom policy|
+|Authorization|Delete customAuthenticationExtension|
+|Authorization|Delete identity provider|
+|Authorization|Delete localized resource|
+|Authorization|Delete policy key|
 |Authorization|Delete user attribute|
-|Authorization|Enable B2C feature|
+|Authorization|Delete user flow|
+|Authorization|Delete v2 application|
+|Authorization|Delete v2 application permission grant|
+|Authorization|Generate key|
+|Authorization|Get Api connector|
+|Authorization|Get Api connectors|
+|Authorization|Get B2C Tenants where the caller is an administrator|
+|Authorization|Get B2C directory resource|
+|Authorization|Get B2C directory resources in a resource group|
 |Authorization|Get B2C directory resources in a subscription|
-|Authorization|Get Custom IDP|
-|Authorization|Get IDP|
-|Authorization|Get V1 and V2 applications|
-|Authorization|Get V1 application|
-|Authorization|Get V1 applications|
-|Authorization|Get V2 application|
-|Authorization|Get V2 applications|
-|Authorization|Get a B2C directory resource|
-|Authorization|Get a list of custom domains in the tenant|
-|Authorization|Get a user journey|
-|Authorization|Get allowed application claims for user journey|
-|Authorization|Get allowed self-asserted claims for user journey|
-|Authorization|Get allowed self-asserted claims of policy|
-|Authorization|Get available output claims list|
-|Authorization|Get content definitions for user journey|
-|Authorization|Get idps for a specific admin flow|
-|Authorization|Get key container active key metadata in JWK|
-|Authorization|Get list of all admin flows|
-|Authorization|Get list of tags for all admin flows for all users|
-|Authorization|Get list of tenants for a user|
-|Authorization|Get local accounts' self-asserted claims|
-|Authorization|Get localized resource json|
+|Authorization|Get CIAM directory resource|
+|Authorization|Get CIAM directory resources in a resource group|
+|Authorization|Get CIAM directory resources in a subscription|
+|Authorization|Get Guest Usages resources|
+|Authorization|Get Guest Usages resources in a subscription|
+|Authorization|Get Identity Provider|
+|Authorization|Get Identity Providers|
+|Authorization|Get OnAttributeCollectionStartCustomExtension|
+|Authorization|Get OnAttributeCollectionSubmitCustomExtension|
+|Authorization|Get OnPageRenderStartCustomExtension|
+|Authorization|Get active key metadata from policy key|
+|Authorization|Get age gating configuration|
+|Authorization|Get authentication flows policy|
+|Authorization|Get authenticationEventListener|
+|Authorization|Get authenticationEventsFlow|
+|Authorization|Get authenticationEventsFlows|
+|Authorization|Get available output claims|
+|Authorization|Get configured custom identity providers|
+|Authorization|Get configured identity providers|
+|Authorization|Get configured local identity providers|
+|Authorization|Get custom domains|
+|Authorization|Get custom identity provider|
+|Authorization|Get custom policies|
+|Authorization|Get custom policy|
+|Authorization|Get custom policy metadata|
+|Authorization|Get customAuthenticationExtension|
+|Authorization|Get customAuthenticationExtensions
+|Authorization|Get identity provider|
+|Authorization|Get identity provider types|
+|Authorization|Get identity providers|
+|Authorization|Get list of tenants|
+|Authorization|Get localized resource|
+|Authorization|Get operation status for an async operation|
 |Authorization|Get operations of Microsoft.AzureActiveDirectory resource provider|
-|Authorization|Get policies|
-|Authorization|Get policy|
+|Authorization|Get policy key|
+|Authorization|Get policy keys|
 |Authorization|Get resource properties of a tenant|
-|Authorization|Get supported IDP list|
-|Authorization|Get supported IDP list of the user journey|
-|Authorization|Get tenant Info|
-|Authorization|Get tenant allowed features|
-|Authorization|Get tenant defined Custom IDP list|
-|Authorization|Get tenant defined IDP list|
-|Authorization|Get tenant defined local IDP list|
-|Authorization|Get tenant details for a user for resource creation|
-|Authorization|Get tenant list|
-|Authorization|Get tenantDomains|
-|Authorization|Get the default supported culture for CPIM|
-|Authorization|Get the details of an admin flow|
-|Authorization|Get the list of UserJourneys for this tenant|
-|Authorization|Get the set of available supported cultures for CPIM|
-|Authorization|Get trustFramework policy|
-|Authorization|Get trustFramework policy as xml|
+|Authorization|Get supported cultures|
+|Authorization|Get supported identity providers|
+|Authorization|Get supported page contracts|
+|Authorization|Get tenant details|
+|Authorization|Get tenant domains|
+|Authorization|Get the authenticationEventsPolicy|
 |Authorization|Get user attribute|
 |Authorization|Get user attributes|
-|Authorization|Get user journey list|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|Gets a CPIM key container in jwk format|
-|Authorization|Gets list of key containers in the tenant|
-|Authorization|Gets the type of tenant|
-|Authorization|MigrateTenantMetadata|
-|Authorization|Patch IdentityProvider|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|Remove a user journey|
-|Authorization|Restore a CPIM key container backup|
-|Authorization|Retrieve V2 application permissions grants|
-|Authorization|Retrieve V2 application service principals in the current tenant|
-|Authorization|Update Custom IDP|
-|Authorization|Update IDP|
-|Authorization|Update Local IDP|
-|Authorization|Update V1 application|
-|Authorization|Update V2 application|
-|Authorization|Update V2 application permission grant|
-|Authorization|Update policy|
+|Authorization|Get user flow|
+|Authorization|Get user flows|
+|Authorization|Get v1 and v2 applications|
+|Authorization|Get v1 application|
+|Authorization|Get v1 applications|
+|Authorization|Get v2 application|
+|Authorization|Get v2 applications|
+|Authorization|Initialize tenant|
+|Authorization|Move resources|
+|Authorization|Restore policy key|
+|Authorization|Retrieve v2 application permissions grants|
+|Authorization|Retrieve v2 application service principals|
+|Authorization|Update Api connector|
+|Authorization|Update Identity Provider|
+|Authorization|Update OnAttributeCollectionStartCustomExtension|
+|Authorization|Update OnAttributeCollectionSubmitCustomExtension|
+|Authorization|Update OnPageRenderStartCustomExtension|
+|Authorization|Update a B2C directory resource|
+|Authorization|Update a CIAM directory resource|
+|Authorization|Update a Guest Usages resource|
+|Authorization|Update age gating configuration|
+|Authorization|Update authentication flows policy
+|Authorization|Update authenticationEventListener|
+|Authorization|Update authenticationEventsFlow|
+|Authorization|Update authenticationEventsPolicy|
+|Authorization|Update custom identity provider|
+|Authorization|Update custom policy|
+|Authorization|Update customAuthenticationExtension|
+|Authorization|Update identity provider|
+|Authorization|Update local identity provider|
+|Authorization|Update policy key|
+|Authorization|Update subscription status|
 |Authorization|Update user attribute|
-|Authorization|Upload a CPIM encrypted key|
-|Authorization|User Authorization: API is disabled for tenant feature set|
-|Authorization|User Authorization: User granted access as 'Tenant Admin'|
-|Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
-|Authorization|Verify if B2C feature is enabled|
-|Authorization|Verify if feature is enabled|
-|Authorization|Create program|
-|Authorization|Delete program|
-|Authorization|Link program control|
-|Authorization|Onboard to Azure AD Access Reviews|
-|Authorization|Unlink program control|
-|Authorization|Update program|
-|Authorization|Disable Desktop SSO|
-|Authorization|Disable Desktop SSO for a specific domain|
-|Authorization|Disable application proxy|
-|Authorization|Disable passthrough authentication|
-|Authorization|Enable Desktop SSO|
-|Directory Management|Enable Desktop SSO for a specific domain|
-|Directory Management|Enable application proxy|
-|Directory Management|Enable passthrough authentication|
-|Directory Management|Create a custom domains in the tenant|
-|Directory Management|Enable B2C feature|
-|Directory Management|Get a list of custom domains in the tenant|
-|Directory Management|Get resource properties of a tenant|
-|Directory Management|Get tenant Info|
-|Directory Management|Get tenant allowed features|
-|Directory Management|Get tenantDomains|
-|Key|Gets the type of tenant|
-|Key|Verify if B2C feature is enabled|
-|Key|Verify if feature is enabled|
-|Key|Add partner to company|
-|Key|Add unverified domain|
-|Key|Add verified domain|
-|Key|Create company|
-|Key|Create company settings|
-|Key|Delete company settings|
-|Key|Demote partner|
-|Key|Directory deleted|
-|Other|Directory deleted permanently|
-|Other|Directory scheduled for deletion|
-|Resource|Promote company to partner|
-|Resource|Purge rights management properties|
-|Resource|Remove partner from company|
-|Resource|Remove unverified domain|
-|Resource|Remove verified domain|
-|Resource|Set Company Information|
-|Resource|Set DirSync feature|
-|Resource|Set DirSyncEnabled flag|
-|Resource|Set Partnership|
-|Resource|Set accidental deletion threshold|
-|Resource|Set company allowed data location|
-|Resource|Set company multinational feature enabled|
-|Resource|Set directory feature on tenant|
-|Resource|Set domain authentication|
-|Resource|Set federation settings on domain|
-|Resource|Set password policy|
-|Resource|Set rights management properties|
-|Resource|Update company|
-|Resource|Update company settings|
-|Resource|Update domain|
-|Resource|Verify domain|
-|Resource|Verify email verified domain|
-|Resource|Onboarding|
-|Resource|Update alert settings|
-|Resource|Update weekly digest settings|
-|Resource|Disable password writeback for directory|
-|Resource|Enable password writeback for directory|
-|Resource|Add app role assignment to group|
-|Resource|Add group|
-|Resource|Add member to group|
-|Resource|Add owner to group|
-|Resource|Create group settings|
-|Resource|Delete group|
-|Resource|Delete group settings|
-|Resource|Finish applying group based license to users|
-|Resource|Hard Delete group|
-|Resource|Remove app role assignment from group|
-|Resource|Remove member from group|
-|Resource|Remove owner from group|
-|Resource|Restore Group|
-|Resource|Set group license|
-|Resource|Set group to be managed by user|
-|Resource|Start applying group based license to users|
-|Resource|Trigger group license recalculation|
-|Resource|Update group|
-|Resource|Update group settings|
-|Resource|Add Member|
-|Resource|Create Group|
-|Resource|Delete Group|
-|Resource|Remove Member|
-|Resource|Update Group|
-|Resource|Approve a pending request to join a group|
-|Resource|Cancel a pending request to join a group|
-|Resource|Create lifecycle management policy|
-|Resource|Delete a pending request to join a group|
-|Resource|Reject a pending request to join a group|
-|Resource|Renew group|
-|Resource|Request to join a group|
-|Resource|Set dynamic group properties|
-|Resource|Update lifecycle management policy|
-|Resource|Add a key based on ASCII secret to a CPIM key container|
-|Resource|Add a key to a CPIM key container|
-|Resource|Delete a CPIM key container|
-|Resource|Delete key container|
-|Resource|Get key container active key metadata in JWK|
-|Resource|Get key container metadata|
-|Resource|Gets a CPIM key container in jwk format|
-|Resource|Gets list of key containers in the tenant|
-|Resource|Restore a CPIM key container backup|
-|Resource|Save key container|
-|Resource|Upload a CPIM encrypted key|
-|Resource|Issue an authorization code to the application|
-|Resource|Issue an id_token to the application|
+|Authorization|Update user flow|
+|Authorization|Update v2 application|
+|Authorization|Update v2 application permission grant|
+|Authorization|Upload certificate to policy key|
+|Authorization|Upload key to policy key|
+|Authorization|Upload secret into policy key|
+|Authorization|Validate customExtension authenticationConfiguration|
+|Authorization|Validate move resources|
+|Directory Management|Get age gating configuration|
+|Directory Management|Get custom domains|
+|Directory Management|Get list of tenants|
+|Directory Management|Get resources properties of a tenant|
+|Directory Management|Get tenant details|
+|Directory Management|Get tenant domains|
+|Directory Management|Initialize tenant|
+|Directory Management|update age gating configuration|
+|IdentityProtection|Evaluate conditional access policies|
+|IdentityProtection|Remediate user|
+|KeyManagement|Create policy key|
+|KeyManagement|Delete policy key|
+|KeyManagement|Get active key metadata from policy key|
+|KeyManagement|Get policy key|
+|KeyManagement|Get policy keys|
+|KeyManagement|Restore policy key|
+|KeyManagement|Upload key to policy key|
+|KeyManagement|Upload secret into policy key|
+|Other|Generate one time password|
+|Other|Verify one time password|
+|PolicyManagement|Create authenticationEventListener|
+|PolicyManagement|Create authenticationEventsFlow|
+|PolicyManagement|Create customAuthenticationExtension|
+|PolicyManagement|Delete authenticationEventListener|
+|PolicyManagement|Delete authenticationEventsFlow|
+|PolicyManagement|Delete customAuthenticationExtension|
+|PolicyManagement|Get OnAttributeCollectionStartCustomExtension|
+|PolicyManagement|Get OnAttributeCollectionSubmitCustomExtension|
+|PolicyManagement|Get OnPageRenderStartCustomExtension|
+|PolicyManagement|Get authenticationEventListener|
+|PolicyManagement|Get authenticationEventListeners|
+|PolicyManagement|Get authenticationEventsFlow|
+|PolicyManagement|Get authenticationEventsFlows|
+|PolicyManagement|Get customAuthenticationExtension|
+|PolicyManagement|Get customAuthenticationExtensions|
+|PolicyManagement|Get the authenticationEventsPolicy
+|PolicyManagement|Update OnAttributeCollectionStartCustomExtension|
+|PolicyManagement|Update OnAttributeCollectionSubmitCustomExtension|
+|PolicyManagement|Update OnPageRenderStartCustomExtension|
+|PolicyManagement|Update authenticationEventListener|
+|PolicyManagement|Update authenticationEventsFlow|
+|PolicyManagement|Update authenticationEventsPolicy|
+|PolicyManagement|Update customAuthenticationExtension|
+|PolicyManagement|Validate customExtension authenticationConfiguration|
+|ResourceManagement|Check whether the resource name is available|
+|ResourceManagement|Create Api connector|
+|ResourceManagement|Create Identity Provider|
+|ResourceManagement|Create custom identity provider|
+|ResourceManagement|Create custom policy|
+|ResourceManagement|Create identity provider|
+|ResourceManagement|Create or update a B2C directory resource|
+|ResourceManagement|Create or update a B2C directory tenant and resource|
+|ResourceManagement|Create or update a CIAM directory tenant and resource|
+|ResourceManagement|Create or update a Guest Usages resources|
+|ResourceManagement|Create or update a localized resource|
+|ResourceManagement|Create policy key|
+|ResourceManagement|Create user attribute|
+|ResourceManagement|Create user flow|
 
+## Conditional Access
+
+|Audit Category|Activity|
+|---|---|
+|Policy|Add AuthenticationContextClassReference|
+|Policy|Add conditional access policy|
+|Policy|Add named location|
+|Policy|Delete AuthenticationContextClassReference|
+|Policy|Delete conditional access policy|
+|Policy|Delete named location|
+|Policy|Update AuthenticationContextClassReference|
+|Policy|Update conditional access policy|
+|Policy|Update continuous access evaluation|
+|Policy|Update named location|
+|Policy|Update security defaults|
 
 ## Core directory
 
 |Audit Category|Activity|
 |---|---|
-|Administrative Unit Management|Download a single risk detection type|
-|Administrative Unit Management|Download admins and status of weekly digest opt-in|
-|Administrative Unit Management|Download all risk detection types|
-|Administrative Unit Management|Download free user risk detections|
-|Administrative Unit Management|Download users flagged for risk|
+|AdministrativeUnit|Add administrative unit|
+|AdministrativeUnit|Add member to administrative unit|
+|AdministrativeUnit|Add member to restricted management administrative unit|
+|AdministrativeUnit|Delete administrative unit|
+|AdministrativeUnit|Hard Delete administrative unit|
+|AdministrativeUnit|Remove member from administrative unit|
+|AdministrativeUnit|Remove member from restricted management administrative unit|
+|AdministrativeUnit|Restore administrative unit|
+|AdministrativeUnit|Update administrative unit|
+|Agreement|Add agreement|
+|Agreement|Delete agreement|
+|Agreement|Hard delete agreement|
+|Agreement|Update agreement|
+
 |Application Management|Batch invites processed|
 |Application Management|Batch invites uploaded|
 |Application Management|Add owner to policy|
@@ -367,6 +473,7 @@ This article lists the audit activities that can be logged in your audit logs.
 |Application Management|AdminPolicyDatas-RemoveResources|
 |Application Management|AdminPolicyDatas-SetResources|
 |Application Management|AdminUserJourneys-GetResources|
+
 |Directory Management|AdminUserJourneys-RemoveResources|
 |Directory Management|AdminUserJourneys-SetResources|
 |Directory Management|Create company|

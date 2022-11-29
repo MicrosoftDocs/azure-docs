@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/03/2022
+ms.date: 11/23/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -44,7 +44,7 @@ There are currently three reports available in Azure AD Usage & insights. All th
 
 ### Azure AD application activity (preview)
 
-The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
+The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. Any application activity during the selected date range appears in the report. It's possible that activity for a deleted application may appear in the report, if the activity took place during the selected date range and before the application was deleted. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
 
 Select the **View sign in activity** link for an application to view more details. The sign-in graph per application counts interactive user sign-ins. The details of any sign-in failures appears below the table. 
 
