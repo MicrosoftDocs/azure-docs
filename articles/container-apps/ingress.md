@@ -98,7 +98,7 @@ You can get access to the environment's unique identifier by querying the enviro
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
-## Inbound access restrictions by IP address ranges (preview)
+## <a name="ip-access-restrictions"></a>Inbound access restrictions by IP address ranges (preview)
 
 By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
 
