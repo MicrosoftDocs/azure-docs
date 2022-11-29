@@ -21,6 +21,7 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 ## Prerequisites
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To use all advanced security capabilities provided by GitHub Connector in Defender for DevOps you need to have GitHub Enterprise with GitHub Advanced Security (GHAS)
 
 
 ## Availability
