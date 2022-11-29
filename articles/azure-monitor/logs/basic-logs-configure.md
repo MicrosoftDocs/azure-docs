@@ -1,6 +1,6 @@
 ---
 title: Set a table's log data plan to Basic Logs or Analytics Logs
-description: Learn how to use Basic Logs and Analytics Logs to optimize reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
+description: Learn how to use Basic Logs and Analytics Logs to reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
