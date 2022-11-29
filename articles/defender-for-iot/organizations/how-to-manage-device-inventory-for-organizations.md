@@ -47,13 +47,13 @@ The device details page displays comprehensive device details, including:
 
 - **Attributes**. Displays full device details such as class, data source, firmware details, activity, type, protocols, purdue level, sensor, site, zone, and more.
 
-- **Backplane**. Displays the backplane hardware configuration, including slot and rack information. Each slot in the Backplane view shows the details of the underlying devices. The backplane tab is visible for PLC, RTU, and DCS devices.
+- **Backplane**. Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is visible for PLC, RTU, and DCS devices that have slots in use.
 
 - **Vulnerabilities**. Displays current vulnerabilities on the device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description.
 
 - **Alerts**. Displays current open alerts. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alert details](how-to-manage-cloud-alerts.md#view-alert-details).
 
-- **Recommendations**. Displays current recommendations for the device. Recommendations help users form actionable, prioritized mitigation plans. Recommendations available include Review PLC operating mode and Review unauthorized devices.
+- **Recommendations**. Displays current recommendations for the device, such as [Review PLC operating mode and Review unauthorized devices](whats-new.md#security-recommendations-for-ot-networks-public-preview) to help users form actionable, prioritized mitigation plans. 
 
     For example:
 
