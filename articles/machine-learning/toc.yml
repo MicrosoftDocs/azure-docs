@@ -627,8 +627,10 @@
         - name: Inference HTTP server
           displayName: local debug
           href: how-to-inference-server-http.md
-    - name: Manage the ML lifecycle
+    - name: Manage the ML lifecycle (MLOps)
       items:
+        - name: Setup MLOps with AzureML and Azure DevOps
+          href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
         - name: Manage models with MLflow
