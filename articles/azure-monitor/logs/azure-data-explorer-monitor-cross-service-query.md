@@ -29,10 +29,9 @@ Use Azure Data Explorer to query data that was exported from your Log Analytics 
 :::image type="content" source="media\azure-data-explorer-query-storage\exported-data-query.png" lightbox="media\azure-data-explorer-query-storage\exported-data-query.png" alt-text="Diagram that depicts a query from Azure Data Explorer to data exported from a Log Analytics workspace to an Azure storage account.":::
 
 >[!tip] 
-> * To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. [See Log Analytics workspace data export in Azure Monitor](/azure/data-explorer/query-monitor-data).
+> To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the [Log Analytics workspace data export feature](/azure/data-explorer/query-monitor-data).
 
 ## Next steps
-Learn more about:
-* [create cross service queries between Azure Data Explorer and Azure Monitor](/azure/data-explorer/query-monitor-data). Query Azure Monitor data from Azure Data Explorer
-* [create cross service queries between Azure Monitor and Azure Data Explorer](./azure-monitor-data-explorer-proxy.md). Query Azure Data Explorer data from Azure Monitor
-* [Log Analytics workspace data export in Azure Monitor](/azure/data-explorer/query-monitor-data). Link and query Azure Blob storage account with Log Analytics Exported data.
+Learn how to:
+* [Query data in Azure Monitor from Azure Data Explorer](/azure/data-explorer/query-monitor-data). 
+* [Query data in Azure Data Explorer from Azure Monitor](./azure-monitor-data-explorer-proxy.md). 
