@@ -1,9 +1,6 @@
 ---
 title: "Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
-services: azure-arc, aks
-ms.service: azure-arc
 ms.date: 10/24/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022

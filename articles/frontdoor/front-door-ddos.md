@@ -43,7 +43,7 @@ Front Door is a large scaled, globally distributed service. We have many custome
 
 ## For further protection
 
-If you require further protection, then you can enable [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+If you require further protection, then you can enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
 
 ## Next steps
 
