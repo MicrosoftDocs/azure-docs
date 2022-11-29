@@ -19,11 +19,11 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 > * List connection information
 > * Connect to individual instances using SSH
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-powershell-prepare-your-environment.md](../../includes/azure-powershell-prepare-your-environment.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-This article requires version 2.0.29 or later of the Azure PowerShell. If using Azure Cloud Shell, the latest version is already installed. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## List instances in a scale set
