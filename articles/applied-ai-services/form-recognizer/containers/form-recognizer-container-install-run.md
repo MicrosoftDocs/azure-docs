@@ -86,12 +86,12 @@ The following table lists the supporting container(s) for each Form Recognizer c
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1 | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
-| Business Card 2.1 | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
-| ID Document 2.1 | 1 core, 2-GB memory |2 cores, 2-GB memory |
-| Invoice 2.1 | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
-| Receipt 2.1 |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
+| Read 3.2 | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| Layout 2.1 | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| Business Card 2.1 | `2` cores, 4-GB memory | `4` cores, 4-GB memory |
+| ID Document 2.1 | `1` core, 2-GB memory |`2` cores, 2-GB memory |
+| Invoice 2.1 | `4` cores, 8-GB memory | `8` cores, 8-GB memory |
+| Receipt 2.1 |  `4` cores, 8-GB memory | `8` cores, 8-GB memory  |
 
 ##### Custom containers
 
@@ -99,8 +99,8 @@ The following host machine requirements are applicable to **train and analyze** 
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
-|Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
+| Custom API| 0.5 cores, 0.5-GB memory| `1` core, 1-GB memory |
+|Custom Supervised | `4` cores, 2-GB memory | `8` cores, 4-GB memory|
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
@@ -357,7 +357,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you'll need 
   NGINX_CONF_FILE="<file-path>"
   ```
 
-#### &bullet; Create a **nginx** file
+#### &bullet; Create an **nginx** file
 
   1. Name this file **nginx.conf**.
 
