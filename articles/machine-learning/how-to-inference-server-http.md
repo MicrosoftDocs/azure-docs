@@ -197,9 +197,9 @@ Score:          POST  127.0.0.1:<port>/score
 
 The logs from the inference server are generated in the following format, except for the launcher scripts since they aren't part of the python package: 
 
-`<UTC Time\> | <level\> [<pid\>] <logger name\> - <message\>`
+`<UTC Time> | <level> [<pid\] <logger name> - <message>`
 
-Here `<pid\>` is the process ID and `<level\>` is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
+Here `<pid>` is the process ID and `<level>` is the first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) – E for ERROR, I for INFO, etc.  
 
 There are six levels of logging in Python, with numbers associated with severity:
 
