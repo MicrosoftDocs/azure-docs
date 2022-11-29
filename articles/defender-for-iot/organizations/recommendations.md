@@ -41,7 +41,7 @@ Select a specific recommendation in the grid to drill down for more details. The
 The left pane also shows the following information:
 
 - **Description**: More context for the recommended mitigation step
-- **Check id**: Shown only for recommendations triggered by the Defender for IoT micro agent, and indicates <!--what?-->
+- **Check id**: Shown only for recommendations triggered by the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/), and indicates an check ID against a [CIS benchmark](https://www.cisecurity.org/).
 - **Remediation steps**: The full list of mitigation steps recommended for unhealthy devices
 
 Switch between the **Unhealthy devices** and **Healthy devices** tabs to review the statuses of detected devices in your network for the selected recommendation.
@@ -49,6 +49,18 @@ Switch between the **Unhealthy devices** and **Healthy devices** tabs to review 
 For example:
 
 :::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
+
+### View recommendation details by device
+
+You might want to review all recommendations for a specific device in order to handle them all together.
+
+Recommendations are also listed on the **Device details** page for each detected device, accessed either from the [**Device inventory** page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory), or from the list of healthy or unhealthy devices on a recommendation details page.
+
+On a device details page, select the **Recommendations** tab to view a list of security recommendations specific for the selected device.
+
+For example:
+
+:::image type="content" source="media/recommendations/recommendations-device-details.png" alt-text="Screenshot of the Recommendations tab on a device details page.":::
 
 ## Supported OT network recommendations
 
@@ -58,9 +70,10 @@ The following recommendations are displayed for detected OT devices:
 
 - **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
 
+Other recommendations are listed for the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/).
+
 ## Next steps
 
-Find recommendation details for a specific device on a device details page, accessed either from the [**Device inventory** page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory), or from the list of healthy or unhealthy devices on a recommendation details page.
-
-For example, you might want to review all recommendations for a current device in order to handle them all together.
+> [!div class="nextstepaction"]
+> [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)
 
