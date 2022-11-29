@@ -72,7 +72,7 @@ You have now successfully onboarded your Azure Cosmos DB account to Chaos Studio
 
 ## Create an experiment
 
-With yourVMSS now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel.
+With your VMSS now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel.
 
 1. Formulate your experiment JSON starting with the [VMSS shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md).
 
@@ -155,6 +155,9 @@ az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPE
 ## Run your experiment
 
 You are now ready to run your experiment. To see the impact, we **describe something that shows impact**.
+
+>[!note}
+>>The section above needs filling out
 
 1. Start the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
