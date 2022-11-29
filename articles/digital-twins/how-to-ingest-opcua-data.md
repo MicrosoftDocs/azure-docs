@@ -69,11 +69,11 @@ Note: The StartSimulation script will launch UA Cloud Twin as its last step. Log
 
 Note: If you restart Docker Desktop at any time, you'll need to stop and then restart the simulation, too!
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](how-to-set-up-instance-portal#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](quickstart-azure-digital-twins-explorer#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add more context, you can add "Next" and "Previous" relationships between machines on each production line.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](quickstart-azure-digital-twins-explorer.md#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add more context, you can add "Next" and "Previous" relationships between machines on each production line.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates." lightbox="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png":::
 
-You can also set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the [Azure Digital Twins service configuration](how-to-use-data-history?tabs=portal#set-up-data-history-connection) in the Azure portal and follow the wizard to set this up.
+You can also set up [data history](concepts-data-history.md) in your Azure Digital Twins instance to historize your contextualized OPC UA data to the Azure Data Explorer that was deployed in this solution. You can navigate to the [Azure Digital Twins service configuration](how-to-use-data-history.md?tabs=portal#set-up-data-history-connection) in the Azure portal and follow the wizard to set this up.
 
 ## Next steps
 
