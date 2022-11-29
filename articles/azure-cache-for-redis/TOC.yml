@@ -201,6 +201,8 @@
       href: cache-how-to-monitor.md#create-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
+    - name: Use Insights to understand performance and utilization
+      href: cache-insights-overview.md
   - name: Scale
     items:
     - name: Update to a different size and tier
