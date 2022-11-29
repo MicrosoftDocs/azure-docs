@@ -43,6 +43,8 @@
     items:
     - name: Prerequisites
       href: prerequisites.md
+    - name: Geographical availability and data residency
+      href: geographical-availability-data-residency.md
     - name: Costs and billing
       items:
       - name: Plan costs
@@ -50,7 +52,7 @@
       - name: Monitor costs
         href: billing-monitor-costs.md
       - name: Reduce costs
-        href: billing-reduce-costs.md
+        href: billing-reduce-costs.md    
     - name: Best practices
       items:
       - name: Overview
@@ -72,9 +74,7 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Geographical availability and data residency
-        href: geographical-availability-data-residency.md
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
       - name: Support for data types in different clouds
         href: data-type-cloud-support.md
   - name: Find solutions and content
