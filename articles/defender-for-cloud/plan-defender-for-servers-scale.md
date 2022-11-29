@@ -35,12 +35,12 @@ There are some considerations around these steps as you scale your deployment.
 
 ## Scaling Defender for Server plans
 
-<p style="color:red">You can use a policy definition to enable Defender for Servers at scale. Note that:</p>
+You can use a policy definition to enable Defender for Servers at scale. Note that:
 
 - You can find the built-in **Configure Defender for Servers to be enabled** policy definition in the Azure Policy > Policy Definitions, in the Azure portal.
-- <p style="color:red">Alternatively, there's a [custom policy in Github](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Policy/Enable%20Defender%20for%20Servers%20plans) that allows you to enable Defender for Servers and select the plan at the same time.</p>
+- Alternatively, there's a [custom policy in Github](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Policy/Enable%20Defender%20for%20Servers%20plans) that allows you to enable Defender for Servers and select the plan at the same time.
 - You can only enable one Defender for Servers plan on each subscription, and not both at the same time.
-- <p style="color:red">If you want to use both plans in your environment, divide your subscriptions into two management groups. On each management group you assign a policy to enable the respective plan on each underlying subscription.</p> 
+- If you want to use both plans in your environment, divide your subscriptions into two management groups. On each management group you assign a policy to enable the respective plan on each underlying subscription.
 
 
 ## Scaling auto-provisioning 
@@ -54,9 +54,9 @@ Log Analytics agent (default workspace) | **Enable Security Center's autoprovisi
 Log Analytics agent (custom workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with custom workspaces**.
 Azure Monitor agent (default data collection rule) | \\[Preview\\]: Configure Arc machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent<br/><br/> \\[Preview\\]: Configure virtual machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent
 Azure Monitor agent (custom data collection rule) | \\[Preview\\]: Configure Arc machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent<br/><br/> \\[Preview\\]: Configure machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent
-Defender for Endpoint extension | \\[Preview\\]: Deploy Microsoft Defender for Endpoint agent on Windows virtual machines<br/><br/> \[Preview\\]: Deploy Microsoft Defender for Endpoint agent on Windows Azure Arc machines<br/><br/> \[Preview\\]: Deploy Microsoft Defender for Endpoint agent on Linux hybrid machines<br/><br/> \[Preview\\]: Deploy Microsoft Defender for Endpoint agent on Linux virtual machines<br/><br/>
+Defender for Endpoint extension | [Preview]: Deploy Microsoft Defender for Endpoint agent on Windows virtual machines<br/><br/> [Preview]: Deploy Microsoft Defender for Endpoint agent on Windows Azure Arc machines<br/><br/> [Preview]: Deploy Microsoft Defender for Endpoint agent on Linux hybrid machines<br/><br/> [Preview]: Deploy Microsoft Defender for Endpoint agent on Linux virtual machines<br/><br/>
 Qualys vulnerability assessment | **Configure machines to receive a vulnerability assessment provider** 
-Guest configuration extension | [Overview and prerequisites](../virtual-machines/extensions/guest-configuration)
+Guest configuration extension | [Overview and prerequisites](../virtual-machines/extensions/guest-configuration.md)
 
 Policy definitions can be found in the Azure portal > **Policy** > **Definitions**.
 
@@ -67,6 +67,6 @@ Policy definitions can be found in the Azure portal > **Policy** > **Definitions
 After working through planning steps, you can start deployment:
 
 - [Enable Defender for Servers](enable-enhanced-security.md) plans
-- [Connect on-premises machines](quickstart-onboard-aws) to Azure.
+- [Connect on-premises machines](quickstart-onboard-aws.md) to Azure.
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.

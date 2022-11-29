@@ -26,23 +26,23 @@ Defender for Servers plans use a number of agents/extensions.
 Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is used by Defender for Cloud to protect non-Azure machines. 
 
 - **Foundational CSPM**:
-    - <p style="color:red">For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.<br/><br/> You do need Azure Arc onboarding for on-premises machines.</p>
+    - For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.<br/><br/> You do need Azure Arc onboarding for on-premises machines.
 - **Defender for Server plan**:
-    - <p style="color:red">To use the Defender for Servers, all AWS/GCP and on-premises machines should be Azure Arc-enabled.</p>
+    - To use the Defender for Servers, all AWS/GCP and on-premises machines should be Azure Arc-enabled.
     - After setting up AWS/GCP connectors, Defender for Cloud can automatically deploy agents to AWS/GCP servers. This includes automatic deployment of the Azure Arc agent.
 
 ### Plan for Azure Arc deployment
 
 1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
 1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
-    - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
+    - Review the [agent components and data collected from machines](../azure-arc/servers/agent-overview#agent-resources.md).
     - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
     - Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
 ### Azure Arc agent
 
 Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
-- Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
+- Review the [agent components and data collected from machines](../azure-arc/servers/agent-overview#agent-resources.md).
 -
 - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
 - Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
@@ -64,7 +64,7 @@ File integrity monitoring (Plan 2)  | :::image type="icon" source="./media/icons
 
 ## Qualys extension
 
-<p style="color:red">The Qualys extension is available in Defender for Servers Plan 2, and is deployed if you want to use Qualys for vulnerability assessment.</p>
+The Qualys extension is available in Defender for Servers Plan 2, and is deployed if you want to use Qualys for vulnerability assessment.
 
 - The Qualys extension sends metadata for analysis to one of two Qualys datacenter regions, depending on your Azure region.
     - If you're in an European Azure geography data is processed in Qualys' European data center. 
@@ -78,8 +78,8 @@ File integrity monitoring (Plan 2)  | :::image type="icon" source="./media/icons
 
 The extension performs audit and configuration operations inside VMs.
 
-- <p style="color:red">If you're using the Azure Monitor Agent, Defender for Cloud leverages this extension to analyze operating system security baseline settings on Windows and Linux machines.</p>
-- <p style="color:red">While Azure Arc-enabled servers and the guest configuration extension are free, additional costs might apply when using guest configuration policies on Azure Arc servers outside Defender for Cloud scope.</p>
+- If you're using the Azure Monitor Agent, Defender for Cloud leverages this extension to analyze operating system security baseline settings on Windows and Linux machines.
+- While Azure Arc-enabled servers and the guest configuration extension are free, additional costs might apply when using guest configuration policies on Azure Arc servers outside Defender for Cloud scope.
 
 Learn more about the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md)
 
@@ -94,9 +94,7 @@ When you enable Defender for Servers, Defender for Cloud automatically deploys a
 
 ## Agent provisioning
 
-<p style="color:red">
 When you enable Defender for Cloud plans, including Defender for Servers, you can select to automatically provision a number of agents. These are the agents that are relevant for Defender for Servers:
-</p>
 
 - Log Analytics agent/Azure Monitor agent for Azure VMs
 - Log Analytics agent/Azure Monitor agent for Azure Arc VMs
@@ -111,10 +109,10 @@ In addition, when you enable Defender for Servers Plan 1 or Plan 2, the Defender
 --- | ---
 Defender for Endpoint sensor |  If machines are running Microsoft Antimalware, also known as System Center Endpoint Protection (SCEP), the Windows extension automatically removes it from the machine.<br/><br/> If you deploy on a machine that already has the Defender for Endpoint sensor running, after successful installing the sensor from Defender for Servers, the extension will stop and disable the legacy sensor. The change is transparent and the machine’s protection history is preserved.
 AWS/GCP machines | For these machines, you configure automatic provisioning when you set up the AWS or GCP connector.
-Manual installation | If you don't want Defender for Cloud to provision the Log Analytics agent/Azure Monitor agent, you can install agents manually.<br/><br/> You can connect the agent to the default Defender for Cloud workspace, or to a custom workspace.<br/><br/> <p style="color:red">The workspace must have the *SecurityCenterFree* (providing free foundational CSPM) or *Security* solution enabled (Defender for Servers Plan 2).<br/><br/></p>If Defender for Cloud identifies that a VM is connected to a custom workspace, it enables solutions on the workspace, in accordance with your Defender for Cloud configuration.
-[Log Analytics agent running directly](faq-data-collection-agents.md#what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension--direct-agent--) | If a Windows VM has the Log Analytics agent running, but not as a VM extension, Defender for Cloud will install the extension. The agent will report to the Defender for Cloud workspace in addition to the existing agent workspace. <br/><br/> On Linux VMs, multi-homing isn't supported, and if an existing agent is detected then the agent won't be automatically provisioned.
-[Operations Manager agent](faq-data-collection-agents.md#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-) | The Log Analytics agent can work side-by-side with the Operations manager agent. The agents share common runtime libraries which will be updated when the Log Analytics agent is deployed.
-Removing the Log Analytics extension | <p style="color:red">If you remove the Log Analytics extension, Defender for Cloud won't be able to collect security data and recommendations/alerts will be missing. Within 24 hours, Defender for Cloud will determine that the extension is missing and reinstall it.</p>
+Manual installation | If you don't want Defender for Cloud to provision the Log Analytics agent/Azure Monitor agent, you can install agents manually.<br/><br/> You can connect the agent to the default Defender for Cloud workspace, or to a custom workspace.<br/><br/> The workspace must have the *SecurityCenterFree* (providing free foundational CSPM) or *Security* solution enabled (Defender for Servers Plan 2).<br/><br/></p>If Defender for Cloud identifies that a VM is connected to a custom workspace, it enables solutions on the workspace, in accordance with your Defender for Cloud configuration.
+[Log Analytics agent running directly](faq-data-collection-agents.yml#what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension--direct-agent--) | If a Windows VM has the Log Analytics agent running, but not as a VM extension, Defender for Cloud will install the extension. The agent will report to the Defender for Cloud workspace in addition to the existing agent workspace. <br/><br/> On Linux VMs, multi-homing isn't supported, and if an existing agent is detected then the agent won't be automatically provisioned.
+[Operations Manager agent](faq-data-collection-agents.yml#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-) | The Log Analytics agent can work side-by-side with the Operations manager agent. The agents share common runtime libraries which will be updated when the Log Analytics agent is deployed.
+Removing the Log Analytics extension | If you remove the Log Analytics extension, Defender for Cloud won't be able to collect security data and recommendations/alerts will be missing. Within 24 hours, Defender for Cloud will determine that the extension is missing and reinstall it.
 
 
 ## When shouldn't I use auto provisioning?
@@ -141,7 +139,7 @@ Before deployment, verify operating system support for agents and extensions.
 After working through these planning steps, you can start deployment:
 
 - [Enable Defender for Servers](enable-enhanced-security.md) plans
-- [Connect on-premises machines](quickstart-onboard-aws) to Azure.
+- [Connect on-premises machines](quickstart-onboard-aws.md) to Azure.
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
 - Learn about [scaling your Defender for Server deployment](plan-defender-for-servers-scale.md).

@@ -145,7 +145,7 @@
         - name: Review data residency, workspace design 
           href: plan-defender-for-servers-data-workspace.md
         - name: Determine roles and access
-          href: plan-defender-for-server-roles.md
+          href: plan-defender-for-servers-roles.md
         - name: Select a plan
           href: plan-defender-for-servers-select-plan.md
         - name: Review agents and extensions

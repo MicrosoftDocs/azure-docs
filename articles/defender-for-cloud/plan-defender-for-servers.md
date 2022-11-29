@@ -15,9 +15,8 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 - What does Defender for Servers do, and how is it deployed?
 - Where will my data be stored, and what Log Analytics workspaces do I need?
 - Who needs access?
-- Which Defender for Servers plan should I choose, and how what vulnerability assessment solution should I use?
-- How do I protect AWS and GCP machines?
-- What agents must be deployed?
+- Which Defender for Servers plan should I choose, and which vulnerability assessment solution should I use?
+- When do I need Azure Arc, and which agents/extensions must be deployed?
 - How do I scale a deployment?
 
 ## Before you begin
@@ -27,7 +26,7 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 
 ## Defender for Servers
 
-Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint provide to endpoint detection and response (EDR), and a host of additional threat protection features.
+Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint provide to endpoint detection and response (EDR), and provides a host of additional threat protection features.
 
 ## Deployment overview
 
