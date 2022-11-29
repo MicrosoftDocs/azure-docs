@@ -7,17 +7,19 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/29/2022
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
 
-# Install and run Form Recognizer v2.1-preview containers
+# Install and run Form Recognizer v2.1 containers
+
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 > [!IMPORTANT]
 >
-> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
+> * Form Recognizer containers are in gated release. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
@@ -85,11 +87,11 @@ The following table lists the supporting container(s) for each Form Recognizer c
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
-| Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
-| ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
-| Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
-| Receipt 2.1-preview |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
+| Layout 2.1 | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
+| Business Card 2.1 | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
+| ID Document 2.1 | 1 core, 2-GB memory |2 cores, 2-GB memory |
+| Invoice 2.1 | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
+| Receipt 2.1 |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
 
 ##### Custom containers
 
