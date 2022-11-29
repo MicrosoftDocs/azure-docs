@@ -160,14 +160,49 @@ To create and run a new scan, do the following:
 
 ### Supported policies
 The following types of policies are supported on this data resource from Microsoft Purview:
-* [DevOps policies](how-to-policies-devops-arc-sql-server.md)
-* [Data Owner](how-to-policies-data-owner-arc-sql-server.md)
+- [DevOps policies](concept-policies-devops.md)
+- [Data owner policies](concept-policies-data-owner.md)(preview)
 
+### Access policy pre-requisites on Arc enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server pre-requisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
+
+### Configure the Microsoft Purview account for policies
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source and enable Data use management
+The Arc-enabled SQL Server data source needs to be registered first with Microsoft Purview, before policies can be created.
+
+1. Sign in to Microsoft Purview Studio.
+
+1. Navigate to the **Data map** feature on the left pane, select **Sources**, then select **Register**. Type "Azure Arc" in the search box and select **SQL Server on Azure Arc**. Then select **Continue**
+![Screenshot shows how to select a source for registration.](./media/how-to-policies-data-owner-sql/select-arc-sql-server-for-registration.png)
+
+1. Enter a **Name** for this registration. It is best practice to make the name of the registration the same as the server name in the next step.
+
+1. select an **Azure subscription**, **Server name** and **Server endpoint**.
+
+1. **Select a collection** to put this registration in. 
+
+1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
+
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
+
+1. Select **Register** or **Apply** at the bottom
+
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
+![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
+
+### Create a policy
+To create an access policy for Arc-enabled SQL Server, follow these guides:
+* [DevOps policy on a single Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
+* [Data owner policy on a single Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
+
+To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Next steps
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
+- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

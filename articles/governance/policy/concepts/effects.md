@@ -24,16 +24,16 @@ These effects are currently supported in a policy definition:
 - [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
-The following effects are _deprecated_:
+## Interchanging effects
 
-- `EnforceOPAConstraint`
-- `EnforceRegoPolicy`
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require additional details in the policy rule that aren't required for policies with effect **Audit**. The effects also behave differently. **Audit** policies will assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies will assess a resource's compliance based on a child or extension resource's properties.
 
-> [!IMPORTANT]
-> In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`. The built-in policy definitions
-> have been updated. When existing policy assignments of these built-in policy definitions are
-> modified, the _effect_ parameter must be changed to a value in the updated _allowedValues_ list.
+
+Below is some general guidance around interchangeable effects:
+- **Audit**, **Deny**, and either **Modify** or **Append** are often interchangeable.
+- **AuditIfNotExists** and **DeployIfNotExists** are often interchangeable.
+- **Manual** isn't interchangeable.
+- **Disabled** is interchangeable with any effect.
 
 ## Order of evaluation
 
@@ -167,7 +167,7 @@ definitions as `constraintTemplate` is deprecated.
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (deprecated)
   - Can't be used with `templateInfo`.
@@ -178,7 +178,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
 - **excludedNamespaces** (required)
   - An _array_ of
@@ -379,7 +379,7 @@ definitions as `constraintTemplate` is deprecated.
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (optional)
   - Can't be used with `templateInfo`.
@@ -763,7 +763,7 @@ The following operations are supported by Modify:
 - Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
-  virtual machine scale sets.
+  Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
@@ -818,11 +818,11 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - Determines which policy definition "wins" if more than one policy definition modifies the same
     property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
-      definitions with _audit_ skip all **operations**. If more than one policy definition has
+      definitions with _audit_ skip all **operations**. If more than one policy definition has the effect
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
       of the **operations** of the conflicting policy definitions are processed.
-    - For existing resources, if more than one policy definition has _deny_, the compliance status
-      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+    - For existing resources, if more than one policy definition has the effect _deny_, the compliance status
+      is _Conflict_. If one or fewer policy definitions have the effect _deny_, each assignment returns a
       compliance status of _Non-compliant_.
   - Available values: _audit_, _deny_, _disabled_.
   - Default value is _deny_.

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 
 ms.author: justinha
 author: justinha
@@ -202,7 +202,7 @@ The settings option allows you to change the settings for the migration process:
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
 - Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
-- User Match – Allows you to specify a different attribute for matching users instead of the default UPN-matching
+- User Match – Allows you to specify a different on-premises Active Directory attribute for matching Azure AD UPN instead of the default match to userPrincipalName
 - Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises MFA Server, and write them to Azure AD at the specified time interval defined
 
 The migration process can be an automatic process, or a manual process.

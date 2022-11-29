@@ -39,7 +39,7 @@ To clean up your Cognitive Services subscription, you can delete the resource or
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## Download the quickstart trained model.
+## Download the quickstart trained model
 If you'd like download a Personalizer model that has been trained on 5,000 events from the QuickStart example, you can visit the [Azure-Samples repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/quickstarts) and download the model zip file, then upload this to your Personalizer instance under the "Setup" -> "Model Import/Export" section. 
 
 ## Next steps
