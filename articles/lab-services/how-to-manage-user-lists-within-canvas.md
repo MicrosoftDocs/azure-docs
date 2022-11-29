@@ -9,7 +9,7 @@ ms.date: 01/22/2022
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-When a [lab is created within Canvas](how-to-get-started-create-lab-within-canvas.md), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync the user list when needed.
+When a [lab is created within Canvas](how-to-configure-canvas-for-lab-plans.md), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync the user list when needed.
 
 ## Sync users
 
@@ -41,6 +41,6 @@ To manage VM pools, see [Manage a VM pool in Lab Services from Canvas](how-to-ma
 See the following articles:
 
 - [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
-- [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)
+- [Get started and create a Lab Services lab from Canvas](how-to-configure-canvas-for-lab-plans.md)
 - [Create Lab Services schedules from Canvas](how-to-create-schedules-within-canvas.md)
 - [Access a VM (student view) in Lab Services from Canvas](how-to-access-vm-for-students-within-canvas.md)

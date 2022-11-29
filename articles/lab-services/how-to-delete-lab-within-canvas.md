@@ -14,7 +14,7 @@ This article shows how to delete a lab from the **Azure Lab Services** app.
 ## Prerequisites
 
 * [Create a Lab Plan](tutorial-setup-lab-plan.md#create-a-lab-plan) in the Azure portal.
-* [Get started and create a Lab Services lab within Canvas](how-to-get-started-create-lab-within-canvas.md).
+* [Get started and create a Lab Services lab within Canvas](how-to-configure-canvas-for-lab-plans.md).
 
 ## Delete labs
 

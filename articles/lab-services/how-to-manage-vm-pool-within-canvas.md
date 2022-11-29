@@ -30,7 +30,7 @@ As part of the publish process, Canvas educators are assigned their own lab VMs.
 See the following articles:
 
 - [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
-- [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)
+- [Get started and create a Lab Services lab from Canvas](how-to-configure-canvas-for-lab-plans.md)
 - [Manage Lab Services user lists from Canvas](how-to-manage-user-lists-within-canvas.md)
 - [Create Lab Services schedules from Canvas](how-to-create-schedules-within-canvas.md)
 - [Access a VM (student view) in Lab Services from Canvas](how-to-access-vm-for-students-within-canvas.md)

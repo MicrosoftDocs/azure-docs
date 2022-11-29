@@ -29,7 +29,7 @@ Educators can create, edit, and delete lab schedules within Canvas as in the Azu
 See the following articles:
 
 - [Use Azure Lab Services within Canvas overview](lab-services-within-canvas-overview.md)
-- [Get started and create a lab within Canvas](how-to-get-started-create-lab-within-canvas.md)
+- [Get started and create a lab within Canvas](how-to-configure-canvas-for-lab-plans.md)
 - [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
 - [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
 - [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-canvas.md)

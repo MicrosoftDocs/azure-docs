@@ -93,7 +93,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Create a lab**. See the following tutorials:
     - [Create a lab](./tutorial-setup-lab.md#create-a-lab)
     - [Create a lab in Teams](./how-to-configure-teams-for-lab-plans.md)
-    - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
+    - [Create a lab in Canvas](how-to-configure-canvas-for-lab-plans.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
     - [Create and manage a template VM](./tutorial-setup-lab.md#publish-a-lab)
