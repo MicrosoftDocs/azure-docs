@@ -15,7 +15,7 @@ After [connecting your data sources](quickstart-onboard.md) to Microsoft Sentine
 Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
 
 > [!TIP]
-> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
+> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any needed changes.
 
 > [!div class="checklist"]
 > - Create analytics rules
