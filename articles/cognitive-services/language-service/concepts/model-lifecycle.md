@@ -51,7 +51,7 @@ Use the table below to find which model versions are supported by each feature:
 | Question answering                                  | `2021-10-01*`               |                        |
 | Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview**` |                        |
 | Key phrase extraction                               | `2021-06-01`, `2022-07-01*` | `2019-10-01`, `2020-07-01`                       |
-| Document summarization - extractive only (preview)                    | `2021-08-01*`               |           |
+| Document summarization - extractive only (preview)                    | `2021-08-01*` `2022-08-31-preview**`               |           |
 
 \* Latest Generally Available (GA) model version
 
