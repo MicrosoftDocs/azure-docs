@@ -15,6 +15,8 @@ recommendations: false
 
 # Form Recognizer container image tags and release notes
 
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
+
 > [!IMPORTANT]
 >
 > * **Form Recognizer v2.1 containers** are in gated release. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
