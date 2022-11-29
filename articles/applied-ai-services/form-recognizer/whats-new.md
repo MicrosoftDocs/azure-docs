@@ -30,8 +30,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 ## November 2022
 
 * **Announcing the latest stable release of Azure Form Recognizer libraries**
-  * This release includes important changes and updates for .NET, Python, Java and JavaScript SDKs.  For more information, _see_ [**Azure SDK DevBlog**](https://devblogs.microsoft.com/azure-sdk/announcing-new-stable-release-of-azure-form-recognizer-libraries/).
-  * The most notable enhancement is the introduction of two new clients, the **`DocumentAnalysisClient`** and the **`DocumentModelAdministrationClient`**.
+  * This release includes important changes and updates for .NET, Java, JavaScript, and Python SDKs. For more information, _see_ [**Azure SDK DevBlog**](https://devblogs.microsoft.com/azure-sdk/announcing-new-stable-release-of-azure-form-recognizer-libraries/).
+  * The most significant enhancements are the introduction of two new clients, the **`DocumentAnalysisClient`** and the **`DocumentModelAdministrationClient`**.
 
 ---
 
