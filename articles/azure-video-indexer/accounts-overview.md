@@ -41,7 +41,7 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 > [!NOTE]
 > It is recommended to use Azure Video Indexer ARM-based accounts. 
     
-* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](/rest/api/videoindexer/accounts?branch=videoindex)
+* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](/rest/api/videoindexer/preview/accounts)
 
     > [!TIP]
     > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  

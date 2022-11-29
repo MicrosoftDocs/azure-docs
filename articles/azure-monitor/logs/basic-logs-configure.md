@@ -1,6 +1,6 @@
 ---
-title: Set a table's log data plan in Azure Monitor Logs
-description: Learn how to configure the table log data plan to optimize log ingestion and retention costs in Azure Monitor Logs.
+title: Set a table's log data plan to Basic Logs or Analytics Logs
+description: Learn how to use Basic Logs and Analytics Logs to reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/09/2022
 ---
 
-# Set a table's log data plan in Azure Monitor Logs
+# Set a table's log data plan to Basic or Analytics
 
 Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs: 
 
@@ -27,12 +27,20 @@ The following table summarizes the two plans.
 | Category | Analytics | Basic |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No extra cost. Full query capabilities. | Extra cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
+| Log queries | No extra cost. Full query capabilities. | Extra cost.<br/>[Subset of query capabilities](basic-logs-query.md#limitations). |
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
 | Alerts | Supported. | Not supported. |
 
 > [!NOTE]
 > The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+
+## When should I use Basic Logs?
+The decision whether to configure a table for Basic Logs is based on the following criteria:
+
+- The table currently [supports Basic Logs](#which-tables-support-basic-logs).
+- You don't require more than eight days of data retention for the table.
+- You only require basic queries of the data using a limited version of the query language.
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
 
 ## Which tables support Basic Logs?
 
@@ -41,13 +49,17 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 | Table | Details|
 |:---|:---|
 | Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
+| [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
 | [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
 | [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
 | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
+| [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
 | [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
-| [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Account Health Status. |
+| [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Services account health status. |
+| [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
 | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
 | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
+| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources; for example, dev boxes and environment stop, start, delete. |
 
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.
