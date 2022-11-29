@@ -3,12 +3,12 @@ title: Use .NET to create a user delegation SAS for a container, directory, or b
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Azure Storage.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.devlang: csharp
