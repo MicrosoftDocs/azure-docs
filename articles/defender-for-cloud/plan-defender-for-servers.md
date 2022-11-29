@@ -41,7 +41,7 @@ Here's a quick overview of the deployment process.
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.
 
 
-## Understand where data's stored
+## Understand data storage
 
 Data residency is the physical or geographic location of an organization’s data.
 
@@ -60,20 +60,21 @@ Data residency is the physical or geographic location of an organization’s dat
 
 In complex enterprises, different teams manage different [security functions](/cloud-adoption-framework/organize/cloud-security).
 
-Figuring out ownership for server and endpoint security is critical. Ownership that's undefined, or hidden within organizational silos causes friction that can lead to delays, insecure deployments, and difficulties in identifying and following threats across the enterprise.
+Figuring out ownership for server and endpoint security is critical. Ownership that's undefined, or hidden within organizational silos, causes friction that leads to delays, insecure deployments, and difficulties for security operations (SecOps) teams who need to identify and follow threats across the enterprise.
 
-Security leadership should identify the teams, roles, and individuals responsible for making and implementing decisions about server security. Typically, responsibility is shared between a [central IT team](/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint).
+- Security leadership should identify the teams, roles, and individuals responsible for making and implementing decisions about server security.
+- Typically, responsibility is shared between a [central IT team](/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint).
 
 Individuals in these teams need Azure access rights to manage and use Defender for Cloud. As part of planning, figure out the right level of access for individuals, based on Defender for Cloud's role-base access control (RBAC) model. 
 
-### RBAC model
+### Defender for Cloud roles
 
 In addition to the built-in Owner, Contributor, Reader roles for an Azure subscription/resource group, there are a couple of built-in roles that control Defender for Cloud access.
 
 - **Security Reader**: Provides viewing rights to Defender for Cloud recommendations, alerts, security policy and states. This role can't make changes to Defender for Cloud settings.
 - **Security Admin**: Provide Security Reader rights, and the ability to update security policy, dismiss alerts and recommendations, and apply recommendations.
 
-[Get more details](permissions.md#roles-and-allowed-actions) about allowed actions.
+[Get more details](permissions.md#roles-and-allowed-actions) about allowed role actions
 
 
 ## Select a Defender for Servers plan
@@ -81,11 +82,11 @@ In addition to the built-in Owner, Contributor, Reader roles for an Azure subscr
 Defender for Servers provides two plans you can choose from.
 
 - **Defender for Servers Plan 1** is entry-level, and must be enabled at the subscription level. Features include:
-    -  Defender for Cloud's free [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) features.
-        - <p style="color:red">These features are free and available without a Defender for Cloud plan enabled for Azure VMs, and AWS/GCP machines.
-        - <p style="color:red">Note that to receive recommendations for on-premises machine configuration, a machine must be Azure Arc-enabled and have Defender for Servers enabled.
+    -  <p style="color:red">[Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), provided by free by Defender for Cloud.
+        - <p style="color:red">These features are available without a Defender for Cloud plan enabled for Azure VMs, and AWS/GCP machines.
+        - <p style="color:red">To receive recommendations about your on-premises machine configuration, machines must be Azure Arc-enabled, with Defender for Servers enabled.
     - Endpoint detection and response (EDR) features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2).
-- <p style="color:red">**Defender for Servers Plan 2** provides all features. It must be enabled at the subscription level, and at the workspace level to get full feature coverage. Features include:</p>
+- **Defender for Servers Plan 2** provides all features. <p style="color:red">It must be enabled at the subscription level, and at the workspace level to get full feature coverage. Features include:</p>
     - All the functionality provided by Defender for Servers Plan 1.
     - Additional extended detection and response (XDR) capabilities.
   
