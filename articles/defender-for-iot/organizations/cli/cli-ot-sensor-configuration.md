@@ -199,6 +199,8 @@ You can also view filters on your sensor machine in the `/var/cyberx/properties/
 
 The following table shows where you can find details about each capture filter on the sensor. <!--this table doesn't actually belong here as this is a CLI reference. it should be somewhere else. also what are these? it's completely unclear-->
 
+<!--according to Amos this table isn't up to date.-->
+
 |Name  |File |Property  |
 |---------|---------|---------|
 |**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties`       |  `bpf_filter property`       |
