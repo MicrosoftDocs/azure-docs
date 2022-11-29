@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
-ms.date: 07/14/2022
+ms.date: 11/29/2022
 ---
 
 # Azure Machine Learning inference HTTP server (preview)
