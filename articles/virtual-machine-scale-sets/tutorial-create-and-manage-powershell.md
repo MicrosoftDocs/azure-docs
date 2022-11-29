@@ -5,12 +5,13 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 05/18/2018
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell
+<<<<<<< HEAD
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -18,6 +19,20 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 > * Create a Virtual Machine Scale Set
 > * Scale out and in
 > * Stop, Start and restart VM instances
+=======
+
+> [!NOTE]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
+A Virtual Machine Scale Set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create and connect to a Virtual Machine Scale Set
+> * Select and use VM images
+> * View and use specific VM instance sizes
+> * Manually scale a scale set
+> * Perform common scale set management tasks
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -43,7 +58,11 @@ First, set an administrator username and password for the VM instances with [Get
 $cred = Get-Credential
 ```
 
+<<<<<<< HEAD
 Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, and allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+=======
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -77,6 +96,44 @@ To view additional information about a specific VM instance, use [Get-AzVM](/pow
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1" 
 ```
+<<<<<<< HEAD
+=======
+## Allow remote desktop traffic
+
+>[!IMPORTANT]
+>Exposing the RDP port 3389 is only recommended for testing. For production environments, we recommend using a VPN or private connection.
+
+To allow access using remote desktop, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure Virtual Machine Scale Sets](virtual-machine-scale-sets-networking.md).
+
+ ```azurepowershell-interactive
+ # Get information about the scale set
+ $vmss = Get-AzVmss `
+             -ResourceGroupName "myResourceGroup" `
+             -VMScaleSetName "myScaleSet"
+
+ #Create a rule to allow traffic over port 3389
+ $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
+   -Name myFrontendNSGRule `
+   -Protocol Tcp `
+   -Direction Inbound `
+   -Priority 200 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 `
+   -Access Allow
+
+ #Create a network security group and associate it with the rule
+ $nsgFrontend = New-AzNetworkSecurityGroup `
+   -ResourceGroupName  "myResourceGroup" `
+   -Location EastUS `
+   -Name myFrontendNSG `
+   -SecurityRules $nsgFrontendRule
+
+ $vnet = Get-AzVirtualNetwork `
+   -ResourceGroupName  "myResourceGroup" `
+   -Name myVnet
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 
 ```output
 ResourceGroupName      : myresourcegroup
@@ -193,8 +250,13 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with Azure PowerShell:
 
 > [!div class="checklist"]
+<<<<<<< HEAD
 > * Create a resource group
 > * Create a scale set
+=======
+> * Create and connect to a Virtual Machine Scale Set
+> * Select and use VM images
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 > * View and use specific VM sizes
 > * Manually scale a scale set
 > * Perform common scale set management tasks such as stopping, starting and restarting your scale set

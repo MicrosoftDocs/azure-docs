@@ -2,11 +2,9 @@
 title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
-author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux

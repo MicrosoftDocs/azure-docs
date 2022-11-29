@@ -5,13 +5,14 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 03/27/2018
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 
+<<<<<<< HEAD
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -19,6 +20,19 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 > * Create a Virtual Machine Scale Set
 > * Scale out and in
 > * Stop, Start and restart VM instances
+=======
+> [!NOTE]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
+A Virtual Machine Scale Set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create and connect to a Virtual Machine Scale Set
+> * Select and use VM images
+> * View and use specific VM instance sizes
+> * Manually scale a scale set
+> * Perform common scale set management tasks
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +52,11 @@ The resource group name is specified when you create or modify a scale set throu
 
 
 ## Create a scale set
+<<<<<<< HEAD
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
+=======
+You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 
 ```azurecli-interactive
 az vmss create \
@@ -272,8 +290,13 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI:
 
 > [!div class="checklist"]
+<<<<<<< HEAD
 > * Create a resource group
 > * Create a scale set
+=======
+> * Create and connect to a Virtual Machine Scale Set
+> * Select and use VM images
+>>>>>>> fdaeacd2ccb02d3b63f855b1d0cc6c10e96bb1ce
 > * View and use specific VM sizes
 > * Manually scale a scale set
 > * Perform common scale set management tasks such as stopping, starting and restarting your scale set
