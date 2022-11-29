@@ -100,15 +100,15 @@ You can get access to the environment's unique identifier by querying the enviro
 
 ## Inbound access restrictions by IP address ranges
 
-By default, ingress does not filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
+By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
 
-* Allow list - deny all inbound traffic, but allow access from a list of IP address ranges
-* Deny list - allow all inbound traffic, but deny access from a list of IP address ranges
+* Allowlist - deny all inbound traffic, but allow access from a list of IP address ranges
+* Denylist - allow all inbound traffic, but deny access from a list of IP address ranges
 
 > [!NOTE]
 > If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
 
-### Configure an allow list
+### Configure an allowlist
 
 To allow inbound traffic from a specified IP range, run the following Azure CLI command.
 
@@ -118,9 +118,9 @@ az containerapp ingress access-restriction set -n MyContainerapp -g MyResourceGr
     --action Allow
 ```
 
-You can add more allow rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is denied.
+Add more allow rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is denied.
 
-### Configure a deny list
+### Configure a denylist
 
 To deny inbound traffic from a specified IP range, run the following Azure CLI command.
 
@@ -130,7 +130,7 @@ az containerapp ingress access-restriction set -n MyContainerapp -g MyResourceGr
     --action Deny
 ```
 
-You can add more deny rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is allowed.
+Add more deny rules by repeating the command with different IP address ranges. When one or more allow rules are configured, any traffic from an IP address that doesn't match any of the rules is allowed.
 
 ### Remove access restrictions
 
