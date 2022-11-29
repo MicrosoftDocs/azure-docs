@@ -235,7 +235,7 @@ Importantly, you aren't supposed to access the cache directly. Instead, you shou
 
 ## Renew tokens with refresh tokens
 
-ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md), which doesn't return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user isn't repeatedly prompted to authenticate.
+ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md), which doesn't return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden IFrame so that the user isn't repeatedly prompted to authenticate.
 
 With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with ID and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers aren't supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js won't be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
 

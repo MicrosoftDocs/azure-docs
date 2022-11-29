@@ -1,6 +1,6 @@
 ---
 title: ADAL to MSAL migration guide (MSAL iOS/macOS)
-description: Learn the differences between MSAL for iOS/macOS and the Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS/macOS.
+description: Learn the differences between MSAL for iOS/macOS and the Azure AD Authentication Library for Objective-C (ADAL.ObjC) and how to migrate to MSAL for iOS/macOS.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -76,7 +76,7 @@ You can read more information about using the "/.default" scope [here](./v2-perm
 
 ADAL only supports UIWebView/WKWebView for iOS, and WebView for macOS. MSAL for iOS supports more options for displaying web content when requesting an authorization code, and no longer supports `UIWebView`; which can improve the user experience and security.
 
-By default, MSAL on iOS uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides Single Sign-On (SSO) benefits through cookie sharing between apps and the Safari browser.
+By default, MSAL on iOS uses [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), which is the web component Apple recommends for authentication on iOS 12+ devices. It provides single sign-on (SSO) benefits through cookie sharing between apps and the Safari browser.
 
 You can choose to use a different web component depending on app requirements and the end-user experience you want. See [supported web view types](customize-webviews.md) for more options.
 
