@@ -44,7 +44,7 @@ Organizations can select individual policy templates and:
 - View a summary of the policy settings.
 - Edit, to customize based on organizational needs.
 - Export the JSON definition for use in programmatic workflows.
-   - These JSON definitions can be edited and then imported on the main Conditional Access policy page using the **Import policy file** option.
+   - These JSON definitions can be edited and then imported on the main Conditional Access policies page using the **Import policy file** option.
 
 ## Common policies
 
