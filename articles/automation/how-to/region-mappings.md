@@ -10,8 +10,7 @@ ms.custom: references_regions, engagement-fy23
 # Supported regions for linked Log Analytics workspace
 
 > [!NOTE]
-> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available.
-The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement.
+> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2](/articles/azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement.
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
 
