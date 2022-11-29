@@ -262,7 +262,7 @@ Here are the important steps from the code:
 1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
 
-Make sure to replace the `<STORAGE_ACCOUNT_NAME>`, `<EVENT_HUBS_NAMESPACE>` and `<HUB_NAME>` placeholder values in the code sample below.
+In the code sample below, replace the `<STORAGE_ACCOUNT_NAME>`, `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
 
 ```csharp
 using Azure.Identity;
@@ -327,7 +327,7 @@ Here are the important steps from the code:
 1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
 
-Make sure to replace the `<AZURE_STORAGE_CONNECTION_STRING>`, `<BLOB_CONTAINER_NAME>`, `<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values in the code sample below.
+In the code sample below, replace the `<AZURE_STORAGE_CONNECTION_STRING>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
 
     ```csharp
     using Azure.Messaging.EventHubs;
