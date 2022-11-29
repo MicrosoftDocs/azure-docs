@@ -1,6 +1,6 @@
 ---
 title: Enhance security posture with security recommendations - Microsoft Defender for IoT
-description: Learn more about the alerts that are triggered for traffic on OT networks.
+description: Learn about how to find security recommendations for devices detected by Microsoft Defender for IoT.
 ms.date: 11/23/2022
 ms.topic: how-to
 ---
@@ -22,7 +22,7 @@ Recommendations are shown in a grid with details in the following columns:
 |Column name  |Description  |
 |---------|---------|
 |**Severity**     | Indicates the urgency of the suggested mitigation step.         |
-|**Name**     |  The recommendation's name, which indicates a summary of the suggested mitigation step. .  |
+|**Name**     |  The recommendation's name, which indicates a summary of the suggested mitigation step.  |
 |**Unhealthy devices**     | The number of detected devices where the recommended step is relevant.        |
 |**Healthy devices**     |   The number of detected devices where the recommended step is covered and no action is required.      |
 |**Last update time**     | The last time the recommendation was triggered on a detected device.        |
@@ -36,12 +36,12 @@ To export a CSV file of all recommendations for your network, select :::image ty
 
 ## View recommendation details
 
-Select a specific recommendation in the grid to drill down for more details. The recommendation name is shown as the page's title, with the recommendation's severity, number of unhealthy devices detected, and last update date and time in widgets on the left.
+Select a specific recommendation in the grid to drill down for more details. The recommendation name is shown as the page's title, with details with the recommendation's severity, number of unhealthy devices detected, and last update date and time in widgets on the left.
 
 The left pane also shows the following information:
 
 - **Description**: More context for the recommended mitigation step
-- **Check id**: Shown only for recommendations triggered by the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/), and indicates an check ID against a [CIS benchmark](https://www.cisecurity.org/).
+- **Check id**: Relevant only for recommendations triggered by the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/), and indicates the ID of a check against a [CIS benchmark](https://www.cisecurity.org/).
 - **Remediation steps**: The full list of mitigation steps recommended for unhealthy devices
 
 Switch between the **Unhealthy devices** and **Healthy devices** tabs to review the statuses of detected devices in your network for the selected recommendation.
