@@ -1,15 +1,15 @@
 ---
-title: Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager (ARM) templates - Azure Health Data Services
-description: In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template.
+title: Deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/22/2022
+ms.date: 11/28/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
+# Quickstart: Deploy the MedTech service with an Azure Resource Manager template using Azure PowerShell or Azure CLI
 
 In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. 
 
@@ -86,7 +86,6 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    For example: `New-AzResourceGroup -name ArmTestDeployment -location southcentralus`
 
    > [!IMPORTANT]
-   >
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources. The minimum basename requirement is three characters with a maximum of 16 characters.
 
 5. Use the following code to deploy the MedTech service using the ARM template:
@@ -133,7 +132,6 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
    For example: `az group create --resource-group ArmTestDeployment --location southcentralus`
 
    > [!IMPORTANT]
-   >
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources.
 
 5. Use the following code to deploy the MedTech service using the ARM template:
