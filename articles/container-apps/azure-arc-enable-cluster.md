@@ -379,7 +379,7 @@ You can use `kubectl` to see the pods that have been created in your Kubernetes 
 kubectl get pods -n $NAMESPACE
 ```
 
-To learn more about these pods and their role in the system, see [Pods created by the Application environment extension](azure-arc-create-container-app.md#pods-created-by-the-application-environment-extension).
+To learn more about these pods and their role in the system, see [Azure Arc overview](azure-arc-overview.md#resources-created-by-the-container-apps-extension).
 
 ## Create a custom location
 
@@ -461,7 +461,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 ## Create the Azure Container Apps connected environment
 
-Before you can start creating apps in the custom location, you need an [Azure Container Apps connected environment](azure-arc-create-container-app.md#container-apps-connected-environment).
+Before you can start creating apps in the custom location, you need an [Azure Container Apps connected environment](azure-arc-create-container-app.md).
 
 1. Create the Container Apps connected environment:
 

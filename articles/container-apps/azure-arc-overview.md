@@ -24,7 +24,7 @@ As you configure your cluster, you'll carry out these actions:
 
 - **The connected cluster**, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
 
-- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required revisions into your connected cluster](#revisions-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required revisions into your connected cluster](#resources-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
 
 - **A custom location**, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 
