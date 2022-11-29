@@ -77,7 +77,11 @@ When the process completes, the GitHub connector appears on your Environment set
 
 :::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected." lightbox="media/quickstart-onboard-github/github-connector.png":::
 
-The Defender for DevOps service automatically discovers the repositories you selected and analyzes them for any security issues. Intial repository discovery can take 10 minutes. Once you have onboarded and chose auto-discovery during initial onbaording, it can take up to an average of 4 hours for repositories to appear. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository. This can take up to an average of 3 hours.
+The Defender for DevOps service automatically discovers the repositories you selected and analyzes them for any security issues. Initial repository discovery can take up to 10 minutes during the onboarding process. 
+
+When auto-discovery is selected during the onboarding process, it can take up to 4 hours for repositories to appear after onboarding is completed. The auto-discovery process detects any new repositories and connects them to Defender for Cloud.
+
+The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository. This can take up to 3 hours or more.
 
 ## Learn more
 
