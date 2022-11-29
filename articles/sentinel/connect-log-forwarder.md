@@ -40,7 +40,7 @@ Your machine must meet the following requirements:
     - Your Linux machine must have a minimum of **4 CPU cores and 8 GB RAM**.
 
         > [!NOTE]
-        > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+        > - A single log forwarder machine with the above hardware configuration and using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
 
 - **Operating system**
 

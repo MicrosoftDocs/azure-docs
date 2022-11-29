@@ -5,7 +5,7 @@ author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
 ms.topic: conceptual 
-ms.date: 05/05/2022 
+ms.date: 11/04/2022
 ms.custom: responsible-ml 
 ---
 # What is "human data" and why is it important to source responsibly?

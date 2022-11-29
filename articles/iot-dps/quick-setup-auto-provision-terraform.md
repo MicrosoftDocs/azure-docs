@@ -3,7 +3,7 @@ title: Quickstart - Use Terraform to create a DPS instance
 description: Learn how to deploy an Azure IoT Device Provisioning Service (DPS) resource with Terraform in this quickstart.
 keywords: azure, devops, terraform, device provisioning service, DPS, IoT, IoT Hub DPS
 ms.topic: quickstart
-ms.date: 10/27/2022
+ms.date: 11/03/2022
 ms.custom: devx-track-terraform
 author: kgremban
 ms.author: kgremban
@@ -75,25 +75,35 @@ In this article, you learn how to:
 
 ## Verify the results
 
-**Azure CLI**
+#### [Bash](#tab/bash)
+
 Run [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) to display the Azure DPS resource.
 
-   ```azurecli
-   az iot dps show \
-      --name my_terraform_dps \
-      --resource-group rg
-   ```
+```azurecli
+az iot dps show \
+   --name <azurerm_iothub_dps_name> \
+   --resource-group <resource_group_name>
+```
 
-**Azure PowerShell**
+**Key points:**
+
+- The names of the resource group and the DPS instance display in the `terraform apply` output. You can also run [terraform output](https://www.terraform.io/cli/commands/output) to view these output values.
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
 Run [Get-AzIoTDeviceProvisioningService](/powershell/module/az.deviceprovisioningservices/get-aziotdeviceprovisioningservice) to display the Azure DPS resource.
 
-   ```powershell
-   Get-AzIoTDeviceProvisioningService `
-       -ResourceGroupName "rg" `
-       -Name "my_terraform_dps"
-   ```
+```powershell
+Get-AzIoTDeviceProvisioningService `
+      -ResourceGroupName <resource_group_name> `
+      -Name <azurerm_iothub_dps_name>
+```
 
-The names of the resource group and the DPS instance are displayed in the terraform apply output. You can also run the [terraform output](https://www.terraform.io/cli/commands/output) command to view these output values.
+**Key points:**
+
+- The names of the resource group and the DPS instance display in the `terraform apply` output. You can also run [terraform output](https://www.terraform.io/cli/commands/output) to view these output values.
+
+---
 
 ## Clean up resources
 

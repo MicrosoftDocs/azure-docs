@@ -28,6 +28,8 @@ When you perform data integration and ETL processes in the cloud, your jobs can 
 
 The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you will see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5bkg2]
+
 **Supported connectors**
 -   [SAP CDC](connector-sap-change-data-capture.md)
 -   [Azure SQL Database](connector-azure-sql-database.md)
@@ -83,6 +85,12 @@ The followings are the tutorials to start the change data capture in Azure Data 
 
 - [SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md#sap-cdc-capabilities)
 - [Incrementally copy data from a source data store to a destination data store tutorials](tutorial-incremental-copy-overview.md)
+
+## Templates
+
+The followings are the templates to use the change data capture in Azure Data Factory and Azure Synapse Analytics.
+
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
 
 
 ## Next steps

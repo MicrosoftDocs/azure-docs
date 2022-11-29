@@ -1,8 +1,8 @@
 ---
 title: Data lineage in Microsoft Purview
 description: Describes the concepts for data lineage. 
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021

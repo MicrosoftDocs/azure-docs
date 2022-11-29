@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/31/2022
+ms.date: 11/15/2022
 ms.custom: references_regions 
 ---
 
@@ -22,6 +22,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
+| **Add search to websites** <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul>| Sample | "Add search to websites" is a tutorial series with sample code available in three languages. This series was updated in November to run with current versions of React and the SDK client libraries. If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
 | [Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md) | Feature | **Retired**. This preview feature isn't moving forward to general availability and has been removed from Visual Studio Code Marketplace. See the [documentation](search-get-started-vs-code.md) for details. |
 | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | Sample | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
@@ -68,7 +69,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries. Public preview in the portal and preview REST APIs.|
+| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md##2---create-a-semantic-configuration | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries and Azure portal.|
 | November | [Azure Files indexer (preview)](./search-file-storage-integration.md) | Public preview in the portal and preview REST APIs.|
 | July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
 | July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |

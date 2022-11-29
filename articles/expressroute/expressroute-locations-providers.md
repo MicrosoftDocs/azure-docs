@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 11/10/2022
 ms.author: duau
 ms.custom: references_regions
 
@@ -168,12 +168,6 @@ Azure national clouds are isolated from each other and from global commercial Az
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ** ExpressRoute Local is not available in this location.
-
-### Germany
-| **Location** | **Service providers** |
-| --- | --- |
-| **Berlin** |e-shelter, Megaport+, T-Systems |
-| **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivity through Exchange providers
 If your connectivity provider is not listed in previous sections, you can still create a connection.

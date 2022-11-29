@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 * If you used the [Simulator agent tutorial](device-update-simulator.md) for prior testing, run the following command to invoke the APT handler and deploy over-the-air package updates in this tutorial:
 
   ```sh
-  sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+  sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/apt:1'
   ```
 
 ## Prepare a device

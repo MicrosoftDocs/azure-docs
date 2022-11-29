@@ -5,12 +5,16 @@ items:
   items:
   - name: What is Azure Monitor?
     href: overview.md
+  - name: What is observability?
+    href: observability-data.md  
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: Observability
-    href: observability-data.md    
   - name: What's new?
     href: whats-new.md
+  - name: View and estimate charges
+    href: usage-estimated-costs.md
+  - name: Cost optimization
+    href: best-practices-cost.md     
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -20,8 +24,8 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-    - name: FAQ
-      href: faq.yml
+  - name: FAQ
+    href: faq.yml
 - name: Tutorials
   items:
   - name: Monitor an Azure Resource - Overview
@@ -30,12 +34,10 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Send data to Azure Monitor Logs using REST API
-    href: logs/tutorial-logs-ingestion-portal.md
-  - name: Send data to Azure Monitor Logs with ARM templates
-    href: logs/tutorial-logs-ingestion-api.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
+  - name: Create a log query alert
+    href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -64,12 +66,6 @@ items:
     items:
       - name: Track web outages
         href: change/tutorial-outages.md
-  - name: Workplace transformations
-    items:
-    - name: Workspace transformations in the Azure portal
-      href: logs/tutorial-workspace-transformations-portal.md
-    - name: Workspace transformations using ARM templates
-      href: logs/tutorial-workspace-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -142,8 +138,6 @@ items:
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
-    - name: Optimize costs
-      href: best-practices-cost.md
   - name: Monitor a virtual machine
     items:
     - name: Overview
@@ -180,42 +174,56 @@ items:
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
   - name: Data sources
-    href: data-sources.md
-  - name: Diagnostic Settings
-    displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-    href: essentials/diagnostic-settings.md
-  - name: Agents
     items:
-    - name: Azure Monitor Agent
+      - name: Overview of data sources
+        href: data-sources.md
+      - name: Platform logs
+        href: essentials/platform-logs-overview.md
+      - name: Activity log
+        href: essentials/activity-log.md
+      - name: Resource logs
+        href: essentials/resource-logs.md
+  - name: Diagnostic Settings
+    items:
+    - name: Overview 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings with Azure Policy
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings-policy.md
+  - name: Azure Monitor Agent
+    items:
+    - name: Overview
+      href: agents/agents-overview.md
+    - name: Install Azure Monitor Agent
+      displayName: Azure Monitor agent
       items:
-        - name: Overview
-          href: agents/agents-overview.md
-        - name: Install Azure Monitor Agent
-          displayName: Azure Monitor agent
-          items:
-          - name: Using the agent extension
-            href: agents/azure-monitor-agent-manage.md
-          - name: Using Windows client installer (preview)
-            href: agents/azure-monitor-agent-windows-client.md
-        - name: Configure data collection
-          items:
-          - name: Collect events and performance
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-rule-azure-monitor-agent.md
-          - name: Collect text and IIS Logs
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-text-log.md
-        - name: Define network settings
-          href: agents/azure-monitor-agent-data-collection-endpoint.md
-        - name: Migrate from Log Analytics Agent
-          items:
-          - name: Migration guidance
-            href: agents/azure-monitor-agent-migration.md
-          - name: Migration tools
-            href: agents/azure-monitor-agent-migration-tools.md
-        - name: FAQ
-          displayName: Azure Monitor agent FAQ
-          href: /azure/azure-monitor/faq#azure-monitor-agent
+      - name: Using the agent extension
+        href: agents/azure-monitor-agent-manage.md
+      - name: Using Windows client installer
+        href: agents/azure-monitor-agent-windows-client.md
+    - name: Configure data collection
+      items:
+      - name: Collect events and performance
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Collect text and IIS Logs
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-text-log.md
+      - name: Collect SNMP traps
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-snmp-data.md        
+    - name: Define network settings
+      href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Migrate from Log Analytics Agent
+      items:
+      - name: Migration guidance
+        href: agents/azure-monitor-agent-migration.md
+      - name: Migration tools
+        href: agents/azure-monitor-agent-migration-tools.md
+    - name: FAQ
+      displayName: Azure Monitor agent FAQ
+      href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Legacy agents
       items:
       - name: Log Analytics agent
@@ -275,57 +283,57 @@ items:
               href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
             - name: Resource Manager template
               href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to Azure Monitor Metrics
-          items:
-            - name: Virtual Machine
-              href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
-            - name: Virtual machine scale set
-              href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
-            - name: VM classic
-              href: essentials/collect-custom-metrics-guestos-vm-classic.md
-            - name: Cloud service
-              href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-        - name: Send to Event Hubs
-          href: agents/diagnostics-extension-stream-event-hubs.md
-        - name: Send to Logs
-          href: agents/diagnostics-extension-logs.md
-        - name: Send to Application Insights
-          href: agents/diagnostics-extension-to-application-insights.md
-        - name: Version history
-          href: agents/diagnostics-extension-versions.md
-        - name: Troubleshooting
-          href: agents/diagnostics-extension-troubleshooting.md
-      - name: Linux
-        displayName: diagnostics extension
-        items:
-          - name: Version 4.0
-            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Version 3.0
-            href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
-          - name: Collect metrics with Telegraf
-            href: essentials/collect-custom-metrics-linux-telegraf.md
-          - name: Troubleshoot
+          - name: Send to Azure Monitor Metrics
             items:
-            - name: Linux VM
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-            - name: Linux Rsyslog issues
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-            - name: Windows VM
-              href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-            - name: Windows Arc-enabled server
-              href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-            - name: Troubleshoot legacy Agents
-              displayName: Troublshooting guidance
-              items:  
-                - name: Log Analytics VM Extension
-                  displayName: troubleshoot, troubleshooting
-                  href: visualize/vmext-troubleshoot.md
-                - name: Log Analytics Windows agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-windows-troubleshoot.md
-                - name: Log Analytics Linux agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-linux-troubleshoot.md
+              - name: Virtual Machine
+                href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
+              - name: Virtual Machine Scale Set
+                href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
+              - name: VM classic
+                href: essentials/collect-custom-metrics-guestos-vm-classic.md
+              - name: Cloud service
+                href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+          - name: Send to Event Hubs
+            href: agents/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: agents/diagnostics-extension-logs.md
+          - name: Send to Application Insights
+            href: agents/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: agents/diagnostics-extension-versions.md
+          - name: Troubleshooting
+            href: agents/diagnostics-extension-troubleshooting.md
+        - name: Linux
+          displayName: diagnostics extension
+          items:
+            - name: Version 4.0
+              href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Version 3.0
+              href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
+            - name: Collect metrics with Telegraf
+              href: essentials/collect-custom-metrics-linux-telegraf.md
+    - name: Troubleshoot
+      items:
+      - name: Linux VM
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Linux Rsyslog issues
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+      - name: Windows VM
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+      - name: Windows Arc-enabled server
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
+      - name: Troubleshoot legacy Agents
+        displayName: Troublshooting guidance
+        items:  
+          - name: Log Analytics VM Extension
+            displayName: troubleshoot, troubleshooting
+            href: visualize/vmext-troubleshoot.md
+          - name: Log Analytics Windows agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-windows-troubleshoot.md
+          - name: Log Analytics Linux agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-linux-troubleshoot.md
   - name: Data collection rules
     items:
     - name: Overview
@@ -337,9 +345,6 @@ items:
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Create with Azure Policy
-      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
@@ -350,6 +355,12 @@ items:
     - name: Structure
       displayName: Transformations
       href: essentials/data-collection-transformations-structure.md
+    - name: Tutorials
+      items:
+      - name: Workspace transformations in the Azure portal
+        href: logs/tutorial-workspace-transformations-portal.md
+      - name: Workspace transformations using ARM templates
+        href: logs/tutorial-workspace-transformations-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -367,7 +378,6 @@ items:
   - name: Overview
     href: data-platform.md
   - name: Metrics
-    href: essentials/data-platform-metrics.md
     items:
     - name: Overview of Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
@@ -378,6 +388,8 @@ items:
       - name: Overview
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
+      - name: FAQ
+        href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
       - name: Enable on AKS cluster
@@ -387,8 +399,16 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
       - name: Remote-write
-        displayName: Prometheus
-        href: essentials/prometheus-remote-write-managed-identity.md
+        items:
+        - name: Overview
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write.md
+        - name: Managed identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-managed-identity.md
+        - name: Azure Active Directory
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-active-directory.md
       - name: Configure Grafana
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
@@ -421,62 +441,38 @@ items:
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: logs/data-platform-logs.md 
-    - name: Platform logs
-      href: essentials/platform-logs-overview.md
-    - name: Activity log
-      href: essentials/activity-log.md
-    - name: Resource logs
-      href: essentials/resource-logs.md
-    - name: Logs ingestion API
-      items:
-      - name: Overview
-        displayName: data ingestion
-        href: logs/logs-ingestion-api-overview.md
-      - name: Migrate from Data Collector API
-        href: logs/custom-logs-migrate.md
-      - name: Data collector API
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
-    - name: Data security
-      items:
-        - name: Roles permissions and security
-          href: roles-permissions-security.md
-        - name: Log data
-          href: logs/data-security.md
-        - name: Customer-managed keys
-          href: logs/customer-managed-keys.md
-        - name: Private storage
-          href: logs/private-storage.md
-        - name: Personal log data handling
-          href: logs/personal-data-mgmt.md
-        - name: Application data collection, retention, and storage
-          href: app/data-retention-privacy.md
+      href: logs/data-platform-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
-        - name: Create workspaces
-          href: logs/quick-create-workspace.md
-        - name: Configure
+        - name: Cost details
+          displayName: Log Analytics workspace,Logs
+          href: logs/cost-logs.md
+        - name: Manage Log Analytics workspaces
           items:
+          - name: Create a Log Analytics workspace
+            href: logs/quick-create-workspace.md
           - name: Manage access
-            displayName: Log Analytics workspace
+            displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
           - name: Change pricing tier
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Configure Basic Logs
-            href: logs/basic-logs-configure.md
           - name: Use Azure AD authentication
             href: logs/azure-ad-authentication-logs.md
+        - name: Manage tables
+          displayName: Azure Monitor Logs tables
+          items:            
+          - name: Overview
+            href: logs/manage-logs-tables.md      
+          - name: Add or delete tables and columns
+            href: logs/create-custom-table.md
+          - name: Set Basic or Analytics log data plan
+            displayName: Basic logs
+            href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
           - name: Set retention and archive policy
@@ -518,6 +514,41 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
+    - name: Data security
+      items:
+        - name: Roles permissions and security
+          href: roles-permissions-security.md
+        - name: Log data
+          href: logs/data-security.md
+        - name: Customer-managed keys
+          href: logs/customer-managed-keys.md
+        - name: Private storage
+          href: logs/private-storage.md
+        - name: Personal log data handling
+          href: logs/personal-data-mgmt.md
+        - name: Application data collection, retention, and storage
+          href: app/data-retention-privacy.md
+    - name: Logs ingestion API
+      items:
+      - name: Overview
+        displayName: data ingestion
+        href: logs/logs-ingestion-api-overview.md
+      - name: Migrate from Data Collector API
+        href: logs/custom-logs-migrate.md
+      - name: Tutorials
+        items:
+        - name: Send data to Azure Monitor Logs using REST API
+          href: logs/tutorial-logs-ingestion-portal.md
+        - name: Send data to Azure Monitor Logs with ARM templates
+          href: logs/tutorial-logs-ingestion-api.md        
+      - name: Data collector API
+        items:
+        - name: Overview
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data collector API
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data Collector API Pipeline example
+          href: logs/create-pipeline-datacollector-api.md
     - name: Integrate with Logic Apps
       items:
         - name: Azure Monitor Logs connector
@@ -548,7 +579,7 @@ items:
       items:
       - name: Overview
         href: app/codeless-overview.md
-      - name: Azure VM and virtual machine scale set
+      - name: Azure VM and Virtual Machine Scale Set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
         items:
@@ -909,14 +940,10 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-        - name: Manage Azure Cloud Services
-          href: app/powershell-azure-diagnostics.md
     - name: Export
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export data model
-        href: app/export-data-model.md
     - name: Visual Studio
       items:
       - name: F5 insights
@@ -929,38 +956,6 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Map dependencies
-      href: vm/vminsights-maps.md
-    - name: Migrate from service map
-      href: vm/vminsights-migrate-from-service-map.md
-    - name: Monitor performance
-      href: vm/vminsights-performance.md
-    - name: Monitor guest health (preview)
-      items:
-      - name: Overview
-        href: vm/vminsights-health-overview.md
-      - name: Migrate
-        href: vm/vminsights-health-migrate.md
-      - name: Enable
-        href: vm/vminsights-health-enable.md
-      - name: Alerts
-        href: vm/vminsights-health-alerts.md
-      - name: Configure monitors in portal
-        href: vm/vminsights-health-configure.md
-      - name: Configure monitors at scale
-        href: vm/vminsights-health-configure-dcr.md
-      - name: Troubleshoot
-        href: vm/vminsights-health-troubleshoot.md
-    - name: Analyze data with log queries
-      href: vm/vminsights-log-query.md
-    - name: Monitor changes
-      href: vm/vminsights-change-analysis.md
-    - name: Visualize data with workbooks
-      href: vm/vminsights-workbooks.md
-    - name: Disable monitoring
-      href: vm/vminsights-optout.md
-    - name: Troubleshoot
-      href: vm/vminsights-troubleshoot.md
   - name: Container insights
     items:
     - name: Overview
@@ -1095,6 +1090,17 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Network insights
+    items:
+    - name: Overview
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-overview.md
+    - name: Topology
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-topology.md
+    - name: Troubleshooting
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
   - name: Log Analytics workspace insights
@@ -1205,8 +1211,6 @@ items:
     items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
@@ -1289,28 +1293,26 @@ items:
           href: logs/api/overview.md
         - name: Using the API
           items:
-          - name: Set up authentication and authorization
-            href: logs/api/authentication-authorization.md
-          - name: Access the API
+          - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Register an app for API access
+            href: logs/api/register-app-for-token.md 
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
             href: logs/api/response-format.md
-          - name: API options
-            items:
-            - name: Batch queries
-              href: logs/api/batch-queries.md
-            - name: Cross-resource queries
-              href: logs/api/cross-workspace-queries.md
-            - name: Azure resource queries
-              href: logs/api/azure-resource-queries.md
-            - name: Response caching
-              href: logs/api/cache.md
-            - name: Server timeouts
-              href: logs/api/timeouts.md
-            - name: Prefer headers
-              href: logs/api/prefer-options.md
+          - name: Batch queries
+            href: logs/api/batch-queries.md
+          - name: Cross-resource queries
+            href: logs/api/cross-workspace-queries.md
+          - name: Azure resource queries
+            href: logs/api/azure-resource-queries.md
+          - name: Response caching
+            href: logs/api/cache.md
+          - name: Server timeouts
+            href: logs/api/timeouts.md
+          - name: Prefer headers
+            href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
   - name: Change Analysis
@@ -1357,8 +1359,6 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
@@ -1486,18 +1486,12 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
-      - name: Scale virtual machine scale sets using Resource Manager templates
+      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using CLI
+      - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using PowerShell
+      - name: Scale Virtual Machine Scale Sets using PowerShell
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale with custom metrics
-        href: autoscale/autoscale-custom-metric.md
-      - name: Scale virtual machine scale sets
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using Resource Manager templates
-        href: autoscale/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Troubleshooting
@@ -1545,12 +1539,8 @@ items:
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: Platform support
-      href: app/platforms.md
-    - name: Endpoint overrides
-      href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md
+      href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
       href: app/statsbeat.md
     - name: Release notes
@@ -1582,7 +1572,7 @@ items:
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md
+        href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
@@ -1723,10 +1713,6 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
-    - name: Logs pricing details
-      href: logs/cost-logs.md
     - name: Legacy Application Insights pricing
       href: app/legacy-pricing.md
     - name: Optimize costs

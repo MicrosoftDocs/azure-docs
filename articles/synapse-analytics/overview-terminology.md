@@ -40,7 +40,7 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 
 There are two ways within Synapse to use Spark:
 
-* **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
+* **Spark Notebooks** for doing Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
 * **Spark job definitions** for running batch Spark jobs using jar files.
 
 ## SynapseML

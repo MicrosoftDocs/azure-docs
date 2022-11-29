@@ -1,5 +1,6 @@
 ---
-title: List blob containers with .NET - Azure Storage 
+title: List blob containers with .NET
+titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the .NET client library.
 services: storage
 author: pauljewellmsft
@@ -11,7 +12,7 @@ ms.date: 03/28/2022
 
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # List blob containers with .NET

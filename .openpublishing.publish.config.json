@@ -165,6 +165,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-quickstart-templates-v1",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v1.x",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-samples-java",
       "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
       "branch": "master",
@@ -209,6 +215,12 @@
     {
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -849,9 +861,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmos-dotnet-v3",
-      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
-      "branch": "v3",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -869,6 +887,12 @@
     {
       "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-mongodb-python-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
       "branch": "main",
       "branch_mapping": {}
     }
@@ -952,6 +976,7 @@
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
     ".openpublishing.redirection.baremetal-infrastructure.json",
-    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
+    "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json"
   ]
 }

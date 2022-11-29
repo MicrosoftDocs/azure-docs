@@ -204,6 +204,18 @@ It's recommended that you protect all administrator accounts with multifactor au
 
 If you're not using [Conditional Access](conditional-access-user-flow.md), you can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
 
+## Check tenant creation permission 
+
+Before you create an Azure AD B2C tenant, make sure that you've the permission to do so. Use these steps to check that you've the permission to create a tenant: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Under **Manage**, select **User Settings**.
+1. Review your Tenant Creation setting. If it says **No**, then contact your administrator to assign the tenant creator role to you. The setting is greyed out if you're not an administrator in the tenant.
+
 ## Get your tenant name
 
 To get your Azure AD B2C tenant name, follow these steps:

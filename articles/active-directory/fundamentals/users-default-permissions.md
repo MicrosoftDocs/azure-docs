@@ -3,13 +3,13 @@ title: Default user permissions - Azure Active Directory | Microsoft Docs
 description: Learn about the user permissions available in Azure Active Directory.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 11/22/2022
 ms.author: barclayn
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18, contperf-fy21q1"
@@ -44,23 +44,22 @@ Policies | <ul><li>Read all properties of policies<li>Manage all properties of o
 
 ## Restrict member users' default permissions 
 
-It's possible to add restrictions to users' default permissions. You can use this feature if you don't want all users in the directory to have access to the Azure AD admin portal/directory. 
-
-For example, a university has many users in its directory. The admin might not want all of the students in the directory to be able to see the full directory and violate other students' privacy. The use of this feature is optional and at the discretion of the Azure AD administrator. 
+It's possible to add restrictions to users' default permissions.
 
 You can restrict default permissions for member users in the following ways:
 
+> [!CAUTION]
+> Using the **Restrict access to Azure AD administration portal** switch **is NOT a security measure**. For more information on the functionality, see the table below.
+
 | Permission | Setting explanation |
 | ---------- | ------------ |
-| **Register applications** | Setting this option to **No** prevents users from creating application registrations. You can the grant the ability back to specific individuals by adding them to the application developer role. |
+| **Register applications** | Setting this option to **No** prevents users from creating application registrations. You can then grant the ability back to specific individuals, by adding them to the application developer role. |
+| **Create tenants** | By default all of your users can create new tenants. If you set this option to **No**, you prevent users from creating new Azure AD or Azure AD B2C tenants. You can grant the ability back to specific individuals by adding them to tenant creator role. |
 | **Allow users to connect work or school account with LinkedIn** | Setting this option to **No** prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md). |
 | **Create security groups** | Setting this option to **No** prevents users from creating security groups. Global administrators and user administrators can still create security groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
 | **Create Microsoft 365 groups** | Setting this option to **No** prevents users from creating Microsoft 365 groups. Setting this option to **Some** allows a set of users to create Microsoft 365 groups. Global administrators and user administrators can still create Microsoft 365 groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
-| **Restrict access to Azure AD administration portal** | **What does this switch do?** <br>**No** lets non-administrators browse the Azure AD administration portal. <br>**Yes** Restricts non-administrators from browsing the Azure AD administration portal. Non-administrators who are owners of groups or applications are unable to use the Azure portal to manage their owned resources. </p><p></p><p>**What does it not do?** <br> It does not restrict access to Azure AD data using PowerShell, Microsoft GraphAPI, or other clients such as Visual Studio. <br>It does not restrict access as long as a user is assigned a custom role (or any role). </p><p></p><p>**When should I use this switch?** <br>Use this to prevent users from misconfiguring the resources that they own. </p><p></p><p>**When should I not use this switch?** <br>Do not use this switch as a security measure. Instead, create a Conditional Access policy that targets Microsoft Azure Management will block non-administrators access to [Microsoft Azure Management](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-azure-management). </p><p></p><p> **How do I grant only a specific non-administrator users the ability to use the Azure AD administration portal?** <br> Set this option to **Yes**, then assign them a role like global reader. </p><p></p><p>**Restrict access to the Entra administration portal** <br>A Conditional Access policy that targets Microsoft Azure Management will target access to all Azure management. |
-| **Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`. |
-
-> [!NOTE]
-> It's assumed that the average user would only use the portal to access Azure AD, and not use PowerShell or the Azure CLI to access their resources. Currently, restricting access to users' default permissions occurs only when users try to access the directory within the Azure portal.
+| **Restrict access to Azure AD administration portal** | **What does this switch do?** <br>**No** lets non-administrators browse the Azure AD administration portal. <br>**Yes** Restricts non-administrators from browsing the Azure AD administration portal. Non-administrators who are owners of groups or applications are unable to use the Azure portal to manage their owned resources. </p><p></p><p>**What does it not do?** <br> It doesn't restrict access to Azure AD data using PowerShell, Microsoft GraphAPI, or other clients such as Visual Studio. <br>It doesn't restrict access as long as a user is assigned a custom role (or any role). </p><p></p><p>**When should I use this switch?** <br>Use this option to prevent users from misconfiguring the resources that they own. </p><p></p><p>**When should I not use this switch?** <br>Don't use this switch as a security measure. Instead, create a Conditional Access policy that targets Microsoft Azure Management will block non-administrators access to [Microsoft Azure Management](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-azure-management). </p><p></p><p> **How do I grant only a specific non-administrator users the ability to use the Azure AD administration portal?** <br> Set this option to **Yes**, then assign them a role like global reader. </p><p></p><p>**Restrict access to the Entra administration portal** <br>A Conditional Access policy that targets Microsoft Azure Management will target access to all Azure management. |
+| **Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag doesn't prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`. |
 
 ## Restrict guest users' default permissions
 
@@ -71,7 +70,7 @@ You can restrict default permissions for guest users in the following ways.
 
 Permission | Setting explanation
 ---------- | ------------
-**Guest user access restrictions** | Setting this option to **Guest users have the same access as members** grants all member user permissions to guest users by default.<p>Setting this option to **Guest user access is restricted to properties and memberships of their own directory objects** restricts guest access to only their own user profile by default. Access to other users is no longer allowed, even when they're searching by user principal name, object ID, or display name. Access to group information, including groups memberships, is also no longer allowed.<p>This setting does not prevent access to joined groups in some Microsoft 365 services like Microsoft Teams. To learn more, see [Microsoft Teams guest access](/MicrosoftTeams/guest-access).<p>Guest users can still be added to administrator roles regardless of this permission setting.
+**Guest user access restrictions** | Setting this option to **Guest users have the same access as members** grants all member user permissions to guest users by default.<p>Setting this option to **Guest user access is restricted to properties and memberships of their own directory objects** restricts guest access to only their own user profile by default. Access to other users is no longer allowed, even when they're searching by user principal name, object ID, or display name. Access to group information, including groups memberships, is also no longer allowed.<p>This setting doesn't prevent access to joined groups in some Microsoft 365 services like Microsoft Teams. To learn more, see [Microsoft Teams guest access](/MicrosoftTeams/guest-access).<p>Guest users can still be added to administrator roles regardless of this permission setting.
 **Guests can invite** | Setting this option to **Yes** allows guests to invite other guests. To learn more, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 **Members can invite** | Setting this option to **Yes** allows non-admin members of your directory to invite guests. To learn more, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 **Admins and users in the guest inviter role can invite** | Setting this option to **Yes** allows admins and users in the guest inviter role to invite guests. When you set this option to **Yes**, users in the guest inviter role will still be able to invite guests, regardless of the **Members can invite** setting. To learn more, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).

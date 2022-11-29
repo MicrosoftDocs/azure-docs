@@ -40,7 +40,7 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 | Health probe log | Yes | Yes | No |
 | Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes |
 | Microsoft managed rule set | No | Yes | Yes - Only default rule set 1.1 or below |
-| Bot protection | No | Yes | No |
+| Bot protection | No | Yes | Yes - Only bot manager rule set 1.0  |
 | Private link support | No | Yes | No |
 | Simplified price (base + usage) | Yes | Yes | No |
 | Azure Policy integration | Yes | Yes | No |

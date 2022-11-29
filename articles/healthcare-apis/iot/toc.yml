@@ -6,12 +6,14 @@ items:
   items:
   - name: What is MedTech service?
     href: iot-connector-overview.md
+  - name: MedTech service data flow
+    href: iot-data-flow.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
-  - name: Deploy the MedTech service
+  - name: Deploy MedTech service
     expanded: true
     items:
     - name: Deployment methods   
@@ -19,15 +21,17 @@ items:
       items:
       - name: Choose a deployment method
         href: deploy-iot-connector-in-azure.md
-      - name: Quickstart template
+      - name: Azure Resource Manager template
         href: deploy-02-new-button.md
-      - name: Azure PowerShell & CLI
+      - name: Azure PowerShell or Azure CLI
         href: deploy-08-new-ps-cli.md
-      - name: Manual deployment - Prerequisites
+      - name: Azure Bicep
+        href: deploy-new-bicep-ps-cli.md
+      - name: Azure portal - Prerequisites
         href: deploy-03-new-manual.md
-      - name: Manual deployment - Configure
+      - name: Azure portal - Configure
         href: deploy-05-new-config.md
-      - name: Manual deployment - Deploy
+      - name: Azure portal - Deploy
         href: deploy-06-new-deploy.md   
 - name: Tutorials
   expanded: true
@@ -43,7 +47,7 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Device mappings overview
+      - name: Device mappings
         href: how-to-use-device-mappings.md
       - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
@@ -59,16 +63,16 @@ items:
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
-    expanded: true
+    expanded: false
     items:
-    - name: Use the monitoring tab metrics
+    - name: Display monitoring tab metrics
       href: how-to-use-monitoring-tab.md
     - name: Configure metrics
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot and problem solve
-    expanded: true
+    expanded: false
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
@@ -77,8 +81,6 @@ items:
 - name: Concepts
   expanded: false
   items:
-  - name: MedTech service data flow
-    href: iot-data-flow.md
   - name: MedTech service and Azure Machine Learning Service
     href: iot-connector-machine-learning.md
   - name: MedTech service and Microsoft Power BI
