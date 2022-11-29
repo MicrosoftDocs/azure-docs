@@ -2,7 +2,7 @@
 title: Prepay for Virtual machine software reservations
 description: Learn how to prepay for Azure virtual machine software reservations to save money.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
