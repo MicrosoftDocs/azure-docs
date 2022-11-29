@@ -68,7 +68,7 @@ az vm nic list \
 ]
 ```
 
-Using the VM name and NIC name, get the private IP address of the NIC,the Inbound NAT rule name and load balancer name using [az vm nic show](/cli) 
+Using the VM name and NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [az vm nic show](/cli).
 
 
 ```azurecli-interactive
@@ -179,7 +179,7 @@ az network public-ip list --resource-group myResourceGroup
 
 ## Connect to your instance
 
-SSH to the machine using the load balancer IP and the port of the machine you want to connect to
+SSH to the machine using the load balancer IP and the port of the machine you want to connect to.
 
 ```azurecli-interactive
 ssh azureuser@20.172.211.239 -p 50000
