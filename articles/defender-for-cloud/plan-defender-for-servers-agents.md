@@ -4,19 +4,42 @@ description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premis
 ms.topic: conceptual
 ms.date: 11/06/2022
 ---
-# Plan Defender for Servers agents and extensions
+# Plan Defender for Servers agents/extensions and Azure Arc
 
 This article helps you to scale your Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 ## Before you start 
 
-This article is the second part of the Defender for Servers planning guide. Review the [first part of this guide](plan-defender-for-servers.md) before you start.
+This article is the fifth part of the Defender for Servers planning guide. Before you begin, review:
+
+1. [Start planning your deployment](plan-defender-for-servers.md)
+1. [Understand where you data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
+1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md)
+1. [Select a Defender for Servers plan](plan-defender-for-servers-select-plan.md)
 
 ## Review agents and extensions
 
 Defender for Servers plans use a number of agents/extensions.
 
-## Azure Arc agent
+## Review Azure Arc requirements
+
+Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is used by Defender for Cloud to protect non-Azure machines. 
+
+- **Foundational CSPM**:
+    - <p style="color:red">For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.<br/><br/> You do need Azure Arc onboarding for on-premises machines.</p>
+- **Defender for Server plan**:
+    - <p style="color:red">To use the Defender for Servers, all AWS/GCP and on-premises machines should be Azure Arc-enabled.</p>
+    - After setting up AWS/GCP connectors, Defender for Cloud can automatically deploy agents to AWS/GCP servers. This includes automatic deployment of the Azure Arc agent.
+
+### Plan for Azure Arc deployment
+
+1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
+    - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
+    - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
+    - Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
+
+### Azure Arc agent
 
 Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
 - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
@@ -28,7 +51,6 @@ Azure Arc installs the Connected Machine agent to connect to and manage machines
 
 Defender for Cloud uses the Log Analytics agent/Azure Monitor agent to collect information from compute resources, and then sends it to a Log Analytics workspace for further analysis. Agents are used in Defender for Servers as follows.
 
-<p style="color:red">
 
 Feature | Log Analytics agent | Azure Monitor agent
 --- | --- | --- 
