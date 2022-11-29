@@ -11,7 +11,8 @@ This article helps you to understand how your data is stored, and how Log Analyt
 
 ## Before you start
 
-This article is the second part of the Defender for Servers planning guide. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md)
+This article is the second in the Defender for Servers planning guide series. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md)
+
 
 
 ## Understand data residency
@@ -57,8 +58,8 @@ Your server information can be stored in the default workspace, or you can selec
 - You must enable the Defender for Servers plan on custom workspaces.
 - The custom workspace must be associated with the Azure subscription on which Defender for Cloud is enabled.
 - You need at minimum read permissions for the workspace.
-- - If the *Security & Audit* solution is installed on a workspace, Defender for Cloud uses the existing solution.
-- Learn more about [workspace design strategy and criteria](../azure-monitor/logs/workspace-design.md).
+- If the *Security & Audit* solution is installed on a workspace, Defender for Cloud uses the existing solution.
+- Learn more about [Log Analytics workspace design strategy and criteria](../azure-monitor/logs/workspace-design.md).
 
 
 

@@ -11,10 +11,10 @@ This article helps you select which Defender for Servers plan is right for your 
 
 ## Before you start 
 
-This article is the fourth part of the Defender for Servers planning guide. Before you begin, review:
+This article is the fourth in the Defender for Servers planning guide series. Before you begin, review the earlier articles:
 
 1. [Start planning your deployment](plan-defender-for-servers.md)
-1. [Understand where you data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
+1. [Understand where your data is stored, and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
 1. [Review access and role requirements](plan-defender-for-servers-roles.md)
 
 
@@ -23,11 +23,11 @@ This article is the fourth part of the Defender for Servers planning guide. Befo
 Defender for Servers provides two plans you can choose from.
 
 - **Defender for Servers Plan 1** is entry-level, and must be enabled at the subscription level. Features include:
-    -  [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), provided by free by Defender for Cloud.
-        - These features are available without a Defender for Cloud plan enabled for Azure VMs, and AWS/GCP machines.
-        - To receive recommendations about your on-premises machine configuration, machines must be Azure Arc-enabled, with Defender for Servers enabled.
+    -  [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), which is provided for free by Defender for Cloud.
+        - For Azure VMs, and AWS/GCP machines, you don't need a Defender for Cloud plan enabled to use foundational CSPM features.
+        - For on-premises server, to receive configuration recommendations machines must be onboarded to Azure with Azure Arc, and Defender for Servers must be enabled.
     - Endpoint detection and response (EDR) features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2).
-- **Defender for Servers Plan 2** provides all features. It must be enabled at the subscription level, and at the workspace level to get full feature coverage. Features include:
+- **Defender for Servers Plan 2** provides all features. It must be enabled at the subscription level and at the workspace level to get full feature coverage. Features include:
     - All the functionality provided by Defender for Servers Plan 1.
     - Additional extended detection and response (XDR) capabilities.
   
@@ -46,7 +46,7 @@ Defender for Servers provides two plans you can choose from.
 | **Adaptive network hardening** | Network hardening filters traffic to and from resources with network security groups (NSG) to improve your network security posture. Further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **File Integrity Monitoring** | [File integrity monitoring](file-integrity-monitoring-overview.md) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Threat detection at the OS level and network layer (including fileless attack detection)** | Detailed security alerts are issued as threats are detected. | :::image type="icon" source="./media/icons/yes-icon.png"::: <br/>Provided by Defender for Endpoint | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Servers |
-| **Docker host hardening** | Assess containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: 
+| **Docker host hardening** | Assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: 
 [Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | | :::image type="icon" source="./media/icons/yes-icon.png":::
 [Agentless scanning](concept-agentless-data-collection.md) | Scans Azure VMs, using cloud APIs to collect data | | :::image type="icon" source="./media/icons/yes-icon.png":::
 

@@ -11,7 +11,7 @@ This article helps you to understand how to control access to Defender for Serve
 
 ## Before you start
 
-This article is the third part of the Defender for Servers planning guide. Before you begin, review:
+This article is the third in the Defender for Servers planning guide series. Before you begin, review the earlier articles:
 
 1. [Start planning your deployment](plan-defender-for-servers.md)
 1. [Understand where you data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
