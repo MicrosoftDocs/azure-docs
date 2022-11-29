@@ -68,7 +68,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
-| Translator connected |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
+| Translator connected |`2` cores, 2-GB memory |`4` cores, 8-GB memory | 4 |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster. 
 
