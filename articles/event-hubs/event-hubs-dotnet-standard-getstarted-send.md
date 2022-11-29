@@ -244,6 +244,7 @@ Note down the connection string and the container name. You'll use them in the r
 ### [Connection String](#tab/connection-string)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. In the **Package Manager Console** window, confirm that **EventHubsReceiver** is selected for the **Default project**. If not, use the drop-down list to select **EventHubsReceiver**.
 1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```powershell
