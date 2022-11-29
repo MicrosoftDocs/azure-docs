@@ -204,16 +204,16 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 
 ### Zonal failover support
 
-A container group of container instances is assigned to a single availability zone. As a result, that group of container instances can't impacted by an outage that occurs in any other availability zone of the same region
+A container group of container instances is assigned to a single availability zone. As a result, that group of container instances won't be impacted by an outage that occurs in any other availability zone of the same region
 
 If, however, an outage occurs in the availability zone of the container group, you can expect downtime for all the container instances within that group.
 
-To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. Doing this ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
+To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. This ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
 
 
 ## Disaster recovery
 
-When an entire Azure region or datacenter experiences downtime, your mission-critical code needs to continue processing in a different region. Azure Container Instances deployed with zonal configuration run in a specific zone within a specific region. There's no built-in redundancy available. To avoid loss of execution during region wide outages, you can redundantly deploy the Containers instances in additional regions.
+When an entire Azure region or datacenter experiences downtime, your mission-critical code needs to continue processing in a different region. Azure Container Instances deployed with zonal configuration run in a specific zone within a specific region. There's no built-in redundancy available. To avoid loss of execution during region wide outages, you can redundantly deploy the container instances in other regions.
 
 ## Next steps
 
