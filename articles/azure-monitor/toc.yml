@@ -174,7 +174,15 @@ items:
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
   - name: Data sources
-    href: data-sources.md
+    items:
+      - name: Overview of data sources
+        href: data-sources.md
+      - name: Platform logs
+        href: essentials/platform-logs-overview.md
+      - name: Activity log
+        href: essentials/activity-log.md
+      - name: Resource logs
+        href: essentials/resource-logs.md
   - name: Diagnostic Settings
     items:
     - name: Overview 
@@ -370,7 +378,6 @@ items:
   - name: Overview
     href: data-platform.md
   - name: Metrics
-    href: essentials/data-platform-metrics.md
     items:
     - name: Overview of Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
@@ -434,13 +441,7 @@ items:
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: logs/data-platform-logs.md 
-    - name: Platform logs
-      href: essentials/platform-logs-overview.md
-    - name: Activity log
-      href: essentials/activity-log.md
-    - name: Resource logs
-      href: essentials/resource-logs.md
+      href: logs/data-platform-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
@@ -1088,6 +1089,17 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Network insights
+    items:
+    - name: Overview
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-overview.md
+    - name: Topology
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-topology.md
+    - name: Troubleshooting
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
   - name: Log Analytics workspace insights
@@ -1528,8 +1540,6 @@ items:
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: Endpoint overrides
-      href: app/custom-endpoints.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat

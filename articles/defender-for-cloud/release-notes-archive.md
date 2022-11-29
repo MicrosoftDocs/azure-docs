@@ -47,7 +47,7 @@ As part of this update, vulnerabilities that have medium and low severities are 
 
 :::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
-Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+Learn more about [vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 
 ### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
 
@@ -713,7 +713,7 @@ Use the security recommendation "[A vulnerability assessment solution should be 
 
 To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](release-notes-archive.md#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
-Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 ### Microsoft Defender for Endpoint for Linux now supported by Microsoft Defender for Servers - released for general availability (GA)
 
@@ -795,7 +795,7 @@ Use the security recommendation "[A vulnerability assessment solution should be 
 
 To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
-Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 ### Vulnerability assessment solutions can now be auto enabled (in preview)
 
@@ -806,7 +806,7 @@ If the [integration with Microsoft Defender for Endpoint](integration-defender-f
 - (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
 - The integrated Qualys agent
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
+:::image type="content" source="media/deploy-vulnerability-assessment-defender-vulnerability-management/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
 
 Your chosen solution will be automatically enabled on supported machines.
 
@@ -822,7 +822,7 @@ To use these new features, you'll need to enable the [integration with Microsoft
 
 For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
+:::image type="content" source="media/deploy-vulnerability-assessment-defender-vulnerability-management/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
 
 ### Changed prefix of some alert types from "ARM_" to "VM_"
 
@@ -2381,7 +2381,7 @@ name: "mico-rg-vnet",
 type: "Microsoft.Security/securityStatuses",
 properties:  {
     policyAssessments: [
-        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection should be enabled",...},
         {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
     ],
     securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
@@ -2400,7 +2400,7 @@ id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg
 name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
 properties:  {
     resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
-    displayName: "Azure DDOS Protection Standard should be enabled",
+    displayName: "Azure DDOS Protection should be enabled",
     status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
 }
 
