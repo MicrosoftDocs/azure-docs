@@ -204,7 +204,7 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 
 ### Zonal failover support
 
-A container group of container instances is assigned to a single availability zone. As a result, that group of container instances will not be impacted by an outage that occurs in any other availability zone, even in the same region.
+A container group of container instances is assigned to a single availability zone. As a result, that group of container instances can't impacted by an outage that occurs in any other availability zone of the same region
 
 If, however, an outage occurs in the availability zone of the container group, you can expect downtime for all the container instances within that group.
 
