@@ -326,7 +326,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you'll need 
 ####  &bullet; Create a folder to store the following files:
 
   1. [**.env**](#-create-an-environment-file)
-  1. [**nginx.conf**](#-create-a-nginx-file)
+  1. [**nginx.conf**](#-create-an-nginx-file)
   1. [**docker-compose.yml**](#-create-a-docker-compose-file)
 
 #### &bullet; Create a folder to store your input data
