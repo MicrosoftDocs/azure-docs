@@ -202,7 +202,7 @@ Now that your *AAD-UserWrite* Technical Profile is ready, you can update the use
         </OrchestrationStep>
     ```
 
-1. Update the Order of the *SendClaims* step to *5*.
+1. Update the Order of the *SendClaims* step to `5`.
 
 ## Step 5 - Upload policy 
 
