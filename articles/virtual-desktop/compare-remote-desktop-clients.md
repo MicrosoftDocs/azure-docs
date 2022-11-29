@@ -3,7 +3,7 @@ title: Compare the features of the Remote Desktop clients for Azure Virtual Desk
 description: Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 11/29/2022
 ms.author: daknappe
 ---
 
