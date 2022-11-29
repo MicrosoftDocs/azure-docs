@@ -13,7 +13,7 @@ Use Microsoft Defender for IoT's security recommendations to enhance your networ
 
 View all current recommendations for your organization on the Defender for IoT **Recommendations** page on the Azure portal. For example:
 
-:::image type="content" source="media/recommendations/recommendations.png" alt-text="Screenshot of the Recommendations page on the Azure portal.":::
+:::image type="content" source="media/recommendations/recommendations.png" alt-text="Screenshot of the Recommendations page on the Azure portal." lightbox="media/recommendations/recommendations.png":::
 
 The **Active recommendations** widget indicates the number of recommendations that represent actionable steps you can currently take on unhealthy devices. We recommend reviewing unhealthy devices regularly, taking recommended actions, and keeping the number of active recommendations as low as possible.
 
@@ -48,7 +48,7 @@ Switch between the **Unhealthy devices** and **Healthy devices** tabs to review 
 
 For example:
 
-:::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
+:::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page." lightbox="media/release-notes/recommendations.png":::
 
 ### View recommendation details by device
 
@@ -60,7 +60,7 @@ On a device details page, select the **Recommendations** tab to view a list of s
 
 For example:
 
-:::image type="content" source="media/recommendations/recommendations-device-details.png" alt-text="Screenshot of the Recommendations tab on a device details page.":::
+:::image type="content" source="media/recommendations/recommendations-device-details.png" alt-text="Screenshot of the Recommendations tab on a device details page." lightbox="media/recommendations/recommendations-device-details.png":::
 
 ## Supported OT network recommendations
 
