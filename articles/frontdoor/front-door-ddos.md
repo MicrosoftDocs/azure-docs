@@ -43,7 +43,7 @@ Front Door is a large scaled, globally distributed service. We have many custome
 
 ## For further protection
 
-Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the origin VNet to protect resources with public IPs against DDoS attacks. DDoS Protection customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the origin VNet to protect your public IPs against DDoS attacks. DDoS Protection customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
 
 ## Next steps
 
