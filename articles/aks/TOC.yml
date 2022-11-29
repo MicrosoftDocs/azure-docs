@@ -427,30 +427,28 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
+        - name: Shared file storage
+          items: 
+            - name: On Azure Blob storage
+              items:
+                - name: Azure Blob CSI driver
+                  href: azure-blob-csi.md
+                - name: Provision Azure Blob storage
+                  href: azure-csi-blob-storage-provision.md
+            - name: On Azure Files
+              items:
+                - name: Azure Files CSI driver
+                  href: azure-files-csi.md
+                - name: Provision Azure Files storage
+                  href: azure-csi-files-storage-provision.md
+        - name: Block storage
+          items:
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
-            - name: Azure Files CSI driver
-              href: azure-files-csi.md
-            - name: Azure Blob CSI driver
-              href: azure-blob-csi.md
-            - name: Azure NetApp Files
-              href: azure-netapp-files.md
-            - name: Use Azure Ultra Disks
-              href: use-ultra-disks.md
-        - name: Configure storage
+            - name: Provision Azure Disks storage
+              href: azure-csi-disk-storage-provision.md
+        - name: Legacy storage
           items:
-            - name: Azure Blob - dynamic
-              href: azure-csi-blob-storage-dynamic.md
-            - name: Azure Blob - static
-              href: azure-csi-blob-storage-static.md
-            - name: Azure Disks - dynamic
-              href: azure-disks-dynamic-pv.md
-            - name: Azure Disks - static
-              href: azure-disk-volume.md
-            - name: Azure Files - dynamic
-              href: azure-files-dynamic-pv.md
-            - name: Azure Files - static
-              href: azure-files-volume.md
             - name: Azure HPC Cache
               href: azure-hpc-cache.md
             - name: NFS Server - static

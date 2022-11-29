@@ -3,9 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
-author: palma21
-
+ms.date: 11/28/2022
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -26,6 +24,16 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
 - Creating large mount of file shares in parallel
+
+## Storage class driver dynamic disks parameters
+
+|Name | Meaning | Available Value | Mandatory | Default value
+|--- | --- | --- | --- | ---
+|skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file shre size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
+|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
+|location | Specify Azure region where Azure storage account will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster.|
+|resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster.|
+
 
 ## Use a persistent volume with Azure Files
 

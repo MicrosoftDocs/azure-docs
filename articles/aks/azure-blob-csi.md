@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/16/2022
+ms.date: 11/28/2022
 author: mgoedtel
 
 ---
@@ -178,8 +178,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 ## Next steps
 
-- To learn how to manually set up a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
-- To learn how to dynamically set up a persistent volume, see [Create and use a dynamic persistent volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
+- To learn how to set up a static or dynamic persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage].
 - To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi-driver]
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi-driver]
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
@@ -195,8 +194,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [concepts-storage]: concepts-storage.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [csi-drivers-aks]: csi-storage-drivers.md
-[azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
-[azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
+[azure-csi-blob-storage]: azure-csi-blob-storage.md
 [csi-storage-driver-overview]: csi-storage-drivers.md
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md

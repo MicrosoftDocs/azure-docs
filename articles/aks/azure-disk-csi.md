@@ -419,7 +419,7 @@ The output of the command resembles the following example:
 ## Next steps
 
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi].
-- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
+- To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-csi].
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
