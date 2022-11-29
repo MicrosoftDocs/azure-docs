@@ -23,12 +23,13 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2022-12-05
 
 ### Azure Machine Learning SDK for Python v1.48.0
++ Python 3.6 support has been deprecated for AzureML SDK packages.
   + **azureml-contrib-automl-dnn-forecasting**
     + This is how dataloader will work after the fix: First dataloader sample : Value 0 to 120 + Horizon 121 to 128 8th sample : Value 7 to 127 + Horizon 128 to 135 9th sample : (Leading zero + Value 0 to 119) + Horizon 120 to 127 10th sample : (Two leading zeroes + Value 0 to 118) + Horizon 119 to 126 One thing to be noted is : 9th and 10th samples are chronologically before the first sample. We cannot change this order unless we know the CV size before hand and that is not how dataloaders usually work in our code
   + **azureml-contrib-automl-pipeline-steps**
     + added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
   + **azureml-core**
-    + Python 3.6 support has been deprecated for AzureML SDK packages.
+    + Storage accounts created as a part of workspace creation now set blob public access to disabled by default
   + **azureml-responsibleai**
     + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
     + added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
