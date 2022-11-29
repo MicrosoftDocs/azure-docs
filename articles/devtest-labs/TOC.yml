@@ -281,7 +281,5 @@
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
     href: https://aka.ms/dtl/communityforum  
-  - name: Microsoft Q&A page
-    href: /answers/topics/azure-devtestlabs.html
   - name: Frequently asked questions
     href: devtest-lab-faq.yml
