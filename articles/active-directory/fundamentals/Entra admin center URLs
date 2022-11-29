@@ -1,0 +1,25 @@
+---
+title: Allow Entra admin center URLs on your firewall or proxy server
+description: To optimize connectivity between your network and the Entra admin center and its services, we recommend you add you add these URLs to your allowlist.
+ms.date: 11/28/2022
+ms.topic: conceptual
+---
+
+# Allow the Entra admin center URLs on your firewall or proxy server
+
+To optimize connectivity between your network and the Entra admin center and its services, you may want to add specific Entra admin center URLs to your allowlist. Doing so can improve performance and connectivity between your local- or wide-area network and the Azure cloud.
+
+Network administrators often deploy proxy servers, firewalls, or other devices, which can help secure and give control over how users access the internet. Rules designed to protect users can sometimes block or slow down legitimate business-related internet traffic. This traffic includes communications between you and Azure over the URLs listed here.
+
+## Entra admin center URLs for proxy bypass
+
+The URL endpoints to allow for the Entra admin center are specific to the Azure cloud where your organization is deployed. To allow network traffic to these endpoints to bypass restrictions, select your cloud, then add the list of URLs to your proxy server or firewall. We do not recommend adding any additional portal-related URLs aside from those listed here, although you may want to add URLs related to other Microsoft products and services. Depending on which services you use, you may not need to include all of these URLs in your allowlist.
+
+### Public Cloud
+*.entra.microsoft.com 
+
+### U.S. Government Cloud
+*entra.microsoftonline.us 
+
+### Azure China Cloud
+*.entra.microsoftonline.cn 
