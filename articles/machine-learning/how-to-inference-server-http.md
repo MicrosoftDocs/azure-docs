@@ -164,7 +164,7 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 
 ### Log format
 
-The logs from the inference server are generated in the following format, with the exception of the launcher scripts since they are not part of the python package: 
+The logs from the inference server are generated in the following format, with the exception of the launcher scripts since they aren't part of the python package: 
 
   <UTC Time\> | <level\> [<pid\>] <logger name\> - <message\> 
 
