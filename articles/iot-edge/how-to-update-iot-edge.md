@@ -119,7 +119,6 @@ If you want to update to the most recent version of IoT Edge, use the following 
 ```bash
 sudo yum install aziot-edge
 ```
----
 
 <!-- end iotedge-2020-11 -->
 :::moniker-end
@@ -292,10 +291,6 @@ It's recommended to install the micro agent with the Edge agent to enable securi
 
 IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
 
----
-
-Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
-
 # [Linux on Windows](#tab/linuxonwindows)
 
 If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
@@ -305,6 +300,9 @@ If you're using Windows containers or IoT Edge for Linux on Windows, this specia
 Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 
 ---
+
+Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
+
 
 ## Next steps
 
