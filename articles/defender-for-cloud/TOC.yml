@@ -140,6 +140,8 @@
       items:
       - name: Plan Defender for Servers deployment
         href: plan-defender-for-servers.md
+      - name: Agents and extensions
+        href: plan-defender-for-servers-agents.md
       - name: Scale Defender for Servers deployment
         href: plan-defender-for-servers-scale.md
       - name: Common questions
