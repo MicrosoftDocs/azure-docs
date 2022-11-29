@@ -54,20 +54,22 @@ BlobUploadOptions options = new BlobUploadOptions
 await blobClient.UploadAsync(localFilePath, options);
 ```
 
-### `InitialTransferSize` property details
+### `StorageTransferOptions` property details
 
-[InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
+#### `InitialTransferSize`
+
+[InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. Blobs equal to or smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
 It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. In fact, it's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger. `InitialTransferSize` defines a separate size limitation for an initial attempt to perform the entire operation at once with no subtransfers. This approach cuts down on overhead for some data sizes relative to `MaximumTransferSize`. 
 
 If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
-### `MaximumConcurrency` property details
+#### `MaximumConcurrency`
 [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers, or subtransfers, that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations will ignore this value and work in sequence.
 
 The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
 
-### `MaximumTransferSize` property details
+#### `MaximumTransferSize`
 
 [MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *doesn't* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
