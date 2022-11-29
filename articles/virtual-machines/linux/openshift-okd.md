@@ -19,7 +19,7 @@ ms.author: haroldw
 You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 
 - You can manually deploy all the necessary Azure infrastructure components, and then follow the [OKD documentation](https://docs.okd.io).
-- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OKD cluster.
+- You can also use an existing [Resource Manager template](https://github.com/openshift/origin) that simplifies the deployment of the OKD cluster.
 
 ## Deploy using the OKD template
 
@@ -31,7 +31,7 @@ Some common customization options include, but aren't limited to:
 - Naming conventions (variables in azuredeploy.json)
 - OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 
-The [OKD template](https://github.com/Microsoft/openshift-origin) has multiple branches available for different versions of OKD.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
+The [OKD template](https://github.com/openshift/origin) has multiple branches available for different versions of OKD.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
 
 Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
 

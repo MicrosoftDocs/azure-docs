@@ -37,6 +37,9 @@ To create managed private endpoints for Microsoft Purview on Synapse Studio:
 
 2. Select **Yes** for **Create managed private endpoints**. You need to have "**workspaces/managedPrivateEndpoint/write**" permission, e.g. Synapse Administrator or Synapse Linked Data Manager role.
 
+   >[!TIP]
+   > If you are not seeing any option to create managed private endpoints, you need to use or create an [Azure Synapse workspace has the managed virtual network option enabled at creation](../security/synapse-workspace-managed-vnet.md).
+
 3. Click **+ Create all** button to batch create the needed Microsoft Purview private endpoints, including the ***account*** private endpoint and the ***ingestion*** private endpoints for the Microsoft Purview managed resources - Blob storage, Queue storage, and Event Hubs namespace. You need to have at least **Reader** role on your Microsoft Purview account for Synapse to retrieve the Microsoft Purview managed resources' information.
 
    :::image type="content" source="./media/purview-create-all-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Microsoft Purview account.":::

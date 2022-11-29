@@ -4,7 +4,7 @@ description: Learn how to deploy Privileged Identity Management (PIM) in your Az
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

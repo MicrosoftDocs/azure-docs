@@ -70,9 +70,6 @@ Here's an example Speech CLI command to create an endpoint and deploy a model:
 spx csr endpoint create --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -117,7 +114,7 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To create an endpoint and deploy a model, use the [CreateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEndpoint) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create an endpoint and deploy a model, use the [CreateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEndpoint) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `model` property to the URI of the model that you want deployed to the endpoint. 
@@ -143,9 +140,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -212,9 +206,6 @@ Here's an example Speech CLI command that redeploys the custom endpoint with a n
 spx csr endpoint update --endpoint YourEndpointId --model YourModelId
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -257,7 +248,7 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To redeploy the custom endpoint with a new model, use the [UpdateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To redeploy the custom endpoint with a new model, use the [UpdateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `model` property to the URI of the model that you want deployed to the endpoint.
 
@@ -270,9 +261,6 @@ curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content
   }
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -337,25 +325,19 @@ Here's an example Speech CLI command that gets logs for an endpoint:
 spx csr endpoint list --endpoint YourEndpointId
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
-
 The location of each log file with more details are returned in the response body.
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-To get logs for an endpoint, start by using the [GetEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpoint) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+To get logs for an endpoint, start by using the [GetEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpoint) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEndpointId` with your endpoint ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

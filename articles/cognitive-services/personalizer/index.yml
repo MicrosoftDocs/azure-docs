@@ -57,6 +57,15 @@ landingContent:
         links:
           - text: Using SDK
             url: ./quickstart-personalizer-sdk.md
+      - linkListType: quickstart
+        links:
+          - text: Use multi-slot Personalization
+            url: ./how-to-multi-slot.md
+      - linkListType: quickstart
+        links:
+          - text: Use local inference
+            url: ./how-to-thick-client.md
+
   - title: Developing with Personalizer
     linkLists:
       - linkListType: get-started

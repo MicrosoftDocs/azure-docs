@@ -2,7 +2,7 @@
 title: How to enable cross-app SSO on Android using MSAL
 description: How to use the Microsoft Authentication Library (MSAL) for Android to enable single sign-on across your applications.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: marsma
 ---
 
@@ -122,9 +122,6 @@ Once you've generated a signature hash with *keytool*, use the Azure portal to g
 The Azure portal generates the redirect URI for you and displays it in the **Android configuration** pane's **Redirect URI** field.
 
 For more information about signing your app, see [Sign your app](https://developer.android.com/studio/publish/app-signing) in the Android Studio User Guide.
-
-> [!IMPORTANT]
-> Use your production signing key for the production version of your app.
 
 #### Configure MSAL to use a broker
 

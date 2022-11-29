@@ -25,7 +25,7 @@ public class App {
 }
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
@@ -80,7 +80,7 @@ static void translateSpeech() {
 }
 ```
 
-The [`setSpeechRecognitionLanguage`][recognitionlang] function expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`setSpeechRecognitionLanguage`][recognitionlang] function expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 

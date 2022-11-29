@@ -13,7 +13,7 @@ services: iot-edge
 
 # Update IoT Edge
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
@@ -28,7 +28,7 @@ The IoT Edge security subsystem includes a set of native components that need to
 Check the version of the security subsystem running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
 <!-- Separated Linux content support RHEL - Some content repeated in RHEL tab-->
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 
 >[!IMPORTANT]
 >If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
@@ -135,7 +135,7 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 :::moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Currently, there is not support for IoT Edge version 1.3 running on Windows devices.
+>Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 >
 >To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
@@ -181,6 +181,12 @@ For more information about update options, use the command `Get-Help Update-IoTE
 <!-- end 1.1 -->
 
 ---
+
+Then, re-apply configuration to ensure system is fully updated.
+
+```bash
+sudo iotedge config apply
+```
 
 ## Update the runtime containers
 
@@ -237,7 +243,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 ## Special case: Update from 1.0 or 1.1 to latest release
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 
 Starting with version 1.2, the IoT Edge service uses a new package name and has some differences in the installation and configuration processes. If you have an IoT Edge device running version 1.0 or 1.1, use these instructions to learn how to update to the latest release.
 
@@ -250,7 +256,8 @@ Some of the key differences between the latest release and version 1.1 and earli
   * The import command cannot detect or modify access rules to a device's trusted platform module (TPM). If your device uses TPM attestation, you need to manually update the /etc/udev/rules.d/tpmaccess.rules file to give access to the aziottpm service. For more information, see [Give IoT Edge access to the TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
 * The workload API in the latest version saves encrypted secrets in a new format. If you upgrade from an older version to latest version, the existing master encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a secret is re-encrypted by a module, it is saved in the new format. Secrets encrypted in the latest version are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
 * For backward compatibility when connecting devices that do not support TLS 1.2, you can configure Edge Hub to still accept TLS 1.0 or 1.1 via the [SslProtocols environment variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md#edgehub).  Please note that support for [TLS 1.0 and 1.1 in IoT Hub is considered legacy](../iot-hub/iot-hub-tls-support.md) and may also be removed from Edge Hub in future releases.  To avoid future issues, use TLS 1.2 as the only TLS version when connecting to Edge Hub or IoT Hub.
-* The preview for the experimental MQTT broker in Edge Hub 1.2 has ended and is not included in Edge Hub 1.3. We are continuing to refine our plans for an MQTT broker based on feedback received. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like Mosquitto as an IoT Edge module. 
+* The preview for the experimental MQTT broker in Edge Hub 1.2 has ended and is not included in Edge Hub 1.4. We are continuing to refine our plans for an MQTT broker based on feedback received. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like Mosquitto as an IoT Edge module. 
+* Starting with version 1.2, when a backing image is removed from a container, the container keeps running and it persists across restarts. In 1.1, when a backing image is removed, the container is immediately recreated and the backing image is updated.
 
 Before automating any update processes, validate that it works on test machines.
 
@@ -293,7 +300,7 @@ If you're using Windows containers or IoT Edge for Linux on Windows, this specia
 
 # [Windows](#tab/windows)
 
-Currently, there is no support for IoT Edge version 1.3 running on Windows devices.
+Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 
 ---
 

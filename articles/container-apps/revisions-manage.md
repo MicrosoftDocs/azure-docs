@@ -83,7 +83,8 @@ Example: (Replace the \<placeholders\> with your values.)
 
 ```azurecli
 az containerapp revision show \
-  --name <REVISION_NAME> \
+  --name <APPLICATION_NAME> \
+  --revision <REVISION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -91,7 +92,8 @@ az containerapp revision show \
 
 ```azurecli
 az containerapp revision show `
-  --name <REVISION_NAME> `
+  --name <APPLICATION_NAME> `
+  --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -143,7 +145,7 @@ az containerapp revision activate \
 
 # [PowerShell](#tab/powershell)
 
-```poweshell
+```azurecli
 az containerapp revision activate `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
@@ -294,6 +296,8 @@ az containerapp revision set-mode `
 ## Traffic splitting
 
 Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
+
+To create a traffic rule that always routes traffic to the latest revision, set its `latestRevision` property to `true` and don't set `revisionName`. 
 
 The following example shows how to split traffic between three revisions. 
 

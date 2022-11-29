@@ -4,14 +4,14 @@ description: Learn how to enable Microsoft Defender for Cloud for all of your da
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 11/27/2022
 ---
 
 # Enable Microsoft Defender for Cloud database plans
 
-This article explains how to enable Microsoft Defender for Cloud's database protections for the most common database types, Azure, hybrid, and multicloud environments.
+This article explains how to enable Microsoft Defender for Cloud's database protections for the most common database types, within Azure, hybrid, and multicloud environments.
 
-Defender for Cloud database protections lets you protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
+Defender for Cloud database protections let you protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
 
 Database protection includes:
 
@@ -28,7 +28,6 @@ Defender for Cloud’s database protection detects unusual and potentially harmf
 
 You must have:
 
-- [Subscription Owner](../role-based-access-control/built-in-roles.md#owner) access.
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 - To protect SQL databases in hybrid and multicloud environments, you have to connect your AWS account or GCP project to Defender for Cloud. Defender for Cloud uses Azure Arc to communicate with your hybrid and multicloud machines. Check out the following articles for more information:
 

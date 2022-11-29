@@ -2,7 +2,10 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 08/26/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Install and upgrade Azure Backup Server
@@ -70,6 +73,9 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 Always join Azure Backup Server to a domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
 Whether you send backup data to Azure, or keep it locally, Azure Backup Server must be registered with a Recovery Services vault.
+
+>[!Note]
+>If you encounter difficulties to register to a vault or other errors, ensure that you've the MARS agent version 2.0.9249.0 or above installed. If not, we recommend you to install the latest version [from here](https://aka.ms/azurebackup_agent).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -164,6 +170,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
     >[!NOTE]
+    >
     >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017.  All SQL Server versions should be Standard or Enterprise 64-bit.
     >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
@@ -213,6 +220,9 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
+
+    >[!Important]
+    >If you run into errors in vault registration, ensure that you're using the latest version of the MARS agent, instead of the version packaged with MABS server. You can download the latest version [from here](https://aka.ms/azurebackup_agent) and replace the *MARSAgentInstaller.exe* file in *System Center Microsoft Azure Backup Server v3\MARSAgent* folder before installation and registration on new servers.
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 

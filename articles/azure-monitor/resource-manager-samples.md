@@ -6,36 +6,85 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 04/05/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ms.reviewer: robb
 ---
 # Resource Manager template samples for Azure Monitor
 
-You can deploy and configure Azure Monitor at scale by using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). This article lists sample templates for Azure Monitor features. You can modify these samples for your particular requirements and deploy them by using any standard method for deploying Resource Manager templates. 
+You can deploy and configure Azure Monitor at scale by using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). This article lists sample templates for Azure Monitor features. You can modify these samples for your particular requirements and deploy them by using any standard method for deploying Resource Manager templates.
 
-## Deploying the sample templates
-The basic steps to use the one of the template samples are:
+## Deploy the sample templates
+
+The basic steps to use one of the template samples are:
 
 1. Copy the template and save it as a JSON file.
 2. Modify the parameters for your environment and save the JSON file.
-3. Deploy the template by using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). 
+3. Deploy the template by using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-portal.md).
 
-For example, use the following commands to deploy the template and parameter file to a resource group by using PowerShell or the Azure CLI:
+Following are basic steps for using different methods to deploy the sample templates. Follow the included links for more details.
 
-```powershell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName my-subscription
-New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
-```
+## [Azure portal](#tab/portal)
+
+For more details, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+
+1. In the Azure portal, select **Create a resource**, search for **template**. and then select **Template deployment**.
+2. Select **Create**.
+4. Select **Build your own template in editor**.
+5. Click **Load file** and select your template file.
+6. Click **Save**.
+7. Fill in parameter values.
+8. Click **Review + Create**.
+
+## [CLI](#tab/cli)
+
+For more details, see [How to use Azure Resource Manager (ARM) deployment templates with Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli
 az login
 az deployment group create \
     --name AzureMonitorDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group <resource-group> \
     --template-file azure-monitor-deploy.json \
     --parameters azure-monitor-deploy.parameters.json
 ```
+
+## [PowerShell](#tab/powershell)
+
+For more details, see [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <subscription>
+New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName <resource-group> -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
+```
+
+## [REST API](#tab/api)
+
+For more details, see [Deploy resources with ARM templates and Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
+```
+
+In the request body, provide a link to your template and parameter file.
+
+```json
+{
+ "properties": {
+   "templateLink": {
+     "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+     "contentVersion": "1.0.0.0"
+   },
+   "parametersLink": {
+     "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+     "contentVersion": "1.0.0.0"
+   },
+   "mode": "Incremental"
+ }
+}
+```
+
+---
 
 ## List of sample templates
 
@@ -53,4 +102,4 @@ az deployment group create \
 
 ## Next steps
 
-- Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).
+Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).

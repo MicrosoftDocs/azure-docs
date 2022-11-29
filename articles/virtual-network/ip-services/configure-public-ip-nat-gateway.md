@@ -97,7 +97,7 @@ To change the IP, you'll associate a new public IP address created previously wi
 
 ## Add public IP prefix
 
-Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,000 ephemeral ports that can be used.
+Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,512 ephemeral ports to NAT gateway for connecting outbound.
 
 > [!NOTE] 
 > When assigning a public IP prefix to a NAT gateway, the entire range will be used. 
@@ -138,7 +138,8 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 
 ## Caveats
 
-* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. NAT gateways can't be deployed on a virtual network subnet with an IPv6 prefix. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](../nat-gateway/troubleshoot-nat.md)
+* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. However, NAT gateways can be deployed on a dual stack virtual network subnet with IPv6 and IPv4 prefixes. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](/azure/virtual-network/nat-gateway/troubleshoot-nat#ipv6-coexistence)
+
 ## Next steps
 
 In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix.

@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/29/2022
+ms.date: 08/29/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,7 +30,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. C 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671

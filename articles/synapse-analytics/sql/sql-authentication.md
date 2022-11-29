@@ -48,6 +48,9 @@ The **SQL admin username** and **SQL Active Directory admin** accounts have the 
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
+>[!Note]
+>If a user is configured as an  Active Directory admin and Synapse Administrator, and then removed from the  Active Directory admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
+
 ## [Serverless SQL pool](#tab/serverless)
 
 To manage the users having access to serverless SQL pool, you can use the instructions below.

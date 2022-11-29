@@ -285,4 +285,4 @@ While Azure SQL Analytics (preview) is free to use, consumption of diagnostics t
 - [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../alerts/alerts-overview.md) when specific Azure SQL events occur.
 - [Monitor Azure SQL Database with Azure Monitor](/azure/azure-sql/database/monitoring-sql-database-azure-monitor)
-- [Monitor Azure SQL Managed Instance with Azure Monitor](/azure/azure-sql/database/monitoring-sql-managed-instance-azure-monitor)
+- [Monitor Azure SQL Managed Instance with Azure Monitor](/azure/azure-sql/managed-instance/monitoring-sql-managed-instance-azure-monitor)

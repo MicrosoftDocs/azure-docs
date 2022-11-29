@@ -1,14 +1,13 @@
 ---
 title: Connect and query Azure SQL Edge
 description: Learn how to connect to and query Azure SQL Edge.
-keywords: 
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 07/25/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 07/25/2020
+services: sql-edge
 ---
 
 # Connect and query Azure SQL Edge

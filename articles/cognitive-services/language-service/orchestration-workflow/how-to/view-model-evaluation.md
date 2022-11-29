@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -41,6 +41,19 @@ In the **view model details** page, you'll be able to see all your models, with 
 ### [REST APIs](#tab/REST-APIs)
 
 [!INCLUDE [Evaluate model](../includes/rest-api/model-evaluation.md)]
+
+---
+
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/rest-api/load-export-model.md)]
 
 ---
 

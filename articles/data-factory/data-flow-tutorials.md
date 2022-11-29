@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 12/13/2021
+ms.date: 08/04/2022
 ---
 
 # Mapping data flow video tutorials

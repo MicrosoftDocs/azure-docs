@@ -75,6 +75,7 @@ For more information, see the [Microsoft 365 Defender](/microsoft-365/security/d
 
 For more information, see:
 
+- [ICS/OT Security video series](https://www.youtube.com/playlist?list=PLmAptfqzxVEXz5txCCKYUdpQETAMpeOhu)
 - [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
 - [Microsoft Defender for IoT architecture](architecture.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)

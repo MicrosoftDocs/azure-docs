@@ -2,7 +2,7 @@
 title: Data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources and connectors supported for tabular 1200 and higher data models in Azure Analysis Services.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
@@ -38,6 +38,8 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 
 ## Other data sources
 
+Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
+
 |Data source | In-memory | DirectQuery |Notes   |
 |  --- | --- | --- | --- |
 |Access Database     |  Yes | No |  |
@@ -45,7 +47,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Analysis Services     |  Yes | No |  |
 |Analytics Platform System     |  Yes | No |  |
 |CSV file  |Yes | No |  |
-|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[12](#tds)</sup> |
 |Excel workbook     |  Yes | No |  |
 |Exchange      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Folder      |Yes | No | <sup>[6](#tab1400b)</sup> |
@@ -77,9 +79,8 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 <a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
 <a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
-<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
-
-Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
+<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.  
+<a name="tds">12</a> - Azure Analysis Services does not support direct connections to the Dynamics 365 [Dataverse TDS endpoint](/power-apps/developer/data-platform/dataverse-sql-query). When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway, and refresh the tokens manually.
 
 ## Understanding providers
 

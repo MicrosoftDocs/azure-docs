@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra Verified ID documentation (preview)
+title: Microsoft Entra Verified ID documentation
 summary: Verifiable credentials help you build solutions that empower customers to manage their own data.
 
 metadata: 
   author: barclayn
   description: "Learn how to incorporate verifiable credentials into your solutions empowering customers to control information about themselves"
-  manager: rkarlin
+  manager: amycolannino
   ms.author: barclayn
   ms.collection: na
   ms.date: 07/28/2022

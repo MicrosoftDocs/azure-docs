@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a virtual network - Azure portal'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a virtual network using the Azure portal.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: virtual-network
@@ -233,7 +233,7 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 1. Complete the steps in [Connect to myVM1](#connect-to-myvm1), but connect to **myVM2**.
 
-1. Open PowerShell on **myVM2**, enter `ping myvm1`.
+1. Open PowerShell on **myVM2**, enter `ping myVM1`.
 
     You'll receive a successful reply message like this:
 

@@ -274,7 +274,7 @@ The example returns:
 }
 ```
 
-The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 <a id="json"></a>
 

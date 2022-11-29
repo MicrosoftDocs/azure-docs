@@ -26,9 +26,11 @@ Additional details on eligible subscription types are as follows:
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                       |
+| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement**                                       |
 
 \* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
+
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases
 
 ## Number capabilities
 

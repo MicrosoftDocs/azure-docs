@@ -1,9 +1,9 @@
 ---
-title: How to call the Request Service REST API (preview)
+title: How to call the Request Service REST API
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,14 +13,11 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
 ---
 
-# Request Service REST API (preview)
+# Request Service REST API
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Microsoft Entra Verified ID includes the Request Service REST API. This API allows you to issue and verify credentials. This article shows you how to start using the Request Service REST API.
-
-> [!IMPORTANT]
-> The Request Service REST API is currently in preview. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes and deprecation of the API while in preview. The preview version of the API isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## API access token
 
@@ -288,7 +285,7 @@ To issue or verify a verifiable credential, follow these steps:
 
 1. Submit the request to the Request Service REST API.
 
-The Request Service API returns a HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md). //TODO
+The Request Service API returns an HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md). //TODO
 
 ## Issuance request example
 
@@ -313,7 +310,7 @@ Authorization: Bearer  <token>
         "clientName": "Verifiable Credential Expert Sample"
     },
     "type": "VerifiedCredentialExpert",
-    "manifestUrl": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
+    "manifestUrl": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert1",
     "pin": {
         "value": "3539",
         "length": 4

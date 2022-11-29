@@ -4,7 +4,7 @@ description: Learn about some items you should check to help you troubleshoot Az
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

@@ -14,7 +14,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 [!INCLUDE [Requirements](python-requirements.md)]
 
-## Install the Speech SDK
+## Install the Speech SDK for Python
 
 Before you install the Speech SDK for Python, make sure to satisfy the [platform requirements](#platform-requirements).
 

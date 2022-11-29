@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 07/31/2022
+ms.date: 11/06/2022
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -95,7 +95,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 ### Configure continuous export using the REST API
 
-Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
+Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/defenderforcloud/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
 - Azure Event Hub
 - Log Analytics workspace
@@ -103,7 +103,7 @@ Continuous export can be configured and managed via the Microsoft Defender for C
 
 You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
-Here are some examples of options that you can only use in the the API:
+Here are some examples of options that you can only use in the API:
 
 * **Greater volume** - You can create multiple export configurations on a single subscription with the API. The **Continuous Export** page in the Azure portal supports only one export configuration per subscription.
 
@@ -113,8 +113,6 @@ Here are some examples of options that you can only use in the the API:
 
     > [!TIP]
     > These API-only options are not shown in the Azure portal. If you use them, there'll be a banner informing you that other configurations exist.
-
-Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
 
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
@@ -174,7 +172,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ## Export data to an Azure Event hub or Log Analytics workspace in another tenant
 
-You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, which can help you to gather your data for central analysis.
+You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location. 
 
 To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
 

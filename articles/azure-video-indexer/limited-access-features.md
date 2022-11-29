@@ -18,15 +18,19 @@ Since the announcement on June 11th, 2020, customers may not use, or allow use o
 
 Limited Access features of Azure Video Indexer are only available to customers managed by Microsoft, and only for use cases selected at the time of registration. Other Azure Video Indexer features do not require registration to use. 
 
-Customers and partners who wish to use Limited Access features of Azure Video Indexer are required to [submit an intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu). Access is subject to Microsoft’s sole discretion based on eligibility criteria and a vetting process. Microsoft may require customers and partners to reverify this information periodically. 
+Customers and partners who wish to use Limited Access features of Azure Video Indexer are required to [submit an intake form](https://aka.ms/facerecognition). Access is subject to Microsoft’s sole discretion based on eligibility criteria and a vetting process. Microsoft may require customers and partners to reverify this information periodically. 
 
 The Azure Video Indexer service is made available to customers and partners under the terms governing their subscription to Microsoft Azure Services (including the [Service Specific Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms)). Please review these terms carefully as they contain important conditions and obligations governing your use of Azure Video Indexer. 
+
+## Limited access features
+
+[!INCLUDE [limited access](./includes/limited-access-account-types.md)]
 
 ## Help and support 
 
 FAQ about Limited Access can be found [here](https://aka.ms/limitedaccesscogservices).
 
-If you need help with Azure Video Indexer, find support [here](/azure/cognitive-services/cognitive-services-support-options). 
+If you need help with Azure Video Indexer, find support [here](../cognitive-services/cognitive-services-support-options.md). 
 
 [Report Abuse](https://msrc.microsoft.com/report/abuse) of Azure Video Indexer. 
 
@@ -34,4 +38,3 @@ If you need help with Azure Video Indexer, find support [here](/azure/cognitive-
 
 Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/support/legal/). 
 
- 

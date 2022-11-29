@@ -7,12 +7,16 @@ manager: venkyv
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/20/2022
 ms.author: egeaney
 ms.custom: applied-ai-non-critical-form
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Form Recognizer encryption of data at rest
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Azure Form Recognizer automatically encrypts your data when persisting it to the cloud. Form Recognizer encryption protects your data to help you to meet your organizational security and compliance commitments.
 

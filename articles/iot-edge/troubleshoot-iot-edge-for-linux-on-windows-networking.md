@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 If you experience networking issues using Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. Also, check [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md) for more EFLOW virtual machine troubleshooting help.
 
@@ -122,7 +122,7 @@ For more information about EFLOW VM firewall, see [IoT Edge for Linux on Windows
     sudo iptables -L
     ```
 
-To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall Rules](https://github.com/Azure/iotedge-eflow/tree/eflow-usbip/eflow-util/firewall-rules) sample PowerShell cmdlets. Also, you can achieve the same rules creation by following these steps:
+To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall Rules](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util#get-eflowvmfirewallrules) sample PowerShell cmdlets. Also, you can achieve the same rules creation by following these steps:
 
 1. Start an elevated _PowerShell_ session using **Run as Administrator**.
 1. Connect to the EFLOW virtual machine

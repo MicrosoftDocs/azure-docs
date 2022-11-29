@@ -3,17 +3,14 @@
 title: Cross-tenant access activity workbook in Azure AD | Microsoft Docs
 description: Learn how to use the cross-tenant access activity workbook.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: celestedg
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/14/2022
-ms.author: mimart
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 
 ms.collection: M365-identity-device-management
 ---

@@ -4,7 +4,7 @@ description: Describes the roles you cannot manage in Azure AD Privileged Identi
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

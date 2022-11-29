@@ -6,9 +6,10 @@ description: Learn how to refresh a web service that is already deployed in Azur
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.author: larryfr
-author: blackmist
-ms.date: 07/28/2022
+ms.author: bozhlin
+author: bozhong68
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ms.custom: deploy, cliv1, sdkv1, event-tier1-build-2022
 ---
 
@@ -31,6 +32,8 @@ In this article, you learn how to update a web service that was deployed with Az
                    resource_group="myresourcegroup",
                    workspace_name="myworkspace")
     ```
+
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Update web service
 
@@ -109,10 +112,10 @@ For more information, see the [az ml service update](/cli/azure/ml(v1)/service#a
 
 ## Next steps
 
-* [Troubleshoot a failed deployment](../how-to-troubleshoot-deployment.md)
-* [Create client applications to consume web services](../how-to-consume-web-service.md)
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)

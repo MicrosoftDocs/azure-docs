@@ -1,7 +1,7 @@
 ---
 title: Known issues and limitations
 titleSuffix: An Azure Communication Services concept document
-description: Known issues and limitations of Azure Communication Services support for Teams guests
+description: Known issues and limitations of Azure Communication Services support for Teams external users
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
@@ -19,8 +19,8 @@ ms.subservice: teams-interop
 
 ## Next steps
 
-- [Authenticate as Teams guest](../../../quickstarts/access-tokens.md)
-- [Join Teams meeting audio and video as Teams guest](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
-- [Join Teams meeting chat as Teams guest](../../../quickstarts/chat/meeting-interop.md)
+- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
 - [Communicate as Teams user](../../teams-endpoint.md).

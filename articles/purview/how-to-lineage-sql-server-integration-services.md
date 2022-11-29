@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 08/11/2022
 ---
 # How to get lineage from SQL Server Integration Services (SSIS) into Microsoft Purview
 

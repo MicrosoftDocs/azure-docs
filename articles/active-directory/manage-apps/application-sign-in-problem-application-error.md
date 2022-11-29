@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
+ms.date: 09/06/2022
 ms.author: ergreenl
 ms.collection: M365-identity-device-management
 ---
@@ -17,7 +17,14 @@ ms.collection: M365-identity-device-management
 
 In this scenario, Azure Active Directory (Azure AD) signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Azure AD issued.
 
-There are several possible reasons why the app didn't accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
+There are several possible reasons why the app didn't accept the response from Azure AD. If there is an error message or code displayed, use the following resources to diagnose the error:
+
+* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+
+* [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
+
+
+If the error message doesn't clearly identify what's missing from the response, try the following:
 
 - If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
 
@@ -58,13 +65,13 @@ To add an attribute in the Azure AD configuration that will be sent in the Azure
 
    The next time that the user signs in to the app, Azure AD will send the new attribute in the SAML response.
 
-## The app doesn't identify the user
+## The app cannot identify the user
 
 Signing in to the app fails because the SAML response is missing an attribute such as a role. Or it fails because the app expects a different format or value for the **NameID** (User Identifier) attribute.
 
 If you're using [Azure AD automated user provisioning](../app-provisioning/user-provisioning.md) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
-## Add an attribute to the Azure AD app configuration
+### Add an attribute to the Azure AD app configuration
 
 To change the User Identifier value, follow these steps:
 
@@ -87,7 +94,7 @@ To change the User Identifier value, follow these steps:
 
 8. Under **User attributes**, select the unique identifier for the user from the **User Identifier** drop-down list.
 
-## Change the NameID format
+### Change the NameID format
 
 If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) to change the NameID format.
 
@@ -155,4 +162,8 @@ To change the signing algorithm, follow these steps:
 
 ## Next steps
 
-[How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
+* [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
+
+* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+
+* [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)

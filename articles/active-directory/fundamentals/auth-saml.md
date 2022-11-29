@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/10/2020
+ms.date: 08/19/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -43,7 +43,7 @@ While one of most important use cases that SAML addresses is SSO, especially by 
 
 * **Web app**: Enterprise application that supports SAML and uses Azure AD as IdP.
 
-* **Token**: A SAML assertion (also known as SAML tokens) that carries sets of claims made by the IdP about the principle (user). It contains authentication information, attributes, and authorization decision statements.
+* **Token**: A SAML assertion (also known as SAML tokens) that carries sets of claims made by the IdP about the principal (user). It contains authentication information, attributes, and authorization decision statements.
 
 * **Azure AD**: Enterprise cloud IdP that provides SSO and Multi-factor authentication for SAML apps. It synchronizes, maintains, and manages identity information for users while providing authentication services to relying applications. 
 

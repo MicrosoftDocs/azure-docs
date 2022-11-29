@@ -3,7 +3,7 @@ title: 'What is the Azure AD Connect Admin Agent - Azure AD Connect | Microsoft 
 description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -42,7 +42,7 @@ The Azure AD Connect Administration Agent binaries are placed in the Azure AD Co
 2.    Navigate to the directory where the application is located cd "C:\Program Files\Microsoft Azure Active Directory Connect\Tools"
 3.    Run ConfigureAdminAgent.ps1
 
-When prompted, please enter your Azure AD global admin credentials. These credentials should be the same credentials entered during Azure AD Connect installation.
+When prompted, please enter your Azure AD Hybrid Identity Administrator credentials. These credentials should be the same credentials entered during Azure AD Connect installation.
 
 After the agent is installed, you'll see the following two new programs in the "Add/Remove Programs" list in the Control Panel of your server: 
 

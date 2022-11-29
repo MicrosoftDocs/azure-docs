@@ -1,5 +1,6 @@
 ---
-title: Get started with Azure Queue Storage using .NET - Azure Storage
+title: Get started with Azure Queue Storage using .NET
+titleSuffix: Azure Storage
 description: Azure Queue Storage provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 author: normesta
 ms.author: normesta
@@ -29,7 +30,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Prerequisites
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- An [Azure Storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- An [Azure Storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -170,6 +171,9 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 The [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class enables you to retrieve queues stored in Queue Storage. Here's one way to create the service client:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
+
+> [!TIP]
+> Messages that you send by using the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, must be in a format that can be included in an XML request with UTF-8 encoding. Optionally, you can set the [MessageEncoding](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding) option to [Base64](/dotnet/api/azure.storage.queues.queuemessageencoding) to handle non-compliant messages.
 
 # [.NET v11 SDK](#tab/dotnetv11)
 

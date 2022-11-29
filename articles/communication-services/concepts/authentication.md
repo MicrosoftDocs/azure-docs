@@ -2,12 +2,12 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: probableprime
+author: tophpalmer
 
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -29,6 +29,7 @@ The following table shows the Azure Communication Services SDKs and their authen
 | Identity          | Access Key or Azure AD authentication               |
 | SMS               | Access Key or Azure AD authentication               |
 | Phone Numbers     | Access Key or Azure AD authentication               |
+| Email             | Access Key or Azure AD authentication               |
 | Calling           | User Access Token                                   |
 | Chat              | User Access Token                                   |
 

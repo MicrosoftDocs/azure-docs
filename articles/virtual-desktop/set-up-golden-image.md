@@ -23,6 +23,9 @@ Make sure you've done the following things before taking the final snapshot:
 > 1. If your machine will include an antivirus app, it may cause issues when you start sysprep. To avoid this, disable all antivirus programs before running sysprep.
 > 
 > 1. [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) (UWF) is not supported for session hosts. Please ensure it is not enabled in your image.
+> 
+> 1. Do not join your golden image VM to a host pool, by deploying the Azure Virtual Desktop Agent. If you do this when you create additional session hosts from this image at a later time, they will fail to join the host pool as the Registration token will have expired. The host pool deployment process will automatically join the session hosts to the required host pool during the provisioning process.
+
 ### Take the final snapshot
 When you are done installing your applications to the image VM, take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new base VM with your applications already installed from this snapshot. 
 ### Run sysprep

@@ -52,9 +52,9 @@ The module templates for some languages and services have prerequisites that are
 
 | Module template | Prerequisite |
 | --------------- | ------------ |
-| Azure Functions | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
+| Azure Functions | [.NET Core SDK](https://dotnet.microsoft.com/download) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
+| C# | [.NET Core SDK](https://dotnet.microsoft.com/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) <li> [Set the JAVA_HOME environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js module generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
@@ -81,8 +81,6 @@ Only the IoT Edge runtime is supported for production deployments, but the follo
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, macOS | Simulating a device to debug modules. |
 | IoT Edge dev container | iotedgedev | Windows, Linux, macOS | Developing without installing dependencies. |
-| IoT Edge runtime in a container | iotedgec | Windows, Linux, macOS, ARM | Testing on a device that may not support the runtime. |
-| IoT Edge device container | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testing a scenario with many IoT Edge devices at scale. |
 
 ### IoT EdgeHub dev tool
 
@@ -97,12 +95,6 @@ For more information and to install, see [Azure IoT EdgeHub dev tool](https://py
 The Azure IoT Edge dev container is a Docker container that has all the dependencies that you need for IoT Edge development. This container makes it easy to get started with whichever language you want to develop in, including C#, Python, Node.js, and Java. All you need to install is a container engine, like Docker or Moby, to pull the container to your development machine.
 
 For more information, see [Azure IoT Edge dev container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
-
-### IoT Edge device container
-
-The IoT Edge device container is a complete IoT Edge device, ready to be launched on any machine with a container engine. The device container includes the IoT Edge runtime and a container engine itself. Each instance of the container is a fully functional self-provisioning IoT Edge device. The device container supports remote debugging of modules, as long as there is a network route to the module. The device container is good for quickly creating large numbers of IoT Edge devices to test at-scale scenarios or Azure Pipelines. It also supports deployment to kubernetes via helm.
-
-For more information, see [Azure IoT Edge device container](https://github.com/toolboc/azure-iot-edge-device-container).
 
 ## DevOps tools
 

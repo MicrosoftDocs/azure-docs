@@ -3,6 +3,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 11/01/2021
 ---
@@ -13,8 +14,8 @@ ms.date: 11/01/2021
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Cosmos DB for NoSQL \* | Yes | 
+| Azure Cosmos DB for MongoDB \* | Yes |
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
@@ -61,7 +62,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
-| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB for NoSQL \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure Database for MySQL \* | Yes | 

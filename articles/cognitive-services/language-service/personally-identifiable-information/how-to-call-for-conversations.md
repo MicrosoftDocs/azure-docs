@@ -3,13 +3,13 @@ title: How to detect Personally Identifiable Information (PII) in conversations.
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to extract PII from chat and spoken transcripts and redact identifiable information.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.author: aahi
+ms.author: jboback
 ms.reviewer: bidishac
 ---
 
@@ -31,7 +31,7 @@ Currently the conversational PII preview API only supports English language.
 
 ### Region support
 
-Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
+Currently the conversational PII preview API supports all Azure regions supported by the Language service.
 
 ## Submitting data
 
@@ -44,6 +44,9 @@ When you submit data to conversational PII, you can send one conversation (chat 
 The API will attempt to detect all the [defined entity categories](concepts/conversations-entity-categories.md) for a given conversation input. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories.
 
 For spoken transcripts, the entities detected will be returned on the `redactionSource` parameter value provided. Currently, the supported values for `redactionSource` are `text`, `lexical`, `itn`, and `maskedItn` (which maps to Microsoft Speech to Text API's `display`\\`displayText`, `lexical`, `itn` and `maskedItn` format respectively). Additionally, for the spoken transcript input, this API will also provide audio timing information to empower audio redaction. For using the audioRedaction feature, use the optional `includeAudioRedaction` flag with `true` value. The audio redaction is performed based on the lexical input format.
+
+> [!NOTE]
+> Conversation PII now supports 40,000 characters as document size.
 
 
 ## Getting PII results
@@ -63,7 +66,7 @@ When you get results from PII detection, you can stream the results to an applic
     |Language  |Package version  |
     |---------|---------|
     |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
-    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
@@ -82,7 +85,7 @@ When you get results from PII detection, you can stream the results to an applic
 Use the following example if you have conversations transcribed using the Speech service's [speech-to-text](../../Speech-Service/speech-to-text.md) feature:
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -213,7 +216,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Use the following example if you have conversations that originated in text. For example, conversations through a text-based chat client.
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \

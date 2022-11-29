@@ -3,8 +3,8 @@ title: Integrate your applications for identity governance and establishing a ba
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 7/29/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -61,7 +61,7 @@ Next, if the application implements a provisioning protocol, then you should con
      | Integrated Windows Auth (IWA) | Deploy the [application proxy](../app-proxy/application-proxy.md), configure an application for [Integrated Windows authentication SSO](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md), and set firewall rules to prevent access to the application's endpoints except via the proxy.|
      | header-based authentication | Deploy the [application proxy](../app-proxy/application-proxy.md) and configure an application for [header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) |
 
-1. If your application has multiple roles, and relies upon Azure AD to send a user's role as part of a user signing into the application, then configure those application roles in Azure AD on your application.  You can use  the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to add those roles.
+1. If your application has multiple roles, and relies upon Azure AD to send a user's application-specific role as a claim of a user signing into the application, then configure those application roles in Azure AD on your application.  You can use  the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to add those roles.
 
 1. If the application supports provisioning, then [configure provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md) of assigned users and groups from Azure AD to that application.  If this is a private or custom application, you can also select the integration that's most appropriate, based on the location and capabilities of the application.
 
