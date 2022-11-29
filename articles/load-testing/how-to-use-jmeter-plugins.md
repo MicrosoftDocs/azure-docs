@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Customize a load test with Apache JMeter plugins and Azure Load Testing Preview
 
-Learn how to use an Apache JMeter plugin in your load test script with Azure Load Testing Preview. You can extend the core functionality of Apache JMeter by using plugins. For example, to add functionality for performing data manipulation, to implement custom request samplers, and more.
+In this article, you learn how to use an Apache JMeter plugin in your load test script with Azure Load Testing Preview. You can extend the core functionality of Apache JMeter by using plugins. For example, to add functionality for performing data manipulation, to implement custom request samplers, and more.
 
 Azure Load Testing lets you use plugins from https://jmeter-plugins.org, or upload a Java archive (JAR) file with your own plugin code. You can use multiple plugins in a load test.
 
@@ -29,7 +29,7 @@ Azure Load Testing preinstalls plugins from https://jmeter-plugins.org on the lo
 
 ## Reference a JMeter plugin in your test script
 
-To reference a JMeter plugin in your JMeter script, first install the plugin on your local JMeter instance in either of two ways:
+To reference a JMeter plugin in your JMeter script by using the JMeter GUI, first install the plugin on your local JMeter instance in either of two ways:
 
 - Use the [Plugins Manager](https://jmeter-plugins.org/wiki/PluginsManager/), if the plugin is available.
 - To use your own plugin code, copy the plugin JAR file to the `lib/ext` folder of your local JMeter installation.
@@ -37,6 +37,9 @@ To reference a JMeter plugin in your JMeter script, first install the plugin on 
 After you install the plugin, the plugin functionality appears in the Apache JMeter user interface. You can now reference it in your test script. The following screenshot shows an example of how to use an *Example Sampler* plugin:
 
 :::image type="content" source="media/how-to-use-jmeter-plugins/jmeter-add-custom-sampler.png" alt-text="Screenshot that shows how to add a custom sampler to a test plan by using the JMeter user interface.":::
+
+> [!NOTE]
+> You can also reference the JMeter plugin directly by editing the JMX file. In this case you don't have to install the plugin locally.
 
 ## Upload the JMeter plugin JAR file to your load test
 
@@ -54,11 +57,13 @@ Follow these steps to upload a JAR file by using the Azure portal:
 
 1. On the left pane, select **Tests** to view a list of tests.
 
-1. If you have an existing load test, select the test from the list by selecting the checkbox, and then select **Edit**.
+1. Select **Create > Upload a JMeter script** to create a new load test by using a JMeter script.
+
+    :::image type="content" source="media/how-to-use-jmeter-plugins/create-new-test.png" alt-text="Screenshot that shows how to create a new load test by uploading a JMeter file in the Azure portal.":::
+
+1. Alternately, if you have an existing load test, select the test from the list by selecting the checkbox, and then select **Edit**.
 
     :::image type="content" source="media/how-to-use-jmeter-plugins/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
-
-1. Alternately, select **Create > Upload a JMeter script** to create a new load test by using a JMeter script.
 
 1. Select the **Test plan** tab.
 
