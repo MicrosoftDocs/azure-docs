@@ -82,7 +82,7 @@ Use the following steps to provision an Azure Spring Apps service instance with 
        --location <location>
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
+   For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 
 1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
@@ -151,7 +151,7 @@ Managing your accelerators requires the following permissions:
 - Write: Create or Update Microsoft Azure Spring Apps Customized Accelerator
 - Read: Get Azure Spring Apps Customized Accelerator
 
-For more information, see [How to use permissions in Azure Spring Apps | Microsoft Learn](./how-to-permissions.md)
+For more information, see [How to use permissions in Azure Spring Apps](./how-to-permissions.md).
 
 ### Manage predefined accelerators
 
@@ -159,13 +159,13 @@ You can start with several predefined accelerators to bootstrap your new project
 
 You can manage predefined accelerators using the Azure portal or Azure CLI.
 
-### [Portal](#tab/Portal)
+### [Azure portal](#tab/Portal)
 
 You can view the built-in accelerators in the Azure portal on the **Accelerators** tab, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-use-accelerator/predefined-accelerator.png" alt-text="Screenshot of the Accelerators tab showing built-in accelerators." lightbox="media/how-to-use-accelerator/predefined-accelerator.png":::
 
-### [CLI](#tab/Azure-CLI)
+### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command in the Azure CLI to view a list of built-in accelerators:
 
@@ -262,11 +262,11 @@ Use to following steps to create and maintain your own accelerators:
    | Git commit                     | git-commit              | The Git commit SHA to check out. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
    | Git tag                        | git-tag                 | The Git commit tag to check out. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
    | Authentication type            | N/A                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth` or `SSH`.  Note: Unlike using git, the [shorter scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                              |
-   | User name                      | username                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                      | Required when the authentication type is `Basic auth` |
-   | Password/Personal access token | password                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                       | Required when the authentication type is `Basic auth` |
-   | Private key                    | private-key             | The private key to access the accelerator source repository whose authentication type is `SSH`. Note: Only OpenSSH private key is supported.                                                                                                                                                                                                                                                                              | Required when authentication type is `SSH`            |
-   | Host key                       | host-key                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                                                              | Required when the authentication type is `SSH`        |
-   | Host key algorithm             | host-key-algorithm      | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                                                                        | Required when authentication type is `SSH`            |
+   | User name                      | username                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                      | Required when the authentication type is `Basic auth`. |
+   | Password/Personal access token | password                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                       | Required when the authentication type is `Basic auth`. |
+   | Private key                    | private-key             | The private key to access the accelerator source repository whose authentication type is `SSH`. Note: Only OpenSSH private key is supported.                                                                                                                                                                                                                                                                              | Required when authentication type is `SSH`.            |
+   | Host key                       | host-key                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                                                              | Required when the authentication type is `SSH`.        |
+   | Host key algorithm             | host-key-algorithm      | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                                                                        | Required when authentication type is `SSH`.            |
 
 ---
 
@@ -276,7 +276,7 @@ To view all published accelerators, see the App Accelerators section of the **De
 
 To view the newly published accelerator, refresh Dev Tools Portal.
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Application Acceerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
 > [!NOTE]
 > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
@@ -325,7 +325,7 @@ Use the following steps to enable App Accelerator under an existing Azure Spring
 
 You can view whether App Accelerator is enabled or disabled on the **Developer Tools (Preview)** page.
 
-### [CLI](#tab/Azure-CLI)
+### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to enable App Accelerator for an Azure Spring Apps service instance using the Azure CLI:
 
