@@ -38,6 +38,10 @@
       href: tutorial-connect-to-instances-cli.md
     - name: Azure PowerShell
       href: tutorial-connect-to-instances-powershell.md
+  - name: Modify a scale set
+    items:
+    - name: Azure CLI
+      href: tutorial-modify-scale-sets-cli.md
   - name: Use data disks
     items:
     - name: Azure CLI
