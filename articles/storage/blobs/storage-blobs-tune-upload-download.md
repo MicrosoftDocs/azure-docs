@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Tuning uploads and downloads with Azure Storage client library for .NET
+# Tuning uploads and downloads with the Azure Storage client library for .NET
 
-When an application transfers data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. Each time a client method is called, an HTTP request is sent to the service. This service request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance and reliability during data transfers, it's important to be proactive in configuring client library transfer options based on the needs of your app, and the environment it will run in.
+When an application transfers data using the Azure Storage client libraries for .NET, there are several factors that can affect speed, memory usage, and even the success or failure of the request. Each time a client method is called, an HTTP request is sent to the service. This service request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the needs of your app, and the environment it will run in.
 
-This article walks through several considerations and best practices to tune data transfer options using client library methods. The focus of this article is primarily on block blobs, but the guidance applies to any API that accepts `StorageTransferOptions` as a parameter.
+This article walks through several considerations and best practices to tune data transfer options. The focus of this article is primarily on block blobs, but the guidance applies to any API that accepts `StorageTransferOptions` as a parameter.
 
 ## Performance tuning with StorageTransferOptions
 
