@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Create & manage a virtual machine scale set – Azure CLI'
-description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+title: 'Tutorial: Create & manage a Virtual Machine Scale Set – Azure CLI'
+description: Learn how to use the Azure CLI to create a Virtual Machine Scale Set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 03/27/2018
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
-# Tutorial: Create and manage a virtual machine scale set with the Azure CLI
+# Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
+A Virtual Machine Scale Set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create and connect to a virtual machine scale set
+> * Create and connect to a Virtual Machine Scale Set
 > * Select and use VM images
 > * View and use specific VM instance sizes
 > * Manually scale a scale set
@@ -32,7 +32,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 
 ## Create a resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -42,7 +42,7 @@ The resource group name is specified when you create or modify a scale set throu
 
 
 ## Create a scale set
-You create a virtual machine scale set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
 
 ```azurecli-interactive
 az vmss create \
@@ -300,7 +300,7 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI:
 
 > [!div class="checklist"]
-> * Create and connect to a virtual machine scale set
+> * Create and connect to a Virtual Machine Scale Set
 > * Select and use VM images
 > * View and use specific VM sizes
 > * Manually scale a scale set

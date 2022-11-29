@@ -12,6 +12,10 @@ ms.custom: include file
 ms.author: askaur
 ---
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_SimpleIvr).
+
 ## Prerequisites
 
 - An Azure account with an active subscription.

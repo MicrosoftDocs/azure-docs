@@ -1,12 +1,8 @@
 ---
 title: "Apply Flux v1 configurations at-scale using Azure Policy"
-services: azure-arc
-ms.service: azure-arc
-#ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 8/23/2022
 ms.topic: how-to
 description: "Apply Flux v1 configurations at-scale using Azure Policy"
-keywords: "Kubernetes, Arc, Azure, K8s, containers, GitOps, Flux v1, policy"
 ---
 
 # Apply Flux v1 configurations at-scale using Azure Policy

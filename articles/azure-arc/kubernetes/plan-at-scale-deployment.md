@@ -1,7 +1,5 @@
 ---
 title: How to plan and deploy Azure Arc-enabled Kubernetes
-services: azure-arc
-ms.service: azure-arc
 ms.date: 04/12/2021
 ms.topic: conceptual
 description: Onboard large number of clusters to Azure Arc-enabled Kubernetes for configuration management
