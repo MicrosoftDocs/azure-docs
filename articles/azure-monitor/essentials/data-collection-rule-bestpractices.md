@@ -26,7 +26,7 @@ Considering their native granularity, which allow a given DCR to be associated t
 
 :::image type="content" source="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" lightbox="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
 
-, it is really important to keep the DCR as smallest as possible.
+, it is really important to keep the DCR as simple as possible using less datasources.
 
 This means that it not ideal, even not recommended, to create a single DCR containing all the data source, collection items and destination necessary to implement our observability. Below there are several recommendations which could help in better planning DCR creation and maintenance:
 
