@@ -1,11 +1,10 @@
 ---
 title: Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
-titleSuffix: Azure Spring Apps Enterprise Tier
 description: Learn how to use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 11/29/2022
 ms.author: caiqing
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
@@ -42,13 +41,13 @@ You can enable App Accelerator using the Azure portal or Azure CLI.
 Use the following steps to enable App Accelerator using the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then click **Next: VMware Tanzu settings**.
-1. On the **VMware Tanzu settings** tab, select the **Enable App Accelerator** checkbox.
+1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then select **Next: VMware Tanzu settings**.
+1. On the **VMware Tanzu settings** tab, select **Enable App Accelerator**.
 
    :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the VMware Tanzu settings tab showing the App Accelerators checkbox." lightbox="media/how-to-use-accelerator/create-instance.png":::
 
 1. Specify other settings, and then select **Review and Create**.
-1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to *Yes*. Select **Create** to create the Enterprise tier instance.
+1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to **Yes**. Select **Create** to create the Enterprise tier instance.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -88,13 +87,13 @@ Use the following steps to provision an Azure Spring Apps service instance with 
 
 1. Use the following command to create an Azure Spring Apps service instance with App Accelerator enabled:
 
-    ```azurecli
-    az spring create \
-        --resource-group <resource-group-name> \
-        --name <Azure-Spring-Apps-service-instance-name> \
-        --sku enterprise \
-        --enable-application-accelerator
-    ```
+   ```azurecli
+   az spring create \
+       --resource-group <resource-group-name> \
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --sku enterprise \
+       --enable-application-accelerator
+   ```
 
 ---
 
@@ -102,16 +101,16 @@ Use the following steps to provision an Azure Spring Apps service instance with 
 
 Application Accelerator lets you generate new projects from files in Git repositories. The following table describes Application Accelerator's components:
 
-| Component name          | Instance count | vCPU per instance | Memory per instance | Description                                                                                                                                                             |
-|--------------------------|-----------------|--------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serves API used by Dev Tools Portal to list available accelerators and options.                                                                                         |
-| accelerator-engine      | 1              | 1 core            | 3Gi                 | Processes the input values and files(pulled from a snapshot of a Git repository) and applies dynamic transformations to generate projects.                              |
-| accelerator-controller  | 1              | 0.2 core          | 0.25Gi              | Reconciles Application Accelerator resources.                                                                                                                           |
-| source-controller       | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile the `ImageRepositories` and `MavenArtifacts` resources used by Application Accelerator.                                             |
-| cert-manager            | 1              | 0.2 core          | 0.25Gi              | See [cert-manager](https://cert-manager.io/docs/) in the cert-manager documentation.                                                                                    |
-| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi              | See [cert-manager webhook](https://cert-manager.io/docs/concepts/webhook/) in the cert-manager documentation.                                                           |
-| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi              | See [cert-manager ca-injector](https://cert-manager.io/docs/concepts/ca-injector/) in the cert-manager documentation.                                                   |
-| flux-source-controller  | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile `GithubRepository` resources used by Application Accelerator. Supports managing Git repository sources for Application Accelerator. |
+| Component name            | Instance count | vCPU per instance | Memory per instance | Description                                                                                                                                                             |
+|---------------------------|----------------|-------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `accelerator-server`      | 2              | 0.4 core          | 0.5Gi               | Serves API used by Dev Tools Portal to list available accelerators and options.                                                                                         |
+| `accelerator-engine`      | 1              | 1 core            | 3Gi                 | Processes the input values and files (pulled from a snapshot of a Git repository) and applies dynamic transformations to generate projects.                             |
+| `accelerator-controller`  | 1              | 0.2 core          | 0.25Gi              | Reconciles Application Accelerator resources.                                                                                                                           |
+| `source-controller`       | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile the `ImageRepositories` and `MavenArtifacts` resources used by Application Accelerator.                                             |
+| `cert-manager`            | 1              | 0.2 core          | 0.25Gi              | See [cert-manager](https://cert-manager.io/docs/) in the cert-manager documentation.                                                                                    |
+| `cert-manager-webhook`    | 1              | 0.2 core          | 0.25Gi              | See [cert-manager webhook](https://cert-manager.io/docs/concepts/webhook/) in the cert-manager documentation.                                                           |
+| `cert-manager-cainjector` | 1              | 0.2 core          | 0.25Gi              | See [cert-manager ca-injector](https://cert-manager.io/docs/concepts/ca-injector/) in the cert-manager documentation.                                                   |
+| `flux-source-controller`  | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile `GithubRepository` resources used by Application Accelerator. Supports managing Git repository sources for Application Accelerator. |
 
 You can see the running instances and resource usage of all the components using the Azure portal and Azure CLI.
 
@@ -159,39 +158,39 @@ You can start with several predefined accelerators to bootstrap your new project
 
 You can manage predefined accelerators using the Azure portal or Azure CLI.
 
-### [Azure portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
 You can view the built-in accelerators in the Azure portal on the **Accelerators** tab, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-use-accelerator/predefined-accelerator.png" alt-text="Screenshot of the Accelerators tab showing built-in accelerators." lightbox="media/how-to-use-accelerator/predefined-accelerator.png":::
 
-### [Azure CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command in the Azure CLI to view a list of built-in accelerators:
 
-  ```azurecli
-  az spring application-accelerator predefined-accelerator list \
-      --service <service-instance-name> \
-      --resource-group <resource-group-name>
-  ```
+```azurecli
+az spring application-accelerator predefined-accelerator list \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name>
+```
 
 Use the following command to disable a built-in predefined accelerator:
 
-  ```azurecli
-  az spring application-accelerator predefined-accelerator disable \
-      --name <predefined-accelerator-name> \
-      --service <service-instance-name> \
-      --resource-group <resource-group-name>
-  ```
-
-Use the following command to enable a built-in predefined accelerator:
-
-  ```azurecli
-  az spring application-accelerator predefined-accelerator enable \
+```azurecli
+az spring application-accelerator predefined-accelerator disable \
     --name <predefined-accelerator-name> \
     --service <service-instance-name> \
     --resource-group <resource-group-name>
-  ```
+```
+
+Use the following command to enable a built-in predefined accelerator:
+
+```azurecli
+az spring application-accelerator predefined-accelerator enable \
+    --name <predefined-accelerator-name> \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name>
+```
 
 ---
 
@@ -201,82 +200,82 @@ In addition to using the predefined accelerators, you can create your own accele
 
 Use to following steps to create and maintain your own accelerators:
 
-1. Create a file named *accelerator.yaml* in the root directory of your Git repository.
+First, create a file named *accelerator.yaml* in the root directory of your Git repository.
 
-   You can use the *accelerator.yaml* file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an *accelerator.yaml* file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html).
+You can use the *accelerator.yaml* file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an *accelerator.yaml* file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html).
 
-   You can also use **Template Editor** in Dev Tools Portal to edit your *accelerator.yaml* file for visualization and syntax check.
+You can also use **Template Editor** in Dev Tools Portal to edit your *accelerator.yaml* file for visualization and syntax check.
 
-   :::image type="content" source="media/how-to-use-accelerator/template-editor-entry.png" alt-text="Screenshot of the Application Accelerators page in Dev Tools Portal." lightbox="media/how-to-use-accelerator/template-editor-entry.png":::
+:::image type="content" source="media/how-to-use-accelerator/template-editor-entry.png" alt-text="Screenshot of the Application Accelerators page in Dev Tools Portal." lightbox="media/how-to-use-accelerator/template-editor-entry.png":::
 
-   You can use Template Editor to preview the input options and steps of accelerators. During creation of a new accelerator, you can confirm that the input options and steps are correct and the YAML file is valid. You can also copy and paste the content of an existing *accelerator.yaml* file and edit it to see the updated view.
+You can use Template Editor to preview the input options and steps of accelerators. During creation of a new accelerator, you can confirm that the input options and steps are correct and the YAML file is valid. You can also copy and paste the content of an existing *accelerator.yaml* file and edit it to see the updated view.
 
-   :::image type="content" source="media/how-to-use-accelerator/template-editor.png" alt-text="Screenshot of the Template Editor." lightbox="media/how-to-use-accelerator/template-editor.png":::
+:::image type="content" source="media/how-to-use-accelerator/template-editor.png" alt-text="Screenshot of the Template Editor." lightbox="media/how-to-use-accelerator/template-editor.png":::
   
-1. Publish the new accelerator.
+Next, publish the new accelerator.
 
-   After you create your *accelerator.yaml* file, you can create your accelerator. You can then view it in Azure portal or the Application Accelerator page in Dev Tools Portal. You can publish the new accelerator using the Azure portal or Azure CLI.
+After you create your *accelerator.yaml* file, you can create your accelerator. You can then view it in the Azure portal or the Application Accelerator page in Dev Tools Portal. You can publish the new accelerator using the Azure portal or Azure CLI.
 
-   ### [Azure portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
-   To create your own accelerator, open the **Accelerators** section and click **Add Accelerator** under the Customized Accelerators section.
+To create your own accelerator, open the **Accelerators** section and then select **Add Accelerator** under the Customized Accelerators section.
 
-   :::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Customized Accelerators section." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
+:::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Customized Accelerators section." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
 
-   ### [Azure CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
-   Use the following command to create your own accelerator in Azure CLI:
+Use the following command to create your own accelerator in Azure CLI:
 
-     ```azurecli
-     az spring application-accelerator customized-accelerator add \
-       --name <customized-accelerator-name> \
-       --service <service-instance-name> \
-       --resource-group <resource-group-name> \
-       --display-name <display-name> \
-       --git-url <git-repo-url> \
-      [--description <description>] \
-      [--icon-url <icon-url>] \
-      [--accelerator-tags <tags-on-accelerator>] \
-      [--git-interval-in-seconds <interval-in-seconds>] \
-      [--git-branch <branch-name>] \
-      [--git-commit <commit-id>] \
-      [--git-tag <tag-in-git>] \
-      [--username] \
-      [--password] \
-      [--private-key] \
-      [--host-key] \
-      [--host-key-algorithm]
-      ```
+```azurecli
+az spring application-accelerator customized-accelerator add \
+    --name <customized-accelerator-name> \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name> \
+    --display-name <display-name> \
+    --git-url <git-repo-url> \
+   [--description <description>] \
+   [--icon-url <icon-url>] \
+   [--accelerator-tags <tags-on-accelerator>] \
+   [--git-interval-in-seconds <interval-in-seconds>] \
+   [--git-branch <branch-name>] \
+   [--git-commit <commit-id>] \
+   [--git-tag <tag-in-git>] \
+   [--username] \
+   [--password] \
+   [--private-key] \
+   [--host-key] \
+   [--host-key-algorithm]
+```
 
-   The following table describes the customizable accelerator fields.
+The following table describes the customizable accelerator fields.
 
-   | Portal                         | CLI                     | Description                                                                                                                                                                                                                                                                                                                                                                                                               | Required/Optional                                     |
-   |---------------------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
-   | Name                           | name                    | A unique name for the accelerator. The name can't change after you create it.                                                                                                                                                                                                                                                                                                                                             | Required                                              |  | Display name | description | A short descriptive name used for the accelerator. | Optional |
-   | Description                    | display-name            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                                                                  | Optional                                              |
-   | Icon url                       | icon-url                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                                                                | Optional                                              |
-   | Tags                           | accelerator-tags        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                                                                        | Optional                                              |
-   | Git url                        | git-url                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address.                                                                                                                                                                                                                                                                                                                     | Required                                              |
-   | Git interval                   | git-interval-in-seconds | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                                                           | Optional                                              |
-   | Git branch                     | git-branch              | The Git branch to check out and monitor for changes. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                  | Optional                                              |
-   | Git commit                     | git-commit              | The Git commit SHA to check out. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
-   | Git tag                        | git-tag                 | The Git commit tag to check out. Only one of git branch, git commit, and git tag should be specified.                                                                                                                                                                                                                                                                                                                      | Optional                                              |
-   | Authentication type            | N/A                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth` or `SSH`.  Note: Unlike using git, the [shorter scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                              |
-   | User name                      | username                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                      | Required when the authentication type is `Basic auth`. |
-   | Password/Personal access token | password                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                                                       | Required when the authentication type is `Basic auth`. |
-   | Private key                    | private-key             | The private key to access the accelerator source repository whose authentication type is `SSH`. Note: Only OpenSSH private key is supported.                                                                                                                                                                                                                                                                              | Required when authentication type is `SSH`.            |
-   | Host key                       | host-key                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                                                              | Required when the authentication type is `SSH`.        |
-   | Host key algorithm             | host-key-algorithm      | The host key algothrihm to access the accelerator source repository whose authentication type is `SSH`, can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                                                                        | Required when authentication type is `SSH`.            |
+| Portal                             | CLI                       | Description                                                                                                                                                                                                                                                                                                                                                                              | Required/Optional                                      |
+|------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| **Name**                           | `name`                    | A unique name for the accelerator. The name can't change after you create it.                                                                                                                                                                                                                                                                                                            | Required                                               |
+| **Description**                    | `display-name`            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                                 | Optional                                               |
+| **Icon url**                       | `icon-url`                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                               | Optional                                               |
+| **Tags**                           | `accelerator-tags`        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                                       | Optional                                               |
+| **Git url**                        | `git-url`                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address.                                                                                                                                                                                                                                                                                    | Required                                               |
+| **Git interval**                   | `git-interval-in-seconds` | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                                  | Optional                                               |
+| **Git branch**                     | `git-branch`              | The Git branch to check out and monitor for changes. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                     | Optional                                               |
+| **Git commit**                     | `git-commit`              | The Git commit SHA to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                         | Optional                                               |
+| **Git tag**                        | `git-tag`                 | The Git commit tag to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                         | Optional                                               |
+| **Authentication type**            | `N/A`                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth`, or `SSH`. The [scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                               |
+| **User name**                      | `username`                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                     | Required when the authentication type is `Basic auth`. |
+| **Password/Personal access token** | `password`                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                                      | Required when the authentication type is `Basic auth`. |
+| **Private key**                    | `private-key`             | The private key to access the accelerator source repository whose authentication type is `SSH`. Only OpenSSH private key is supported.                                                                                                                                                                                                                                                   | Required when authentication type is `SSH`.            |
+| **Host key**                       | `host-key`                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                             | Required when the authentication type is `SSH`.        |
+| **Host key algorithm**             | `host-key-algorithm`      | The host key algorithm to access the accelerator source repository whose authentication type is `SSH`. Can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                                        | Required when authentication type is `SSH`.            |
 
 ---
 
 To view all published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
+:::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
 To view the newly published accelerator, refresh Dev Tools Portal.
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
+:::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
 > [!NOTE]
 > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
@@ -285,7 +284,7 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 Use the following steps to bootstrap a new project using accelerators:
 
-1. On the **Developer Tools (Preview) page, select the App Accelerator URL to open the Dev Tools Portal.
+1. On the **Developer Tools (Preview)** page, select the App Accelerator URL to open the Dev Tools Portal.
 
    :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the App Accelerator URL." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
@@ -311,7 +310,7 @@ Use the following steps to bootstrap a new project using accelerators:
 
 You can enable App Accelerator under an existing Azure Spring Apps Enterprise tier instance using the Azure portal or Azure CLI.
 
-If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use Ctrl+F5 to deactivate the browser cache to view it on the Dev Tools Portal.
+If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use <kbd>Ctrl</kbd>+<kbd>F5</kdb> to deactivate the browser cache to view it on the Dev Tools Portal.
 
 ### [Azure portal](#tab/Portal)
 
@@ -319,7 +318,7 @@ Use the following steps to enable App Accelerator under an existing Azure Spring
 
 1. Navigate to your service resource, and then select **Developer Tools (Preview)**.
 1. Select **Manage tools**.
-1. Select the **Enable App Accelerator** checkbox, and then select **Apply**.
+1. Select **Enable App Accelerator**, and then select **Apply**.
 
    :::image type="content" source="media/how-to-use-accelerator/enable-app-accelerator.png" alt-text="Screenshot showing the Enable App Accelerator option." lightbox="media/how-to-use-accelerator/enable-app-accelerator.png":::
 
@@ -350,7 +349,7 @@ az spring dev-tool create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> \
     --assign-endpoint
- ```
+```
 
 ---
 
