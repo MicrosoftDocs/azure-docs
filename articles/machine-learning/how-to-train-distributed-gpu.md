@@ -22,10 +22,7 @@ Learn more about how to use distributed GPU training code in Azure Machine Learn
     * Horovod
     * Environment variables from Open MPI
 * PyTorch
-    * Process group initialization
-    * Launch options
-    * DistributedDataParallel (per-process-launch)
-    * Environment variables for TensorFlow (TF_CONFIG)
+* TensorFlow 
 * Accelerate GPU training with InfiniBand
 
 ## Prerequisites
