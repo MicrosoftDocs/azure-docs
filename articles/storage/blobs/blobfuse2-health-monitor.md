@@ -1,6 +1,6 @@
 ---
 title: Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage
-titleSuffix: Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn how to Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage.
 author: jimmart-dev
 ms.author: jammart

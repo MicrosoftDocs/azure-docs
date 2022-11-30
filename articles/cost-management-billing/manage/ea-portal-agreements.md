@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/27/2022
+ms.date: 11/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -83,6 +83,17 @@ If you're using different rates for different meters, we recommend developing a 
 This feature is meant to provide an estimation of the Azure cost to the end customer. The LSP is responsible for all financial transactions with the customer under the EA.
 
 Make sure to review the commercial information - monetary balance information, price list, etc. before publishing the marked-up prices to end customer.
+
+#### Azure savings plan purchases
+
+For [Azure Savings plan](../savings-plan/savings-plan-compute-overview.md) purchases, in some situations, indirect EA end customers could see minor variances in their utilization percentage when they view their [cost reports](../savings-plan/utilization-cost-reports.md) in Cost Management. Actual purchase and usage charges are always computed in partner prices and not in customer prices (for example, with markup). Subsequent markdown and uplift could result in floating point numbers exceeding eight decimal point precision. Azure rounds calculations to eight decimal precision, which can cause minor variances in the utilization numbers for end customers.
+
+Let's look at an example. For an Azure Savings Plan commitment amount of 3.33/hour entered by the customer, if the markup is 13%, after the markdown to arrive at partner price and the subsequent markup in the cost and usage reports, there's minor variance in numbers:
+
+- Customer entered value: 3.33/hour
+- Mark up: 13%
+- Partner commitment calculated from customer value and rounded to eight decimal point precision: 2.94690265
+- Final customer viewed commit (uplifting partner price): 3.32999999
 
 ### How to add a price markup
 

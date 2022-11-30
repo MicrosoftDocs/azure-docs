@@ -30,11 +30,11 @@
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    items: 
+    items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
-      href: iot-solution.md
+      href: /azure/defender-for-iot/organizations/iot-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: iot-advanced-threat-monitoring.md
+      href: /azure/defender-for-iot/organizations/iot-advanced-threat-monitoring?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -63,6 +63,8 @@
         href: partner-integrations.md
       - name: Basic Logs
         href: basic-logs-use-cases.md
+      - name: Health monitoring 
+        href: health-audit.md
     - name: Architecture
       items:
       - name: Roles and permissions
@@ -71,6 +73,8 @@
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Support for data types in different clouds
+        href: data-type-cloud-support.md
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -100,7 +104,7 @@
       - name: KQL quick reference
         href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
-        href: kusto-resources.md
+        href: kusto-resources.md      
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -137,6 +141,8 @@
       href: notebooks.md
   - name: Investigate incidents
     items:
+    - name: Use tasks to manage incident workflow
+      href: incident-tasks.md
     - name: Investigate large datasets
       href: investigate-large-datasets.md
     - name: Investigate entities with entity pages
@@ -248,6 +254,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: CEF via AMA
+        href: connect-cef-ama.md
       - name: DNS via AMA
         href: connect-dns-ama.md
       - name: Syslog (raw) sources
@@ -256,7 +264,9 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
-      - name: Connect using Logstash
+      - name: Logstash plugin with Data Collection Rules
+        href: connect-logstash-data-connection-rules.md
+      - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Custom log sources
         href: connect-custom-logs.md
@@ -306,10 +316,6 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
-    - name: Enable health monitoring
-      href: monitor-sentinel-health.md
-    - name: Monitor data connector health
-      href: monitor-data-connector-health.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -374,6 +380,8 @@
       href: livestream.md
   - name: Investigate incidents
     items:
+    - name: Use tasks to handle incident workflow
+      href: work-with-tasks.md
     - name: Investigate incidents
       href: investigate-cases.md
     - name: Relate alerts to incidents
@@ -404,6 +412,10 @@
       href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
+    - name: Create and perform advanced incident tasks using playbooks
+      href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
     - name: Microsoft Sentinel for MSSPs
@@ -418,6 +430,14 @@
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
+    - name: Monitor Microsoft Sentinel health
+      items:
+      - name: Enable health monitoring
+        href: enable-monitoring.md
+      - name: Monitor data connector health
+        href: monitor-data-connector-health.md
+      - name: Monitor automation rules and playbooks health
+        href: monitor-automation-health.md
     - name: Auditing Microsoft Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
     - name: Remove Microsoft Sentinel from your workspaces
@@ -436,8 +456,10 @@
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
-      - name: Configure Microsoft Sentinel Solution for SAP
+      - name: Configure the solution
         href: sap/deployment-solution-configuration.md
+      - name: Update the connector
+        href: sap/update-sap-data-connector.md      
       - name: Disable the connector
         displayName: disable, stop ingestion, stop
         href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
@@ -491,6 +513,8 @@
       href: /cli/azure/sentinel
     - name: Microsoft Sentinel PowerShell
       href: /powershell/module/az.securityinsights/
+    - name: SentinelHealth table reference 
+      href: health-table-reference.md
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
@@ -543,6 +567,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Microsoft 365 Defender connector data type support
+      href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks

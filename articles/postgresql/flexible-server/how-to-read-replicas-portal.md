@@ -20,7 +20,7 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 ## Prerequisites
 
-An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-database-portal.md) to be the primary server.
+An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal) to be the primary server.
 
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.

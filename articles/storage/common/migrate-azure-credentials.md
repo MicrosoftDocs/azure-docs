@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 07/28/2022
 ms.author: alexwolf
 ms.subservice: common
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure services

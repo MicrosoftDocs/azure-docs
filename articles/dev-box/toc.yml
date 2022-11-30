@@ -15,11 +15,8 @@
       href: quickstart-configure-dev-box-project.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
-- name: Tutorials
-  expanded: true
-  items: 
     - name: Connect with Remote Desktop App
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+      href: quickstart-connect-to-dev-box-with-remote-desktop-app.md
 - name: Concepts
   expanded: true
   items:
@@ -46,6 +43,10 @@
       href: how-to-manage-network-connection.md
     - name: Microsoft Dev Box CLI
       href: how-to-install-dev-box-cli.md  
+    - name: Provision a Custom Image with Azure Image Builder
+      href: how-to-customize-devbox-azure-image-builder.md
+    - name: Manage a dev box through developer portal
+      href: how-to-manage-dev-boxes.md
 - name: Reference
   items:
     - name: Azure CLI
