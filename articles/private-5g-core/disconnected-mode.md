@@ -12,24 +12,24 @@ ms.custom: template-concept
 
 # Disconnected mode for Azure Private 5G Core Preview
 
-*Azure Private 5G Core* allows for *Azure Stack Edge (ASE)* disconnects of up to two days. Disconnected mode continues to allow core functionality during ASE disconnects due to network issues, network equipment resets, or network equipment being separated from a network temporarily.
+*Azure Private 5G Core (AP5GC)* allows for *Azure Stack Edge (ASE)* disconnects of up to two days. Disconnected mode allows AP5GC core functionality to persist through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation.
 
 ## Functions not supported while in disconnected mode
 
 The following functions aren't supported while in disconnected mode:
 
-- 5G core deployment
-- SIM configuration updates
-- Service policy updates
-- NAT configuration updates
-- 5G core version updates
-- SIM provisioning
+- Deployment of the 5G core
+- Updating the 5G core version
+- Updating SIM configuration
+- Updating NAT configuration
+- Updating service policy
+- Provisioning SIMs
 
 ## Monitoring and troubleshooting during disconnects
 
 AAD based sign sign-on for distributed tracing and Grafana monitoring won't be available while in disconnected mode. However, if you know ahead of time that you'll need distributed tracing and Grafana access, you can configure username and password access to each of these tools.
 
-Once the disconnect ends, Azure will update with the stored data (excluding rate and gauge type metrics).
+Once the disconnect ends, Azure will update with the stored data, excluding rate and gauge type metrics.
 
 ## Next steps
 
