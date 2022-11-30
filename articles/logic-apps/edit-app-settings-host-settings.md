@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/15/2022
+ms.date: 11/03/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-In *single-tenant* Azure Logic Apps, the *app settings* for a logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
+In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
 
@@ -48,13 +48,14 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. |
-| `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
-| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the operation options for <*workflowName*>. |
-| `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
-| `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
-| `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
-| `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
+| `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
+| `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
+| `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
+| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | `90.00:00:00` <br>(90 days) | Sets the amount of time in days to keep workflow run history after a run starts. |
+| `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
 
@@ -172,12 +173,12 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 <a name="run-duration-history"></a>
 
-### Run duration and history
+### Run duration and history retention
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <br><br>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
-| `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
+| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <br><br>**Important**: Make sure this value is less than or equal to the value for the app setting named `Workflows.RuntimeConfiguration.RetentionInDays`. Otherwise, run histories can get deleted before the associated jobs are complete. |
+| `Runtime.FlowMaintenanceJob.RetentionCooldownInterval` | `7.00:00:00` <br>(7 days) | Sets the amount of time in days as the interval between when to check for and delete run history that you no longer want to keep. |
 
 <a name="run-actions"></a>
 
@@ -362,6 +363,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 You can add, update, or delete host settings, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, such as default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*. For host settings specific to logic apps, review the [reference guide for available runtime and deployment settings - host.json](#reference-host-json).
 
+<a name="manage-host-settings-portal"></a>
+
 ### Azure portal - host.json
 
 To review the host settings for your single-tenant based logic app in the Azure portal, follow these steps:
@@ -443,6 +446,8 @@ To add a setting, follow these steps:
 1. When you're done, remember to select **Save**.
 
 1. Now, restart your logic app. Return to your logic app's **Overview** page, and select **Restart**.
+
+<a name="manage-host-settings-visual-studio-code"></a>
 
 ### Visual Studio Code - host.json
 

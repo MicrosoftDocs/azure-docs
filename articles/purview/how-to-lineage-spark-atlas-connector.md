@@ -1,8 +1,8 @@
 ---
 title: Metadata and Lineage from Apache Atlas Spark connector
 description: This article describes the data lineage extraction from Spark using Atlas Spark connector.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

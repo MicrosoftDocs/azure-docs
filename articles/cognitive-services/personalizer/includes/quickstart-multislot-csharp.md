@@ -17,8 +17,8 @@ ms.date: 03/23/2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -81,7 +81,7 @@ To ask for the single best item of the content for each slot, create a [Personal
 
 To send a reward score to Personalizer, create a [PersonalizerRewardMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrewardmultislotoptions?view=azure-dotnet-preview&branch=main), then pass it to the [PersonalizerClient.RewardMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rewardmultislot?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-rewardmultislot(system-string-azure-ai-personalizer-personalizerrewardmultislotoptions-system-threading-cancellationtoken)) method along with the corresponding event ID.
 
-Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
+The reward score in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
 ## Code examples
 
@@ -156,10 +156,10 @@ private static IList<PersonalizerRankableAction> GetActions()
 
 ## Get slots
 
-Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
+Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot, which would have been displayed without the use of Personalizer.
 
 
-This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple slot features. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 private static IList<PersonalizerSlotOptions> GetSlots()
@@ -188,7 +188,7 @@ private static IList<PersonalizerSlotOptions> GetSlots()
 
 ## Get user preferences for context
 
-Add the following methods to the Program class to get a user's input from the command line for the time of day and the type of device the user is on. These will be used as context features.
+Add the following methods to the Program class to get a user's input from the command line for the time of day and the type of device the user is on. These methods will be used as context features.
 
 ```csharp
 static string GetTimeOfDayForContext()
@@ -324,7 +324,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 To complete the Rank request, the program asks the user's preferences to create a `Context` of the content choices. The request contains the context, actions and slots with their respective features and a unique event ID, to receive a response.
 
-This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 string timeOfDayFeature = GetTimeOfDayForContext();
@@ -340,7 +340,7 @@ PersonalizerMultiSlotRankResult multiSlotRankResult = client.RankMultiSlot(multi
 
 ## Send a reward
 
-To get the reward score for the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value (reward score) to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the Reward API. A reward does not need to be defined for each slot.
+To get the reward score for the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value (reward score) to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the Reward API. A reward doesn't need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 

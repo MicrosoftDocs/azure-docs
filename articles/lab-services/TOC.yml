@@ -301,14 +301,17 @@
       href: reference-powershell-module.md     
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
-  - name: Built-in policies
-    href: ../governance/policy/samples/built-in-policies.md#lab-services
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: Microsoft Azure SDK for Python
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources

@@ -55,7 +55,7 @@ curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multi
 
 Multivariate Anomaly Detector requires your sample file to be stored as a .zip file in Azure Blob Storage.
 
-1. Create an <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
+1. Create an <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
 2. From within your storage account, create a new storage container with the Public access level set to **private**.
 3. Open your container and select upload. Upload the `sample_data_5_3000.zip` file from the previous step.
     :::image type="content" source="../../media/quickstart/upload-zip.png" alt-text="Screenshot of the storage upload user experience." lightbox="../../media/quickstart/upload-zip.png":::

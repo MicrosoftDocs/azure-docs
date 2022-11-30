@@ -30,10 +30,10 @@ The following limits apply on a per-region, per-subscription basis.
 
 | Resource  | Default limit | Maximum limit |
 |---------|---------| 
-| Concurrent engine instances |     5-100 <sup>1</sup>    |     5000    |
-| Engine instances per test run | 1-45 <sup>1</sup> |  5000   | 
+| Concurrent engine instances |     5-100 <sup>1</sup>    |     1000    |
+| Engine instances per test run | 1-45 <sup>1</sup> |  45   | 
 
-<sup>1</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
+<sup>1</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Test runs
 
@@ -41,10 +41,10 @@ The following limits apply on a per-region, per-subscription basis.
 
 | Resource  | Default limit |  Maximum limit |
 |---------|---------|
-| Concurrent test runs | 5-25 <sup>2</sup> |     5000    |
+| Concurrent test runs | 5-25 <sup>2</sup> |     1000    |
 | Test duration | 3 hours |
 
-<sup>2</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
+<sup>2</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Data retention
 

@@ -157,7 +157,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                          subscription_id=subscription_id, 
                          resource_group_name=resource_group)
     
-    datastore = ml_client.datastores.get(datastore_name='your datastore name')
+    datastore = ml_client.datastores.get(name='your datastore name')
     ```
 
 ## Mapping of key functionality in SDK v1 and SDK v2

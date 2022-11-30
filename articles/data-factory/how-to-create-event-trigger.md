@@ -102,6 +102,9 @@ This section provides examples of storage event trigger settings.
 > [!IMPORTANT]
 > You have to include the `/blobs/` segment of the path, as shown in the following examples, whenever you specify container and folder, container and file, or container, folder, and file. For **blobPathBeginsWith**, the UI will automatically add `/blobs/` between the folder and container name in the trigger JSON.
 
+> [!NOTE]
+> File arrival triggers are not recommended as a triggering mechanism from data flow sinks. Data flows perform a number of file renaming and partition file shuffling tasks in the target folder that can inadvertenly trigger a file arrival event before the complete processing of your data.
+
 | Property | Example | Description |
 |---|---|---|
 | **Blob path begins with** | `/containername/` | Receives events for any blob in the container. |

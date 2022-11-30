@@ -42,7 +42,7 @@ In the [portal](https://portal.azure.com) page for your Azure Cognitive Search s
 
 Select an existing Application Insights resource or [create one](../azure-monitor/app/create-new-resource.md) if you don't have one already. If you use the Search Traffic Analytics page, you can copy the instrumentation key your application needs to connect to Application Insights.
 
-Once you have an Application Insights resource, you can follow [instructions for supported languages and platforms](../azure-monitor/app/platforms.md) to register your app. Registration is simply adding the instrumentation key from Application Insights to your code, which sets up the association. You can find the key in the portal, or from the Search Traffic Analytics page when you select an existing resource.
+Once you have an Application Insights resource, you can follow [instructions for supported languages and platforms](../azure-monitor/app/app-insights-overview.md#supported-languages) to register your app. Registration is simply adding the instrumentation key from Application Insights to your code, which sets up the association. You can find the key in the portal, or from the Search Traffic Analytics page when you select an existing resource.
 
 A shortcut that works for some Visual Studio project types is reflected in the following steps. It creates a resource and registers your app in just a few clicks.
 
@@ -60,7 +60,7 @@ This step is where you instrument your own search application, using the Applica
 
 ### Step 1: Create a telemetry client
 
-Create an object that sends events to Application Insights. You can add instrumentation to your server-side application code or client-side code running in a browser, expressed here as C# and JavaScript variants (for other languages, see the complete list of [supported platforms and frameworks](../azure-monitor/app/platforms.md). Choose the approach that gives you the desired depth of information.
+Create an object that sends events to Application Insights. You can add instrumentation to your server-side application code or client-side code running in a browser, expressed here as C# and JavaScript variants (for other languages, see the complete list of [supported platforms and frameworks](../azure-monitor/app/app-insights-overview.md#supported-languages). Choose the approach that gives you the desired depth of information.
 
 Server-side telemetry captures metrics at the application layer, for example in applications running as a web service in the cloud, or as an on-premises app on a corporate network. Server-side telemetry captures search and click events, the position of a document in results, and query information, but your data collection will be scoped to whatever information is available at that layer.
 

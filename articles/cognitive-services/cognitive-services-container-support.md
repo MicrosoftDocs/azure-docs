@@ -24,7 +24,7 @@ Containerization is an approach to software distribution in which an application
 
 ## Features and benefits
 
-- **Immutable infrastructure**: Enable DevOps teams' to leverage a consistent and reliable set of known system parameters, while being able to adapt to change. Containers provide the flexibility to pivot within a predictable ecosystem and avoid configuration drift.
+- **Immutable infrastructure**: Enable DevOps teams to leverage a consistent and reliable set of known system parameters, while being able to adapt to change. Containers provide the flexibility to pivot within a predictable ecosystem and avoid configuration drift.
 - **Control over data**: Choose where your data gets processed by Cognitive Services. This can be essential if you can't send data to the cloud but need access to Cognitive Services APIs. Support consistency in hybrid environments – across data, management, identity, and security.
 - **Control over model updates**: Flexibility in versioning and updating of models deployed in their solutions.
 - **Portable architecture**: Enables the creation of a portable application architecture that can be deployed on Azure, on-premises and the edge. Containers can be deployed directly to [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
@@ -53,7 +53,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Language service][ta-containers-language] |  **Text Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-sentiment] | **Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Generally available |
-| [Translator][tr-containers] | **Translator** | Translate text in several languages and dialects. | Gated preview - [request access](https://aka.ms/csgate-translator). <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). | 
+| [Translator][tr-containers] | **Translator** | Translate text in several languages and dialects. | Generally available. Gated - [request access](https://aka.ms/csgate-translator). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). | 
 
 ### Speech containers
 

@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for MongoDB and JavaScript
+title: Get started with Azure Cosmos DB for MongoDB using JavaScript
 description: Get started developing a JavaScript application that works with Azure Cosmos DB for MongoDB. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for MongoDB database.
 author: seesharprun
 ms.author: sidandrews
@@ -8,10 +8,11 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for MongoDB and JavaScript
+# Get started with Azure Cosmos DB for MongoDB using JavaScript
+
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using the native MongoDB npm package. Once connected, you can perform operations on databases, collections, and docs.
@@ -21,29 +22,28 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using the n
 
 [API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (npm)](https://www.npmjs.com/package/mongodb)
 
-
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [Node.js LTS](https://nodejs.org/en/download/)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-* [Azure Cosmos DB for MongoDB resource](quickstart-nodejs.md#create-an-azure-cosmos-db-account)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- [Node.js LTS](https://nodejs.org/en/download/)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- [Azure Cosmos DB for MongoDB resource](quickstart-nodejs.md#create-an-azure-cosmos-db-account)
 
 ## Create a new JavaScript app
 
-1. Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
+1. Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts.
 
     ```console
     npm init
     ```
 
-2. Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the JavaScript project. Use the [``npm install package``](https://docs.npmjs.com/cli/v8/commands/npm-install) command specifying the name of the npm package. The `dotenv` package is used to read the environment variables from a `.env` file during local development.
+1. Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the JavaScript project. Use the [``npm install package``](https://docs.npmjs.com/cli/v8/commands/npm-install) command specifying the name of the npm package. The `dotenv` package is used to read the environment variables from a `.env` file during local development.
 
     ```console
     npm install mongodb dotenv
     ```
 
-3. To run the app, use a terminal to navigate to the application directory and run the application.
+1. To run the app, use a terminal to navigate to the application directory and run the application.
 
     ```console
     node index.js
@@ -51,7 +51,7 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using the n
 
 ## Connect with MongoDB native driver to Azure Cosmos DB for MongoDB
 
-To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) class. This class is the starting point to perform all operations against databases. 
+To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) class. This class is the starting point to perform all operations against databases.
 
 The most common constructor for **MongoClient** has two parameters:
 
@@ -103,12 +103,11 @@ Skip this step and use the information for the portal in the next step.
 
 ## Create MongoClient with connection string
 
-
-1. Add dependencies to reference the MongoDB and DotEnv npm packages. 
+1. Add dependencies to reference the MongoDB and DotEnv npm packages.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="package_dependencies":::
 
-2. Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
+1. Define a new instance of the ``MongoClient`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
 
@@ -116,7 +115,7 @@ For more information on different ways to create a ``MongoClient`` instance, see
 
 ## Close the MongoClient connection
 
-When your application is finished with the connection remember to close it. That `.close()` call should be after all database calls are made. 
+When your application is finished with the connection, remember to close it. The `.close()` call should be after all database calls are made.
 
 ```javascript
 client.close()
@@ -138,10 +137,10 @@ The following guides show you how to use each of these classes to build your app
 
 **Guide**:
 
-* [Manage databases](how-to-javascript-manage-databases.md)  
-* [Manage collections](how-to-javascript-manage-collections.md) 
-* [Manage documents](how-to-javascript-manage-documents.md) 
-* [Use queries to find documents](how-to-javascript-manage-queries.md) 
+- [Manage databases](how-to-javascript-manage-databases.md)  
+- [Manage collections](how-to-javascript-manage-collections.md)
+- [Manage documents](how-to-javascript-manage-documents.md)
+- [Use queries to find documents](how-to-javascript-manage-queries.md)
 
 ## See also
 
@@ -150,7 +149,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
+Now that you've connected to an API for MongoDB account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB for MongoDB using JavaScript](how-to-javascript-manage-databases.md)

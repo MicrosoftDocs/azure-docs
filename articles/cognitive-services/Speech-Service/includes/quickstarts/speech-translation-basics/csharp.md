@@ -17,11 +17,15 @@ ms.author: eur
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements. 
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Translate speech from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
+1. Open a command prompt where you want the new project, and create a console application with the .NET CLI. The `Program.cs` file should be created in the project directory.
     ```dotnetcli
     dotnet new console
     ```
@@ -41,8 +45,9 @@ Follow these steps to create a new console application and install the Speech SD
     
     class Program 
     {
-        static string YourSubscriptionKey = "YourSubscriptionKey";
-        static string YourServiceRegion = "YourServiceRegion";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
+        static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
     
         static void OutputSpeechRecognitionResult(TranslationRecognitionResult translationRecognitionResult)
         {
@@ -74,7 +79,7 @@ Follow these steps to create a new console application and install the Speech SD
     
         async static Task Main(string[] args)
         {
-            var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
+            var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(speechKey, speechRegion);        
             speechTranslationConfig.SpeechRecognitionLanguage = "en-US";
             speechTranslationConfig.AddTargetLanguage("it");
     
@@ -88,9 +93,6 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
-1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md).
 1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
 

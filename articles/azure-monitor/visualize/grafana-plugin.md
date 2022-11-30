@@ -18,7 +18,7 @@ Use the following steps to set up a Grafana server and build dashboards for metr
 
 ## Set up Grafana
 
-### Set up Azure Managed Grafana (Preview)
+### Set up Azure Managed Grafana
 Azure Managed Grafana is optimized for the Azure environment and works seamlessly with Azure Monitor. Enabling you to:
 
 - Manage user authentication and access control using Azure Active Directory identities

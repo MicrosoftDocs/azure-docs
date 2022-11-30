@@ -906,7 +906,7 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
 
 ## Next steps
 
-Explore the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai).
+Explore the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai).
 
 For information about how to embed widgets in your application, see [Embed Azure Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

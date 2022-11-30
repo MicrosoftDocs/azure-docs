@@ -1,8 +1,8 @@
 ---
 title: Microsoft Purview governance portal product glossary
 description: A glossary defining the terminology used throughout the Microsoft Purview governance portal
-author: djpmsft
-ms.author: daperlov
+author: evangelinew
+ms.author: evwhite
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
