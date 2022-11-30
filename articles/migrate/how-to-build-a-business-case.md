@@ -75,7 +75,7 @@ There are three types of migration strategies that you can choose while building
 1. **Currency** is defaulted to USD and can't be edited.
 1. Review the chosen inputs, and select **Build business case**.
 
-    :::image type="content" source="/media/how-to-build-a-business-case/build-button.png" alt-text="Screenshot of the button to initiate the Business case creation.":::
+    :::image type="content" source="./media/how-to-build-a-business-case/build-button.png" alt-text="Screenshot of the button to initiate the Business case creation.":::
 
 1. You'll be directed to the newly created Business case with a banner that says that your Business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the Business case page after ~30 minutes and select **Refresh**.
     
