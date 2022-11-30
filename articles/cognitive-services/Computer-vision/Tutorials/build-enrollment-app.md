@@ -52,7 +52,7 @@ The sample app is written using JavaScript and the React Native framework. It ca
 
 ---
 
-## Create a user add experience  
+## Customize the app for your business   
 
 Now that you have set up the sample app, you can tailor it to your own needs.
 
@@ -61,25 +61,34 @@ For example, you may want to add situation-specific information on your consent 
 > [!div class="mx-imgBorder"]
 > ![app consent page](../media/enrollment-app/1-consent-1.jpg)
 
-Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
-* Face size (faces that are distant from the camera)
-* Face orientation (faces turned or tilted away from camera)
-* Poor lighting conditions (either low light or backlighting) where the image may be poorly exposed or have too much noise
-* Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
-* Blur (such as by rapid face movement when the photograph was taken). 
+1. Add more instructions to improve verification accuracy.
 
-The service provides image quality checks to help you make the choice of whether the image is of sufficient quality based on the above factors to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality and show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
+    Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
+    * Face size (faces that are distant from the camera)
+    * Face orientation (faces turned or tilted away from camera)
+    * Poor lighting conditions (either low light or backlighting) where the image may be poorly exposed or have too much noise
+    * Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
+    * Blur (such as by rapid face movement when the photograph was taken). 
+
+    The service provides image quality checks to help you make the choice of whether the image is of sufficient quality based on the above factors to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality and show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
 
 
 > [!div class="mx-imgBorder"]
 > ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
 
-Notice the app also offers functionality for deleting the user's information and the option to re-add.
+1. The sample app offers functionality for deleting the user's information and the option to readd. You can enable or disable these operations based on your business requirement. 
 
 > [!div class="mx-imgBorder"]
 > ![profile management page](../media/enrollment-app/10-manage-2.jpg)
 
 To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
+
+1. Configure your database to map each person with their ID
+
+   You need to use a database to store the face image along with user metadata. The social security number or other unique person identifier can be used as a key to look up their face ID. 
+
+1. For secure methods of passing your subscription key and endpoint to Face service, see the Azure Cognitive Services [Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) guide.
+
 
 ## Deploy the app
 
