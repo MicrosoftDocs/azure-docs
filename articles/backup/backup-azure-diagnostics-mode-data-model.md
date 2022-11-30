@@ -6,6 +6,7 @@ ms.date: 11/30/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
+ms.custom: engagement-fy23
 ---
 # Log Analytics data model for Azure Backup data
 
@@ -17,11 +18,11 @@ This article describes the Log Analytics data model for Azure Backup that's adde
 In this article, you'll learn about:
 
 > [!div class="checklist"]
-> - Use Azure Backup data model
+> - Use the Azure Backup data model
 > - Sample Kusto queries
 > - V1 schema vs V2 schema
 
-## Use Azure Backup data model
+## Use the Azure Backup data model
 
 You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard according to your requirements.
 
@@ -467,11 +468,13 @@ Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to
 
 For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries.
 
-Refer to the third column 'Description' in the [data model](#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
+Refer to the third column 'Description' in the [data model](#use-the-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
 
-### Modifying the queries to use the V2 schema
+### Modify the queries to use the V2 schema
 
-As the V1 schema is on a deprecation path, we recommend you to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
+As the V1 schema is on a deprecation path, we recommend you to use only the V2 schema in all your custom queries on Azure Backup diagnostic data.
+
+To update your queries to remove dependency on V1 schema, follow these steps:
 
 1. Identify if your query is using any field that's only applicable to the V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
 
