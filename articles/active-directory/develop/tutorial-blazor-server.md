@@ -22,7 +22,7 @@ In this tutorial:
 > [!div class="checklist"]
 >
 > - Create a new Blazor Server app configured to use Azure AD for authentication
-> - Handle both authentication and authorization using Microsoft.Identity.Web
+> - Handle both authentication and authorization using `Microsoft.Identity.Web`
 > - Retrieve data from a protected web API, Microsoft Graph
 
 ## Prerequisites
