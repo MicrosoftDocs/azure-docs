@@ -23,17 +23,30 @@ A general description of each feature enabled by this configuration is provided 
 > [!NOTE]
 > The features enabled by the configuration support monitoring workloads running on your virtual machine. But depending on your particular workloads, you'll typically require additional configuration. For details on this additional configuration, see [Workload monitoring](monitor-virtual-machine-workloads.md).
 
+
 ## Configuration overview
 The following table lists the steps that must be performed for this configuration. Each one links to the section with the detailed description of that configuration step.
 
 | Step | Description |
 |:---|:---|
 | [No configuration](#no-configuration) | Activity log and platform metrics for the Azure virtual machine hosts are automatically collected with no configuration. |
-| [Create Log Analytics workspace](#create-and-prepare-a-log-analytics-workspace) | Create a Log Analytics workspace to support VM insights. Depending on your particular requirements, you might configure multiple workspaces. |
+| [Create Log Analytics workspace](#create-and-prepare-a-log-analytics-workspace) | Create a Log Analytics workspace to support log collection and VM insights if you choose to use it. Depending on your particular requirements, you might configure multiple workspaces. |
 | [Send Activity log to Log Analytics workspace](#send-an-activity-log-to-a-log-analytics-workspace) | Send the Activity log to the workspace to analyze it with other log data. |
 | [Prepare hybrid machines](#prepare-hybrid-machines) | Hybrid machines either need the server agents enabled by Azure Arc installed so they can be managed like Azure virtual machines or must have their agents installed manually. |
-| [Enable VM insights on machines](#enable-vm-insights-on-machines) | Onboard machines to VM insights, which deploys required agents and begins collecting data from the guest operating system. |
-| [Send guest performance data to Metrics](#send-guest-performance-data-to-metrics) |Install the Azure Monitor agent to send performance data to Azure Monitor Metrics. |
+| [Enable VM insights](#enable-vm-insights) | Optionally, onboard machines to VM insights, which deploys required agents and begins collecting data from the guest operating system. |
+
+
+## Network requirements
+The Azure Monitor agent for both Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443. The Dependency agent uses the Azure Monitor agent for all communication, so it doesn't require any another ports. For details on how to configure your firewall and proxy, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
+
+:::image type="content" source="media/monitor-virtual-machines/network-diagram.png" alt-text="Diagram that shows the network." lightbox="media/monitor-virtual-machines/network-diagram.png":::
+
+### Gateway
+With the Log Analytics gateway, you can channel communications from your on-premises machines through a single gateway. You can't use the Azure Arc-enabled server agents with the Log Analytics gateway though. If your security policy requires a gateway, you'll need to manually install the agents for your on-premises machines. For details on how to configure and use the Log Analytics gateway, see [Log Analytics gateway](../agents/gateway.md).
+
+### Azure Private Link
+By using Azure Private Link, you can create a private endpoint for your Log Analytics workspace. After it's configured, any connections to the workspace must be made through this private endpoint. Private Link works by using DNS overrides, so there's no configuration requirement on individual agents. For details on Private Link, see [Use Azure Private Link to securely connect networks to Azure Monitor](../logs/private-link-security.md). For specific guidance on configuring private link for you virtual machines, see [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md).
+
 
 ## No configuration
 Azure Monitor provides a basic level of monitoring for Azure virtual machines at no cost and with no configuration. Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization. They can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience) for the machine in the Azure portal. The Activity log is also collected automatically and includes the recent activity of the machine, such as any configuration changes and when it was stopped and started.
@@ -53,44 +66,45 @@ One reason you might consider multihoming, though, is if you have an environment
 ### Workspace permissions
 The access mode of the workspace defines which users can access different sets of data. For details on how to define your access mode and configure permissions, see [Manage access to log data and workspaces in Azure Monitor](../logs/manage-access.md). If you're just getting started with Azure Monitor, consider accepting the defaults when you create your workspace and configure its permissions later.
 
-## Send 
-Activity log to a Log Analytics workspace
+## Send Activity log to a Log Analytics workspace
 You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Send this data into the same Log Analytics workspace as VM insights to analyze it with the other monitoring data collected for the virtual machine. You might have already done this task when you configured monitoring for other Azure resources because there's a single Activity log for all resources in an Azure subscription.
 
 There's no cost for ingestion or retention of Activity log data. For details on how to create a diagnostic setting to send the Activity log to your Log Analytics workspace, see [Create diagnostic settings](../essentials/diagnostic-settings.md).
 
-## Network requirements
-The Azure Monitor agent for both Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443. The Dependency agent uses the Azure Monitor agent for all communication, so it doesn't require any another ports. For details on how to configure your firewall and proxy, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
-
-:::image type="content" source="media/monitor-virtual-machines/network-diagram.png" alt-text="Diagram that shows the network." lightbox="media/monitor-virtual-machines/network-diagram.png":::
-
-### Gateway
-With the Log Analytics gateway, you can channel communications from your on-premises machines through a single gateway. You can't use the Azure Arc-enabled server agents with the Log Analytics gateway though. If your security policy requires a gateway, you'll need to manually install the agents for your on-premises machines. For details on how to configure and use the Log Analytics gateway, see [Log Analytics gateway](../agents/gateway.md).
-
-### Azure Private Link
-By using Azure Private Link, you can create a private endpoint for your Log Analytics workspace. After it's configured, any connections to the workspace must be made through this private endpoint. Private Link works by using DNS overrides, so there's no configuration requirement on individual agents. For details on Private Link, see [Use Azure Private Link to securely connect networks to Azure Monitor](../logs/private-link-security.md). For specific guidance on configuring private link for you virtual machines, see [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md).
 
 ## Deploy agent
+There are multiple methods for deploying the Azure Monitor agent depending on whether you use the [agent extension](../agents/azure-monitor-agent-manage.md) or the [client installer](../agents/azure-monitor-agent-windows-client.md). The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Install](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
 
-1. Deploy agents
-
+If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
 
 
 ## Prepare hybrid machines
 A hybrid machine is any machine not running in Azure. It's a virtual machine running in another cloud or hosted provider or a virtual or physical machine running on-premises in your datacenter. Use [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) on hybrid machines so you can manage them similarly to your Azure virtual machines. You can use VM insights in Azure Monitor to use the same process to enable monitoring for Azure Arc-enabled servers as you do for Azure virtual machines. For a complete guide on preparing your hybrid machines for Azure, see [Plan and deploy Azure Arc-enabled servers](../../azure-arc/servers/plan-at-scale-deployment.md). This task includes enabling individual machines and using [Azure Policy](../../governance/policy/overview.md) to enable your entire hybrid environment at scale.
 
-There's no more cost for Azure Arc-enabled servers, but there might be some cost for different options that you enable. For details, see [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/). There is a cost for the data collected in the workspace after the hybrid machines are enabled for VM insights.
+There's no more cost for Azure Arc-enabled servers, but there might be some cost for different options that you enable. For details, see [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/). There is a cost for the data collected in the workspace after your hybrid machines are onboarded, but this is the same as for an Azure virtual machine.
 
 ### Machines that can't use Azure Arc-enabled servers
 If you have any hybrid machines that match the following criteria, they won't be able to use Azure Arc-enabled servers:
 
 - The operating system of the machine isn't supported by the server agents enabled by Azure Arc. For more information, see [Supported operating systems](../../azure-arc/servers/prerequisites.md#supported-operating-systems).
-- Your security policy doesn't allow machines to connect directly to Azure. The Azure Monitor agent can use the [Log Analytics gateway](../agents/gateway.md) whether or not Azure Arc-enabled servers are installed. The server agents enabled by Azure Arc must connect directly to Azure.
+- Your security policy doesn't allow machines to connect directly to Azure. The Azure Monitor agent can use the [Log Analytics gateway](../agents/gateway.md) whether or not Azure Arc-enabled servers are installed. The server agents enabled by Azure Arc though must connect directly to Azure.
 
 You still can monitor these machines with Azure Monitor, but you need to manually install their agents. To manually install the Log Analytics agent and Dependency agent on those hybrid machines, see [Enable VM insights for a hybrid virtual machine](vminsights-enable-hybrid.md).
 
 > [!NOTE]
 > The private endpoint for Azure Arc-enabled servers is currently in public preview. The endpoint allows your hybrid machines to securely connect to Azure by using a private IP address from your virtual network.
+
+
+## Create data collection rules (DCR)
+[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) define the data collected by the agent and where that data is sent. A single agent can have multiple DCRs associated with it, and a single DCR can be used with multiple agents. Each DCR is an ARM resource so you can manage them independently.
+
+| Method | Description |
+|:---|:---|
+| Azure portal  When you create a new DCR in the Azure portal, you can select the events and performance counters to collect and the VMs to associate with it. The Azure Monitor agent is automatically installed on any VMs that don't already have it. This can be an effective method to create DCRs |
+| 
+- VM insights creates a default DCR that collects a predefined set of performance counters and sends them to a Log Analytics workspace. You shouldn't modify this DCR, but you will most likely want to create additional DCRs that 
+- Manually create a DCR 
+
 
 ## Enable VM insights on machines
 After you enable VM insights on a machine, it installs the Azure Monitor agent and Dependency agent, connects to a workspace, and starts collecting performance data. You can start using performance views and workbooks to analyze trends for a variety of guest operating system metrics, enable the map feature of VM insights for analyzing running processes and dependencies between machines, and collect the data required for you to create a variety of alert rules.
@@ -107,21 +121,6 @@ When you enable VM insights, you have the option of enabling collection of
 With Azure Monitor agent, the [map feature](vminsights-maps.md) is optional. When you enable it it, you have the option of 
 
 
-## Send guest performance data to Metrics
-The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) replaces the Log Analytics agent when it fully supports Azure Monitor, Microsoft Defender for Cloud, and Microsoft Sentinel. Until that time, it can be installed with the Log Analytics agent to send performance data from the guest operating system of machines to Azure Monitor Metrics. This configuration allows you to evaluate this data with metrics explorer and use metric alerts.
-
-The Azure Monitor agent requires at least one data collection rule (DCR) that defines which data it should collect and where it should send that data. A single DCR can be used by any machines in the same resource group.
-
-Create a single DCR for each resource group with machines to monitor by using the following data source: 
-
-- **Data source type**: Performance Counters
-- **Destination**: Azure Monitor Metrics
-
-Be careful to not send data to Logs because it would be redundant with the data already being collected by the Log Analytics agent.
-
-You can install an Azure Monitor agent on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Resource Manager templates or enabling machines at scale by using Azure Policy. For hybrid machines that can't use Azure Arc-enabled servers, install the agent manually.
-
-To create a DCR and deploy the Azure Monitor agent to one or more agents by using the Azure portal, see [Create rule and association in the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md). Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-manage.md). To create a policy that automatically deploys the agent and DCR to any new machines as they're created, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## Next steps
 
