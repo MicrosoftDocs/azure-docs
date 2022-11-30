@@ -11,7 +11,7 @@ Microsoft Defender for IoT provides tools both in the Azure portal and on-premis
 
 ## Azure users for Defender for IoT
 
-In the Azure portal, user are managed at the subscription level with [Azure Active Directory (AAD)](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
+In the Azure portal, user are managed at the subscription level with [Azure Active Directory](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
 
 Use the [portal](/azure/role-based-access-control/quickstart-assign-role-user-portal) or [PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell) to assign your Azure subscription users with the specific roles they'll need to view data and take action, such as whether they'll be viewing alert or device data, or managing pricing plans and sensors.
 

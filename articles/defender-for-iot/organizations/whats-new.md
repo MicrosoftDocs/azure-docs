@@ -19,7 +19,23 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes) |
+|**OT networks**     |- **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)  <br><br>- **All OT sensor versions**: [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)     |
+
+### Site-based access control on the Azure portal (Public preview)
+
+For sensor software versions 22.x, Defender for IoT now supports *site-based access control*, which allows customers to control user access to Defender for IoT features on the Azure portal at the *site* level.
+
+For example, apply the [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) roles to determine user access to Azure resources such as the **Alerts**, **Device inventory**, or **Workbooks** pages.
+
+To manage site-based access control, select the site in the **Sites and sensors** page, and then select the **Manage site access control (Preview)** link. For example:
+
+:::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page." lightbox="media/release-notes/site-based-access.png":::
+
+For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md).
+
+> [!NOTE]
+> *Sites*, and therefore site-based access control, are relevant only for OT network monitoring.
+>
 
 ### New OT monitoring software release notes
 
@@ -75,7 +91,7 @@ From either location, select a recommendation to drill down further and view lis
 
 :::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
 
-For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory) and [Enhance security posture with security recommendations](recommendations.md).
 
 ### Device vulnerabilities from the Azure portal (Public preview)
 

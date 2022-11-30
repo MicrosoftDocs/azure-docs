@@ -45,6 +45,8 @@
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder
       href: how-to-customize-devbox-azure-image-builder.md
+    - name: Manage a dev box through developer portal
+      href: how-to-manage-dev-boxes.md
 - name: Reference
   items:
     - name: Azure CLI
