@@ -366,7 +366,7 @@
       - name: Get started
         displayName: database
         href: defender-for-sql-introduction.md
-      - name: Defender for Azure SQL Databases
+      - name: Vulnerability assessment
         items:
         - name: Overview
           href: sql-azure-vulnerability-assessment-overview.md
@@ -376,14 +376,18 @@
           href: sql-azure-vulnerability-assessment-manage.md
         - name: Find and remediate vulnerabilities
           href: sql-azure-vulnerability-assessment-find.md
-        - name: Investigate threats
-          href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
         - name: Vulnerability assessment rules
           href: sql-azure-vulnerability-assessment-rules.md
         - name: Vulnerability assessment rules changelog
           href: sql-azure-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+      - name: Investigate threats
+        items:
+        - name: Overview
+          href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
+        - name: Configure threat detection
+          href: /azure/azure-sql/database/threat-detection-configure?toc=/azure/defender-for-cloud/toc.json
     - name: Defender for SQL servers on machines
       items:
       - name: Enable Defender for SQL servers on machines
