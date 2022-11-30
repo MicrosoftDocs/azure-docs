@@ -37,14 +37,12 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
 - ['Active Alerts' workbook](#use-the-active-alerts-workbook) - View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
-- ['Price Estimation' workbook](#use-the-price-estimation-workbook) - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and do not provide actual billing data.
-- ['Governance workbook'](#use-the-governance-preview-workbook) -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
+- Price Estimation workbook - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and do not provide actual billing data.
+- Governance workbook -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
 
 In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
-
-Choose one of the supplied workbooks or create your own.
 
 > [!TIP]
 > Use the **Edit** button to customize any of the supplied workbooks to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
