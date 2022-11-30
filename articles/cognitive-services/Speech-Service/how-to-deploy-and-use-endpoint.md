@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/30/2022
 ms.author: caoling
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
@@ -51,7 +51,7 @@ The application settings that you use as REST API [request parameters](#request-
 
 The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. 
 
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-speech-to-text.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
