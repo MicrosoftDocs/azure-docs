@@ -81,7 +81,7 @@ Graph databases are often included within the NoSQL or non-relational database c
 
 Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
 
-:::image type="content" source="media/introduction/example-graph.png" alt-text="Sample property graph showing persons, devices, and interests." border="false":::
+:::image type="content" source="media/introduction/example-graph.png" lightbox="media/introduction/example-graph.png" alt-text="Sample property graph showing persons, devices, and interests." border="false":::
 
 This graph has the following *vertex* types. These types are also called *labels* in Gremlin:
 
