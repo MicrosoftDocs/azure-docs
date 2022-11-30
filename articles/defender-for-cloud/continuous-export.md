@@ -248,7 +248,7 @@ Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hub
 
 ### What is the minimum SAS policy permissions required when exporting data to Azure Event Hub?
 
-**Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
+**Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
 
 ## Next steps
 
