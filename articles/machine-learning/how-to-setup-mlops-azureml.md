@@ -134,6 +134,8 @@ echo "Please ensure that the information created here is properly save for futur
 
 5. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next**, select your subscription where your Service Principal is stored and name the service connection **Azure-ARM-Dev**. Fill in the details of the Dev service principal created in **Step 1.** Select **Grant access permission to all pipelines**, then select **Save**. Repeat this step to create another service connection **Azure-ARM-Prod** using the details of the Prod service principal created in **Step 1.**
 
+> [!IMPORTANT]
+> Using the `appId` from **Step 1.** as the Service Principal ID, the `password` from **Step 1.** as the Service Principal Key and the `tenant` from **Step 1.** as the Tenant ID.
 ![ADO3](./media/how-to-setup-mlops-azureml/ado-service-principal-manual.png)
 
 The Azure DevOps setup is successfully finished.
@@ -154,6 +156,8 @@ The Azure DevOps setup is successfully finished.
    - https://github.com/Azure/mlops-project-template
    - https://github.com/Azure/mlops-v2 
 
+> [!TIP]
+> Learn more about the MLOps v2 accelerator structure and understand why you need to clone all three repositories [here](https://github.com/sdonohoo/mlops-v2/blob/sdonohoo/docs/documentation/structure/README.md#repositories)
 
 5. Open the Repos section. Click on the default repo name at the top of the screen and select **New Repository**
 
@@ -163,24 +167,28 @@ The Azure DevOps setup is successfully finished.
 
    ![Create demo project](./media/how-to-setup-mlops-azureml/ado-create-demoprojectrepo.png)
 
-7. Open the **project settings** at the bottom of the left hand navigation pane
+7. Open the **Project settings** at the bottom of the left hand navigation pane
 
 ![Open project settings](./media/how-to-setup-mlops-azureml/ado-open-projectSettings.png)
 
 8.  Under the Repos section, click **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
 
-9. Under the User permissions section, select the \<projectname> Build Service user and **Allow**
+9. Under the User permissions section, select the **<projectname> Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
    ![ADO permissions](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
 
-10. Open the Pipelines section and click on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**
+10. Open the **Pipelines section** in the left hand navigation pane and click on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**
 
    ![Pipeline security](./media/how-to-setup-mlops-azureml/ado-open-pipelinesSecurity.png)
 
-11. Select the \<projectname> Build Service account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
+11. Select the **<projectname> Build Service** account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
 
    ![Add security](./media/how-to-setup-mlops-azureml/ado-add-pipelinesSecurity.png)
 
 ### Sparse Checkout of MLOps v2 repo
+
+
+> [!TIP]
+> Make sure you understand the [Architectural Patterns](https://github.com/Azure/mlops-v2#-pattern-architectures-key-concepts) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples we will use the [classical ML project type](https://github.com/Azure/mlops-v2/blob/main/documentation/architecturepattern/AzureML_CML_Architecture.png).
 
 1. Open the Pipelines section and create a new pipeline
 
@@ -194,15 +202,15 @@ The Azure DevOps setup is successfully finished.
    - Select the `/.azuredevops/initialise-project.yml` file in the patch drop-down
    - Click Continue 
 
-On the pipeline review page chose to **save** the pipeline before running it. 
+On the pipeline review page chose to **Save** the pipeline before running it. 
 
    ![Save pipeline](./media/how-to-setup-mlops-azureml/ado-save-sparepipeline.png)
 
-3. Click run pipeline
+3. Click **Run Pipeline**
 
    ![Run pipeline](./media/how-to-setup-mlops-azureml/ado-run-sparepipeline.png)
 
-You will need to complete the required parameters to configure your project
+Make sure you select the **main** branch and then you will need to complete the required parameters to configure your project
 
 ![Parameters for pipeline](./media/how-to-setup-mlops-azureml/ado-parameters-sparepipeline.png)
 
@@ -241,55 +249,35 @@ You will need to complete the required parameters to configure your project
 ## Deploying Infrastructure via Azure DevOps
 This step deploys the training pipeline to the Azure Machine Learning workspace created in the previous steps. 
 
-> [!TIP]
-> Make sure you understand the [Architectural Patterns](https://github.com/Azure/mlops-v2#-pattern-architectures-key-concepts) of the solution accelerator before you deploy the infrastructure. In examples we will use the [classical ML project type](https://github.com/Azure/mlops-v2/blob/main/documentation/architecturepattern/AzureML_CML_Architecture.png).
-
 ### Run Azure Infrastructure pipeline
- 1. Go to your Github cloned repo and select the `config-infra-prod.yml` file.
-   
-   ![ADO Run4](./media/how-to-setup-mlops-azureml/ADO-run4.png)
-   
-   Under global, there's two values namespace and postfix. These values should render the names of the artifacts to create unique. Especially the name for the storage account, which has the most rigid constraints, like uniqueness Azure wide and 3-5 lowercase characters and numbers. So please change namespace and/or postfix to a value of your liking and remember to stay within the constraints of a storage account name as mentioned above. Then save, commit, push, pr to get these values into the pipeline.
-   
-   If your are running a Deep Learning workload such as `CV` or `NLP`, you have to ensure your GPU compute is available in your deployment zone. Please replace as shown above your location to `eastus`. Example:
-   
-```
-    namespace: [5 max random new letters]
-    postfix: [4 max random new digits]
-    location: eastus
-```
-   Please repeat this step for `config-infra-dev.yml` and `config-infra-prod.yml`!
-
-   2. Go to ADO pipelines
+1. Go to Pipelines section 
    
    ![ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
    
-   3. Select **New Pipeline**.
+2. Select **New Pipeline**.
    
    ![ADO Run1](./media/how-to-setup-mlops-azureml/ADO-run1.png)
    
-   4. Select **Github**.
+3. Select **Azure Repos Git**.
    
    ![ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
-   5. Select your /MLOps-Test repository. 
+4. Select your repository your create and populated in the sparse checkout in the previous step. 
    
    ![ADO Run2](./media/how-to-setup-mlops-azureml/ADO-run2.png)
    
-   If your new repository is not visible, then click on the **provide access** link and on the next screen, click on the **grant** button next to the organization name to grant access to your organization.
-   
-   6. Select **Existing Azure Pipeline YAML File**
+5. Select **Existing Azure Pipeline YAML File**
    
    ![ADO Run3](./media/how-to-setup-mlops-azureml/ADO-run3.png)
    
    
-   7. Select `main` as a branch and choose based on your deployment method your preferred yml path. For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
+6. Select `main` as a branch and choose based on your deployment method your preferred yml path. 
+    - For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
+    - For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
    
    ![Select Infrastructure Pipeline](./media/how-to-setup-mlops-azureml/ado-select-pipeline-yaml-file.png)
    
-
-   
-   8. Run the pipeline. This will take a few minutes to finish. The pipeline should create the following artifacts:
+7. Run the pipeline. This will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
    * In the workspace there's also a compute cluster created.
    
@@ -394,7 +382,8 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
    ![ADO Run11](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
-   **IMPORTANT: If the run fails due to an existing online endpoint name, recreate the pipeline as described above and change [your endpointname] to [your endpointname [random number]]"**
+> [!IMPORTANT]
+> If the run fails due to an existing online endpoint name, recreate the pipeline as described above and change [your endpoint-name] to [your endpoint-name (random number)]
    
    8. When the run completes, you will see:
    
