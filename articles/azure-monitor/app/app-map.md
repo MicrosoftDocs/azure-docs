@@ -503,7 +503,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Make sure you're using an officially supported SDK. Unsupported or community SDKs might not support correlation.
 
-    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./platforms.md).
+    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./app-insights-overview.md#supported-languages).
 
 1. Upgrade all components to the latest SDK version.
 

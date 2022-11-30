@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 11/29/2022
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
@@ -31,19 +31,19 @@ To create a transcription, use the `spx batch transcription create` command. Con
 Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -76,14 +76,14 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-To create a transcription, use the [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
+To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
 
 - You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
 - Optionally you can set the `wordLevelTimestampsEnabled` property to `true` to enable word-level timestamps in the transcription results. The default value is `false`. For more information, see [request configuration options](#request-configuration-options).
 
-Make an HTTP POST request using the URI as shown in the following [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP POST request using the URI as shown in the following [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -97,19 +97,19 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -129,11 +129,11 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the transcription's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscription) details such as the URI of the transcriptions and transcription report files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateTranscription) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) a transcription.
+The top-level `self` property in the response body is the transcription's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) details such as the URI of the transcriptions and transcription report files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) a transcription.
 
-You can query the status of your transcriptions with the [GetTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscription) operation. 
+You can query the status of your transcriptions with the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation. 
 
-Call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)
+Call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 ::: zone-end
@@ -152,7 +152,7 @@ spx help batch transcription create advanced
 
 ::: zone pivot="rest-api"
 
-Here are some property options that you can use to configure a transcription when you call the [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) operation.
+Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation.
 
 | Property | Description |
 |----------|-------------|
@@ -181,7 +181,7 @@ Optionally, you can modify the previous [create transcription example](#create-a
 ::: zone pivot="speech-cli"
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end
@@ -197,12 +197,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
 ::: zone-end

@@ -102,8 +102,6 @@ Specify in the custom alert rule what action Defender for IT should take when th
 
 1. On the sensor console, select **Custom alert rules** > **+ Create rule**.
 
-    :::image type="content" source="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png" alt-text="Screenshot of the Create custom alert rule pane for creating custom alert rules." lightbox="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png":::
-
 1. In the **Create custom alert rule** pane that shows on the right, define the following fields:
 
     |Name  |Description  |
@@ -113,8 +111,12 @@ Specify in the custom alert rule what action Defender for IT should take when th
     |**Message**     | Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. <br> <br> For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.        |
     |**Direction**     | Enter a source and/or destination IP address where you want to detect traffic.        |
     |**Conditions**     | Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format. <br><br> Note that the **+** sign is enabled only after selecting an **Alert protocol** from above. <br> You must add at least one condition in order to create a custom alert rule.        |
-    |**Detected**     | Define a date and/or time range for the traffic you want to detect. You can customize the days and time range to fit with maintenance hours or set working hours. <br><br> :::image type="content" source="media/how-to-accelerate-alert-incident-response/detected.png" alt-text="Screenshot of the Detected field in the Create custom alert rule pane." lightbox="media/how-to-accelerate-alert-incident-response/detected.png":::      |
+    |**Detected**     | Define a date and/or time range for the traffic you want to detect. You can customize the days and time range to fit with maintenance hours or set working hours.      |
     |**Action**     | Define an action you want Defender for IoT to take automatically when the alert is triggered.        |
+
+     For example:
+     
+     :::image type="content" source="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png" alt-text="Screenshot of the Create custom alert rule pane for creating custom alert rules." lightbox="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png":::
 
 1. Select **Save** when you're done to save the rule.
 
