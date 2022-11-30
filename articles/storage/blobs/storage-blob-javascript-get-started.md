@@ -171,21 +171,25 @@ You can create the [ContainerClient](/javascript/api/@azure/storage-blob/contain
 
 ### Create ContainerClient object from BlobServiceClient
 
+Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object from the BlobServiceClient.
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-blob-service-client.js":::
+
 ### Create ContainerClient directly
 
 #### [Azure AD](#tab/azure-ad)
 
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-default-azure-credential.js":::
 
 
 #### [Account key](#tab/account-key)
 
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-account-name-and-key.js":::
 
 
 #### [SAS token](#tab/sas-token)
 
-
-
-#### [Connection string](#tab/connection-string)
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
 
 
 -----------------
@@ -207,28 +211,25 @@ List of Blob clients:
 
 ### Create BlobClient object from ContainerClient
 
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-container-client.js":::
+
 ### Create BlobClient directly
 
 #### [Azure AD](#tab/azure-ad)
 
-
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-default-azure-credential.js":::
 
 #### [Account key](#tab/account-key)
 
-
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-account-name-and-key.js":::
 
 #### [SAS token](#tab/sas-token)
 
-
-
-#### [Connection string](#tab/connection-string)
-
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
 
 -----------------
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
-
-
 
 ## See also
 
