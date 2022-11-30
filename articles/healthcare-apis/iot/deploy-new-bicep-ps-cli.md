@@ -41,7 +41,7 @@ When you have these prerequisites, you're ready to deploy the Bicep file.
 
 The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *main.bicep* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
-Locally save the Bicep file as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or Azure CLI console pointing to the location where this file is saved.
+Locally save the Bicep file as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
@@ -161,9 +161,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+- To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
 
-- To learn more about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Clean up Azure PowerShell deployed resources
 

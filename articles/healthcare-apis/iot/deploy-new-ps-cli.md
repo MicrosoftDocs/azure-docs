@@ -36,7 +36,7 @@ When you have these prerequisites, you're ready to deploy the ARM template.
 
 ## Review the ARM template
 
-The ARM template used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the `azuredeploy.json` file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The ARM template used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *azuredeploy.json* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
 ## Deploy the MedTech service with the Azure Resource Manager template and Azure PowerShell
 
@@ -156,9 +156,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+ - To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
 
- - To learn more about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+ - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Clean up Azure PowerShell resources
 
@@ -191,7 +191,7 @@ In this quickstart, you learned how to use Azure PowerShell or Azure CLI to depl
 > [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service with an Azure Resource Manager template](deploy-02-new-button.md)
+> [Deploy the MedTech service using an Azure Resource Manager template](deploy-02-new-button.md)
 
 > [!div class="nextstepaction"]
 > [Deploy the MedTech service manually using the Azure portal](deploy-03-new-manual.md)
