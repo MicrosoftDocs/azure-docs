@@ -87,11 +87,11 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 
 Mrsigner of Azure Attestation is expected to change when code signing certificates are rotated. Azure Attestation team will follow the below rollout schedule for every mrsigner rotation:
 
-a.	Azure Attestation team will notify the upcoming MRSIGNER value with a 2 month grace period for making relevant code changes
+i.	Azure Attestation team will notify the upcoming MRSIGNER value with a 2 month grace period for making relevant code changes
 
-b.	After the 2-month grace period, Azure Attestation will start using the new MRSIGNER value
+ii.	After the 2-month grace period, Azure Attestation will start using the new MRSIGNER value
 
-c.	3 months post notification date, Azure Attestation will stop using the old MRSIGNER value
+iii.	3 months post notification date, Azure Attestation will stop using the old MRSIGNER value
 
 
 ## Business Continuity and Disaster Recovery (BCDR) support
