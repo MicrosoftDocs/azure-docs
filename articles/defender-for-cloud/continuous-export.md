@@ -246,6 +246,10 @@ Continuous export can be helpful in to prepare for BCDR scenarios where the targ
 
 Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
+### What is the minimum SAS policy permissions required when exporting data to Azure Event Hub?
+
+**Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](https://learn.microsoft.com/en-us/azure/defender-for-cloud/export-to-splunk-or-qradar#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
+
 ## Next steps
 
 In this article, you learned how to configure continuous exports of your recommendations and alerts. You also learned how to download your alerts data as a CSV file.
