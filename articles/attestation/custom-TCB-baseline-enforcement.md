@@ -29,12 +29,8 @@ The feature can be used in the following scenarios:
 ## Default TCB baseline used by Azure Attestation when no custom TCB baseline is configured by users
 
             TCB identifier: “azuredefault”
-            
-            TCB evaluation data number": "10"
-            
-            Tcb release date: "2020-11-11T00:00:00"
-            
-            Minimum PSW Linux version: "2.9",
-            
+            TCB evaluation data number": "10"           
+            Tcb release date: "2020-11-11T00:00:00"           
+            Minimum PSW Linux version: "2.9",            
             Minimum PSW Windows version: "2.7.101.2"
 
