@@ -5,7 +5,7 @@ ms.date: 02/01/2022
 ms.topic: how-to
 ---
 
-# Create trends and statistics dashboards
+# Trends and statistics dashboards
 
 Dashboards on your sensor console provide insight into network trends and statistics.
 
@@ -53,7 +53,6 @@ Incident by type | Displays a pie chart that shows the number of incidents by ty
 Devices by vendor | Displays a pie chart that shows the number of devices by vendor. The number of devices for a specific vendor is proportional to the size of that device’s vendor part of the disk relative to other device vendors.
 Number of devices per VLAN | Displays a pie chart that shows the number of discovered devices per VLAN. The size of each slice of the pie is proportional to the number of discovered devices relative to the other slices. Each VLAN appears with the VLAN tag assigned by the sensor or name that you've manually added.
 Top bandwidth by VLAN | Displays the bandwidth consumption by VLAN. By default, the widget shows five VLANs with the highest bandwidth usage. You can filter the data by the period presented in the widget. Select the down arrow to show more results.
-
 
 ## Next steps
 

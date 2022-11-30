@@ -37,7 +37,7 @@ You must be an **Admin** or **Security Analyst** user to create an attack vector
 
 ## Attack vector report contents
 
-From the report that is saved from the Attack vector page, you can review:
+You can use the report that is saved from the Attack vector page to review:
 
 - network attack paths and insights
 - a risk score
@@ -48,4 +48,6 @@ From the report that is saved from the Attack vector page, you can review:
 
 ## Next steps
 
-Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities. For more information, see [fill this in](not-sure-yet.md).
+Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities. 
+
+For more information, see [fill this in](not-sure-yet.md).
