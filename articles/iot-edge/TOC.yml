@@ -346,7 +346,7 @@
 - name: Reference
   items:
   - name: Runtime modules environment variables
-    href: https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md
+    href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
   - name: PowerShell functions
     items:
     - name: IoT Edge for Windows

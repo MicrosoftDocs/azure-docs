@@ -1117,7 +1117,7 @@ msi_client.user_assigned_identities.delete(
 ## Next steps
 
 * [Deploy and score a machine learning model by using a online endpoint](how-to-deploy-managed-online-endpoints.md).
-* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
