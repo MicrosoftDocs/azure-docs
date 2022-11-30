@@ -122,8 +122,12 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - Zombie: The CPU, memory and network utilization were 0% with no performance data collection issues.
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
+    
 ### On-premises vs Azure
-It covers cost components for on-premises and Azure, savings, and insights to understand the savings better. 
+It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
+
+![Screenshot of on-premises and Azure comparison.](./media/how-to-build-a-business-case/comparison.png)
+
 ### Azure IaaS
 In Azure tab:
 - Cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
