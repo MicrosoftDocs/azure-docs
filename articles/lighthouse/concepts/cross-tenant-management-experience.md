@@ -46,7 +46,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 [Azure Arc](../../azure-arc/index.yml):
 
 - Manage hybrid servers at scale - [Azure Arc-enabled servers](../../azure-arc/servers/overview.md):
-  - Manage Windows Server or Linux machines outside Azure that are [connected](../../azure-arc/servers/quick-enable-hybrid-vm.md) to delegated subscriptions and/or resource groups in Azure
+  - Manage Windows Server or Linux machines outside Azure that are [connected](../../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of [policies are applied](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md) across customers' hybrid environments
   - Use Microsoft Defender for Cloud to [monitor compliance across customers' hybrid environments](../../defender-for-cloud/quickstart-onboard-machines.md?pivots=azure-arc)
