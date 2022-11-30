@@ -85,7 +85,7 @@ public static void Run(
     string data,
     WebPubSubDataType dataType)
 {
-    Console.WriteLine($"Request from: {context.userId}");
+    Console.WriteLine($"Request from: {context.UserId}");
     Console.WriteLine($"Request message data: {data}");
     Console.WriteLine($"Request message dataType: {dataType}");
 }
