@@ -100,4 +100,4 @@ To deep dive into sizing, readiness and Azure cost estimates, you can create res
 
 
 ### Does the Azure SQL recommendation logic include SQL consolidation?
-No
+No, it does not include SQL consolidation.
