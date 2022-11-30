@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/27/2022
+ms.date: 11/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -85,8 +85,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 2 x P10 (RAID0) | Premium storage: 2 x P10 (RAID0)| Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
+| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150GiB (RAID0) - default IOPS and throughput | Premium storage: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150GiB (RAID 0) - default IOPS and throughput | Cache = Read Only |
+| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 128GiB - default IOPS and throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 128GiB - default IOPS and throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -106,8 +106,8 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4 x P20 (RAID0) | Premium storage: 4 x P20 (RAID0)| Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
+| # and type of data disks | Premium storage: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100GiB - 200GiB (RAID0) - default IOPS and 25MB/sec additional throughput per disk | Premium storage: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 200GiB (RAID0) - default IOPS and 25MB/sec additional per disk throughput | Cache = Read Only |
+| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 200GiB - default IOPS and throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 200GiB - default IOPS and throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -126,8 +126,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4 x P30 (RAID0) | Premium storage: 4 x P30 (RAID0)| Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
+| # and type of data disks | Premium storage: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250GiB - 500GiB - additional 2000 IOPS and 75M/sec throughput per disk | Premium storage: 4 x P30 (RAID0) <br /> Premium storage v2: 1 x 200GiB - additional 2000 IOPS and 75M/sec throughput per disk | Cache = Read Only |
+| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 400GiB - default IOPS and 75MB/sec additional throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 400GiB - default IOPS and 75MB/sec additional throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -147,8 +147,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4+ x P30 (RAID0) | Premium storage: 4+ x P30 (RAID0)| Cache = Read Only, Consider Azure Ultra disk |
-| # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE, Consider Azure Ultra disk |
+| # and type of data disks | Premium storage: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600GiB - 4000GiB - additional 3000 IOPS and 125MB/sec throughput per disk | Premium storage: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600GiB - 4000GiB - additional 3000 IOPS and 125MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
+| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 500GiB - additional 1000 IOPS and 125MB/sec throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 500GiB - additional 1000 IOPS and 125MB/sec throughput | Cache = NONE, Consider Azure Ultra disk |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
