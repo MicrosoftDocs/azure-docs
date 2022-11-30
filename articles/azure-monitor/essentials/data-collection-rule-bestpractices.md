@@ -20,13 +20,13 @@ When creating a DCR, there are some aspects that need to be considered such as:
 - The targets to which the DCR will be associated to
 - The destination of collected data
 
-Considering all these factors is critical for a good DCR oragnization. The above points, they all impact on DCR management effort as well configuration transfer and configuration processing time and resources.
+Considering all these factors is critical for a good DCR organization. The above points, they all impact on DCR management effort as well configuration transfer and configuration processing time and resources.
 
 Considering their native granularity, which allow a given DCR to be associated to more than one target virtual machine and vice versa
 
 :::image type="content" source="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" lightbox="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
 
-, it is really important to keep the DCR as simple as possible using less datasources.
+, it is really important to keep the DCR as simple as possible using less datasources and targets for each datasource.
 
 This means that it not ideal, even not recommended, to create a single DCR containing all the data source, collection items and destination necessary to implement our observability. Below there are several recommendations which could help in better planning DCR creation and maintenance:
 
