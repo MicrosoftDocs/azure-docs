@@ -20,7 +20,7 @@ The custom TCB baseline enforcement feature in Azure Attestation will enable you
 
 ## Why use custom TCB baseline enforcement feature?
 
-We recommend Azure Attestation users to use the feature as it can be used in the following scenarios:
+We recommend Azure Attestation users to use the custom TCB baseline enforcement feature for performing SGX attestation. The feature will be helpful in the following scenarios:
 
 **To perform SGX attestation against newer TCB offered by Intel** – Security conscious customers can perform timely roll out of platform software (PSW) updates as recommended by Intel and use the custom baseline enforcement feature to perform their SGX attestation against the newer TCB versions supported by Intel 
 
