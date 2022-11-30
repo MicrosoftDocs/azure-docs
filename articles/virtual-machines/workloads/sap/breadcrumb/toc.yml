@@ -31,7 +31,10 @@ items:
         tocHref: /azure/active-directory
         topicHref: /azure/virtual-machines/workloads/sap/index
       - name: SAP
-        tocHref: /azure/power-bi
+        tocHref: /power-bi
+        topicHref: /azure/virtual-machines/workloads/sap/index
+      - name: SAP
+        tocHref: /power-query
         topicHref: /azure/virtual-machines/workloads/sap/index
       - name: SAP
         tocHref: /azure/data-factory

@@ -6,12 +6,18 @@
     href: sap-certifications.md
 - name: Integration with Microsoft Services
   items:
-  - name: Outbound E-Mail from SAP to Exchange Online
-    href: exchange-online-integration-sap-email-outbound.md
-  - name: Expose SAP Process Orchestration on Azure securely
-    href: expose-sap-process-orchestration-on-azure.md
-  - name: Enable SAP Principal Propagation for live OData feeds with Power Query
-    href: expose-sap-odata-to-power-query.md
+  - name: Microsoft Office
+    items:
+    - name: Outbound E-Mail from SAP to Exchange Online
+      href: exchange-online-integration-sap-email-outbound.md
+    - name: Enable SAP Principal Propagation for live OData feeds with Excel
+      href: expose-sap-odata-to-power-query.md
+    - name: SAP Analysis for Microsoft Office Excel and PowerPoint
+      href: https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html
+    - name: SAP Analytics Cloud, add-in for Microsoft Office
+      href: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD_OFFICE/c637c9ff5d61457eb415ce161e38e57b/c9217302603a4fd6baa0fe6a6e780f8d.html
+    - name: Access SAP Data Warehouse Cloud with Microsoft Excel
+      href: https://blogs.sap.com/2022/05/17/access-sap-data-warehouse-cloud-with-saps-microsoft-excel-add-ins/
   - name: Microsoft Teams
     items:
     - name: Native SAP apps on the Teams marketplace
@@ -23,7 +29,17 @@
   - name: Microsoft Power Platform
     items:
     - name: Overview of SAP integration
-      href: /power-automate/sap-integration/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
+      href: /power-automate/sap-integration/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Understand prebuilt solution available for integrating SAP with Power Platform
+      href: /power-automate/sap-integration/solutions?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Finance and operations templates for SAP process mining with Power Automate Process Advisor
+      href: /power-automate/process-mining-finance-ops-templates?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Snoozing SAP systems with Power Apps
+      href: https://blogs.sap.com/2021/02/10/hey-sap-systems-my-powerapp-says-snooze-but-only-if-youre-ready-yet/
+    - name: Hyperautomation special video series for SAP based integration and automation with Power Automate
+      href: https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/
+    - name: RPA Playbook for SAP GUI Automation with Power Automate
+      href: https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/
   - name: SAP Fiori
     items:
     - name: Azure CDN for SAPUI5 libraries
@@ -80,6 +96,8 @@
         href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
   - name: Azure Integration Services
     items:
+    - name: Expose SAP Process Orchestration on Azure securely
+      href: expose-sap-process-orchestration-on-azure.md
     - name: Connect to SAP from workflows in Azure Logic Apps
       href: /azure/logic-apps/logic-apps-using-sap-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Automate SAP invoice processing using Azure Logic Apps and Cognitive Services
@@ -90,6 +108,10 @@
     items:
     - name: SAP knowledge center for Azure Data Factory and Synapse
       href: /azure/data-factory/industry-sap-overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Enable SAP Principal Propagation for live OData feeds with Power Query
+      href: expose-sap-odata-to-power-query.md
+    - name: SAP HANA Connector for Power Query
+      href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Replicating SAP data using the CDC connector
       href: /azure/data-factory/sap-change-data-capture-introduction-architecture?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Replicating SAP data using the OData connector with Synapse Pipelines
