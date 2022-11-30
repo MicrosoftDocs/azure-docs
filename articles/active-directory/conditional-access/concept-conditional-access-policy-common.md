@@ -23,11 +23,11 @@ Conditional Access templates provide a convenient method to deploy new policies 
 
 There are 14 Conditional Access policy templates, filtered by six different scenarios: 
 
-- Secure Foundation
+- Secure foundation
 - Zero Trust
-- Remote Work
-- Protect Administrators
-- Emerging Threats
+- Remote work
+- Protect administrators
+- Emerging threats
 - All 
 
 Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **New policy from template (Preview)**. Select **Show more** to see all policy templates in each scenario.
@@ -35,7 +35,7 @@ Find the templates in the **Azure portal** > **Azure Active Directory** > **Secu
 :::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Create a Conditional Access policy from a preconfigured template in the Azure portal." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md) open the policy and modify the excluded users and groups to include them. 
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. Simply navigate to **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Policies**, select the policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
 > 
 > By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning each policy on.
 
@@ -48,22 +48,25 @@ Organizations can select individual policy templates and:
 
 ## Conditional Access template policies
 
+- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)\*
 - [Require multifactor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
 - [Require multifactor authentication for all users](howto-conditional-access-policy-all-users-mfa.md)\*
-- [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
 - [Require multifactor authentication for Azure management](howto-conditional-access-policy-azure-management.md)\*
-- [Securing security info registration](howto-conditional-access-policy-registration.md)
-- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)\*
-- [Require multi-factor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
-- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
-- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
+
+> \* These four policies when configured together, provide similar functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
+
 - [Block access for unknown or unsupported device platform](howto-policy-unknown-unsupported-device.md)
 - [No persistent browser session](howto-policy-persistent-browser-session.md)
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
+- [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
 - [Require compliant or Hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
+- [Require multi-factor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
+- [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
+- [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
+- [Securing security info registration](howto-conditional-access-policy-registration.md)
 - [Use application enforced restrictions for unmanaged devices](howto-policy-app-enforced-restriction.md)
 
-> \* These four policies when configured together, provide similar functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
+
 
 ## Other common policies
 
