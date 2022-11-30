@@ -403,6 +403,7 @@ Azure Maps does not count billing transactions for:
 - 5xx HTTP Status Codes
 - 401 (Unauthorized)
 - 403 (Forbidden)
+- 408 (Timeout)
 - 429 (TooManyRequests)
 - CORS preflight requests
 
