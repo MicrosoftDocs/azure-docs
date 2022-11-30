@@ -26,9 +26,11 @@ This off-boarding scenario will run a workflow on-demand and accomplish the foll
 
 You may learn more about running a workflow on-demand [here](on-demand-workflow.md).
 
-## License requirements
+## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ##  Before you begin
 

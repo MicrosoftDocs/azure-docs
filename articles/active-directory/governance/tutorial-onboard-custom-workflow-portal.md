@@ -22,9 +22,11 @@ This pre-hire scenario will generate a temporary access pass for our new employe
 
 :::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the lifecycle workflow scenario." lightbox="media/tutorial-lifecycle-workflows/arch-2.png":::
 
-## License requirements
+## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ##  Before you begin
 

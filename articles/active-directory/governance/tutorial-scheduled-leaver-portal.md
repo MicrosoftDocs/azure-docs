@@ -23,9 +23,11 @@ This post off-boarding scenario will run a scheduled workflow and accomplish the
 2. Remove user from all Teams
 3. Delete user account
 
-## License requirements
+## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ##  Before you begin
 
