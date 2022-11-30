@@ -25,3 +25,16 @@ The feature can be used in the following scenarios:
 •	**To perform SGX attestation against newer TCB offered by Intel** – Security conscious customers can perform timely roll out of platform software (PSW) updates as recommended by Intel and use the custom baseline enforcement feature to perform their SGX attestation against the newer TCB versions supported by Intel 
 
 •	**To perform platform software (PSW) updates at your own cadence** – Customers who prefer to update PSW at their own cadence, can use custom baseline enforcement feature to perform SGX attestation against the older TCB baseline, until the PSW updates are rolled out
+
+## Default TCB baseline used by Azure Attestation when no custom TCB baseline is configured by users
+
+            TCB identifier: “azuredefault”
+            
+            TCB evaluation data number": "10"
+            
+            Tcb release date: "2020-11-11T00:00:00"
+            
+            Minimum PSW Linux version: "2.9",
+            
+            Minimum PSW Windows version: "2.7.101.2"
+
