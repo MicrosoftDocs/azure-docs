@@ -23,8 +23,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
-```azurecli
-az vmss show --resource-group myResourceGroup --name myScaleSet
+```output
 {
   "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
   "location": "eastus",
@@ -149,8 +148,7 @@ az vm show --resource-group myResourceGroup --name myScaleSet_Instanace1
 
 The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
-```azurecli
-$ az vm show --resource-group myResourceGroup --name myScaleSet_Instance1
+```output
 {
   "hardwareProfile": {
     "vmSize": "Standard_DS1_v2",
@@ -237,7 +235,7 @@ az vm disk attach --resource-group myResourceGroup --vm-name myScaleSet_Instance
 
 Running [az vm show](/cli) again, we now will see that the VM instance has the new disk attached.
 
-```azurecli
+```output
   "storageProfile": {
     "dataDisks": [
       {
