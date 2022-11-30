@@ -284,7 +284,15 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Azure CLI](#tab/cli)
 
-    This step isn't required.
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    ```
+
+    If your data is a file:
+
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
+    ```
 
     # [Python](#tab/sdk)
 
@@ -341,15 +349,17 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 1. Run the deployment:
 
     # [Azure CLI](#tab/cli)
-   
+    
+    If your data is a folder, use `--input-type uri_folder`:
+    
     ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data)
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input $INPUT_DATA)
     ```
 
-    If your data is a file, change `--input-type uri_file`:
+    If your data is a file, use `--input-type uri_file`:
 
     ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv)
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input $INPUT_DATA)
     ```
 
     # [Python](#tab/sdk)
