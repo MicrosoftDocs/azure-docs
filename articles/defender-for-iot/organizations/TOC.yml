@@ -12,7 +12,7 @@
       - name: OT monitoring software versions
         href: release-notes.md
         displayName: sensor versions
-      - name: Microsoft Sentinel solution release notes
+      - name: Microsoft Sentinel solution versions
         href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
@@ -29,13 +29,21 @@
   - name: Integrate with Microsoft Sentinel
     items:
     - name: Connect Defender for IoT data to Microsoft Sentinel
-      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-advanced-threat-monitoring.md
 - name: Concepts
   items:
     - name: Subscription billing
       href: billing.md
+    - name: Roles and permissions
+      items:
+      - name: Overview
+        href: manage-users-overview.md
+      - name: Azure roles for OT and Enterprise IoT monitoring
+        href: roles-azure.md
+      - name: On-premises roles for OT monitoring
+        href: roles-on-premises.md
     - name: OT system architecture
       href: architecture.md
     - name: OT sensor cloud connection methods
@@ -60,8 +68,10 @@
       href: concept-supported-protocols.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
+      displayName: Microsoft Sentinel, modernize SOC
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
+      displayName: Microsoft Defender for Endpoint, MDE
 - name: How-to guides
   items:
   - name: Visualize devices
@@ -69,11 +79,11 @@
     items:
     - name: Manage device inventory
       items:
-      - name: Manage device inventory from the Azure portal
+      - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-      - name: Manage device inventory from an OT sensor console
+      - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      - name: Manage device inventory from an on-premises management console
+      - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
@@ -81,9 +91,9 @@
       href: how-to-view-information-per-zone.md
   - name: Manage alerts
     items:
-    - name: Manage alerts from the Azure portal
+    - name: Azure portal
       href: how-to-manage-cloud-alerts.md
-    - name: Manage OT alerts from a sensor console
+    - name: Sensor console
       items:
       - name: View alerts from a sensor console
         href: how-to-view-alerts.md
@@ -93,7 +103,7 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert data from a sensor console
         href: how-to-forward-alert-information-to-partners.md
-    - name: Manage OT alerts from an on-premises management console
+    - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Visualize and monitor data
     items:
@@ -113,6 +123,9 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
+  - name: Enhance security posture
+    href: recommendations.md
+    displayName: recommendations
   - name: Integrate with security partners
     items:
     - name: Integration catalog
@@ -193,6 +206,14 @@
       href: extra-deploy-enterprise-iot.md
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Create and manage users
+    items:
+    - name: OT sensor console
+      href: manage-users-sensor.md
+    - name: On-premises management console
+      href: manage-users-on-premises-management-console.md
+    - name: Audit user activity
+      href: track-user-activity.md
   - name: OT system maintenance
     items:
     - name: Maintain threat intelligence packages
@@ -340,8 +361,6 @@
     href: pre-deployment-checklist.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
-  - name: Microsoft Defender for IoT ninja training
-    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
