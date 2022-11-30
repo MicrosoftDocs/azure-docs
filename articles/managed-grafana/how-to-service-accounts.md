@@ -30,7 +30,7 @@ Common use cases include:
 
 ## Enable service accounts
 
-To enable service accounts, you must first enable API keys. API keys are disabled by default in Azure Managed Grafana. If your existing Grafana workspace doesn't have API keys enabled, you can enable them by updating the preference settings of your Grafana instance.
+To enable service accounts, start by enabling API keys. API keys are disabled by default in Azure Managed Grafana. If your existing Grafana workspace doesn't have API keys enabled, you can enable them by updating the preference settings of your Grafana instance.
 
 ### [Portal](#tab/azure-portal)
 
@@ -55,26 +55,28 @@ az grafana update --name <azure-managed-grafana-name> --api-keys Enabled
 1. Select **Add service account**, and enter a **Display name** and a **Role** for your new Grafana service account: *Viewer*, *Editor* or *Admin* and select **Create**.
 
    :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
-1. A notification *Service account successfully created* appears and list of existing service accounts is displayed.
+1. A notification *Service account successfully created* appears and a list of existing service accounts is displayed.
 
 ## Add a service account token
 
+Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate to the Grafana API.
+
 1. To create a service account token, select **Add token**.
-1. Use the automatically generated **Display name** or enter a name of your choice, and optionally select an **Expiration date**.
+1. Use the automatically generated **Display name** or enter a name of your choice, and optionally select an **Expiration date** or keep the default option to set no expiry date.
 
    :::image type="content" source="media/service-accounts/add-service-account-token.png" alt-text="Screenshot of the Azure platform. Add service account token page.":::
 
-1. Select Generate token, and take note of the token generated. This token will only be shown once, so make sure you save it, at loosing a token requires creating a new one.
+1. Select **Generate token**, and take note of the token generated.
 
 ## Update or delete a service account
 
-Optionally update your service account in the following way, by selecting your service account:
+Optionally select your service account and update it in the following way:
 
 - under **Information**, edit the service account name by selecting **Edit**
 - under **Information**, edit the role by selecting the role name and selecting another role
 - under **Tokens**, delete a token by selecting **Delete (x)**
-- at the top of the page, select **Delete service account** to delete the Grafana service account, then select **Delete service account** to confirm.
-- at the top of the page, select **Disable service account** to disable the Grafana service account, then select **Disable service account** to confirm.
+- at the top of the page, select **Delete service account** to delete the Grafana service account, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
+- at the top of the page, select **Disable service account** to disable the Grafana service account, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
 
 The notification *Service account updated* is automatically displayed as soon as you update a parameter.
 
