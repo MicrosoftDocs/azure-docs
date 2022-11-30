@@ -110,7 +110,7 @@ Each type of resource is represented by one or more associated JavaScript client
 
 The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs. 
 
-## [Azure AD](#tab-service/azure-ad)
+## [Azure AD](#tab/azure-ad)
 
 Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
@@ -120,7 +120,7 @@ The `dotenv` package is used to read your storage account name from a `.env` fil
 
 If you plan to deploy the application to servers and clients that run outside of Azure, create one of the [credentials](https://www.npmjs.com/package/@azure/identity#credential-classes) that meets your needs.
 
-## [Account key](#tab-service/account-key)
+## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) from the storage account name and account key. Then pass the StorageSharedKeyCredential to the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class constructor to create a client.
 
@@ -131,7 +131,7 @@ The `dotenv` package is used to read your storage account name and key from a `.
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 
-## [SAS token](#tab-service/sas-token)
+## [SAS token](#tab/sas-token)
 
 Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri. The SAS token is a series of name/value pairs in the querystring in the format such as:
 
@@ -152,6 +152,7 @@ To generate and manage SAS tokens, see any of these articles:
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
 
+
 -----------------
 
 
@@ -167,17 +168,17 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 ### Create ContainerClient directly
 
-#### [Azure AD](#tab-container/azure-ad)
+#### [Azure AD](#tab/azure-ad)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-default-azure-credential.js":::
 
 
-#### [Account key](#tab-container/account-key)
+#### [Account key](#tab/account-key)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-account-name-and-key.js":::
 
 
-#### [SAS token](#tab-container/sas-token)
+#### [SAS token](#tab/sas-token)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
 
@@ -205,15 +206,15 @@ List of Blob clients:
 
 ### Create BlobClient directly
 
-#### [Azure AD](#tab-blob/azure-ad)
+#### [Azure AD](#tab/azure-ad)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-default-azure-credential.js":::
 
-#### [Account key](#tab-blob/account-key)
+#### [Account key](#tab/account-key)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-account-name-and-key.js":::
 
-#### [SAS token](#tab-blob/sas-token)
+#### [SAS token](#tab/sas-token)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
 
