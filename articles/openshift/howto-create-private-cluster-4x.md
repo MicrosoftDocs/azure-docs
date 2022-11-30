@@ -206,7 +206,7 @@ Typically, private clusters are created with a public IP address and load balanc
 To create a private cluster without a public IP address, add the following flag to the `azo create` command:
 
 ```
---outboundType LoadBalancer|UserDefinedRouting
+--outboundType UserDefinedRouting
 ```
 Enabling this User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
 [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
