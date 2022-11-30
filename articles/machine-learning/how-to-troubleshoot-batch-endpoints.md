@@ -17,7 +17,12 @@ ms.custom: devplatv2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring.
+Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you will learn:
+
+> [!div class="checklist"]
+> * How [logs of a batch scoring job are organized](#understanding-logs-of-a-batch-scoring-job).
+> * How to [solve common errors](#common-issues).
+> * Identify [not supported scenarios in batch endpoints](#limitations-and-not-supported-scenarios) and their limitations.
 
 ## Understanding logs of a batch scoring job
 
@@ -179,3 +184,29 @@ __Context__: When invoking a batch endpoint using its REST APIs.
 __Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Azure Active Directory tokens are issued for specific actions.
 
 __Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you will need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
+
+## Limitations and not supported scenarios
+
+When designing machine learning solutions that rely on batch endpoints, some configurations and scenarios may not be supported.
+
+The following __workspace__ configurations are __not supported__:
+
+* Workspaces configured with an Azure Container Registries with Quarantine feature enabled.
+* Workspaces with customer-managed keys (CMK).
+
+The following __compute__ configurations are __not supported__:
+
+* Azure ARC Kubernetes clusters.
+* Granular resource request (memory, vCPU, GPU) for Azure Kubernetes clusters. Only instance count can be requested.
+
+The following __input types__ are __not supported__:
+
+* Tabular datasets (V1).
+* Folders and File datasets (V1).
+* MLtable (V2).
+
+## Next steps
+
+* [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md).
+* [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
+* [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md).
