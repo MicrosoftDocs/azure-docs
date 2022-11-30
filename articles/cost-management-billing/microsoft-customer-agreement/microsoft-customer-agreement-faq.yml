@@ -61,7 +61,7 @@ sections:
             -	The [Retail Price API](/rest/api/cost-management/retail-prices/azure-retail-prices) returns USD as the default. The API returns a currency conversion if the user specifies a currency. Although convenient, the conversion might cause confusion because the API returns *estimated prices based on the current conversion rate*. If you try to use the API to reconcile your invoice, the API results it won’t match the invoice.
             -	When you download your price sheet from the Azure portal:
               - For Enterprise Agreements, prices are in the your local currency for Azure first party services.
-              - For Microsoft Partner Agreement and Microsoft Customer Agreement prices are shown in USD for Azure first party services. 
+              - For Microsoft Partner Agreements and Microsoft Customer Agreements, prices are shown in USD for Azure first party services. 
 
           As mentioned previously, if you transact in one of the other supported currencies listed below, your monthly cost is first calculated in USD. For payment, the total is then converted to the local currency.
 
