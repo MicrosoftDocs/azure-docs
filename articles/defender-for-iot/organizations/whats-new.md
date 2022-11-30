@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |- **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)  <br><br>**All sensor versions**: [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)     |
+|**OT networks**     |- **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)  <br><br>- **All OT sensor versions**: [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)     |
 
 ### Site-based access control on the Azure portal (Public preview)
 
