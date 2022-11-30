@@ -23,16 +23,24 @@ This article shows you how to use Application Live View for VMware Tanzu® with 
 
 > Application Live View now only supports Spring Boot application.
 
-## Prerequities
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Prerequisites
+
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
-- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
+
+  ```azurecli
+  az extension remove --name spring
+  az extension add --name spring
+  az extension remove --name spring-cloud
+  ```
 
 ## Enable Application Live View
+
 You can enable Application Live View when provisioning an Azure Spring Apps Enterprise tier. If you already have a succeeded Azure Spring Apps Enterprise resource, see [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-tier-instances) to enable it.
 
 #### [Portal](#tab/Portal)
+
 1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
 1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Clieck "next".
 1. In the "VMware Tanzu settings" tab, check "App Live View" checkbox.
@@ -87,6 +95,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    ```
 
 ## Monitor Application Live View
+
 Azure Spring Apps runs the Application Live View in connector mode. 
 
 | Component Name | Responsibiliy |
@@ -97,11 +106,13 @@ Azure Spring Apps runs the Application Live View in connector mode.
 You can obtain the running state, resource consumption or manage Application Live View after provisioning the Azure Spring Apps Enterprise tier. 
 
 #### [Portal](#tab/Portal)
+
 1. You can view the state of Application Live View in the "Developer Tools (Preview)" blade.
   ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
 
 
 #### [CLI](#tab/Azure-CLI)
+
 1. Run this command to view Application Live View by using Azure CLI
    ```azurecli
    az spring application-live-view show \
@@ -110,6 +121,7 @@ You can obtain the running state, resource consumption or manage Application Liv
    ```
 
 ## Configure Dev Tools to access Application Live View
+
 To access application live view, you need centrally configure Dev Tools. Please refer to [Use Dev Tools](./how-to-use-dev-tool-portal.md) to understand more there.
 
 >
@@ -119,6 +131,7 @@ To access application live view, you need centrally configure Dev Tools. Please 
 Currently, Application Live View supports to view live metrics for Spring Boot application and Spring Native application. The Application Live View is based on concept of Spring Boot Actuators. This section guides how to deploy an App and monitor it in Application Live View.
 
 1. Add the following dependency to your application's `pom.xml` file.
+
    ```xml
    <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -127,6 +140,7 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
    ```
 
 1. Add the execution goal to maven plugin in the `pom.xml` file to expose Build information when build.
+
    ```xml
     <plugin>
     <groupId>org.springframework.boot</groupId>
@@ -147,11 +161,13 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
    ```
 
 1. Enable actuator endpoint by adding this configuration in `application.properties`
+
   ```
   management.endpoints.web.exposure.include=info,health
   ```
 
 1. Build your package locally
+
    ```bash
    mvn clean package -DskipTests
    ```
@@ -184,18 +200,22 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
 ## Manage Application Live View in existing Enterprise tier instances
 
 This section instructs you how to enable the Application Live View under an existing Azure Spring Apps Enterprise tier instance.
+
 > If Dev tools public endpoint has already been exposed, then after enabling Application Live View here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
+
 #### [Portal](#tab/Portal)
+
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
    ![dev-tool-manage](./media/how-to-use-application-live-view/manage.png)
-3. Check the Application Live View checkbox and click "Save"
+1. Check the Application Live View checkbox and click "Save"
    ![dev-tool-manage](./media/how-to-use-application-live-view/check-enable.png)
-5. After it is saved successfully, you can view the state of Application Live View in the "Developer Tools (Preview)" blade.
+1. After it is saved successfully, you can view the state of Application Live View in the "Developer Tools (Preview)" blade.
   ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
 
 
 #### [CLI](#tab/Azure-CLI)
+
 1. Run this command to enable Application Live View by using Azure CLI
    ```azurecli
    az spring application-live-view create \
