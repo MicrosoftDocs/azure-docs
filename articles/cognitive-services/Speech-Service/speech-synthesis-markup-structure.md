@@ -113,7 +113,7 @@ This example uses the `en-US-JennyNeural` voice. For more examples, see [voice e
 
 ## Add or prevent a break
 
-Use the `break` element to to override the default behavior of breaks or pauses between words. You can use it to add or prevent pauses that are otherwise automatically inserted by the Speech service.
+Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add or prevent pauses that are otherwise automatically inserted by the Speech service.
 
 Usage of the `break` element's attributes are described in the following table.
 
