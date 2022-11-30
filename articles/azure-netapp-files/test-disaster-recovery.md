@@ -18,7 +18,7 @@ ms.author: anfdocs
 
 # Test disaster recovery for Azure NetApp Files
 
-An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery workflows also ensures that operational runbooks are accurate, and that operational staff are trained on the workflow.
+An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 
 This disaster recovery test workflow uses [cross-region replication](cross-region-replication-introduction.md). With cross-region replication, you can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
@@ -35,7 +35,7 @@ This disaster recovery test workflow uses [cross-region replication](cross-regio
 
 ## Steps
 
-Given the uniqueness of each application architecture, there's no specific workflow to test your disaster recovery workflow. The outlined steps are a high-level support disaster recovery testing:
+Given the uniqueness of each application architecture, there's no specific workflow to test your disaster recovery workflow. The outlined steps are a high-level overview for disaster recovery testing.
 
 1. [Prepare Azure virtual machines (VMs) in the secondary region](cross-region-replication-create-peering.md). You must configure:
     * The operating system
