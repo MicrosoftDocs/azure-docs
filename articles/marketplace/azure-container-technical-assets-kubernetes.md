@@ -285,9 +285,7 @@ From there, the values are passed to the Azure Resource Manager template and wil
 
 Finally, the values are consumed by the Helm chart:
 
-:::image type="content" source="./media/azure-container/user-param-helm.png" alt-text="A screenshot of the Azure Resource Manager template example linked in this article. Under 'configurationSettings', the parameters for application title, 'value1', and 'value2' are shown.":::
-
-
+:::image type="content" source="./media/azure-container/user-param-helm.png" alt-text="A screenshot of the Helm chart example linked in this article. Values for application title, 'value1', and 'value2' are shown.":::
 
 ### Structure your application
 
