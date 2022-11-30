@@ -179,8 +179,8 @@ myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 # An HTTP-Triggered Function with a Durable Functions Client binding
 @myApp.route(route="orchestrators/{functionName}")
-@myApp.orchestration_client_input(client_name="client")
-async def durable_trigger(req: func.HttpRequest, client, message):
+@myApp.durable_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client):
     function_name = req.route_params.get('functionName')
     instance_id = await client.start_new(function_name)
     response = client.create_check_status_response(req, instance_id)
@@ -189,15 +189,15 @@ async def durable_trigger(req: func.HttpRequest, client, message):
 # Orchestrator
 @myApp.orchestration_trigger(context_name="context")
 def my_orchestrator(context):
-    result1 = yield context.call_activity("Hello", "Seattle")
-    result2 = yield context.call_activity("Hello", "Tokyo")
-    result3 = yield context.call_activity("Hello", "London")
+    result1 = yield context.call_activity("hello", "Seattle")
+    result2 = yield context.call_activity("hello", "Tokyo")
+    result3 = yield context.call_activity("hello", "London")
 
     return [result1, result2, result3]
 
 # Activity
-@myApp.activity_trigger(input_name="my_input")
-def my_activity(my_input: str):
+@myApp.activity_trigger(input_name="myInput")
+def hello(myInput: str):
     return "Hello " + my_input    
 ```
 
@@ -231,9 +231,9 @@ import azure.durable_functions as df
 
 myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-@myApp.activity_trigger(input_name="my_input")
-def my_activity(my_input: str):
-    return "Hello " + my_input
+@myApp.activity_trigger(input_name="myInput")
+def my_activity(myInput: str):
+    return "Hello " + myInput
 ```
 
 ### DF Client Binding
@@ -245,8 +245,8 @@ import azure.durable_functions as df
 myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @myApp.route(route="orchestrators/{functionName}")
-@myApp.orchestration_client_input(client_name="client")
-async def durable_trigger(req: func.HttpRequest, client, message):
+@myApp.durable_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client):
     function_name = req.route_params.get('functionName')
     instance_id = await client.start_new(function_name)
     response = client.create_check_status_response(req, instance_id)
