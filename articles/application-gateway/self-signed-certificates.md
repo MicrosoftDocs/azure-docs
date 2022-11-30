@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/23/2019
+ms.date: 11/28/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -180,10 +180,9 @@ To upload the certificate in Application Gateway, you must export the .crt certi
 
 ### Azure portal
 
-To upload the trusted root certificate from the portal, select the **HTTP Settings** and choose the **HTTPS** protocol.
+To upload the trusted root certificate from the portal, select the **Backend Settings** and select **HTTPS**  in the **Backend protocol**.
 
-![Add a certificate using the portal](media/self-signed-certificates/portal-cert.png)
-
+:::image type="content" source="./media/self-signed-certificates/portal-cert.png" alt-text="Screenshot of adding a certificate using the portal.":::
 ### Azure PowerShell
 
 Or, you can use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.
