@@ -38,5 +38,5 @@ By managing queue wait time and making informed decisions, you can help your bus
 
 Get started using Spatial Analysis in a container.
 
-[!div class="nextstepaction"]
-[Install and run the Spatial Analysis container](./spatial-analysis-container.md)
+> [!div class="nextstepaction"]
+> [Install and run the Spatial Analysis container](./spatial-analysis-container.md)

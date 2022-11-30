@@ -42,6 +42,6 @@ In-store dwell time is an important metric to help store managers track customer
 
 Get started using Spatial Analysis in a container.
 
-[!div class="nextstepaction"]
-[Install and run the Spatial Analysis container](./spatial-analysis-container.md)
+> [!div class="nextstepaction"]
+> [Install and run the Spatial Analysis container](./spatial-analysis-container.md)
 
