@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/24/2022
+ms.date: 11/30/2022
 ms.custom: cosmos-db-video, ignite-2022
 adobe-target: true
 ---
@@ -16,9 +16,6 @@ adobe-target: true
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
 Azure Cosmos DB is a fully managed NoSQL database for modern app development. Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
-
->
-> [!VIDEO https://aka.ms/docs.essential-apis]
 
 ## APIs in Azure Cosmos DB
 
@@ -48,11 +45,6 @@ You can build new applications with these APIs or migrate your existing data. To
 
 Based on your workload, you must choose the API that fits your requirement. The following image shows a flow chart on how to choose the right API when building new apps or migrating existing apps to Azure Cosmos DB:
 
-:::image type="content" source="./media/choose-api/choose-api-decision-tree.png" alt-text="Decision tree to choose an API in Azure Cosmos DB." lightbox="./media/choose-api/choose-api-decision-tree.png":::
-
-> [!NOTE]
-> This decision tree will be updated soon to include API for PostgreSQL.
-
 ## <a id="coresql-api"></a> API for NoSQL
 
 The Azure Cosmos DB API for NoSQL stores data in document format. It offers the best end-to-end experience as we have full control over the interface, service, and the SDK client libraries. Any new feature that is rolled out to Azure Cosmos DB is first available on API for NoSQL accounts. NoSQL accounts provide support for querying items using the Structured Query Language (SQL) syntax, one of the most familiar and popular query languages to query JSON objects. To learn more, see the [Azure Cosmos DB API for NoSQL](/training/modules/intro-to-azure-cosmos-db-core-api/) training module and [getting started with SQL queries](nosql/query/getting-started.md) article.
@@ -78,7 +70,7 @@ You can use your existing MongoDB apps with API for MongoDB by just changing the
 
 Azure Cosmos DB for PostgreSQL is a managed service for running PostgreSQL at any scale, with the [Citus open source](https://github.com/citusdata/citus) superpower of distributed tables. It stores data either on a single node, or distributed in a multi-node configuration.
 
-Azure Cosmos DB for PostgreSQL is built on native PostgreSQL--rather than a PostgreSQL fork--and lets you choose any major database versions supported by the PostgreSQL community. It's ideal for starting on a single-node database with rich indexing, geospatial capabilities, and JSONB support. Later, if your performance needs grow, you can add nodes to the cluster with zero downtime.
+Azure Cosmos DB for PostgreSQL is built on native PostgreSQL--rather than a PostgreSQL fork--and lets you choose any major database versions supported by the PostgreSQL community. It's ideal for starting on a single-node database with rich indexing, geospatial capabilities, and JSONB support. Later, if need more performance, you can add nodes to the cluster with zero downtime.
 
 If you’re looking for a managed open source relational database with high performance and geo-replication, Azure Cosmos DB for PostgreSQL is the recommended choice. To learn more, see the [Azure Cosmos DB for PostgreSQL introduction](postgresql/introduction.md).
 
