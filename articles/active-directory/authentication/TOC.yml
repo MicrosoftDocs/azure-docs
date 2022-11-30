@@ -314,6 +314,8 @@
     href: /graph/api/resources/authenticationmethods-overview
   - name: Authentication strengths APIs - Microsoft Graph (preview)
     href: /graph/api/resources/authenticationstrengths-overview
+  - name: Authentication methods policy - Microsoft Graph
+    href: /graph/api/resources/authenticationmethodspolicies-overview
   - name: Service limits and restrictions
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility
