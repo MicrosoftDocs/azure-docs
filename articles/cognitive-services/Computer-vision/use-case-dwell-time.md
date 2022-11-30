@@ -40,8 +40,8 @@ In-store dwell time is an important metric to help store managers track customer
 
 ## Next steps
 
-<!-- The following tutorial demonstrates the recommended practice to build a complete solution that monitors queue wait time using Spatial Analysis.  
+Get started using Spatial Analysis in a container.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Measure display dwell time](./Tutorials/display-dwell-time.md) -->
+[!div class="nextstepaction"]
+[Install and run the Spatial Analysis container](./spatial-analysis-container.md)
 

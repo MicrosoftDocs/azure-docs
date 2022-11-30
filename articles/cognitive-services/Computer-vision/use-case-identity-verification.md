@@ -37,7 +37,7 @@ Face service can power an end-to-end, low-friction, high-accuracy identity verif
 
 ## Next steps
 
-The following tutorial provides a complete solution to identity verification using the Face service. 
+Follow a quickstart to do identity verification with Face. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Identity verification](./Tutorials/identity-verification.md)
+> [Identity verification quickstart](./quickstarts-sdk/identity-client-library.md)

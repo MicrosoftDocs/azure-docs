@@ -47,7 +47,7 @@ Accessibility is the design of products, devices, services, vehicles, or environ
 The following tutorial provides a complete solution to generate alternative text of images on web applications.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Alternative text](./Tutorials/alt-text.md)
+> [Tutorial: Use Computer Vision to generate image metadata](./Tutorials/storage-lab-tutorial.md)
 
 
 
