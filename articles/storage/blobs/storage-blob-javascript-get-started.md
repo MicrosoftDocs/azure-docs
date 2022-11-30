@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 09/19/2022
 
 ms.subservice: blobs
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-js, devguide-js
 ---
 
 

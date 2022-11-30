@@ -288,6 +288,10 @@
       href: hana-failover-procedure.md
     - name: Large instances HA for SAP on RHEL
       href: large-instance-high-availability-rhel.md
+    - name: DR overview and infrastructure guidelines for SAP Workload
+      href: disaster-recovery-overview-guide.md
+    - name: DR guidelines for SAP Application
+      href: disaster-recovery-sap-guide.md
   - name: Troubleshoot and monitor
     items:
     - name: Monitoring HLI

@@ -30,28 +30,20 @@ You can modify the target table and workspace by modifying the DCR without any c
 
 ## Supported tables
 
-The following tables are supported.
-
 ### Custom tables
 
-The Logs Ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it.
+The Logs Ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix.
 
 ### Built-in tables
 
-The Logs Ingestion API can send data to the following built-in tables. Other tables might be added to this list as support for them is implemented:
+The Logs Ingestion API can send data to the following built-in tables. Other tables may be added to this list as support for them is implemented. Columns extended on top of built-in tables must have the suffix `_CF`. Columns in a custom table don't need this suffix. Column names can consist of alphanumeric characters and the characters `_` and `-`, and they must start with a letter. 
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)
 - [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
-### Table limits
 
-Tables have the following limitations:
-
-* Custom tables must have the `_CL` suffix.
-* Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter.  
-* Columns extended on top of built-in tables must have the suffix `_CF`. Columns in a custom table don't need this suffix.
 
 ## Authentication
 

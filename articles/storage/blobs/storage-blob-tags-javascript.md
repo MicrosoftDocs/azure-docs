@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Use blob index tags to manage and find data in Azure Blob Storage (JavaScript)
