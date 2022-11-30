@@ -29,8 +29,8 @@ Version: `22.11.25`
 Main changes:
 
 - `Azure ML SDK V2` samples included
-- `Ray` to version 2.0.0
-- Added `clock`, `recipes` R packages
+- `Ray` to version `2.0.0`
+- Added `clock`, `recipes` `R` packages
 - `azureml-core` to version `1.47.0`
 - `azure-ai-ml` to version `1.1.1`
 
@@ -41,8 +41,8 @@ Version: `22.11.27`
 Main changes:
 
 - `Azure ML SDK V2` samples included
-- RScirpt Env path alignment
-- `Ray` version 2.0.0 package added to azureml_py38 and azureml_py38_PT_TF environments.
+- `RScirpt` environment path alignment
+- `Ray` version `2.0.0` package added to `azureml_py38` and `azureml_py38_PT_TF` environments.
 - `azureml-core` to version `1.47.0`
 - `azure-ai-ml` to version `1.1.1`
 
