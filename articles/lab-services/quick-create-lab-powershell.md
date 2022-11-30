@@ -53,7 +53,14 @@ We'll choose the Windows 11 image.
 $image = $plan | Get-AzLabServicesPlanImage | Where-Object { $_.EnabledState.ToString() -eq "enabled" -and $_.DisplayName -eq "Windows 11 Pro (Gen2)" }
 ```
 
-We're now ready to create a lab based of our lab plan with the Window 11 Pro image.  The following command will create a lab using the lab plan created above.
+When you create a lab by using PowerShell, you also need to provide the resource SKU information. The following command uses the [REST API to retrieve the list of SKUs](/rest/api/labservices/skus/list):
+
+```powershell
+$subscriptionId = (Get-AzContext).Subscription.ID
+(Invoke-AzRestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.LabServices/skus?api-version=2022-08-01 | Select-Object -Property "Content" -ExpandProperty Content | ConvertFrom-Json).value.name | Get-Unique
+```
+
+We're now ready to create a lab based of our lab plan with the Window 11 Pro image and the `Classic_Fsv2_4_8GB_128_S_SSD` resource SKU. The following command will create a lab using the lab plan created above.
 
 ``` powershell
 # $plan and $image are from the Create LabPlan QuickStart.
