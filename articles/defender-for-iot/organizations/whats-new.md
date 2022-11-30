@@ -34,7 +34,7 @@ For more information, see:
 
 - [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)
+- [Enhance security posture with security recommendations](recommendations.md)
 - [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ## November 2022

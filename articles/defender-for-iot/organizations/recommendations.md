@@ -9,6 +9,8 @@ ms.topic: how-to
 
 Use Microsoft Defender for IoT's security recommendations to enhance your network security posture across unhealthy devices in your network. Lower your attack surface by creating actionable, prioritized mitigation plans that address the unique challenges in OT/IoT networks.
 
+Defender for IoT security recommendations are generated for devices detected by both OT and Enterprise IoT network sensors.
+
 ## View security recommendations
 
 View all current recommendations for your organization on the Defender for IoT **Recommendations** page on the Azure portal. For example:
@@ -61,15 +63,19 @@ For example:
 
 :::image type="content" source="media/recommendations/recommendations-device-details.png" alt-text="Screenshot of the Recommendations tab on a device details page." lightbox="media/recommendations/recommendations-device-details.png":::
 
-## Supported OT network recommendations
+## Supported security recommendations
 
-The following recommendations are displayed for detected OT devices:
+The following recommendations are displayed for devices detected by OT and Enterprise IoT network sensors:
 
-- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure operating mode states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+|Name  |Description  |
+|---------|---------|
+| **OT network devices** | |
+|**Review PLC operating mode**     | Devices with this recommendation are found with PLCs set to unsecure operating mode states. <br><br>We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.        |
+|**Review unauthorized devices**     | Devices with this recommendation must be identified and authorized as part of the network baseline. <br><br>We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.        |
+| **Enterprise IoT network devices** | |
+| **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
 
-- **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
-
-Other recommendations are listed for the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/).
+Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/).
 
 ## Next steps
 
