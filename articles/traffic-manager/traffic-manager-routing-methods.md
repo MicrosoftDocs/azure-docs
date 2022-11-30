@@ -7,7 +7,7 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
+ms.date: 11/30/2022
 ms.author: greglin
 ---
 
