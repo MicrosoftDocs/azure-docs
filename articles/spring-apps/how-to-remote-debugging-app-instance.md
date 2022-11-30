@@ -27,7 +27,7 @@ This feature describes how to enable remote debugging of your applications in Az
 
 ## Enable or disable remote debugging
 
-For security reasons, Azure Spring Apps disables remote debugging by default. Based on your company policy, you can enable remote debugging for your app yourself or see an admin to enable it for you. You can enable or disable remote debugging using the Azure CLI, Azure portal, or VS Code extension.
+For security, remote debugging is disabled by default. You can enable/disable remote debugging by cli, portal and ide extensions. Based on your company policy, you may either be allowed to do it by yourself or ask an admin role to enable it for you if permitted.
 
 ### [Azure Portal](#tab/portal)
 
