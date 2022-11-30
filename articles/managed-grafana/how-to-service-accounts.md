@@ -66,7 +66,7 @@ Once you've created a service account, add one or more access tokens. Access tok
 
    :::image type="content" source="media/service-accounts/add-service-account-token.png" alt-text="Screenshot of the Azure platform. Add service account token page.":::
 
-1. Select **Generate token**, and take note of the token generated.
+1. Select **Generate token**, and take note of the token generated. This token will only be shown once, so make sure you save it, at loosing a token requires creating a new one.
 
 ## Update or delete a service account
 
@@ -79,8 +79,6 @@ Optionally select your service account and update it in the following way:
 - at the top of the page, select **Disable service account** to disable the Grafana service account, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
 
 The notification *Service account updated* is automatically displayed as soon as you update a parameter.
-
----
 
 ## Next steps
 
