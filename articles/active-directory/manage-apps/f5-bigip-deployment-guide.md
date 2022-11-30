@@ -17,11 +17,12 @@ ms.reviewer: miccohen
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure
 
-This tutorial walks you through the end to end process of deploying BIG-IP Vitural Edition (VE) in Azure IaaS. By the end of this tutorial you should have:
+In this tutorial, learn about deploying BIG-IP Vitural Edition (VE) in Azure infrastructure as a service (IaaS). At the end of the tutorial you will have:
 
-- A fully prepared BIG-IP Virtual Machine (VM) for modeling a Secure Hybrid Access (SHA) proof of concept
-
+- A prepared BIG-IP virtual machine (VM) for modeling a secure hybrid access (SHA) proof-of-concept
 - A staging instance to use for testing new BIG-IP system updates and hotfixes
+
+Learn more: [Secure hybrid access: Secure legacy apps with Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/secure-hybrid-access)
 
 ## Prerequisites
 
