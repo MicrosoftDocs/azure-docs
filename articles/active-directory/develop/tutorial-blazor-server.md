@@ -51,7 +51,7 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 
 ## Create the app using the .NET CLI
 
-Run the following command to download the templates for Microsoft.Identity.Web, which we'll make use of in this tutorial.
+Run the following command to download the templates for `Microsoft.Identity.Web`, which we'll make use of in this tutorial.
 
 ```dotnetcli
 dotnet new install Microsoft.Identity.Web.ProjectTemplates
