@@ -193,10 +193,9 @@ You can create any of the BlobClient objects, listed below, either from a Contai
 
 List of Blob clients: 
 
-* *[BlobClient](/javascript/api/@azure/storage-blob/blobclient)
+* [BlobClient](/javascript/api/@azure/storage-blob/blobclient)
 * [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)
 * [AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)
-* [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient)
 * [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient)
 * [PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)
 

@@ -15,12 +15,11 @@ ms.custom: devx-track-js, devguide-js
 
 # Download a blob in Azure Storage using the JavaScript client library
 
-You can download a blob by using any of the following methods:
+Create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then download a blob by using any of the following methods:
 
 - Blob.[download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
 - Blob.[downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1) (only available in Node.js runtime)
 - Blob.[downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) (only available in Node.js runtime)
-
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
