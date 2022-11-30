@@ -182,7 +182,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
     See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
     
     > [!IMPORTANT]
-    > Custom tables have a suffix of *_CL*; for example, *tablename_CL*. The *tablename_CL* in the DataFlows Streams must match the *tablename_CL* name in the Log Analytics workspace.
+    > Custom data collection rules have a suffix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
 
     ```json
     {
