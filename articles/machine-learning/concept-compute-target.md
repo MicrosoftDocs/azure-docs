@@ -159,7 +159,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure HDInsight
 * Azure Databricks
 * Azure Data Lake Analytics
-* [Azure Synapse Spark pool](how-to-link-synapse-ml-workspaces.md) (preview)
+* [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
     > [!TIP]
     > Currently this requires the Azure Machine Learning SDK v1.

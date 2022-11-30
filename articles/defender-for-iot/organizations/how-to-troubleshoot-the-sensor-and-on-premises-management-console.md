@@ -18,7 +18,7 @@ Check your system health from the sensor or on-premises management console.
 
 **To access the system health tool**:
 
-1. Sign in to the sensor or on-premises management console with the **Support** user credentials.
+1. Sign in to the sensor or on-premises management console with the *support* user credentials.
 
 1. Select **System Statistics** from the **System Settings** window.
 
@@ -55,7 +55,7 @@ Verify that the system is up and running prior to testing the system's sanity.
 
 **To test the system's sanity**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
 
 1. Enter `system sanity`.
 
@@ -69,7 +69,7 @@ Verify that the correct version is used:
 
 **To check the system's version**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
 
 1. Enter `system version`.
 
@@ -79,7 +79,7 @@ Verify that all the input interfaces configured during the installation process 
 
 **To validate the system's network status**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the **Support** user.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the *support* user.
 
 1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
@@ -120,7 +120,7 @@ Verify that you can access the console web GUI:
 
    1. Connect a monitor and a keyboard to the appliance.
 
-   1. Use the **Support** user and password to sign in.
+   1. Use the *support* user and password to sign in.
 
    1. Use the command `network list` to see the current IP address.
 
@@ -140,7 +140,7 @@ Verify that you can access the console web GUI:
 
    1. To apply the settings, select **Y**.
 
-1. After restart, connect with the **Support** user credentials and use the `network list` command to verify that the parameters were changed.
+1. After restart, connect with the *support* user credentials and use the `network list` command to verify that the parameters were changed.
 
 1. Try to ping and connect from the GUI again.
 
@@ -148,7 +148,7 @@ Verify that you can access the console web GUI:
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-1. Use the **Support** user credentials to sign in.
+1. Use the *support* user credentials to sign in.
 
 1. Use the `system sanity` command and check that all processes are running. For example:
 
@@ -183,7 +183,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ### Investigate a lack of traffic
 
@@ -248,6 +248,31 @@ In cases where the sensor needs to be relocated or erased, all learned data can 
 
 For more information on how to clear system data, see [Clearing sensor data](how-to-manage-individual-sensors.md#clearing-sensor-data).
 
+### Export logs from the sensor console for troubleshooting
+
+For further troubleshooting, you may want to export logs to send to the support team, such as database or operating system logs.
+
+**To export log data**:
+
+1. In the sensor console, go to **System settings** > **Sensor management** > **Backup & restore** > **Backup**.
+
+1. In the **Export Troubleshooting Information** dialog:
+
+    1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
+
+    1. Select the logs you would like to export.
+
+    1. Select **Export**.
+
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
+
+1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
+
+Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
+
+> [!NOTE]
+> Support ticket diagnostics are not encrypted, and can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
+
 ## Troubleshoot an on-premises management console
 
 ### Investigate a lack of expected alerts
@@ -298,19 +323,11 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
-### Export audit logs for troubleshooting
+### Export logs from the on-premises management console for troubleshooting
 
-Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
+For further troubleshooting, you may want to export logs to send to the support team, such as audit or database logs.
 
-> [!NOTE]
-> New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
-> 
-
-For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
-
-For further troubleshooting, you may want to export your audit logs to send to the support team. 
-
-**To export audit log data**:
+**To export log data**:
 
 1. In the on-premises management console, select **System Settings > Export**.
 
@@ -318,15 +335,15 @@ For further troubleshooting, you may want to export your audit logs to send to t
 
     1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
 
-    1. Select **Audit Logs**.
+    1. Select the logs you would like to export.
 
     1. Select **Export**.
 
     The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
 
-1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password. 
+1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
 
-Exported audit logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
+Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
 
 ## Next steps
 
@@ -335,3 +352,5 @@ Exported audit logs can only be opened together with the support team. Forward t
 - [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
 
 - [Understand sensor disconnection events](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)
+
+- [Track on-premises user activity](track-user-activity.md)

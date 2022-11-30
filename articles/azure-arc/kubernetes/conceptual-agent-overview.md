@@ -1,11 +1,8 @@
 ---
-title: "Azure Arc-enabled Kubernetes agent architecture"
-services: azure-arc
-ms.service: azure-arc
+title: "Azure Arc-enabled Kubernetes agent overview"
 ms.date: 08/03/2021
 ms.topic: conceptual
-description: "This article provides an architectural overview of Azure Arc-enabled Kubernetes agents."
-keywords: "Kubernetes, Arc, Azure, containers"
+description: "This article provides an overview of the Azure Arc agents deployed on the Kubernetes clusters when connecting them to Azure Arc."
 ---
 
 # Azure Arc-enabled Kubernetes agent overview

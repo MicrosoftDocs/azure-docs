@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 11/15/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -241,7 +241,8 @@ A knowledge store definition includes a connection string to Azure Storage. On A
 
 ```json
 "knowledgeStore": {
-  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+}
 ```
 
 [**Enrichment cache:**](search-howto-incremental-index.md)
@@ -252,7 +253,7 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 "cache": {
   "enableReprocessing": true,
   "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
-},
+}
 ```
 
 [**Debug session:**](cognitive-search-debug-session.md)

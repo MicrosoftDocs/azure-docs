@@ -318,4 +318,4 @@ The HTTP status code for each response indicates success or common errors.
 
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
-- [Long Audio API](long-audio-api.md)
+- [Batch synthesis](batch-synthesis.md)

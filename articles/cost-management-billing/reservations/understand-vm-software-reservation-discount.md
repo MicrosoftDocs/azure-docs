@@ -2,7 +2,7 @@
 title: Understand how the Azure virtual machine software reservation discount is applied
 description: Learn how Azure virtual machine software reservation discount is applied before you buy.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
