@@ -40,6 +40,8 @@ There are two price tiers for Azure Virtual Desktop per-user access pricing. Cha
 
 For more information about prices, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
+Check if your Azure Virtual Desktop solution is compatible with per-user access pricing by reviewing [our licensing documentation](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#Documents).
+
 Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
 
 > [!IMPORTANT]

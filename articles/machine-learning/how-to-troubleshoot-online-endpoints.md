@@ -274,6 +274,7 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 Below is a list of reasons you might run into this error:
 
 * [Resource request was greater than limits](#resource-requests-greater-than-limits)
+* [Subscription does not exist](#subscription-does-not-exist)
 * [Startup task failed due to authorization error](#authorization-error)
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
 * [Unable to download user container image](#unable-to-download-user-container-image)
@@ -283,6 +284,12 @@ Below is a list of reasons you might run into this error:
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
+
+#### Subscription does not exist
+
+The Azure subscription that is entered must be existing. This error occurs when we cannot find the Azure subscription that was referenced. This is likely due to a typo in the subscription ID. Please double-check that the subscription ID was correctly typed and that it is currently active.
+
+For more information about Azure subscriptions, refer to the [prerequisites section](#prerequisites).
 
 #### Authorization error
 
@@ -480,5 +487,5 @@ instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)

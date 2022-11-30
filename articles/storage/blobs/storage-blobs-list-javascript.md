@@ -1,5 +1,6 @@
 ---
-title: List blobs with JavaScript - Azure Storage
+title: List blobs with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for JavaScript. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: pauljewellmsft
@@ -11,7 +12,7 @@ ms.date: 03/28/2022
 
 ms.subservice: blobs
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devguide-js
 ---
 
 # List blobs using the Azure Storage client library for JavaScript

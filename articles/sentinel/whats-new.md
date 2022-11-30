@@ -18,14 +18,27 @@ The listed features were released in the last three months. For information abou
 
 ## November 2022
 
-A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-connection-rules.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
+- [Use Incident tasks to manage incident workflow (Preview)](#use-incident-tasks-to-manage-incident-workflow-preview)
+- [Common Event Format (CEF) via AMA (Preview)](#common-event-format-cef-via-ama-preview)
+- [Monitor the health of automation rules and playbooks](#monitor-the-health-of-automation-rules-and-playbooks)
+- [Updated Microsoft Sentinel Logstash plugin](#updated-microsoft-sentinel-logstash-plugin)
 
-- Provides data transformation capabilities like filtering, masking, and enrichment. 
-- Allows full control over the output schema, including configuration of the column names and types. 
-- Can forward logs from external data sources into both custom tables and standard tables. 
-- Provides performance improvements, compression, and better telemetry and error handling.
+### Use Incident tasks to manage incident workflow (Preview)
 
-## November 2022
+SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts.
+
+SOC managers, automation engineers, and senior analysts can use Microsoft Sentinel's automation capabilities to generate lists of tasks that will apply across groups of incidents based on their content, ensuring that front-line analysts apply the same standards of care across the board and don't miss any critical steps.
+
+- Learn more about [incident tasks](incident-tasks.md).
+- Learn how analysts can [use tasks to handle incident workflow](work-with-tasks.md).
+- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
+
+
+### Common Event Format (CEF) via AMA (Preview)
+
+The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA).
+
+The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
 
 ### Monitor the health of automation rules and playbooks
 
@@ -37,6 +50,15 @@ Set up notifications of health events for relevant stakeholders, who can then ta
 - [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
 - See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+
+### Updated Microsoft Sentinel Logstash plugin
+
+A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-connection-rules.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
+
+- Provides data transformation capabilities like filtering, masking, and enrichment. 
+- Allows full control over the output schema, including configuration of the column names and types. 
+- Can forward logs from external data sources into both custom tables and standard tables. 
+- Provides performance improvements, compression, and better telemetry and error handling.
 
 ## October 2022
 

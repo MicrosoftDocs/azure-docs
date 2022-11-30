@@ -66,7 +66,7 @@ The application must declare Teams.ManageCalls and Teams.ManageChats permissions
 1. Navigate to your Azure AD app in the Azure portal and select **API permissions**
 1. Select **Add Permissions**
 1. In the **Add Permissions** menu, select **Azure Communication Services**
-1. Select the permissions **Teams.ManageCalls** and **Teams.ManageCalls**, then select **Add permissions**
+1. Select the permissions **Teams.ManageCalls** and **Teams.ManageChats**, then select **Add permissions**
 
 ![Add Teams.ManageCalls and Teams.ManageChats permission to the Azure Active Directory application created in previous step.](./media/active-directory-permissions.png)
 
