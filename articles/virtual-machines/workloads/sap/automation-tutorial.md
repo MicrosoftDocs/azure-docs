@@ -176,9 +176,9 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     To run the automation framework, update to the following versions.
 
-    - `az` version 2.28.0 or higher
+    - `az` version 2.4.0 or higher
 
-    - `terraform` version 1.1.4 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
+    - `terraform` version 1.2.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
 
 
 ## Create service principal
@@ -229,7 +229,7 @@ The SAP automation deployment framework uses service principals for deployment. 
 
     az role assignment create --assignee ${appId} \
       --role "User Access Administrator" \
-      --scope /subscriptions/{subscriptionId}
+      --scope /subscriptions/${subscriptionId}
     ```
 
 > [!NOTE] 
@@ -245,11 +245,7 @@ The SAP automation deployment framework uses service principals for deployment. 
     code .
     ```
 
-    > [!NOTE]
-    > Does not work in the Safari browser.
-
-
-    Expand the **WORKSPACES** directory. There are five subfolders: **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
+    Expand the **WORKSPACES** directory. There are five subfolders: **CONFIGURATION**, **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
 
     Find the appropriate four-character code that corresponds to the Azure region you're using.
 

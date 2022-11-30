@@ -4,7 +4,7 @@ description: Configure your Azure DevOps Services for the SAP on Azure Deploymen
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/19/2022
+ms.date: 12/1/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -22,57 +22,84 @@ To use Azure DevOps Services, you'll need an Azure DevOps organization. An organ
 
 You can use the following script to do a basic installation of Azure Devops Services for the SAP on Azure Deployment Automation Framework.
 
-Log in to Azure Cloud Shell
-```bash
-   export ADO_ORGANIZATION=https://dev.azure.com/<yourorganization>
-   export ADO_PROJECT='SAP Deployment Automation'
-   wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/create_devops_artifacts.sh -O devops.sh
-   chmod +x ./devops.sh
-   ./devops.sh
-   rm ./devops.sh
+Open PowerShell ISE and copy the following script and update the parameters to match your environment.
 
+```powershell
+    $Env:SDAF_ADO_ORGANIZATION = "https://dev.azure.com/ORGANIZATIONNAME"
+    $Env:SDAF_ADO_PROJECT = "SAP Deployment Automation Framework"
+    $Env:SDAF_CONTROL_PLANE_CODE = "MGMT"
+    $Env:SDAF_WORKLOAD_ZONE_CODE = "DEV"
+    $Env:SDAF_ControlPlaneSubscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    $Env:SDAF_WorkloadZoneSubscriptionID = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+    $Env:ARM_TENANT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+    
+    $UniqueIdentifier = Read-Host "Please provide an identifier that makes the service principal names unique, for instance a project code"
+    
+    $confirmation = Read-Host "Do you want to create a new Application registration (needed for the Web Application) y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_APP_NAME = $UniqueIdentifier + " SDAF Control Plane"
+    }
+    
+    else {
+      $Env:SDAF_APP_NAME = Read-Host "Please provide the Application registration name"
+    }
+    
+    $confirmation = Read-Host "Do you want to create a new Service Principal for the Control plane y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_MGMT_SPN_NAME = $UniqueIdentifier + " SDAF " + $Env:SDAF_CONTROL_PLANE_CODE + " SPN"
+    }
+        else {
+      $Env:SDAF_MGMT_SPN_NAME = Read-Host "Please provide the Control Plane Service Principal Name"
+    }
+    
+    $confirmation = Read-Host "Do you want to create a new Service Principal for the Workload zone y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_WorkloadZone_SPN_NAME = $UniqueIdentifier + " SDAF " + $Env:SDAF_WORKLOAD_ZONE_CODE + " SPN"
+    }
+        else {
+      $Env:SDAF_WorkloadZone_SPN_NAME = Read-Host "Please provide the Workload Zone Service Principal Name"
+    }
+    
+    if ( $PSVersionTable.Platform -eq "Unix") {
+        if ( Test-Path "SDAF") {
+        }
+        else {
+            $sdaf_path = New-Item -Path "SDAF" -Type Directory
+        }
+    }
+    else {
+        $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+        if ( Test-Path $sdaf_path) {
+        }
+        else {
+            New-Item -Path $sdaf_path -Type Directory
+        }
+    }
+    
+    Set-Location -Path $sdaf_path
+    
+    if ( Test-Path "configureDevOps.ps1") {
+        remove-item .\configureDevOps.ps1
+    }
+    
+    Set-ExecutionPolicy Unrestricted
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/setup_devops.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
+    
 ```
+
+Run the script and follow the instructions. The script will open browser windows for authentication and for performing tasks in the Azure DevOps project.
+
+You can choose to either run the code directly from Github or you can import a copy of the code into your Azure DevOps project.
+
 
 Validate that the project has been created by navigating to the Azure DevOps portal and selecting the project. Ensure that the Repo is populated and that the pipelines have been created.
 
-You can finalize the Azure DevOps configuration by running the following scripts on your local workstation. Open a PowerShell Console and define the environment variables. Replace the bracketed values with the actual values.
-
 > [!IMPORTANT]
-> Run the following steps on your local workstation, also make sure that you have logged on to Azure using az login first. Please also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
-
-
-```powershell
-   $Env:ADO_ORGANIZATION="https://dev.azure.com/<yourorganization>"
-
-   $Env:ADO_PROJECT="SAP Deployment Automation"
-
-   $Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
-   $Env:ControlPlaneSubscriptionName="<YourControlPlaneSubscriptionName>"
-
-   $Env:DevSubscriptionID="<YourDevSubscriptionID>"
-   $Env:DevSubscriptionName="<YourDevSubscriptionName>"
-
-```
-> [!NOTE]
-> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID. 
-> 
-> You can use the environment variable $Env:SDAF_APP_NAME for an existing Application registration, $Env:SDAF_MGMT_SPN_NAME for an existing service principal for the control plane and $Env:SDAF_DEV_SPN_NAME for an existing service principal for the workload zone plane. For the names use the Display Name of the existing resources.
-
-
-
-Once the variables are defined run the following script to create the service principals and the application registration.
-
-```powershell
-
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
-
-```
-> [!NOTE]
-> In PowerShell navigate to a folder where you have write permissions before running the Invoke-WebRequest command.
+> Run the following steps on your local workstation, also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
 
 ### Create a sample Control Plane configuration
 
-You can run the 'Create Sample Deployer Configuration' pipeline to create a sample configuration for the Control Plane. When running choose the appropriate Azure region.
+You can run the 'Create Sample Deployer Configuration' pipeline to create a sample configuration for the Control Plane. When running choose the appropriate Azure region. You can also control if you want to deploy Azure Firewall and Azure Bastion.
 
 ## Manual configuration of Azure DevOps Services for the SAP on Azure Deployment Automation Framework
 
@@ -90,7 +117,7 @@ Record the URL of the project.
 
 Start by importing the SAP on Azure Deployment Automation Framework GitHub repository into Azure Repos.
 
-Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
+Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation-bootstrap.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
 If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP on Azure Deployment Automation Framework GitHub repository to it.
 
