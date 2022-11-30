@@ -263,7 +263,11 @@ You may have a limited number of Logic Apps actions per action group.
 
 ### Secure webhook
 
-When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality. 
+When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. 
+ 
+The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" AAD Application. To make the action group work, this AAD Webhook Service Principal needs to be added as member of a role on the target AAD application that grants access to the target endpoint.
+ 
+For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
 
 > [!NOTE]
 >

@@ -3,7 +3,7 @@ title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 11/30/2022
 ---
 
 # Azure HDInsight 4.0 overview
@@ -60,7 +60,6 @@ Spark executors can connect directly to Hive LLAP daemons to retrieve and update
 Apache Spark on HDInsight 4.0 supports the following scenarios:
 
 * Run machine learning model training over the same transactional table used for reporting.
-* Use ACID transactions to safely add columns from Spark ML to a Hive table.
 * Run a Spark streaming job on the change feed from a Hive streaming table.
 * Create ORC files directly from a Spark Structured Streaming job.
 
