@@ -1,17 +1,17 @@
 ---
-title: Deploy MedTech service with an Azure Resource Manager (ARM) template - Azure Health Data Services
-description: In this article, you'll learn how to deploy MedTech service in the Azure portal using an Azure Resource Manager (ARM) template.
+title: Deploy the MedTech service using an Azure Resource Manager template - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/22/2022
+ms.date: 11/29/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Deploy MedTech service with an Azure Resource Manager template
+# Quickstart: Deploy the MedTech service using an Azure Resource Manager template
 
-In this article, you'll learn how to deploy MedTech service in the Azure portal using an Azure Resource Manager (ARM) template. This ARM template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically create the infrastructure and configuration of your deployment. 
+In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure Resource Manager (ARM) template. This ARM template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically create the infrastructure and configuration of your deployment. 
 
 For more information about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
 
@@ -108,9 +108,9 @@ In this article, you learned how to deploy the MedTech service in the Azure port
 > [Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
-> [How to manually deploy MedTech service with Azure portal](deploy-03-new-manual.md)
+> [Deploy the MedTech service manually using Azure portal](deploy-03-new-manual.md)
 
 > [!div class="nextstepaction"]
-> [How to deploy MedTech service using an ARM template and Azure PowerShell or Azure CLI](deploy-08-new-ps-cli.md)
+> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-ps-cli.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

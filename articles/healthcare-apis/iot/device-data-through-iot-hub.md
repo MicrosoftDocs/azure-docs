@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/16/2022
+ms.date: 11/29/2022
 ms.author: jasteppe
 ---
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 > [!TIP]
-> Learn how to [use Azure PowerShell and the Azure CLI to deploy the MedTech service by using an ARM template](deploy-08-new-ps-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
+> Learn how to [use Azure PowerShell or the Azure CLI to deploy the MedTech service by using an ARM template](deploy-new-ps-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
 
 ## Device message flow
 
@@ -223,14 +223,14 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, and sent a test message to your MedTech service.
 
-To learn how to use device mappings:
+To learn how to configure device mappings:
 
 > [!div class="nextstepaction"]
-> [How to use device mappings](how-to-use-device-mappings.md)
+> [How to configure device mappings](how-to-use-device-mappings.md)
 
-To learn more about FHIR destination mappings:
+To learn how to configure FHIR destination mappings:
 
 > [!div class="nextstepaction"]
-> [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

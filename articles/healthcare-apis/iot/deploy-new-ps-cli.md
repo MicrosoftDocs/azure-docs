@@ -1,6 +1,6 @@
 ---
-title: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI.
+title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,18 +9,16 @@ ms.date: 11/29/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
+# Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
 
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
-> - Use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+> - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
-
-For more information about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
 ## Deployment prerequisites
 
@@ -33,17 +31,14 @@ To begin your deployment and complete the quickstart, you must have the followin
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Azure PowerShell](/powershell/azure/install-az-ps) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
-  - For Azure PowerShell, you'll also need to install [Bicep CLI](/azure/azure-resource-manager/bicep/install#windows) to deploy the Bicep file used in this quickstart.
 
-When you have these prerequisites, you're ready to deploy the Bicep file.
+When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the Bicep file
+## Review the ARM template
 
-The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *main.bicep* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The ARM template used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the `azuredeploy.json` file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
-Locally save the Bicep file as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or Azure CLI console pointing to the location where this file is saved.
-
-## Deploy the MedTech service with the Bicep file and Azure PowerShell
+## Deploy the MedTech service with the Azure Resource Manager template and Azure PowerShell
 
 Complete the following five steps to deploy the MedTech service using Azure PowerShell:
 
@@ -60,10 +55,10 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    ```
 
    For example: `Set-AzContext abcdef01-2345-6789-0abc-def012345678`
-   
+
 3. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
 
-   You can also review the **location** section of the locally saved *main.bicep* file.
+   You can also review the **location** section of the *azuredeploy.json* file.
 
    If you need a list of the Azure regions location names, you can use this code to display a list:
 
@@ -77,22 +72,22 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    New-AzResourceGroup -name <ResourceGroupName> -location <AzureRegion>
    ```
 
-   For example: `New-AzResourceGroup -name BicepTestDeployment -location southcentralus`
+   For example: `New-AzResourceGroup -name ArmTestDeployment -location southcentralus`
 
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources. The minimum basename requirement is three characters with a maximum of 16 characters.
 
-5. Use the following code to deploy the MedTech service using the Bicep file:
+5. Use the following code to deploy the MedTech service using the ARM template:
 
    ```azurepowershell
-   New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile main.bicep -basename <BaseName> -location <AzureRegion>
+   New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename <BaseName> -location <AzureRegion>
    ```
 
-   For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
+   For example: `New-AzResourceGroupDeployment -ResourceGroupName ArmTestDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename abc123 -location southcentralus`
 
-## Deploy the MedTech service with the Bicep file and the Azure CLI
+## Deploy the MedTech service with the Azure Resource Manager template and Azure CLI
 
-Complete the following five steps to deploy the MedTech service using Azure CLI:
+Complete the following five steps to deploy the MedTech service using the Azure CLI:
 
 1. Sign-in into Azure.
 
@@ -110,7 +105,7 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
 
 3. Confirm the location you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where Azure Health Data Services is available.
 
-   You can also review the **location** section of the locally saved *main.bicep* file. 
+   You can also review the **location** section of the *azuredeploy.json* file. 
 
    If you need a list of the Azure regions location names, you can use this code to display a list:
 
@@ -124,22 +119,22 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
    az group create --resource-group <ResourceGroupName> --location <AzureRegion>
    ```
 
-   For example: `az group create --resource-group BicepTestDeployment --location southcentralus`
+   For example: `az group create --resource-group ArmTestDeployment --location southcentralus`
 
    > [!IMPORTANT]
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources.
 
-5. Use the following code to deploy the MedTech service using the Bicep file:
+5. Use the following code to deploy the MedTech service using the ARM template:
 
    ```azurecli
-   az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=<BaseName> location=<AzureRegion>
+   az deployment group create --resource-group <ResourceGroupName> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=<BaseName> location=<AzureRegion>
    ```
 
-   For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
+   For example: `az deployment group create --resource-group ArmTestDeployment --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=abc123 location=southcentralus`
 
 ## Review deployed resources and access permissions
 
-When deployment is completed, the following resources and access roles are created in the Bicep file deployment:
+When deployment is completed, the following resources and access roles are created in the ARM template deployment:
 
 - Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
 
@@ -161,11 +156,11 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+ - To learn more about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
 
-- To learn more about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+ - To learn more about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
 
-## Clean up Azure PowerShell deployed resources
+## Clean up Azure PowerShell resources
 
 When your resource group and deployed Bicep file resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
@@ -173,9 +168,9 @@ When your resource group and deployed Bicep file resources are no longer needed,
 Remove-AzResourceGroup -Name <ResourceGroupName>
 ```
 
-For example: `Remove-AzResourceGroup -Name BicepTestDeployment`
+For example: `Remove-AzResourceGroup -Name ArmTestDeployment`
 
-## Clean up the Azure CLI deployed resources
+## Clean up the Azure CLI resources
 
 When your resource group and deployed Bicep file resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
@@ -183,20 +178,20 @@ When your resource group and deployed Bicep file resources are no longer needed,
 az group delete --name <ResourceGroupName>
 ```
 
-For example: `az group delete --resource-group BicepTestDeployment`
+For example: `az group delete --resource-group ArmTestDeployment`
 
 > [!TIP]
-> For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Build your first Bicep template](/training/modules/build-first-bicep-template/).
+> For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
+In this quickstart, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using an ARM template. To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template](deploy-02-new-button.md)
+> [Deploy the MedTech service with an Azure Resource Manager template](deploy-02-new-button.md)
 
 > [!div class="nextstepaction"]
 > [Deploy the MedTech service manually using the Azure portal](deploy-03-new-manual.md)
