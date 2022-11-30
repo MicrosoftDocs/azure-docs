@@ -562,213 +562,328 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |ApplicationManagement|Update application - Certificates and secrets management|
 |ApplicationManagement|Update external secrets|
 |ApplicationManagement|Update service principal|
-|Directory Management|AdminUserJourneys-RemoveResources|
-|Directory Management|AdminUserJourneys-SetResources|
-|Directory Management|Create company|
-|Directory Management|Create IdentityProvider|
-|Directory Management|Create a new AdminUserJourney|
-|Directory Management|Create localized resource json|
-|Directory Management|Create new Custom IDP|
-|Directory Management|Create new IDP|
-|Directory Management|Create or update a B2C directory resource|
-|Directory Management|Create policy|
-|Directory Management|Create trustFramework policy|
-|Directory Management|Create trustFramework policy with configurable prefix|
-|Directory Management|Create user attribute|
-|Directory Management|CreateTrustFrameworkPolicy|
-|Directory Management|Delete IDP|
-|Directory Management|Delete IdentityProvider|
-|Directory Management|Delete a B2C directory resource|
-|Directory Management|Delete trustFramework policy|
-|Directory Management|Delete user attribute|
-|Directory Management|Get B2C directory resources in a resource group|
-|Directory Management|Get B2C directory resources in a subscription|
-|Directory Management|Get Custom IDP|
-|Directory Management|Get IDP|
-|Directory Management|Get a B2C directory resource|
-|Directory Management|Get a user journey|
-|Directory Management|Get allowed application claims for user journey|
-|Directory Management|Get allowed self-asserted claims for user journey|
-|Directory Management|Get allowed self-asserted claims of policy|
-|Directory Management|Get available output claims list|
-|Directory Management|Get content definitions for user journey|
-|Directory Management|Get idps for a specific admin flow|
-|Directory Management|Get list of all admin flows|
-|Directory Management|Get list of tags for all admin flows for all users|
-|Group Management|Bulk Download group members - started|
-|Group Management|Bulk Download group members - finished|
-|Group Management|Bulk import group members - started|
-|Group Management|Bulk import group members - finished|
-|Group Management|Bulk remove group members - started|
-|Group Management|Bulk remove group members - finished|
-|Group Management|Bulk download groups - started|
-|Group Management|Bulk download groups - finished|
-|Group Management|Get list of tenants for a user|
-|Group Management|Get local accounts' self-asserted claims|
-|Group Management|Get localized resource json|
-|Group Management|Get operations of Microsoft.AzureActiveDirectory resource provider|
-|Group Management|Get policies|
-|Group Management|Get policy|
-|Group Management|Get supported IDP list|
-|Group Management|Get supported IDP list of the user journey|
-|Group Management|Get tenant defined Custom IDP list|
-|Group Management|Get tenant defined IDP list|
-|Group Management|Get tenant defined local IDP list|
-|Group Management|Get tenant details for a user for resource creation|
-|Group Management|Get the default supported culture for CPIM|
-|Group Management|Get the details of an admin flow|
-|Group Management|Get the list of UserJourneys for this tenant|
-|Group Management|Get the set of available supported cultures for CPIM|
-|Group Management|Get trustFramework policy|
-|Group Management|Get trustFramework policy as xml|
-|Group Management|Get user attribute|
-|Policy Management|Get user attributes|
-|Policy Management|Get user journey list|
-|Policy Management|GetIEFPolicies|
-|Policy Management|GetIdentityProviders|
-|Policy Management|GetTrustFrameworkPolicy|
-|Resource|MigrateTenantMetadata|
-|Resource|Move resources|
-|Resource|Patch IdentityProvider|
-|Resource|PutTrustFrameworkPolicy|
-|Resource|PutTrustFrameworkpolicy|
-|Resource|Remove a user journey|
-|Resource|Update Custom IDP|
-|Resource|Update IDP|
-|Resource|Update Local IDP|
-|Resource|Update a B2C directory resource|
-|Resource|Update policy|
-|Resource|Update subscription status|
-|Role Management|Update user attribute|
-|Role Management|Validate move resources|
-|Role Management|Add device|
-|Role Management|Add device configuration|
-|Role Management|Add registered owner to device|
-|Role Management|Add registered users to device|
-|Role Management|Delete device|
-|Role Management|Delete device configuration|
-|Role Management|Device no longer compliant|
-|Role Management|Device no longer managed|
-|User Management|AccessReview_Review|
-|User Management|AccessReview_Update|
-|User Management|ActivationAborted|
-|User Management|ActivationApproved|
-|User Management|ActivationCanceled|
-|User Management|ActivationRequested|
-|User Management|Add eligible member to role|
-|User Management|Add member to role|
-|User Management|Add role assignment to role definition|
-|User Management|Add role from template|
-|User Management|Add scoped member to role|
-|User Management|Added|
-|User Management|Assign|
-|User Management|Bulk create users - started|
-|User Management|Bulk create users - finished|
-|User Management|Bulk delete users - started|
-|User Management|Bulk delete users - finished|
-|User Management|Bulk download users - started|
-|User Management|Bulk download users - finished|
-|User Management|Bulk restore deleted users - started|
-|User Management|Bulk restore deleted users - finished|
-|User Management|Bulk invite users - started|
-|User Management|Bulk invite users - finished|
-|User Management|Remove registered owner from device|
-|User Management|Remove registered users from device|
-|User Management|Remove eligible member from role|
-|User Management|Remove member from role|
-|User Management|Remove role assignment from role definition|
-|User Management|Remove scoped member from role|
-|User Management|Update device|
-|User Management|Update device configuration|
-|User Management|Update role|
+|AttributeManagement|Add an attribute set|
+|AttributeManagement|Add custom security attribute definition in an attribute set|
+|AttributeManagement|Update an attribute set|
+|AttributeManagement|Update attribute values assigned to a servicePrincipal|
+|AttributeManagement|Update attribute values assigned to a user|
+|AttributeManagement|Update custom security attribute definition in an attribute set|
+|AuthorizationPolicy|Update authorization policy|
+|CertificateBasedAuthConfiguration|Add CertificationBasedAuthConfiguration|
+|CertificateBasedAuthConfiguration|Delete CertificationBasedAuthConfiguration|
+|Contact|Add contact|
+|Contact|Delete contact|
+|Contact|Update contact|
+|CrossTenantAccessSettings|Add a partner to cross-tenant access setting|
+|CrossTenantAccessSettings|Delete partner specific cross-tenant access setting|
+|CrossTenantAccessSettings|Migrated partner cross-tenant access settings to the scalable model|
+|CrossTenantAccessSettings|Reset the cross-tenant access default setting|
+|CrossTenantAccessSettings|Update a partner cross-tenant access setting|
+|CrossTenantIdentitySyncSettings|Update the company default cross-tenant access setting|
+|CrossTenantIdentitySyncSettings|Create a partner cross-tenant identity sync setting|
+|CrossTenantIdentitySyncSettings|Delete a partner cross-tenant identity sync setting|
+|CrossTenantIdentitySyncSettings|Update a partner cross-tenant identity sync setting|
+|Device|Add device|
+|Device|Add registered owner to device|
+|Device|Add registered users to device|
+|Device|Delete device|
+|Device|Device no longer compliant|
+|Device|Device no longer managed|
+|Device|Remove registered owner from device|
+|Device|Remove registered users from device|
+|Device|Update device|
+|DeviceConfiguration|Add device configuration|
+|DeviceConfiguration|Delete device configuration|
+|DeviceConfiguration|Update device configuration|
+|DeviceTemplate|Add device from DeviceTemplate|
+|DeviceTemplate|Delete DeviceTemplate|
+|DeviceTemplate|Update DeviceTemplate|
+|DirectoryManagement|Add partner to company|
+|DirectoryManagement|Add sharedEmailDomainInvitation|
+|DirectoryManagement|Add unverified domain|
+|DirectoryManagement|Add verified domain|
+|DirectoryManagement|Create Company|
+|DirectoryManagement|Create company|
+|DirectoryManagement|Create company settings|
+|DirectoryManagement|Delete company allowed data location|
+|DirectoryManagement|Delete company settings|
+|DirectoryManagement|Delete subscription|
+|DirectoryManagement|Demote partner|
+|DirectoryManagement|Directory deleted|
+|DirectoryManagement|Directory deleted permanently|
+|DirectoryManagement|Directory scheduled for deletion (Lifecycle)|
+|DirectoryManagement|Directory scheduled for deletion (UserRequest)|
+|DirectoryManagement|Get cross-cloud verification code for domain|
+|DirectoryManagement|Promote company to partner|
+|DirectoryManagement|Promote sub domain to root domain|
+|DirectoryManagement|Remove partner from company|
+|DirectoryManagement|Remove unverified domain|
+|DirectoryManagement|Remove verified domain|
+|DirectoryManagement|Schedule Add sharedEmailDomain|
+|DirectoryManagement|Schedule Remove sharedEmailDomain|
+|DirectoryManagement|Set Company Information|
+|DirectoryManagement|Set DirSync feature|
+|DirectoryManagement|Set DirSyncEnabled flag|
+|DirectoryManagement|Set Partnership|
+|DirectoryManagement|Set accidental deletion threshold|
+|DirectoryManagement|Set company allowed data location|
+|DirectoryManagement|Set company multinational feature enabled|
+|DirectoryManagement|Set directory feature on tenant|
+|DirectoryManagement|Set domain authentication|
+|DirectoryManagement|Set federation settings on domain|
+|DirectoryManagement|Set password policy|
+|DirectoryManagement|Update company|
+|DirectoryManagement|Update company settings|
+|DirectoryManagement|Update domain|
+|DirectoryManagement|Update sharedEmailDomain|
+|DirectoryManagement|Update sharedEmailDomainInvitation|
+|DirectoryManagement|Verify domain|
+|DirectoryManagement|Verify email verified domain|
+|ExternalUserProfile|Create ExternalUserProfile|
+|ExternalUserProfile|Delete ExternalUserProfile|
+|ExternalUserProfile|Hard Delete ExternalUserProfile|
+|ExternalUserProfile|Restore ExternalUserProfile|
+|ExternalUserProfile|Update ExternalUserProfile|
+|GroupManagement|Add a deletion-marked app role assignment grant to group as part of link removal|
+|GroupManagement|Add app role assignment to group|
+|GroupManagement|Add group|
+|GroupManagement|Add member to group|
+|GroupManagement|Add owner to group|
+|GroupManagement|Assign label to group|
+|GroupManagement|Create group settings|
+|GroupManagement|Delete group|
+|GroupManagement|Delete group settings|
+|GroupManagement|Finish applying group based license to user|
+|GroupManagement|Grant contextual consent to application|
+|GroupManagement|Hard Delete group|
+|GroupManagement|Remove app role assignment from group|
+|GroupManagement|Remove label from group|
+|GroupManagement|Remove member from group|
+|GroupManagement|Remove owner from group|
+|GroupManagement|Restore group|
+|GroupManagement|Set group license|
+|GroupManagement|Set group to be managed by user|
+|GroupManagement|Start applying group based license to users|
+|GroupManagement|Trigger group license recalculation|
+|GroupManagement|Update group|
+|GroupManagement|Update group settings|
+|KerberosDomain|Add kerberos domain|
+|KerberosDomain|Delete kerberos domain|
+|KerberosDomain|Restore kerberos domain|
+|KerberosDomain|Update kerberos domain|
+|Label|Add label|
+|Label|Delete label|
+|Label|Update label|
+|PendingExternalUserProfile|Create PendingExternalUserProfile|
+|PendingExternalUserProfile|Delete PendingExternalUserProfile|
+|PendingExternalUserProfile|Hard Delete PendingExternalUserProfile|
+|PendingExternalUserProfile|Update PendingExternalUserProfile|
+|PermissionGrantPolicy|Add permission grant policy|
+|PermissionGrantPolicy|Delete permission grant policy|
+|PermissionGrantPolicy|Update permission grant policy|
+|Policy|Add owner to policy|
+|Policy|Add policy|
+|Policy|Delete policy|
+|Policy|Remove owner from policy|
+|Policy|Remove policy credentials|
+|Policy|Update policy|
+|PrivateEndpoint|Add PrivateEndpoint|
+|PrivateEndpoint|Delete PrivateEndpoint|
+|PrivateLinkResource|Add PrivateLinkResource|
+|PrivateLinkResource|Delete PrivateLinkResource|
+|PrivateLinkResource|Update PrivateLinkResource|
+|RoleManagement|Add EligibleRoleAssignment to RoleDefinition|
+|RoleManagement|Add eligible member to role|
+|RoleManagement|Add member to role|
+|RoleManagement|Add member to role scoped over Restricted Management Administrative Unit|
+|RoleManagement|Add role assignment to role definition|
+|RoleManagement|Add role definition|
+|RoleManagement|Add role from template|
+|RoleManagement|Add scoped member to role|
+|RoleManagement|Delete role definition|
+|RoleManagement|Remove EligibleRoleAssignment from RoleDefinition|
+|RoleManagement|Remove eligible member from role|
+|RoleManagement|Remove member from role|
+|RoleManagement|Remove member from role scoped over Restricted Management Administrative Unit|
+|RoleManagement|Remove role assignment from role definition|
+|RoleManagement|Remove scoped member from role|
+|RoleManagement||Update role|
+|RoleManagement||Update role definition|
+
+
+|UserManagement|Add a deletion-marked app role assignment grant to group as part of link removal|
+|UserManagement|Add app role assignment to group|
+|UserManagement|Add user|
+|UserManagement|Add users strong authentication phone app detail|
+|UserManagement|Change user license|
+|UserManagement|Change user password|
+|UserManagement|Convert federated user to managed|
+|UserManagement|Create application password for user|
+|UserManagement|Delete application password for user|
+|UserManagement|Delete user|
+|UserManagement|Disable Strong Authentication|
+|UserManagement|Disable account|
+|UserManagement|Enable Strong Authentication|
+|UserManagement|Enable account|
+|UserManagement|Hard Delete user|
+|UserManagement|Remove app role assignment from user|
+|UserManagement|Remove users strong authentication phone app detail|
+|UserManagement|Reset password|
+|UserManagement|Restore user|
+|UserManagement|Set force change user password|
+|UserManagement|Set user manager|
+|UserManagement|Set user oath token metadata enabled|
+|UserManagement|Update StsRefreshTokenValidFrom Timestamp|
+|UserManagement|Update external secrets|
+|UserManagement|Update user|
+
+## Device Registration Service
+
+|Audit Category|Activity|
+|---|---|
+|Device|Delete pre-created device|
+|Device|pre-create device|
+|Device|Register device|
+|Device|Reveal local administrator password|
+|Device|Unregister device|
+|Device|Update local administrator password|
+|KeyManagement|Add BitLocker key|
+|KeyManagement|Delete BitLocker key|
+|KeyManagement|Read BitLocker key|
+|Policy|Set device registration policies|
+|UserManagement|Add FIDO2 security key|
+|UserManagement|Add Windows Hello for Business credential|
+|UserManagement|Add passwordless phone sign-in credential|
+|UserManagement|Delete FIDO2 security key|
+|UserManagement|Delete Windows Hello for Business credential|
+|UserManagement|Delete passwordless phone sign-in credential|
 
 ## Entitlement Management
 
 |Audit Category|Activity|
 |---|---|
-|Entitlement Management|Add Entitlement Management role assignment|
-|Entitlement Management|Administrator directly assigns user to access package|		 
-|Entitlement Management|Administrator directly removes user access package assignment|
-|Entitlement Management|Approve access package assignment request|
-|Entitlement Management|Assign user as external sponsor|
-|Entitlement Management|Assign user as internal sponsor|
-|Entitlement Management|Auto approve access package assignment request|
-|Entitlement Management|Cancel access package assignment request|
-|Entitlement Management|Create access package|
-|Entitlement Management|Create access package assignment policy|
-|Entitlement Management|Create access package assignment user update request|	
-|Entitlement Management|Create access package catalog|
-|Entitlement Management|Create connected organization|	
-|Entitlement Management|Create custom action|
-|Entitlement Management|Create resource remove request|
-|Entitlement Management|Create resource request|
-|Entitlement Management|Delete access package|
-|Entitlement Management|Delete access package assignment policy|
-|Entitlement Management|Delete access package catalog|
-|Entitlement Management|Delete connected organization|
-|Entitlement Management|Deny access package assignment request|
-|Entitlement Management|Entitlement Management removes access package assignment request for user|
-|Entitlement Management|Execute custom action|
-|Entitlement Management|Extend access package assignment|
-|Entitlement Management|Failed access package assignment request|
-|Entitlement Management|Fulfill access package assignment request|
-|Entitlement Management|Fulfill access package resource assignment|	
-|Entitlement Management|Partially fulfill access package assignment request|
-|Entitlement Management|Ready to fulfill access package assignment request|
-|Entitlement Management|Remove Entitlement Management role assignment|
-|Entitlement Management|Remove access package resource assignment|
-|Entitlement Management|Remove user as external sponsor|
-|Entitlement Management|Remove user as internal sponsor|
-|Entitlement Management|Schedule a future access package assignment|
-|Entitlement Management|Update access package|
-|Entitlement Management|Update access package assignment policy|
-|Entitlement Management|Update access package catalog|
-|Entitlement Management|Update access package catalog resource|
-|Entitlement Management|Update connected organization|
-|Entitlement Management|Update custom action|
-|Entitlement Management|User requests access package assignment|
-|Entitlement Management|User requests an access package assignment on behalf of service principal|
-|Entitlement Management|User requests to extend access package assignment|
-|Entitlement Management|User requests to remove access package assignment|
+|EntitlementManagement|Add Entitlement Management role assignment|
+|EntitlementManagement|Administrator directly assigns user to access package|		 
+|EntitlementManagement|Administrator directly removes user access package assignment|
+|EntitlementManagement|Approval stage completed for access package assignment request|
+|EntitlementManagement|Approve access package assignment request|
+|EntitlementManagement|Assign user as external sponsor|
+|EntitlementManagement|Assign user as internal sponsor|
+|EntitlementManagement|Auto approve access package assignment request|
+|EntitlementManagement|Cancel access package assignment request|
+|EntitlementManagement|Create access package|
+|EntitlementManagement|Create access package assignment policy|
+|EntitlementManagement|Create access package assignment user update request|	
+|EntitlementManagement|Create access package catalog|
+|EntitlementManagement|Create connected organization|	
+|EntitlementManagement|Create custom extension|
+|EntitlementManagement|Create incompatible access package|
+|EntitlementManagement|Create incompatible group|
+|EntitlementManagement|Create resource environment|
+|EntitlementManagement|Create resource remove request|
+|EntitlementManagement|Create resource request|
+|EntitlementManagement|Delete access package|
+|EntitlementManagement|Delete access package assignment policy|
+|EntitlementManagement|Delete access package assignment request|
+|EntitlementManagement|Delete access package assignment policy for a deleted user|
+|EntitlementManagement|Delete access package catalog|
+|EntitlementManagement|Delete connected organization|
+|EntitlementManagement|Delete custom extension|
+|EntitlementManagement|Delete incompatible access package|
+|EntitlementManagement|Delete incompatible group|
+|EntitlementManagement|Deny access package assignment request|
+|EntitlementManagement|Entitlement Management creates access package assignment request for user|
+|EntitlementManagement|Entitlement Management removes access package assignment request for user|
+|EntitlementManagement|Execute custom extension|
+|EntitlementManagement|Extend access package assignment|
+|EntitlementManagement|Failed access package assignment request|
+|EntitlementManagement|Fulfill access package assignment request|
+|EntitlementManagement|Fulfill access package resource assignment|	
+|EntitlementManagement|Partially fulfill access package assignment request|
+|EntitlementManagement|Ready to fulfill access package assignment request|
+|EntitlementManagement|Remove Entitlement Management role assignment|
+|EntitlementManagement|Remove access package resource assignment|
+|EntitlementManagement|Remove user as external sponsor|
+|EntitlementManagement|Remove user as internal sponsor|
+|EntitlementManagement|Schedule a future access package assignment|
+|EntitlementManagement|Update access package|
+|EntitlementManagement|Update access package assignment policy|
+|EntitlementManagement|Update access package assignment request|
+|EntitlementManagement|Update access package catalog|
+|EntitlementManagement|Update access package catalog resource|
+|EntitlementManagement|Update connected organization|
+|EntitlementManagement|Update custom extension|
+|EntitlementManagement|Update request answers by approver|
+|EntitlementManagement|Update tenant setting|
+|EntitlementManagement|User requests access package assignment|
+|EntitlementManagement|User requests an access package assignment on behalf of service principal|
+|EntitlementManagement|User requests to extend access package assignment|
+|EntitlementManagement|User requests to remove access package assignment|
 
+## Hybrid Authentication
 
-
+|Audit Category|Activity|
+|---|---|
+|Authentication|Add user to feature rollout|
+|Authentication|Remove user from feature rollout|
 
 ## Identity protection
 
 |Audit Category|Activity|
 |---|---|
-|Directory Management|Elevate|
-|Directory Management|Removed|
-|Directory Management|Role Setting changes|
-|Other|ScanAlertsNow|
-|Other|Signup|
-|Other|Unelevate|
-|Other|UpdateAlertSettings|
-|Other|UpdateCurrentState|
-|Policy Management|Access review ended|
-|Policy Management|Add approver to request approval|
-|Policy Management|Add reviewer to access review|
-|User Management|Apply access review|
-|User Management|Create access review|
-
+|IdentityProtection|Update NotificationSettings|
+|Other|ConfirmAccountCompromised|
+|Other|ConfirmCompromised|
+|Other|ConfirmSafe|
+|Other|ConfirmServicePrincipalCompromised|
+|Other|DismissServicePrincipal|
+|Other|DismissUser|
+|Other|confirmServicePrincipalCompromised|
+|Other|dismissServicePrincipal|
 
 ## Invited users
 
 |Audit Category|Activity|
 |---|---|
-|Invited users|Delete external user|
-|Invited users|Email not sent, user unsubscribed|
-|Invited users|Email subscribed|
-|Invited users|Email unsubscribed|
-|Invited users|Invitation Email|
-|Invited users|Invite external user|
-|Invited users|Invite external user with reset invitation status|
-|Invited users|Invite internal user to B2B collaboration|
-|Invited users|Redeem external user invite|
-|Invited users|Viral tenant creation|
-|Invited users|Viral user creation|
+|UserManagement|Delete external user|
+|UserManagement|Email not sent, user unsubscribed|
+|UserManagement|Email subscribed|
+|UserManagement|Email unsubscribed|
+|UserManagement|Invite external user|
+|UserManagement|Invite external user with reset invitation status|
+|UserManagement|Invite internal user to B2B collaboration|
+|UserManagement|Redeem external user invite|
+|UserManagement|Viral user creation|
 
+## Lifecycle Workflows
+
+|Audit Category|Activity|
+|---|---|
+|Other|Create custom task extension|
+|Other|Delete custom task extension|
+|Other|Update custom task extension|
+|TaskManagement|Add task to workflow|
+|TaskManagement|Disable task|
+|TaskManagement|Enable task|
+|TaskManagement|Remove task from workflow|
+|TaskManagement|Update task|
+|WorkflowManagement|Add execution conditions|
+|WorkflowManagement|Add workflow version|
+|WorkflowManagement|Create workflow|
+|WorkflowManagement|Delete workflow|
+|WorkflowManagement|Disable workflow|
+|WorkflowManagement|Disable workflow schedule|
+|WorkflowManagement|Enable workflow|
+|WorkflowManagement|Enable workflow schedule|
+|WorkflowManagement|Hard delete workflow|
+|WorkflowManagement|On-demand workflow execution completed|
+|WorkflowManagement|Restore workflow|
+|WorkflowManagement|Schedule workflow execution completed|
+|WorkflowManagement|Schedule workflow execution started|
+|WorkflowManagement|Set workflow for on-demand execution|
+|WorkflowManagement|Update execution conditions|
+|WorkflowManagement|Update tenant settings|
+|WorkflowManagement|Update workflow|
 
 ## Microsoft Identity Manager (MIM)
 
