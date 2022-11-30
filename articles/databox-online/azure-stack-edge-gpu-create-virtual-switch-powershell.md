@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 11/30/2022
 ms.author: alkohli
 ---
 
@@ -150,7 +150,7 @@ The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwit
 
 |Parameters  |Description  |
 |---------|---------|
-|VNetName     |Name for the virtual LAN network         |
+|Name     |Name for the virtual LAN network         |
 |VirtualSwitchName    |Virtual switch name where you want to add virtual LAN config         |
 |AddressSpace     |Subnet address space for the virtual LAN network         |
 |GatewayIPAddress     |Gateway for the virtual network         |
