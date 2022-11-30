@@ -260,7 +260,7 @@ Use these commands to configure where you want to receive data.
     --share-subscription-name "fabrikamsolutions" --blob-folder-data-set-mapping $mapping
     ```
 
-1. Run the [az datashare share-subscription synchronize](cli/azure/datashare/share-subscription#az-datashare-share-subscription-synchronize) command to start dataset synchronization.
+1. Run the [az datashare share-subscription synchronize](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-synchronize) command to start dataset synchronization.
 
    ```azurecli
    az datashare share-subscription synchronize \
@@ -268,7 +268,7 @@ Use these commands to configure where you want to receive data.
      --name "Fabrikam Solutions" --synchronization-mode "Incremental" \
    ```
 
-   Run the [az datashare share-subscription list-synchronization](cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-synchronization) command to see a list of your synchronizations:
+   Run the [az datashare share-subscription list-synchronization](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-synchronization) command to see a list of your synchronizations:
 
    ```azurecli
    az datashare share-subscription list-synchronization \
