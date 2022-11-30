@@ -62,6 +62,10 @@ To successfully deploy the Microsoft Sentinel Solution for SAP, you must meet th
 | **SAP system details** | Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate (This option requires additional configuration steps) |
 
+> [!IMPORTANT]
+>For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud, private edition please contact your SAP representative.
+
+
 ## SAP environment validation steps
 
 > [!NOTE]
