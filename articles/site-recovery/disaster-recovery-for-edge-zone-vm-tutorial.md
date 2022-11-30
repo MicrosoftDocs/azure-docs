@@ -75,6 +75,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Customize storage option**, you can select an existing storage that was created either on Azure Public MEC (preview) or region.
 
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/customize-target.png" alt-text=" Screenshot of Customizing the target settings tab":::
     
     >[!NOTE]
     >- For *Azure Public MEC* (preview) replication flow, an existing storage account associated with the recovery vault will be preselected. If a storage account doesn't exist with the recovery vault, a new one will be created in the region.

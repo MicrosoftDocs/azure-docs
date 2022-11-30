@@ -46,9 +46,9 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage.png" alt-text=" Cache storage field."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage - expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage.png" alt-text="Screenshot of cache storage field."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage - expanded.png":::
 
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2.png" alt-text=" Cache storage field step 2."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2 - expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2.png" alt-text="Screenshot of cache storage field step 2."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2 - expanded.png":::
     
 1. Select **Next : Review + Start replication**.
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/review.png" alt-text="Screenshot of Review settings tab."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/review - expanded.png":::
