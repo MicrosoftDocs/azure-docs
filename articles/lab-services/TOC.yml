@@ -301,6 +301,8 @@
       href: reference-powershell-module.md     
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module
