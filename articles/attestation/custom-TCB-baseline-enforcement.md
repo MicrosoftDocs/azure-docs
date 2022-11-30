@@ -51,21 +51,21 @@ The feature can be used in the following scenarios:
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience
 
 ### New users
-1.	Create an attestation provider using Azure portal experience. Details here
-2.	Go to overview page and view the current default policy of the attestation provider. Details here
+1.	Create an attestation provider using Azure portal experience. [Details here]() 
+2.	Go to overview page and view the current default policy of the attestation provider. [Details here]() 
 3.	Click on View current and available TCB for attestation, view the available TCB, identify the desired TCB identifier and click Cancel 
 4.	Click Configure, set x-ms-sgx-tcbidentifier claim value in the policy to the desired value and click Save
 
 ### Existing shared provider users 
 Shared provider users need to migrate to custom providers to be able to perform attestation against custom TCB baseline
-1.	Create an attestation provider using Azure portal experience. Details here
-2.	Go to overview page and view the current default policy of the attestation provider. Details here
+1.	Create an attestation provider using Azure portal experience. [Details here]() 
+2.	Go to overview page and view the current default policy of the attestation provider. [Details here]() 
 3.	Click on View available TCB for attestation, view the available TCB, identify the desired TCB identifier and click Cancel 
 4.	Click Configure, set x-ms-sgx-tcbidentifier claim value in the policy to the desired value and click Save
 5.	Needs code deployment to send attestation requests to the custom attestation provider
 
 ### Existing custom provider users with default/custom attestation policy
-1.	Go to overview page and view the current default policy of the attestation provider. Details here
+1.	Go to overview page and view the current default policy of the attestation provider. [Details here]() 
 2.	Click on View available TCB for attestation, view the available TCB, identify the desired TCB identifier and click Cancel 
 3.	Click Configure, and use the sample below for configuring an attestation policy with a custom TCB baseline. 
 
