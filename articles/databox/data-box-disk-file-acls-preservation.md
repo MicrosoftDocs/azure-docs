@@ -38,7 +38,7 @@ To transfer the ACLs, timestamps, and attributes for your data, use the followin
 
 ### Windows data copy tool
 
-To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as `robocopy`. The following sample command copies all files and directories, transferring metadata along with the data.
+To copy data to your Data Box Disk, use a file copy tool such as `robocopy`. The following sample command copies all files and directories, transferring metadata along with the data.
 
 ```console
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /B /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
