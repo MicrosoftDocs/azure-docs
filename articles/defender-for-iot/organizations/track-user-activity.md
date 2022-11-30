@@ -11,7 +11,7 @@ After you've set up your user access for the [Azure portal](manage-users-portal.
 
 ## Audit Azure user activity
 
-Use Azure Active Directory (AAD) user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
+Use Azure Active Directory user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
 
 - [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
 - [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
