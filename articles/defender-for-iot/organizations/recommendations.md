@@ -41,7 +41,6 @@ Select a specific recommendation in the grid to drill down for more details. The
 The left pane also shows the following information:
 
 - **Description**: More context for the recommended mitigation step
-- **Check id**: Relevant only for recommendations triggered by the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/), and indicates the ID of a check against a [CIS benchmark](https://www.cisecurity.org/).
 - **Remediation steps**: The full list of mitigation steps recommended for unhealthy devices
 
 Switch between the **Unhealthy devices** and **Healthy devices** tabs to review the statuses of detected devices in your network for the selected recommendation.
