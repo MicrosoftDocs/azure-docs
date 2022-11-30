@@ -20,7 +20,13 @@ Later in this article, you learn how to configure and customize the data that yo
 
 ## Configure categories
 
-The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. The following chart describes the main categories of logs that the runtime creates:
+The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. 
+
+Categories can be assigned differently in Azure Functions than in other .NET frameworks. For example, when using `ILogger<T>` in ASP.NET, the category will be the name of the generic type. Azure Functions supports injection of `ILogger<T>`, but does not use the generic type name as a category. Instead it assigns categories based on the source as seen by the runtime: 
+ - Log entries related to the execution of a function will have a category of "Function.{function name}".
+ - Log entries created by code *within* a function (e.g. using `logger.LogInformation()`) will have a category of `Function.{function name}.User`.
+
+The following chart describes the main categories of logs that the runtime creates:
 
 # [v2.x+](#tab/v2)
 
@@ -57,11 +63,12 @@ The **Table** column indicates to which table in Application Insights the log is
 
 For each category, you indicate the minimum log level to send. The *host.json* settings vary depending on the [Functions runtime version](functions-versions.md).
 
-The example below defines logging based on the following rules:
+The examples below define logging based on the following rules:
 
-+ For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
-+ For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
-+ For all other logs, including user logs, log only `Information` level and higher events.
++ The default logging level is set to `Warning` to prevent [excessive logging](https://learn.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2#solutions-with-high-volume-of-telemetry) for unanticipated categories.
++ `Host.Aggregator` and `Host.Results` are set to lower levels. Setting these to too high a level (especially higher than `Information`) can result in loss of metrics and performance data.
++ Logging for function executions is set to `Information`. This can be [overridden](https://learn.microsoft.com/en-us/azure/azure-functions/functions-host-json#override-hostjson-values) in local development to `Debug` or `Trace` as needed.
+
 
 # [v2.x+](#tab/v2)
 
@@ -70,10 +77,10 @@ The example below defines logging based on the following rules:
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
-      "default": "Information",
-      "Host.Results": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "default": "Warning",
+      "Host.Aggregator": "Trace",
+      "Host.Results": "Information",
+      "Function": "Information"
     }
   }
 }
@@ -85,11 +92,11 @@ The example below defines logging based on the following rules:
 {
   "logger": {
     "categoryFilter": {
-      "defaultLevel": "Information",
+      "defaultLevel": "Warning",
       "categoryLevels": {
-        "Host.Results": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Trace"
+        "Host.Results": "Information",
+        "Host.Aggregator": "Trace",
+        "Function": "Information"
       }
     }
   }
