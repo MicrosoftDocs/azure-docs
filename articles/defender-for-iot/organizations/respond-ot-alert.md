@@ -72,7 +72,7 @@ On the sensor's **Alerts** page, find and select the alert you're investigating,
 
 On the sensor's alert details page:
 
-- Select the **Map view** tab to view the alert inside the sensor's device map. For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md). <!--does this work? it doesn't look like much-->
+- Select the **Map view** tab to view the alert inside the sensor's device map. For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md).
 
 - Select the **Event timeline** tab to view the alert's full event timeline, including other related activity also detected by the sensor. For more information, see [Track sensor activity](how-to-track-sensor-activity.md). <!--lets give the users more here- we don't have enough on the event timeline-->
 
@@ -111,8 +111,10 @@ Triage alerts on a regular basis to prevent alert fatigue in your network and en
 
 1. Check the alert details and investigate as needed before you take any alert action.
 
-1. When you're ready, take action on an alert details page for a specific alert, or on the **Alerts** page for bulk actions. 
+1. When you're ready, take action on an alert details page for a specific alert, or on the **Alerts** page for bulk actions.
 
     For example, update alert status or severity, or *learn* an alert to authorize the detected traffic. *Learned* alerts are not triggered again if the same exact traffic is detected again.
+
+    :::image type="content" source="media/iot-solution/learn-alert.png" alt-text="Screenshot of a Learn button on the alert details page.":::
 
 ## Next steps
