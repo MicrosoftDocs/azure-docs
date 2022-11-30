@@ -19,6 +19,9 @@ Microsoft Sentinel delivers intelligent security analytics and threat intelligen
 
 Microsoft Sentinel is your bird's-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
+> [!NOTE]
+> Microsoft Sentinel inherits the Azure Monitor tamper-proofing and immutability conventions. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes. Learn more about [anti-tampering and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability).
+
 - **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
 - **Detect previously undetected threats**, and [minimize false positives](false-positives.md) using Microsoft's analytics and unparalleled threat intelligence.

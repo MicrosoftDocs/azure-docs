@@ -101,6 +101,10 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 - **Integrates with partner platforms**, such as ServiceNow and Jira, to provide essential services for SOC teams.
 - **Ingests and fetches enrichment feeds** from [threat intelligence platforms](threat-intelligence-integration.md) to bring valuable data for investigating.
 
+## Review tamper-proofing and immutability conventions
+
+Microsoft Sentinel inherits the Azure Monitor tamper-proofing and immutability conventions. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes. Learn more about [anti-tampering and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability).
+
 ##  Manage and respond to incidents
 
 The following image shows recommended steps in an incident management and response process.
