@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 
-Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, or group.
+Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
@@ -25,8 +25,7 @@ Audit log activities and categories change periodically. The tables are updated 
 
 ## Access reviews
 
-With [Azure AD Identity Governance access reviews](Manage user access with access reviews - Azure AD - Microsoft Entra | Microsoft Learn), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
-
+With [Azure AD Identity Governance access reviews](../governance/manage-user-access-with-access-reviews.md), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
 
 |Audit Category|Activity|
 |---|---|
@@ -70,6 +69,8 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 
 ## Account provisioning
 
+Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category.
+
 |Audit Category|Activity|
 |---|---|
 |ProvisioningManagement|Add provisioning configuration|
@@ -89,12 +90,13 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 
 ## Application proxy
 
+If you're utilizing [Application Proxy](../app-proxy/what-is-application-proxy.md) to provide your users with remote access to internal apps, the Application Proxy audit logs can help you keep track of changes to available applications or [Connector groups](../app-proxy/application-proxy-connector-groups.md).
+
 |Audit Category|Activity|
 |---|---|
 |Application Management|Add application|
 |Application Management|Delete application|
 |Application Management|Update application|
-
 |Authentication|Add a group to feature rollout|
 |Authentication|Create rollout policy for feature|
 |Authentication|Delete rollout policy of feature|
@@ -118,6 +120,8 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |ResourceManagement|Update Connector Group|
 
 ## Authentication Methods
+
+The Audit logs for Authentication Methods can be used to make sure that your users have registered their mobile device properly to enable multi-factor authentication (MFA).
 
 |Audit Category|Activity|
 |---|---|
@@ -153,7 +157,6 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |ApplicationManagement|POST Tenant.RemoveBlockedUser|
 |ApplicationManagement|POST Tenant.RemoveBypassedUser|
 |ApplicationManagement|Update Hardware Oath Token|
-
 |UserManagement|User deleted security info|
 |UserManagement|User registered security info|
 |UserManagement|User updated security info|
@@ -173,6 +176,8 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 
 ## Azure AD Recommendations
 
+[Azure AD Recommendations](overview-recommendations.md) monitors your Azure AD tenant and provides personalized insights and actionable guidance to implement best practices for Azure AD features and optimize your tenant configurations. These logs provide a history of the changes made to the status of a recommendation.
+
 |Audit Category|Activity|
 |---|---|
 |DirectoryManagement|Dismiss recommendation|
@@ -180,6 +185,8 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |DirectoryManagement|Postpone recommendation|
 
 ## Azure MFA
+
+The Azure MFA audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Azure AD sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
 
 |Audit Category|Activity|
 |---|---|
@@ -189,6 +196,8 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |UserManagement|User registered security info|
 
 ## B2C
+
+The largest set of audit logs are related to [B2C](../../active-directory-b2c/overview.md), due to the number of connected resources and potential external accounts. Audit categories include ApplicationManagement, Authentication, Authorization, DirectoryManagement, IdentityProtection, KeyManagement, PolicyManagement, and ResourceManagement. Logs related to one-time passwords are found in the Other category.
 
 |Audit Category|Activity|
 |---|---|
@@ -227,7 +236,6 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |Authentication|Verify email address|
 |Authentication|verify one time password|
 |Authentication|Verify phone number|
-
 |Authorization|Add v2 application permissions|
 |Authorization|Check whether the resource name is available|
 |Authorization|Create Api connector|
@@ -242,14 +250,15 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |Authorization|Create or update a B2C directory tenant and resource|
 |Authorization|Create or update a CIAM directory tenant and resource|
 |Authorization|Create or update a Guest Usages resource|
-|Authorization|Create or update loacalized resource|
+|Authorization|Create or update localized resource|
 |Authorization|Create policy key|
+|Authorization|Create starter pack|
 |Authorization|Create user attribute|
 |Authorization|Create user flow|
 |Authorization|Create v2 application|
 |Authorization|Delete Api connector|
 |Authorization|Delete B2C Tenant where the caller is an administrator|
-|Authorization|B2C directory resource|
+|Authorization|Delete B2C directory resource|
 |Authorization|Delete CIAM directory resource|
 |Authorization|Delete Guest Usages resource|
 |Authorization|Delete Identity Provider|
@@ -364,7 +373,7 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |Directory Management|Get tenant details|
 |Directory Management|Get tenant domains|
 |Directory Management|Initialize tenant|
-|Directory Management|update age gating configuration|
+|Directory Management|Update age gating configuration|
 |IdentityProtection|Evaluate conditional access policies|
 |IdentityProtection|Remediate user|
 |KeyManagement|Create policy key|
@@ -392,7 +401,7 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |PolicyManagement|Get authenticationEventsFlows|
 |PolicyManagement|Get customAuthenticationExtension|
 |PolicyManagement|Get customAuthenticationExtensions|
-|PolicyManagement|Get the authenticationEventsPolicy
+|PolicyManagement|Get the authenticationEventsPolicy|
 |PolicyManagement|Update OnAttributeCollectionStartCustomExtension|
 |PolicyManagement|Update OnAttributeCollectionSubmitCustomExtension|
 |PolicyManagement|Update OnPageRenderStartCustomExtension|
@@ -415,6 +424,76 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |ResourceManagement|Create policy key|
 |ResourceManagement|Create user attribute|
 |ResourceManagement|Create user flow|
+|ResourceManagement|Delete Api connector|
+|ResourceManagement|Delete B2C Tenant where the caller is an administrator|
+|ResourceManagement|Delete B2C directory resource|
+|ResourceManagement|Delete CIAM directory resource|
+|ResourceManagement|Delete Guest Usages resource|
+|ResourceManagement|Delete Identity Provider|
+|ResourceManagement|Delete custom policy|
+|ResourceManagement|Delete identity provider|
+|ResourceManagement|Delete localized resource|
+|ResourceManagement|Delete policy key|
+|ResourceManagement|Delete user attribute|
+|ResourceManagement|Delete user flow|
+|ResourceManagement|Generate key|
+|ResourceManagement|Get Api connector|
+|ResourceManagement|Get Api connectors|
+|ResourceManagement|Get B2C Tenant where the caller is an administrator|
+|ResourceManagement|Get B2C directory resource|
+|ResourceManagement|Get B2C directory resources in a resource group|
+|ResourceManagement|Get B2C directory resources in a subscription|
+|ResourceManagement|Get CIAM directory resource|
+|ResourceManagement|Get CIAM directory resources in a resource group|
+|ResourceManagement|Get CIAM directory resources in a subscription|
+|ResourceManagement|Get Guest Usages resource|
+|ResourceManagement|Get Guest Usages directory resources in a resource group|
+|ResourceManagement|Get Guest Usages directory resources in a subscription|
+|ResourceManagement|Get Identity Provider|
+|ResourceManagement|Get Identity Providers|
+|ResourceManagement|Get active key metadata from policy key|
+|ResourceManagement|Get authentication flows policy|
+|ResourceManagement|Get available output claims|
+|ResourceManagement|Get configured custom identity providers|
+|ResourceManagement|Get configured identity providers|
+|ResourceManagement|Get configured local identity providers|
+|ResourceManagement|Get custom identity provider|
+|ResourceManagement|Get custom policies|
+|ResourceManagement|Get custom policy|
+|ResourceManagement|Get custom policy metadata|
+|ResourceManagement|Get identity provider|
+|ResourceManagement|Get identity provider types|
+|ResourceManagement|Get identity providers|
+|ResourceManagement|Get localized resource|
+|ResourceManagement|Get operation status of an async operation|
+|ResourceManagement|Get operations of Microsoft.AzureActiveDirectory resource provider|
+|ResourceManagement|Get policy key|
+|ResourceManagement|Get policy keys|
+|ResourceManagement|Get supported cultures|
+|ResourceManagement|Get supported identity providers|
+|ResourceManagement|Get supported page contracts|
+|ResourceManagement|Get user attribute|
+|ResourceManagement|Get user attributes|
+|ResourceManagement|Get user flow|
+|ResourceManagement|Get user flows|
+|ResourceManagement|Move resources|
+|ResourceManagement|Update Api connector|
+|ResourceManagement|Identity Provider|
+|ResourceManagement|Update B2C directory resource|
+|ResourceManagement|Update CIAM directory resource|
+|ResourceManagement|Update Guest Usages resource|
+|ResourceManagement|Update authentication flows policy|
+|ResourceManagement|Update custom identity provider|
+|ResourceManagement|Update custom policy|
+|ResourceManagement|Update identity provider|
+|ResourceManagement|Update local identity provider|
+|ResourceManagement|Update policy key|
+|ResourceManagement|Update subscription status|
+|ResourceManagement|Update user attribute|
+|ResourceManagement|Update user flow|
+|ResourceManagement|Update certificate to policy key|
+|ResourceManagement|Update secret into policy key|
+|ResourceManagement|Validate move resources|
 
 ## Conditional Access
 
@@ -449,31 +528,40 @@ With [Azure AD Identity Governance access reviews](Manage user access with acces
 |Agreement|Delete agreement|
 |Agreement|Hard delete agreement|
 |Agreement|Update agreement|
-
-|Application Management|Batch invites processed|
-|Application Management|Batch invites uploaded|
-|Application Management|Add owner to policy|
-|Application Management|Add policy|
-|Application Management|Delete policy|
-|Application Management|Remove policy credentials|
-|Application Management|Update policy|
-|Application Management|Set MFA registration policy|
-|Application Management|Set sign-in risk policy|
-|Application Management|Set user risk policy|
-|Application Management|Accept Terms Of Use|
-|Application Management|Create Terms Of Use|
-|Application Management|Decline Terms Of Use|
-|Application Management|Delete Terms Of Use|
-|Application Management|Edit Terms Of Use|
-|Application Management|Publish Terms Of Use|
-|Application Management|Unpublish Terms Of Use|
-|Application Management|Add application TLS/SSL certificate|
-|Application Management|Delete TLS binding|
-|Application Management|Register connector|
-|Application Management|AdminPolicyDatas-RemoveResources|
-|Application Management|AdminPolicyDatas-SetResources|
-|Application Management|AdminUserJourneys-GetResources|
-
+|ApplicationManagement|Add a deletion-marked app role assignment grant to service principal as part of link removal|
+|ApplicationManagement|Add app role assignment to service principal|
+|ApplicationManagement|Add application|
+|ApplicationManagement|Add delegated permission grant|
+|ApplicationManagement|Add owner to application|
+|ApplicationManagement|Add owner to service principal|
+|ApplicationManagement|Add policy to application|
+|ApplicationManagement|Add policy to service principal|
+|ApplicationManagement|Add service principal|
+|ApplicationManagement|Add service principal credentials|
+|ApplicationManagement|Cancel application update with safe rollout|
+|ApplicationManagement|Complete application update after safe rollout|
+|ApplicationManagement|Consent to application|
+|ApplicationManagement|Delete application|
+|ApplicationManagement|Hard Delete application|
+|ApplicationManagement|Hard delete service principal|
+|ApplicationManagement|Remove app role assignment from service principal|
+|ApplicationManagement|Remove delegated permission grant|
+|ApplicationManagement|Remove owner from application|
+|ApplicationManagement|Remove owner from service principal|
+|ApplicationManagement|Remove policy from application|
+|ApplicationManagement|Remove policy from service principal|
+|ApplicationManagement|Remove service principal|
+|ApplicationManagement|Remove service principal credentials|
+|ApplicationManagement|Restore application|
+|ApplicationManagement|Restore service principal|
+|ApplicationManagement|Restore consent|
+|ApplicationManagement|Set verified publisher|
+|ApplicationManagement|Unset verified publisher|
+|ApplicationManagement|Update application|
+|ApplicationManagement|Update application with safe rollout|
+|ApplicationManagement|Update application - Certificates and secrets management|
+|ApplicationManagement|Update external secrets|
+|ApplicationManagement|Update service principal|
 |Directory Management|AdminUserJourneys-RemoveResources|
 |Directory Management|AdminUserJourneys-SetResources|
 |Directory Management|Create company|
