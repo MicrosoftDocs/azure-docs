@@ -14,7 +14,7 @@
 | Dedicated cores per Batch account | 10-900<sup>1</sup> | Contact support |
 | Low-priority cores per Batch account | 10-100<sup>1</sup> | Contact support |
 | **[Active](/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>2</sup> |
-| Pools per Batch account | 20-100<sup>1</sup> | 500<sup>2</sup> |
+| Pools per Batch account | 0-100<sup>1</sup> | 500<sup>2</sup> |
 | Private endpoint connections per Batch account | 100 | 100 |
 
 <sup>1</sup> For capacity management purposes, the default quotas for new Batch accounts in some regions and for some subscription
