@@ -57,10 +57,10 @@ Once the deployment is complete, log in to the deployed Windows VM via Remote De
 
 ## Running the Production Line Simulation
 
-On the deployed VM, download the required files from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the StartSimulation command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace and the Azure region you picked during deployment as parameters. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey". The Azure region needs to be specified as a DNS acronym as listed [here](../automation/how-to/automation-region-dns-records.md), for example for Azure region East US 2 you would pass in eus2 as parameter.
+On the deployed VM, download the required files from [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/archive/refs/heads/main.zip) and extract to a directory of your choice. Then navigate to the OnPremAssets directory of the unzipped content and run the StartSimulation command from the OnPremAssets folder in a command prompt by supplying the primary key connection string of your Event Hubs namespace. The primary key connection string can be read in the [Azure portal](https://portal.azure.com) under your Event Hubs' "share access policy" -> "RootManagedSharedAccessKey".
 
 ```
-StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
+StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh=
 ```
 
 Note: If you restart Docker Desktop at any time, you'll need to stop and then restart the simulation, too!
