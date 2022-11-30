@@ -106,7 +106,7 @@ To edit a variant, select it and select the pencil icon that appears on top of i
 
 ### Save button
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Screenshot of the Save button in the developer portal." border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Screenshot of the Save button in the developer portal." :::
 
 Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the bottom, or press [Ctrl]+[S]. When you save your changes, the modified content is automatically uploaded to your API Management service.
 
