@@ -57,6 +57,7 @@ Should we send metrics to a workspace or metrics?
 | **Operating systems** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
 | **Non-Azure sources** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
 
+Container insights talk to Kevin Harris and ask Rod and Vanessa - also is this article about Logs or Azure Monitor in general?
 ## 3. Migrate applications
 
 
