@@ -17,7 +17,7 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include *Azure Migrate: Discovery and assessment* and *Migration and modernization*. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
-- **Assessment, migration and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
+- **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
     - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
     - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
     - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
@@ -69,7 +69,7 @@ Here's what the tool does:
 - **Azure cost estimation**: Estimates costs for running on-premises servers in Azure.
 - **Dependency analysis**: Identifies cross-server dependencies and optimization strategies for moving interdependent servers to Azure. Learn more about Discovery and assessment with [dependency analysis](concepts-dependency-visualization.md).
 
-Discovery and assessment use a lightweight [Azure Migrate appliance](migrate-appliance.md) that you deploy on-premises.
+The Discovery and assessment tool uses a lightweight [Azure Migrate appliance](migrate-appliance.md) that you deploy on-premises.
 
 - The appliance runs on a VM or physical server. You can install it easily using a downloaded template.
 - The appliance discovers on-premises servers. It also continually sends server metadata and performance data to Azure Migrate.
@@ -82,9 +82,9 @@ The Migration and modernization tool helps in migrating servers to Azure:
 
 **Migrate** | **Details**
 --- | ---
-On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, Migration and modernization uses the same appliance that is used by Discovery and assessment tool for discovery and assessment of servers.<br/><br/> For agent-based migration, Migration and modernization uses a replication appliance.
-On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> Migration and modernization uses provider agents installed on Hyper-V host for the migration.
-On-premises physical servers or servers hosted on other clouds | You can migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. Migration and modernization uses a replication appliance for the migration.
+On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, the Migration and modernization tool uses the same appliance that is used by Discovery and assessment tool for discovery and assessment of servers.<br/><br/> For agent-based migration, the Migration and modernization tool uses a replication appliance.
+On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> The Migration and modernization tool uses provider agents installed on Hyper-V host for the migration.
+On-premises physical servers or servers hosted on other clouds | You can migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Migration and modernization tool uses a replication appliance for the migration.
 Web apps hosted on Windows OS in a VMware environment | You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate.
 
 ## Selecting assessment and migration tools
