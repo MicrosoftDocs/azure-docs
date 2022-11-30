@@ -464,16 +464,17 @@ assignment.
 
 `Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios. 
 
-Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
+> [!NOTE]
+> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
 
-**Subscription deletion**
+#### Subscription deletion
 Policy won't block removal of resources that happens during a subscription deletion. 
 
-**Resource group deletion** 
+#### Resource group deletion 
 Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy won't block removal of resources that don't support location and tags nor any policy with `mode:all`. 
 
-**Cascade Deletion** 
-Cascade Deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child). 
+#### Cascade deletion
+Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child). 
 
 [!INCLUDE [policy-denyAction](../../../../includes/azure-policy-denyAction.md)]
 
