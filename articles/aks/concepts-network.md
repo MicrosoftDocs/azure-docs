@@ -110,31 +110,6 @@ Nodes use the [Azure CNI][cni-networking] Kubernetes plugin.
 
 For more information, see [Configure Azure CNI for an AKS cluster][aks-configure-advanced-networking].
 
-### Monitor IP Subnet Usage: 
-
-Azure CNI provides a capability to monitor the IP Subnet Usage. To enable the monitoring of the IP Subnet Usage follow the steps below:
-
-#### Get the YAML file:
-1.	Download or grep the file named container-azm-ms-agentconfig.yaml from github.
-2.	Find azure_subnet_ip_usage in integrations. Set enabled == true 
-3.	Save the file.
-
-#### Get the AKS Credentials:
-Set the variables for subscription, resource group and cluster. Consider the following as examples:
-$s="subscriptionId"
-$rg="resourceGroup "
-$c="ClusterName"
-az account set -s $s
-az aks get-credentials -n $c -g $rg
-
-#### Apply the config:
-1.	Open terminal in the folder the downloaded container-azm-ms-agentconfig.yaml file is saved.
-2.	First, apply the config using the command: kubectl apply -f container-azm-ms-agentconfig.yaml
-3.	This will restart the pod and after 5-10 mins, the metrics will be visible.
-4.	To view the metrics on the cluster, go to Workbooks blade on the cluster page and find workbook named Subnet IP usage and you should be able to get the following view 
-
-  :::image type="content" source="media/networking-overview/ip-subnet-usage.png":::    
-
 ### Compare network models
 
 Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
