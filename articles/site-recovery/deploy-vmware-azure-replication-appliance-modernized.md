@@ -4,6 +4,8 @@ description: This article describes support and requirements when deploying the 
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -27,7 +29,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 --- | ---
 CPU cores | 8
 RAM | 32 GB
-Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
+Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements
 
@@ -47,6 +49,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |Fully qualified domain name (FQDN) | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
+|NAT | Supported |
 
 
 #### Allow URLs
@@ -60,12 +63,22 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
-  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
+  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that the machines which need to be replicated have access to this. |
   |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
   |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
+
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.microsoftazure.us` | `login.chinacloudapi.cn/*` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `portal.azure.us`          |    `portal.azure.cn`           |Navigate to the Azure portal. | 
+  | `*.microsoftonline.us/*` <br> `management.usgovcloudapi.net` | `*.microsoftonline.cn/*` <br> `management.chinacloudapi.cn/*` | Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  | `*.hypervrecoverymanager.windowsazure.us` <br> `*.migration.windowsazure.us` <br> `*.backup.windowsazure.us` | `*.hypervrecoverymanager.windowsazure.cn` <br> `*.migration.windowsazure.cn` <br> `*.backup.windowsazure.cn` | Connect to Azure Site Recovery micro-service URLs. |
+  |`*.vault.usgovcloudapi.net`| `*.vault.azure.cn` |Manage secrets in the Azure Key Vault. Note: Ensure that the machines which need to be replicated have access to this. |
 
 
 ### Folder exclusions from Antivirus program
@@ -90,7 +103,7 @@ C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
 
-#### If Antivirus software is active on Source machine
+#### If Antivirus software is active on source machine
 
 If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
 

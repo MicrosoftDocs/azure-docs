@@ -3,7 +3,7 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/29/2022
 ---
 
 # Manage AWS assessments and standards
@@ -78,36 +78,6 @@ You can either use the built-in regulatory compliance standards or create your o
 1. Select all relevant assessments from the drop-down menu.
 
 1. Select the standards from the drop-down menu.
-
-1. Select **Save**.
-
-## Create a new custom assessment for your AWS account
-
-**To create a new custom assessment for your AWS account**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant AWS account.
-
-1. Select **Standards** > **Add** > **Assessment**.
-
-1. Select **New assessment (preview)**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-assessment.png" alt-text="Screenshot of the adding a new assessment screen for your AWS account." lightbox="media/how-to-manage-assessments-standards/new-aws-assessment.png":::
-
-1. Enter a name, severity, and select an assessment from the drop-down menu.
-
-1. Enter a KQL query that defines the assessment logic.
-
-    If you’d like to create a new query, select the ‘[Azure Data Explorer](https://dataexplorer.azure.com/clusters/securitydatastoreus.centralus/databases/DiscoveryMockDataAws)’ link. The explorer will contain mock data on all of the supported native APIs. The data will appear in the same structure as contracted in the API.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/azure-data-explorer.png" alt-text="Screenshot that shows where to select to select the Azure Data Explorer link." lightbox="media/how-to-manage-assessments-standards/azure-data-explorer.png":::
-
-    See the [how to build a query](#how-to-build-a-query) section for more examples.
-
-1. Select the standards to add to this assessment.
 
 1. Select **Save**.
 

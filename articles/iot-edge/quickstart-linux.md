@@ -3,7 +3,7 @@ title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs
 description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/21/2022
+ms.date: 11/18/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -75,7 +75,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the azure-iot extension.
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the *azure-iot* extension.
 
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two. We'll refer to this connection string again in the next section when you set up your IoT Edge device.
 
@@ -292,15 +292,6 @@ In **IoT Edge Module Marketplace**, search for and select the `Simulated Tempera
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
-Select **Runtime Settings** to open the settings for the edgeHub and edgeAgent modules. This settings section is where you can manage the runtime modules by adding environment variables or changing the create options.
-
-Update the **Image** field for both the edgeHub and edgeAgent modules to use the version tag 1.4. For example:
-
-* `mcr.microsoft.com/azureiotedge-hub:1.4`
-* `mcr.microsoft.com/azureiotedge-agent:1.4`
-
-Select **Save** to apply your changes to the runtime modules.
-
 :::moniker-end
 <!--end iotedge-2020-11-->
 
@@ -310,12 +301,11 @@ Select **Next: Routes** to continue to the next step of the wizard.
 
 ### Routes
 
-On the **Routes** tab, remove the default route, **route**, and then select **Next: Review + create** to continue to the next step of the wizard.
-
-   >[!Note]
-   >Routes are constructed by using name and value pairs. You should see two routes on this page. The default route, **route**, sends all messages to IoT Hub (which is called `$upstream`). A second route, **SimulatedTemperatureSensorToIoTHub**, was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub. You can delete the default route because it's redundant in this case.
+A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
 
    ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/delete-route-next-review-create.png)
+
+Select **Next: Review + create**.
 
 ### Review and create
 

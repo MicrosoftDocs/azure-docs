@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy, cliv1, sdkv1
-ms.author: larryfr
-author: blackmist
+author: bozhong68
+ms.author: bozhlin
 ms.reviewer: larryfr
-ms.date: 08/15/2022
+ms.date: 11/16/2022
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster with v1

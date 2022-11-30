@@ -37,7 +37,7 @@ Azure Monitor Agent provides the following benefits over legacy agents:
 
 Your migration plan to the Azure Monitor Agent should take into account:
 
-- **Current and new feature requirements:** Review [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent has the features you require. If you currently use unsupported features you can temporarily do without, consider migrating to the new agent to benefit from added security and reduced cost immediately. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview) to *discover what solutions and features you're using today that depend on the legacy agent*.
+- **Current and new feature requirements:** Review [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent has the features you require. If you currently use unsupported features you can temporarily do without, consider migrating to the new agent to benefit from added security and reduced cost immediately. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to *discover what solutions and features you're using today that depend on the legacy agent*.
 
     If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
 
@@ -57,15 +57,15 @@ Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for us
 
 To ensure safe deployment during migration, begin testing with few resources running Azure Monitor Agent in your nonproduction environment. After you validate the data collected on these test resources, roll out to production by following the same steps.
 
-To start collecting some of the existing data types, see [Create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association). Alternatively, you can use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator-preview) to convert existing legacy agent configuration into data collection rules.
+To start collecting some of the existing data types, see [Create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association). Alternatively, you can use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert existing legacy agent configuration into data collection rules.
 
 After you *validate* that data is flowing as expected with Azure Monitor Agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
 
 ## At-scale migration using Azure Policy
 
-We recommend using [Azure Policy](../../governance/policy/overview.md) to migrate a large number of agents. Start by analyzing your current monitoring setup with the Log Analytics agent by using the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview). Use this tool to find sources like virtual machines, virtual machine scale sets, and non-Azure servers.
+We recommend using [Azure Policy](../../governance/policy/overview.md) to migrate a large number of agents. Start by analyzing your current monitoring setup with the Log Analytics agent by using the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper). Use this tool to find sources like virtual machines, virtual machine scale sets, and non-Azure servers.
 
-Use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator-preview) to migrate legacy agent configuration, including data sources and destinations, from the workspace to the new DCRs.
+Use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to migrate legacy agent configuration, including data sources and destinations, from the workspace to the new DCRs.
 
 > [!IMPORTANT]
 > Before you deploy a large number of agents, consider [configuring the workspace](agent-data-sources.md) to disable data collection for the Log Analytics agent. If you leave data collection for the Log Analytics agent enabled, you might collect duplicate data and increase your costs. You might choose to collect duplicate data for a short period during migration until you verify that you've deployed and configured Azure Monitor Agent correctly.
