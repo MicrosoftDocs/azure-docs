@@ -42,7 +42,7 @@ The following table provides details about alert related fields.
 |CountOfAlertsConsolidated_s     |Number         |Number of alerts consolidated if it's a consolidated alert          |
 |AlertRaisedOn_s     |Text         |Type of entity the alert is raised on         |
 |AlertCode_s     |Text         |Code to uniquely identify an alert type         |
-|RecommendedAction_s   |Text         |Action recommended to resolve the alert         |
+|RecommendedAction_s   |Text         |Action recommended resolving the alert         |
 | EventName_s |Text |Name of the event. Always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unique identifier of the backup item associated with the alert |
 | SchemaVersion_s |Text |Current version of the schema, for example **V2** |
