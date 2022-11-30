@@ -2,7 +2,7 @@
 title: Use Application Live View
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Application Live View for VMware Tanzu.
-author: 
+author: karlerickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
