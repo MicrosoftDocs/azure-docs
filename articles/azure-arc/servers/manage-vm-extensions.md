@@ -169,10 +169,10 @@ The following extensions are available for Windows and Linux machines:
 |SUSE Linux Enterprise Server 15 |X |X |X |X |X |X |X |X |
 |SUSE Linux Enterprise Server 15 SP5 |X |X |X |X |X | |X |X |
 |SUSE Linux Enterprise Server 12 SP5 |X |X |X |X |X | |X |X |
-|Unbuntu 20.04 LTS |X |X |X |X |X | |X |X |
-|Unbuntu 18.04 LTS |X |X |X |X |X |X |X |X |
-|Unbuntu 16.04 LTS |X |X |X |X | | |X |X |
-|Unbuntu 140.04 LTS | |X | |X | | |X | |
+|Ubuntu 20.04 LTS |X |X |X |X |X | |X |X |
+|Ubuntu 18.04 LTS |X |X |X |X |X |X |X |X |
+|Ubuntu 16.04 LTS |X |X |X |X | | |X |X |
+|Ubuntu 14.04 LTS | |X | |X | | |X | |
 
 For the regional availabilities of different Azure services and VM extensions available for Azure Arc-enabled servers, [refer to Azure Global's Product Availability Roadmap](https://global.azure.com/product-availability/roadmap).
 

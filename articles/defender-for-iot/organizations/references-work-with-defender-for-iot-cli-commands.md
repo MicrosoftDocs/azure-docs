@@ -15,7 +15,7 @@ This article describes CLI commands for sensors and on-premises management conso
 
 For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users)..
 
-To start working in the CLI, connect using a terminal, such as PuTTY using one of the privileged users.
+To start working in the CLI, connect using a terminal, such as PuTTY, using one of the privileged users.
 
 
 ## Create local alert exclusion rules

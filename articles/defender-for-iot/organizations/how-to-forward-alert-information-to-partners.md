@@ -56,6 +56,10 @@ The following Forwarding rules allow encryption and certificate validation:
 
 ## Create forwarding rules
 
+**Prerequisites**:
+
+Before you can configure a forwarding rule, you'll need to define SMTP settings on your sensor. For more information, see [Configure SMTP settings](how-to-manage-individual-sensors.md#configure-smtp-settings).
+
 **To create a new forwarding rule**:
 
 1. Sign in to the sensor.
@@ -94,9 +98,6 @@ Send mail that includes the alert information. You can enter one email address p
 1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
 1. Select **Save**.
-
->[!NOTE]
->Make sure you also add an SMTP server to System Settings -> Integrations -> SMTP Server in order for the EMAIL forwarding rule to function
 
 ### Syslog server actions
 
