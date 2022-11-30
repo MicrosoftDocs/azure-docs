@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 11/30/2022
 ms.author: helohr
 manager: femila
 ---
@@ -115,6 +115,26 @@ To configure Private Link in the Azure portal:
 
 >[!NOTE]
 >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
+
+## Reregister your resource provider
+
+In the public preview version of Private Link, after you create your resources, you'll need to reregister them to your resource provider before you can start using Private Link. Reregistering allows the service to download and assign the new roles that will let you use this feature. 
+
+To reregister your resource provider:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Subscriptions**.
+
+1. Select the name of your subscription.
+
+1. Select **Resource providers**.
+
+1. Search for **Microsoft.DesktopVirtualization**.
+
+1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Register**.
+
+1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
 
 ## Closing public routes
 
