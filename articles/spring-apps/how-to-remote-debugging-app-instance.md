@@ -75,15 +75,19 @@ az spring app get-remote-debugging-config \
 ---
 
 ## Remote debugging app instance
-#### [Intellij extension](#tab/Intellij-extension)
+#### [Azure Toolkit for IntelliJ](#tab/Intellij-extension)
 
 ### Prerequisites
-* [Azure Toolkit for IntelliJ](https://learn.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit) is installed
+* The [Azure Toolkit for IntelliJ](https://learn.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit) is installed.
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Ultimate or Community Edition is installed.
 
 
 ### Enable/disable Remote Debugging
 
-![Intellij Enable Remote Debugging](./media/how-to-remote-debugging-app-instance/intellij-enable-remote-debugging.png)
+1. You have signed in your Azure account within Azure Explorer.
+2. Choose one of the app instance and right click with the option of “Enable Remote Debugging” under Azure Explorer.
+
+![Intellij Enable Remote Debugging](./media/how-to-remote-debugging-app-instance/intellij-enable-remote.png)
 
 ### Attach Debugger
 
@@ -117,13 +121,17 @@ az role assignment create --role 'Azure Spring Apps Remote Debugging Role' --sco
 
 
 
-#### [Vscode extension](#tab/Vscode-extension)
+#### [VS Code Extension](#tab/Vscode-extension)
 
 ### Prerequisites
-* [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) is installed.
-
+* [Azure Spring Apps for VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) is installed.
+* [Visual Studio Code](https://code.visualstudio.com) is installed.
 
 ### Enable/disable Remote Debugging
+
+1. You have signed in to your Azure subscription.
+2. Choose one of the app instance and right click with the option of “Enable Remote Debugging” under Azure Explorer.
+
 ![Vscode Enable Remote Debugging](./media/how-to-remote-debugging-app-instance/vscode-enable-remote-debugging.png)
 
 ### Attach Debugger
