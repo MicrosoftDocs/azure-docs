@@ -18,7 +18,7 @@ Automatic deployments and layered deployment help you manage and configure modul
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) in the device twin.
 
-You cannot combine per-device and automatic deployments. Once you start targeting edge devices with automatic deployments (with or without Layered deployments), per-device deployments are no longer supported.
+You can't combine per-device and automatic deployments. Once you start targeting edge devices with automatic deployments (with or without layered deployments), per-device deployments are no longer supported.
 
 This article focuses on configuring and monitoring fleets of devices, collectively referred to as *IoT Edge automatic deployments*. The basic deployment steps are as follows:
 
