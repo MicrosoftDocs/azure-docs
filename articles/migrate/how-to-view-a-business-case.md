@@ -36,7 +36,7 @@ There are four major reports that you need to review:
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number below **Total migration business cases**.
 1. In **Business Case**, select a business case to open it. As an example (estimations and costs, for example, only): 
 
-   :::image type="content" source="./media/how-to-view-a-business-case/overview-inline.png" alt-text="Screenshot of the Business Case Overview." lightbox="../media/how-to-view-a-business-case/overview-expanded.png":::
+   :::image type="content" source="./media/how-to-view-a-business-case/overview-inline.png" alt-text="Screenshot of the Business Case Overview." lightbox="./media/how-to-view-a-business-case/overview-expanded.png":::
 
 ## Overview report
 

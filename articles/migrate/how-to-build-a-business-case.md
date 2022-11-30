@@ -56,7 +56,7 @@ There are three types of migration strategies that you can choose while building
 
 1. In **Azure Migrate: Discovery and assessment**, select **Build business case**.
 
-    :::image type="content" source="../media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
+    :::image type="content" source="./media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
 
    We recommend that you wait at least a day after starting discovery before you build a Business case so that enough performance/resource utilization data points are collected. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the Business case recommendations will be more valuable.
 
