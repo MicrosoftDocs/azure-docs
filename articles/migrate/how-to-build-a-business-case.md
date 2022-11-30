@@ -1,6 +1,6 @@
 ---
-title: Build a business case with Azure Migrate | Microsoft Docs
-description: Describes how to build a business case with Azure Migrate
+title: Build a Business case with Azure Migrate | Microsoft Docs
+description: Describes how to build a Business case with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
@@ -13,7 +13,7 @@ ms.date: 11/30/2022
 
 # Build a business case (preview)
 
-This article describes how to build a business case for on-premises servers and workloads in your VMware environment with Azure Migrate: Discovery and assessment tool.
+This article describes how to build a Business case for on-premises servers and workloads in your VMware environment with Azure Migrate: Discovery and assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -21,12 +21,12 @@ This article describes how to build a business case for on-premises servers and 
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-assess.md) to the project.
-- Before you build the business case, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md).
+- Before you build the Business case, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md).
 
 
-## Business Case overview
+## Business case overview
 
-The business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
+The Business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
 
 - On-premises vs Azure total cost of ownership.
 - Year on year cashflow analysis.
@@ -40,33 +40,33 @@ Other key features:
 - It can be generated in just a few clicks after you have performed discovery using the Azure Migrate appliance.
 - The feature is automatically enabled for existing Azure Migrate projects.
 
-There are three types of migration strategies that you can choose while building your business case:
+There are three types of migration strategies that you can choose while building your Business case:
 
 **Migration Strategy** | **Details** | **Assessment insights**
 --- | --- | ---
 **Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy- minimize cost from Azure SQL assessment. For web apps, sizing and cost comes from Azure App Service assessment is picked. For general servers, sizing and cost comes from Azure VM assessment.
 **Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. <br\><br\> For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
-**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. General servers are recommended with a quick lift and shift recommendation to Azure IaaS |  For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. <br\><br\> For web apps, sizing and cost comes from Azure App Service assessment. <br\><br\> For general servers, sizing and cost comes from Azure VM assessment. <br\><br\> Although the business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
+**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. General servers are recommended with a quick lift and shift recommendation to Azure IaaS |  For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. <br\><br\> For web apps, sizing and cost comes from Azure App Service assessment. <br\><br\> For general servers, sizing and cost comes from Azure VM assessment. <br\><br\> Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 ## Build a business case
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    ![Screenshot of the discover, assess and migrate servers button.](./media/how-to-build-a-business-case/assess.png)
+    :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
 
 1. In **Azure Migrate: Discovery and assessment**, select **Build business case**.
 
-    ![Screenshot of the build business case button.](./media/how-to-build-a-business-case/build.png)
+    :::image type="content" source="../media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
 
-   We recommend that you wait at least a day after starting discovery before you build a business case so that enough performance/resource utilization data points are collected. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the business case recommendations will be more valuable.
+   We recommend that you wait at least a day after starting discovery before you build a Business case so that enough performance/resource utilization data points are collected. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the Business case recommendations will be more valuable.
 
-1. In **Business case name**, specify a name for the business case. Make sure the business case name is unique within a project, else the previous business case with the same name will get recomputed.
+1. In **Business case name**, specify a name for the Business case. Make sure the Business case name is unique within a project, else the previous Business case with the same name will get recomputed.
 
 1. In **Target location**, specify the Azure region to which you want to migrate.
 
    Azure SKU size and cost recommendations are based on the location that you specify.
 
-1. In **Migration strategy**, specify the migration strategy for your business case:
+1. In **Migration strategy**, specify the migration strategy for your Business case:
     
     - With the default *Azure recommended approach to minimize cost*, you can get the most cost-efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets.
     - With *Migrate to all IaaS (Infrastructure as a Service)*, you can get a quick lift and shift recommendation to Azure IaaS.
@@ -75,11 +75,11 @@ There are three types of migration strategies that you can choose while building
 1. **Currency** is defaulted to USD and can't be edited.
 1. Review the chosen inputs, and select **Build business case**.
 
-    ![Screenshot of the button to initiate the bussiness case creation.](./media/how-to-build-a-business-case/build-button.png)
+    :::image type="content" source="/media/how-to-build-a-business-case/build-button.png" alt-text="Screenshot of the button to initiate the Business case creation.":::
 
-1. You'll be directed to the newly created business case with a banner that says that your business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the business case page after ~30 minutes and select **Refresh**.
+1. You'll be directed to the newly created Business case with a banner that says that your Business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the Business case page after ~30 minutes and select **Refresh**.
     
-    ![Screenshot of the refresh button.](./media/how-to-build-a-business-case/refresh.png)
+    :::image type="content" source="./media/how-to-build-a-business-case/refresh-inline.png" alt-text="Screenshot of the refresh button to refresh the Business case." lightbox="./media/how-to-build-a-business-case/refresh-expanded.png":::
     
 ## Next steps
-- [Learn more](how-to-view-a-business-case.md) about how to review the business case reports.
+- [Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.

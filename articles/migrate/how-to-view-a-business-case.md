@@ -36,7 +36,7 @@ There are four major reports that you need to review:
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number below **Total migration business cases**.
 1. In **Business Case**, select a business case to open it. As an example (estimations and costs, for example, only): 
 
-   ![Screenshot of the Business Case Overview.](./media/how-to-build-a-business-case/overview.png)
+   :::image type="content" source="./media/how-to-view-a-business-case/overview-inline.png" alt-text="Screenshot of the Business Case Overview." lightbox="../media/how-to-view-a-business-case/overview-expanded.png":::
 
 ## Overview report
 
@@ -55,7 +55,7 @@ As you plan to migrate to Azure in phases, this line chart shows your cashflow p
 - The future state cost shows how your net cashflow will be as you migrate some percentage to Azure per year as in the 'Azure cost' assumptions, while your infrastructure is growing 5% per year.
 
 ### Savings with Azure Hybrid Benefits
-Currently, this card shows a static percentage of max savings you could get with Azure hybrid Benefits. Soon, you'll be able to see actual license cost savings assuming all your licenses are convertible to Azure and the savings are from bringing the existing Windows and SQL Server licenses to Azure.
+Currently, this card shows a static percentage of max savings you could get with Azure hybrid Benefits. 
 
 ### Discovery insights
 It covers the total severs scoped in the business case computation, virtualization distribution, utilization insights and distribution of servers based on workloads running on them.
@@ -73,7 +73,7 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 ## On-premises vs Azure report
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
 
-![Screenshot of on-premises and Azure comparison.](./media/how-to-build-a-business-case/comparison.png)
+:::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
 
 ## Azure IaaS report
 

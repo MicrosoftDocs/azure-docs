@@ -1,6 +1,6 @@
 ---
-title: Questions about business case in Azure Migrate
-description: Get answers to common questions about business case in Azure Migrate.
+title: Questions about Business case in Azure Migrate
+description: Get answers to common questions about Business case in Azure Migrate.
 author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Business case (preview) - Common questions
 
-This article answers common questions about business case in Azure Migrate. If you have other questions, check these resources:
+This article answers common questions about Business case in Azure Migrate. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate.
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md).
@@ -26,22 +26,22 @@ Currently, Business case export in .xlsx file is not supported.
 
 An assessment helps you understand the readiness, sizing and Azure cost estimates (only compute and storage) of a particular source and targets. It's useful in understanding *How to migrate to Azure*.
 
-A business case helps you understand on-premises cost estimates, Azure cost estimates and potential savings (TCO and YoY). It helps you understand *Why Azure?* and helps understand the quick wins and unique Azure Benefits.
+A Business case helps you understand on-premises cost estimates, Azure cost estimates and potential savings (TCO and YoY). It helps you understand *Why Azure?* and helps understand the quick wins and unique Azure Benefits.
 
 ### Why is my business case in computing status?
 
-Business case creates assessments in the background, which could take some time depending on the number of servers, SQL servers and web apps present in your project. It could take somewhere between 15 mins to 3 hours for the business case to get computed. If it's still stuck in computing status, create a support request.
+Business case creates assessments in the background, which could take some time depending on the number of servers, SQL servers and web apps present in your project. It could take somewhere between 15 mins to 3 hours for the Business case to get computed. If it's still stuck in computing status, create a support request.
 
-## Build Business case 
+## Build business case 
 
 ## How do I build a business case?
 
-Currently, you can create a business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware environment. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
+Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware environment. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
 
 
 ### Why can’t I build business case from my project?
 
-You won't be able to create a business case if your project is in one of the 5 project regions:
+You won't be able to create a Business case if your project is in one of the 5 project regions:
 East Asia, Germany West Central, Japan West, Norway East, Switzerland North.
 
 To verify in an existing project:
@@ -69,8 +69,8 @@ Currently, the currency is defaulted to USD.
 **Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. General servers are recommended with a quick lift and shift recommendation to Azure IaaS |  For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment.
 
 > [!NOTE]
-> Although the business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
-## Business Case recommendation
+> Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
+## Business case recommendation
 
 
 ### I can't see some servers and SQL instances
@@ -79,14 +79,14 @@ Multiple possibilities:
 
 - Discovery hasn't completed - Wait for the discovery to get completed (recommended to wait at least 24 hours).
 - Check and resolve any discovery issues.
-- Changes to discovery happened after creating the business case.
+- Changes to discovery happened after creating the Business case.
 
 To fetch latest discovery data, recalculate by selecting **Recalculate** button, or changing the assumptions and selecting **Save**.
 
 
 ### Why are all or some of the servers marked as unknown in the utilization insights?
 
-We couldn't collect sufficient data points to classify these servers. We recommend that you wait at least a day after starting discovery so that the business case has enough utilization data points. Also, review the notifications/ resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to business case computation. Reviewing issues prior to building a business case will ensure that the IT estate in your datacenter is represented more accurately.
+We couldn't collect sufficient data points to classify these servers. We recommend that you wait at least a day after starting discovery so that the Business case has enough utilization data points. Also, review the notifications/ resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. Reviewing issues prior to building a Business case will ensure that the IT estate in your datacenter is represented more accurately.
 
 ### Was the readiness taken into consideration in the recommendations?
 Yes, but you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
@@ -101,3 +101,8 @@ To deep dive into sizing, readiness and Azure cost estimates, you can create res
 
 ### Does the Azure SQL recommendation logic include SQL consolidation?
 No, it does not include SQL consolidation.
+
+## Next steps
+[Learn more](how-to-build-a-business-case.md) about how to build a Business case.
+[Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
+
