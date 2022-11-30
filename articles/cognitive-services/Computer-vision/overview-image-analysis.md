@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision 
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 11/03/2022
+ms.date: 11/06/2022
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -37,7 +37,7 @@ This documentation contains the following types of articles:
 * The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-For a more structured approach, follow a Learn module for Image Analysis.
+For a more structured approach, follow a Training module for Image Analysis.
 * [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
 ## Image Analysis features

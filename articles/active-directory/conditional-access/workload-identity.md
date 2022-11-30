@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 11/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -56,7 +56,7 @@ Create a location based Conditional Access policy that applies to service princi
 
 ### Create a risk-based Conditional Access policy
 
-Create a location based Conditional Access policy that applies to service principals.
+Create a risk-based Conditional Access policy that applies to service principals.
 
 :::image type="content" source="media/workload-identity/conditional-access-workload-identity-risk-policy.png" alt-text="Creating a Conditional Access policy with a workload identity and risk as a condition." lightbox="media/workload-identity/conditional-access-workload-identity-risk-policy.png":::
 
@@ -124,7 +124,7 @@ Sample JSON for location-based configuration using the Microsoft Graph beta endp
       ],
       "excludeServicePrincipals": [
         "[Service principal Object ID]"
-      ],
+      ]
     },
     "locations": {
       "includeLocations": [
