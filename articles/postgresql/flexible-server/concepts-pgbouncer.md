@@ -86,13 +86,15 @@ In some cases, you may already have an application side connection pool, or have
 
 Utilizing an application side pool together with PgBouncer on the database server can be beneficial. Here, the application side pool brings the benefit of reduced initial connection latency (as the initial roundtrip to initialize the connection is much faster), and the database-side PgBouncer provides idle connection scaling.
 
+> [!Note] 
+> [SCRAM authentication](how-to-connect-scram.md) is supported with PgBouncer in Azure Database for PostgreSQL - Flexible Server.
+
 ## Limitations
  
 * PgBouncer is currently not supported with Burstable server compute tier. 
 * If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you will lose the PgBouncer capability.
 * Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal does not show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. 
-* [SCRAM authentication](how-to-connect-scram.md) is not supported with PgBouncer.
   
 ## Next steps
 
