@@ -124,7 +124,7 @@ Cost components for running on-premises servers. For TCO calculations, a one yea
 |     | Software- Windows Server licensing | License cost | Calculated per two corepack license pricing of Windows Server. |
 |     |     | Software Assurance | Calculated per year as in settings. |
 |     | Virtualization software | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for Vsphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
-| Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. (It's taken as an industry standard as cost per GB per month for NAS is ~$1.67 & SAN is $2.3. As Azure Migrate can't differentiate between SAN & NAS, average of $2 is taken). |
+| Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |

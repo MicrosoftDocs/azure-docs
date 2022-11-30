@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.date: 11/30/2022
-
+ms.custom: references_regions
 ---
 
 # Business case (preview) - Common questions
@@ -20,7 +20,7 @@ This article answers common questions about business case in Azure Migrate. If y
 
 ### Why is the export gesture disabled?
 
-Business case export in .xlsx file will be supported soon.
+Currently, Business case export in .xlsx file is not supported.
 
 ### What is the difference between an assessment and a business case?
 
@@ -59,7 +59,7 @@ To verify in an existing project:
     - Eastasia, germanywestcentral, japanwest, norwayeast, switzerlandnorth
 
 ### Why can't I change the currency during business case creation?
-Currently, the currency is defaulted to USD. Support for other currencies will be added soon.
+Currently, the currency is defaulted to USD. 
 
 ### What does the different migration strategies mean?
 **Migration Strategy** | **Details** | **Assessment insights**
