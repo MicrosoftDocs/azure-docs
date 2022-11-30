@@ -39,11 +39,11 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 - **Subnet IP Usage**: Interactive IP usage charts for each node within a cluster by the following perspectives:
  
-    - IP's allocated form subnet.
-    - IP's assigned to a pod.
+    - IPs allocated form subnet.
+    - IPs assigned to a pod.
 
 >[!NOTE]
-> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. Please read instructions on how to enable Subnet IP usage Metrics [here](../../aks/concepts-network.md#monitor-ip-subnet-usage)
+> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](../../aks/configure-azure-cni.md#monitor-ip-subnet-usage)
 
 ## Resource Monitoring workbooks
 
