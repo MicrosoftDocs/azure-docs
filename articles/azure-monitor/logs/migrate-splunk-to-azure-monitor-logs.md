@@ -61,11 +61,10 @@ Azure Monitor provides a variety of tools for collecting data from all data sour
 | --- | --- | --- |
 | **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
 | **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring data. |
-| **Container** |[Container insights](../containers/container-insights-overview.md)| |
-| **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
+| **Container** |[Container insights](../containers/container-insights-overview.md)| Container performance data. |
+| **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
-Container insights talk to Kevin Harris and ask Rod and Vanessa - also is this article about Logs or Azure Monitor in general?
 ## 3. Migrate applications
 
 
