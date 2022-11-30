@@ -157,7 +157,7 @@
       href: storage-mounts-azure-files.md
     - name: Azure Arc
       items:
-      - name: 1 - Enable Azure Arc-enabled Kubernetes clusters
+      - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
         href: azure-arc-enable-cluster.md
       - name: 2 - Create container app
         href: azure-arc-create-container-app.md

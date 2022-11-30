@@ -1,5 +1,5 @@
 ---
-title: Create a container app on Azure Arc
+title: 'Tutorial: Create a container app on Azure Arc'
 description: Get started with Azure Container Apps on Azure Arc-enabled Kubernetes deploying your first app.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 11/29/2022
 ms.author: cshoe
 ---
 
-# Create an Azure Container App on Azure Arc-enabled Kubernetes (Preview)
+# Tutorial: Create an Azure Container App on Azure Arc-enabled Kubernetes (Preview)
 
 In this tutorial, you create a [Container app to an Azure Arc-enabled Kubernetes cluster](azure-arc-enable-cluster.md) (Preview) and learn to:
 
