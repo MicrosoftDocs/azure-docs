@@ -44,14 +44,14 @@ The API for MongoDB has added benefits of being built on Azure Cosmos DB when co
 
 ## How the API for MongoDB works
 
-Azure Cosmos DB for MongoDB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB doesn't host the MongoDB database engine. Any MongoDB client driver compatible with the API version you're using should be able to connect, with no special configuration.
+The API for MongoDB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB doesn't host the MongoDB database engine. Any MongoDB client driver compatible with the API version you're using should be able to connect, with no special configuration.
 
 > [!IMPORTANT]
 > This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.
 
 ### MongoDB feature compatibility
 
-Azure Cosmos DB for MongoDB is compatible with the following MongoDB server versions:
+The API for MongoDB is compatible with the following MongoDB server versions:
 
 - [Version 4.2](feature-support-42.md)
 - [Version 4.0](feature-support-40.md)
@@ -66,7 +66,7 @@ All the APIs for MongoDB versions run on the same codebase, making upgrades a si
 
 - You aren't billed for virtual machines in a cluster. [Pricing](../how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 1000 RUs per second are free with [Free Tier](../free-tier.md).
 
-- There are three ways to deploy Azure Cosmos DB for MongoDB:
+- There are three ways to deploy the API for MongoDB:
 
   - [Provisioned throughput](../set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.
 
