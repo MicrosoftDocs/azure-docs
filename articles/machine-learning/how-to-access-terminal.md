@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 11/04/2022
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.
 ---
 
@@ -60,6 +60,9 @@ Access all Git operations from the terminal. All Git files and folders will be s
 
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
+
+To integrate Git with your Azure Machine Learning workspace, see  [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+
 
 ## Install packages
 

@@ -3,6 +3,8 @@ title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
 ms.date: 09/20/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -90,22 +92,6 @@ Follow the steps below to create your GCP cloud connector.
     |--|--|
     | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br> Microsoft Defender Data Collector service account role <br> Microsoft Defender for cloud identity pool |
 
-(**Servers/SQL only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
-
-:::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric ID to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
-
-To locate the unique numeric ID in the GCP portal, navigate to **IAM & Admin** > **Service Accounts**, locate `Azure-Arc for servers onboarding` in the Name column, and copy the unique numeric ID number (OAuth 2 Client ID).
-
-1. Navigate back to the Microsoft Defender for Cloud portal.
-
-1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate fields.
-
-1. Select the **Next: Review and generate >**.
-
-1. Ensure the information presented is correct.
-
-1. Select the **Create**. 
-
 After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc and any enabled extensions will install automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
@@ -138,9 +124,9 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
     - VA solution (TVM/ Qualys)
-    - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+    - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA). Ensure the selected workspace has security solution installed.
     
-        The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent.
+        The LA agent and AMA are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 

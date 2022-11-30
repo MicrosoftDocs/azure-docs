@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN (preview), a service that enables 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 10/27/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -23,14 +23,41 @@ Each volume group supports up to 200 virtual network rules.
 > [!IMPORTANT]
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
-## Required permissions
+## Enable Storage service endpoint
 
-To enable service point for Azure Storage, the user must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
-
-An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service point for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+
+# [Portal](#tab/azure-portal)
+
+1. Navigate to your virtual network and select **Service Endpoints**.
+1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
+1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
+
+:::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+```powershell
+$resourceGroupName = "yourResourceGroup"
+$vnetName = "yourVirtualNetwork"
+$subnetName = "yourSubnet"
+
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
+
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+```
+---
 
 ## Available virtual network regions
 
@@ -196,7 +223,10 @@ You can manage virtual network rules for volume groups through the Azure portal,
     > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
 
     ```azurecli
-    az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtual-network-rules:[{id:/'subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default',action:Allow}]}"
+    # First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
+    virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $resourceGroupName --query 'length(networkAcls.virtualNetworkRules)'
+    
+    az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
     ```
 
 - Remove a network rule. The following command removes the first network rule, modify it to remove the network rule you'd like.

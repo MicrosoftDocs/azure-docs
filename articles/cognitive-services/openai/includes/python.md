@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 11/02/2022
 keywords: 
 ---
 
@@ -30,6 +30,9 @@ keywords:
 ```console
 pip install openai
 ```
+
+> [!NOTE]
+> This library is maintained by OpenAI and is currently a preview release. Use the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 

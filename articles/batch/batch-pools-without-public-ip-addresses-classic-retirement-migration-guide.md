@@ -1,6 +1,6 @@
 ---
 title: Migrate pools without public IP addresses (classic) in Batch
-description: Learn how to opt in to migrate Azure Batch pools without public IP addresses (classic) and plan for feature end of support.
+description: Learn how to migrate Azure Batch pools without public IP addresses (classic) and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -30,13 +30,11 @@ The alternative to using a Batch pool without a public IP address (classic) requ
 - Use mutable public network access for Batch accounts.
 - Get firewall support for Batch account public endpoints. You can configure IP address network rules to restrict public network access to your Batch account.
 
-## Opt in and migrate your eligible pools
+## Migrate your eligible pools
 
-When the Batch feature pools without public IP addresses (classic) retires on March 31, 2023, existing pools that use the feature can migrate only if the pools were created in a virtual network. To migrate your eligible pools, complete the opt-in process to use simplified compute node communication:
+When the Batch pools without public IP addresses (classic) feature retires on March 31, 2023, existing pools that use the feature can migrate only if the pools were created in a virtual network. To migrate your eligible pools, use simplified compute node communication:
 
-1. Opt in to [use simplified compute node communication](./simplified-compute-node-communication.md#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication).
-
-   :::image type="content" source="media/certificates/opt-in.png" alt-text="Screenshot that shows creating a support request to opt in.":::
+1. Take steps to enable [simplified compute node communication](./simplified-compute-node-communication.md) on your pools.
 
 1. Create a private endpoint for Batch node management in the virtual network.
 
@@ -54,8 +52,8 @@ When the Batch feature pools without public IP addresses (classic) retires on Ma
 
 - How can I migrate my Batch pools that use the pools without public IP addresses (classic) feature to simplified compute node communication?
 
-  If you created the pools in a virtual network, [opt in and complete the migration process](#opt-in-and-migrate-your-eligible-pools).
-  
+  If you created the pools in a virtual network, [complete the migration process](#migrate-your-eligible-pools).
+
   If your pools weren't created in a virtual network, create a new simplified compute node communication pool without public IP addresses.
 
 - What differences will I see in billing?
@@ -76,7 +74,7 @@ When the Batch feature pools without public IP addresses (classic) retires on Ma
 
 - What if I don’t migrate my pools to simplified compute node communication pools without public IP addresses?
 
-  After *March 31, 2023*, we will stop supporting Batch pools without public IP addresses (classic). After that date, existing pool functionality, including scale-out operations, might break. The pool might actively be scaled down to zero at any time.
+  After *March 31, 2023*, we'll stop supporting Batch pools without public IP addresses (classic). After that date, existing pool functionality, including scale-out operations, might break. The pool might actively be scaled down to zero at any time.
 
 ## Next steps
 

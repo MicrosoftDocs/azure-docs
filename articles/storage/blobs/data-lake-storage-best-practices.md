@@ -1,5 +1,5 @@
 ---
-title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Best practices for using Azure Data Lake Storage Gen2
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -16,8 +16,8 @@ This article provides best practice guidelines that help you optimize performanc
 
 For general suggestions around structuring a data lake, see these articles:
 
-- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=/azure/storage/blobs/toc.json)
+- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json)
 
 ## Find documentation
 

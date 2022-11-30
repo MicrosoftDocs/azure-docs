@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-attach-compute-targets.md)
-> * [v2 (preview)](../how-to-train-model.md)
+> * [v2 (current version)](../how-to-train-model.md)
 	 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
@@ -130,7 +130,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 
 ## <a id="synapse"></a>Apache Spark pools
 
-The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](../how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
 ## Azure HDInsight 
 

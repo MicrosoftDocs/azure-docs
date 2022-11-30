@@ -26,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions to access Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
++ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
 
 ## Define the data source
 

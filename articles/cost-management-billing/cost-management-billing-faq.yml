@@ -133,7 +133,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
+          The Cost Management + Billing team has formally announced the retirement of the APIs with a timeline of Oct 2023. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).

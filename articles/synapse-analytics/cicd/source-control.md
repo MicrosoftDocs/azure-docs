@@ -8,6 +8,13 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud 
 ms.reviewer: pimorano
+ms.search.keywords:  CICD, Synapse, source control
+ms.search.form: CICD, source control 1
+ms.search.features:  CICD, source control 2
+searchScope: 
+    - Source control  
+    - CICD
+    - Azure  
 ---
 
 # Source control in Synapse Studio

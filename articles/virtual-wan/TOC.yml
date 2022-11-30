@@ -224,9 +224,17 @@
   - name: Routing
     items:
     - name: Configure virtual hub routing
-      href: how-to-virtual-hub-routing.md
+      items:
+      - name: Azure portal
+        href: how-to-virtual-hub-routing.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-powershell.md
     - name: Configure virtual hub routing preference
-      href: howto-virtual-hub-routing-preference.md
+      items:
+      - name: Azure portal
+        href: howto-virtual-hub-routing-preference.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-preference-powershell.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
     - name: How to configure routing intent and policies
