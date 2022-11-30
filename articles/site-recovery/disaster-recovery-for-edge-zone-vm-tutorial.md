@@ -1,6 +1,6 @@
 ---
 title: Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow
-description: Learn how to set up disaster recovery for virtual machines on Edge Zone (preview).
+description: Learn how to set up disaster recovery for virtual machines on Azure Public MEC (preview).
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
