@@ -1,7 +1,7 @@
 ---
 title: Configure traffic mirroring with active or passive aggregation with terminal access points - Microsoft Defender for IoT
 description: This article describes traffic mirroring with active passive aggregation with terminal access points (TAP) for OT monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+ms.date: 11/08/2022
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ A TAP is a hardware device that allows network traffic to flow back and forth be
 
 For example:
 
-:::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs." border="false":::
+:::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs." border="false" lightbox="../media/how-to-set-up-your-network/active-passive-tap-v2.png":::
 
 Some TAPs aggregate both *Receive* and *Transmit*, depending on the switch configuration. If your switch doesn't support aggregation, each TAP uses two ports on your OT network sensor to monitor both *Receive* and *Transmit* traffic.
 

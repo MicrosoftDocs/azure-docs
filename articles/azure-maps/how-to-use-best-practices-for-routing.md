@@ -283,4 +283,4 @@ To learn more, please see:
 > [Show route on the map](./map-route.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps NPM Package](https://www.npmjs.com/package/azure-maps-rest  )
+> [Azure Maps npm Package](https://www.npmjs.com/package/azure-maps-rest  )

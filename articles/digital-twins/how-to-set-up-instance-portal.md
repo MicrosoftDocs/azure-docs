@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the Azure portal
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2, subject-rbac-steps
@@ -49,7 +49,7 @@ This version of this article goes through these steps manually, one by one, usin
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [Enable private access with Private Link](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events along [event routes](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources).
+* **Advanced**: In this tab, you can enable a [system-managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your instance. When this is enabled, Azure automatically creates an identity for the instance in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding. You can enable that system-managed identity here, or [later on an existing instance](#enabledisable-system-managed-identity-for-the-instance).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -122,6 +122,30 @@ You can view the role assignment you've set up under **Access control (IAM) > Ro
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
+
+## Enable/disable system-managed identity for the instance
+
+This section shows you how to add a system-managed identity to an existing Azure Digital Twins instance. You can also use this page to disable system-managed identity on an instance that has it already.
+
+Start by opening the [Azure portal](https://portal.azure.com) in a browser.
+
+1. Search for the name of your instance in the portal search bar, and select it to view its details.
+
+1. Select **Identity** in the left-hand menu.
+
+1. On this page, select the **On** option to turn on this feature.
+
+1. Select the **Save** button, and **Yes** to confirm.
+
+   :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-digital-twins.png":::
+
+After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
+
+You can copy the **Object ID** from here if needed, and use the **Permissions** button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
+
+### Considerations for disabling system-managed identities
+
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
 ## Next steps
 

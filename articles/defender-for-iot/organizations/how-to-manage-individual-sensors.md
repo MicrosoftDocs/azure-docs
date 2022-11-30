@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 11/07/2022
+ms.date: 11/28/2022
 ms.topic: how-to
 ---
 
@@ -152,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
-Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
+Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configure-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 ## Change the name of a sensor
 
@@ -306,6 +306,33 @@ The console will display restore failures.
 
 - Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
 
+## Configure SMTP settings
+
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers. 
+
+You'll need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+
+**Prerequisites**:
+
+Make sure you can reach the SMTP server from the [sensor's management port](/best-practices/understand-network-architecture). 
+
+**To configure an SMTP server on your sensor**:
+
+1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
+
+1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
+
+    |Parameter  |Description  |
+    |---------|---------|
+    |**SMTP Server Address**     | Enter the IP address or domain address of your SMTP server.        |
+    |**SMTP Server Port**     | Default = 25. Adjust the value as needed.        |
+    |**Outgoing Mail Account**     | Enter an email address to use as the outgoing mail account from your sensor.        |
+    |**SSL**     | Toggle on for secure connections from your sensor.        |
+    |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
+    |**Use NTLM**     | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
+        
+1. Select **Save** when you're done.
+
 ## Forward sensor failure alerts
 
 You can forward alerts to third parties to provide details about:
@@ -379,7 +406,7 @@ This procedure describes how to download a diagnostics log to send to support in
 This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console
-- **22.1.3** - For locally-managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -391,7 +418,28 @@ This feature is supported for the following sensor versions:
 
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-1. For a locally-managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+
+## Clearing sensor data
+
+In cases where the sensor needs to be relocated or erased, the sensor can be reset.
+
+Clearing data deletes all detected or learned data on the sensor. After clearing data on a cloud connected sensor, cloud inventory will be updated accordingly. Additionally, some actions on the corresponding cloud alerts such as downloading PCAPs or learning alerts will not be supported.
+
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+
+**To clear system data**:
+
+1. Sign in to the sensor as the *cyberx* user.
+
+1. Select **Support** > **Clear data**.
+
+1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+
+A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
 ## Next steps
 

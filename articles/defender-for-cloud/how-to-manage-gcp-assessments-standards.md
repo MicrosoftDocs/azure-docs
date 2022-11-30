@@ -3,7 +3,7 @@ title: Manage GCP assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 11/29/2022
 ---
 
 # Manage GCP assessments and standards
@@ -80,45 +80,6 @@ You can either use the built-in compliance standards or create your own custom s
 1. Select the standards from the drop-down menu.
 
 1. Select **Save**.
-
-## Create a new custom assessment for your GCP project
-
-**To create a new custom assessment to your GCP project**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant GCP project.
-
-1. Select **Standards** > **Add** > **Assessment**.
-
-1. Select **New assessment (preview)**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-assessment.png" alt-text="Screenshot of the new assessment screen for a GCP project." lightbox="media/how-to-manage-assessments-standards/new-assessment.png":::
-
-1. In the general section, enter a name and severity.
-
-1. In the query section, select an assessment template from the drop-down menu, or use the following query schema: 
-
-    For example:
-
-    **Ensure that Cloud Storage buckets have uniform bucket-level access enabled**
-
-    ```kusto
-    let UnhealthyBuckets = Storage_Bucket 
-      extend RetentionPolicy = Record.retentionPolicy 
-      where isnull(RetentionPolicy) or isnull(RetentionPolicy.isLocked) or tobool(RetentionPolicy.isLocked)==false 
-      project BucketName = RecordIdentifierInfo.CloudNativeResourceName; Logging_LogSink 
-      extend Destination = split(Record.destination,'/')[0] 
-      where Destination == 'storage.googleapis.com' 
-      extend LogBucketName = split(Record.destination,'/')[1] 
-      extend HealthStatus = iff(LogBucketName in(UnhealthyBuckets), 'UNHEALTHY', 'HEALTHY')"
-    ```
-
-    See the [how to build a query](#how-to-build-a-query) section for more examples.
-
-    1. Select **Save**.
 
 ## How to build a query
 

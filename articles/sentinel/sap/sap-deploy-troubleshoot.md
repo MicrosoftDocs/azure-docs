@@ -72,7 +72,7 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 ## View all container execution logs
 
-Connector execution logs for your Microsoft Sentinel Solution for SAP data connector deployment are stored in **/opt/sapcon/[SID]/log**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.<number>* such as **OmniLog.log.1**, **OmniLog.log.2** etc
+Connector execution logs for your Microsoft Sentinel Solution for SAP data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
 
 ## Review and update the Microsoft Sentinel for SAP data connector configuration
 

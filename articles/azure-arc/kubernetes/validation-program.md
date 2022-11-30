@@ -1,11 +1,8 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
-keywords: "Kubernetes, Arc, Azure, K8s, validation"
 ---
 
 # Azure Arc-enabled Kubernetes validation

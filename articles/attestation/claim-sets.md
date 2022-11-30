@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 
@@ -179,6 +179,13 @@ Below claims are generated and included in the attestation token by the service 
     - **tcbinfocrlhash**: SHA256 value of the TCB Info issuing certs CRL list
     - **tcbinfohash**: SHA256 value of the TCB Info collateral 
 - **x-ms-sgx-report-data**: SGX enclave report data field (usually SHA256 hash of x-ms-sgx-ehd) 
+
+Below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054). The claim definitions can be found [here](https://github.com/openenclave/openenclave/issues/3054)
+
+- **x-ms-sgx-config-id**
+- **x-ms-sgx-config-svn**
+- **x-ms-sgx-isv-extended-product-id**
+- **x-ms-sgx-isv-family-id**
 
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 

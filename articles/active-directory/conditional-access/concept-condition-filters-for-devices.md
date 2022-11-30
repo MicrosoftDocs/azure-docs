@@ -108,6 +108,9 @@ The filter for devices API is available in Microsoft Graph v1.0 endpoint and can
 
 The following device attributes can be used with the filter for devices condition in Conditional Access.
 
+> [!NOTE] 
+> Azure AD uses device authentication to evaluate device filter rules. For a device that is unregistered with Azure AD, all device properties are considered as null values and the device attributes cannot be determined since the device does not exist in the directory. The best way to target policies for unregistered devices is by using the negative operator since the configured filter rule would apply. If you were to use a positive operator, the filter rule would only apply when a device exists in the directory and the configured rule matches the attribute on the device. 
+
 | Supported device attributes | Supported operators | Supported values | Example |
 | --- | --- | --- | --- |
 | deviceId | Equals, NotEquals, In, NotIn | A valid deviceId that is a GUID | (device.deviceid -eq "498c4de7-1aee-4ded-8d5d-000000000000") |

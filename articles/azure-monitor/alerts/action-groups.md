@@ -125,17 +125,17 @@ When you create or update an action group in the Azure portal, you can **test** 
 
 1. On the page that lists the information that you entered, select **Test action group**.
 
-   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot of the Review + create tab of the Create action group dialog box. A Test action group button is visible.":::
+   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot of test action group start page. A Test action group button is visible.":::
 
-1. Select a sample type and the notification and action types that you want to test. Then select **Test**.
+2. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
    :::image type="content" source="./media/action-groups/test-sample-action-group.png" alt-text="Screenshot of the Test sample action group page. An email notification type and a webhook action type are visible.":::
 
-1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
+3. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
 
    :::image type="content" source="./media/action-groups/stop-running-test.png" alt-text="Screenshot of the Test sample action group page. A dialog box contains a Stop button and asks the user about stopping the test.":::
 
-1. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
+4. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
 
    :::image type="content" source="./media/action-groups/test-sample-failed.png" alt-text="Screenshot of the Test sample action group page. Error details are visible, and a white X on a red background indicates that a test failed.":::
 
@@ -263,7 +263,11 @@ You may have a limited number of Logic Apps actions per action group.
 
 ### Secure webhook
 
-When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality. 
+When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. 
+ 
+The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" AAD Application. To make the action group work, this AAD Webhook Service Principal needs to be added as member of a role on the target AAD application that grants access to the target endpoint.
+ 
+For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
 
 > [!NOTE]
 >

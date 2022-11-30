@@ -23,10 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Python provider
+        - name: Python
           href: quickstart-python-provider.md
-        - name: Python SDK
-          href: quickstart-python.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
     - name: Feature management
@@ -119,6 +117,8 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Python SDK
+      href: quickstart-python.md
     - name: Samples on GitHub
       href: https://github.com/Azure/AppConfiguration/tree/main/examples
 - name: Concepts
@@ -140,7 +140,7 @@
     - name: Reliability
       items:
         - name: Availability zone support
-          href: ../availability-zones/migrate-app-configuration.md
+          href: ../reliability/migrate-app-configuration.md
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
     - name: Security

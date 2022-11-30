@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/29/2022
+ms.date: 11/28/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -143,6 +143,12 @@ To add a secret to the vault, you need to run the Azure CLI [az keyvault secret 
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
 ```
 
+To add the Key Vault URL to the environment variable `KEYVAULT_URL`, you can run the Azure CLI [az keyvault show][az-keyvault-show] command.
+
+```bash
+export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+```
+
 ## Create a managed identity and grant permissions to access the secret
 
 Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
@@ -223,8 +229,8 @@ spec:
     - image: ghcr.io/azure/azure-workload-identity/msal-go
       name: oidc
       env:
-      - name: KEYVAULT_NAME
-        value: ${KEYVAULT_NAME}
+      - name: KEYVAULT_URL
+        value: ${KEYVAULT_URL}
       - name: SECRET_NAME
         value: ${KEYVAULT_SECRET_NAME}
   nodeSelector:
@@ -303,3 +309,4 @@ This tutorial is for introductory purposes. For guidance on a creating full solu
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
+[az-keyvault-show]: /cli/azure/keyvault#az-keyvault-show
