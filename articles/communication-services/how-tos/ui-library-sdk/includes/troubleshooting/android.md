@@ -21,7 +21,7 @@ CallID can be retrieved from `CallComposite`:
 val callComposite: CallComposite = CallCompositeBuilder().build()
 ...
 val debugInfo = callComposite.debugInfo
-val lastKnowCallId = debugInfo.lastKnownCallId
+val lastCallId = debugInfo.lastCallId
 ```
 
 #### [Java](#tab/java)
@@ -30,5 +30,5 @@ val lastKnowCallId = debugInfo.lastKnownCallId
 CallComposite callComposite = new CallCompositeBuilder().build();
 ...
 CallCompositeDebugInfo debugInfo = callComposite.getDebugInfo();
-String lastKnowCallId = debugInfo.getLastKnownCallId();
+String lastCallId = debugInfo.getLastCallId();
 ```
