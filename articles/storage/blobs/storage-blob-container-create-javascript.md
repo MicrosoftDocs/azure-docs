@@ -35,7 +35,7 @@ The URI for a container is in this format:
 ## Create a container
 
 
-To create a container, use one of the following create methods:
+To create a container, create a [BlobServiceClient](storage-blob-javascript-get-started#create-a-blobserviceclient-object) or [ContainerClient](storage-blob-javascript-get-started#create-a-containerclient-object) then use one of the following create methods:
 
 - [BlobServiceClient.createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
 - [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-create)
