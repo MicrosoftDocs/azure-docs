@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 11/30/2022
 
 ms.subservice: blobs
 ms.devlang: javascript
@@ -23,16 +23,16 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 ## Understand blob listing options
 
-To list the blobs in a storage account, call one of these methods:
+To list the blobs in a storage account, create a [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) then call one of these methods:
 
 
-- [ContainerClient.listBlobsByHierarcy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
-- [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
+- ContainerClient.[listBlobsByHierarcy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
+- ContainerClient.[listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
 
 Related functionality can be found in the following methods:
 
-- [BlobServiceClient.findBlobsByTag](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
-- [ContainerClient.findBlobsByTag](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-findblobsbytags)
+- BlobServiceClient.[findBlobsByTag](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
+- ContainerClient.[findBlobsByTag](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-findblobsbytags)
 
 ### Manage how many results are returned
 
