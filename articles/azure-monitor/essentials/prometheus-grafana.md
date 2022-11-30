@@ -73,7 +73,7 @@ Azure Managed Grafana supports Azure authentication by default.
 
 ## Self-managed Grafana
 The following sections describe how to configure Azure Monitor managed service for Prometheus (preview) as a data source for self-managed Grafana on an Azure virtual machine.
-### Configure system identify
+### Configure system identity
 Azure virtual machines support both system assigned and user assigned identity. The following steps configure system assigned identity.
 
 **Configure from Azure virtual machine**<br>

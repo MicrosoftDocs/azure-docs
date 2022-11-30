@@ -123,7 +123,7 @@ Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials
 Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
 > [!NOTE]
-> Queries sent through the Azure Resource Management (ARM) API can't use Azure Monitor Private Links. These queries can only go through if the target resource allows queries from public networks (set through the Network Isolation blade, or [using the CLI](./private-link-configure.md#set-resource-access-flags)).
+> Queries sent through the Azure Resource Management (ARM) API can't use Azure Monitor Private Links. These queries can only go through if the target resource allows queries from public networks (set through the Network Isolation pane, or [using the CLI](./private-link-configure.md#set-resource-access-flags)).
 >
 > The following experiences are known to run queries through the ARM API:
 > * LogicApp connector
@@ -131,7 +131,7 @@ Restricting access as explained above applies to data in the resource. However, 
 > * Change Tracking solution
 > * VM Insights
 > * Container Insights
-> * Log Analytics' Workspace Summary blade (showing the solutions dashboard)
+> * Log Analytics' Workspace Summary pane (showing the solutions dashboard)
 
 ## Application Insights considerations
 * You’ll need to add resources hosting the monitored workloads to a private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
@@ -170,7 +170,7 @@ We've identified the following products and experiences query workspaces through
 > * LogicApp connector
 > * Update Management solution
 > * Change Tracking solution
-> * The Workspace Summary blade in the portal (showing the solutions dashboard)
+> * The Workspace Summary pane in the portal (showing the solutions dashboard)
 > * VM Insights
 > * Container Insights
 

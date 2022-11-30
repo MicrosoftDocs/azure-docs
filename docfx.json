@@ -186,7 +186,7 @@
         "Azure"
       ],
       "recommendations": true,
-      "recommendation_types": ["Learn"],
+      "recommendation_types": ["Training", "Certification"],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
@@ -402,6 +402,7 @@
         "articles/app-service-mobile/**/*.md": "https://github.com/Azure/azure-mobile-apps/issues",
         "articles/automation/**/*.md": "https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858",
         "articles/availability-zones/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "articles/azure-arc/**/*.md": "https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858",
         "articles/azure-app-configuration/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
         "articles/azure-cache-for-redis/**/*.md": "https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/d365community/forum/2efba7dc-ef24-ec11-b6e6-000d3a4f0da0",
@@ -570,7 +571,9 @@
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
       "feedback_system": {
+        "articles/active-directory/**/*.md": "Standard",
         "articles/active-directory/user-help/*.md": "None",
+        "articles/active-directory-b2c/*.md": "Standard",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
         "articles/cognitive-services/custom-decision-service/**/*.md": "None",
         "articles/cognitive-services/Emotion/**/*.md": "None",

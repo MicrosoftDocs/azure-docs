@@ -211,7 +211,7 @@
   - name: Azure Video Indexer API
     href: https://api-portal.videoindexer.ai/
   - name: Azure Video Indexer ARM REST API
-    href: /rest/api/videoindexer/accounts?branch=videoindex
+    href: /rest/api/videoindexer/preview/accounts
   - name: Monitor Video Indexer data reference
     href: monitor-video-indexer-data-reference.md
 - name: Resources

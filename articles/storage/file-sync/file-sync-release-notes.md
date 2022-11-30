@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 9/19/2022
+ms.date: 11/21/2022
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,6 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported |
 | V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported |
 | V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported |
 | V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported |
@@ -45,6 +46,17 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 15.2.0.0
+The following release notes are for version 15.2.0.0 of the Azure File Sync agent released November 21, 2022. These notes are in addition to the release notes listed for version 15.0.0.0.
+
+### Improvements and issues that are fixed 
+
+- Fixed a cloud tiering issue in the v15.1 agent that caused the following symptoms:
+	- Memory usage is higher after upgrading to v15.1.
+	- Storage Sync Agent (FileSyncSvc) service intermittently crashes.
+	- Files are failing to recall with error ERROR_INVALID_HANDLE (0x00000006).
+- Fixed a health reporting issue with servers configured to use a non-Gregorian calendar.
 
 ## Agent version 15.1.0.0
 The following release notes are for version 15.1.0.0 of the Azure File Sync agent released September 19, 2022. These notes are in addition to the release notes listed for version 15.0.0.0.

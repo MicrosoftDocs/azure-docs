@@ -57,7 +57,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 |Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
 |------------------------------|------|-------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
+| [Power Query connector preview](/previous-versions/azure/search/search-how-to-index-power-query-data-sources) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
 
 ## February 2022
 
@@ -74,7 +74,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 | July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
 | July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |
 | July | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). Public preview announcement. |
-| May | [Power Query connector support (preview)](search-how-to-index-power-query-data-sources.md) | Public preview announcement. | 
+| May | [Power Query connector support (preview)](/previous-versions/azure/search/search-how-to-index-power-query-data-sources) | Public preview announcement. | 
 | May | [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) | Generally available, using REST api-version=2020-06-30 and Azure portal. |
 | May | [Azure MySQL indexer (preview)](search-howto-index-mysql.md) | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
 | May | [More queryLanguages for spell check and semantic results](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | See [Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110). Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2), or [Search explorer](search-explorer.md) in Azure portal. |

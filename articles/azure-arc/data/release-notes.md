@@ -17,6 +17,25 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## November 8, 2022
+
+### Image tag
+
+`v1.13.0_2022-11-08`
+
+For complete release version information, see [Version log](version-log.md#november-8-2022).
+
+New for this release:
+
+- Azure Arc data controller
+  - Support database as resource in Azure Arc data resource provider 
+
+- Arc-enabled PostgreSQL server
+  - Add support for automated backups
+
+- `arcdata` Azure CLI extension
+  - CLI support for automated backups: Setting the `--storage-class-backups` parameter for the create command will enable automated backups
+
 ## October 11, 2022
 
 ### Image tag
