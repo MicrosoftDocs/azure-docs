@@ -123,7 +123,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-These properties apply to the scale set as a whole. If you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we are updating the upgrade policy and increasing the instance count to five.
+These properties apply to the scale set as a whole. If you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
 
 ```azurecli-interactive
 az vmss create \
@@ -265,7 +265,7 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
 - **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
 - **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs until a manual update is triggered.
  
-If you're scale set is set to manual upgrades, you perform a manual upgrade using [az vmss update](/cli/azure/vmss)
+If your scale set is set to manual upgrades, you perform a manual upgrade using [az vmss update](/cli/azure/vmss)
 
 ```azurecli
 az vmss update --resource-group myResourceGroup --name myScaleSet 
@@ -289,13 +289,13 @@ az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id
 
 ```
 ## Update the OS image for your scale set
-You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property is not part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss)
+You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property isn part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss)
 
 ```azurecli
 az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
 ```
 
-Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss)
+Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss)
 
 ```azurecli
 az vmss update \
@@ -349,7 +349,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- **SKU Name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/resize-vm.md). 
+- **SKU Name**- If the new VM SKU isn't supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/resize-vm.md). 
 
 ## VM-specific updates
 Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/z_deprecated/preview/disk).
