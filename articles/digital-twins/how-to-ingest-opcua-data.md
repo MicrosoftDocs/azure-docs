@@ -73,9 +73,9 @@ You can also set up [data history](concepts-data-history.md) in your Azure Digit
 
 ## Next steps
 
-Visit the [Digital Twin Consortium's Manufacturing Ontologies GitHub page](https://github.com/digitaltwinconsortium/ManufacturingOntologies#next-steps) for a range of next steps you can take, including setting up 3D scenes for your production lines, calculating [OEE](https://www.oee.com), enalbing the [digital feedback loop](https://thenewstack.io/the-digital-feedback-loop-powering-next-generation-businesses), onboaring your on-prem Kubernetes cluster to [Azure Arc](../azure-arc/overview.md) for management from the cloud or for replacing the simulation with a real production line to connect your own industrial assets to this solution.
+Visit the [Digital Twin Consortium's Manufacturing Ontologies GitHub page](https://github.com/digitaltwinconsortium/ManufacturingOntologies#next-steps) for a range of next steps you can take, including setting up 3D scenes for your production lines, calculating [OEE](https://www.oee.com), enabling the [digital feedback loop](https://thenewstack.io/the-digital-feedback-loop-powering-next-generation-businesses), onboarding your on-prem Kubernetes cluster to [Azure Arc](../azure-arc/overview.md) for management from the cloud or for replacing the simulation with a real production line to connect your own industrial assets to this solution.
 
-Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to learn how to create no-code dashboards for condition monitoring, yield or maintainance predictions or anomaly detection.
+Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions or anomaly detection.
 
 ## About OPC UA
 
