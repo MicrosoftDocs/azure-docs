@@ -6,6 +6,8 @@
     href: sap-certifications.md
 - name: Integration with Microsoft Services
   items:
+  - name: Integrating Azure with SAP RISE managed workloads
+    href: /azure/virtual-machines/workloads/sap/sap-rise-integration?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
   - name: Microsoft Office
     items:
     - name: Outbound E-Mail from SAP to Exchange Online
@@ -98,6 +100,8 @@
     items:
     - name: Expose SAP Process Orchestration on Azure securely
       href: expose-sap-process-orchestration-on-azure.md
+    - name: New SAP events on Azure Event Grid with SAP Event Mesh
+      href: https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372
     - name: Connect to SAP from workflows in Azure Logic Apps
       href: /azure/logic-apps/logic-apps-using-sap-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Automate SAP invoice processing using Azure Logic Apps and Cognitive Services
@@ -108,10 +112,8 @@
     items:
     - name: SAP knowledge center for Azure Data Factory and Synapse
       href: /azure/data-factory/industry-sap-overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-    - name: Enable SAP Principal Propagation for live OData feeds with Power Query
-      href: expose-sap-odata-to-power-query.md
-    - name: SAP HANA Connector for Power Query
-      href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Track end-to-end lineage of your SAP data with Microsoft Purview
+      href: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/of-kings-amp-queens-and-sap-scans-to-identify-the-right-lineage/ba-p/3268816
     - name: Replicating SAP data using the CDC connector
       href: /azure/data-factory/sap-change-data-capture-introduction-architecture?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Replicating SAP data using the OData connector with Synapse Pipelines
@@ -122,8 +124,20 @@
       href: /power-bi/desktop-directquery-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Use the SAP BW Connector in Power BI Desktop
       href: /power-bi/desktop-sap-bw-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Enable SAP Principal Propagation for live OData feeds with Power Query
+      href: expose-sap-odata-to-power-query.md
+    - name: SAP HANA Connector for Power Query
+      href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
+  - name: Azure Networking
+    items:
+    - name: Getting Started with SAP Private Link Service for Azure
+      href: https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/
+    - name: Network topology and connectivity for an SAP migration
+      href: /azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
   - name: Threat monitoring with Microsoft Sentinel for SAP
     items:
+      - name: How to use Microsoft Sentinel's SOAR capabilities with SAP
+        href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485
       - name: Deploy the Microsoft Sentinel solution for SAP
         href: /azure/sentinel/sap/deploy-sap-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
       - name: Detailed requirements

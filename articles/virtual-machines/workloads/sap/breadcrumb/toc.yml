@@ -31,12 +31,6 @@ items:
         tocHref: /azure/active-directory
         topicHref: /azure/virtual-machines/workloads/sap/index
       - name: SAP
-        tocHref: /power-bi
-        topicHref: /azure/virtual-machines/workloads/sap/index
-      - name: SAP
-        tocHref: /power-query
-        topicHref: /azure/virtual-machines/workloads/sap/index
-      - name: SAP
         tocHref: /azure/data-factory
         topicHref: /azure/virtual-machines/workloads/sap/index
       - name: SAP
@@ -48,6 +42,15 @@ items:
       - name: SAP
         tocHref: /azure/api-management
         topicHref: /azure/virtual-machines/workloads/sap/index        
+      - name: SAP
+        tocHref: /azure/cloud-adoption-framework
+        topicHref: /azure/virtual-machines/workloads/sap/index
+      - name: SAP
+        tocHref: /power-bi
+        topicHref: /azure/virtual-machines/workloads/sap/index
+      - name: SAP
+        tocHref: /power-query
+        topicHref: /azure/virtual-machines/workloads/sap/index
       - name: SAP
         tocHref: /power-automate/sap-integration
         topicHref: /azure/virtual-machines/workloads/sap/index
