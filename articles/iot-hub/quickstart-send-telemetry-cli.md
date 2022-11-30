@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, "Role: Cloud Development", devx-track-azurecli, mode-api]
 ms.author: timlt
 author: timlt
-ms.date: 05/26/2022
+ms.date: 11/30/2022
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
