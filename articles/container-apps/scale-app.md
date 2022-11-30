@@ -118,7 +118,7 @@ az containerapp create \
   --max-replicas 8 \
   --scale-rule-name azure-http-rule \
   --scale-rule-type http \
-  --scale-rule-metadata "concurrentRequests": "100"
+  --scale-rule-metadata "concurrentRequests=100"
 ```
 
 ::: zone-end
@@ -210,7 +210,7 @@ az containerapp create \
   --max-replicas 8 \
   --scale-rule-name azure-tcp-rule \
   --scale-rule-type tcp \
-  --scale-rule-metadata "concurrentRequests": "100"
+  --scale-rule-metadata "concurrentRequests=100"
 ```
 
 ::: zone-end
@@ -229,7 +229,7 @@ The following example demonstrates how to create a custom scale rule.
 
 ### Example
 
-This example shows how to convert an [Azure Service Bus scaler](https://keda.sh/docs/latest/scalers/azure-service-bus/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
+This example shows how to convert an [Azure Service Bus scaler](https://keda.sh/docs/latest/scalers/azure-service-bus/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/) specification.
 
 For authentication, KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
 
@@ -335,6 +335,8 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
     :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10,11,12,13,14,15,16":::
 
+### Authentication
+
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
 
@@ -377,6 +379,8 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 1. In the *Custom rule type* box, enter the scaler `type` value.
 
 1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
+
+### Authentication
 
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
