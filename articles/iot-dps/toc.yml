@@ -207,6 +207,23 @@ items:
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+  - name: Terraform modules
+    items:
+    - name: Device Provisioning Service instance resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps
+    - name: Device Provisioning Service instance data source
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps
+    - name: Device Provisioning Service certificate resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps_certificate
+    - name: Device Provisioning Service shared access policy resource
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_dps_shared_access_policy
+    - name: Device Provisioning Service shared access policy data source
+      displayName: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps_shared_access_policy
   - name: Azure Certified for IoT device catalog
     href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center

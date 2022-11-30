@@ -166,5 +166,13 @@ items:
             href: ../azure-maps/index.yml
           - name: Time Series Insights
             href: ../time-series-insights/index.yml
+      - name: Terraform modules
+        items:
+        - name: Device Update account resource
+          displayName: Terraform
+          href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_account
+        - name: Device Update instance resource
+          displayName: Terraform
+          href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_instance
       - name: Delivery Optimization
         href: https://github.com/microsoft/do-client

@@ -622,6 +622,26 @@
       - name: iOS Platform
         displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+    - name: Terraform modules
+      items:
+      - name: IoT Hub instance resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub
+      - name: IoT Hub instance data source
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub
+      - name: IoT Hub certificate resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_certificate
+      - name: IoT Hub consumer group resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_consumer_group
+      - name: IoT Hub shared access policy resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_shared_access_policy
+      - name: IoT Hub shared access policy data source
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_shared_access_policy
     - name: Azure Certified Device catalog
       href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
