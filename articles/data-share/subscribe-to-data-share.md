@@ -209,7 +209,7 @@ Follow the steps below to configure where you want to receive data.
 
 Use these commands to configure where you want to receive data.
 
-1. Run the [az datashare consumer-source-data-set list](/cli/azure/datashare/consumer-source-data-set?view=azure-cli-latest#az-datashare-consumer-source-data-set-list) command to get the data set ID:
+1. Run the [az datashare consumer-source-data-set list](/cli/azure/datashare/consumer-source-data-set#az-datashare-consumer-source-data-set-list) command to get the data set ID:
 
    ```azurecli
    az datashare consumer-source-data-set list --resource-group "share-rg" \
