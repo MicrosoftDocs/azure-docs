@@ -33,7 +33,7 @@ Because authentication methods have different dependencies, it's a good idea to 
 
 The most resilient credential strategy is to use passwordless authentication. Windows Hello for Business and FIDO 2.0 security keys have fewer dependencies than strong authentication with two separate factors. The Microsoft Authenticator app, Windows Hello for Business, and FIDO 2.0 security keys are the most secure. 
 
-For second factors, the Microsoft Authenticator app or other authenticator apps using time-based one time passcode (TOTP) or OAuth hardware tokens have the fewest dependencies and are, therefore,more resilient.
+For second factors, the Microsoft Authenticator app or other authenticator apps using time-based one time passcode (TOTP) or OAuth hardware tokens have the fewest dependencies and are, therefore, more resilient.
 
 ## How do multiple credentials help resilience?
 
