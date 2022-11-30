@@ -206,9 +206,9 @@ This authentication mode allows you to:
 > * User identity and compute managed identity cannot be used for authentication within same job.
 > * For pipeline jobs, the user identity must be configured at job top level, not for individual pipeline steps.   
 
-The following steps outline how to set up user identity -based data access for training jobs on compute clusters from CLI. 
+The following steps outline how to set up data access with user identity for training jobs on compute clusters from CLI. 
 
-1. Grant the user identity access to storage resources. For example,  grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
+1. Grant the user identity access to storage resources. For example, grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
 
 1. Create an Azure Machine Learning datastore without cached credentials for the storage account. If a datastore has cached credentials, such as storage account key, those credentials are used instead of user identity.
 
@@ -232,7 +232,7 @@ The following steps outline how to set up user identity -based data access for t
     type: user_identity
     ```
 
-The following steps outline how to set up user identity -based data access for training jobs on compute clusters from Python SDK.
+The following steps outline how to set up data access with user identity for training jobs on compute clusters from Python SDK.
 
 1. Grant data access and create data store as described above for CLI.
 
@@ -264,7 +264,7 @@ The following steps outline how to set up user identity -based data access for t
     ```
 
 > [!IMPORTANT] 
-> During job submission with user identity based authentication enabled, the code snapshots are protected against tampering by checksum validation. If you have existing pipeline components and intend to use them with identity based authentication enabled, you may need to re-upload. Otherwise the job may fail during checksum validation. 
+> During job submission with authentication with user identity enabled, the code snapshots are protected against tampering by checksum validation. If you have existing pipeline components and intend to use them with authentication with user identity enabled, you may need to re-upload them. Otherwise the job may fail during checksum validation. 
 
 ### Work with virtual networks
 
