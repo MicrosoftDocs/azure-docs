@@ -18,7 +18,7 @@ The following reference document provides an overview of a workflow created usin
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
-## Licenses requirements 
+## License requirements 
 
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
