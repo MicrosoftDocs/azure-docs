@@ -24,7 +24,7 @@ items:
       - name: Azure Resource Manager template
         href: deploy-02-new-button.md
       - name: Azure PowerShell or the Azure CLI
-        href: deploy-new-ps-cli.md
+        href: deploy-new-powershell-cli.md
       - name: Azure Bicep
         href: deploy-new-bicep-ps-cli.md
       - name: Azure portal - Prerequisites

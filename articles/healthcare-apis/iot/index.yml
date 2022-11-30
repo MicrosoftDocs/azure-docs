@@ -43,7 +43,7 @@ landingContent:
           - text: Azure Resource Manager template
             url: deploy-02-new-button.md
           - text: Azure PowerShell or the Azure CLI
-            url: deploy-new-ps-cli.md
+            url: deploy-new-powershell-cli.md
           - text: Azure Bicep
             url: deploy-new-bicep-ps-cli.md
           - text: Azure portal

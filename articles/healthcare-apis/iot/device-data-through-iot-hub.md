@@ -60,7 +60,7 @@ The button calls an ARM template from [Azure Quickstart Templates](https://azure
 
 ## Configure the deployment
 
-1. In the Azure portal, on the **Basics** tab of the Azure quickstart template, select or enter the following information for your deployment:
+1. In the Azure portal, on the **Basics** tab of the Azure Quickstart Template, select or enter the following information for your deployment:
 
    - **Subscription**: The Azure subscription to use for the deployment.
 

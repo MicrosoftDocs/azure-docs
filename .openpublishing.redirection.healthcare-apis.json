@@ -555,7 +555,7 @@
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-08-new-ps-cli.md",
-        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-ps-cli",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-powershell-cli",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",

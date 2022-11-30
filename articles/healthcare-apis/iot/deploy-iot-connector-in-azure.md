@@ -29,7 +29,7 @@ For more information about the ARM template and the Deploy to Azure button, see 
 
 Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used in enterprise environments. Deploying MedTech service with Azure PowerShell or Azure CLI can be useful for adding automation so that you can scale your deployment for a large number of developers. This method is more detailed but provides extra speed and efficiency because it allows you to automate your deployment.
 
-For more information about Using an ARM template with Azure PowerShell or Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-ps-cli.md).
+For more information about Using an ARM template with Azure PowerShell or Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md).
 
 ## Azure portal manual deployment
 

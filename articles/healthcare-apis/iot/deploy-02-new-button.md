@@ -108,7 +108,7 @@ In this article, you learned how to deploy the MedTech service in the Azure port
 > [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-ps-cli.md)
+> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
 
 > [!div class="nextstepaction"]
 > [Deploy the MedTech service manually using Azure portal](deploy-03-new-manual.md)
