@@ -189,7 +189,7 @@ Each entry in the list of interfaces in the implements section has a:
 * `name`: the programming name of the interface.
 * `schema`: the interface the capability model implements.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -737,7 +737,7 @@ Use the following request to retrieve a list of device templates from your appli
 GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -1057,7 +1057,6 @@ The response includes a **nextLink** value that you can use to retrieve the next
 
 Use **$filter** to create expressions that filter the list of device templates. The following table shows the comparison operators you can use:
 
-
 | Comparison Operator | Symbol | Example                        |
 | -------------------- | ------ | ------------------------------ |
 | Equals               | eq     | `'@id' eq 'dtmi:example:test;1'` |
@@ -1086,7 +1085,7 @@ Currently, *$filter* works with the following device template fields:
 
 Currently, the only supported filter function for device template lists is the `contains` function:
 
-```
+```txt
 $filter=contains(displayName, 'template1')
 $filter=contains(displayName, 'template1) eq false
 ```
@@ -1176,12 +1175,12 @@ The response to this request looks like the following example:
 
 Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
-```
+```txt
 $orderby=displayName
 $orderby=displayName desc
 ```
 
-The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
+The following example shows how to retrieve all the device templates where the result is sorted by `displayName`:
 
 ```http
 GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$orderby=displayName

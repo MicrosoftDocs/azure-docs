@@ -233,7 +233,6 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-versio
 
 The `group` field in the request body identifies a device group in your IoT Central application. A job uses a device group to identify the set of devices the job operates on.
 
-
 If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
 
 ```http

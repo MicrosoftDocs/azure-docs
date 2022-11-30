@@ -3,7 +3,7 @@ title: How to use the IoT Central REST API to manage devices
 description: How to use the IoT Central REST API to add devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 11/30/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -250,7 +250,6 @@ The response includes a **nextLink** value that you can use to retrieve the next
 
 Use **$filter** to create expressions that filter the list of devices. The following table shows the comparison operators you can use:
 
-
 | Comparison Operator | Symbol | Example                                 |
 | -------------------- | ------ | --------------------------------------- |
 | Equals               | eq     | `id eq 'device1' and scopes eq 'redmond'` |
@@ -429,7 +428,7 @@ The request body has some required fields:
 
 The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -512,7 +511,7 @@ Use the following request to retrieve a list of device groups from your applicat
 GET https://{your app subdomain}/api/deviceGroups?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {

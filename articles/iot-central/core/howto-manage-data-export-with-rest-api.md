@@ -57,7 +57,7 @@ The request body has some required fields:
 * `connectionString`: The connection string for accessing the destination resource.
 * `containerName`: For a blob storage destination, the name of the container where data should be written.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -99,7 +99,7 @@ Use the following request to retrieve a list of destinations from your applicati
 GET https://{your app subdomain}/api/dataExport/destinations?api-version=2022-10-31-preview
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -206,7 +206,7 @@ There are some optional fields you can use to add more details to the export.
 * `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
 * `filter`: Query defining which events from the source should be exported.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -257,7 +257,7 @@ Use the following request to retrieve a list of export definitions from your app
 GET https://{your app subdomain}/api/dataExport/exports?api-version=2022-10-31-preview
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {

@@ -197,7 +197,7 @@ The REST API lets you list the roles defined in your IoT Central application. Us
 GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example that includes the application role and organization role IDs. 
+The response to this request looks like the following example that includes the application role and organization role IDs.
 
 ```json
 {
@@ -394,7 +394,7 @@ The request body has some required fields:
 * `description`: Short summary of device group.
 * `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
