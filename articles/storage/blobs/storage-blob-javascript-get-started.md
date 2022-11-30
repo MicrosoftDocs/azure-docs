@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 11/30/2022
 
 ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js, devguide-js
@@ -23,24 +23,12 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
-## SDK Objects for service, container, and blob
-
-The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs. From the BlobServiceClient, you can get to the ContainerClient. The [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object allows you to interact with a container and its blobs. The [BlobClient](/javascript/api/@azure/storage-blob/blobclient) allows you to manipulate blobs. 
-
-| Client | Allows access to | Accessed |
-|--|--|--|
-|Account: [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient)|Controls your service resource, provides access to container and blobs.|Directly from SDK via require statement.|
-|Container: [ContainerClient](/javascript/api/@azure/storage-blob/containerclient)| Controls a specific container, provides access to blobs.|Directly from SDK via require statement or from [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).|
-|Blob: [BlobClient](/javascript/api/@azure/storage-blob/blobclient)|Access to a blob of any kind: [block](/javascript/api/@azure/storage-blob/blockblobclient), [append](/javascript/api/@azure/storage-blob/appendblobclient), [page](/javascript/api/@azure/storage-blob/pageblobclient).|Directly from SDK via require statement or from [ContainerClient](/javascript/api/@azure/storage-blob/containerclient).|
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/)
-- Optionally, you need [bundling tools](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md) if you're developing for a web client.
+- For client (browser) applications, you need [bundling tools](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
 
 ## Set up your project
 
@@ -68,7 +56,8 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
     npm install @azure/identity
     ```
 
-## Authenticate to Azure with passwordless credential
+
+## Authorize access and connect to Blob Storage
 
 Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code. 
 
@@ -98,8 +87,30 @@ After you complete the setup, each identity needs at least one of the appropriat
     * **Reader** 
     * **Contributor**
 
+## Build your application
+As you build your application, your code will primarily interact with three types of resources:
 
-### Connect with passwordless authentication to Azure 
+- The storage account, which is the unique top-level namespace for your Azure Storage data.
+- Containers, which organize the blob data in your storage account.
+- Blobs, which store unstructured data like text and binary data.
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+
+Each type of resource is represented by one or more associated JavaScript clients:
+
+| Class | Description |
+|---|---|
+| [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
+| [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
+| [BlobClient](/javascript/api/@azure/storage-blob/blobclient) | Allows you to manipulate Azure Storage blobs.|
+
+## Create a BlobServiceClient object
+
+The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs. 
+
+## [Azure AD](#tab/azure-ad)
 
 Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
 
@@ -111,7 +122,7 @@ The `dotenv` package is used to read your storage account name from a `.env` fil
 
 If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) class.
 
-## Connect with an account name and key
+## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
 
@@ -121,17 +132,8 @@ The `dotenv` package is used to read your storage account name and key from a `.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-## Connect with a connection string
 
-Create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) by using a connection string. 
-
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-connection-string.js":::
-
-The `dotenv` package is used to read your storage account connection string from a `.env` file. This file should not be checked into source control. 
-
-For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
-
-## Connect with a SAS token
+## [SAS token](#tab/sas-token)
 
 Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri.
 
@@ -145,33 +147,85 @@ To generate and manage SAS tokens, see any of these articles:
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
+## [Connection string](#tab/connection-string)
+
+Create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) by using a connection string. 
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-connection-string.js":::
+
+The `dotenv` package is used to read your storage account connection string from a `.env` file. This file should not be checked into source control. 
+
+For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
+
+
+-----------------
+
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 
-Each type of resource is represented by one or more associated JavaScript clients:
+## Create a ContainerClient object
 
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/javascript/api/@azure/storage-blob/blobclient) | Allows you to manipulate Azure Storage blobs.|
+You can create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object either from the BlobServiceClient, or directly. 
 
-The following guides show you how to use each of these clients to build your application. The [sample code](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) shown is this guide is available on GitHub.
+### Create ContainerClient object from BlobServiceClient
 
-| Guide | Description |
-|--|---|
-| [Create a container](storage-blob-container-create-javascript.md) | Create containers. |
-| [Get container's URL](storage-blob-get-url-javascript.md) | Get URL of container. |
-| [Delete and restore containers](storage-blob-container-delete-javascript.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list-javascript.md) | List containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata](storage-blob-container-properties-metadata-javascript.md) | Get and set properties and metadata for containers. |
-| [Upload blobs](storage-blob-upload-javascript.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Get blob's URL](storage-blob-get-url-javascript.md) | Get URL of blob. |
-| [Download blobs](storage-blob-download-javascript.md) | Download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy-javascript.md) | Copy a blob from one account to another account. |
-| [List blobs](storage-blobs-list-javascript.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete-javascript.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags-javascript.md) | Set and retrieve indexed tags then use tags to find blobs. |
-| [Manage properties and metadata](storage-blob-properties-metadata-javascript.md) | Get all system properties and set HTTP properties and metadata for blobs. |
+### Create ContainerClient directly
+
+#### [Azure AD](#tab/azure-ad)
+
+
+
+#### [Account key](#tab/account-key)
+
+
+
+#### [SAS token](#tab/sas-token)
+
+
+
+#### [Connection string](#tab/connection-string)
+
+
+-----------------
+
+The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
+
+## Create a BlobClient object
+
+You can create any of the BlobClient objects, listed below, either from a ContainerClient, or directly. 
+
+List of Blob clients: 
+
+* *[BlobClient](/javascript/api/@azure/storage-blob/blobclient)
+* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)
+* [AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)
+* [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient)
+* [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient)
+* [PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)
+
+### Create BlobClient object from ContainerClient
+
+### Create BlobClient directly
+
+#### [Azure AD](#tab/azure-ad)
+
+
+
+#### [Account key](#tab/account-key)
+
+
+
+#### [SAS token](#tab/sas-token)
+
+
+
+#### [Connection string](#tab/connection-string)
+
+
+-----------------
+
+The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
+
+
 
 ## See also
 
