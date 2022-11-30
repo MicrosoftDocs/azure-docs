@@ -22,7 +22,10 @@ The API proxy module simplifies communication for IoT Edge devices when multiple
 
 For example, to allow downstream IoT Edge devices to pull Docker images requires deploying a Docker registry module. To allow uploading blobs requires deploying an Azure Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API proxy enables such deployments on an IoT Edge device. Instead of each service, the API proxy module binds to port 443 on the host device and routes the request to the correct service module running on that device per user-configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorizing the clients.
 
-Without the API proxy, each service module would have to bind to a separate port on the host device, requiring a tedious and error-prone configuration change on each downstream device that connects to the parent IoT Edge device.
+Without the API proxy, each service module would have to bind to a separate port on the host device, requiring a tedious and error-prone configuration change on each child device that connects to the parent IoT Edge device.
+
+>[!NOTE]
+>A downstream device is a lockdown device that emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Deploy the proxy module
 

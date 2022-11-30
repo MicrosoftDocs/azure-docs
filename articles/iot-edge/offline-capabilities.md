@@ -59,6 +59,9 @@ A device's *EdgeAgent* updates its reported properties whenever there is a chang
 
 By default, a parent device can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the edgeHub module. A child device only has one parent.
 
+>[!NOTE]
+>A downstream device is a lockdown device that emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 

@@ -31,6 +31,9 @@ This article discusses basic concepts for downstream device connections and guid
 
 In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
 
+>[!NOTE]
+>A downstream device is a lockdown device that emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+
 ## Prerequisites
 
 * Have the root CA certificate file that was used to generate the device CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. If you used the demo certificates, the root CA certificate is called **azure-iot-test-only.root.ca.cert.pem**.
