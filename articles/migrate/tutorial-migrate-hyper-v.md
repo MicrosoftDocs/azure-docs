@@ -11,7 +11,7 @@ ms.custom: MVC, fasttrack-edit, engagement-fy23
 
 # Migrate Hyper-V VMs to Azure
 
-This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate: Server Migration](migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate machines to Azure.
 
