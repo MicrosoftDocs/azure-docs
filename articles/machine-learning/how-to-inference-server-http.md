@@ -167,7 +167,7 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 
 ### Startup logs
 
-When the server is started, the server settings are first displayed as shown below followed by the logs.
+When the server is started, the server settings are first displayed like as shown below followed by the logs:
 
 ```
 Azure ML Inferencing HTTP server <version>
@@ -191,6 +191,33 @@ Server Routes
 Liveness Probe: GET   127.0.0.1:<port>/
 Score:          POST  127.0.0.1:<port>/score
 
+<logs>
+```
+
+For example, when running on a managed online endpoint:
+
+```
+Azure ML Inferencing HTTP server v0.7.7
+
+
+Server Settings
+---------------
+Entry Script Name: /var/azureml-app/online/score.py
+Model Directory: /var/azureml-app/azureml-models/nyc_taxi_ux/1
+Worker Count: 1
+Worker Timeout (seconds): 300
+Server Port: 31311
+Application Insights Enabled: false
+Application Insights Key: None
+Inferencing HTTP server version: azmlinfsrv/0.7.7
+CORS for the specified origins: None
+
+
+Server Routes
+---------------
+Liveness Probe: GET   127.0.0.1:31311/
+Score:          POST  127.0.0.1:31311/score
+
 Starting gunicorn 20.1.0
 Listening at: http://0.0.0.0:31311 (12)
 Using worker: sync
@@ -209,6 +236,7 @@ Init complete
 2022-11-29 15:05:02,167 | root | INFO | Scoring timeout setting is not found. Use default timeout: 3600000 ms
 2022-11-29 15:05:02,167 | root | INFO | AML_FLASK_ONE_COMPATIBILITY is set. Patched Flask to ensure compatibility with Flask 1.
 ```
+
 
 ### Log format
 
