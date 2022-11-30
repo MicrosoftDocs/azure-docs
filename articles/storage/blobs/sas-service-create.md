@@ -82,7 +82,7 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
 # [JavaScript v12 SDK](#tab/javascript)
 
-A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required parameters to get the SAS token string.
+A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateblobsasqueryparameters) function providing the required parameters to get the SAS token string.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
 
@@ -154,9 +154,7 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 # [JavaScript v12 SDK](#tab/javascript)
 
-To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
-
-To create a service SAS for a blob, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required parameters.
+To create a service SAS for a blob, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateblobsasqueryparameters) function providing the required parameters.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
 
