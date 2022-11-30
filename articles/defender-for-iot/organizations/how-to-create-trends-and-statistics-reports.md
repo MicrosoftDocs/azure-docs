@@ -7,16 +7,17 @@ ms.topic: how-to
 
 # Create trends and statistics dashboards
 
-This article describes how to create dashboards on your sensor console to get insight into network trends and statistics.
+Dashboards on your sensor console provide insight into network trends and statistics.
 
+## Prerequisites
 
-## Before you start
-
-You need Administrator or Security Analyst permissions to create dashboards.
+You must be an **Administrator** or **Security Analyst** user to create dashboards.
 
 ## Create dashboards
 
-You can create many different types of dashboard. Based on traffic, device state, alerts, connectivity, and protocol.
+You can create many different types of dashboards, based on traffic, device state, alerts, connectivity, and protocol.
+
+**To create a dashboard**:
 
 1. On your Defender for IoT sensor console, select **Trends & Statistics** > **Create Dashboard**.
 
