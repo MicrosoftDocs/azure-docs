@@ -139,7 +139,7 @@ Sometimes the uninstallation process might get stuck.
 
 #### Resolution
 1. Go to folder: `rm -r /home/hweautomation/state`
-1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/*
+1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-\<version>/*
 1. Go to above folder and run command `rm mrseq`
 1. Install Hybrid Worker Extension: *"installCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -i"*
 1. Enable Hybrid Worker extension: *"enableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -e"*
