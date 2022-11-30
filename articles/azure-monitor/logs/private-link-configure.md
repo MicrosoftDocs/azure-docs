@@ -58,41 +58,31 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 3. Select **Next: Resource**. 
 
 4. In the Resource tab:
-
-   a. Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
-
-   b. For **resource type**, choose **Microsoft.insights/privateLinkScopes**. 
-
-   c. From the **resource** drop-down, choose your Private Link scope you created earlier. 
-
-   d. Select **Next: Virtual Network >**.
+   1. Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
+   1. For **resource type**, choose **Microsoft.insights/privateLinkScopes**. 
+   1. From the **resource** drop-down, choose your Private Link scope you created earlier. 
+   1. Select **Next: Virtual Network >**.
 
       :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-4.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the Resource tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-4.png":::
 
 5. On the Virtual Network tab:
-
-   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources.
+   1. Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources.
+   1. Select **Next: DNS >**.
    
-   b. Select **Next: DNS >**.
-   
-   :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-5.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-5.png":::
+      :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-5.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-5.png":::
 
  
 6. On the DNS tab:
+   1. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
+       > [!NOTE]
+       > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
+    1. Select **Review + create**.
 
-   a.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
-   > [!NOTE]
-   > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
- 
-   b.    Select **Review + create**.
-
-    :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-6.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-6.png":::
+       :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-6.png" alt-text="Screenshot of the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-6.png":::
 
 7. On the Review + create tab:
-
-   a.    Let validation pass. 
- 
-   b.    Select **Create**. 
+   1. Let validation pass.
+   1. Select **Create**. 
 
 You've now created a new private endpoint that is connected to this AMPLS.
 
