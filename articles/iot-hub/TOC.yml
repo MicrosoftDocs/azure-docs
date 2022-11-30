@@ -254,35 +254,79 @@
 
 - name: How-to guides
   items:
+    - name: Manage
+      items:
+        - name: Create an IoT hub
+          items:
+            - name: Use Azure portal
+              displayName: create IoT Hub, register device, message routing, delete IoT hub
+              href: iot-hub-create-through-portal.md
+            - name: Use Azure IoT Tools for VS Code
+              displayName: create IoT Hub, register device, message routing, delete IoT hub
+              href: iot-hub-create-use-iot-toolkit.md
+            - name: Use Azure PowerShell
+              displayName: create IoT Hub, register device, message routing, delete IoT hub
+              href: iot-hub-create-using-powershell.md
+            - name: Use Azure CLI
+              displayName: create IoT Hub, register device, message routing, delete IoT hub, az iot hub create
+              href: iot-hub-create-using-cli.md
+            - name: Use the REST API
+              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
+              href: iot-hub-rm-rest.md
+            - name: Use a template from Azure PowerShell
+              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
+              href: iot-hub-rm-template-powershell.md
+        - name: Create message routes and endpoints
+          items:
+            - name: Azure portal
+              displayName: create endpoint, create route, message routing
+              href: how-to-routing-portal.md
+            - name: Azure CLI
+              displayName: create endpoint, create route, message routing
+              href: how-to-routing-azure-cli.md
+            - name: PowerShell
+              displayName: create endpoint, create route, message routing
+              href: how-to-routing-powershell.md
+            - name: Azure Resource Manager
+              displayName: create endpoint, create route, message routing
+              href: how-to-routing-arm.md
+        - name: Configure managed identities
+          displayName: Azure AD, ARM template, user-assigned identity
+          href: iot-hub-managed-identity.md
+        - name: Configure file upload
+          items:
+            - name: Use Azure portal
+              displayName: file upload
+              href: iot-hub-configure-file-upload.md
+            - name: Use Azure PowerShell
+              displayName: file upload, Azure Cloud Shell
+              href: iot-hub-configure-file-upload-powershell.md
+            - name: Use Azure CLI
+              displayName: file upload, az iot hub update
+              href: iot-hub-configure-file-upload-cli.md
+        - name: Upgrade an IoT hub
+          displayName: scale up, size, tier
+          href: iot-hub-upgrade.md
+        - name: Configure IP filtering
+          href: iot-hub-ip-filtering.md
+        - name: Manage public network access
+          href: iot-hub-public-network-access.md
+        - name: Restrict outbound network access
+          href: iot-hub-restrict-outbound-network-access.md
+        - name: Automatic device management at scale
+          items:
+            - name: Use Azure portal
+              displayName: automatic device management
+              href: iot-hub-automatic-device-management.md
+            - name: Use Azure CLI
+              displayName: automatic device management
+              href: iot-hub-automatic-device-management-cli.md
+        - name: Bulk import and export IoT devices
+          href: iot-hub-bulk-identity-mgmt.md
+        - name: Manage device twin tags
+          href: iot-hubs-manage-device-twin-tags.md
     - name: Develop
       items:
-        - name: Use device and service SDKs
-          items:
-            - name: Azure IoT Embedded C SDK
-              href: iot-hub-device-embedded-c-sdk.md
-            - name: Azure IoT C SDK
-              items:
-                - name: Use the Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-intro.md
-                - name: Use the IoTHubClient
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Azure IoT C SDK resource information
-                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-                - name: Develop for constrained devices
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-devguide-develop-for-constrained-devices.md
-                - name: Develop for mobile devices
-                  displayName: Azure IoT C SDKs, iOS, C99, Objective-C, Swift
-                  href: iot-hub-how-to-develop-for-mobile-devices.md
-                - name: Develop for Android Things platform
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-how-to-android-things.md
-        - name: Control a device on Android
-          href: quickstart-control-device-android.md
-        - name: Query Avro data from a hub route
-          displayName: Azure Data Lake, U-SQL
-          href: iot-hub-query-avro-data.md
         - name: Send cloud-to-device messages
           items:
             - name: .NET
@@ -373,77 +417,33 @@
             - name: Java
               displayName: jobs
               href: iot-hub-java-java-schedule-jobs.md
-    - name: Manage
-      items:
-        - name: Create an IoT hub
+        - name: Use device and service SDKs
           items:
-            - name: Use Azure portal
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-through-portal.md
-            - name: Use Azure IoT Tools for VS Code
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-use-iot-toolkit.md
-            - name: Use Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-using-powershell.md
-            - name: Use Azure CLI
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, az iot hub create
-              href: iot-hub-create-using-cli.md
-            - name: Use the REST API
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-rest.md
-            - name: Use a template from Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-template-powershell.md
-        - name: Create message routes and endpoints
-          items:
-            - name: Azure portal
-              displayName: create endpoint, create route, message routing
-              href: how-to-routing-portal.md
-            - name: Azure CLI
-              displayName: create endpoint, create route, message routing
-              href: how-to-routing-azure-cli.md
-            - name: PowerShell
-              displayName: create endpoint, create route, message routing
-              href: how-to-routing-powershell.md
-            - name: Azure Resource Manager
-              displayName: create endpoint, create route, message routing
-              href: how-to-routing-arm.md
-        - name: Configure managed identities
-          displayName: Azure AD, ARM template, user-assigned identity
-          href: iot-hub-managed-identity.md
-        - name: Configure file upload
-          items:
-            - name: Use Azure portal
-              displayName: file upload
-              href: iot-hub-configure-file-upload.md
-            - name: Use Azure PowerShell
-              displayName: file upload, Azure Cloud Shell
-              href: iot-hub-configure-file-upload-powershell.md
-            - name: Use Azure CLI
-              displayName: file upload, az iot hub update
-              href: iot-hub-configure-file-upload-cli.md
-        - name: Upgrade an IoT hub
-          displayName: scale up, size, tier
-          href: iot-hub-upgrade.md
-        - name: Configure IP filtering
-          href: iot-hub-ip-filtering.md
-        - name: Manage public network access
-          href: iot-hub-public-network-access.md
-        - name: Restrict outbound network access
-          href: iot-hub-restrict-outbound-network-access.md
-        - name: Automatic device management at scale
-          items:
-            - name: Use Azure portal
-              displayName: automatic device management
-              href: iot-hub-automatic-device-management.md
-            - name: Use Azure CLI
-              displayName: automatic device management
-              href: iot-hub-automatic-device-management-cli.md
-        - name: Bulk import and export IoT devices
-          href: iot-hub-bulk-identity-mgmt.md
-        - name: Manage device twin tags
-          href: iot-hubs-manage-device-twin-tags.md
+            - name: Azure IoT Embedded C SDK
+              href: iot-hub-device-embedded-c-sdk.md
+            - name: Azure IoT C SDK
+              items:
+                - name: Use the Azure IoT C SDK
+                  href: iot-hub-device-sdk-c-intro.md
+                - name: Use the IoTHubClient
+                  displayName: Azure IoT C SDK
+                  href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Azure IoT C SDK resource information
+                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
+                - name: Develop for constrained devices
+                  displayName: Azure IoT C SDK
+                  href: iot-hub-devguide-develop-for-constrained-devices.md
+                - name: Develop for mobile devices
+                  displayName: Azure IoT C SDKs, iOS, C99, Objective-C, Swift
+                  href: iot-hub-how-to-develop-for-mobile-devices.md
+                - name: Develop for Android Things platform
+                  displayName: Azure IoT C SDK
+                  href: iot-hub-how-to-android-things.md
+        - name: Control a device on Android
+          href: quickstart-control-device-android.md
+        - name: Query Avro data from a hub route
+          displayName: Azure Data Lake, U-SQL
+          href: iot-hub-query-avro-data.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
