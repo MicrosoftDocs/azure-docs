@@ -40,9 +40,9 @@ Then, check the alert details page for the following details to aid in your inve
 
 - **Source and destination device details**. Source and destination devices are listed in **Alert details** tab, and also in the **Entities** area below, as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). In the **Entities** area, you'll use the links in the **Name** column to open the relevant device details pages for [further investigation](#investigate-related-alerts-on-the-azure-portal).
 
-- **Site and zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack.
+- **Site and zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack. <!--need new screenshot showing these details-->
 
-- **MITRE ATT&CK** tactics and techniques. If you don't see this area, scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
+- **MITRE ATT&CK** tactics and techniques. Scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
 
 - **Download PCAP**. At the top of the page, select **Download PCAP** to download the raw traffic files for the selected alert. For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview).
 
@@ -60,7 +60,7 @@ For example, if you're investigating an alert that indicates a device is attempt
 
     For example:
 
-    <image>
+    :::image type="content" source="media/iot-solution/device-details-alerts.png" alt-text="Screenshot of the Alerts tab on a device details page.":::
 
 ## Investigate alert details on the sensor
 
@@ -68,7 +68,7 @@ Continue your investigation on the OT network sensor that generated the alert. F
 
 On the sensor's **Alerts** page, find and select the alert you're investigating, and then select **View more details** to open the sensor's alert details page.
 
-<!--need to find an alert that i can use for screenshots from sentinel, d4iot and a sensor console-->
+:::image type="content" source="media/iot-solution/alert-on-sensor.png" alt-text="Screenshot of the alert on the sensor console.":::
 
 On the sensor's alert details page:
 
@@ -80,45 +80,39 @@ On the sensor's alert details page:
 
 ## Take remediation action
 
+<!--ask meir where the best place to do this in?-->
 The timing for when you take remediation actions may depend on the severity of the alert. For example, for high severity alerts, you might want to take action even before investigating, such as if you need to immediately quarantine an area of your network.
 
 For lower severity alerts, or for operational alerts, you might want to investigate before taking action.
 
 **To remediate an alert**, use the following Defender for IoT resources:
 
-- **On the alert details page**, select the **Take action** tab to view details about recommended steps to mitigate the risk. For example:
-
-    <image>
+- **On the alert details page**, select the **Take action** tab to view details about recommended steps to mitigate the risk.
 
 - **On the device details page** for both the [source and destination devices](#investigate-an-alert-from-the-azure-portal):
 
-    - Select the **Vulnerabilities** tab and check for current vulnerabilities on the source and destination devices.
+    - Select the **Vulnerabilities** tab and check for detected vulnerabilities on each device.
 
-    - Select the **Recommendations** tab and check for current security recommendations for the source and destination devices.
+    - Select the **Recommendations** tab and check for current security recommendations for each device.
 
-Often, Defender for IoT vulnerability data and security recommendations can provide simple actions you can take to mitigate the risks, such as updating firmware or applying a patch. Other actions may take more planning.
+Defender for IoT vulnerability data and security recommendations can provide simple actions you can take to mitigate the risks, such as updating firmware or applying a patch. Other actions may take more planning.
 
-When you've finished with mitigation activities and are ready to close the alert, make sure to update the alert status to **Closed**. If you're working with Microsoft Sentinel too, the alert status changes synchronizes to Microsoft Sentinel, but doesn't automatically close the related incident.
+When you've finished with mitigation activities and are ready to close the alert, make sure to update the alert status to **Closed**. Alert statuses are synchronized across your sensor, Defender for IoT, and Microsoft Sentinel. Closing an alert in Defender for IoT does *not* automatically close any related incident in Microsoft Sentinel.
 
 ## Triage alerts regularly
 
-Go to the Defender for IoT **Alerts** page for additional alert details, such as **site**, **zone**, or **category**. If you need to, select **Edit columns** to add more columns to the grid.
+Triage alerts on a regular basis to prevent alert fatigue in your network and ensure that you're able to see and handle important alerts in a timely manner.
 
-
-**To locate priority alerts in Defender for IoT**:
+**To triage alerts**:
 
 1. In Defender for IoT in the Azure portal, go to the **Alerts** page.
 
-1. Sort the grid by the **Last detection** column to find the latest alerts in your network. Use other filters, such as **Sensor** or **Severity** to find the alert you want to investigate.
+1. Sort the grid by the **Last detection** column to find the latest alerts in your network. Use other filters, such as **Sensor** or **Severity** to find specific alerts.
 
-1. Select your alert in the grid, and then select **View more details** in the alert details pane on the right.
+1. Check the alert details and investigate as needed before you take any alert action.
 
-    The alert details page opens for the selected alert, with the Defender for IoT context in the breadcrumbs. For example:
+1. When you're ready, take action on an alert details page for a specific alert, or on the **Alerts** page for bulk actions. 
 
-
-
-
-
-Find the alert on the **Alerts** page in Defender for IoT to view additional alert details, 
+    For example, update alert status or severity, or *learn* an alert to authorize the detected traffic. *Learned* alerts are not triggered again if the same exact traffic is detected again.
 
 ## Next steps

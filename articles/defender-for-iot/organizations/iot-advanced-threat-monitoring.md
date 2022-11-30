@@ -117,6 +117,14 @@ You can also hunt for vulnerable devices on the Microsoft Sentinel **Entity beha
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases).
 
+### Investigate the alert in Defender for IoT
+
+To open an alert in Defender for IoT for further investigation, go to your incident details page and select  **Investigate in Microsoft Defender for IoT**. For example:
+
+:::image type="content" source="media/iot-solution/investigate-in-iot.png" alt-text="Screenshot of the Investigate in Microsoft Defender for IoT option.":::
+
+The Defender for IoT alert details page opens for the related alert.
+
 ## Visualize and monitor Defender for IoT data
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the [Microsoft Defender for IoT](#install-the-defender-for-iot-solution) solution.
@@ -316,14 +324,6 @@ To add a device owner, edit the site owner on the **Sites and sensors** page in 
 **Playbook name**: AD4IoT-AutoTriageIncident
 
 This playbook updates the incident severity according to the importance level of the devices involved.
-
-## Access the alert in Defender for IoT
-
-To open an alert in Defender for IoT for further investigation, go to your incident details page and select  **Investigate in Microsoft Defender for IoT**.
-
-The Defender for IoT alert details page opens for the related alert. For example:
-
-:::image type="content" source="media/respond-ot-alert/alert-details-iot.png" alt-text="Screenshot of the alert details page in Defender for IoT.":::
 
 ## Next steps
 
