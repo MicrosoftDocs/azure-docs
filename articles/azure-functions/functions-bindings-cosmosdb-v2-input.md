@@ -1695,7 +1695,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
@@ -1703,7 +1703,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v3](../../includes/functions-cosmosdb-input-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-input-attributes-v4](../../includes/functions-cosmosdb-input-attributes-v4.md)]
 
@@ -1711,7 +1711,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-input-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-input-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
@@ -1742,7 +1742,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
@@ -1761,7 +1761,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
@@ -1769,7 +1769,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 [!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 Only JSON string inputs are currently supported. 
 
@@ -1777,7 +1777,7 @@ Only JSON string inputs are currently supported.
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-input-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-input-settings-v4.md)]
 
