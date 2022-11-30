@@ -1,15 +1,18 @@
 ---
-title: Introduction to Azure Cosmos DB for MongoDB
-description: Learn how you can use Azure Cosmos DB to store and query massive amounts of data using Azure Cosmos DB's API for MongoDB.
-ms.service: cosmos-db
-ms.subservice: mongodb
-ms.custom: ignite-2022
-ms.topic: overview
-ms.date: 08/26/2021
+title: Introduction
+titleSuffix: Azure Cosmos DB for MongoDB
+description: Use Azure Cosmos DB for MongoDB to store and query massive amounts of data using popular open-source drivers.
 author: gahl-levy
 ms.author: gahllevy
+ms.service: cosmos-db
+ms.subservice: mongodb
+ms.topic: overview
+ms.date: 11/30/2022
+ms.custom: ignite-2022
 ---
-# Azure Cosmos DB for MongoDB
+
+# Introduction to Azure Cosmos DB for MongoDB
+
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can leverage your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.

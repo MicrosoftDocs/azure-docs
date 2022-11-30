@@ -1,17 +1,19 @@
 ---
-title: Introduction to the Azure Cosmos DB for Apache Cassandra
-description: Learn how you can use Azure Cosmos DB to "lift-and-shift" existing applications and build new applications by using the Cassandra drivers and CQL  
+title: Introduction
+titleSuffix: Azure Cosmos DB for Apache Cassandra
+description: Use Azure Cosmos DB for Apache Cassandra to power existing and new applications with Cassandra drivers and CQL.
 author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 11/30/2022
+ms.custom: ignite-2022
 ---
 
-# Introduction to the Azure Cosmos DB for Apache Cassandra
+# Introduction to Azure Cosmos DB for Apache Cassandra
+
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB for Apache Cassandra can be used as the data store for apps written for [Apache Cassandra](https://cassandra.apache.org). This means that by using existing [Apache drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver) compliant with CQLv4, your existing Cassandra application can now communicate with the Azure Cosmos DB for Apache Cassandra. In many cases, you can switch from using Apache Cassandra to using Azure Cosmos DB's API for Cassandra, by just changing a connection string. 
