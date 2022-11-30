@@ -21,7 +21,7 @@ ms.devlang: csharp, golang, java, javascript, python
 
 # Quickstart: Azure Cognitive Services Translator
 
-In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
+Get started with the latest version of Azure Translator. In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0) while you're learning the technology and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
@@ -35,15 +35,13 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
-
-> [!NOTE]
->
-> * For this quickstart it is recommended that you use a Translator text single-service global resource.
-> * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
-> * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
-> * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
-
+  > [!NOTE]
+  >
+  > * For this quickstart it is recommended that you use a Translator text single-service global resource.
+  > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+  > * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+  > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
+  
 <!-- checked -->
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
