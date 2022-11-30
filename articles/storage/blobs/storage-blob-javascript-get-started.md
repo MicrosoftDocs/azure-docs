@@ -164,7 +164,7 @@ You can create the [ContainerClient](/javascript/api/@azure/storage-blob/contain
 
 Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object from the BlobServiceClient.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-blob-service-client.js" highlight="18-22, 27-31, 36-38":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-blob-service-client.js" highlight="19-22, 28-31, 36-38":::
 
 ### Create ContainerClient directly
 
