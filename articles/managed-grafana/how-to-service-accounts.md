@@ -8,4 +8,5 @@ ms.topic: how-to
 ms.date: 11/17/2022
 ---
 
-# Title
+# How to use service accounts in Azure Managed Grafana
+

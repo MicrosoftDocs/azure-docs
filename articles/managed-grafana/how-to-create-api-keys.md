@@ -142,7 +142,7 @@ az grafana api-key delete --name <azure-managed-grafana-name> --key <key>
 
 ## Next steps
 
-In this how-to guide, you learned how to create an API key for Azure Managed Grafana. To learn how to call Grafana APIs, see:
+In this how-to guide, you learned how to create an API key for Azure Managed Grafana. When you're ready, start using service accounts as the new way to authenticate applications that interact with Grafana:
 
 > [!div class="nextstepaction"]
-> [Call Grafana APIs](how-to-api-calls.md)
+> [User service accounts](how-to-service-accounts.md)
