@@ -35,13 +35,17 @@ This section will cover how to use the Azure App Configuration Push task in an A
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
-      ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+      >[!div class="mx-imgBorder"]
+      >![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
-      ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+      >[!div class="mx-imgBorder"]
+      >![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
 1. Search for the **Azure App Configuration Push** Task.
-![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
+>[!div class="mx-imgBorder"]
+>![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
 1. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
-![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
+>[!div class="mx-imgBorder"]
+>![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
 1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
@@ -52,9 +56,11 @@ This section will cover how to use the Azure App Configuration Push task in an A
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
-![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+>[!div class="mx-imgBorder"]
+>![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
-![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+>[!div class="mx-imgBorder"]
+>![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration Push** into the search box and select it.
 1. Configure the necessary parameters within the task to push your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
@@ -107,44 +113,10 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
 
-**How can I create Key Vault references using this task?**
+**How can I create Key Vault references or feature flags using this task?**
 
-To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
+Depending on the file content profile you selected, please refer to examples in the [Azure App Configuration support for configuration file](./concept-config-file.md).
 
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
 A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
-
-**How can I create FeatureFlags using this task ?**
-
-To create feature flags, specify a **FeatureManagement** section in the configuration file and define the feature flags under the **FeatureManagement** section. The feature filters can be defined using the **EnabledFor** property. For the schema see [feature flag schema](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/docs/schemas). The following is an example of a json configuration file with feature flags defined.
-```json
-{
-    "FeatureManagement": {
-        "FeatureA": {
-            "EnabledFor": [
-                {
-                    "Name": "AlwaysOn"
-                }
-            ]
-        },
-        "FeatureB": {
-            "EnabledFor": [
-                {
-                    "Name": "TimeWindow",
-                    "Parameters": {
-                        "Start": "Wed, 23 November 2022 13:59:59 GMT",
-                        "End": "Mon, 05 December 2022 00:00:00 GMT"
-                    }
-                },
-                {
-                    "Name": "Percentage",
-                    "Parameters": {
-                        "PercentageFilterSetting": "50"
-                    }
-                }
-            ]
-        }
-    }
-}
-```
