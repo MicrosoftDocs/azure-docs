@@ -18,7 +18,7 @@ This article describes the Log Analytics data model for Azure Backup that's adde
 In this article, you'll learn about:
 
 > [!div class="checklist"]
-> - Use the Azure Backup data model
+> - Using the Azure Backup data model
 > - Sample Kusto queries
 > - V1 schema vs V2 schema
 
