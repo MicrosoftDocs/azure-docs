@@ -48,7 +48,7 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with our Python Quickstart](manage-data-python.md).
+> [Get started with our Python Quickstart](manage-data-python.md)
 
 Want to learn more?
 

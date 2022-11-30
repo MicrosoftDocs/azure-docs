@@ -50,7 +50,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with our .NET Quickstart](quickstart-dotnet.md).
+> [Get started with our .NET Quickstart](quickstart-dotnet.md)
 
 Want to learn more?
 

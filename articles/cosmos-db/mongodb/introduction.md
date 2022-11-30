@@ -79,7 +79,7 @@ All the APIs for MongoDB versions run on the same codebase, making upgrades a si
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with our Node.js Quickstart](quickstart-nodejs.md).
+> [Get started with our Node.js Quickstart](quickstart-nodejs.md)
 
 Want to learn more?
 

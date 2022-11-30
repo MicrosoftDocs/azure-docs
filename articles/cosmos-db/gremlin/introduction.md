@@ -24,8 +24,6 @@ Azure Cosmos DB for Apache Gremlin is a graph database service that can be used 
 
 The API for Gremlin combines the power of graph database algorithms with highly scalable, managed infrastructure. This approach provides a unique and flexible solution to common data problems associated with inflexible or relational constraints.
 
-:::image type="content" source="./media/introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
-
 > [!TIP]
 > Want to try the API for Gremlin with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 
@@ -153,7 +151,7 @@ g.V('thomas.1').
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with our Java Quickstart](quickstart-java.md).
+> [Get started with our Java Quickstart](quickstart-java.md)
 
 Want to learn more?
 
