@@ -1446,17 +1446,17 @@
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot
       - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd
       - name: Create a snapshot from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
 - name: Networking
   items:
   - name: Overview
