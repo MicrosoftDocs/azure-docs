@@ -85,7 +85,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName ArmTestDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename abc123 -location southcentralus`
 
-## Deploy the MedTech service with the Azure Resource Manager template and Azure CLI
+## Deploy the MedTech service with the Azure Resource Manager template and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
 
