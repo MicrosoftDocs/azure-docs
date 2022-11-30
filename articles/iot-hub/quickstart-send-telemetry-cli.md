@@ -179,7 +179,7 @@ In this section, you update the state of the simulated device by setting propert
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
     
     ```azurecli
-    az iot hub device-twin update -d simDevice --desired '{"conditions":{"temperature":{"warning":98, "critical":107}}}' -n {YourIoTHubName}
+    az iot hub device-twin update -d simDevice --desired '{\"conditions\":{\"temperature\":{\"warning\":98, \"critical\":107}}}' -n {YourIoTHubName}
     ```
 
 1. In the first CLI session, confirm that the simulated device outputs the property update.
