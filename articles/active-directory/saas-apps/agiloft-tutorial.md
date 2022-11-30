@@ -73,7 +73,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.agiloft.com/<KB_NAME>`
+    `https://<SUBDOMAIN>.agiloft.com/<KB_NAME>` . This should match the entry in the Agiloft SAML Configuration Entity ID field. That field in Agiloft may need to be updated as follows:
+     1. Add https:// to the beginning.
+     1. If there are any spaces in the URL, replace each one with an underscore (_).
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>`
