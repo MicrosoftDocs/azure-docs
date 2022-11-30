@@ -44,7 +44,7 @@ For client-side encryption or custom applications you've built, that directly en
 1. Create the new key vault or managed HSM, and create a new key encryption key (KEK).
 1. Re-encrypt any keys or data that was encrypted by the old key using the new key. (If data was directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](../../security/fundamentals/encryption-atrest.md#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
 
-  When re-encryption the data, we recommend a three-level key hierarchy, which will make KEK rotation more easier in the future:
+  When re-encrypting the data, we recommend a three-level key hierarchy, which will make KEK rotation easier in the future:
     1. The Key Encryption Key in Azure Key Vault or Managed HSM
     1. The Primary Key
     1. Data Encryption Keys derived from the Primary Key
