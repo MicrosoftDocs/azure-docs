@@ -91,7 +91,7 @@ From either location, select a recommendation to drill down further and view lis
 
 :::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
 
-For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory) and [Enhance security posture with security recommendations](recommendations.md).
 
 ### Device vulnerabilities from the Azure portal (Public preview)
 

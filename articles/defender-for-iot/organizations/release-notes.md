@@ -39,6 +39,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.2** | | | |
+| 22.2.8 | 11/2022 | Patch | 10/2023 |
 | 22.2.7| 10/2022   | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
 |22.2.5 |08/2022 | Patch| 04/2023 |
@@ -88,6 +89,14 @@ To update to 22.2.x versions:
 - **From version 10.x**, first update to the latest **22.1.x** version, and then update again to the latest **22.2.x** version.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### 22.2.8
+
+**Release date**: 11/2022
+
+**Supported until**: 10/2023
+
+This version includes bug fixes for stability improvements.
 
 ### 22.2.7
 
