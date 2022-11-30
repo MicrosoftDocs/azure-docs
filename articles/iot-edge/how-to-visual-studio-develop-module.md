@@ -78,7 +78,7 @@ This article assumes that you use a machine running Windows as your development 
 :::moniker range="iotedge-2018-06"
 * To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
 
-* Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+* Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you're developing.
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -100,7 +100,7 @@ This article assumes that you use a machine running Windows as your development 
 
     * To create an IoT Edge device with the CLI follow the steps in the quickstart for [Linux](quickstart-linux.md#register-an-iot-edge-device) or [Windows](quickstart.md#register-an-iot-edge-device). In the process of registering an IoT Edge device, you create an IoT Edge device.
 
-   If you are running the IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you start development in Visual Studio.
+   If you're running the IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you start development in Visual Studio.
 
 ## Create an Azure IoT Edge project
 
@@ -120,7 +120,7 @@ In our solution, we're going to build three projects. The main module that conta
 1. In **Configure your new project**, enter a name for your project, specify the location, and select **Create**.
 
 1. In **Add Module**, select the type of module you want to develop. If you have an existing module you want to add to your deployment, select **Existing module**.
-1. In **Module Name**,enter a name for your module. Choose a name that's unique within your container registry.
+1. In **Module Name**, enter a name for your module. Choose a name that's unique within your container registry.
 1. In **Repository Url**, provide the name of the module's image repository. Visual Studio autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
 1. Select **Add** to add your module to the project.
@@ -171,7 +171,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
        ...
     ```
     
-1. If you changed the version, re-generate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This generates a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
+1. If you changed the version, regenerate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This generates a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
 
 ::: zone-end
 
@@ -223,7 +223,7 @@ To initialize the tool in Visual Studio:
 
 1. From the **Tools** menu in Visual Studio, select **Azure IoT Edge Tools** > **Setup IoT Edge Simulator**.
 
-1. Paste the connection string and click **OK**.
+1. Paste the connection string and select **OK**.
 
 > [!NOTE]
 > You need to follow these steps only once on your development computer as the results are automatically applied to all subsequent Azure IoT Edge solutions. This procedure can be followed again if you need to change to a different connection string.
@@ -281,7 +281,7 @@ Typically, you'll want to test and debug each module before running it within an
    > [!TIP]
    > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
-1. Press **Ctrl + F5** or click the stop button to stop debugging.
+1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
 ### Build and debug multiple modules
 
@@ -369,7 +369,7 @@ Once you've developed and debugged your module, you can build and push the modul
 
 1. If you're using a local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
-1. Finally, in the **Solution Explorer**, right-click the main project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module. This might take a minute. When you see `Finished Build and Push IoT Edge Modules.` in your Output console of Visual Studio, you are done.
+1. Finally, in the **Solution Explorer**, right-click the main project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module. This might take a minute. When you see `Finished Build and Push IoT Edge Modules.` in your Output console of Visual Studio, you're done.
 
 ## Deploy the solution
 
@@ -412,7 +412,7 @@ Now that you've built and pushed your module images to your Azure Container Regi
         cd config
     ```
 
-1. Deploy the manifest for your IoT Edge device to IoT Hub. The command configures the device to use modules developed in your solution. The deployment manifest was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. If the IoT Edge device ID does not exist in the IoT Hub, it must be created.
+1. Deploy the manifest for your IoT Edge device to IoT Hub. The command configures the device to use modules developed in your solution. The deployment manifest was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. If the IoT Edge device ID doesn't exist in the IoT Hub, it must be created.
 
     ```cmd
         az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
@@ -498,7 +498,7 @@ In Visual Studio, open *deployment.debug.template.json* deployment manifest file
     ...
     ```
 
-1. Replace the the *image* property value with the module image name you pushed to the registry. For example, if you pushed an image tagged `myacr.azurecr.io/iotedgemodule1:0.0.1-amd64` for custom module *IotEdgeModule1*, replace the image property value with the tag value.
+1. Replace the *image* property value with the module image name you pushed to the registry. For example, if you pushed an image tagged `myacr.azurecr.io/iotedgemodule1:0.0.1-amd64` for custom module *IotEdgeModule1*, replace the image property value with the tag value.
 
 1. Add or replace the *createOptions* value with stringified content for each system and custom module in the deployment template.
 

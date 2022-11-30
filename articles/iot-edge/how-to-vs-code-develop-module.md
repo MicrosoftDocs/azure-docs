@@ -421,7 +421,7 @@ modules/*&lt;your module name&gt;*/**main.py**
 
 ---
 
-The sample modules are designed so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipe it to IoT Hub.
+The sample modules are designed so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipes it to IoT Hub.
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
@@ -778,7 +778,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 1. In VS Code, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
-    :::image type="content" source="media/how-to-vs-code-develop-module/vscode-breakpoint.png" alt-text="Screenshot of VS Code attached to a Docker container on a remote device paused at a breakpoint.":::
+    :::image type="content" source="media/how-to-vs-code-develop-module/vs-code-breakpoint.png" alt-text="Screenshot of VS Code attached to a Docker container on a remote device paused at a breakpoint.":::
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. It added a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
 
