@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/28/2022
 
 ms.devlang: javascript
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Manage container properties and metadata with JavaScript

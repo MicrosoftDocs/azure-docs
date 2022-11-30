@@ -66,9 +66,8 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 
 ## Quickstart
 
-* [Migrate an existing MongoDB Node.js web app](create-mongodb-nodejs.md).
-* [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md)
-* [Build a console app using Azure Cosmos DB's API for MongoDB and Java SDK](quickstart-java.md)
+* [Build an app using Azure Cosmos DB for MongoDB and Node.js SDK](quickstart-nodejs.md)
+* [Build an app using Azure Cosmos DB for MongoDB and Java SDK](quickstart-java.md)
 * [Estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * [Estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
 

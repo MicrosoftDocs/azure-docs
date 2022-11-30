@@ -549,11 +549,14 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 You need to have *write* permissions on the cluster resource. 
 
-When deleting a cluster, you're losing access to all data in cluster, ingested from workspaces that are linked to it, or were linked previously. This operation isn't reversible. If you delete your cluster while workspaces are linked, the workspaces get automatically unlinked from the cluster before the delete, and new data to workspaces gets ingested to Log Analytics. If workspace data retention is longer than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
+When deleting a cluster, you're losing access to all data in cluster, which was ingested from workspaces that were linked to it. This operation isn't reversible.
+The cluster's billing stops when deleted, regardless the 30 days commitment tier. 
+
+If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
-> - There is a limit of seven clusters per subscription, five active plus two if were deleted in past 14 days.
-> - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster. Deleted cluster's name is released and can be reused after 14 days.
+> - There is a limit of seven clusters per subscription, five active, plus two deleted in past 14 days.
+> - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
 
