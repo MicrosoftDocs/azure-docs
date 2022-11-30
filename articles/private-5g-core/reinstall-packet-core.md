@@ -33,7 +33,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-6. Under the **Essentials** heading, make sure the **Installation status** field contains **Installed**. If the **Installation status** field shows the packet core instance is running a process, wait for it to finish before attempting a reinstall.
+6. Under the **Essentials** heading, check the **Installation status** field. If the status under this field indicates the packet core instance is running a process (such as installing, upgrading or rolling back), wait for it to finish before attempting a reinstall.
 <!-- TODO: add image -->
 
 ## Back up deployment information
@@ -80,7 +80,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 ## Next steps
 
-You've finished reinstalling your packet core instance. You can now use Log Analytics or the packet core dashboards to monitor your deployment.
-
+You've finished reinstalling your packet core instance. You can now use Azure Monitor or the packet core dashboards to monitor your deployment.
+<!-- TODO: add link to platform metrics -->
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
