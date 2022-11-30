@@ -25,7 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
 
-Azure Automation announced the General Availability of User Hybrid Worker extension for Windows & Linux Azure VMs, Arc-enabled Servers and Arc-enabled VMware VMs (preview). This feature provides a seamless and identical experience for executing PowerShell and Python runbooks directly on the machine hosting the User Hybrid Worker role and against resources in the environment to manage those local resources. [Learn more](extension-based-hybrid-runbook-worker-install.md)
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](/articles/azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](/articles/azure-arc/vmware-vsphere/overview.md) in preview.
 
 
 ## October 2022
