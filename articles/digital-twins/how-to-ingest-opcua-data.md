@@ -53,7 +53,9 @@ Click on the button below to deploy all required resources.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
 
-Once the deployment is complete, log in to the deployed Windows VM via Remote Desktop (Connect -> Download RDP file in the [Azure portal](https://portal.azure.com)), using the credentials you provided during deployment and download and install Docker Desktop from [here](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation on the VM and a required system restart, accept the license terms and install the WSL Linux kernel by following the instructions. Then restart the VM one more time and verify that Docker Desktop is running in the Windows System Tray.
+Once the deployment is complete, log in to the deployed Windows VM via Remote Desktop (Connect -> Download RDP file in the [Azure portal](https://portal.azure.com)), using the credentials you provided during deployment and download and install Docker Desktop from [here](https://www.docker.com/products/docker-desktop), including the Windows Subsystem for Linux (WSL) integration. After installation on the VM and a required system restart, accept the license terms and install the WSL Linux kernel by following the instructions. Then restart the VM one more time and verify that Docker Desktop is running in the Windows System Tray and enable Kubernetes under Settings -> Kubernetes -> Enable Kubernetes -> Apply & restart.
+
+:::image type="content" source="media/how-to-ingest-opcua-data/Kubernetes.png" alt-text="Screenshot of Docker Desktop Settings." lightbox="media/how-to-ingest-opcua-data/Kubernetes.png":::
 
 ## Running the Production Line Simulation
 
