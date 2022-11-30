@@ -263,13 +263,13 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
 
 - **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
 - **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
-- **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs.
+- **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs until a manual update is triggered.
  
-You can do this manual upgrade using [az vmss update](/cli/azure/vmss)
+If you're scale set is set to manual upgrades, you perform a manual upgrade using [az vmss update](/cli/azure/vmss)
 
-    ```azurecli
-    az vmss update --resource-group myResourceGroup --name myScaleSet 
-    ```
+```azurecli
+az vmss update --resource-group myResourceGroup --name myScaleSet 
+```
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
@@ -277,12 +277,62 @@ You can do this manual upgrade using [az vmss update](/cli/azure/vmss)
 
 ## Reimage a scale set
 
+Virtual Machine Scale Sets will generate a unique name for each VM in the scale set. The naming convention differs by orchestration mode:
+
+- Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
+- Uniform orchestration mode: `{scale-set-name}_{instance-id}`
  
-Azure CLI with [az vmss reimage](/cli/azure/vmss):
+In the cases where you need to reimage a specific instance, use [az vmss reimage](/cli/azure/vmss) and specify the instance names
 
 ```azurecli
-az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id myScaleSet_Instance1
+
 ```
+## Update the OS image for your scale set
+You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property is not part of a list, so you can directly modify these properties with one of the following commands:
+
+- Azure CLI with [az vmss update](/cli/azure/vmss):
+
+    ```azurecli
+    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property with one of the following commands:
+
+- Azure CLI with [az vmss update](/cli/azure/vmss):
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
+
+>[!NOTE]
+> With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
+
+If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
+
+## Update the load balancer for your scale set
+Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly:
+
+- Azure CLI:
+
+    ```azurecli
+    # Remove the load balancer backend pool from the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
+    
+    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
+    
+    # Add the application gateway backend pool to the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
+    ```
+
+>[!NOTE]
+> These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
 
 
 ## Properties with restrictions on modification
@@ -309,95 +359,6 @@ Some properties may only be changed to certain values if the VMs in the scale se
 
 ## VM-specific updates
 Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/z_deprecated/preview/disk).
-
-
-## Scenarios
-
-### Application updates
-If an application is deployed to a scale set through extensions, an update to the extension configuration causes the application to update in accordance with the upgrade policy. For instance, if you have a new version of a script to run in a Custom Script Extension, you could update the *fileUris* property to point to the new script. In some cases, you may wish to force an update even though the extension configuration is unchanged (for example, you updated the script without a change to the URI of the script). In these cases, you can modify the *forceUpdateTag* to force an update. The Azure platform does not interpret this property. If you change the value, there is no effect on how the extension runs. A change simply forces the extension to rerun. For more information on the *forceUpdateTag*, see the [REST API documentation for extensions](/rest/api/compute/virtualmachineextensions/createorupdate). Note that the *forceUpdateTag* can be used with all extensions, not just the custom script extension.
-
-It's also common for applications to be deployed through a custom image. This scenario is covered in the following section.
-
-### OS Updates
-If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
-
->[!NOTE]
-> With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
-
-If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
-
-## Examples
-
-### Update the OS image for your scale set
-You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property is not part of a list, so you can directly modify these properties with one of the following commands:
-
-- Azure PowerShell with [Update-AzVmss](/powershell/module/az.compute/update-azvmss) as follows:
-
-    ```powershell
-    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
-    ```
-
-- Azure CLI with [az vmss update](/cli/azure/vmss):
-
-    ```azurecli
-    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
-    ```
-
-Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property with one of the following commands:
-
-- Azure PowerShell with [Update-AzVmss](/powershell/module/az.compute/update-azvmss) as follows:
-
-    ```powershell
-    Update-AzVmss `
-        -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet" `
-        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
-    ```
-
-- Azure CLI with [az vmss update](/cli/azure/vmss):
-
-    ```azurecli
-    az vmss update \
-        --resource-group myResourceGroup \
-        --name myScaleSet \
-        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
-    ```
-
-
-### Update the load balancer for your scale set
-Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly:
-
-- Azure PowerShell:
-
-    ```powershell
-    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
-    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
-    
-    # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-    $ipconf = New-AzVmssIPConfig -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id -Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
-    
-    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
-    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
-    
-    # Update the model of the scale set with the new configuration in the local PowerShell object
-    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
-    ```
-
-- Azure CLI:
-
-    ```azurecli
-    # Remove the load balancer backend pool from the scale set model
-    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
-    
-    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
-    
-    # Add the application gateway backend pool to the scale set model
-    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
-    ```
-
->[!NOTE]
-> These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
 
 
 ## Next steps
