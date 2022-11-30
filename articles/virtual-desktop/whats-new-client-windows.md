@@ -20,6 +20,15 @@ The client can be configured to enable Windows Insider releases. The following t
 | Public  | 1.2.3667       | 1.2.1672                  |
 | Insider | 1.2.3770       | 1.2.1672                  |
 
+## Updates for version 1.2.3770 (Insider)
+
+*Date published: 11/29/2022*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
 ## Updates for version 1.2.3667
 
 *Date published: 11/30/2022*
@@ -32,15 +41,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 - Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
 - Fixed an issue where the client stops responding when coming out of sleep mode.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-
-## Updates for version 1.2.3770 (Insider)
-
-*Date published: 11/29/2022*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
-
-- Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.3577
 
