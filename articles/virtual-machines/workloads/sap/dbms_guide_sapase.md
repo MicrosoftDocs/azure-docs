@@ -51,9 +51,9 @@ The page size is typically 2048 KB. For details see the article [Huge Pages on L
 ## Recommendations on VM and disk structure for SAP ASE deployments
 
 SAP ASE for SAP NetWeaver Applications is supported on any VM type listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
-Typical VM types used for medium size SAP ASE database servers include Esv3.  Large multi-terabyte databases can leverage M-series VM types. 
+Typical VM types used for medium size SAP ASE database servers include Esv3.  Large multi-terabyte databases can use M-series VM types. 
 The SAP ASE transaction log disk write performance may be improved by enabling the M-series Write Accelerator. Write Accelerator should be tested carefully with SAP ASE due to the way that SAP ASE performs Log Writes.  Review [SAP support note #2816580](../../how-to-enable-write-accelerator.md) and consider running a performance test.  
-Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator doesn't show similar improvements as with other DBMS. Based on the way SAP ASE writes into the transaction log, it could be that there is little to no acceleration by Azure Write Accelerator.
+Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator doesn't show similar improvements as with other DBMS. Based on the way, SAP ASE writes into the transaction log, it could be that there is little to no acceleration by Azure Write Accelerator.
 Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` don't require dedicated disks and can be placed on the disks containing the SAP database data and log devices 
 
 ![Storage configuration for SAP ASE](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
@@ -85,8 +85,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput | Premium storage: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID 0) - default IOPS and throughput | Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID 0) - default IOPS and throughput | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -106,8 +106,8 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk | Premium storage: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB- 200 GiB (RAID0) - default IOPS and 25 MB/sec extra per disk throughput | Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB- 200 GiB (RAID0) - default IOPS and 25 MB/sec extra per disk throughput | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -126,8 +126,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Premium storage: 4 x P30 (RAID0) <br /> Premium storage v2: 1 x 200GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
-| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 400GiB - default IOPS and 75MB/sec extra throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 400GiB - default IOPS and 75 MB/sec extra throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 1 x 200 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75 MB/sec extra throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
@@ -147,8 +147,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Premium storage: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
-| # and type of log disks | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Premium storage: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Cache = NONE, Consider Azure Ultra disk |
+| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Cache = NONE, Consider Azure Ultra disk |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
@@ -182,7 +182,7 @@ The recommendation to apply compression before uploading to Azure is given out o
 Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database, check [SAP support note 1750510](https://launchpad.support.sap.com/#/notes/1750510). For more details on SAP ASE database compression check [SAP support note #2121797](https://launchpad.support.sap.com/#/notes/2121797)
 
 ## High availability of SAP ASE on Azure 
-The HADR Users Guide details the setup and configuration of a 2-node SAP ASE “Always-on” solution.  In addition, a third disaster recovery node is also supported. SAP ASE supports many High Availability [configurations](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) including shared disk and native OS clustering (such as Pacemaker and Windows Server Failover Cluster). 
+The HADR Users Guide details the setup and configuration of a two-node SAP ASE “Always-on” solution.  In addition, a third disaster recovery node is also supported. SAP ASE supports many High Availability [configurations](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) including shared disk and native OS clustering (such as Pacemaker and Windows Server Failover Cluster). 
 There are two supported High Availability configurations for SAP ASE on Azure:
 
 - HA Aware with Fault Manager - The SAP Kernel is an “HA Aware” application and knows about the primary and secondary SAP ASE servers. There are no close integrations between the SAP ASE “HA Aware“ solution and Azure, the Azure Internal load balancer is not used.  The solution is documented in the [SAP ASE HADR Users Guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)
