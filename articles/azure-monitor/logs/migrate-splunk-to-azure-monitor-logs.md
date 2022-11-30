@@ -55,15 +55,17 @@ To set up a Log Analytics workspace for data collection:
     1. Modify the table schema.
 ## 2. Collect data
 
-| | Data collection tool | Collected data |
+Azure Monitor provides a variety of tools for collecting data from all data sources. The table lists the tools to use to collect data from various monitored resources.  
+
+| Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
 | **Azure** |  | |
 |  | [Diagnostic settings](../essentials/diagnostic-settings.md) |**Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.|
 |  |  |**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription|
-| **Applications** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
-| **Containers** |[Container insights](../containers/container-insights-overview.md)| |
-| **Operating systems** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
-| **Non-Azure sources** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
+| **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
+| **Container** |[Container insights](../containers/container-insights-overview.md)| |
+| **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
+| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
 
 Container insights talk to Kevin Harris and ask Rod and Vanessa - also is this article about Logs or Azure Monitor in general?
 ## 3. Migrate applications
