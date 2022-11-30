@@ -24,9 +24,9 @@ Hybrid authentication allows users to access cloud-based resources with their id
 
 Microsoft offers three mechanisms for hybrid authentication. The options are listed in order of resilience. We recommend that you implement password hash synchronization, if possible.
 
-* [Password hash synchronization](../hybrid/whatis-phs.md) (PHS) uses Azure AD Connect to sync the identity and a hash of the hash of the password to Azure AD. It enables users to sign in to cloud-based resources with their password mastered on premises. PHS has on premises dependencies only for synchronization, not for authentication.
+* [Password hash synchronization](../hybrid/whatis-phs.md) (PHS) uses Azure AD Connect to sync the identity and a hash-of-the-hash of the password to Azure AD. It enables users to sign in to cloud-based resources with their password mastered on premises. PHS has on premises dependencies only for synchronization, not for authentication.
 * [Pass-through Authentication](../hybrid/how-to-connect-pta.md) (PTA) redirects users to Azure AD for sign-in. Then, the username and password are validated against Active Directory on premises through an agent that is deployed in the corporate network. PTA has an on premises footprint of its Azure AD PTA agents that reside on servers on premises.
-* [Federation](../hybrid/whatis-fed.md) customers deploy a federation service such as Active Directory Federation Services (ADFS). Then Azure AD validates the SAML assertion produced by the federation service. Federation has the highest dependency on on premises infrastructure and, therefore, more failure points. 
+* [Federation](../hybrid/whatis-fed.md) customers deploy a federation service such as Active Directory Federation Services (ADFS). Then Azure AD validates the SAML assertion produced by the federation service. Federation has the highest dependency on on-premises infrastructure and, therefore, more failure points. 
 
 You may be using one or more of these methods in your organization. For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). This article contains a decision tree that can help you decide on your methodology.
 
