@@ -119,7 +119,7 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### Public Preview - Dynamic Group Pause Functionality 
+### Public Preview - Dynamic Group pause functionality 
 
 
 
