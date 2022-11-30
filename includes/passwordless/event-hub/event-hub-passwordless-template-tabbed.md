@@ -10,7 +10,7 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-This quick start shows you two ways of connecting to Azure Event Hub: passwordless and connection string. The first option shows you how to use your security principal in Azure Active Directory and role-based access control (RBAC) to connect to an Event Hub namespace. You don't need to worry about having hard-coded connection strings in your code or in a configuration file or in a secure storage like Azure Key Vault. The second option shows you how to use a connection string to connect to an Event Hub namespace. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). You can also read more about passwordless authentication on the [overview page](/azure/sdk/authentication?tabs=command-line).
+This quick start shows you two ways of connecting to Azure Event Hubs: passwordless and connection string. The first option shows you how to use your security principal in Azure Active Directory and role-based access control (RBAC) to connect to an Event Hubs namespace. You don't need to worry about having hard-coded connection strings in your code or in a configuration file or in a secure storage like Azure Key Vault. The second option shows you how to use a connection string to connect to an Event Hubs namespace. If you're new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). You can also read more about passwordless authentication on the [overview page](/azure/sdk/authentication?tabs=command-line).
 
 ## [Passwordless](#tab/passwordless)
 
@@ -34,9 +34,9 @@ You can authorize access to the service bus namespace using the following steps:
 ## [Connection String](#tab/connection-string)
 
 ## Get the connection string 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Event Hub authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys and connection strings that each grant full control over all aspects of the namespace. See [Event Hubs authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
 
-A client can use the connection string to connect to the Event Hub namespace. To copy the primary connection string for your namespace, follow these steps: 
+A client can use the connection string to connect to the Event Hubs namespace. To copy the primary connection string for your namespace, follow these steps: 
 
 1. On the **Event Hub Namespace** page, select **Shared access policies** on the left menu.
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
