@@ -22,7 +22,7 @@ For more information, see [Use Redis modules with Azure Cache for Redis](cache-r
 
 ### Redis 6 becomes default update
 
-Due to unforeseen events, we've changed the date for when all versions of Azure Cache for Redis--REST API, PowerShell, Azure CLI, and Azure SDK--will create Redis instances using Redis 6. Previously, we announced this change would take place on November 1, 2022. The new date is January 20, 2022.
+All versions of Azure Cache for Redis REST API, PowerShell, Azure CLI and Azure SDK, will create Redis instances using Redis 6 starting January 20, 2023. Previously, we announced this change would take place on November 1, 2022, but due to unforeseen changes, the date has now been pushed out to January 20, 2023.
 
 For more information, see [Redis 6 becomes default for new cache instances](#redis-6-becomes-default-for-new-cache-instances).
 
