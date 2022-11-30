@@ -7,7 +7,7 @@
 - name: Integration with Microsoft Services
   items:
   - name: Integrating Azure with SAP RISE managed workloads
-    href: /azure/virtual-machines/workloads/sap/sap-rise-integration?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
+    href: sap-rise-integration.md#sap-btp-connectivity
   - name: Microsoft Office
     items:
     - name: Outbound E-Mail from SAP to Exchange Online
