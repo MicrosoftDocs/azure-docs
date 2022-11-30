@@ -18,10 +18,14 @@ The following reference document provides an overview of a workflow created usin
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
-## Licenses and Permissions
+## Licenses requirements 
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+
+## Permissions
+
+The following permissions are required for Lifecycle Workflows:
 
 |Parameter  |Display String  |Description  |Admin Consent Required  |
 |---------|---------|---------|---------|

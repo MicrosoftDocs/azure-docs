@@ -26,6 +26,10 @@ This off-boarding scenario will run a workflow on-demand and accomplish the foll
 
 You may learn more about running a workflow on-demand [here](on-demand-workflow.md).
 
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+
 ##  Before you begin
 
 As part of the prerequisites for completing this tutorial, you will need an account that has group and Teams memberships and that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).

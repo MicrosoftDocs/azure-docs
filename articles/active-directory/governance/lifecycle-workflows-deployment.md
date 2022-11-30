@@ -40,10 +40,10 @@ Planning your Lifecycle Workflow deployment is essential to make sure you achiev
 
 For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
 
-## Licenses
+## License requirements
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
 
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.
