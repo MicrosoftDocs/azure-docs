@@ -90,14 +90,10 @@ Shared provider users need to migrate to custom providers to be able to perform 
             };  
             
 ## Key considerations:
-• It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
-
-• If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
-
-• If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
-
-• For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
-
-• For customers using an attestation policy without configurationrules section, attestation will be performed against the Azure default TCB baseline
+- It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
+- If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
+- If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
+- For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
+- For customers using an attestation policy without configurationrules section, attestation will be performed against the Azure default TCB baseline
 
 
