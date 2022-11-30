@@ -148,6 +148,7 @@ This version includes the following new updates and fixes:
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ## Versions 22.1.x
 
@@ -162,7 +163,6 @@ Software versions 22.1.x support direct updates to the latest OT monitoring soft
 This version includes the following new updates and fixes:
 
 - [Identical passwords for *cyberx_host* and *cyberx* users created during installations and updates](how-to-install-software.md)
-- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ### 22.1.6
 
@@ -211,6 +211,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+
 - [New sensor installation wizard](how-to-install-software.md)
 
 - [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md)
@@ -246,6 +247,8 @@ This version includes the following new updates and fixes:
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
 - [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
+
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ## Versions 10.5.x
 
