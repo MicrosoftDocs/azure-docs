@@ -49,7 +49,7 @@ To check out a sample payload for the event and to learn about other calling eve
 
 Below is an example of an Event Grid Webhook subscription where the event type filter is listening only to the `IncomingCall` event.
 
-![Image showing IncomingCall subscription](./media/subscribe-incoming-call-event-grid.png)
+![Image showing IncomingCall subscription.](./media/subscribe-incoming-call-event-grid.png)
 
 ## Call routing in Call Automation or Event Grid
 
@@ -60,7 +60,7 @@ You can use [advanced filters](../../../event-grid/event-filtering.md) in your E
 
 Below is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
 
-![Image showing Event Grid advanced filter](./media/event-grid-advanced-filter.png)
+![Image showing Event Grid advanced filter.](./media/event-grid-advanced-filter.png)
 
 ## Number assignment
 
