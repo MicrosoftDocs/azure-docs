@@ -30,7 +30,7 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Basics**, select the **Target region** or an Azure Public MEC (preview).
     - Option1: **Public MEC to Region**
     
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option1- Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region - expanded.png":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option1- Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region - expanded":::
 
     - Option2: **Public MEC to Public MEC**
     
