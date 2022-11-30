@@ -1,7 +1,7 @@
 ---
 title: Use Application Live View
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use Application Live View for VMware Tanzu.
+description: Learn how to use Application Live View for VMware Tanzu.
 author: karlerickson
 ms.author: yuwzho
 ms.service: spring-apps
@@ -11,12 +11,13 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use Application Live View
+
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Application Live View for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+This article shows you how to use Application Live View for VMware Tanzu® with Azure Spring Apps Enterprise tier.
 
 [Application Live View](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators to look inside running apps.
 
