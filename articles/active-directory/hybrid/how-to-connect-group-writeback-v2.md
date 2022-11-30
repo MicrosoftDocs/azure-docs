@@ -118,7 +118,10 @@ You can modify the default behavior as follows:
 - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
 If you plan to make changes to the default behavior, we recommend that you do so before you enable group writeback. However, you can still modify the default behavior if group writeback is already enabled. For more information, see [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 
- 
+
+> [!NOTE]
+> To prevent all existing Microsoft 365 groups to be automatically written back to Active Directory, you need to make these changes before enabling group writeback. Also the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
+
 ## Understand limitations of public preview  
 
 Although this release has undergone extensive testing, you might still encounter issues. One of the goals of this public preview release is to find and fix any issues before the feature moves to general availability. Please also note that any public preview functionality can still receive breaking changes which may require you to make changes to you configuration to continue using this feature. We may also decide to change or remove certain functionality without prior notice.
