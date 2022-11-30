@@ -94,17 +94,17 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 ## Use Blob service with account SAS token
 
-## [BlobServiceClient](#tab/blob-service-client)
+### [BlobServiceClient](#tab/blob-service-client)
 
 To use the account SAS token, you need to combine it with the account name to create the URI. Pass the URI to create the blobServiceClient. Once you have the blobServiceClient, you can use that client to access your Blob service. 
  
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
 
-## [ContainerClient](#tab/container-client)
+### [ContainerClient](#tab/container-client)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
 
-## [BlobClient](#tab/container-client)
+### [BlobClient](#tab/blob-client)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
 

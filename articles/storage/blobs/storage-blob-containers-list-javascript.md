@@ -23,7 +23,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 ## Understand container listing options
 
-To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started#create-a-blobserviceclient-object) object then call the following method:
+To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
 
 - BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers)
 
