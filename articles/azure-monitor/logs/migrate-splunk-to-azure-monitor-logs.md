@@ -15,7 +15,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 > [!div class="checklist"]
 > * Introduction to key concepts 
-> * Deploy a Log Analytics workspace
+> * Set up a Log Analytics workspace
 > * Collect data
 > * Migrate applications
 > * Ingest historical data
@@ -35,13 +35,18 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |[Log Analytics](../logs/log-analytics-overview.md)| A tool in the Azure portal that's used to edit and run log queries on data collected to Azure Monitor Logs.|
 |[Cost optimization](../../azure-monitor/best-practices-cost.md)|Reduce your costs by understanding [Azure Monitor Logs cost calculations](../logs/cost-logs.md) and following [best practices for optimizing costs in Azure Monitor](../../azure-monitor/best-practices-cost.md). |
 
-## 1. Deploy a Log Analytics workspace
+## 1. Set up a Log Analytics workspace
 
-[Design a Log Analytics workspace architecture](../logs/workspace-design.md)
+1. [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
+    
+    Azure Monitor Logs creates Azure tables in your workspace automatically based on Azure services you use and [data collection settings](#2-collect-data) you define for Azure resources.
 
-[Manage access to Log Analytics workspaces](../logs/manage-access.md)
+1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
 
-[Set a table's log data plan](../logs/basic-logs-configure.md)
+1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
+    1. Define a table's log data plan.
+    1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
+    1. Modify the table schema.
 
 Should we send metrics to a workspace or metrics?
 
