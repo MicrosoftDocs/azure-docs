@@ -41,7 +41,7 @@ You can use SSML in the following ways:
 
 ## Next steps
 
-- [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
 - [Voice and sound with SSML](speech-synthesis-markup-voice.md)
+- [Pronunciation with SSML](speech-synthesis-markup-pronunciation.md)
 - [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
