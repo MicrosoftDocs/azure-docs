@@ -116,7 +116,7 @@ Let's cover each step to get started with the August 2022 Update in more detail.
 
 ## Next steps
 
-- As an admin, [Migrate to Azure Lab Services August 2022 Update](migrate-to-2022-update.md) 
+- As an admin, [Migrate to August 2022 Update](migrate-to-2022-update.md) 
 - As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
 - As an educator, [create a lab](tutorial-setup-lab.md).

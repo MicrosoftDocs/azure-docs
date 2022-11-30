@@ -1,10 +1,11 @@
 ---
-title: Migrate to Azure Lab Services August 2022 Update 
+title: Migrate to August 2022 Update 
+titleSuffix: Azure Lab Services
 description: 'Learn how to migrate from Azure Lab Services to Azure Lab Services August 2022 Update.'
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/08/2022
+ms.date: 11/30/2022
 ---
 
 # Migrate to Azure Lab Services August 2022 Update
@@ -19,6 +20,8 @@ Use the following checklist to get started with Azure Lab Services August 2022 U
 > - Validate images
 > - Create and publish labs
 > - Update cost management reports
+
+In August 2022, a new update of Azure Lab Services was released. This update includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. You don't need to migrate to the new functionality available in the August 2022 update of the service immediately, we recommend you migrate your labs.
 
 Migrating from Azure Lab Services to Azure Lab Services August 2022 Update can be complex, but provides opportunities for enhancing your Lab Services implementation. This article describes process of migrating to the August 2022 Update in detail, and will help you understand the requirements and sequence of steps you should take for a successful migration.
 
@@ -39,7 +42,7 @@ Before you request capacity, you must have at least one lab plan in your subscri
 
 ## 2. Request capacity
 
-Customers are now assigned their own [dedicated VM cores quota](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account won't be available when you create a lab plan.
+As a customer, you're now assigned your own [dedicated VM cores quota](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account won't be available when you create a lab plan.
 
 1. Verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md).
 1. [Request a core limit increase](/azure/lab-services/how-to-request-capacity-increase?tabs=Labplans).
@@ -91,7 +94,7 @@ Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](/az
 
 ## 6. Create and publish labs
 
-Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. Lab administrators and educators should validate performance based on common student workloads.
+Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. Creating representative labs is an optional but highly recommended step, which enables you to validate performance based on common student workloads. 
 
 ### Lab strategies
 
@@ -114,7 +117,6 @@ Update reports to include the new cost entry type, `Microsoft.LabServices/labs`,
 
 ## Next steps
 
-- As an educator, [create and manage labs](how-to-manage-classroom-labs.md).
-- As an educator, [configure and publish templates](how-to-create-manage-template.md).
+- As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
+- As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
 - As an educator, [configure and control usage of a lab](how-to-configure-student-usage.md).
-- As a student, [access labs](how-to-use-lab.md).
