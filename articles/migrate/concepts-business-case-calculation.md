@@ -5,10 +5,10 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 11/30/2022
 ---
 
-# Business Case  overview
+# Business Case (preview) overview
 
 This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 

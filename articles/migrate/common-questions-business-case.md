@@ -9,7 +9,7 @@ ms.date: 11/30/2022
 
 ---
 
-# Business case - Common questions
+# Business case (preview) - Common questions
 
 This article answers common questions about business case in Azure Migrate. If you have other questions, check these resources:
 
