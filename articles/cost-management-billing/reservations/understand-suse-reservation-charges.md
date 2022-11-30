@@ -2,7 +2,7 @@
 title: Software plan discount - Azure
 description: Learn how software plan discounts are applied to software on virtual machines.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

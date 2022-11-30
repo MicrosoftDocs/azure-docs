@@ -16324,6 +16324,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
+            "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
@@ -29518,6 +29523,11 @@
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
             "redirect_url": "/azure/aks/intro-kubernetes",
             "redirect_document_id": "false"
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
+          "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
+          "redirect_document_id": false
         }
     ]
 }
