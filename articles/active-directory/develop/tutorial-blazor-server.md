@@ -100,7 +100,7 @@ Now you'll update your app's registration and code to pull a user's email and di
 1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.
 1. Select **Add permissions**.
 
-In the _appsettings.json_ file, update your code so it fetches the appropriate token with the right permissions. Add "mail.read" after the "user.read" scope under "DownstreamAPI". This is specifying which scopes (or permissions) the app will request access to.
+In the *appsettings.json* file, update your code so it fetches the appropriate token with the right permissions. Add `mail.read` after the `user.read` scope under `DownstreamAPI`. This is specifying which scopes (or permissions) the app will request access to.
 
 ```json
 "Scopes": "user.read mail.read"
