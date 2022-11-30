@@ -17,7 +17,7 @@ Before you can manually deploy the MedTech service, you must complete the follow
 
 Start with these three steps to begin configuring the MedTech service so it will be ready to accept your tabbed configuration input:
 
-1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#part-1-prerequisites) section. Select the **Create MedTech service** box.
+1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-new-manual.md#part-1-prerequisites) section. Select the **Create MedTech service** box.
 
 2. This step will take you to the **Add MedTech service** button. Select the button.
 
@@ -112,7 +112,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 - First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
-  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-03-new-manual.md#deploy-the-fhir-service).
+  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-new-manual.md#deploy-the-fhir-service).
   1. Then select the **Properties** button. 
   1. Next, Copy and paste the **Name** string into the **FHIR Server** text field. In this example, the **FHIR Server** name is `fs-azuredocsdemo`.
 
@@ -196,6 +196,6 @@ After your configuration is successfully completed, you can go on to Part 3: Dep
 When you're ready to begin Part 3 of Manual Deployment, see
 
 > [!div class="nextstepaction"]
-> [Part 3: Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
+> [Part 3: Manual deployment and post-deployment of MedTech service](deploy-new-deploy.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
