@@ -178,9 +178,9 @@
         - name: Summary
           href: swa.yml
         - name: Configure SWA CLI
-          href: configuration.md
+          href: swa-configuration.md
         - name: Deploy static web app with SWA CLI
-          href: deploy.md
+          href: swa-deploy.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
