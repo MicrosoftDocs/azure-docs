@@ -16,6 +16,16 @@ items:
     href: whats-new.md
   - name: Computer Vision FAQ
     href: FAQ.yml
+- name: Use cases
+  items:
+  - name: Generate alt text for images
+    href: use-case-alt-text.md
+  - name: Verify user identity
+    href: use-case-identity-verification.md
+  - name: Monitor customer dwell time
+    href: use-case-dwell-time.md
+  - name: Measure queue wait time
+    href: use-case-queue-time.md
 - name: Optical character recognition (OCR)
   items:
   - name: OCR overview
