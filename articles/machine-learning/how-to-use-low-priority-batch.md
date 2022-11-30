@@ -34,7 +34,9 @@ Azure Machine Learning Batch Deployments provides several capabilities that make
 
 ## Considerations and use cases
 
-Many batch workloads are a good fit for low priority VMs. Although this may introduce further execution delays when deallocation of VMs occurs, the potential drops in capacity can be tolerated at expenses of running with a lower cost if there is flexibility in the time jobs have to complete. Since batch endpoints distributes the work at the mini-batch level, deallocation only impacts those mini-batches that are currently being processed and not finished on the affected node. 
+Many batch workloads are a good fit for low priority VMs. Although this may introduce further execution delays when deallocation of VMs occurs, the potential drops in capacity can be tolerated at expenses of running with a lower cost if there is flexibility in the time jobs have to complete. 
+
+Since batch endpoints distribute the work at the mini-batch level, deallocation only impacts those mini-batches that are currently being processed and not finished on the affected node. 
 
 ## Creating batch deployments with low priority VMs
 
