@@ -121,7 +121,7 @@ The account must have access to the master database, because `sys.databases` is 
 
 1. Select **Register**.
 
-1. Select **SQL Server on Azure Arc-enabled servers**, and then select **Continue**.
+1. Select **Azure Arc-enabled SQL Server**, and then select **Continue**.
 
    :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows selecting a SQL data source.":::
 
@@ -196,13 +196,13 @@ Before you can create policies, you must register the Azure Arc-enabled SQL Serv
 
 1. Enable **Data use management**. **Data use management** needs certain permissions and can affect the security of your data, because it delegates to certain Microsoft Purview roles to manage access to the data sources. Go through the secure practices related to **Data use management** in this guide: [Enable Data use management on your Microsoft Purview sources](./how-to-enable-data-use-management.md).
 
-1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Azure Arc-enabled SQL Server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Azure Arc-enabled SQL Server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply**.
 
 ![Screenshot that shows selections for registering a data source for a policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
-### Enable policies in Arc-enabled SQL Server
+### Enable policies in Azure Arc-enabled SQL Server
 [!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
 
 ### Create a policy
