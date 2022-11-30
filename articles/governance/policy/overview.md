@@ -147,7 +147,7 @@ to users who do not need them.
 
 ### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
 
-[Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
+[Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager (AVNM) dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
 
 To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need:
 
@@ -155,6 +155,12 @@ To create, edit, or delete Azure Virtual Network Manager dynamic group policies,
 - Azure RBAC permissions to join the network group (Note: Classic Admin authorization is not supported)
 
 Specifically, the required resource provider permission is `Microsoft.Network/networkManagers/networkGroups/join/action`.
+
+> [!IMPORTANT]
+> To modify AVNM dynamic groups, you must be granted access via Azure RBAC role assignment only.
+> Classic Admin/legacy authorization is not supported; this means if your account were
+> assigned only the co-administrator subscription role, you'd have no permissions on AVNM
+> dynamic groups.
 
 ### Resources covered by Azure Policy
 

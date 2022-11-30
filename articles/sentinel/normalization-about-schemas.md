@@ -27,7 +27,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](web-normalization-schema.md) | 0.2.4 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.5 | Preview |
 
 
 > [!IMPORTANT]
