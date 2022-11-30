@@ -1516,13 +1516,13 @@ groups:
     title: Workbooks
 # Owner: patricka
 - id: iotedge-dev
-  title: IoT Edge development tool
-  prompt: Choose an Azure IoT Edge development tool
+  title: IoT Edge development option
+  prompt: Choose an Azure IoT Edge development option
   pivots:
   - id: iotedge-dev-cli
-    title: Command line interface
-  - id: iotedge-dev-vscode
-    title: Azure IoT Edge VS Code extension
+    title: IoT Edge Dev Tool CLI
+  - id: iotedge-dev-ext
+    title: IoT Edge VS extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
