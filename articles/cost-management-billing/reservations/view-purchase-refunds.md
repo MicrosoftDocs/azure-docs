@@ -2,7 +2,7 @@
 title: View Azure Reservation purchase and refund transactions
 description: Learn how view Azure Reservation purchase and refund transactions.
 author: bandersmsft
-ms.reviwer: primittal
+ms.reviwer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
