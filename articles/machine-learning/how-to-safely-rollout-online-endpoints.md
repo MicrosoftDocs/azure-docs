@@ -318,7 +318,7 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 
 ---
 
-## Shadow test the deployment with mirrored traffic
+## Test the deployment with mirrored traffic (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors. This kind of testing scenario is also known as shadow testing.
