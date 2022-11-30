@@ -114,7 +114,7 @@ swa deploy ./bin/publish/wwwroot --api-location ./Api
 > [!NOTE]
 > The path for `outputLocation` must be relative to the `appLocation`.
 
-If you are using a [`swa-cli.config.json`](./congfiguration.md) configuration file in your project and have a single configuration entry, for example:
+If you are using a [`swa-cli.config.json`](./swa-congfiguration.md) configuration file in your project and have a single configuration entry, for example:
 
 ```json
 {
