@@ -46,14 +46,14 @@ When you provide a model you want to register, you'll need to specify a `path` p
 
 When you run a job with model inputs/outputs, you can specify the *mode* - for example, whether you would like the model to be read-only mounted or downloaded to the compute target. The table below shows the possible modes for different type/mode/input/output combinations:
 
-Type | Input/Output | `direct` | `download` | `ro_mount` 
------- | ------ | :---: | :---: | :---: | 
-`custom` file | Input  |  ✓ |   |    | 
-`custom` folder | Input  |  ✓ | ✓  |  ✓  | 
-`mlflow`   | Input |  |  ✓  | ✓ |
-`custom` file | Output  | ✓  |  ✓ |   ✓ |  
-`custom` folder   | Output | ✓  | ✓  | ✓   |
-`mlflow`    | Output | ✓  |  ✓ |   ✓ | 
+Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` 
+------ | ------ | :---: | :---: | :---: | :---: | :---: 
+`custom` file  | Input  |   | ✓  |  ✓ |  | ✓   
+`custom` folder    | Input |   | ✓ | ✓  | |✓  
+`mlflow`    | Input |   | ✓ |  ✓ |   |   
+`custom` file | Output  | ✓  |   |    | ✓  | ✓   
+`custom` folder    | Output | ✓  |   |   | ✓ | ✓  
+`mlflow`   | Output | ✓  |   |    | ✓  | ✓ 
 
 
 ### Follow along in Jupyter Notebooks

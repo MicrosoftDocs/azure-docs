@@ -60,7 +60,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 1. Sign in to the Azure CLI:
 
     ```azurecli
-        az login
+    az login
     ```
 
 1. List all the Azure Deployment Environments projects you have access to:
