@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author:  sidontha
+author: sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: tutorial

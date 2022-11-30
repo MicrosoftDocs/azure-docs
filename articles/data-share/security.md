@@ -2,7 +2,7 @@
 title: Security overview for Azure Data Share
 description: Security overview for Azure Data Share
 author:  sidontha
-ms.author: sidonthas
+ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
 ms.date: 11/15/2022
