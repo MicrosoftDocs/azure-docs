@@ -14,7 +14,7 @@ ms.author: jasteppe
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
-> - Use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+> - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -92,7 +92,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
-Complete the following five steps to deploy the MedTech service using Azure CLI:
+Complete the following five steps to deploy the MedTech service using the Azure CLI:
 
 1. Sign-in into Azure.
 
