@@ -310,9 +310,9 @@
     href: /samples/browse/?products=azure
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/
-  - name: Authentication methods APIs in Microsoft Graph
+  - name: Authentication methods APIs - Microsoft Graph
     href: /graph/api/resources/authenticationmethods-overview
-  - name: Authentication strengths APIs in Microsoft Graph (preview)
+  - name: Authentication strengths APIs - Microsoft Graph (preview)
     href: /graph/api/resources/authenticationstrengths-overview
   - name: Service limits and restrictions
     href: ../enterprise-users/directory-service-limits-restrictions.md
