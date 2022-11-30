@@ -19,9 +19,9 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use Application Live View for VMware Tanzu® with Azure Spring Apps Enterprise tier.
 
-[Application Live View](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators to look inside running apps.
+[Application Live View for VMware Tanzu](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
-> Application Live View now only supports Spring Boot application.
+Application Live View only supports Spring Boot applications.
 
 ## Prerequisites
 
@@ -37,22 +37,28 @@ This article shows you how to use Application Live View for VMware Tanzu® with 
 
 ## Enable Application Live View
 
-You can enable Application Live View when provisioning an Azure Spring Apps Enterprise tier. If you already have a succeeded Azure Spring Apps Enterprise resource, see [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-tier-instances) to enable it.
+You can enable Application Live View when you provision an Azure Spring Apps Enterprise tier instance. If you already have a provisioned Azure Spring Apps Enterprise resource, see the [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-tier-instances) section of this article.
 
-#### [Portal](#tab/Portal)
+You can enable Application Live View using the Azure portal or Azure CLI.
 
-1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
-1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Clieck "next".
-1. In the "VMware Tanzu settings" tab, check "App Live View" checkbox.
-   ![Enable-Application-Live-View](./media/how-to-use-application-live-view/create.png)
-3. Fulfill other settings and click "Review and Create".
-4. You can obtain "Enable Application Live View" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
+### [Azure portal](#tab/Portal)
 
-#### [CLI](#tab/Azure-CLI)
+Use the following steps to enable Application Live View using the Azure portal:
 
-Use the following steps to provision an Azure Spring Apps service instance.
+1. Navigate to the [Azure portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
+1. On the **Basics** tab, select **Enterprise tier** in pricing, specify other input fields, and then select **Next**.
+1. On the **VMware Tanzu settings** tab, select the **Enable App Live View** checkbox.
 
-1. Use the following command to sign in to the Azure CLI and choose your active subscription:
+   :::image type="content" source="media/how-to-use-application-live-view/create.png" alt-text="Screenshot of the VMware Tanzu settings tab with the Enable App Live View checkbox selected." lightbox="media/how-to-use-application-live-view/create.png":::
+
+1. Specify other settings, and then select **Review and Create**.
+1. Make sure that **Enable Application Live View** and **Enable Dev Tools Portal** are *Yes* on the **Review and Create** tab, and the select **Create** to create the Enterprise tier instance.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to provision an Azure Spring Apps service instance using the Azure CLI.
+
+1. Use the following command to sign in to the Azure CLI and specify your active subscription:
 
    ```azurecli
    az login
@@ -80,7 +86,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --location <location>
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
+   For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 
 1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
@@ -94,24 +100,26 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --enable-application-live-view
    ```
 
+---
+
 ## Monitor Application Live View
 
-Azure Spring Apps runs the Application Live View in connector mode. 
+Azure Spring Apps runs the Application Live View in connector mode.
 
-| Component Name | Responsibiliy |
-|------------------------------|---------------|
-| Application Live View Server | The central server component that contains a list of registered apps. It is responsible for proxying the request to fetch the actuator information related to the app. |
-| Application Live View Connector | The component responsible for discovering the running app, and registering the instances to the Application Live View Server for it to be observed. The Application Live View Connector is also responsible for proxying the actuator queries to the app. | 
+| Component                       | Description                                                                                                                                                                                                                                              |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Application Live View Server    | The central server component that contains a list of registered apps. Application Live View Server is responsible for proxying the request to fetch the actuator information related to the app.                                                         |
+| Application Live View Connector | The component responsible for discovering the running app and registering the instances to the Application Live View Server for it to be observed. The Application Live View Connector is also responsible for proxying the actuator queries to the app. |
 
-You can obtain the running state, resource consumption or manage Application Live View after provisioning the Azure Spring Apps Enterprise tier. 
+After you provision the Azure Spring Apps Enterprise tier instance, you can obtain its running state and resource consumption, or manage Application Live View.
 
-#### [Portal](#tab/Portal)
+### [Portal](#tab/Portal)
 
 1. You can view the state of Application Live View in the "Developer Tools (Preview)" blade.
   ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
 
 
-#### [CLI](#tab/Azure-CLI)
+### [CLI](#tab/Azure-CLI)
 
 1. Run this command to view Application Live View by using Azure CLI
    ```azurecli
@@ -119,6 +127,8 @@ You can obtain the running state, resource consumption or manage Application Liv
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name>
    ```
+
+---
 
 ## Configure Dev Tools to access Application Live View
 
@@ -203,7 +213,7 @@ This section instructs you how to enable the Application Live View under an exis
 
 > If Dev tools public endpoint has already been exposed, then after enabling Application Live View here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
 
-#### [Portal](#tab/Portal)
+### [Portal](#tab/Portal)
 
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
@@ -213,8 +223,7 @@ This section instructs you how to enable the Application Live View under an exis
 1. After it is saved successfully, you can view the state of Application Live View in the "Developer Tools (Preview)" blade.
   ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
 
-
-#### [CLI](#tab/Azure-CLI)
+### [CLI](#tab/Azure-CLI)
 
 1. Run this command to enable Application Live View by using Azure CLI
    ```azurecli
@@ -230,3 +239,5 @@ This section instructs you how to enable the Application Live View under an exis
   >    --service <Azure-Spring-Apps-service-instance-name> \
   >    --assign-endpoint
   > ```
+
+---
