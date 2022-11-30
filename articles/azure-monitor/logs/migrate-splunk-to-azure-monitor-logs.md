@@ -37,7 +37,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 ## 1. Set up a Log Analytics workspace
 
-Your Log Analytics workspace is where you'll collect log data from all of your monitored resources. You can retain data in a Log Analytics workspace for up to seven years. Low-cost data archiving within the workspace lets you access archived data quickly and easily when you need it, without the overhead of managing an external data store.
+Your Log Analytics workspace is where you collect log data from all of your monitored resources. You can retain data in a Log Analytics workspace for up to seven years. Low-cost data archiving within the workspace lets you access archived data quickly and easily when you need it, without the overhead of managing an external data store.
 
 We recommend collecting all of your log data in a single Log Analytics workspace for ease of management. If you are considering using multiple workspaces, see [Design a Log Analytics workspace architecture](../logs/workspace-design.md).
 
@@ -59,13 +59,11 @@ Azure Monitor provides a variety of tools for collecting data from all data sour
 
 | Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
-| **Azure** |  | |
-|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |**Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.|
-|  |  |**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription|
-| **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
+| **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
+| **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring data. |
 | **Container** |[Container insights](../containers/container-insights-overview.md)| |
 | **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
-| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource|
+| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
 Container insights talk to Kevin Harris and ask Rod and Vanessa - also is this article about Logs or Azure Monitor in general?
 ## 3. Migrate applications
