@@ -20,11 +20,11 @@ Refer to the sections below for details about how to structure elements in the S
 
 ## Document structure
 
-The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
+The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/). The elements supported by the Speech can differ from the W3C standard. 
 
 Each SSML document is created with SSML elements or tags. These elements are used to adjust the voice, style, pitch, prosody, volume, and more.
 
-Here's the basic structure and syntax of an SSML document:
+Here's a subset of the basic structure and syntax of an SSML document:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
@@ -50,7 +50,7 @@ Here's the basic structure and syntax of an SSML document:
 </speak>
 ```
 
-Contents that are allowed in each element are described in the following list:
+Some examples of contents that are allowed in each element are described in the following list:
 - `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `bookmark`: This element can't contain text or any other elements.
 - `break`: This element can't contain text or any other elements.
