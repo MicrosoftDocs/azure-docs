@@ -135,7 +135,7 @@ Use the following command in the Azure CLI to view Application Live View:
 
 ## Configure Dev Tools to access Application Live View
 
-To access Application Live View, you need to configure Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md) to understand more there.
+To access Application Live View, you need to configure Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
 
 ## Use Application Live View to monitor your apps
 
@@ -202,7 +202,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
 1. After the app is successfully deployed, you can monitor it using the Application Live View dashboard on Dev Tools Portal. For more information, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md).
 
    If you have already enabled Dev Tools Portal and exposed a public endpoint, use the following command to get the Dev Tools Portal dashboard URL. Add the suffix `/app-live-view` to compose the endpoint to access Application Live View.
-   
+
    ```azurecli
    az spring dev-tool show --service <Azure-Spring-Apps-service-instance-name> \
         --resource-group <resource-group-name> \
@@ -253,3 +253,7 @@ To access the Application Live View dashboard, you must enable Dev Tools Portal 
   ```
 
 ---
+
+## Next steps
+
+- [Azure Spring Apps](index.yml)
