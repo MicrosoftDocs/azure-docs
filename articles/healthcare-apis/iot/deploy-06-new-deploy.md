@@ -103,6 +103,6 @@ In this article, you learned how to perform the manual deployment and post-deplo
 > [Deploy the MedTech service with an Azure Resource Manager template](deploy-02-new-button.md)
 
 > [!div class="nextstepaction"]
-> [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md)
+> [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -1,12 +1,8 @@
 ---
 title: "Deploy Helm Charts using GitOps on Azure Arc-enabled Kubernetes cluster"
-services: azure-arc
-ms.service: azure-arc
-#ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 05/24/2022
 ms.topic: how-to
 description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuration"
-keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
 # Deploy Helm Charts using GitOps on an Azure Arc-enabled Kubernetes cluster

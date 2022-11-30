@@ -8,6 +8,7 @@ ms.date: 05/23/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: "monitoring, devx-track-csharp"
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters'
-description: This tutorial walks through setting up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
-ms.service: azure-arc
+description: This tutorial walks through setting up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters.
 ms.topic: tutorial
 ms.date: 05/24/2021
 ms.custom: template-tutorial, devx-track-azurecli
