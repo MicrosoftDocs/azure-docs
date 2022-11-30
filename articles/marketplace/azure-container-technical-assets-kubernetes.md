@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: nickomang
 ms.author: nickoman
-ms.date: 09/27/2022
+ms.date: 11/30/2022
 ---
 
 # Prepare Azure container technical assets for a Kubernetes app
@@ -268,6 +268,26 @@ The fields used in the manifest are as follows:
 |namespace|String|(Optional) Specify the namespace the extension will install into. This property is required when `defaultScope` is set to `cluster`. For namespace naming restrictions, see [Namespaces and DNS][namespaces-and-dns].|
 
 For a sample configured for the voting app, see the following [manifest file example][manifest-sample].
+
+### User parameter flow
+
+It's important to understand how user parameters flow throughout the artifacts you're creating and packaging. Parameters are initially defined when creating the UI through a *createUiDefinition.json* file:
+
+:::image type="content" source="./media/azure-container/user-param-ui.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Definitions for 'value1' and 'value2' are shown.":::
+
+and are exported via the `outputs` section:
+
+:::image type="content" source="./media/azure-container/user-param-ui-2.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Output lines for application title, 'value1', and 'value2' are shown.":::
+
+From there, the values are passed to the Azure Resource Manager template and will be propagated to the Helm chart during deployment:
+
+:::image type="content" source="./media/azure-container/user-param-arm.png" alt-text="A screenshot of the Azure Resource Manager template example linked in this article. Under 'configurationSettings', the parameters for application title, 'value1', and 'value2' are shown.":::
+
+Finally, the values are consumed by the Helm chart:
+
+:::image type="content" source="./media/azure-container/user-param-helm.png" alt-text="A screenshot of the Azure Resource Manager template example linked in this article. Under 'configurationSettings', the parameters for application title, 'value1', and 'value2' are shown.":::
+
+
 
 ### Structure your application
 
