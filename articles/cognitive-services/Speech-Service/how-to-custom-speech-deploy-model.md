@@ -315,7 +315,7 @@ To download the endpoint logs:
 
 ::: zone pivot="speech-cli"
 
-To gets logs for an endpoint, use the `spx csr endpoint list` command. Construct the request parameters according to the following instructions:
+To get logs for an endpoint, use the `spx csr endpoint list` command. Construct the request parameters according to the following instructions:
 
 - Set the required `endpoint` parameter to the ID of the endpoint that you want to get logs.
 

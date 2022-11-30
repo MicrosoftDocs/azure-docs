@@ -51,7 +51,7 @@ The `filter` property is added to the [Transcriptions_List](https://eastus.dev.c
 The following operations are added for uploading and managing multiple data blocks for a dataset:
  - [Datasets_UploadBlock](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_UploadBlock) - Upload a block of data for the dataset. The maximum size of the block is 8MiB.
  - [Datasets_GetDatasetBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_GetDatasetBlocks) - Get the list of uploaded blocks for this dataset.
- - [Datasets_CommitBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_CommitBlocks) - Commit block list to complete the upload of the dataset. 
+ - [Datasets_CommitBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_CommitBlocks) - Commit blocklist to complete the upload of the dataset. 
 
 To support model adaptation with [structured text in markdown](how-to-custom-speech-test-and-train.md#structured-text-data-for-training) data, the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) operation now supports the **LanguageMarkdown** data kind. For more information, see [upload datasets](how-to-custom-speech-upload-data.md#upload-datasets). 
 
@@ -91,7 +91,7 @@ The `filter` expression can be used to select a subset of the available resource
 
 Added the [Models_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListFiles) operation to get the files of the model identified by the given ID.
 
-Added the [Models_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetFile) operation to get one specific file (identified with fileId) from a model (identified with id). This lets you retrieve a **ModelReport** file that provides information on the data processed during training. 
+Added the [Models_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetFile) operation to get one specific file (identified with fileId) from a model (identified with ID). This lets you retrieve a **ModelReport** file that provides information on the data processed during training. 
 
 ## Operation IDs
 
