@@ -22,14 +22,17 @@ At this time, a test or preview build is not available for the next release.
 |Arc-enabled Kubernetes helm chart extension version|1.14.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.7.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.7.0 ([Download](https://aka.ms/ads-azcli-ext))|
 
+<!---
 New for this release:
-- Azure Arc data controller
-  - 
 
+- Azure Arc data controller
+  - Feature description
 - Arc-enabled SQL managed instance
+  - Feature description
 
 - Arc-enabled PostgreSQL server
-  - 
+  - Feature description
 
 - `arcdata` Azure CLI extension
-  - 
+  - Feature description
+--->
