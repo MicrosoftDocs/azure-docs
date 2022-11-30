@@ -26,16 +26,10 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
  To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
-For **Service Principals** only, an Entra Workload Identities Premium plan is also required. To make use of workload identity risk, including the new **Risky workload identities** blade and the **Workload identity detections** tab in the **Risk detections** blade in the portal, you must have the following.
+Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan. 
 
 - Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
-- One of the following administrator roles assigned
-   - Global Administrator
-   - Security Administrator
-   - Security Operator
-   - Security Reader
 
-Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
 ## Create access reviews
 
