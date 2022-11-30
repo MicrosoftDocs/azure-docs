@@ -236,7 +236,7 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command
