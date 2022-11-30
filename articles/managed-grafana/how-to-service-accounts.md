@@ -20,9 +20,6 @@ Common use cases include:
 - Setting up an external SAML authentication provider
 - Interacting with Grafana without signing in as a user
 
-> [!TIP]
-> To switch to using service accounts, in Grafana instances created before the release of Grafana 9.1, go to **Configuration > API keys and select Migrate to service accounts now**.  Select **Yes, migrate now**. Each existing API keys will be automatically migrated into a service account with a token. The service account will be created with the same permission as the API Key and current API keys will continue to work as before.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
