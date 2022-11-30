@@ -42,7 +42,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 
 In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Screenshot showing the gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 > [!TIP]
 > Use the **Edit** button to customize any of the supplied workbooks to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
