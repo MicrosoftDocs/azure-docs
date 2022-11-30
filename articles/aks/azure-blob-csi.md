@@ -33,7 +33,7 @@ Azure Blob storage CSI driver supports the following features:
 
 - BlobFuse and Network File System (NFS) version 3.0 protocol
 
-## Prerequisites
+## Before you begin
 
 - You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
