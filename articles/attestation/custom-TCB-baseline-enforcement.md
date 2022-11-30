@@ -22,9 +22,9 @@ The custom TCB baseline enforcement feature in Azure Attestation will enable you
 
 The feature can be used in the following scenarios:
 
-•	**To perform SGX attestation against newer TCB offered by Intel** – Security conscious customers can perform timely roll out of platform software (PSW) updates as recommended by Intel and use the custom baseline enforcement feature to perform their SGX attestation against the newer TCB versions supported by Intel 
+**To perform SGX attestation against newer TCB offered by Intel** – Security conscious customers can perform timely roll out of platform software (PSW) updates as recommended by Intel and use the custom baseline enforcement feature to perform their SGX attestation against the newer TCB versions supported by Intel 
 
-•	**To perform platform software (PSW) updates at your own cadence** – Customers who prefer to update PSW at their own cadence, can use custom baseline enforcement feature to perform SGX attestation against the older TCB baseline, until the PSW updates are rolled out
+**To perform platform software (PSW) updates at your own cadence** – Customers who prefer to update PSW at their own cadence, can use custom baseline enforcement feature to perform SGX attestation against the older TCB baseline, until the PSW updates are rolled out
 
 ## Default TCB baseline used by Azure Attestation when no custom TCB baseline is configured by users
 
@@ -90,14 +90,14 @@ Shared provider users need to migrate to custom providers to be able to perform 
             };  
             
 ## Key considerations:
-•It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
+• It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
 
-•If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
+• If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
 
-•If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
+• If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
 
-•For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
+• For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
 
-•For customers using an attestation policy without configurationrules section, attestation will be performed against the Azure default TCB baseline
+• For customers using an attestation policy without configurationrules section, attestation will be performed against the Azure default TCB baseline
 
 
