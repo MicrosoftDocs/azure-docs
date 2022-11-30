@@ -9,8 +9,6 @@ ms.topic: how-to
 
 Running data mining queries provides dynamic, detailed information about your network devices. This includes information for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state.
 
-Reports can be viewed in the **Data Mining** page. You can refresh a report, edit report parameters, and export to a CSV file or PDF. You can also take a snapshot of a report.
-
 Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
 
 ## Prerequisites
@@ -92,6 +90,8 @@ When you choose the sensor from the on-premises management console, all the cust
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
 
 ## Next steps
+
+Reports can be viewed in the **Data Mining** page. You can refresh a report, edit report parameters, and export to a CSV file or PDF. You can also take a snapshot of a report.
 
 For more information, see:
 
