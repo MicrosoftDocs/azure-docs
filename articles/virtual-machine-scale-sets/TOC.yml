@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are virtual machine scale sets?
+  - name: What are Virtual Machine Scale Sets?
     href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md

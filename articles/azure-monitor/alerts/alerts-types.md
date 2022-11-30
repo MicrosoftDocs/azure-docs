@@ -13,12 +13,15 @@ ms.reviewer: harelbr
 
 This article describes the kinds of Azure Monitor alerts you can create, and helps you understand when to use each type of alert.
 
-There are five types of alerts:
+There are four types of alerts:
 - [Metric alerts](#metric-alerts)
-- - [Log alerts](#log-alerts)
+- [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
+    - [Service Health alerts](#service-health-alerts)
+    - [Resource Health alerts](#resource-health-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
 - [Prometheus alerts](#prometheus-alerts-preview) (preview)
+
 ## Choosing the right alert type
 
 This table can help you decide when to use what type of alert. For more detailed information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
@@ -27,7 +30,7 @@ This table can help you decide when to use what type of alert. For more detailed
 |---------|---------|---------|
 |Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. We recommend using metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time-series that are monitored. |
 |Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for log alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. | 
-|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
+|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource. Service Health alerts and Resource Health alerts can let you know when there is an issue with one of your services or resources.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
 |Prometheus alerts (preview)| Prometheus alerts are primarily used for alerting on performance and health of Kubernetes clusters (including AKS). The alert rules are based on PromQL, which is an open source query language. | There is no charge for Prometheus alerts during the preview period. |
 ## Metric alerts
 
@@ -174,6 +177,16 @@ You can create an activity log alert on:
 Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. 
 
 An activity log alert only monitors events in the subscription in which the alert is created.
+
+### Service Health alerts
+
+Service Health alerts are a type of activity alert. [Service Health](../../service-health/overview.md) lets you know about outages, planned maintenance activities, and other health advisories because the authenticated Service Health experience knows which services and resources you currently use. 
+
+The best way to use Service Health is to set up Service Health alerts to notify you using your preferred communication channels when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
+
+### Resource Health alerts
+
+Resource Health alerts are a type of activity alert. [Resource Health overview](../../service-health/resource-health-overview.md) helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources. Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies things that you can do to address it.
 
 ## Smart Detection alerts
 

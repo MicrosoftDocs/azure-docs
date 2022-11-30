@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/17/2022
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -35,8 +35,7 @@ Azure NetApp Files lets you deploy new volumes in the logical availability zone 
 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature does not create zonal VMs upon volume creation, or vice versa.
 
-> [!IMPORTANT]
-> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with backup and restore on the volume, it will be supported because the problem is not with the availability zone volume placement feature itself.
+[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
 ## Register the feature 
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: heidilohr
 manager: femila
 ms.author: helohr
-ms.date: 11/03/2022
+ms.date: 11/29/2022
 ---
 # What's new in the Remote Desktop client for Windows
 
@@ -18,13 +18,20 @@ The client can be configured to enable Windows Insider releases. The following t
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
 | Public  | 1.2.3577       | 1.2.1672                  |
-| Insider | 1.2.3667       | 1.2.1672                  |
+| Insider | 1.2.3770       | 1.2.1672                  |
+
+## Updates for version 1.2.3770 (Insider)
+
+*Date published: 11/29/2022*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.3667 (Insider)
 
 *Date published: 10/25/2022*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 - Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
