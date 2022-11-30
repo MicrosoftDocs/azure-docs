@@ -47,7 +47,7 @@ Traffic Manager supports external, non-Azure endpoints enabling it to be used wi
 
 ## Distribute traffic for complex deployments
 
-By using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), multiple traffic-routing methods can be combined to create sophisticated and flexible rules to scale to the needs of larger, more complex deployments.
+When you use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), multiple traffic-routing methods can be combined to create sophisticated and flexible rules to scale to the needs of larger, more complex deployments.
 
 ## Pricing
 
