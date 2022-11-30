@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 > [!TIP]
-> Learn how to [use Azure PowerShell or the Azure CLI to deploy the MedTech service by using an ARM template](deploy-new-ps-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
+> Learn how to [use Azure PowerShell or the Azure CLI to deploy the MedTech service by using an ARM template](deploy-new-powershell-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
 
 ## Device message flow
 
