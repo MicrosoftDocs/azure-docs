@@ -609,13 +609,13 @@
       items:
       - name: C# (.NET)
         displayName: samples, azure-iot-samples-csharp
-        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
+        href: https://github.com/Azure/azure-iot-sdk-csharp#samples
       - name: Node.js
         displayName: samples, azure-iot-samples-node
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
         displayName: samples, azure-iot-samples-java
-        href: https://github.com/Azure-Samples/azure-iot-samples-java
+        href: https://github.com/Azure/azure-iot-sdk-java#samples
       - name: Python
         displayName: samples, azure-iot-samples-python 
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
