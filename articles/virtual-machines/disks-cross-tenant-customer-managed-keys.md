@@ -4,7 +4,7 @@ description: Learn how to use customer-managed keys with your Azure disks in dif
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 11/30/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
