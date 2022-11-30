@@ -47,9 +47,6 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
     1. Define a table's log data plan.
     1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
     1. Modify the table schema.
-
-Should we send metrics to a workspace or metrics?
-
 ## 2. Collect data
 
 | | Data collection tool | Collected data |
