@@ -68,6 +68,7 @@ Shared provider users need to migrate to custom providers to be able to perform 
 1.	Go to overview page and view the current default policy of the attestation provider. Details here
 2.	Click on View available TCB for attestation, view the available TCB, identify the desired TCB identifier and click Cancel 
 3.	Click Configure, and use the sample below for configuring an attestation policy with a custom TCB baseline. 
+
             version = 1.1; 
             configurationrules 
             { 
