@@ -114,7 +114,7 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 
 Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js" highlight="9-12":::
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control. If you use a local service principal as part of your DefaultAzureCredential set up, any security information for that credential will also go into the `.env` file. 
 
@@ -124,7 +124,7 @@ If you plan to deploy the application to servers and clients that run outside of
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) from the storage account name and account key. Then pass the StorageSharedKeyCredential to the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class constructor to create a client.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js" highlight="12-15":::
 
 The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control. 
 
@@ -141,7 +141,7 @@ https://YOUR-RESOURCE-NAME.blob.core.windows.net?YOUR-SAS-TOKEN
 
 Depending on which tool you use to generate your SAS token, the querystring `?` may already be added to the SAS token.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js" highlight="13-16":::
 
 The `dotenv` package is used to read your storage account name and sas token from a `.env` file. This file should not be checked into source control.
 
@@ -164,23 +164,23 @@ You can create the [ContainerClient](/javascript/api/@azure/storage-blob/contain
 
 Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object from the BlobServiceClient.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-blob-service-client.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-blob-service-client.js" highlight="18-22, 27-31, 36-38":::
 
 ### Create ContainerClient directly
 
 #### [Azure AD](#tab/azure-ad)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-default-azure-credential.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-default-azure-credential.js" highlight="27-30":::
 
 
 #### [Account key](#tab/account-key)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-account-name-and-key.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-account-name-and-key.js" highlight="18-21, 29-32":::
 
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="20, 25":::
 
 
 -----------------
@@ -201,21 +201,21 @@ List of Blob clients:
 
 ### Create BlobClient object from ContainerClient
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-container-client.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-container-client.js" highlight="19-22, 29-32, 38, 45":::
 
 ### Create BlobClient directly
 
 #### [Azure AD](#tab/azure-ad)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-default-azure-credential.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-default-azure-credential.js" highlight="28-31":::
 
 #### [Account key](#tab/account-key)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-account-name-and-key.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-account-name-and-key.js" highlight="19-22, 34-37":::
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js" highlight="17, 36":::
 
 -----------------
 
