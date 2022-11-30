@@ -50,7 +50,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
     npm install @azure/storage-blob
     ```
 
-1. If you want to connect with managed identity, install the Azure Identity client library for JavaScript:
+1. If you want to use passwordless connections using Azure AD, install the Azure Identity client library for JavaScript:
 
     ```bash
     npm install @azure/identity
@@ -112,19 +112,17 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 
 ## [Azure AD](#tab/azure-ad)
 
-Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
-
-Create a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
+Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js":::
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control. If you use a local service principal as part of your DefaultAzureCredential set up, any security information for that credential will also go into the `.env` file. 
 
-If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) class.
+If you plan to deploy the application to servers and clients that run outside of Azure, create one of the [credentials](https://www.npmjs.com/package/@azure/identity#credential-classes) that meets your needs.
 
 ## [Account key](#tab/account-key)
 
-Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
+Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) from the storage account name and account key. Then pass the StorageSharedKeyCredential to the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class constructor to create a client.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js":::
 
@@ -135,7 +133,13 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ## [SAS token](#tab/sas-token)
 
-Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri.
+Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri. The SAS token is a series of name/value pairs in the querystring in the format such as:
+
+```
+https://YOUR-RESOURCE-NAME.blob.core.windows.net?YOUR-SAS-TOKEN
+```
+
+Depending on which tool you use to generate your SAS token, the querystring `?` may already be added to the SAS token.
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
 
@@ -160,7 +164,6 @@ For information about how to obtain account keys and best practice guidelines fo
 
 -----------------
 
-The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 
 ## Create a ContainerClient object
 
