@@ -63,7 +63,7 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
+If [anonymous read access](./anonymous-read-access-overview.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs. We recommend requiring authorization for all requests to blob data.
 
 <a id="known-issues-tools"></a>
 

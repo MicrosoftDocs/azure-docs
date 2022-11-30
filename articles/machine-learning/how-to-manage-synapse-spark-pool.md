@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to attach and manage Spark pools with Azure Synapse 
 author: ynpandey
 ms.author: franksolomon
-ms.reviewer: scottpolly
+ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 

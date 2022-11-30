@@ -181,7 +181,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 
 ### Add user to groups
 
-Allows users to be added to cloud-only groups. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task.
 :::image type="content" source="media/lifecycle-workflow-task/add-group-task.png" alt-text="Screenshot of Workflows task: Add user to group task.":::
@@ -301,8 +301,8 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 |category    |  joiner, leaver      |
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
 |description     |  Run a Custom Task Extension to call-out to an external system. (Customizable by user)      |
-|taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
-|argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter that is the Logic App HTTP trigger.     |
+|taskDefinitionId     |   d79d1fcc-16be-490c-a865-f4533b1639ee      |
+|argument     |  Argument contains a name parameter that is the "customTaskExtensionID", and a value parameter that is the ID of the previously created extension that contains information about the Logic App.    |
 
 
 
@@ -317,7 +317,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
             "taskDefinitionId": "d79d1fcc-16be-490c-a865-f4533b1639ee",
             "arguments": [
                 {
-                    "name": "CustomTaskExtensionID",
+                    "name": "customTaskExtensionID",
                     "value": ""<ID of your Custom Task Extension>""
                 }
             ]
@@ -359,7 +359,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 ### Remove user from selected groups
 
-Allows you to remove a user from cloud-only groups. Dynamic and Privileged Access Groups not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-group-task.png" alt-text="Screenshot of Workflows task: Remove user from select groups.":::
@@ -398,7 +398,7 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 
 ### Remove users from all groups
 
-Allows users to be removed from every cloud-only group they're a member of. Dynamic and Privileged Access Groups not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
 
 
 You're able to customize the task name and description for this task in the Azure portal.

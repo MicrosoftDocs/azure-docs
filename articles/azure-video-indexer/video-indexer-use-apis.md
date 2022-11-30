@@ -20,14 +20,14 @@ Before you start, see the [Recommendations](#recommendations) section (that foll
 
 ## Subscribe to the API
 
-1. Sign in to [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+1. Sign in to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
 
    > [!Important]
    > * You must use the same provider you used when you signed up for Azure Video Indexer.
    > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
    > * There can be only one active account per email. If a user tries to sign in with user@gmail.com for LinkedIn and later with user@gmail.com for Google, the latter will display an error page, saying the user already exists.
 	
-   ![Sign in to Azure Video Indexer Developer Portal](./media/video-indexer-use-apis/sign-in.png)
+   ![Sign in to the Azure Video Indexer API developer portal](./media/video-indexer-use-apis/sign-in.png)
 1. Subscribe.
 
    Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select **Authorization** and subscribe.
@@ -37,7 +37,7 @@ Before you start, see the [Recommendations](#recommendations) section (that foll
 	
    After you subscribe, you can find your subscription under **[Products](https://api-portal.videoindexer.ai/products)** -> **Profile**. In the subscriptions section, you'll find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
-   ![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/subscriptions.png)
+   ![Subscription and keys in the Azure Video Indexer API developer portal](./media/video-indexer-use-apis/subscriptions.png)
 
 An Azure Video Indexer user can use a single subscription key to connect to multiple Azure Video Indexer accounts. You can then link these Azure Video Indexer accounts to different Media Services accounts.
 

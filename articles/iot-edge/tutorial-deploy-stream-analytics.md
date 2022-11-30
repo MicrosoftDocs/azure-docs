@@ -186,11 +186,13 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
    By default, the Stream Analytics module takes the same name as the job it's based on. You can change the module name on this page if you like, but it's not necessary.
 
-1. Select **Update** or **Cancel**.
+1. Select **Apply** or **Cancel**.
 
-1. Make a note of the name of your Stream Analytics module because you'll need it in the next step. Then, select **Next: Routes** to continue.
+1. Make a note of the name of your Stream Analytics module because you'll need it in the next step.
 
-1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Replace the default `route` and `upstream` name and values with the pairs shown in following table, the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
+1. Select **Next: Routes**.
+
+1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name and value pairs. Replace the default route name and values with the pairs shown in following table. Replacing instances of {moduleName}_ with the name of your Azure Stream Analytics module.
 
     | Name | Value |
     | --- | --- |
@@ -205,7 +207,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. In the **Review + Create** tab, you can see how the information you provided in the wizard is converted into a JSON deployment manifest. When you're done reviewing the manifest, select **Create**.
 
-1. You're returned to the device details page. Select **Refresh**.  
+1. Return to your device details page. Select **Refresh**.  
 
     You should see the new Stream Analytics module running, along with the IoT Edge agent and IoT Edge hub modules. It may take a few minutes for the information to reach your IoT Edge device, and then for the new modules to start. If you don't see the modules running right away, continue refreshing the page.
 
@@ -221,13 +223,13 @@ Now you can go to your IoT Edge device to check out the interaction between the 
    iotedge list  
    ```
 
-1. View all system logs and metrics data. Use the Stream Analytics module name:
+1. View all system logs and metrics data. Replace *{moduleName}* with the name of your Azure Stream Analytics module:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
    ```
 
-1. View the reset command affect the SimulatedTemperatureSensor by viewing the sensor logs:
+1. See how the reset command affects the SimulatedTemperatureSensor by viewing the sensor logs:
 
    ```cmd/sh
    iotedge logs SimulatedTemperatureSensor
