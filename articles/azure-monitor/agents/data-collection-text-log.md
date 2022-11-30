@@ -423,7 +423,7 @@ The final step is to create a data collection association that associates the da
 
 2. Select **Resources** and then click **Add** to view the available resources.
 
-    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
+    :::image type="content" source="media/data-collection-text-log/add-resources.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
 
 3. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Click **Apply**.
 
