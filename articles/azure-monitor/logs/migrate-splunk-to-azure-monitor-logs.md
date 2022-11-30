@@ -52,8 +52,8 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 | | Data collection tool | Collected data |
 | --- | --- | --- |
 | **Azure** |  | |
-|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |-**Azure tenant**: Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>- **Azure resources**: Logs and performance counters.|
-|  |  |- **Azure subscription**: Service health records along with records on any configuration changes made to the resources in your Azure subscription|
+|  | [Diagnostic settings](../essentials/diagnostic-settings.md) |**Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.|
+|  |  |**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription|
 | **Applications** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring |
 | **Containers** |[Container insights](../containers/container-insights-overview.md)| |
 | **Operating systems** | [Azure Monitor Agent](../agents/agents-overview.md) | See [Azure Monitor Agent](../agents/agents-overview.md). |
