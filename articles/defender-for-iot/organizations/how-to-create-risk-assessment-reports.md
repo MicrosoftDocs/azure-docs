@@ -15,7 +15,7 @@ Each sensor has access to reports generated for that sensor, while the on-premis
 
 ## Prerequisites
 
-- You must be an **Admin** user to import firewall rules to an OT sensor or add backup and anti-virus server addresses. <!--need to check this-->.
+- You must be an **Admin** user to import firewall rules to an OT sensor or add backup and anti-virus server addresses.
 
 - You must be an **Admin** or **Security Analyst** user to create or view risk assessment reports on the OT sensor or on-premises management console.
 
@@ -81,35 +81,11 @@ Use an on-premises management console to create and view risk assessment reports
 
 Risk assessment reports include the following details:
 
-- An overall security score for all detected devices, and a security score for each individual device.
-
-    Security scores are based on data learned from packet inspection, behavioral modeling engines, and a SCADA-specific state machine design, and are categorized as follows:
-
-    - **Secure Devices** are devices with a security score above 90%.
-
-    - **Devices Needing Improvement**: Devices with a security score between 70 percent and 89%.
-
-    - **Vulnerable Devices** are devices with a security score below 70%.
-
-- Insight into any of the following security and operational issues:
-
-    :::row:::
-        :::column span="":::
-        - Configuration issues
-        - Device vulnerability, prioritized by security level
-        - Network security issues
-        - Network operational issues
-        :::column-end:::
-        :::column span="":::
-        - Connections to ICS networks
-        - Internet connections
-        - Industrial malware indicators
-        - Protocol issues
-        - Attack vectors
-        :::column-end:::
-    :::row-end:::
-
-If you've imported firewall data to your sensor, the risk assessment reports also include data about firewall rule risk, based on the imported rules. The Risk Assessment report highlights if a rule is not secure, or if there's a mismatch between the rule and the monitored network.
+|Details  |Description  |
+|---------|---------|
+| **Security scores** | An overall security score for all detected devices, and a security score for each individual device. <br><br> Security scores are based on data learned from packet inspection, behavioral modeling engines, and a SCADA-specific state machine design, and are categorized as follows: <br> - **Secure Devices** are devices with a security score above 90%. <br> - **Devices Needing Improvement** are devices with a security score between 70 percent and 89%. <br> - **Vulnerable Devices** are devices with a security score below 70%. |
+| **Security and operational issues** | Insight into any of the following security and operational issues: <br><br> - Configuration issues <br> - Device vulnerability, prioritized by security level <br> - Network security issues <br> - Network operational issues - Connections to ICS networks <br> - Internet connections <br> - Industrial malware indicators <br> - Protocol issues <br> - Attack vectors |
+| **Firewall rule risk** | If you've imported firewall data to your sensor, the risk assessment reports also include data about firewall rule risk, based on the imported rules. The Risk Assessment report highlights if a rule is not secure, or if there's a mismatch between the rule and the monitored network. |
 
 ## Next steps
 
