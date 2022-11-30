@@ -7,7 +7,7 @@ ms.service: traffic-manager
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/19/2021
+ms.date: 11/30/2022
 ms.author: greglin
 #Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
 ---
@@ -16,7 +16,7 @@ ms.author: greglin
 
 Azure Traffic Manager is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness.
 
-Traffic Manager uses DNS to direct the client requests to the appropriate service endpoint based on a traffic-routing method. Traffic manager also provides health monitoring for every endpoint. The endpoint can be any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+Traffic Manager uses DNS to direct client requests to the appropriate service endpoint based on a traffic-routing method. Traffic manager also provides health monitoring for every endpoint. The endpoint can be any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is [resilient](../reliability/availability-zones-service-support.md#an-icon-that-signifies-this-service-is-non-regional-non-regional-services-always-available-services) to failure, including the failure of an entire Azure region.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
@@ -27,7 +27,7 @@ Traffic Manager uses DNS to direct the client requests to the appropriate servic
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-Traffic Manager offers the following features:
+**Traffic Manager offers the following features**:
 
 ## Increase application availability
 
