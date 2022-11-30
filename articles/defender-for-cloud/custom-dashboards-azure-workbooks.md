@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
-ms.date: 11/16/2022
+ms.date: 11/30/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
