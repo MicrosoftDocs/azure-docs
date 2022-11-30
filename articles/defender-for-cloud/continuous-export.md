@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/20/2022
+ms.date: 11/30/2022
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -82,7 +82,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
-1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
+1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target of a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 
     You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
@@ -180,7 +180,7 @@ To export data to an Azure Event hub or Log Analytics workspace in a different t
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
 1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
 
-You can also configure export to another tenant through the REST API. For more information, see the automations REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
+You can also configure export to another tenant through the REST API. For more information, see the automations [REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
 
 ##  View exported alerts and recommendations in Azure Monitor
 
