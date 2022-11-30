@@ -63,10 +63,6 @@ On the deployed VM, download the required files from [here](https://github.com/d
 StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= eus2
 ```
 
-Note: The StartSimulation script will launch UA Cloud Twin as its last step. Log in with the credentials you provided during the deployment and click Apply to apply the UA Cloud Twin configuration.
-
-:::image type="content" source="media/how-to-ingest-opcua-data/uacloudtwin.png" alt-text="Screenshot of configuring the settings of UA Cloud Twin." lightbox="media/how-to-ingest-opcua-data/uacloudtwin.png":::
-
 Note: If you restart Docker Desktop at any time, you'll need to stop and then restart the simulation, too!
 
 You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to monitor twin property updates and add more relationships to the digital twins created. To enable access, assign the [Azure Digital Twins Data Owner role](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) to your instance. Then [open](quickstart-azure-digital-twins-explorer.md#open-instance-in-azure-digital-twins-explorer) Azure Digital Twins Explorer from the Azure portal. To add more context, you can add "Next" and "Previous" relationships between machines on each production line.
@@ -77,9 +73,9 @@ You can also set up [data history](concepts-data-history.md) in your Azure Digit
 
 ## Next steps
 
-Use the instructions for [replacing the simulation with a real production line](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets to this solution.
+Visit the [Digital Twin Consortium's Manufacturing Ontologies GitHub page](https://github.com/digitaltwinconsortium/ManufacturingOntologies#next-steps) for a range of next steps you can take, including setting up 3D scenes for your production lines, calculating [OEE](https://www.oee.com), enalbing the [digital feedback loop](https://thenewstack.io/the-digital-feedback-loop-powering-next-generation-businesses), onboaring your on-prem Kubernetes cluster to [Azure Arc](../azure-arc/overview.md) for management from the cloud or for replacing the simulation with a real production line to connect your own industrial assets to this solution.
 
-Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to learn how to create condition monitoring dashboards.
+Or, visit the [Azure Data Explorer documentation](../synapse-analytics/data-explorer/data-explorer-overview.md) to learn how to create no-code dashboards for condition monitoring, yield or maintainance predictions or anomaly detection.
 
 ## About OPC UA
 
