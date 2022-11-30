@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
-author: sr-msft
+author: AwdotiaRomanowna
 ms.date: 10/21/2022
 ---
 

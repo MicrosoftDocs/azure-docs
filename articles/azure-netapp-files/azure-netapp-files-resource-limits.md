@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 11/30/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -90,7 +90,7 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 |    > 4 TiB                 |     106,255,630   |
 
 >[!IMPORTANT]
-> If your volume has a quota of at least 4 TiB and you want to increase the quota, you must initiate [a support request](#request-limit-increase).
+> If your volume has a volume size (quota) of more than 4 TiB and you want to increase the `maxfiles` limit, you must initiate [a support request](#request-limit-increase).
 
 If you have allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the maxfiles (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the maxfiles limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
