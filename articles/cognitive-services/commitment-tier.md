@@ -85,4 +85,3 @@ If you decide that you don't want to continue purchasing a commitment plan, you 
 ## See also
 
 * [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-* [Submit an application to purchase commitment tier pricing](https://aka.ms/csgatecommitment)
