@@ -660,10 +660,10 @@ pipeline_job = ml_client.jobs.create_or_update(
 # Wait until the job completes
 ml_client.jobs.stream(pipeline_job.name)
 ```
+---
 
 > [!NOTE]
 > To use an attached Synapse Spark pool, define `compute` parameter in the `azure.ai.ml.spark` function instead of `resources` parameter. For example, in the code sample shown above, define `spark_step.compute = "<ATTACHED_SPARK_POOL_NAME>"` instead of defining `spark_step.resources`.
----
 
 ## Next steps
 - [Code samples for Spark jobs using Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
