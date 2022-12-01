@@ -10,7 +10,7 @@ ms.date: 07/05/2022
 ms.author: danlep
 ---
 # API Management cross-domain policies
-This article provides a reference for API Management policies used to enable cross-domain calls from different clients. 
+The following API Management policies are used to enable cross-domain calls from different clients. 
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 

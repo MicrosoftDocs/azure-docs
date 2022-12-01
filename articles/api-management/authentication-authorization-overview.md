@@ -81,7 +81,7 @@ There are different reasons for wanting to do this. For example:
 
     * A custom policy to obtain an onward access token valid for the backend API from a configured identity provider.
 
-    * The API Management instance's own identity – passing the token from the API Management resource's system-assigned or user-assigned [managed identity](api-management-authentication-policies.md#ManagedIdentity) to the backend API. 
+    * The API Management instance's own identity – passing the token from the API Management resource's system-assigned or user-assigned [managed identity](authentication-managed-identity-policy.md) to the backend API. 
 
 ### Token management by API Management
 
@@ -94,7 +94,7 @@ With authorizations, API Management manages the tokens for access to OAuth 2.0 b
 Although authorization is preferred and OAuth 2.0 has become the dominant method of enabling strong authorization for APIs, API Management enables other authentication options that can be useful if the backend or calling applications are legacy or don't yet support OAuth. Options include:
 
 * Mutual TLS (mTLS), also known as client certificate authentication, between the client (app) and API Management. This authentication can be end-to-end, with the call between API Management and the backend API secured in the same way. For more information, see [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
-* Basic authentication, using the [authentication-basic](api-management-authentication-policies.md#Basic) policy.
+* Basic authentication, using the [authentication-basic](authentication-basic-policy.md) policy.
 * Subscription key, also known as an API key. For more information, see [Subscriptions in API Management](api-management-subscriptions.md). 
 
 > [!NOTE]

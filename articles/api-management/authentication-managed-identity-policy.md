@@ -1,6 +1,6 @@
 ---
-title: Azure API Management policy reference - authentication-certificate | Microsoft Docs
-description: Reference for the authentication-certificate policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+title: Azure API Management policy reference - authentication-managed-identity | Microsoft Docs
+description: Reference for the authentication-managed-identity policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
@@ -10,7 +10,8 @@ ms.date: 12/01/2022
 ms.author: danlep
 ---
 
-# Authenticate with client certificate
+# Authenticate with managed identity
+
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
 
 Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Azure Active Directory.

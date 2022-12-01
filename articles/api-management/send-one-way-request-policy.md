@@ -44,7 +44,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 | method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
 | header                     | Request header. Use multiple header elements for multiple request headers.                                  | No                              |
 | body                       | The request body.                                                                                           | No                              |
-| authentication-certificate | [Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate), specified in a `thumbprint` attribute. | No                              |
+| authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                              |
 
 ### header attributes
 

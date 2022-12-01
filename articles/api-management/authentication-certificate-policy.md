@@ -11,6 +11,7 @@ ms.author: danlep
 ---
 
 # Authenticate with client certificate
+
  Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint or certificate ID (resource name). 
 
 > [!CAUTION]
@@ -19,7 +20,7 @@ ms.author: danlep
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
-##  Policy statement
+## Policy statement
 
 ```xml
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name" body="certificate byte array" password="optional password"/>

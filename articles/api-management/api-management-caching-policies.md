@@ -21,12 +21,12 @@ The following API Management policies are used for caching responses.
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
 
 ## Response caching policies
-    - [Get from cache](cache-lookup-policy.md) - Perform cache lookup and return a valid cached response when available.
-    - [Store to cache](cache-store-policy.md) - Caches responses according to the specified cache control configuration.
+- [Get from cache](cache-lookup-policy.md) - Perform cache lookup and return a valid cached response when available.
+- [Store to cache](cache-store-policy.md) - Caches responses according to the specified cache control configuration.
 
 ## Value caching policies
-    - [Get value from cache](cache-lookup-value-policy.md) - Retrieve a cached item by key.
-    - [Store value in cache](cache-store-value-policy.md) - Store an item in the cache by key.
-    - [Remove value from cache](cache-remove-value-policy.md) - Remove an item in the cache by key.
+- [Get value from cache](cache-lookup-value-policy.md) - Retrieve a cached item by key.
+- [Store value in cache](cache-store-value-policy.md) - Store an item in the cache by key.
+- [Remove value from cache](cache-remove-value-policy.md) - Remove an item in the cache by key.
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

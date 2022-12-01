@@ -46,11 +46,11 @@ Use API Management for user authentication and authorization:
 
 * **Authentication** -  API Management supports the following [authentication methods](api-management-authentication-policies.md): 
 
-    * [Basic authentication](api-management-authentication-policies.md#Basic) policy - Username and password credentials.
+    * [Basic authentication](authentication-basic-policy.md) policy - Username and password credentials.
 
     * [Subscription key](api-management-subscriptions.md) - A subscription key provides a similar level of security as basic authentication and may not be sufficient alone. If the subscription key is compromised, an attacker may get unlimited access to the system. 
 
-    * [Client certificate](api-management-authentication-policies.md#ClientCertificate) policy - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
+    * [Client certificate](authentication-certificate-policy.md) policy - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
 
 * **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
 

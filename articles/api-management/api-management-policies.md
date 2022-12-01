@@ -50,7 +50,7 @@ More information about policies:
 -   [Set status code](set-status-policy.md) - Changes the HTTP status code to the specified value.
 -   [set-variable-policy.md](set-variable-policy.md) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
 -   [Trace](trace-policy.md) - Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
--   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](choose-policy.md) policies to complete before proceeding.
+-   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
 ## Authentication policies
 -   [Authenticate with Basic](authentication-basic-policy.md) - Authenticate with a backend service using Basic authentication.
