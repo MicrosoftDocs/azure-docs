@@ -195,7 +195,7 @@ var operation = await client.StartDeleteSecretAsync("mySecret");
 // You only need to wait for completion if you want to purge or recover the key.
 await operation.WaitForCompletionAsync();
 
-await client.PurgeDeletedKeyAsync("mySecret");
+await client.PurgeDeletedSecretAsync("mySecret");
 ```
 
 ## Sample code
