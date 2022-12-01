@@ -97,12 +97,12 @@ Now that you have granted access to the device message event hub and the FHIR se
 In this article, you learned how to perform the manual deployment and post-deployment steps to implement your MedTech service. To learn more about other methods of deployment, see
 
 > [!div class="nextstepaction"]
-> [Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
+> [Choosing a method of deployment for MedTech service in Azure](deploy-new-choose.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service with an Azure Resource Manager template](deploy-02-new-button.md)
+> [Deploy the MedTech service with an Azure Resource Manager template](deploy-new-button.md)
 
 > [!div class="nextstepaction"]
-> [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md)
+> [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
