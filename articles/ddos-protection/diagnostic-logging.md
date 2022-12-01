@@ -59,6 +59,7 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 ### Query Azure DDOS Protection logs in log analytics workspace
 
+For more information on log schemas, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md#diagnostic-logs).
 #### DDoSProtectionNotifications logs
 
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.

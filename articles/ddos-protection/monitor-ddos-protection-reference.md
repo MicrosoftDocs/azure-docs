@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 10/19/2022
+ms.date: 12/1/2022
 ms.custom: template-concept
 ---
 
@@ -57,6 +57,8 @@ The following [Azure Monitor metrics](../azure-monitor/essentials/metrics-suppor
 | UDPPacketsForwardedDDoS​ | Inbound UDP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets forwarded DDoS​ |
 | UDPPacketsInDDoS​ | Inbound UDP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets DDoS​ |
 ### Diagnostic Logs
+
+See [Tutorial: View and configure Azure DDoS Protection diagnostic logging](diagnostic-logging.md) for details on attack insights and visualization with DDoS Attack Analytics.
 
 The following diagnostic logs are available for Azure DDoS Protection:
 
