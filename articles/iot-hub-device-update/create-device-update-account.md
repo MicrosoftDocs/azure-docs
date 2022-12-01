@@ -1,7 +1,7 @@
 ---
 title: Create a device update account in Device Update for Azure IoT Hub | Microsoft Docs
 description: Create a device update account in Device Update for Azure IoT Hub.
-author: eshashah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 10/30/2022
 ms.topic: how-to
