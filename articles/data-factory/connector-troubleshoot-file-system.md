@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 11/23/2022
+ms.date: 12/01/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -32,8 +32,8 @@ For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Data Factory feature requests](https://learn.microsoft.com/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-- [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
+- [Microsoft Q&A page](https://learn.microsoft.com/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
