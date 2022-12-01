@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 11/30/2022
 ms.author: eur
 ---
 
@@ -75,7 +75,7 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
-Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` will not be recognized. 
+Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` won't be recognized. 
 
 ## Speak root element
 
@@ -184,7 +184,7 @@ The `p` and `s` elements are used to denote paragraphs and sentences, respective
 
 ### Paragraph and sentence examples
 
-The following example defines two paragraphs that each contain sentences. In the second paragraph, the Speech service automatically determines the sentence structure, since they are not defined in the SSML document.
+The following example defines two paragraphs that each contain sentences. In the second paragraph, the Speech service automatically determines the sentence structure, since they aren't defined in the SSML document.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -203,7 +203,7 @@ The following example defines two paragraphs that each contain sentences. In the
 
 ## Bookmark element
 
-You can use the `bookmark` element in SSML to reference a specific location in the text or tag sequence. Then you will use the Speech SDK and subscribe to the `BookmarkReached` event to get the offset of each marker in the audio stream. The `bookmark` element won't be spoken. For more information, see [Subscribe to synthesizer events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events).
+You can use the `bookmark` element in SSML to reference a specific location in the text or tag sequence. Then you'll use the Speech SDK and subscribe to the `BookmarkReached` event to get the offset of each marker in the audio stream. The `bookmark` element won't be spoken. For more information, see [Subscribe to synthesizer events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events).
 
 Usage of the `bookmark` element's attributes are described in the following table.
 

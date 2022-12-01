@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 11/30/2022
 ms.author: eur
 ---
 
@@ -235,7 +235,7 @@ The supported values for attributes of the `lang` element were [described previo
 
 The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. 
 
-This SSML snippet shows how use the `lang` element (and `xml:lang` attribute) to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+This SSML snippet shows how to use the `lang` element (and `xml:lang` attribute) to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"

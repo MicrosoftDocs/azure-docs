@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 11/30/2022
 ms.author: eur
 ---
 
@@ -104,7 +104,7 @@ To define how multiple entities are read, you can define them in a custom lexico
 
 Here are some limitations of the custom lexicon file:
 
-- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100 KB limit, the synthesis request fails.
+- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails.
 - **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text-to-speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
@@ -279,12 +279,12 @@ The Mathematical Markup Language (MathML) is an XML-compliant markup language th
 
 All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. 
 
-Please take note of these MathML elements and attributes:
+Take note of these MathML elements and attributes:
 - The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional.
-- The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored.
-- If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
+- The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they're ignored.
+- If an element isn't recognized, it will be ignored, and the child elements within it will still be processed.
 
-The MathML entities are not supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The MathML entities aren't supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ### MathML examples
 
