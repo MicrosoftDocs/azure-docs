@@ -193,12 +193,12 @@ For example: `az group delete --resource-group BicepTestDeployment`
 In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template](deploy-02-new-button.md)
+> [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service manually using the Azure portal](deploy-03-new-manual.md)
+> [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
