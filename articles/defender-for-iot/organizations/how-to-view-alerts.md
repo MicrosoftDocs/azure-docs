@@ -5,7 +5,7 @@ ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
-# View alerts on your sensor
+# View alerts on your OT sensor
 
 Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that need your attention.
 
