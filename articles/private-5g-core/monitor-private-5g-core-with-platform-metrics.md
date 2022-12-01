@@ -29,10 +29,10 @@ You can use the Azure portal to monitor your deployment's health and performance
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
 1. In the resource menu, select **Sites**.
-
-    :::image type="content" source="media/resource-menu-sites.png" alt-text="Screenshot of the Azure portal showing the Mobile Network resource menu. The Sites option is highlighted.":::
-
 1. Select the site you're interested in monitoring.
+
+    :::image type="content" source="media/mobile-network-sites.png" alt-text="Screenshot of the Azure portal showing the Sites view in the Mobile Network resource.":::
+
 1. Select the **Monitoring** tab.
     <!-- TODO: add screenshot -->
 
