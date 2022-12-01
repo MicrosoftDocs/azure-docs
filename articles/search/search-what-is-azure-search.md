@@ -111,8 +111,8 @@ Key strengths include:
 
 Among our customers, those able to apply the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
 
-## Watch this video
+<!-- ## Watch this video
 
 In this 15-minute video, review the main capabilities of Azure Cognitive Search.
 
->[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3] -->

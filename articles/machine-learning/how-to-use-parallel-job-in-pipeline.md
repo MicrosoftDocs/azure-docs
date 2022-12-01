@@ -8,11 +8,12 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
+ms.reviewer: lagayhar
 ms.date: 09/27/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
-# How to use parallel job in pipeline (V2) (preview)
+# How to use parallel job in pipeline (V2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

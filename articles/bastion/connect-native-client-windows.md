@@ -6,7 +6,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 11/17/2022
 ms.author: cherylmc
 ---
 
@@ -35,9 +35,10 @@ After you deploy this feature, there are two different sets of connection instru
   * Set up concurrent VM sessions with Bastion.
   * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
 
-Currently, this feature has the following limitation:
+**Limitations**
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
+* This feature is not supported on Cloud Shell.
 
 ## <a name="prereq"></a>Prerequisites
 

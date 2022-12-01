@@ -99,7 +99,7 @@ After you choose to investigate the issue further by clicking on a topic, you ca
 
 ## Resiliency Score
 
-If you don't know what’s wrong with your app or don’t know where to start troubleshooting your issues, the Get Resiliency Score report is a good place to start. Once a Troubleshooting category has been selected the Get Resilience Score report link is available and clicking it produces a PDF document with actionable insights.
+To review tailored best practice recommendations, check out the Resiliency Score Report. This is available as a downloadable PDF Report. To get it, simply click on the "Get Resilience Score report" button available on the command bar of any of the Troubleshooting categories.
 
 ![App Service Diagnose and solve problems Resiliency Score report, with a gauge indicating App's resilience score and what App Developer can do to improve resilience of the App.](./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png)
 

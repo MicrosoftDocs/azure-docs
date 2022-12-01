@@ -5,7 +5,7 @@ author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 09/13/2022
+ms.date: 11/21/2022
 ms.author: robb
 ms.reviewer: priyamishra
 ---
@@ -2006,6 +2006,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingCPU|Yes|Pending CPU|Count|Maximum|Pending CPU Requests in YARN|No Dimensions|
 |PendingMemory|Yes|Pending Memory|Count|Maximum|Pending Memory Requests in YARN|No Dimensions|
 
+> [!NOTE]
+> NumActiveWorkers is supported only if YARN is installed, and the Resource Manager is running.
+> 
+> Alternatively customers can use Log Analytics for Kafka to get the insight and can write custom query to get the best monitoring experience. For more information, see how to [Use Azure Monitor logs to monitor HDInsight clusters](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
 
 ## Microsoft.HealthcareApis/services
 
@@ -2147,11 +2151,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Availability|No|Overall Vault Availability|Percent|Average|Vault requests availability|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |ServiceApiHit|Yes|Total Service Api Hits|Count|Count|Number of total service api hits|ActivityType, ActivityName|
-|ServiceApiLatency|No|Overall Service Api Latency|Milliseconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-|ServiceApiResult|Yes|Total Service Api Results|Count|Count|Gets the available metrics for a Managed HSM pool|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-
 
 ## Microsoft.KeyVault/vaults
 

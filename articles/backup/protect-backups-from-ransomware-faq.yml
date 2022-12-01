@@ -69,7 +69,7 @@ sections:
             
             For more information, see:
           
-            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#levels-of-encryption-in-azure-backup).
+            - [Encryption of data in the Recovery Services vault using CMK, PMK, Infrastructure-level encryption](backup-encryption.md#encryption-levels).
             - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
             - [Transport Layer Security in Azure Backup](transport-layer-security.md).
           
@@ -81,7 +81,7 @@ sections:
             - [Monitor your backups with Backup Explorer](monitor-azure-backup-with-backup-explorer.md).
             - [Monitor backup workloads using Azure portal (using Recovery Services vault)](backup-azure-monitoring-built-in-monitor.md).
             - [Monitor backup health using Azure monitor metrics](backup-azure-monitoring-built-in-monitor.md).
-            - [Custom monitoring and alerting using azure monitor Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md).
+            - [Custom monitoring and alerting using Azure monitor Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md).
           
           - **Validate backups periodically by performing test restores**.
           
@@ -121,5 +121,5 @@ sections:
         answer: No, the infected recovery point (that is, backed-up data containing infected data) can’t spread to previous non-infected recovery points.
 
       - question: How can I extend the expiration of recovery points in case of impact?
-        answer: If you need more time to investigate and recover in case of an impact, you can extend expiration to ensure the recovery points aren't cleaned up (as per policy). [Learn more](backup-architecture.md#additional-reference), so that they aren’t deleted by the retention policy
+        answer: If you need more time to investigate and recover in case of an impact, you can extend expiration to ensure the recovery points aren't cleaned up (as per policy). [Learn more](backup-architecture.md#additional-reference), so that they aren’t deleted by the retention policy.
 

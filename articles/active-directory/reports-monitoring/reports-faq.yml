@@ -22,16 +22,6 @@ sections:
   - name: Getting started
     questions:
       - question: |
-          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
-        answer: |
-          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity reports](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
-          
-      - question: |
-          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
-        answer: |
-          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
-          
-      - question: |
           How do I get a premium license?
         answer: |
           See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
@@ -39,7 +29,7 @@ sections:
       - question: |
           How soon should I see activities data after getting a premium license?
         answer: |
-          If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take up to 3 days for the data to show up in the reports.
+          If you already have activities data as a free license, then you can see it immediately. If you don't have any data, then it will take up to 3 days for the data to show up in the reports.
 
       - question: |
           Can I see last month's data after getting an Azure AD premium license?
@@ -47,14 +37,24 @@ sections:
           If you've recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
 
       - question: |
-          Do I need to be a global administrator to see the activity sign-ins to the Azure portal or to get data through the API?
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
         answer: |
-          No, you can also access the reporting data through the portal or through the API if you're a **Security Reader** or **Security Administrator** for the tenant. **Global Administrators** will also have access to this data.
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+          
+      - question: |
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+        answer: |
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
   - name: Activity logs
     questions:
       - question: |
-          What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal? 
+          Do I need to be a Global Administrator to see the activity logs in the Azure portal or to get data through the API?
+        answer: |
+          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator** for the tenant. You can also access the reporting data through the portal or through the API if you're a Global Administrator.
+
+      - question: |
+          What is the data retention for activity logs (Audit, Sign-ins, and Provisioning) in the Azure portal? 
         answer: |
           For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
           
@@ -71,10 +71,10 @@ sections:
       - question: |
           Which APIs do I use to get information about Microsoft 365 Activity logs?
         answer: |
-          Use the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) to access the Microsoft 365 Activity logs through an API.
+          The APIs for Microsoft 365 are described in the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) article.
           
       - question: |
-          How many records I can download from Azure portal?
+          How many records I can download from the Azure portal?
         answer: |
           You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
@@ -85,29 +85,58 @@ sections:
           What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
           The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, conditional access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+
       - question: |
           I see .XXX in part of the IP address from a user in my sign-in logs. Why is that happening?
         answer: |
           Azure AD may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
+
+      - question: |
+          I selected the **Load More** button in the Azure portal sign-in logs, but no more results appeared. Why is that happening?
+        answer: |
+          This is a known issue with a fix on the way from Azure AD engineering, where if during a 24h period in the results of your query has no sign-ins, no sign-ins will appear when you click **Load More**. If your tenant is impacted by this issue, select the **Load More** button multiple times. You can also work around this issue by increasing the scope of your query so that each 24h period in your response has sign-ins.
+
       - question: |
           I see "PII Removed" in the Device Details of a user in my sign-in logs. Why is that happening?
         answer: |
           Azure AD redacts Personally Identifiable Information (PII) generated by devices that do not belong to your tenant to ensure customer data does not spread beyond tenant boundaries without user and data owner consent.
 
+      - question: |
+          I clicked the Load More button in the Azure portal Sign-in logs blade, but no more results appeared. Why is that happening?
+        answer: |
+          This is a known issue with a fix on the way from Azure AD engineering where if a 24h period in the results of your query has no sign-ins, no sign-ins will appear when you click Load More. If your tenant is impacted by this issue, you can load more results by clicking the Load More button multiple times. You can also work around this issue by increasing the scope of your query so that each 24h period in your response has sign-ins.
+
+      - question: |
+          I see duplicate sign-in entries / multiple sign-in events per requestID. Why is that happening?
+        answer: |
+          There are several reasons sign-in entries may be duplicated in your logs.
+          - If a risk is identified on a sign-in, another nearly identical event is published immediately after with risk included.
+          - If MFA events related to a sign-in are received, all related events are aggregated to the original sign-in.
+          - If partner publishing for a sign-in event fails, such as publishing to Kusto, an entire batch of events will be retried and published again, which may result in duplicates.
+          - Sign-in events that involve multiple Conditional Access policies may be split into multiple events, which can result in at least two events per sign-in event.
+
+      - question: |
+          Why do my non-interactive sign-ins appear to have the same time stamp?
+        answer: |
+          Non-interactive sign-ins can trigger a large volume of events every hour, so they are grouped together in the logs.
+          
+          In many cases, non-interactive sign-ins have all the same characteristics, except for the date and time of the sign-in. If the time aggregate is set to 24 hours, the logs will appear to show the sign-ins at the same time. Each of these grouped rows can be expanded to view the exact time stamp.
+
+      - question: |
+          I am seeing User IDs in the username field of my sign-ins log. Why is this happening?
+        answer: |
+          With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field will say *passwordless*.
 
   - name: Conditional Access
     questions:
       - question: |
-          What's new with this feature?
+          What Conditional Access (CA) details can I see in the sign-in logs?
         answer: |
-          Customers can now troubleshoot Conditional Access policies through all sign-ins report. Customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+          You can troubleshoot Conditional Access policies through all sign-ins log. Review the CA status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
-      - question: |
-          How do I get started?
-        answer: |
           To get started:
           
-          * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com).
+          * Sign in to the [Azure portal](https://portal.azure.com) and got to **Azure AD** > **Sign-ins log**.
           * Select the sign-in that you want to troubleshoot.
           * Navigate to the **Conditional Access** tab.
           Here, you can view all the policies that impacted the sign-in and the result for each policy. 
@@ -117,14 +146,14 @@ sections:
         answer: |
           Conditional Access status can have the following values:
           
-          * **Not Applied**: There was no Conditional Access policy with the user and app in scope. 
-          * **Success**: There was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
-          * **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
+          * **Not Applied**: There was no CA policy with the user and app in scope. 
+          * **Success**: There was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+          * **Failure**: The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
               
       - question: |
           What are all possible values for the Conditional Access policy result?
         answer: |
-          A Conditional Access policy can have the following results:
+          A CA policy can have the following results:
           
           * **Success**: The policy was successfully satisfied.
           * **Failure**: The policy wasn't satisfied.
@@ -132,11 +161,11 @@ sections:
           * **Not enabled**: The policy may be in a disabled state. 
               
       - question: |
-          The policy name in the all sign-in report doesn't match the policy name in Conditional Access. Why?
+          The policy name in the sign-ins log doesn't match the policy name in Conditional Access. Why?
         answer: |
-          The policy name in the all sign-in report is based on the Conditional Access (CA) policy name at the time of the sign-in. The name can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
+          The policy name in the sign-ins log is based on the CA policy name at the time of the sign-in. The name can be inconsistent with the policy name in CA if you updated the policy name after the sign-in.
 
       - question: |
-          My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?
+          My sign-in was blocked due to a Conditional Access policy, but the sign-ins log shows that the sign-in succeeded. Why?
         answer: |
-          Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy.
+          Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a CA policy.

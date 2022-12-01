@@ -9,8 +9,9 @@ ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/29/2020
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Use next hop to diagnose virtual machine routing problems

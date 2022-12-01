@@ -224,7 +224,7 @@ For more information, see [Azure Monitor metrics](../azure-monitor/essentials/da
 > [!NOTE]
 > If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
 
-***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 
 Scenarios excluded in bytes hit ratio calculation:
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/01/2022
+ms.date: 10/31/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -437,7 +437,7 @@ For Azure Consistent Services, follow these steps to configure virtual IP.
     1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the Azure Consistent Services network that you specified. If you selected DHCP, a virtual IP is automatically picked from the Azure Consistent Services network that you selected.
 1. Select **Apply**.
 
-    ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for Azure consistent services on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-2m.png)
+    ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for Azure consistent services on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-2m.png)
 
 
 ### For Network File System
@@ -455,7 +455,7 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
     1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the NFS network that you specified. If you selected DHCP, a virtual IP is automatically picked from the NFS network that you selected.
 1. Select **Apply**.
 
-    ![Screenshot of local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-2m.png)
+    ![Screenshot of local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-network-file-system-2m.png)
 
 > [!NOTE]
 > Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
@@ -497,7 +497,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
     
 1. Select **Apply**.
 
-    ![Screenshot of configuring compute in Advanced networking in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
+    ![Screenshot of configuring compute in Advanced networking in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified virtual switch is created and enabled for compute. 
  
@@ -550,7 +550,7 @@ Follow these steps to validate your network settings.
 1. Go to the **Diagnostic tests** page and select the tests as shown below.
 1. Select **Run test**.
    
-   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
+   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)
 
 1. Review test results to ensure that status shows **Healthy** for each test that was run.
 
