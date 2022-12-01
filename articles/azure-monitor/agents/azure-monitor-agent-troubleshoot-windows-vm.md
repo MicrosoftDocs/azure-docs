@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Monitor agent on Windows virtual machines and scale sets
 description: Guidance for troubleshooting issues on Windows virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
+author: shayoniseth
 ms.author: shseth
 ms.date: 6/9/2022
 ms.custom: references_region
@@ -31,7 +31,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**: 
 
 	> [!NOTE]
-	> The prerequisites mentioned at [Azure Monitor Agent - Prerequisites](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#prerequisites) must be met prior proceeding with the below steps. Without a managed identity assigned to the VM, the process **MonAgentCore.exe** will fail to start.
+	> The prerequisites mentioned at [Azure Monitor Agent - Prerequisites](azure-monitor-agent-manage.md?tabs=azure-portal#prerequisites) must be met prior proceeding with the below steps. Without a managed identity assigned to the VM, the process **MonAgentCore.exe** will fail to start.
 
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
