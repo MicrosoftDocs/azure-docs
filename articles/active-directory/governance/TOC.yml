@@ -61,6 +61,10 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Identity Governance
+    items:
+    - name: Organizational roles
+      href: identity-governance-organizational-roles.md
   - name: Entitlement management
     items:
     - name: Delegation and roles
