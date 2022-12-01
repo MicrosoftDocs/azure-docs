@@ -5,7 +5,7 @@ ms.date: 12/01/2022
 ms.topic: how-to
 ---
 
-# Risk assessment reporting
+# Create risk assessment reports
 
 Risk assessment reports provide details about security scores, vulnerabilities, and operational issues on detected devices as well as risks coming from imported firewall rules.
 
@@ -17,7 +17,7 @@ Each Defender for IoT network sensor can generate a risk assessment report, whil
 
 - You must be an **Admin** or **Security Analyst** user to create or view risk assessment reports on the OT sensor or on-premises management console.
 
-## Create and view risk assessment reports for a specific sensor
+## Generate risk assessment reports for a specific sensor
 
 Use an individual OT sensor to view reports generated for that sensor only.
 
@@ -39,9 +39,12 @@ Risk assessment reports include the following details:
 | **Security and operational issues** | Insight into any of the following security and operational issues: <br><br> - Configuration issues <br> - Device vulnerability, prioritized by security level <br> - Network security issues <br> - Network operational issues <br> - Connections to ICS networks <br> - Internet connections <br> - Industrial malware indicators <br> - Protocol issues <br> - Attack vectors |
 | **Firewall rule risk** | The Risk Assessment report highlights if a rule isn't secure, or if there's a mismatch between the rule and the monitored network. |
 
-## Enriching the risk assessment report
+## Enrich the risk assessment report
 
-You can enrich a risk assessment report to provide you with more content. For example, you can import firewall data to your sensor, and then the risk assessment report will also include data about firewall rule risk, based on the imported rules. You can also define addresses for backup and anti-virus servers.
+Enrich your sensor with extra data to provide fuller risk assessment reports:
+
+- Import firewall rules to have them assessed for risks in the report
+- Lower your risk by defining addresses for your backup and anti-virus server
 
 ### Import firewall rules to an OT sensor
 
@@ -59,7 +62,7 @@ For example:
 
 :::image type="content" source="media/how-to-create-risk-assessment-reports/import-firewall-rules.png" alt-text="Screenshot of how to import firewall rules." lightbox="media/how-to-create-risk-assessment-reports/import-firewall-rules.png":::
 
-### Add backup and anti-virus server addresses to your sensor
+### Define backup and anti-virus servers on an OT sensor
 
 Backup and anti-virus servers aren't defined on your sensor by default. We recommend defining these addresses on your sensor to keep your network risk assessment low.
 
@@ -69,7 +72,7 @@ Backup and anti-virus servers aren't defined on your sensor by default. We recom
 1. Add your backup and anti-virus server addresses to the **backup_servers** and **AV_addresses** fields, respectively. Use commas to separate multiple addresses.
 1. Select **Save** to save your changes.
 
-## Create and view risk assessment reports for multiple sensors
+## View risk assessment reports for multiple sensors
 
 Use an on-premises management console to view risk assessment reports for all connected sensors.
 
