@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/23/2022
+ms.date: 12/01/2022
 ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
@@ -18,28 +18,28 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 ## Safety instructions in Azure languages
 
-|Language              |Code     |Article|
-|----------------------|---------|---------|
-|Arabic                |         |         |
-|English               |en       |[en-us](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-pro-2-safety) |
-|Czech                 |cs       |[cs-cz](https://learn.microsoft.com/cs-cz/azure/databox-online/azure-stack-edge-pro-2-safety) |
-|German                |de       |         |
-|Spanish               |es       |         |
-|French                |fr       |         |
-|Hungarian             |hu       |         |
-|Indonesian            |         |         |
-|Italian               |it       |         |
-|Japanese              |ja       |         |
-|Korean                |ko       |         |
-|Dutch                 |nl       |         |
-|Polish                |pl       |         |
-|Portuguese - Brazil   |pt - br  |         |
-|Portuguese - Portugal |pt - pt  |         |
-|Russian               |ru       |         |
-|Swedish               |sv       |         |
-|Turkish               |tr       |         |
-|Chinese - simplified  |zh - hans|         |
-|Chinese - traditional |zh - hant|         |
+|Language              |Code link  |
+|----------------------|---------|
+|Arabic                |[ar article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|English               |[en article](https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Czech                 |[cs article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|German                |[de article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Spanish               |[es article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|French                |[fr article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Hungarian             |[hu article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Indonesian            |[id article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)]    |
+|Italian               |[it article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Japanese              |[ja article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Korean                |[ko article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Dutch                 |[nl article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Polish                |[pl article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Portuguese - Brazil   |[pt - br article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Portuguese - Portugal |[pt - pt article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Russian               |[ru article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Swedish               |[sv article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Turkish               |[tr article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Chinese - simplified  |[zh - hans article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Chinese - traditional |[zh - hant article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
 
 ## Safety instructions in other languages
 
