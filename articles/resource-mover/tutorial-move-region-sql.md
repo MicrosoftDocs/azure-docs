@@ -13,12 +13,12 @@ ms.custom: mvc
 
 # Tutorial: Move Azure SQL Database resources to another region
 
+> [!IMPORTANT]
+> Azure Resource Mover is currently GA.
+
 Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 In this tutorial, you learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
-
-> [!NOTE]
-> Azure Resource Mover is currently GA.
 
 In this tutorial, you learn how to:
 
@@ -65,36 +65,33 @@ To check the SQL requirements before the move:
     
 ## Select resources
 
-Before you select the resources you want to move:
-
-- You can select any supported resource type in any resource groups in the selected source region.
-- You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
+You can select any supported resource type in any resource groups in the selected source region. You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
 
 To select the resources you want to move, follow these steps:
 
 1. In the Azure portal, search for *resource mover*. Then, under **Services**, select **Azure Resource Mover**.
 
-     ![Search results for resource mover in the Azure portal](./media/tutorial-move-region-sql/search.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/search.png" alt-text="Screenshot displays search results for resource mover in the Azure portal." lightbox="./media/tutorial-move-region-sql/search.png":::
 
 2. In **Overview**, select **Get Started**.
 
-    ![Button to add resources to move to another region](./media/tutorial-move-region-sql/get-started.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/get-started.png" alt-text="Screenshot displays button to add resources to move to another region." lightbox="./media/tutorial-move-region-sql/get-started.png":::
 
 3. In **Move resources** > **Source + destination**, select the source subscription and region.
 4. In **Destination**, select the region to which you want to move the resources. Then select **Next**.
 
-    ![Page to select source and destination region](./media/tutorial-move-region-sql/source-target.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/source-target.png" alt-text="Screenshot displays page to select source and destination region." lightbox="./media/tutorial-move-region-sql/source-target.png":::
 
 6. In **Resources to move**, select **Select resources**.
 7. In **Select resources**, select the resources. You can only add resources that are supported for move. Then select **Done**.
 
-    ![Page to select SQL resources to move](./media/tutorial-move-region-sql/select-resources.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/select-resources.png" alt-text="Screenshot displays page to select SQL resources to move." lightbox="./media/tutorial-move-region-sql/select-resources.png":::
 
 8. In **Resources to move**, select **Next**.
 
 9. In **Review + Add**, check the source and destination settings. Verify that you understand that metadata about the move will be stored in a resource group created for this purpose in the metadata region.
 
-    ![Page to review settings and proceed with move](./media/tutorial-move-region-sql/review.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/review.png" alt-text="Screenshot displays page to review settings and proceed with move." lightbox="./media/tutorial-move-region-sql/review.png":::
 
 10. Select **Proceed**, to begin adding the resources.
 11. After the add process finishes successfully, select **Adding resources for move** in the notification icon.
@@ -102,7 +99,6 @@ To select the resources you want to move, follow these steps:
 
 
 > [!NOTE]
-> 
 > - The SQL Server is now in a *Manual assignment pending* state.
 > - Other added resources are in a *Prepare pending* state.
 > - If you want to remove an resource from a move collection, the method for doing that depends on where you are in the move process. [Learn more](remove-move-resources.md).
@@ -114,7 +110,7 @@ To resolve the resources you want to move, follow these steps:
 1. On **Across regions** page, if resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button. This starts the validation process.
 2. If dependencies are found, select **Add dependencies**.
 
-    ![Button to add dependencies](./media/tutorial-move-region-sql/add-dependencies.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/add-dependencies.png" alt-text="Screenshot displays button to add dependencies." lightbox="./media/tutorial-move-region-sql/add-dependencies.png":::
    
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. You can monitor the progress in the notifications.
 
@@ -122,39 +118,33 @@ To resolve the resources you want to move, follow these steps:
 
 5. On the **Across regions** page, verify that the resources are now in a *Prepare pending* state with no issues.
 
-    ![Page showing resources in prepare pending state](./media/tutorial-move-region-sql/prepare-pending.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/prepare-pending.png" alt-text="Screenshot displays page showing resources in prepare pending state." lightbox="./media/tutorial-move-region-sql/prepare-pending.png":::
 
 ## Move SQL server
 
 Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, assign a target SQL server in the target region.
 
-### Assign a target SQL server
+1. **Assign a target SQL server**- To assign a target SQL server, follow these steps:
 
-To assign a target SQL server, follow these steps:
+    1. In **Across regions**, for the SQL server resource, in the **Destination configuration** column, click **Resource not assigned**.
+    2. Select an existing SQL Server resource in the target region. 
+        
+        :::image type="content" source="./media/tutorial-move-region-sql/sql-server-commit-move-pending.png" alt-text="Screenshot displays entry showing SQL Server state set to Commit move pending." lightbox="./media/tutorial-move-region-sql/sql-server-commit-move-pending.png":::
+        
+    > [!NOTE]
+    > The source SQL Server state changes to *Commit move pending*. 
 
-1. In **Across regions**, for the SQL server resource, in the **Destination configuration** column, click **Resource not assigned**.
-2. Select an existing SQL Server resource in the target region. 
+1. **Commit the SQL Server move**- To commit a target SQL server, follow these steps:
+
+    1. In **Across regions**, select the SQL Server, and then select **Commit move**.
+    2. In **Commit resources**, select **Commit**.
     
-    ![Entry showing SQL Server state set to Commit move pending](./media/tutorial-move-region-sql/sql-server-commit-move-pending.png) 
-
+       :::image type="content" source="./media/tutorial-move-region-sql/commit-sql-server.png" alt-text="Screenshot displays page to commit the SQL Server move." lightbox="./media/tutorial-move-region-sql/commit-sql-server.png":::
     
-> [!NOTE]
-> The source SQL Server state changes to *Commit move pending*. 
-
-### Commit the SQL Server move
-
-To commit a target SQL server, follow these steps:
-
-1. In **Across regions**, select the SQL Server, and then select **Commit move**.
-2. In **Commit resources**, select **Commit**.
-
-    ![Page to commit the SQL Server move](./media/tutorial-move-region-sql/commit-sql-server.png)
-
-3. Track the move progress in the notifications bar.
-
-> [!NOTE]
-> After the commit, the SQL Server is now in a *Delete source pending* state.
-
+    3. Track the move progress in the notifications bar.
+    
+    > [!NOTE]
+    > After the commit, the SQL Server is now in a *Delete source pending* state.
 
 ## Prepare resources to move
 
@@ -166,7 +156,7 @@ To prepare an elastic pool for the move, follow these steps:
 
 1. In **Across regions**, select the source elastic pool (demo-test1-elasticpool in our walkthrough), and select **Prepare**.
 
-    ![Button to prepare resources](./media/tutorial-move-region-sql/prepare-elastic.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/prepare-elastic.png" alt-text="Screenshot displays button to prepare resources." lightbox="./media/tutorial-move-region-sql/prepare-elastic.png":::
 
 2. In **Prepare resources**, select **Prepare**.
 3. When  notifications show that the prepare process was successful, select **Refresh**.
@@ -180,14 +170,13 @@ To prepare a single database for the move, follow these steps:
 
 1. In **Across regions**, select the single database (not in an elastic pool), and then select **Prepare**.
 
-    ![Button to prepare selected resources](./media/tutorial-move-region-sql/prepare-db.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/prepare-db.png" alt-text="Screenshot displays button to prepare selected resources." lightbox="./media/tutorial-move-region-sql/prepare-db.png":::
 
 2. In **Prepare resources**, select **Prepare**.
 3. When  notifications show that the prepare process was successful, select **Refresh**.
 
 > [!NOTE]
 > The database is now in an *Initiate move pending* state, and has been created in the target region.
-
 
 ## Move the pool and prepare pool databases
 
@@ -201,7 +190,7 @@ To initiate a move for an elastic pool, follow these steps:
 2. In **Move resources**, select **Initiate move**.
 
     
-    ![Button to initiate move of elastic pool](./media/tutorial-move-region-sql/initiate-elastic.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/initiate-elastic.png" alt-text="Screenshot displays button to initiate move of elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-elastic.png":::
 
 1. Track the move progress in the notifications bar.
 1. When the notifications show that the move was successful, select **Refresh**.
@@ -216,11 +205,11 @@ To prepare a database for the move, follow these steps:
 1. In **Across regions**, select the database (demo-test2-sqldb in our walkthrough), and then select **Prepare**.
 2. In **Prepare resources**, select **Prepare**.
 
-    ![Button to prepare database in elastic pool](./media/tutorial-move-region-sql/prepare-database-elastic.png) 
+    :::image type="content" source="./media/tutorial-move-region-sql/prepare-database-elastic.png" alt-text="Screenshot displays button to prepare database in elastic pool." lightbox="./media/tutorial-move-region-sql/prepare-database-elastic.png":::
 
 During the prepare stage, the target database is created in the target region and the data replication starts. After Prepare, the database is in an *Initiate move pending* state. 
 
-![Button to prepare the selected database in the elastic pool](./media/tutorial-move-region-sql/initiate-move-pending.png) 
+:::image type="content" source="./media/tutorial-move-region-sql/initiate-move-pending.png" alt-text="Screenshot displays button to prepare the selected database in the elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-move-pending.png":::
 
 ## Move databases
 
@@ -229,21 +218,19 @@ To move the databases, follow these steps:
 1. In **Across regions**, select resources with state **Initiate move pending**. Then select **Initiate move**.
 2. In **Move resources**, select **Initiate move**.
 
-    ![Page to initiate move](./media/tutorial-move-region-sql/initiate-move.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/initiate-move.png" alt-text="Screenshot displays page to initiate move." lightbox="./media/tutorial-move-region-sql/initiate-move.png":::
 
 3. Track the move progress in the notifications bar.
 
 > [!NOTE]
 > Databases are now in a *Commit move pending* state.
 
-
-## Discard or commit?
+## Manage the move
 
 After the initial move, you can decide whether you want to commit the move, or to discard it. 
 
 - **Discard**: You might want to discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of **Initiate move pending**.
 - **Commit**: Commit completes the move to the target region. After committing, a source resource will be in a state of **Delete source pending** and you can decide if you want to delete it.
-
 
 ## Discard the move 
 
@@ -253,7 +240,6 @@ You can discard the move as follows:
 2. In **Discard move**, select **Discard**.
 3. Track move progress in the notifications bar.
 
-
 > [!NOTE]
 > - After discarding resources, they're in an *Initiate move pending* state.
 > - If there's only an elastic pool, discard progresses, and the elastic pool created in the target region is deleted.
@@ -261,7 +247,6 @@ You can discard the move as follows:
 > - If you discard a SQL database, target region resources aren't deleted. 
 
 If you want to start the move again after discarding, select the SQL database or elastic pool and initiate the move again.
-
 
 ## Commit the move
 
@@ -272,16 +257,14 @@ Finish moving databases and elastic pools as follows:
 3. In **Across regions**, select the SQL resources, and then select **Commit move**.
 4. In **Commit resources**, select **Commit**.
 
-    ![Commit move](./media/tutorial-move-region-sql/commit-sql-resources.png)
+    :::image type="content" source="./media/tutorial-move-region-sql/commit-sql-resources.png" alt-text="Screenshot displays commit move." lightbox="./media/tutorial-move-region-sql/commit-sql-resources.png":::
 
 5. Track the commit progress in the notifications bar.
-
 
 > [!NOTE]
 > Some downtime occurs for SQL databases during the commit process.
 > Committed databases and elastic pools are now in a *Delete source pending* state.
 > After the commit, update database-related settings, including firewall rules, policies, and alerts, on the target database.
-
 
 ## Delete source resources after commit
 
