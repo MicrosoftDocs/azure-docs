@@ -22,20 +22,20 @@ Workbooks help you to create visual reports that help in data analysis. This art
 - Combine text, log queries, metrics, and parameters to make rich visual reports. 
 
 Using workbooks you can view:
-- Machines overall status and configurations - provides the status of all machines in a specific subscription
-- Updates data overview - provides a summary of machines that have no updates, assessments and reboot needed.
-- Schedules/maintenance configurations - provides a summary of schedules, maintenance configurations and list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
-- History of installation runs - provides a history of machines and maintenance runs.
+- **Machines overall status and configurations** - provides the status of all machines in a specific subscription
+- **Updates data overview** - provides a summary of machines that have no updates, assessments and reboot needed.
+- **Schedules/maintenance configurations** - provides a summary of schedules, maintenance configurations and list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
+- **History of installation runs** - provides a history of machines and maintenance runs.
 
+   :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot of workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
 
 ## The gallery
 
 The gallery lists all the saved workbooks and templates for your workspace. You can easily organize, sort, and manage workbooks of all types.
 
+   :::image type="content" source="./media/workbooks/workbooks-gallery.png" alt-text="Screenshot of workbooks gallery":::
 
-#### Gallery tabs
-
-There are four tabs in the gallery to help organize workbook types.
+It comprises of the following four tabs that help you organize workbook types:
 
 | Tab              | Description                                       |
 |------------------|---------------------------------------------------|
@@ -43,13 +43,6 @@ There are four tabs in the gallery to help organize workbook types.
 | Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
 | Public Templates | Shows the list of all the available ready to use, get started functional workbook templates published by Microsoft. Grouped by category. |
 | My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
-
-## Data sources
-
-Workbooks can query data from multiple Azure sources. You can transform this data to provide insights into the availability, performance, usage, and overall health of the underlying components. For example, you can:
-
-- Analyze performance logs from virtual machines to identify high CPU or low memory instances and display the results as a grid in an interactive report.
-- Combine data from several different sources within a single report. You can create composite resource views or joins across resources to gain richer data and insights that would otherwise be impossible.
 
 
 ## Next steps
