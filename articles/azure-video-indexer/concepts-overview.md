@@ -49,7 +49,7 @@ Insights contain an aggregated view of the data: faces, topics, emotions. Azure 
 
 You can enable and view some insights in the [Azure Video Indexer](https://www.videoindexer.ai/) website. You can view all the available insights by downloading json file(s).
 
-Here are some common insights, you can also view the [Overview](video-indexer.md) topic for all the available Azure Video Indexer features.
+Here are some common insights, you can also view the [Overview](video-indexer-overview.md) topic for all the available Azure Video Indexer features.
 
 |**Insight**|**Description**|
 |---|---|
