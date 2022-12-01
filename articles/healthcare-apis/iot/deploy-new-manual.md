@@ -16,10 +16,10 @@ You may prefer to manually deploy MedTech service if you need to track every ste
 The explanation of MedTech service manual deployment using the Azure portal is divided into three parts that cover each of key tasks required:
 
 - Part 1: Prerequisites (see Prerequisites below)
-- Part 2: Configuration (see [Configure for manual deployment](deploy-05-new-config.md))
-- Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](deploy-06-new-deploy.md))
+- Part 2: Configuration (see [Configure for manual deployment](deploy-new-config.md))
+- Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](deploy-new-deploy.md))
 
-If you need a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
+If you need a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-new-choose.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
 
 ## Part 1: Prerequisites
 
@@ -95,6 +95,6 @@ After your prerequisites are successfully completed, you can go on to Part 2: Co
 When you're ready to begin Part 2 of Manual Deployment, see
 
 > [!div class="nextstepaction"]
-> [Part 2: Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
+> [Part 2: Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
