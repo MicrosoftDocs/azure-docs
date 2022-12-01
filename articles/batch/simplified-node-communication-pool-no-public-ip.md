@@ -12,7 +12,7 @@ ms.custom: references_regions
 > This replaces the previous preview version of [Azure Batch pool without public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
-> Support for pools without public IP addresses in Azure Batch is currently available for [selected regions](simplified-compute-node-communication.md#supported-regions).
+> Support for pools without public IP addresses in Azure Batch is currently available for [select regions](simplified-compute-node-communication.md#supported-regions).
 
 When you create an Azure Batch pool, you can provision the virtual machine (VM) configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
