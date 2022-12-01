@@ -21,10 +21,6 @@ Each sensor has access to reports generated for that sensor, while the on-premis
 
 Import firewall rules to your OT sensor for analysis in **Risk assessment** reports. Importing firewall rules is supported for Checkpoint, Fortinet, and Juniper firewalls.
 
-- Checkpoint
-- Fortinet
-- Juniper
-
 **To import firewall rules**:
 
 1. Sign in to your sensor as an **Admin** user and elect **System Settings** > **Import settings** > **Firewall rules**.
