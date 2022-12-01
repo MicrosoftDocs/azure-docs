@@ -37,10 +37,7 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 | Attribute | Description                                                                                                               | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | String literal meaningful to the trace viewer and specifying the source of the message.                                   | Yes      | N/A     |
-| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No       | Verbose |
-| name      | Name of the property.                                                                                                     | Yes      | N/A     |
-| value     | Value of the property.                                                                                                    | Yes      | N/A     |
-
+| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No       | `verbose` |
 
 ## Elements
 
@@ -49,6 +46,12 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 | message  | A string or expression to be logged.                                                                                                                 | Yes      |
 | metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry. | No       |
 
+### metadata attributes
+
+| Attribute | Description                                                                                                               | Required | Default |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| name      | Name of the property.                                                                                                     | Yes      | N/A     |
+| value     | Value of the property.                                                                                                    | Yes      | N/A     |
 
 ## Usage
 

@@ -400,6 +400,22 @@
         items:
             - name: Policy reference index
               href: api-management-policies.md
+            - name: authentication-basic
+              href: authentication-basic-policy.md
+            - name: authentication-certificate
+              href: authentication-certificate-policy.md
+            - name: authentication-managed-identity
+              href: authentication-managed-identity-policy.md
+            - name: cache-lookup
+              href: cache-lookup-policy.md
+            - name: cache-lookup-value
+              href: cache-lookup-value-policy.md
+            - name: cache-store
+              href: cache-store-policy.md
+            - name: cache-store-value
+              href: cache-store-value-policy.md
+            - name: cache-remove-value
+              href: cache-remove-value-policy.md
             - name: check-header
               href: check-header-policy.md
             - name: choose

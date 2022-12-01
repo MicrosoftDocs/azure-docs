@@ -1,6 +1,6 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
+description: Reference for the advanced policies available for use in Azure API Management.
 author: dlepow
 ms.topic: article
 ms.date: 04/28/2022
@@ -10,11 +10,9 @@ ms.author: danlep
 
 # API Management advanced policies
 
-This article provides a reference for advanced API Management policies, such as those that are based on policy expressions. 
+The following API Management policies are for advanced use, including use of policy expressions. 
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
-## <a name="AdvancedPolicies"></a> Advanced policies
 
 -   [Control flow](choose-policy.md) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](forward-request-policy.md) - Forwards the request to the backend service.

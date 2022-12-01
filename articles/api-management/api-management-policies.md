@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 12/01/2022
 ms.author: danlep
 ---
 # API Management policy reference
@@ -53,16 +53,16 @@ More information about policies:
 -   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
 ## Authentication policies
--   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.
--   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.
--   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+-   [Authenticate with Basic](authentication-basic-policy.md) - Authenticate with a backend service using Basic authentication.
+-   [Authenticate with client certificate](authentication-certificate-policy.md) - Authenticate with a backend service using client certificates.
+-   [Authenticate with managed identity](authentication-managed-identity.md) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Caching policies
--   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache lookup and return a valid cached response when available.
--   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.
--   [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) - Retrieve a cached item by key.
--   [Store value in cache](api-management-caching-policies.md#StoreToCacheByKey) - Store an item in the cache by key.
--   [Remove value from cache](api-management-caching-policies.md#RemoveCacheByKey) - Remove an item in the cache by key.
+-   [Get from cache](cache-lookup-policy.md) - Perform cache lookup and return a valid cached response when available.
+-   [Store to cache](cache-store-policy.md) - Caches response according to the specified cache control configuration.
+-   [Get value from cache](cache-lookup-value-policy.md) - Retrieve a cached item by key.
+-   [Store value in cache](cache-store-value-policy.md) - Store an item in the cache by key.
+-   [Remove value from cache](cache-remove-value-policy.md) - Remove an item in the cache by key.
 
 ## Cross-domain policies
 -   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
