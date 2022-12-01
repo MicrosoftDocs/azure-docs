@@ -35,7 +35,7 @@ New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
 |**WAF Total Requests**|Count of successful requests that WAF engine has served| Action, Country/Region, Method, Mode, Policy Name, Policy Scope|
-|**WAF Managed Rule Matches**|Count of total managed rule matches| Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Group, Rule Id, Rule Set Name|
+|**WAF Managed Rule Matches**|Count of total managed rule matches| Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Group, Rule ID, Rule Set Name|
 |**WAF Custom Rule Matches**|Count of custom rule matches| Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Name|
 |**WAF Bot Protection Matches**|Count of total bot protection rule matches that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed.| Action, Country/Region, Bot Type, Mode, Policy Name, Policy Scope|
 *Only Bot Manager Rule Set 0.1 will be displayed under “WAF Bot Protection Matches”. Requests matching Bot Manager Rule Set 1.0 will increase “WAF Total Requests” metrics, not “WAF Bot Protection Matches”.
