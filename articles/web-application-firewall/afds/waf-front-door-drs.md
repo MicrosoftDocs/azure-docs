@@ -44,7 +44,7 @@ Some of the built-in DRS rules are disabled by default because they've been repl
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
-When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
+When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*. If a request accumulates an anomaly score of 5 or greater the WAF will take action on the request.
 
 | Rule severity | Value contributed to anomaly score |
 |-|-|
@@ -53,7 +53,7 @@ When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that mat
 | Warning | 3 |
 | Notice | 2 |
 
-When you configure your WAF, you can decide how the WAF handles requests that exceed the anomaly score threshold. The three anomaly score action options are block, log, or redirect. The anomaly score action you select at time of configuration will be applied to all requests that exceed the anomaly score threshold.
+When you configure your WAF, you can decide how the WAF handles requests that exceed the anomaly score threshold of 5. The three anomaly score action options are block, log, or redirect. The anomaly score action you select at time of configuration will be applied to all requests that exceed the anomaly score threshold.
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
