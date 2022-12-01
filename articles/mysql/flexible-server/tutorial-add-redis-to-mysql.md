@@ -92,7 +92,7 @@ mysqlcnx.close()
 ```
 
 ## Using Redis with PHP
-Install [PHP](https://www.php.net/manual/en/install.php) on your local environment. Follow the steps below to write a PHP script that caches a sql query from MySQL database. Here are few pre-requisites before running the script:
+Install [PHP](https://www.php.net/manual/en/install.php) on your local environment. Follow the steps below to write a PHP script that caches a SQL query from MySQL database. Here are a few pre-requisites before running the script:
 1. Install and enable [Redis PECL extension](https://pecl.php.net/package/redis) to use Redis with your PHP script. See [how to install the extension locally](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) 
 2. Install and enable [MySQL PDO extension](https://www.php.net/manual/en/ref.pdo-mysql.php)
 
