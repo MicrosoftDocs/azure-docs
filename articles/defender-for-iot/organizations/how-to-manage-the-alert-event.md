@@ -9,17 +9,6 @@ ms.topic: how-to
 
 This article describes how to manage alerts from the sensor console.
 
-## About managing alerts
-
-The following options are available for managing alerts:
-
- | Action | Description |
- |--|--|
-| **Remediate** |Remediate a device or network process that caused Defender for IoT to trigger the alert. For more information, see [View remediation steps](#view-remediation-steps).|
-| **Learn** | Authorize the detected traffic. For more information, see [Learn and unlearn alert traffic](#learn-and-unlearn-alert-traffic). |
-| **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [Mute and unmute alerts](#mute-and-unmute-alerts).
-| **Change status** |  Change the alert status to Closed or New. For more information, see [Close the alert](#close-the-alert). |
-| **Forward to partner solutions** | Create Forwarding rules that send alert details to integrated solutions, for example to Microsoft Sentinel, Splunk or Service Now. For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md#forward-alert-information)  |
 
 Alerts are managed from the Alerts page on the sensor.
 
@@ -189,28 +178,6 @@ Export alert information to a .csv file. The following information is exported:
 1. Select Export to CSV on the top of the Alerts page.
 
 
-## Interaction with Azure Alerts page
-
-Your deployment may have been set up to work with cloud-connected sensors on the Defender for IoT portal on Azure. In cloud-connected environments,  Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
-
-Viewing and managing alerts in the portal provides significant advantages. For example, you can:
-
-- Display an aggregated  view of alert activity in all enterprise sensors
-- Learn about related MITRE ATT&CK techniques, tactics and stages
-- View alerts based on the sensor site
-- Integrate alert details with Microsoft Sentinel
-- Change the severity of an alert
-
-    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
-
-Users working with alerts on the Defender for IoT portal on Azure should understand how alert management between the portal and the sensor operates.
-
-
- Parameter | Description
-|--|--|
-| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the alerts triggered by managed sensors. As a result, the alerts excluded by these rules also won't be displayed in the Alerts page on the portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
-| **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from the sensor for this activity.
-| **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, doesn't impact the alert status or severity in on-premises sensors.
 
 ## Next steps
 

@@ -12,32 +12,7 @@ ms.topic: how-to
 
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
-If you're integrating with Microsoft Sentinel, the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
-
-## About alerts
-
-Defender for IoT alerts enhance your network security and operations with real-time details about events logged, such as:
-
-- Deviations from authorized network activity and device configurations
-- Protocol and operational anomalies
-- Suspected malware traffic
-
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
-
-Use the **Alerts** page on the Azure portal to take any of the following actions:
-
-- **Understand when an alert was detected**.
-
-- **Investigate the alert** by reviewing alert details, such as the traffic's source and destination, vendor, related firmware and operating system, and related MITRE ATT&CK tactics.
-
-- **Manage the alert** by taking remediation steps on the device or network process, or changing the device status or severity.
-
-- **Integrate alert details with other Microsoft services**, such as Microsoft Sentinel playbooks and workbooks. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
-
-The alerts displayed on the Azure portal are alerts that have been detected by cloud-connected, Defender for IoT sensors. For more information, see [Alert types and descriptions](alert-engine-messages.md).
-
-> [!TIP]
-> We recommend that you review alert types and messages to help you understand and plan remediation actions and playbook integrations.
+If you're integrating with [Microsoft Sentinel](concept-sentinel-integration.md), the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
 
 ## View alerts
 
@@ -60,7 +35,7 @@ The following alert details are displayed by default in the grid:
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
 
-### View more alert details
+### View more details in the alerts grid
 
 1. Select **Edit columns** from the Alerts page.
 1. In the Edit Columns dialog box, select **Add Column** and choose an item to add. The following items are available:
@@ -95,7 +70,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 Supported grouping options include *Severity*, *Name*, *Site*, and *Engine*.
 
-## View alert details
+## View details about a specific alert
 
 Select an alert in the grid to display more details in the pane on the right, including the alert description, traffic source and destination, and more.
 
@@ -175,3 +150,39 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 ## Next steps
 
 For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
+
+## Interaction with Azure Alerts page
+
+Your deployment may have been set up to work with cloud-connected sensors on the Defender for IoT portal on Azure. In cloud-connected environments,  Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
+
+Viewing and managing alerts in the portal provides significant advantages. For example, you can:
+
+- Display an aggregated  view of alert activity in all enterprise sensors
+- Learn about related MITRE ATT&CK techniques, tactics and stages
+- View alerts based on the sensor site
+- Integrate alert details with Microsoft Sentinel
+- Change the severity of an alert
+
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
+
+Users working with alerts on the Defender for IoT portal on Azure should understand how alert management between the portal and the sensor operates.
+
+
+ Parameter | Description
+|--|--|
+| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the alerts triggered by managed sensors. As a result, the alerts excluded by these rules also won't be displayed in the Alerts page on the portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+| **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from the sensor for this activity.
+| **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, doesn't impact the alert status or severity in on-premises sensors.
+
+## View alerts in the Defender for IoT portal
+
+If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
+
+Viewing alerts in the portal provides significant advantages. For example, it lets you:
+
+- Display an aggregated  view of alert activity in all enterprise sensors
+- Understand related MITRE ATT&CK techniques, tactics and stages
+- View alerts based on the site
+- Change the severity of an alert
+
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::

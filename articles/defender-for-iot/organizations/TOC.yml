@@ -72,6 +72,8 @@
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
       displayName: Microsoft Defender for Endpoint, MDE
+    - name: Alerts
+      href: alerts.md
 - name: How-to guides
   items:
   - name: Visualize devices

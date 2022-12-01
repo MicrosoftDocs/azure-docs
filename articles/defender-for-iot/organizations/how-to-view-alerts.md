@@ -11,28 +11,6 @@ Alerts are triggered when sensor engines detect changes or suspicious activity i
 
 This article describes how to view alerts triggered by your Microsoft Defender for IoT OT network sensors.
 
-Once an alert is selected, you can view comprehensive details about the alert activity, for example,
-
-- Detected protocols
-- Source and destination IP and MAC addresses
-- Vendor information
-- Device type information
-
-You can also gain contextual information about the alert by viewing the source and destination in the Device map and viewing related events in the Event timeline.
-
-To help you quickly pinpoint information of interest, you can view alerts:
-
-- Based on various categories, such as alert severity, name or status
-- By using filters
-- By using free text search to find alert information of interest to you.  
-
-After you review the information in an alert, you can carry out various forensic steps to guide you in managing the alert event. For example:
-
-- Analyze recent device activity (data-mining report).
-
-- Analyze other events that occurred at the same time (event timeline).
-
-- Analyze comprehensive event traffic (PCAP file).
 
 ## View alerts and alert details
 
@@ -162,32 +140,6 @@ Download a full or filtered PCAP file for a specific alert directly from the sen
 1. Select **View full details**.
 1. Select **Download Full PCAP** or **Download Filtered PCAP**.
 
-
-## View alerts in the Defender for IoT portal
-
-If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
-
-Viewing alerts in the portal provides significant advantages. For example, it lets you:
-
-- Display an aggregated  view of alert activity in all enterprise sensors
-- Understand related MITRE ATT&CK techniques, tactics and stages
-- View alerts based on the site
-- Change the severity of an alert
-
-    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
-
-### Manage alert events
-
-You can manage an alert incident by:
-
-- Changing the status of an alert.
-
-- Instructing sensors to learn, close, or mute activity detected.
-
-- Create alert groups for display at SOC solutions.
-
-- Forward alerts to partner vendors: SIEM systems, MSSP systems, and more.
-
 ## Next steps
 
 For more information, see:
@@ -195,3 +147,25 @@ For more information, see:
 - [Manage the alert event](how-to-manage-the-alert-event.md)
 
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+
+## Accelerate incident workflows by using alert comments
+
+Work with alert comments to improve communication between individuals and teams while investigating an alert event.
+
+Use alert comments to improve:
+
+- **Workflow steps**: Provide alert mitigation steps.
+
+- **Workflow follow-up**: Notify that steps were taken.
+
+- **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
+
+The list of available options appears in each alert, and users can select one or several messages. 
+
+**To add alert comments:**
+
+1. On the side menu, select **System Settings** > **Network Monitoring**> **Alert Comments**.
+
+3. Enter a description and select **Submit**.
+
+
