@@ -34,7 +34,7 @@ To configure provisioning, follow these steps.
  :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration" lightbox="media/how-to-configure/new-ux-configure-1.png":::
  5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
- :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of creating a configuration" lightbox="media/how-to-configure/new-ux-configure-2.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration" lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
  6.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
 
@@ -75,7 +75,7 @@ You can't configure groups and organizational units within a configuration.
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of attribute mapping icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screen shot of map attributes icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  
