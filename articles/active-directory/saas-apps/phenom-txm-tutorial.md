@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Phenom TXM with Azure Active Dir
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Phenom TXM single sign-on (SSO) enabled subscription.
+* Phenom TXM single sign-on (SSO) enabled subscription and a user account with the Client Admin role in Service Hub.
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -52,16 +52,43 @@ To configure the integration of Phenom TXM into Azure AD, you need to add Phenom
 
 ## Configure and test Azure AD SSO for Phenom TXM
 
-Configure and test Azure AD SSO with Phenom TXM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Phenom TXM.
+Configure and test Azure AD SSO with Phenom TXM using a test user called **B.Simon**. For SSO to work, you need to establish an assignment relationship between an Azure AD user or group and the related Phenom TXM application, ensuring that Azure AD passes the user's email address to Phenom TXM as a user identifier.
 
 To configure and test Azure AD SSO with Phenom TXM, perform the following steps:
 
+1. **[Gather Phenom SSO Settings](#gather-phenom-sso-settings)** - to prepare for Azure AD configuration
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Phenom TXM SSO](#configure-phenom-txm-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Phenom TXM test user](#create-phenom-txm-test-user)** - to have a counterpart of B.Simon in Phenom TXM that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+## Gather Phenom SSO Settings
+
+Follow these steps to gather some initial Phenom SSO settings that you will use to configure Azure AD. You will perform the full configuration of Phenom SSO in a later step.
+
+1. Log in to your Phenom TXM instance Service Hub as a user with the Client Admin role.
+
+1. Go to **Settings** tab > **Identity Provider**.
+
+1. In the **Identity Provider** section, if there is no existing IDP Configuration:
+
+    a. Click on **Create IDP Configuration**.
+    
+    b. Choose SAML from the dropdown selector.
+    
+1. Copy the three values shown in the **To IDP** section to a temporary location for use in a later step:
+
+   ![Screenshot that shows the Identity Provider Metadata.](./media/phenom-txm-tutorial/certificate.png "Metadata")
+
+    a. **Entity ID**
+    
+    b. **Redirect URI (ACS URL)** - this is the IdP-Initiated Assertion Consumer Service URL
+    
+    c. **Redirect URI (ACS URL) SP Initiated Flow** - this is the SP-Initiated Assertion Consumer Service URL (not shown in the screenshot above)
+
+1. If you just clicked Create IDP Configuration, you will not Save anything at this time. Saving the configuration will happen later. 
 
 ## Configure Azure AD SSO
 
@@ -75,31 +102,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using one of the following patterns:
+    a. In the **Identifier** text box, enter the **ENTITY ID** copied from Service Hub
 
-    | **Identifier** |
-    |-----|
-    | `https://<SUBDOMAIN>.phenompro.com/auth/realms/<ID>` |
-    | `https://<SUBDOMAIN>.phenom.com/auth/realms/<ID>` |
+    b. In the **Reply URL** text box, enter the **Redirect URI (ACS URL)** copied from Service Hub
+    
+    c. Set the Index value for the first **Reply URL** to **0**
+    
+    d. Click the **Add Reply URL** action link
+    
+    e. In the second **Reply URL** text box, enter the **Redirect URI (ACS URL) SP Initiated Flow** copied from Service Hub
+    
+    f. Set the Index value for the second **Reply URL** to **1**
+    
+    g. Ensure that the first **Reply URL** is set as the **Default** using the checkbox
 
-    b. In the **Reply URL** text box, type a URL using one of the following patterns:
-
-    | Reply URL |
-    |--------------|
-    | `https://<SUBDOMAIN>.phenompro.com/auth/<ID>` |
-    | `https://<SUBDOMAIN>.phenom.com/auth/<ID>` |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
     
     In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
-    | Sign-on URL |
-    |--------------|
-    | `https://<SUBDOMAIN>.phenompro.com` |
-    | `https://<SUBDOMAIN>.phenom.com` |
-
-    > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Phenom TXM Client support team](mailto:support@phenompeople.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    | Enivoronment | Sign-on URL |
+    |--------------|-------------|
+    | Staging | `https://login-stg.phenompro.com` |
+    | Production | `https://login.phenom.com` |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -131,15 +156,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Phenom TXM SSO
 
-1. Log in to your Phenom TXM company site as an administrator.
+1. Log in to your Phenom TXM instance Service Hub as a user with the Client Admin role.
 
 1. Go to **Settings** tab > **Identity Provider**.
 
 1. In the **Identity Provider** section, perform the following steps:
     
     ![Screenshot that shows the Configuration Settings.](./media/phenom-txm-tutorial/input.png "Configuration")
-
-    ![Screenshot that shows the Identity Provider Metadata.](./media/phenom-txm-tutorial/certificate.png "Metadata")
 
     a. Enter a valid name in the **Display Name** textbox.
 
@@ -148,10 +171,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
     d. Click **Save Changes**.
-
-    e. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
-
-    f. Copy **Redirect URI (ACS URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
 ### Create Phenom TXM test user
 
