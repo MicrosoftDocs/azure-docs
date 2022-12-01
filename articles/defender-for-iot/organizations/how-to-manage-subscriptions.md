@@ -53,12 +53,6 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. In the **Plan settings** pane, define the plan:
 
-     - **Price plan**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial).
-
-        Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
-
-        For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
-
     - **Subscription**. Select the subscription where you would like to add a plan.
 
         You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
@@ -66,9 +60,15 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
         > [!TIP]
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
 
-    - **Committed sites**: Relevant for annual commitments only. Enter the number of committed sites.
+     - **Price plan**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial).
 
-    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of [committed devices](#calculate-committed-devices-for-ot-monitoring) you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 100 devices.
+        Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+
+        For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+
+    - **Committed sites**. Relevant for annual commitments only. Enter the number of committed sites.
+
+    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of [committed devices](#calculate-committed-devices-for-ot-monitoring) you'll want to monitor. If you select a trial, there is a default of 1000 devices.
 
     For example:
 
@@ -76,13 +76,13 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. Select **Next**.
 
-1. Review your plan, and select the **I accept the terms** option, and then select **Purchase**.
+1. Review your plan, select the **I accept the terms** option, and then select **Purchase**.
 
 Your new plan is listed under the relevant subscription in the **Plans** grid.
 
 ## Edit a plan for OT networks
 
-Edit your Defender for IoT plans for OT networks if you need change your commitment tier or update the number of committed devices or committed sites.
+Edit your Defender for IoT plans for OT networks if you need change your plan commitment or update the number of committed devices or sites.
 
 For example, you may have more devices that require monitoring if you're increasing existing site coverage, have discovered more devices than expected, or there are network changes such as adding switches.
 
@@ -102,10 +102,11 @@ If the actual number of devices exceeds the number of committed devices on your 
 
 1. Select the **I accept the terms** option, and then select **Purchase**.
 
-Changes to your plan will take effect one hour after confirming the change.  This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
+1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
 
-> [!NOTE]
-> **For an on-premises management console:** After any changes are made, you'll need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+
+Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
 
 ## Cancel a Defender for IoT plan
 
