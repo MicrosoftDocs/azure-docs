@@ -5,7 +5,7 @@ ms.date: 02/01/2022
 ms.topic: how-to
 ---
 
-# Trends and statistics dashboards
+# Create trends and statistics reports
 
 Dashboards on your sensor console provide insight into network trends and statistics.
 

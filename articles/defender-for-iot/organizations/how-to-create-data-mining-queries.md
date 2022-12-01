@@ -5,7 +5,7 @@ ms.date: 02/02/2022
 ms.topic: how-to
 ---
 
-# Data mining queries
+# Create data mining queries
 
 Running data mining queries provides dynamic, detailed information about your network devices. This includes information for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state.
 
@@ -31,10 +31,7 @@ The following predefined reports are available in **Analyze** > **Data Mining**.
 
 ## Create a report
 
-Reports are dynamically updated each time you open them. For example:
-
-- If you create a report for firmware versions on devices on June 1 and open the report again on June 10, this report will be updated with information that's accurate for June 10.
-- If you create a report to detect new devices discovered over the last 30 days on June 1 and open the report on June 30, the results will be displayed for the last 30 days.
+Reports are dynamically updated each time you open them, meaning that the report will show information that's accurate for the date of viewing the report, rather than the date of creating the report.
 
 **To generate a report**:
 

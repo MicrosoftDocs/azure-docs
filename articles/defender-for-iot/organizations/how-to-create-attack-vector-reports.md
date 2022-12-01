@@ -5,7 +5,7 @@ ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
-# Attack vector reporting
+# Create attack vector reports
 
 Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target.
 
@@ -13,9 +13,9 @@ Attack vector reports provide a graphical representation of a vulnerability chai
 
 You must be an **Admin** or **Security Analyst** user to create an attack vector report.
 
-## Create an attack vector report
+## Generate an attack vector simulation
 
-**To create an attack vector simulation:**
+**To generate an attack vector simulation:**
 
 1. Select **Attack vector** from the sensor side menu.
 1. Select **Add simulation**.
