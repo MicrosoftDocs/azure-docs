@@ -6,7 +6,7 @@ ms.author: aahi
 ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 12/01/2022
 ---
 
 # Purchase commitment tier pricing
