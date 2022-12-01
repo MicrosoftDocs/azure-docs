@@ -40,9 +40,9 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 > First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
 > Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
 
-[Determine how many hosts you would need based on the expected VM Utilization](https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-host-general-purpose-skus).
+[Determine how many hosts you would need based on the expected VM Utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-host-general-purpose-skus).
 
-Evaluate [host utilization](https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
+Evaluate [host utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
 
 ```azurecli-interactive
 az vm host get-instance-view -g myDHResourceGroup --host-group MyHostGroup --name MyHost
