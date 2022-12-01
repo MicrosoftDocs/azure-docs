@@ -181,17 +181,23 @@ To display the creation time of the account access keys for a storage account in
 
 1. Navigate to your storage account in the Azure portal.
 1. On the **Overview** page, in the **Essentials** section, select the **JSON View** link.
-1. For the API version, select the most recent version.
-1. Under *properties* you will see the *keyCreationTime* for *key1* and *key2*.
+1. For the **API version**, select the most recent version.
+1. In the JSON under *properties* you will see the *keyCreationTime* for *key1* and *key2*.
 
-    :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot showing one account access key with null values and another with a date and time stamp in the JSON View of the storage account":::
+    :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot of the JSON View of a storage account showing one account access key with null values and another with a date and time stamp" lightbox="media/storage-account-get-info/key-creation-time-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
-To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get its resource ID:
+To return the creation time of the account access keys for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get the account access key creation time:
 
 ```azurepowershell
-(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
+$rg = <resource-group-name>
+$sa = <storage-account-name>
+(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key1
+(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key1 -eq $null
+(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key2
+(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key2 -eq $null
+
 ```
 
 # [Azure CLI](#tab/azure-cli)
