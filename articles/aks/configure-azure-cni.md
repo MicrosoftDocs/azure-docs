@@ -249,7 +249,7 @@ Azure CNI provides the capability to monitor IP subnet usage. To enable IP subne
 
 ### Get the YAML file
 1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [github][github].
-2.	Find azure_subnet_ip_usage in integrations. Set enabled = true 
+2.	Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`. 
 3.	Save the file.
 
 ### Get the AKS credentials
@@ -277,7 +277,7 @@ Set the variables for subscription, resource group and cluster. Consider the fol
 3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
 4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
 
-  :::image type="content" source="media/networking-overview/ip-subnet-usage.png":::    
+  :::image type="content" source="media/azure-cni/ip-subnet-usage.png  alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed." width="80%":::    
 
 ## Frequently asked questions
 
