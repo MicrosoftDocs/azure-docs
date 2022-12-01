@@ -25,7 +25,7 @@ To understand request unit growth with storage, lets look at the table below.
 |:---:|:---:|:---:|:---:| 
 |<=50 GB | 1 | 5000 | 5000 |
 |<=100 GB | 2 | 5000 | 2500 | 
-|<=150 GB | 3 | 5000 | 1750 |
+|<=150 GB | 3 | 5000 | 1666 |
 |<=200 GB | 4 | 5000 | 1250 |
 |<=250 GB | 5 | 5000 | 1000 |
 |<=300 GB | 6 | 6000 | 1000 |
