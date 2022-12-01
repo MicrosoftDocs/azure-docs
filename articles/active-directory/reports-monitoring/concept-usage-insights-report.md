@@ -29,7 +29,7 @@ Accessing the data from Usage and insights requires:
 
 * An Azure AD tenant
 * An Azure AD premium (P1/P2) license to view the sign-in data
-* A user in the Global Administrator, Security Administrator, Security Reader, or Report Reader roles.
+* A user in the Global Administrator, Security Administrator, Security Reader, or Reports Reader roles.
 
 To access Usage & insights:
 
