@@ -53,7 +53,7 @@ To configure provisioning, follow these steps.
 ## Scope provisioning to specific users and groups
 You can scope the agent to synchronize specific users and groups by using on-premises Active Directory groups or organizational units. 
 
-  :::image type="content" source="media/how-to-configure/new-ux-configure-4.png" alt-text="Screenshot of scoping filters" lightbox="media/how-to-configure/new-ux-configure-4.png":::
+  :::image type="content" source="media/how-to-configure/new-ux-configure-4.png" alt-text="Screenshot of scoping filters icon" lightbox="media/how-to-configure/new-ux-configure-4.png":::
 
 
 You can't configure groups and organizational units within a configuration. 
@@ -89,7 +89,7 @@ For more information, see [attribute mapping](how-to-attribute-mapping.md).
 ## On-demand provisioning
 Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of on-demand provisioning icon" lightbox="media/how-to-configure/new-ux-configure-8.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon" lightbox="media/how-to-configure/new-ux-configure-8.png":::
 
 You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
 
@@ -101,7 +101,7 @@ For more information, see [on-demand provisioning](how-to-on-demand-provision.md
 ## Accidental deletions and email notifications
 The default properties section provides information on accidental deletions and email notifications.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-10.png" alt-text="Screenshot of on-demand provisioning" lightbox="media/how-to-configure/new-ux-configure-10.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-10.png" alt-text="Screenshot of default properties icon" lightbox="media/how-to-configure/new-ux-configure-10.png":::
 
 The accidental delete feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and groups.  
 
@@ -115,7 +115,7 @@ For more information, see [Accidental deletes](how-to-accidental-deletes.md)
 
 Click the **pencil** next to **Basics** to change the defaults in a configuration.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of on-demand provisioning" lightbox="media/how-to-configure/new-ux-configure-11.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of basics" lightbox="media/how-to-configure/new-ux-configure-11.png":::
 
 ## Enable your configuration
 Once you have finalized and test your configuration you can enable it.
