@@ -38,7 +38,7 @@ To configure provisioning, follow these steps.
 
  6.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
 
-  :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of creating a configuration" lightbox="media/how-to-configure/new-ux-configure-3.png":::
+  :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen" lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
  7. The configuration is split in to the following 5 sections.
 
@@ -75,12 +75,12 @@ You can't configure groups and organizational units within a configuration.
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of attribute mapping" lightbox="media/how-to-configure/new-ux-configure-6.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of attribute mapping icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of attribute mapping" lightbox="media/how-to-configure/new-ux-configure-7.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of default attribute mappings" lightbox="media/how-to-configure/new-ux-configure-7.png":::
 
 
 
