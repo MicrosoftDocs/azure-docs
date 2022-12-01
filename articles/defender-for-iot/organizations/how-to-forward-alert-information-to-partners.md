@@ -264,3 +264,64 @@ This means that the forwarding rules you define might be ignored based on exclus
 ## Next steps
 
 For more information, see [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md).
+
+
+
+
+
+
+## Accelerate incident workflows by using alert groups
+
+Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage these alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with detecting new devices, new VLANs, new user accounts, new MAC addresses, and more.
+
+Alert groups are applied when you create forwarding rules for the following partner solutions:
+
+  - Syslog servers
+
+  - QRadar
+
+  - ArcSight
+
+
+The relevant alert group appears in partner output solutions. 
+
+### Requirements
+
+The alert group will appear in supported partner solutions with the following prefixes:
+
+- **cat** for QRadar, ArcSight, Syslog CEF, Syslog LEEF
+
+- **Alert Group** for Syslog text messages
+
+- **alert_group** for Syslog objects
+
+These fields should be configured in the partner solution to display the alert group name. If there's no alert associated with an alert group, the field in the partner solution will display **NA**.
+
+### Default alert groups
+
+The following alert groups are automatically defined:
+
+- Abnormal communication behavior
+- Custom alerts
+- Remote access
+- Abnormal HTTP communication behavior
+- Discovery
+- Restart and stop commands
+- Authentication
+- Firmware change
+- Scan
+- Unauthorized communication behavior
+- Illegal commands
+- Sensor traffic
+- Bandwidth anomalies
+- Internet access
+- Suspicion of malware
+- Buffer overflow
+- Operation failures
+- Suspicion of malicious activity
+- Command failures
+- Operational issues
+- Configuration changes
+- Programming
+
+Alert groups are predefined. For details about alerts associated with alert groups, and about creating custom alert groups, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
