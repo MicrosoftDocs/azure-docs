@@ -3,7 +3,7 @@ title: Authorize access to blob data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize blob data access from applications running in Azure VMs, function apps, and others.
 services: storage
-author: pauljewell-msft
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
