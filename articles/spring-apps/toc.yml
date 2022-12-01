@@ -132,6 +132,8 @@ items:
         href: how-to-use-enterprise-spring-cloud-gateway.md
       - name: Configure Spring Cloud Gateway
         href: how-to-configure-enterprise-spring-cloud-gateway.md
+      - name: Debug your apps remotely in Azure Spring Apps
+        href: how-to-remote-debugging-app-instance.md
   - name: Deploy
     items:
     - name: Set up a staging environment
