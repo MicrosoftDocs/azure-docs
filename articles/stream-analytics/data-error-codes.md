@@ -19,7 +19,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventTimestampNotFound
 
-* **Cause**: Stream Analytics is unable to get a timestamp for a resource. 
+* **Cause**: Stream Analytics is unable to get a time stamp for a resource. 
 
 ## InputEventTimestampByOverValueNotFound
 
@@ -31,7 +31,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventEarlyBeyondThreshold
 
-* **Cause**: An input event arrival time is earlier than the input event application timestamp threshold.
+* **Cause**: An input event arrival time is earlier than the input event application time stamp threshold.
 
 ## AzureFunctionMessageSizeExceeded
 

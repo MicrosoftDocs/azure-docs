@@ -19,7 +19,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubMessagingError
 
-* **Cause**: Stream Analytics encountered error when communicating with EventHub. 
+* **Cause**: Stream Analytics encountered error when communicating with Event Hubs. 
 
 
 ## Next steps

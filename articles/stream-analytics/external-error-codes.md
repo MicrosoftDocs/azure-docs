@@ -15,7 +15,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## AdapterInitializationError
 
-* **Cause**: An error occurred when initializing the an adapter.
+* **Cause**: An error occurred when initializing an adapter.
 
 ## AdapterFailedToWriteEvents
 
@@ -31,15 +31,15 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## AzureFunctionRedirectError
 
-* **Cause**: There is a redirect error when outputting to Azure Functions.
+* **Cause**: There's a redirect error when outputting to Azure Functions.
 
 ## AzureFunctionClientError
 
-* **Cause**: There is a client error outputting to Azure Functions.
+* **Cause**: There's a client error outputting to Azure Functions.
 
 ## AzureFunctionServerError
 
-* **Cause**: There is a server error outputting to Azure Functions.
+* **Cause**: There's a server error outputting to Azure Functions.
 
 ## AzureFunctionHttpTimeOutError
 
@@ -53,7 +53,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubFailedToWriteEvents
 
-* **Cause**: An error occurred while sending data to Event Hub.
+* **Cause**: An error occurred while sending data to Event Hubs.
 
 ## CosmosDBConnectionFailureAfterMaxRetries
 
