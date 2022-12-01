@@ -33,7 +33,7 @@ To learn more about Azure Synapse Analytics, see the [overview](https://learn.mi
 
 ### Queries using AAD authentication fails after 1 hour
 
-Starting from January 1st, 2021, SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries are not affected, like Synapse Studio.
+SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries are not affected, like Synapse Studio.
 
 **Workaround**: There are 2 mitigation steps can be taken.
 
@@ -42,7 +42,7 @@ Starting from January 1st, 2021, SQL connections using Azure AD authentication t
 
 ### Query failures from Serverless SQL pool to Cosmos DB Analytical Store
 
-Starting from June 29th, 2022, queries from serverless SQL to Cosmos DB Analytical store might fail with one of the following error messages:
+Queries from serverless SQL to Cosmos DB Analytical store might fail with one of the following error messages:
 
 _"Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'"_
 _"Resolving CosmosDB path has failed with error 'Key not found'"_
@@ -59,7 +59,7 @@ The following conditions must be true to confirm this issue:
 
 ### Query failures while reading Cosmos Data using OPENROWSET
 
-Starting from September 29th, 2022, queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET fails with the following error message:
+Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET fails with the following error message:
 
 _"Resolving CosmosDB path has failed with error 'bad allocation'."_
 
@@ -80,7 +80,7 @@ _"Data exfiltration to '{****}' is blocked. Add destination to allowed list for 
 
 ### Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed
 
-Starting from October 10th, 2022, The linked service may not be visible under the "Data Hub - Linked - Azure Blob Storage Tab" after configuring the Blob storage linked service to use "User Assigned Managed Identity" authentication in Azure Synapse Analytics.
+The linked service may not be visible under the "Data Hub - Linked - Azure Blob Storage Tab" after configuring the Blob storage linked service to use "User Assigned Managed Identity" authentication in Azure Synapse Analytics.
 
 **Workaround**: The engineering team is currently aware of this behavior and working on a fix. As an alternative, use "System Assigned Managed Identity" authentication method instead of "User Assigned Managed Identity".
 
