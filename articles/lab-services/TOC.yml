@@ -125,7 +125,7 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
-  - name: Migrate to August 2022 Update
+  - name: Transition to August 2022 Update
     href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
