@@ -39,14 +39,6 @@ You'll also need the following to use Form Recognizer containers:
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
 
-## Request approval to run the container
-
-Complete and submit the [Application for Gated Services form](https://aka.ms/csgate)  to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision within 10 business days.
-
-On the form, you must use an email address associated with an Azure subscription ID. The Azure resource you use to run the container must have been created with the approved Azure subscription ID. Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft. After you're approved, you'll be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
-
 ## Host computer requirements
 
 The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
