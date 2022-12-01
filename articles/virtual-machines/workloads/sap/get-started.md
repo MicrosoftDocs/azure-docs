@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/22/2022
+ms.date: 11/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- November 30, 2022: Added storage recommendations for Premium SSD v2 into [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - November 22, 2022: Release of Disaster Recovery guidelines for SAP workload on Azure - [Disaster Recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) and [Disaster Recovery recommendation for SAP workload](disaster-recovery-sap-guide.md).
 - November 22, 2022: Update of [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md) to add latest recommendations
 - November 18, 2022: Add a recommendation to use Pacemaker simple mount configuration for new implementations on SLES 15 in [Azure VMs HA for SAP NW on SLES with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs HA for SAP NW on SLES with NFS on Azure File](high-availability-guide-suse-nfs-azure-files.md), [Azure VMs HA for SAP NW on SLES with Azure NetApp Files](high-availability-guide-suse-netapp-files.md) and [Azure VMs HA for SAP NW on SLES](high-availability-guide-suse.md)       
