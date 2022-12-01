@@ -77,6 +77,10 @@ Calculate the total number of cores for each size group.
  
 Remember that the total number of cores is the existing cores and the new cores you are requesting.
 
+## Best practices for requesting a core limit increase
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
+
+
 ## Start a new support request
 You can follow these steps to request a core limit increase:  
 

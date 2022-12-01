@@ -63,16 +63,10 @@ As a customer, you're now assigned your own [dedicated VM cores quota](/azure/la
 1. [Request a core limit increase](/azure/lab-services/how-to-request-capacity-increase?tabs=Labplans).
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
 
-#### Tips for requesting capacity
+### Tips for requesting a capacity increase
 
-The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested. To ensure you have the resources you require when you need them, you should:
-
-- Request capacity as far in advance as possible.
-- Make incremental requests for VM cores rather than making large, bulk requests. Breaking requests for large numbers of cores into smaller requests gives extra flexibility in how those requests are fulfilled.
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
   - For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
-- If possible, be flexible on the region where you're requesting capacity.
-- Capacity remains assigned for the lifetime of a subscription. You only need to request extra capacity if you need more than is already assigned to your subscription.
-
 ## 3. Configure shared resources  
 
 You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](/azure/lab-services/how-to-create-a-lab-with-shared-resource) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](/azure/lab-services/how-to-connect-vnet-injection#connect-the-virtual-network-during-lab-plan-creation) enabled as shown in the next step.
