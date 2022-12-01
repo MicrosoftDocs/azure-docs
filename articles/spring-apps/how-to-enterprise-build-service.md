@@ -52,6 +52,7 @@ The following list shows the Tanzu Buildpacks available in Azure Spring Apps Ent
 - tanzu-buildpacks/java-azure
 - tanzu-buildpacks/dotnet-core
 - tanzu-buildpacks/go
+- tanzu-buildpacks/web-servers
 - tanzu-buildpacks/nodejs
 - tanzu-buildpacks/python
 
@@ -145,6 +146,7 @@ Not all Tanzu Buildpacks support all service binding types. The following table 
 |Go    |❌|❌|❌|✅|❌|
 |Python|❌|❌|❌|❌|❌|
 |NodeJS|❌|✅|✅|✅|✅|
+|[WebServers](how-to-enterprise-deploy-static-file.md)|❌|❌|❌|✅|❌|
 
 To edit service bindings for the builder, select **Edit**. After a builder is bound to the service bindings, the service bindings are enabled for an app deployed with the builder.
 

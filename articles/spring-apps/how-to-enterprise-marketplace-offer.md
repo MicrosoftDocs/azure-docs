@@ -27,10 +27,10 @@ You can obtain and pay for a license to Tanzu components through an [Azure Marke
 To purchase in Azure Marketplace, you must meet the following prerequisites:
 
 - Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
-- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](/marketplace/azure-marketplace-overview.md#purchasing-requirements) section of [What is Azure Marketplace?](/marketplace/azure-marketplace-overview.md)
+- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](/marketplace/azure-marketplace-overview#purchasing-requirements) section of [What is Azure Marketplace?](/marketplace/azure-marketplace-overview)
 - Your Azure subscription must belong to a billing account in a supported geographic location. For more information, see the [Supported geographic locations](#supported-geographic-locations) section of this article.
 - Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md).
-- Your organization must allow acquisition of any Azure Marketplace software application described in the [Purchase policy management](/marketplace/azure-purchasing-invoicing.md#purchase-policy-management) section of [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing.md).
+- Your organization must allow acquisition of any Azure Marketplace software application described in the [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management) section of [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing).
 - You must accept the legal terms and privacy statements during enterprise tier provisioning on Azure portal, or use the following CLI command to do so in advance.
 
    ```azurecli

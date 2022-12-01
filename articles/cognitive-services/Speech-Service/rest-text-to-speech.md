@@ -325,5 +325,5 @@ riff-48khz-16bit-mono-pcm
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
 - [Get started with custom neural voice](how-to-custom-voice.md)
+- [Batch synthesis](batch-synthesis.md)

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-author: dem108
-ms.author: sehan
+ms.reviewer: mopeakande
+author: jhirono
+ms.author: jhirono
 ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
@@ -302,7 +302,7 @@ az group delete --resource-group <resource-group-name>
 
 ## Next steps
 
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)

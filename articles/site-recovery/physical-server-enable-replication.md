@@ -1,12 +1,12 @@
 ---
 title: Enable replication for a physical server – Modernized
 description: This article describes how to enable physical servers replication for disaster recovery using the Azure Site Recovery service
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
-ms.date: 09/21/2022
+ms.author: ankitadutta
+ms.date: 10/20/2022
 ---
 
 # Enable replication for a physical server – Modernized
@@ -23,7 +23,7 @@ This tutorial, explains on how to enable replication for a physical server.
 
 Physical server to Azure replication includes the following procedures:
 
-- Sign in to the [Azure portal](https://ms.portal.azure.com/#home)
+- Sign in to the [Azure portal](https://portal.azure.com/#home)
 - [Prepare Azure account](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview#prepare-azure-account)
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
 - [Prepare infrastructure](#prepare-infrastructure---set-up-azure-site-recovery-replication-appliance)
@@ -107,7 +107,7 @@ Lists all the machines  discovered by various appliances registered to the vault
 
      - **Managed disks**
 
-       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
  
        >[!Note]
        >If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Otherwise, one managed disk type can be chosen at a machine level by default.

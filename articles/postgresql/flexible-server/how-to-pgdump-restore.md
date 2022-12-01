@@ -1,6 +1,6 @@
 ---
-title: Best practices for PG dump and restore in Azure Database for PostgreSQL - Flexible Server
-description: Best Practices For PG Dump And Restore in Azure Database for PostgreSQL - Flexible Server 
+title: Best practices for pg_dump and pg_restore in Azure Database for PostgreSQL - Flexible Server
+description: This article discusses best practices for pg_dump and pg_restore in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
@@ -10,69 +10,70 @@ ms.date: 09/16/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Best practices for PG dump and restore for Azure Database for PostgreSQL - Flexible Server
+# Best practices for pg_dump and pg_restore for Azure Database for PostgreSQL - Flexible Server
 
-This article reviews options to speed up pg_dump and pg_restore. It also explains the best server configurations for carrying out pg_restore.
+This article reviews options and best practices for speeding up pg_dump and pg_restore. It also explains the best server configurations for carrying out pg_restore.
 
 ## Best practices for pg_dump
 
-pg_dump is a utility that can extract a PostgreSQL database into a script file or archive file. Few of the command line options that can be used to reduce the overall dump time using pg_dump are listed below.
+You can use the pg_dump utility to extract a PostgreSQL database into a script file or archive file. A few of the command line options that you can use to reduce the overall dump time by using pg_dump are listed in the following sections.
 
-#### Directory format(-Fd)
+### Directory format(-Fd)
 
-This option outputs a directory-format archive that can be input to pg_restore. By default the output is compressed.
+This option outputs a directory-format archive that you can input to pg_restore. By default, the output is compressed.
 
-#### Parallel jobs(-j)
+### Parallel jobs(-j)
 
-Pg_dump can run dump jobs concurrently using the parallel jobs option. This option reduces the total dump time but increases the load on the database server. It's advised to arrive at a parallel job value after closely monitoring the source server metrics like CPU, Memory, and IOPS usage.
+With pg_dump, you can run dump jobs concurrently by using the parallel jobs option. This option reduces the total dump time but increases the load on the database server. We recommend that you arrive at a parallel job value after closely monitoring the source server metrics, such as CPU, memory, and IOPS (input/output operations per second) usage.
 
-There are a few considerations that need to be taken into account when setting this value
-- Pg_dump requires number of parallel jobs +1 number of connections when parallel jobs option is considered, so make sure max_connections is set accordingly.
-- The number of parallel jobs should be less than or equal to the number of vCPUs allocated for the database server.
+When you're setting a value for the parallel jobs option, pg_dump requires the following:
+- The number of connections must equal the number of parallel jobs&nbsp;+1, so be sure to set the `max_connections` value accordingly.
+- The number of parallel jobs should be less than or equal to the number of vCPUs that are allocated for the database server.
 
-#### Compression(-Z0)
+### Compression(-Z0)
 
-Specifies the compression level to use. Zero means no compression. Zero compression during pg_dump process could help with performance gains.
+This option specifies the compression level to use. Zero means no compression. Zero compression during the pg_dump process could help with performance gains.
 
-#### Table bloats and vacuuming
+### Table bloats and vacuuming
 
-Before the starting the pg_dump process, consider if table vacuuming is necessary. Bloat on tables significantly increases pg_dump times. Execute the below query to identify table bloats:
+Before you start the pg_dump process, consider whether table vacuuming is necessary. Bloat on tables significantly increases pg_dump times. Execute the following query to identify table bloats:
 
 ```
 select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
 ```
 
-The **dead_pct** column in the above query gives percentage of dead tuples when compared to live tuples. A high dead_pct value for a table might point to the table not being properly vacuumed. For tuning autovacuum, review the article [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
+The `dead_pct` column in this query is the percentage of dead tuples when compared to live tuples. A high `dead_pct` value for a table might indicate that the table isn't being properly vacuumed. For more information, see [Autovacuum tuning in Azure Database for PostgreSQL - Flexible Server](./how-to-autovacuum-tuning.md).
 
 
-As a one of case perform manual vacuum analyze of the tables that are identified.
+For each table that you identify, you can perform a manual vacuum analysis by running the following:
 
 ```
 vacuum(analyze, verbose) <table_name> 
 ```
 
-#### Use of PITR [Point In Time Recovery] server
+### Use a PITR server
 
-Pg dump can be carried out on an online or live server. It makes consistent backups even if the database is being used. It doesn't block other users from using the database. Consider the database size and other business or customer needs before the pg_dump process is started. Small databases might be a good candidate to carry out a pg dump on the production server. For large databases, you could create PITR (Point In Time Recovery) server from the production server and carry out the pg_dump process on the PITR server. Running pg_dump on a PITR would be a cold run process. The trade-off for the approach would be you wouldn't be concerned with extra CPU/memory/IO utilization that comes with the pg_dump process running on the actual production server. You can run pg_dump on a PITR server and drop the PITR server once the pg_dump process is completed.
+You can perform a pg_dump on an online or live server. It makes consistent backups even if the database is being used. It doesn't block other users from using the database. Consider the database size and other business or customer needs before you start the pg_dump process. Small databases might be good candidates for performing a pg_dump on the production server. 
 
-##### Syntax
+For large databases, you could create a point-in-time recovery (PITR) server from the production server and perform the pg_dump process on the PITR server. Running pg_dump on a PITR would be a cold run process. The trade-off for this approach is that you wouldn't be concerned with extra CPU, memory, and IO utilization that comes with a pg_dump process that runs on an actual production server. You can run pg_dump on a PITR server and then drop the PITR server after the pg_dump process is completed.
 
-Use the following syntax to perform a pg_dump:
+### Syntax for pg_dump
+
+Use the following syntax for pg_dump:
 
 `pg_dump -h <hostname>  -U <username> -d <databasename> -Fd -j <Num of parallel jobs> -Z0 -f sampledb_dir_format`
 
-
 ## Best practices for pg_restore
 
-pg_restore is a utility for restoring postgreSQL database from an archive created by pg_dump. Few of the command line options that can be used to reduce the overall restore time using pg_restore are listed below.
+You can use the pg_restore utility to restore a PostgreSQL database from an archive that's created by pg_dump. A few command line options for reducing the overall restore time are listed in the following sections.
 
-#### Parallel restore
+### Parallel restore
 
-Using multiple concurrent jobs, you can reduce the time to restore a large database on a multi vCore target server. The number of jobs can be equal to or less than the number of vCPUs allocated for the target server.
+By using multiple concurrent jobs, you can reduce the time it takes to restore a large database on a multi-vCore target server. The number of jobs can be equal to or less than the number of vCPUs that are allocated for the target server.
 
-#### Server parameters
+### Server parameters
 
-If you're restoring data to a new server or non-production server, you can optimize the following server parameters prior to running pg_restore.
+If you're restoring data to a new server or non-production server, you can optimize the following server parameters prior to running pg_restore:
 
 `work_mem` = 32 MB   
 `max_wal_size` = 65536 (64 GB)     
@@ -81,25 +82,25 @@ If you're restoring data to a new server or non-production server, you can optim
 `autovacuum` = off   
 `wal_compression` = on   
 
-Once the restore is completed, make sure all the above mentioned parameters are appropriately updated as per workload requirements.
+After the restore is completed, make sure that all these parameters are appropriately updated as per workload requirements.
 
 > [!NOTE]
-> Please follow the above recommendations only if there is enough memory and disk space. In case you have small server with 2,4,8 vCore, please set the parameters accordingly.
+> Follow the preceding recommendations only if there's enough memory and disk space. If you have a small server with 2, 4, or 8 vCores, set the parameters accordingly.
 
-#### Other considerations
+### Other considerations
 
-- Disable High Availability [HA] prior to running pg_restore.
-- Analyze all tables migrated after restore option.
+- Disable high availability (HA) prior to running pg_restore.
+- Analyze all tables that are migrated after the restore is complete.
 
-##### Syntax
+### Syntax for pg_restore
 
 Use the following syntax for pg_restore:
 
 `pg_restore -h <hostname> -U <username> -d <db name> -Fd -j <NUM>  -C  <dump directory>`
 
--Fd - Directory format   
--j - Number of jobs   
--C - Begin the output with a command to create the database itself and reconnect to the created database     
+* `-Fd`: The directory format.   
+* `-j`: The number of jobs.   
+* `-C`: Begin the output with a command to create the database itself and then reconnect to it.     
 
 Here's an example of how this syntax might appear:
 
@@ -107,15 +108,15 @@ Here's an example of how this syntax might appear:
 
 ## Virtual machine considerations
 
-Create a virtual machine in the same region, same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server. Use of Azure Virtual Machines with high-performance local SSD is recommended. For more details about the SKUs review
+Create a virtual machine in the same region and availability zone, preferably where you have both your target and source servers. Or, at a minimum, create the virtual machine closer to the source server or a target server. We recommend that you use Azure Virtual Machines with a high-performance local SSD. 
 
-[Edv4 and Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)   
-
-[Ddv4 and Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md)
+For more information about the SKUs, see:
+* [Edv4 and Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)   
+* [Ddv4 and Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md)
 
 ## Next steps
 
-- Troubleshoot high CPU utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
-- Troubleshoot high memory utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
-- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
-- Troubleshoot high CPU utilization [High IOPS Utilization](./how-to-high-io-utilization.md).
+- [Troubleshoot high CPU utilization](./how-to-high-cpu-utilization.md)
+- [Troubleshoot high memory utilization](./how-to-high-memory-utilization.md)
+- [Troubleshoot and tune autovacuum](./how-to-autovacuum-tuning.md)
+- [Troubleshoot high IOPS utilization](./how-to-high-io-utilization.md)

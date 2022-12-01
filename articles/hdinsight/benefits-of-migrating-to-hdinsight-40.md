@@ -256,4 +256,4 @@ https://hadoop.apache.org/docs/r3.1.1/hadoop-project-dist/hadoop-common/release/
 ## Further reading
 
 * [HDInsight 4.0 Announcement](./hdinsight-version-release.md)
-* [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0.md)
+* [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

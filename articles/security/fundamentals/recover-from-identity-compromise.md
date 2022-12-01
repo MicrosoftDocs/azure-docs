@@ -7,8 +7,7 @@ author: batamig
 manager: rkarlin
 editor: ''
 
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na

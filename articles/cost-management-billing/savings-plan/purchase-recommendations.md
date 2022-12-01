@@ -6,28 +6,30 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/16/2022
 ---
 
 # Azure savings plan recommendations
 
-Azure savings plan purchase recommendations are provided through [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the savings plan purchase experience in the Azure portal. The recommended commitment is calculated for the highest possible usage, and it's based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. To maximize savings with savings plans, try to purchase reservations as close to the recommendation as possible.
+Azure savings plan purchase recommendations are provided through [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the savings plan purchase experience in the Azure portal. The recommended commitment is calculated for the highest possible usage, and it's based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. To maximize savings with savings plans, try to make a savings plan commitment that's as close to the recommendation as possible.
 
 The following steps define how recommendations are calculated:
 
-1. The recommendation engine evaluates the hourly usage for your resources in the given scope over the past 7, 30, and 60 days.
+1. The recommendation engine evaluates the hourly on-demand usage for your resources in the given scope over the past 7, 30, and 60 days. Usage covered by existing reservations or savings plans is excluded.
 2. Based on the usage data, the engine simulates your costs with and without a savings plan.
 3. The costs are simulated for different commitment amounts, and the commitment amount that maximizes the savings is recommended.
 4. The recommendation calculations include any discounts that you might have on your on-demand usage rates.
 
 ## Purchase recommendations in the Azure portal
 
-The savings plan purchase experience shows up to 10 commitment amounts. All recommendations are based on the last 30 days of usage. For each amount, we include the percentage (off of your current pay-as-you-go costs) that the amount could save you. The percentage of your total compute usage that would be covered with the commitment amount is also included.
+The savings plan purchase experience shows up to 10 commitment amounts. All recommendations are based on the last 30 days of usage. For each amount, we include the percentage (off your current pay-as-you-go costs) that the amount could save you. The percentage of your total compute usage that would be covered with the commitment amount is also included.
 
-By default, the recommendations are for the entire billing scope (billing account or billing profile for MCA and enrollment for EA). You can view subscription and resource group-level recommendations by restricting benefit application to one of those levels. We don't currently support management group-level recommendations.
+By default, the recommendations are for the entire billing scope (billing account or billing profile for MCA and enrollment for EA). You can view subscription and resource group-level recommendations by restricting benefit application to one of those levels.
+
+Recommendations are based on terms, so you'll see the 1-year or 3-year recommendations at each level by toggling the term options. We don't currently support management group-level recommendations.
 
 The first recommendation value is the one that is projected to result in the highest percent savings. The other values allow you to see how increasing or decreasing your commitment could affect both your savings and compute coverage. When the commitment amount is increased, your savings could be reduced because you could end up with reduced utilization. In other words, you'd pay for an hourly commitment that isn't fully used. If you lower the commitment, your savings could also be reduced. Although you'll have increased utilization, there will likely be periods when your savings plan won't fully cover your use. Usage beyond your hourly commitment will be charged at the more expensive pay-as-you-go rates.
 
@@ -45,7 +47,7 @@ The minimum value doesn't necessarily represent the hourly commitment necessary 
 
 1. Download your price list.
 2. For each reservation order you're returning, find the product in the price sheet and determine its unit price under either a 1-year or 3-year savings plan (filter by term and price type).
-3. Multiple the rate by the number of instances that are being returned.
+3. Multiply the rate by the number of instances that are being returned.
 4. Repeat for each reservation order to be returned.
 5. Sum the values and enter it as the hourly commitment.
 
@@ -54,7 +56,7 @@ The minimum value doesn't necessarily represent the hourly commitment necessary 
 When appropriate, a savings plan purchase recommendation can also be found in Azure Advisor. Keep in mind the following points:
 
 - The savings plan recommendations are for a single-subscription scope. If you want to see recommendations for the entire billing scope (billing account or billing profile), then:
-    - In the Azure portal, navigate to Savings plans > **Add** and then select the type that you want to see the recommendations for.
+    - In the Azure portal, navigate to **Savings plans** > **Add** and then select the type that you want to see the recommendations for.
 - Recommendations available in Advisor consider your past 30-day usage trend.
 - The recommendation is for a three-year savings plan.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.

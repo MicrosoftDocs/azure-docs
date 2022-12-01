@@ -13,18 +13,13 @@ ms.reviewer: sgilley
 ms.date: 05/04/2022
 ---
 
-# Customize the compute instance with a script (preview)
-
-> [!IMPORTANT]
-> Setup scripts are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Customize the compute instance with a script 
 
 Use a setup script for an automated way to customize and configure a compute instance at provisioning time. 
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets) or for an [inference target](concept-compute-target.md#compute-targets-for-inference).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
-As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
+As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements. You can configure your setup script as a Creation script, which will run once when the compute instance is created. Or you can configure it as a Startup script, which will run every time the compute instance is started (including initial creation).
 
 Some examples of what you can do in a setup script:
 
@@ -79,6 +74,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. [Fill out the form](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Turn on **Provision with setup script**.
+1. Select either **Creation script** or **Startup script** tab.
 1. Browse to the shell script you saved.  Or upload a script from your computer.
 1. Add command arguments as needed.
 
