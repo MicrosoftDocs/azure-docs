@@ -1,6 +1,6 @@
 ---
-title: Custom TCB baseline enforcement for SGX attestation
-description: Custom TCB baseline enforcement for SGX attestation
+title: Custom TCB baseline enforcement for Azure Attestation users
+description: Custom TCB baseline enforcement for Azure Attestation users
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -53,7 +53,6 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience
 
-Feature will be released soon
 
 ## Key considerations:
 - It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
