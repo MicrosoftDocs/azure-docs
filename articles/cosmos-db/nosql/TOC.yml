@@ -428,6 +428,10 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
