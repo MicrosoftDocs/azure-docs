@@ -260,13 +260,14 @@ There are six levels of logging in Python, with numbers associated with severity
 ### Access logs
 
 When a request comes into the server, it will be logged except for requests to `/`.
+The logs are emitted in the following format as the `<message>`:
 
-For example, a GET request to `/score` will be logged as follows.
+`<method> <encoded path + query> <status> <response size> <duration>ms [- <optional message>]`
+
+For example, a GET request to `/score` will be logged as follows:
 
 ```
-200
-2022-11-29 15:54:39,857 | root | INFO | 200
-127.0.0.1 - - [29/Nov/2022:15:54:39 +0900] "GET /score HTTP/1.1" 200 28 "-" "curl/7.86.0"
+2022-11-29 16:54:29,313 I [21] azmlinfsrv.access - GET /score?a=10 200 15 21ms
 ```
 
 ## Frequently asked questions
