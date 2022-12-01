@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Govern access with an organizational role model
 
-Role-based access control (RBAC) provides a framework for classifying users and IT resources. This allows you to make explicit their relationship and the access rights that are appropriate according to that classification. For example, by assigning to a user attributes that specify the users job title and project assignments, the user can be granted access to tools needed for the user's job and data that the user needs to contribute to a particular project. When the user assumes a different job and different project assignments, changing the attributes that specify the user's job title and projects automatically blocks access to the resources only required for the users previous position.
+Role-based access control (RBAC) provides a framework for classifying users and IT resources. This framework allows you to make explicit their relationship and the access rights that are appropriate according to that classification. For example, by assigning to a user attributes that specify the users job title and project assignments, the user can be granted access to tools needed for the user's job and data that the user needs to contribute to a particular project. When the user assumes a different job and different project assignments, changing the attributes that specify the user's job title and projects automatically blocks access to the resources only required for the users previous position.
 
 In Azure AD, you can use role models in several ways to manage access at scale through identity governance.
 
@@ -33,10 +33,11 @@ This article discusses how to model organizational roles, using entitlement mana
 
 | Concept in organizational role modeling | Representation in Entitlement Management |
 | --- | --- |
+| Delegated role management | [Delegate to catalog creators](entitlement-management-delegate-catalog.md) |
 | Collection of permissions across one or more applications | [access package with resource roles](entitlement-management-access-package-create.md) |
 | Restrict duration of access a role provides | [access package policy lifecycle settings expiration date](entitlement-management-access-package-lifecycle-policy.md) |
 | Individual assignment to a role | [direct assignment to an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) |
-| Assignment to people based on properties (e.g., department) | [Automatic assignment to an access package](entitlement-management-access-package-auto-assignment-policy.md) |
+| Assignment of roles to users based on properties (such as their department) | [Automatic assignment to an access package](entitlement-management-access-package-auto-assignment-policy.md) |
 | Users can request and be approved for a role | [policy settings for who can request on an access package](entitlement-management-access-package-request-policy.md) |
 | Access recertification of role members | [Access review settings in an access package assignment policy](entitlement-management-access-reviews-create.md) |
 | Separation of duties between roles | [Define two or more access packages as incompatible](entitlement-management-access-package-incompatible.md)|
