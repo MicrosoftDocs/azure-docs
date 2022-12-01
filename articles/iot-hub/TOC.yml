@@ -63,7 +63,7 @@
           displayName: X.509 certificates, certification authority, CA
           href: tutorial-x509-prove-possession.md
         - name: Testing authentication
-          displayName: X.509 certificates,
+          displayName: X.509 certificates
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
