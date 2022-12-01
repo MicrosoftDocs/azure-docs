@@ -18,7 +18,7 @@ In this article, you'll learn about:
 > - Workflow
 > - How to initiate offline backup
 > - How to prepare SATA drives and ship to Azure
-> - How to update shipping details on the Azure import job
+> - How to update the tracking and shipping details on the Azure import job
 
 ## Offline-seeding process
 
@@ -158,7 +158,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
-1. After successfully copying the data from the staging location to the disks, the tool shows the following details:
+1. After successful copy of the data from the staging location to the disks, the tool shows the following details:
 
    - The list of disks prepared for seeding.
    - The name of the storage account, resource group, country, and region of the Import/Export Job.
@@ -177,7 +177,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    **All fields are required.*
 
 
-   You can edit these parameters in future in the Azure portal for the *Import/Export Job*.    
+   You can [edit these parameters](#update-the-tracking-and-shipping-details-on-the-azure-import-job) in future in the Azure portal for the *Import/Export Job*.    
 
    :::image type="content" source="./media/backup-azure-backup-import-export/create-import-export-jobs-inline.png" alt-text="Screenshot shows how to create the import/export jobs." lightbox="./media/backup-azure-backup-import-export/create-import-export-jobs-expanded.png":::
 
@@ -193,12 +193,12 @@ Ship the disks to the address that the tool provided. Keep the tracking number f
 >[!Important]
 >No two Azure import jobs can have the same tracking number. Ensure that drives created by the utility under a single Azure import job are shipped together in a single package and that there is a single unique tracking number for the package. Don't combine drives prepared as part of separate Azure import jobs in a single package.
 
-## Update shipping details on the Azure import job
+## Update the tracking and shipping details on the Azure import job
 
-The section helps you update the Azure import job shipping details. This information includes details about:
+This section helps you update the Azure import job shipping details, which include details about:
 
 * The name of the carrier that delivers the disks to Azure.
-* Return shipping details for your disks.
+* Return-shipping details for your disks.
 * Modify the notification email for the import job.
 
 ### Update the tracking details
@@ -219,14 +219,14 @@ To update the tracking details, follow these steps:
 
     :::image type="content" source="./media/backup-azure-backup-import-export/import-job-found-inline.png" alt-text="Screenshot shows how to review shipping information." lightbox="./media/backup-azure-backup-import-export/import-job-found-expanded.png":::
 
-1. Select the job, and then under the **Overview** pane, add the *Carrier and Tracking Number* to update the *Tracking information*.
+1. Select the job, and then on the **Overview** pane, add the *Carrier and Tracking Number* to update the *Tracking information*.
 
 
     :::image type="content" source="./media/backup-azure-backup-import-export/shipping-information-inline.png" alt-text="Screenshot shows how to store shipping information." lightbox="./media/backup-azure-backup-import-export/shipping-information-expanded.png":::
 
-### Add return shipping details 
+### Add return-shipping details 
 
-To add the return shipping details, follow these steps:
+To add the return-shipping details, follow these steps:
 
 1. Select **Job Details** under **General**, and then **Edit Address**.
 1. Update the *carrier*, *carrier account number*, *contact details*, and the *return shipping address details*
