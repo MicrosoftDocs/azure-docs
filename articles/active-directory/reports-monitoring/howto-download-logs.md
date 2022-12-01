@@ -60,7 +60,7 @@ You can also download activity logs using Microsoft Graph; however, downloading 
 
 While the global administrator works, you should use an account with lower privileges to perform this task. To access the audit logs, the following roles work:
 
-- Report Reader
+- Reports Reader
 - Global Reader
 - Security Administrator
 - Security Reader
