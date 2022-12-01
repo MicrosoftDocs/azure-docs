@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) audit logs collect all traceable activities wi
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Please provide us feedback if you think there is a missing audit category or activity.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us feedback if you think there's a missing audit category or activity.
 
 ## Access reviews
 
@@ -69,7 +69,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category.
+Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -164,7 +164,7 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |UserManagement|Admin registered security info|
 |UserManagement|Admin started password reset|
 |UserManagement|Admin updated security info|
-|UserManagement|User cancelled security info registration|
+|UserManagement|User canceled security info registration|
 |UserManagement|User changed default security info|
 |UserManagement|User deleted security info|
 |UserManagement|User registered all required security info|
@@ -197,7 +197,7 @@ The Azure MFA audit logs can help you track trends in suspicious activity or whe
 
 ## B2C
 
-The largest set of audit logs are related to [B2C](../../active-directory-b2c/overview.md), due to the number of connected resources and potential external accounts. Audit categories include ApplicationManagement, Authentication, Authorization, DirectoryManagement, IdentityProtection, KeyManagement, PolicyManagement, and ResourceManagement. Logs related to one-time passwords are found in the Other category.
+This set of audit logs is related to [B2C](../../active-directory-b2c/overview.md). Due to the number of connected resources and potential external accounts, this service has a large set of categories and activities. Audit categories include ApplicationManagement, Authentication, Authorization, DirectoryManagement, IdentityProtection, KeyManagement, PolicyManagement, and ResourceManagement. Logs related to one-time passwords are found in the Other category.
 
 |Audit Category|Activity|
 |---|---|
@@ -419,7 +419,7 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |ResourceManagement|Create or update a B2C directory resource|
 |ResourceManagement|Create or update a B2C directory tenant and resource|
 |ResourceManagement|Create or update a CIAM directory tenant and resource|
-|ResourceManagement|Create or update a Guest Usages resources|
+|ResourceManagement|Create or update a Guest Usages resource|
 |ResourceManagement|Create or update a localized resource|
 |ResourceManagement|Create policy key|
 |ResourceManagement|Create user attribute|
@@ -497,6 +497,8 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 
 ## Conditional Access
 
+Use these logs to see when changes were made to your [Conditional Access policies](../conditional-access/troubleshoot-policy-changes-audit-log.md).
+
 |Audit Category|Activity|
 |---|---|
 |Policy|Add AuthenticationContextClassReference|
@@ -511,7 +513,9 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |Policy|Update named location|
 |Policy|Update security defaults|
 
-## Core directory
+## Core Directory
+
+Logs captured in the Core Directory service cover a wide variety of scenarios. Changes to service principals and applications, updates to company settings, and many other directory related details are captured here. Because so many logs are included in this service, utilize the filter options and date ranges to narrow down the results.
 
 |Audit Category|Activity|
 |---|---|
@@ -709,8 +713,6 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |RoleManagement|Remove scoped member from role|
 |RoleManagement||Update role|
 |RoleManagement||Update role definition|
-
-
 |UserManagement|Add a deletion-marked app role assignment grant to group as part of link removal|
 |UserManagement|Add app role assignment to group|
 |UserManagement|Add user|
@@ -739,6 +741,8 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 
 ## Device Registration Service
 
+If you need to manage [Azure AD and Hybrid Azure AD joined devices](../devices/overview.md), use the logs captured in the Device Registration Service to review changes to devices.
+
 |Audit Category|Activity|
 |---|---|
 |Device|Delete pre-created device|
@@ -759,6 +763,8 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |UserManagement|Delete passwordless phone sign-in credential|
 
 ## Entitlement Management
+
+If you're using Entitlement Management to streamline how you assign members of Azure AD security groups, grant licenses for Microsoft 365, or provide access to applications, you can use these logs to monitor changes to those settings. [Access reviews](#access-reviews) and [Lifecycle workflows](#lifecycle-workflows) have separate logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -843,6 +849,8 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 
 ## Invited users
 
+Use the Invited users logs to help you manage the status of users who were invited to collaborate as guests in your tenant. These logs can help troubleshoot issues with invitations sent to external users.
+
 |Audit Category|Activity|
 |---|---|
 |UserManagement|Delete external user|
@@ -856,6 +864,8 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |UserManagement|Viral user creation|
 
 ## Lifecycle Workflows
+
+[Lifecycle Workflows](../governance/lifecycle-workflow-audits.md) are a great way to automate identity related processes for joiners, movers, and leavers so you don't have to.
 
 |Audit Category|Activity|
 |---|---|
@@ -885,93 +895,268 @@ The largest set of audit logs are related to [B2C](../../active-directory-b2c/ov
 |WorkflowManagement|Update tenant settings|
 |WorkflowManagement|Update workflow|
 
-## Microsoft Identity Manager (MIM)
+## Microsoft Identity Manager (MIM) Service
+
+If you're using [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016) to automate identity and group provisioning based on business policy and workflow, these audit logs can help track when change were made to groups and members through the MIM service.
 
 |Audit Category|Activity|
 |---|---|
-|Group Management|Review request approval request|
-|Group Management|Update Access Review|
-|Group Management|Update access review mail notification settings|
-|Group Management|Update access review recurrence count setting|
-|Group Management|Update access review recurrence duration in days setting|
-|User Management|Update access review recurrence end type setting|
-|User Management|Update access review recurrence type setting|
+|GroupManagement|Add group|
+|GroupManagement|Add member to group|
+|GroupManagement|Add owner to group|
+|GroupManagement|Delete group|
+|GroupManagement|Remove member from group|
+|GroupManagement|Remove owner from group|
+|GroupManagement|Update group|
+|UserManagement|User Password Registration|
+|UserManagement|User Password Reset|
 
-
-
-## Privileged Identity Management
+## Mobility Management
 
 |Audit Category|Activity|
 |---|---|
-|PIM|ActivationAborted|
-|PIM|ActivationApproved|
-|PIM|ActivationCanceled|
-|PIM|ActivationDenied|
-|PIM|ActivationRequested|
-|PIM|Added|
-|PIM|AddedOutsidePIM|
-|PIM|Assign|
-|PIM|DismissAlert|
-|PIM|Elevate|
-|PIM|ReactivateAlert|
-|PIM|Removed|
-|PIM|RemovedOutsidePIM|
-|PIM|Request Stop Review|
-|PIM|Role Setting changes|
-|PIM|ScanAlertsNow|
-|PIM|Signup|
-|PIM|Unassign|
-|PIM|Unelevate|
-|PIM|UpdateAlertSettings|
-|PIM|UpdateCurrentState|
+|PolicyManagement|Delete policy|
+|PolicyManagement|Update mobility management policy|
 
+## MyApps
+
+Use the [MyApps](../manage-apps/myapps-overview.md) audit logs to identify when an application was added to a collection for your MyApp portal.
+
+|Audit Category|Activity|
+|---|---|
+|ApplicationManagement|Create application collection|
+|ApplicationManagement|Delete application collection|
+|ApplicationManagement|Update application collection|
+|ApplicationManagement|Update application collection order|
+|ApplicationManagement|Update preview settings|
+
+## Privileged Identity Management (PIM)
+
+Many of the activities captured in the PIM audit logs are similar, so take note of details like *renew*, *timebound*, and *permanent*. PIM activities can generate many logs in a 24 hour period, so utilize the filters to narrow things down. For more information on the audit capabilities within the PIM service, see [View audit history for Azure AD roles in PIM](../privileged-identity-management/pim-how-to-use-audit-log.md)
+
+|Audit Category|Activity|
+|---|---|
+|ApplicationManagement|Add member to role approval requested (PIM activation)|
+|ApplicationManagement|Add member to role in PIM completed (timebound)|
+|ApplicationManagement|Add member to role in PIM requested (timebound)|
+|ApplicationManagement|Approve request - direct role assignment|
+|ApplicationManagement|Remove member from role in PIM completed (timebound)|
+|ApplicationManagement|Role definition created|
+|ApplicationManagement|Update role setting in PIM|
+|GroupManagement|Add eligible member to role in PIM canceled (renew)|
+|GroupManagement|Add eligible member to role in PIM canceled (timebound)|
+|GroupManagement|Add eligible member to role in PIM completed (permanent)|
+|GroupManagement|Add eligible member to role in PIM completed (timebound)|
+|GroupManagement|Add eligible member to role in PIM requested (permanent)|
+|GroupManagement|Add eligible member to role in PIM requested (renew)|
+|GroupManagement|Add eligible member to role in PIM requested (timebound)|
+|GroupManagement|Add member to role approval requested (PIM activation)|
+|GroupManagement|Add member to role canceled (PIM activation)|
+|GroupManagement|Add member to role completed (PIM activation)|
+|GroupManagement|Add member to role in PIM canceled (permanent)|
+|GroupManagement|Add member to role in PIM canceled (renew)|
+|GroupManagement|Add member to role in PIM canceled (timebound)|
+|GroupManagement|Add member to role in PIM completed (permanent)|
+|GroupManagement|Add member to role in PIM completed (timebound)|
+|GroupManagement|Add member to role in PIM requested (permanent)|
+|GroupManagement|Add member to role in PIM requested (renew)|
+|GroupManagement|Add member to role in PIM requested (timebound)|
+|GroupManagement|Add member to role request approved (PIM activation)|
+|GroupManagement|Add member to role request denied (PIM activation)|
+|GroupManagement|Add member to role requested (PIM activation)|
+|GroupManagement|Cancel request for role update|
+|GroupManagement|Offboarded resource from PIM|
+|GroupManagement|Onboarded resource to PIM|
+|GroupManagement|PIM activation request expired|
+|GroupManagement|Process request|
+|GroupManagement|Process role removal request|
+|GroupManagement|Remove eligible member from role in PIM completed (permanent)|
+|GroupManagement|Remove eligible member from role in PIM completed (timebound)|
+|GroupManagement|Remove eligible member from role in PIM requested (permanent)|
+|GroupManagement|Remove eligible member from role in PIM requested (timebound)|
+|GroupManagement|Remove member from role (PIM activation expired)|
+|GroupManagement|Remove member from role completed (PIM deactivate)|
+|GroupManagement|Remove member from role in PIM completed (permanent)|
+|GroupManagement|Remove member from role in PIM completed (timebound)|
+|GroupManagement|Remove member from role in PIM requested (permanent)|
+|GroupManagement|Remove member from role in PIM requested (timebound)|
+|GroupManagement|Remove member from role requested (PIM deactivate)|
+|GroupManagement|Remove permanent direct role assignment|
+|GroupManagement|Remove permanent eligible role assignment|
+|GroupManagement|Update eligible member in PIM canceled (extend)|
+|GroupManagement|Update eligible member in PIM requested (extend)|
+|GroupManagement|Update member in PIM approved by admin (extend/renew)|
+|GroupManagement|Update member in PIM canceled (extend)|
+|GroupManagement|Update member in PIM denied by admin (extend/renew)|
+|GroupManagement|Update member in PIM requested (extend)|
+|GroupManagement|Update role setting in PIM|
+|ResourceManagement|Add eligible member to role in PIM canceled (permanent)|
+|ResourceManagement|Add eligible member to role in PIM canceled (renew)|
+|ResourceManagement|Add eligible member to role in PIM canceled (timebound)|
+|ResourceManagement|Add eligible member to role in PIM completed (permanent)|
+|ResourceManagement|Add eligible member to role in PIM completed (timebound)|
+|ResourceManagement|Add eligible member to role in PIM requested (permanent)|
+|ResourceManagement|Add eligible member to role in PIM requested (renew)|
+|ResourceManagement|Add eligible member to role in PIM requested (timebound)|
+|ResourceManagement|Add member to role approval requested (PIM activation)|
+|ResourceManagement|Add member to role canceled (PIM activation)|
+|ResourceManagement|Add member to role completed (PIM activation)|
+|ResourceManagement|Add member to role in PIM canceled (renew)|
+|ResourceManagement|Add member to role in PIM canceled (timebound)|
+|ResourceManagement|Add member to role in PIM completed (permanent)|
+|ResourceManagement|Add member to role in PIM completed (timebound)|
+|ResourceManagement|Add member to role in PIM requested (permanent)|
+|ResourceManagement|Add member to role in PIM requested (renew)|
+|ResourceManagement|Add member to role in PIM requested (timebound)|
+|ResourceManagement|Add member to role outside of PIM (permanent)|
+|ResourceManagement|Add member to role request approved (PIM activation)|
+|ResourceManagement|Add member to role request denied (PIM activation)|
+|ResourceManagement|Add member to role requested (PIM activation)|
+|ResourceManagement|Cancel request|
+|ResourceManagement|Cancel request for role update|
+|ResourceManagement|Deactivate PIM alert|
+|ResourceManagement|Disable PIM alert|
+|ResourceManagement|Enable PIM alert|
+|ResourceManagement|Offboarded resource from PIM|
+|ResourceManagement|Onboarded resource from PIM|
+|ResourceManagement|PIM activation request expired|
+|ResourceManagement|Process request|
+|ResourceManagement|Process role removal request|
+|ResourceManagement|Process role update request|
+|ResourceManagement|Remove eligible member from role in PIM completed (permanent)|
+|ResourceManagement|Remove eligible member from role in PIM completed (timebound)|
+|ResourceManagement|Remove eligible member from role in PIM requested (permanent)|
+|ResourceManagement|Remove eligible member from role in PIM requested (timebound)|
+|ResourceManagement|Remove member from role (PIM activation expired)|
+|ResourceManagement|Remove member from role completed (PIM deactivate)|
+|ResourceManagement|Remove member from role in PIM completed (permanent)|
+|ResourceManagement|Remove member from role in PIM completed (timebound)|
+|ResourceManagement|Remove member from role in PIM requested (permanent)|
+|ResourceManagement|Remove member from role in PIM requested (timebound)|
+|ResourceManagement|Remove member from role requested (PIM deactivate)|
+|ResourceManagement|Remove permanent direct role assignment|
+|ResourceManagement|Remove permanent eligible role assignment|
+|ResourceManagement|Resolve PIM alert|
+|ResourceManagement|Tenant offboarded from PIM|
+|ResourceManagement|Triggered PIM alert|
+|ResourceManagement|Update eligible member in PIM canceled (extend)|
+|ResourceManagement|Update eligible member in PIM requested (extend)|
+|ResourceManagement|Update member in PIM approved by admin (extend/renew)|
+|ResourceManagement|Update member in PIM canceled (extend)|
+|ResourceManagement|Update member in PIM denied by admin (extend/renew)|
+|ResourceManagement|Update member in PIM requested (extend)|
+|ResourceManagement|Update role setting in PIM|
+|RoleManagement|Add eligible member to role in PIM canceled (permanent)|
+|RoleManagement|Add eligible member to role in PIM canceled (renew)|
+|RoleManagement|Add eligible member to role in PIM canceled (timebound)|
+|RoleManagement|Add eligible member to role in PIM completed (permanent)|
+|RoleManagement|Add eligible member to role in PIM completed (timebound)|
+|RoleManagement|Add eligible member to role in PIM requested (permanent)|
+|RoleManagement|Add eligible member to role in PIM requested (renew)|
+|RoleManagement|Add eligible member to role in PIM requested (timebound)|
+|RoleManagement|Add member to role approval requested (PIM activation)|
+|RoleManagement|Add member to role canceled (PIM activation)|
+|RoleManagement|Add member to role completed (PIM activation)|
+|RoleManagement|Add member to role in PIM canceled (renew)|
+|RoleManagement|Add member to role in PIM canceled (timebound)|
+|RoleManagement|Add member to role in PIM completed (permanent)|
+|RoleManagement|Add member to role in PIM completed (timebound)|
+|RoleManagement|Add member to role in PIM requested (permanent)|
+|RoleManagement|Add member to role in PIM requested (renew)|
+|RoleManagement|Add member to role in PIM requested (timebound)|
+|RoleManagement|Add member to role outside of PIM (permanent)|
+|RoleManagement|Add member to role request approved (PIM activation)|
+|RoleManagement|Add member to role request denied (PIM activation)|
+|RoleManagement|Add member to role requested (PIM activation)|
+|RoleManagement|Cancel request|
+|RoleManagement|Cancel request for role update|
+|RoleManagement|Deactivate PIM alert|
+|RoleManagement|Disable PIM alert|
+|RoleManagement|Enable PIM alert|
+|RoleManagement|Offboarded resource from PIM|
+|RoleManagement|Onboarded resource from PIM|
+|RoleManagement|PIM activation request expired|
+|RoleManagement|Process request|
+|RoleManagement|Process role removal request|
+|RoleManagement|Process role update request|
+|RoleManagement|Refresh PIM alert|
+|RoleManagement|Remove eligible member from role in PIM completed (permanent)|
+|RoleManagement|Remove eligible member from role in PIM completed (timebound)|
+|RoleManagement|Remove eligible member from role in PIM requested (permanent)|
+|RoleManagement|Remove eligible member from role in PIM requested (timebound)|
+|RoleManagement|Remove member from role (PIM activation expired)|
+|RoleManagement|Remove member from role completed (PIM deactivate)|
+|RoleManagement|Remove member from role in PIM completed (permanent)|
+|RoleManagement|Remove member from role in PIM completed (timebound)|
+|RoleManagement|Remove member from role in PIM requested (permanent)|
+|RoleManagement|Remove member from role in PIM requested (timebound)|
+|RoleManagement|Remove member from role requested (PIM deactivate)|
+|RoleManagement|Remove permanent direct role assignment|
+|RoleManagement|Remove permanent eligible role assignment|
+|RoleManagement|Resolve PIM alert|
+|RoleManagement|Tenant offboarded from PIM|
+|RoleManagement|Triggered PIM alert|
+|RoleManagement|Update PIM alert setting|
+|RoleManagement|Update eligible member in PIM canceled (extend)|
+|RoleManagement|Update eligible member in PIM requested (extend)|
+|RoleManagement|Update member in PIM approved by admin (extend/renew)|
+|RoleManagement|Update member in PIM canceled (extend)|
+|RoleManagement|Update member in PIM denied by admin (extend/renew)|
+|RoleManagement|Update member in PIM requested (extend)|
+|RoleManagement|Update role setting in PIM|
 
 ## Self-service group management
 
+Users in your tenant can manage many aspects of their groups and access on their own. Use these Self-service group management logs to help troubleshoot issues with these scenarios.
+
 |Audit Category|Activity|
 |---|---|
-|Group Management|Reset user password|
-|Group Management|Restore user|
-|Group Management|Set force change user password|
-|Group Management|Set user manager|
-|Group Management|Set users oath token metadata enabled|
-|Group Management|Update StsRefreshTokenValidFrom Timestamp|
-|Group Management|Update external secrets|
-|Group Management|Update user|
-|Group Management|Admin generates a temporary password|
+|GroupManagement|Approve a pending request to join a group|
+|GroupManagement|Autorenew group|
+|GroupManagement|Cancel a pending request to join a group|
+|GroupManagement|Create lifecycle management policy|
+|GroupManagement|Delete a pending request to join a group|
+|GroupManagement|Delete lifecycle management policy|
+|GroupManagement|Reject a pending request to join a group|
+|GroupManagement|Renew group|
+|GroupManagement|Request to join a group|
+|GroupManagement|Set dynamic group properties|
+|GroupManagement|Update lifecycle management policy|
+|UserManagement|Updated ConvergedUXV2 feature value|
+|UserManagement|Updated MyApps feature value|
+|UserManagement|Update MyStaff feature value|
+|UserManagement|Updated SSPRConvergence feature value|
+|UserManagement|Updated SignInReports feature value|
 
 
 ## Self-service password management
 
+The Self-service password management logs provide insight into changes made to passwords by users and admins or when users register for self-service password reset.
+
 |Audit Category|Activity|
 |---|---|
-|Directory Management|Admins requires the user to reset their password|
-|Directory Management|Assign external user to application|
-|User Management|Email not sent, user unsubscribed|
-|User Management|Invite external user|
-|User Management|Redeem external user invite|
-|User Management|Viral tenant creation|
-|User Management|Viral user creation|
-|User Management|User Password Registration|
-|User Management|User Password Reset|
-|User Management|Blocked from self-service password reset|
-
+|DirectoryManagement|Disable password writeback for directory|
+|DirectoryManagement|Enable password writeback for directory|
+|UserManagement|Blocked from self-service password reset|
+|UserManagement|Change password (self-service)|
+|UserManagement|Reset password (by admin)|
+|UserManagement|Reset password (self-service)|
+|UserManagement|Security info saved for self-service password reset|
+|UserManagement|Self-service password reset flow activity progress|
+|UserManagement|Unlock user account (self-service)|
+|UserManagement|User completed security info registration for self-service password reset|
+|UserManagement|User started security info registration for self-service password reset|
 
 ## Terms of use
 
 |Audit Category|Activity|
 |---|---|
-|Terms Of Use|Accept Terms Of Use|
-|Terms Of Use|Create Terms Of Use|
-|Terms Of Use|Decline Terms Of Use|
-|Terms Of Use|Delete Consent|
-|Terms Of Use|Delete Terms Of Use|
-|Terms Of Use|Edit Terms Of Use|
-|Terms Of Use|Expire Terms Of Use|
-|Terms Of Use|Hard Delete Terms Of Use|
-|Terms Of Use|Publish Terms Of Use|
-|Terms Of Use|Unpublish Terms Of Use|
-
+|Policy|Accept Terms Of Use|
+|Policy|Create Terms Of Use|
+|Policy|Decline Terms Of Use|
+|Policy|Delete Consent|
+|Policy|Delete Terms Of Use|
+|Policy|Edit Terms Of Use|
 
 ## Next steps
 
