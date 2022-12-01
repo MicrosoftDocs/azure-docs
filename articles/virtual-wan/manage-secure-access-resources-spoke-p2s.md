@@ -67,7 +67,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
