@@ -11,6 +11,8 @@ ms.date: 10/03/2022
 ms.author: shaas
 ms.subservice: blobs
 ms.custom: template-how-to
+ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage blob containers using PowerShell
