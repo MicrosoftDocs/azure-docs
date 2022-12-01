@@ -150,13 +150,13 @@ The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwit
 
 |Parameter  |Description  |
 |---------|---------|
-|Name     |Name for the virtual LAN network.        |
-|VirtualSwitchName    |Virtual switch name where you want to add virtual LAN config.         |
-|AddressSpace     |Subnet address space for the virtual LAN network.         |
-|GatewayIPAddress     |Gateway for the virtual network.         |
-|DnsServers     |List of Dns Server IP addresses.         |
-|DnsSuffix     |Dns name without the host part for the virtual LAN network subnet.         |
-|VlanId        |VLAN ID can be set to 0 if you need an untagged network. If tagged or trunk configuration is supported, use 1-4094 (uint16).            |
+|Name     |Name for the virtual LAN network        |
+|VirtualSwitchName    |Virtual switch name where you want to add the virtual LAN configuration         |
+|AddressSpace     |Subnet address space for the virtual LAN network         |
+|GatewayIPAddress     |Gateway for the virtual network         |
+|DnsServers     |List of DNS Server IP addresses         |
+|DnsSuffix     |DNS name without the host part for the virtual LAN network subnet         |
+|VlanId        |VlanId can be set to 0 if you need an untagged network. If a tagged or trunk configuration is supported, specify a VlanID in the range 1-4094.            |
 
 Here is an example output.
 

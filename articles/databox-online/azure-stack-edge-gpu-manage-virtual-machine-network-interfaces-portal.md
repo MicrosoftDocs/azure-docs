@@ -33,7 +33,9 @@ After the virtual switch is created, Azure Stack Edge will create a default netw
 
 Creating a virtual network is optional. You must create a virtual network only if your network is in a different VLAN network, or if it has a different, non-default address space and gateway.
 
-Multiple network interfaces can be associated with one virtual switch. Each network interface on your VM has a static or a dynamic IP address assigned to it. With IP addresses assigned to multiple network interfaces on your VM, certain capabilities are enabled on your VM. For example, your VM can host multiple websites or services with different IP addresses and SSL certificates on a single server. A VM on your device can serve as a network virtual appliance, such as a firewall or a load balancer. For more information about adding a virtual local area network (LAN) configuration on a virtual switch, see [Create virtual LANs](azure-stack-edge-gpu-create-virtual-switch-powershell.md#create-virtual-lans).  <!--Is it possible to do that on ASE?-->
+Multiple network interfaces can be associated with one virtual switch. Each network interface on your VM has a static or a dynamic IP address assigned to it. With IP addresses assigned to multiple network interfaces on your VM, certain capabilities are enabled on your VM. For example, your VM can host multiple websites or services with different IP addresses and SSL certificates on a single server. 
+
+A VM on your device can serve as a network virtual appliance, such as a firewall or a load balancer. For more information about adding a virtual local area network (LAN) configuration on a virtual switch, see [Create virtual LANs](azure-stack-edge-gpu-create-virtual-switch-powershell.md#create-virtual-lans).  <!--Is it possible to do that on ASE?-->
 
 <!--There is a limit to how many virtual network interfaces can be created on the virtual switch on your device. See the Azure Stack Edge Pro limits article for details.--> 
 
