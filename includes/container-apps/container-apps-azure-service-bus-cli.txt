@@ -3,8 +3,8 @@ az containerapp create \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --image <CONTAINER_IMAGE_LOCATION>
-  --min-replicas 4 \
-  --max-replicas 8 \
+  --min-replicas 0 \
+  --max-replicas 5 \
   --scale-rule-name azure-servicebus-queue-rule \
   --scale-rule-type azure-servicebus \
   --scale-rule-metadata "queueName=my-queue" \

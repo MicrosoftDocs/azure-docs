@@ -31,7 +31,7 @@ Scaling is defined by the combination of limits and rules.
 
 - **Rules** are the criteria used by Container Apps to decide when to add or remove replicas.
 
-    Rules are implemented as [HTTP](#http), [TCP](#tcp), or [custom](#custom). Custom rules are based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/) using the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details).
+    [Scale rules](#scale-rules) are implemented as HTTP, TCP, or custom.
 
 As you define your scaling rules, keep in mind the following items:
 
@@ -44,7 +44,7 @@ As you define your scaling rules, keep in mind the following items:
 Scaling is driven by three different categories of triggers:
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
-- [TCP](#tcp): Based on the number of concurrent TCP requests to your revision.
+- [TCP](#tcp): Based on the number of concurrent TCP connections to your revision.
 - [Custom](#custom): Based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/) using a KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) with these defaults:
 
     | Defaults | Seconds |
@@ -56,7 +56,7 @@ Scaling is driven by three different categories of triggers:
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
 
-In the following example, the revision scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests.
+In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent requests.
 
 ### Example
 
@@ -102,11 +102,11 @@ The `concurrentRequests` and `maxReplicas` properties to define a scale rule.
 
 ::: zone pivot="azure-cli"
 
-The `concurrentRequests` and `max-replicas` properties to define a scale rule.
+Define an HTTP scale rule using the `--scale-rule-http-concurrency` parameter in the `az containerapp create` command.
 
-| Scale property | Description | Default value | Min value | Max value |
+| CLI parameter | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| When the number of HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
+| `--scale-rule-http-concurrency`| When the number of concurrent HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
 
 ```bash
 az containerapp create \
@@ -114,11 +114,11 @@ az containerapp create \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --image <CONTAINER_IMAGE_LOCATION>
-  --min-replicas 4 \
-  --max-replicas 8 \
+  --min-replicas 0 \
+  --max-replicas 5 \
   --scale-rule-name azure-http-rule \
   --scale-rule-type http \
-  --scale-rule-metadata "concurrentRequests=100"
+  --scale-rule-http-concurrency 100
 ```
 
 ::: zone-end
@@ -149,9 +149,9 @@ az containerapp create \
 
 ## TCP
 
-With a TCP scaling rule, you have control over the threshold of concurrent TCP requests that determines how your app scales.
+With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales.
 
-In the following example, the container app revision scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
+In the following example, the container app revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent requests per second.
 
 ### Example
 
@@ -161,7 +161,7 @@ The `concurrentRequests` and `maxReplicas` properties to define a scale rule.
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| When the number of TCP requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+| `concurrentRequests`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
 ```json
 {
@@ -194,11 +194,11 @@ The `concurrentRequests` and `maxReplicas` properties to define a scale rule.
 
 ::: zone pivot="azure-cli"
 
-The `concurrentRequests` and `max-replicas` values to define a scale rule.
+Define a TCP scale rule using the `--scale-rule-tcp-concurrency` parameter in the `az containerapp create` command.
 
-| Scale property | Description | Default value | Min value | Max value |
+| CLI parameter | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| When the number of TCP requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `max-replicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+| `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
 ```bash
 az containerapp create \
@@ -206,11 +206,11 @@ az containerapp create \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME> \
   --image <CONTAINER_IMAGE_LOCATION>
-  --min-replicas 4 \
-  --max-replicas 8 \
+  --min-replicas 0 \
+  --max-replicas 5 \
   --scale-rule-name azure-tcp-rule \
   --scale-rule-type tcp \
-  --scale-rule-metadata "concurrentRequests=100"
+  --scale-rule-tcp-concurrency 100
 ```
 
 ::: zone-end
@@ -223,7 +223,11 @@ Not supported in the Azure portal.
 
 ## Custom
 
-You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/).
+You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/)  with these defaults:
+    | Defaults | Seconds |
+    |--|--|
+    | Polling interval | 30 |
+    | Cool down period | 300 |
 
 The following example demonstrates how to create a custom scale rule.
 
@@ -288,6 +292,8 @@ First, you'll define the type and metadata of the scale rule.
 
     :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10,11,12,13,14":::
 
+### Authentication
+
 A KEDA scaler may support using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 > [!NOTE]
@@ -331,7 +337,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In the CLI command, set the `scale-rule-metadata` parameter to the metadata values.
 
-    You'll need to transform the values from a YAML format to a key/value pair for use on the command line.
+    You'll need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
 
     :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10,11,12,13,14,15,16":::
 
@@ -346,7 +352,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
-1. In the CLI command, set authentication values for the `scale-rule-auth` parameter. Create an entry for each KEDA `secretTargetRef` parameter.
+1. In the CLI command, set authentication values for the `scale-rule-auth` parameter. Create an entry for each KEDA `secretTargetRef` parameter. If there are multiple entries, separate them with a space.
 
     :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="17":::
 
