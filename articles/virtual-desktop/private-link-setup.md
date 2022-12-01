@@ -24,6 +24,26 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
+### Re-register your resource provider
+
+In the public preview version of Private Link, after you create your resources, you'll need to re-register them to your resource provider before you can start using Private Link. Re-registering allows the service to download and assign the new roles that will let you use this feature. 
+
+To re-register your resource provider:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Subscriptions**.
+
+1. Select the name of your subscription.
+
+1. Select **Resource providers**.
+
+1. Search for **Microsoft.DesktopVirtualization**.
+
+1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Re-register**.
+
+1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
+
 ## Enable preview content on your Azure subscription
 
 In order to use Private Link, you'll need to enable preview features on your Azure subscription first. To enable preview features:
@@ -32,9 +52,9 @@ In order to use Private Link, you'll need to enable preview features on your Azu
 
 1. In the search box under **Preview features**, search for **Private**.
 
-2. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
+1. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
 
-3. In the bottom-right corner of the screen, select **Register**.
+1. In the bottom-right corner of the screen, select **Register**.
 
 Once you select **Register**, you'll be able to use Private Link.
 
@@ -115,26 +135,6 @@ To configure Private Link in the Azure portal:
 
 >[!NOTE]
 >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
-
-## Reregister your resource provider
-
-In the public preview version of Private Link, after you create your resources, you'll need to reregister them to your resource provider before you can start using Private Link. Reregistering allows the service to download and assign the new roles that will let you use this feature. 
-
-To reregister your resource provider:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Subscriptions**.
-
-1. Select the name of your subscription.
-
-1. Select **Resource providers**.
-
-1. Search for **Microsoft.DesktopVirtualization**.
-
-1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Register**.
-
-1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
 
 ## Closing public routes
 
