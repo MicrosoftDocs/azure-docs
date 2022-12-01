@@ -167,7 +167,7 @@ The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`,
 
 * The `status` property is the device-supplied status of method execution.
 
-* The `$rid` property is the request ID from the method invocation received from IoT Hub.
+* The `$rid` property is the request ID from the method invocation received from IoT Hub and request ID contain value in hexadecimal formate.
 
 The body is set by the device and can be any status.
 
