@@ -133,66 +133,63 @@ When the BIG-IP VM starts, its NIC is provisioned with a **Primary** private IP 
 - Outbound access to the public internet
 - Inbound access to the BIG-IPs web config and SSH management interfaces
 
-Exposing the management interfaces to the internet increases the BIG-IPs attack surface. This risk is why the BIG-IPs primary IP was not provisioned with a public IP during deployment. Instead, a secondary internal IP and associated public IP is provisioned for publishing services. This 1-to-1 mapping between a VM public IP and private IP enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
+Exposing the management interfaces to the internet increases BIG-IP attack surface. This risk is why the BIG-IPs primary IP was not provisioned with a public IP during deployment. Instead, a secondary internal IP, and associated public IP, is provisioned for publishing. This 1-to-1 mapping between a VM public IP, and private IP, enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
 
-The diagram shows a single NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management, and a separate virtual server IPs for publishing services. In this arrangement, an NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded on to the BIG-IP virtual server.
+The following diagram shows a NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management. There is a separate virtual server IP for publishing services. An NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded to the BIG-IP virtual server.
 
 ![The image shows the single nic deployment](./media/f5ve-deployment-plan/single-nic-deployment.png)
 
-By default, private and public IPs issued to Azure VMs are always dynamic, so will likely change on every restart of a VM. Avoid unforeseen connectivity issues by changing the BIG-IPs management IP to static and do the same to secondary IPs used for publishing services.
+By default, private and public IPs issued to Azure VMs are dynamic, so can change when a VM restarts. Avoid connectivity issues by changing the BIG-IP management IP to static. Do the same action on secondary IPs for publishing services.
 
-1. From your BIG-IP VM’s menu, go to **Settings** > **Networking**
-
-2. In the networking view, select the link to the right of **Network Interface**
+1. From your BIG-IP VM menu, go to **Settings** > **Networking**.
+2. In the networking view, select the link to the right of **Network Interface**.
 
 ![The image shows the network config](./media/f5ve-deployment-plan/network-config.png)
 
 >[!NOTE]
->VM names are randomly generated during deployment.
+>VM names are generated randomly during deployment.
 
-3. In the left-hand pane, select **IP configurations** and then select **ipconfig1** row
-
-4. Set the **IP Assignment** option to static and if necessary, change the BIG-IP VMs primary IP address. Then select **Save** and close the ipconfig1 menu
-
->[!NOTE]
->You’ll use this primary IP to connect and manage the BIG-IP-VM.
-
-5. Select **+ Add** on the top ribbon and provide a name for a secondary private IP, for example, ipconfig2
-
-6. Set the **Allocation** option of the private IP address settings to **Static**. Providing the next higher or lower consecutive IP helps keep things orderly.
-
-7. Set the Public IP address to **Associate** and select **Create**
-
-8. Provide a name for the new public IP address, for example,   BIG-IP-VM_ipconfig2_Public
-
-9. If prompted, set the **SKU** to Standard
-
-10. If prompted, set the **Tier** to **Global** and
-
-11. Set the **Assignment** option to **Static**, then select **OK** twice
-
-Your BIG-IP-VM is now ready to set up with:
-
-- **Primary private IP**: Dedicated to managing the BIG-IP-VM via its Web config utility and SSH. It will be used by the BIG-IP system as its **Self-IP** to connect to published backend services. Also, it connects to external services such as NTP, AD, and LDAP.
-
-- **Secondary private IP**: Used when creating a BIG-IP APM virtual server to listen for inbound request to a published service(s).
-
-- **Public IP**: Associated with the secondary private IP, enables client traffic from the public internet to reach the BIG-IP virtual server for the published service(s)
-
-The example illustrates the 1 to 1 relationship between a VM public and private IPs. An Azure VM NIC can have only one primary IP, and any additionally created IPs are always referred to as secondary.
+3. In the left-hand pane, select **IP configurations**.
+4. Select the **ipconfig1** row.
+5. Set the **IP Assignment** option to **Static**. If necessary, change the BIG-IP VM primary IP address. 
+6. Select **Save**.
+7. Close the **ipconfig1** menu.
 
 >[!NOTE]
->You'll need the secondary IP mappings for publishing BIG-IP services.
+>Use the primary IP to connect and manage the BIG-IP-VM.
 
-![This image shows all secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
+8. On the top ribbon, select **+ Add**.
+9. Provide a secondary private IP name, for example, ipconfig2.
+10. For the private IP address setting, set the **Allocation** option to **Static**. Providing the next-higher or -lower IP helps preserve orderliness.
+11. Set the Public IP address to **Associate**.
+12. Select **Create**.
+13. For the new public IP address, provide a name, for example, BIG-IP-VM_ipconfig2_Public.
+14. If prompted, set the **SKU** to **Standard**.
+15. If prompted, set the **Tier** to **Global**.
+16. Set the **Assignment** option to **Static**
+17. Select **OK** twice.
 
-To implement SHA using the BIG-IP **Access Guided Configuration**, repeat steps 5-11 to create additional private and public IP pairs for every additional service you plan to publish via the BIG-IP APM. The same approach can also be used if publishing services using BIG-IPs **Advanced Configuration**. However, in that scenario you have the option of avoiding public IP overheads by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration. In this configuration, a BIG-IP virtual server will accept all client traffic it receives, and route it onwards to its destination.
+Your BIG-IP-VM is ready for:
+
+- **Primary private IP**: Dedicated to managing the BIG-IP-VM via its Web config utility and SSH. It's used by the BIG-IP system, as its Self-IP, to connect to published back-end services. It connects to external services:
+  - Network Time Protocol (NTP)
+  - Active Directory (AD)
+  - Lightweight Directory Access Protocol (LDAP)
+- **Secondary private IP**: Use to create a BIG-IP APM virtual server to listen for inbound request to a published service(s)
+- **Public IP**: Associated with the secondary private IP, it enables client traffic from the public internet to reach the BIG-IP virtual server for the published service(s)
+
+The example illustrates the 1-to-1 relationship between a VM public and private IPs. An Azure VM NIC has one primary IP, and other IPs are secondary.
+
+>[!NOTE]
+>You need the secondary IP mappings for publishing BIG-IP services.
+
+![This image shows secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
+
+To implement SHA using the BIG-IP Access Guided Configuration, repeat steps 5-11 to create additional private and public IP pairs for additional services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IPs Advanced Configuration. However, you can avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
 
 ## DNS configuration
 
-It's essential to have DNS configured for clients to resolve your published SHA services to your BIG-IP-VM’s public IP(s).
-
-The following steps assume the DNS zone of the public domain used for your SHA services is managed in Azure. However, the same DNS principles of creating locator record still apply no matter where your DNS zone is managed.
+To resolve your published SHA services to your BIG-IP-VM public IP(s), configure DNS for clients. The following steps assume the DNS zone of the public domain used for your SHA services is managed in Azure. However, the same DNS principles of creating locator record still apply no matter where your DNS zone is managed.
 
 1. If not already open, expand the portal’s left-hand menu and navigate to your BIG-IP-VM via the **Resource Groups** option
 
