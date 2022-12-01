@@ -27,7 +27,7 @@ If the output of the last command shows *RegistrationState* as *Registered*, the
 If the output is *Registering*, wait at least 10 minutes, and then retry the command. **Do not continue unless the RegistrationState shows as *Registered***.
 
 #### Region support
-- All [Microsoft Purview regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=purview) are supported.
+- All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.
 - Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
     - East US
     - East US2
