@@ -1,5 +1,5 @@
 ---
-title: Migrate to August 2022 Update 
+title: Moving from lab accounts to lab plans
 titleSuffix: Azure Lab Services
 description: 'Learn how to migrate from Azure Lab Services to Azure Lab Services August 2022 Update.'
 ms.topic: how-to
@@ -8,37 +8,49 @@ author: RoseHJM
 ms.date: 11/30/2022
 ---
 
-# Migrate to Azure Lab Services August 2022 Update
+# Transition from lab accounts to the improved Azure Lab Services August 2022 Update 
 
-Use the following checklist to get started with Azure Lab Services August 2022 Update:
+This article applies to users of Azure Lab Services with labs created with a lab account. If you are a brand new user to Azure Lab Services, start with [ADD ARTICLE LINK]
+
+In this article, you'll learn the sequence to getting started using the features and resources made available beginning in the August 2022 update. The important update to Azure Lab Services August 2022 includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. 
+
+>[!Important]
+> While you don't have to migrate to the August 2022 update of Azure Lab Services yet, we do recommend you begin using the update for all new labs.
+
+A big part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the differences between lab plans and lab accounts in [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
+
+If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
+
+## Transition path at-a-glace
+
+There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
+
+This checklist highlights the sequence at a high-level:
 
 > [!div class="checklist"]
 > - Create a lab plan
-> - Request capacity
+> - Request capacity for your lab plans
 > - Configure shared resources
 > - Create additional lab plans
 > - Validate images
 > - Create and publish labs
 > - Update cost management reports
 
-In August 2022, a new update of Azure Lab Services was released. This update includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. You don't need to migrate to the new functionality available in the August 2022 update of the service immediately, we recommend you migrate your labs.
-
-Migrating from Azure Lab Services to Azure Lab Services August 2022 Update can be complex, but provides opportunities for enhancing your Lab Services implementation. This article describes process of migrating to the August 2022 Update in detail, and will help you understand the requirements and sequence of steps you should take for a successful migration.
-
-If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both lab accounts and lab plans. Lab plans replace lab accounts in the August 2022 Update. Although similar in functionality, lab plans give you more flexibility in how you manage your Lab Services than lab accounts. You can read more about the differences between lab plans and lab accounts in [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
-
-More than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
-
-Lab accounts and lab plans can coexist in your subscription and share the same external resources. However, lab accounts and lab plans do not share capacity. You must request new capacity for lab plans even if you have existing capacity for lab accounts.
 
 ## 1. Create a lab plan
 
-Before you request capacity, you must have at least one lab plan in your subscription. If you don't already have a lab plan, you can create a temporary lab plan for requesting capacity, and delete the plan afterwards. Because capacity is assigned to your subscription, it's not affected when you create or delete lab plans. The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
+To begin using the update, you'll need to create a lab plan. 
+
+If you don't already have a lab plan, you can create a temporary lab plan for requesting capacity, and delete the plan afterwards. Because capacity is assigned to your subscription, it's not affected when you create or delete lab plans. The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
 
 - [Create a  lab plan](/azure/lab-services/tutorial-setup-lab-plan).
   - This lab plan can be deleted once capacity is requested.
   - You don't need to enable advanced networking or images; or assign permissions.
   - You can select any region.
+
+In practice, more than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
+
+And, since lab accounts and lab plans cannot share capacity, you'll need to request new capacity for lab plans even if you have existing capacity for lab accounts. Before you request capacity, you must have at least one lab plan in your subscription.
 
 ## 2. Request capacity
 
