@@ -28,7 +28,11 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	4. If not, check if you see any errors in extension logs located at `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine   
 	5. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.    
 	
-3. **Verify that the agent is running**:  
+3. **Verify that the agent is running**: 
+
+	> [!NOTE]
+	> The prerequisites mentioned at [Azure Monitor Agent - Prerequisites](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#prerequisites) must be met prior proceeding with the below steps. Without a managed identity assigned to the VM, the process **MonAgentCore.exe** will fail to start.
+
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
 		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
