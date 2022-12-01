@@ -19,6 +19,15 @@ As the IoT Edge service releases new versions, you'll want to update your IoT Ed
 
 Two logical components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security subsystem. Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its overall responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. Currently, the security subsystem can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
 
+You should update the IoT Edge runtime and application layers use the same release version. While mismatched versions are supported, they are not tested together. Use the following sections in this article to update both the runtime and application layers on a device:
+
+1. [Update the security subsystem](#update-the-security-subsystem)
+1. [Update the runtime containers](#update-the-runtime-containers)
+1. Validate version match
+   * Use `iotedge version` to check the security subsystem version. For example, the output includes the major, minor, and revision numbers *iotedge 1.4.2*.
+   * In your deployment runtime settings, verify *edgehub* and *edgeagent* image URI versions match the major and minor version of the security subsystem version. For example, if the security subsystem version is 1.4.2, the image versions should be 1.4. For example, *mcr.microsoft.com/azureiotedge-hub:1.4* and *mcr.microsoft.com/azureiotedge-agent:1.4*.
+
+
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
 ## Update the security subsystem
