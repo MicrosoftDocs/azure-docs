@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 To get started with Device Update, create a Device Update account and instance, and then set access control roles.
 
-A Device Update account is a resource in your Azure subscription. A Device Update instance is a logical container within an account that is associated with a specific IoT hub. A instance contains updates and deployments associated with its IoT hub. You can create multiple instances within an account. For more information, see [Device Update resources](device-update-resources.md).
+A Device Update account is a resource in your Azure subscription. A Device Update instance is a logical container within an account that is associated with a specific IoT hub. An instance contains updates and deployments associated with its IoT hub. You can create multiple instances within an account. For more information, see [Device Update resources](device-update-resources.md).
 
 ## Prerequisites
 
