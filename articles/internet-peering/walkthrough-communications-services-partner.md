@@ -6,7 +6,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 10/10/2022
 ms.author: halkazwini
 ---
 
@@ -127,7 +127,7 @@ Below are the steps to activate the prefix.
 
 **Q.**   When will my BGP peer come up?
 
-**A.**   After the LAG comes up our automated process configures BGP. Note, BFD must be configured on the non-MSFT peer to start route exchange.
+**A.**   After the LAG comes up, our automated process configures BGP with BFD. Peer must configure BGP with BFD. Note, BFD must be configured and up on the non-MSFT peer to start route exchange.
 
 **Q.**   When will peering IP addresses be allocated and displayed in the Azure portal?
 
@@ -143,7 +143,7 @@ Below are the steps to activate the prefix.
 
 **Q.**   Are there any AS path constraints?
 
-**A.**   Yes, for registered prefixes smaller than /24, advertised AS path must be less than four. Path of four or longer will cause the advertisement to be rejected by policy.
+**A.**   Yes, a private ASN cannot be in the AS path. For registered prefixes smaller than /24, the AS path must be less than four.
 
 **Q.**	I need to set the prefix limit, how many routes Microsoft would be announcing?
 

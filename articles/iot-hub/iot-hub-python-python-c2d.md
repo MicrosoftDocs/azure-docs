@@ -31,7 +31,7 @@ At the end of this article, you run two Python console apps:
 
 * **SendCloudToDeviceMessage.py**: sends cloud-to-device messages to the simulated device app through IoT Hub.
 
->You can find more information on cloud-to-device messages in the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
+To learn more about cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
@@ -241,4 +241,6 @@ You are now ready to run the applications.
 
 In this article, you learned how to send and receive cloud-to-device messages.
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+* To learn more about cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
+
+* To learn more about IoT Hub message formats, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).

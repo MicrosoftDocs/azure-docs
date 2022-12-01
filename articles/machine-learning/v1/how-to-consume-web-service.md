@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/15/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ms.devlang: csharp, golang, java, python
 ms.custom: devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022

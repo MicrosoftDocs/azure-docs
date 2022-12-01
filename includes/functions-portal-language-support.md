@@ -22,7 +22,7 @@ The following table shows which languages supported by Functions can run on Linu
 | [TypeScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
  
-<sup>1</sup> In the portal, you can't currently create function apps that run on .NET 5.0. For more information on .NET 5 functions, see [Develop and publish .NET 5 functions using Azure Functions](../articles/azure-functions/dotnet-isolated-process-guide.md). 
+<sup>1</sup> In the portal, you can't currently create function apps that run on .NET 7.0. For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md). 
 
 For more information on operating system and language support, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
 

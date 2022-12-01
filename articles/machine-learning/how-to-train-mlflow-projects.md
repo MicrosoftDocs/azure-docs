@@ -1,20 +1,19 @@
 ---
-title: Train with MLflow Projects
+title: Train with MLflow Projects (Preview)
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from ML models
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/16/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
-# Train ML models with MLflow Projects and Azure Machine Learning (preview)
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+# Train ML models with MLflow Projects and Azure Machine Learning (Preview)
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning backend support. You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
 
@@ -154,7 +153,7 @@ dependencies:
 
 Submit the local run and ensure you set the parameter `backend = "azureml" `. With this setting, you can submit runs locally and get the added support of automatic output tracking, log files, snapshots, and printed errors in your workspace.
 
-View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+View your runs and metrics in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ```python
 local_env_run = mlflow.projects.run(uri=".", 
@@ -198,7 +197,7 @@ dependencies:
 
 Submit the mlflow project run and ensure you set the parameter `backend = "azureml" `. With this setting, you can submit your run to your remote compute and get the added support of automatic output tracking, log files, snapshots, and printed errors in your workspace.
 
-View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+View your runs and metrics in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ```python
 remote_mlflow_run = mlflow.projects.run(uri=".", 

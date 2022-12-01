@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 03/22/2021
+ms.date: 10/20/2022
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -98,7 +98,7 @@ To configure a local development environment or remote VM:
 1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
 1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
-Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
+Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md) to get started.
 
 ### Jupyter Notebooks
 

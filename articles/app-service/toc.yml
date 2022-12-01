@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
@@ -182,7 +184,7 @@
               href: ./scripts/cli-connect-to-storage.md
             - name: Connect to Azure Cache for Redis
               href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Cosmos DB
+            - name: Connect to Azure Cosmos DB
               href: ./scripts/cli-connect-to-documentdb.md
         - name: Backup and restore an app
           href: ./scripts/cli-backup-schedule-restore.md
@@ -224,6 +226,8 @@
           href: overview-authentication-authorization.md
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
+        - name: Subdomain takeover
+          href: reference-dangling-subdomain-prevention.md                
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy

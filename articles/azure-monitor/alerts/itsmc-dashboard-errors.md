@@ -99,8 +99,7 @@ The following sections describe common errors that appear in the connector statu
 
 **Cause**: The IP address of the ITSM application doesn't allow ITSM connections from partner ITSM tools.
 
-**Resolution**: To allow ITSM connections from partner ITSM tools, we recommend that the to list includes the entire public IP range of the Azure region of the LogAnalytics workspace. For more information, see this article about [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519). You can only list the ActionGroup network tag in these regions: EUS/WEU/EUS2/WUS2/US South Central.
-
+**Resolution**: To allow ITSM connections make sure ActionGroup network tag is allowed on your network.
 
 ## Authentication
 **Error**: "User Not Authenticated"

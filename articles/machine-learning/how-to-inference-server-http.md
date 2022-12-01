@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to enable local development with Azure machine learning inference http server.
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

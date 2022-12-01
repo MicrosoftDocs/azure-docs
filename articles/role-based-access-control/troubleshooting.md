@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 09/26/2022
+ms.date: 10/06/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -255,7 +255,7 @@ Removing the last Owner role assignment for a subscription is not supported to a
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are the Global Administrator for the tenant. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
 
 ### Symptom - Role assignment is not moved after moving a resource
 
@@ -288,6 +288,34 @@ You added managed identities to a group and assigned a role to that group. The b
 **Solution 2**
 
 It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
+
+### Symptom - Removing role assignments using PowerShell takes several minutes
+
+You use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command to remove a role assignment. You then use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command to verify the role assignment was removed for a security principal. For example:
+
+```powershell
+Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id
+```
+
+The [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command indicates that the role assignment was not removed. However, if you wait 5-10 minutes and run [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) again, the output indicates the role assignment was removed.
+
+**Cause**
+
+The role assignment has been removed. However, to improve performance, PowerShell uses a cache when listing role assignments. There can be delay of around 10 minutes for the cache to be refreshed.
+
+**Solution**
+
+Instead of listing the role assignments for a security principal, list all the role assignments at the subscription scope and filter the output. For example, the following command:
+
+```powershell
+$validateRemovedRoles = Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id 
+```
+
+Can be replaced with this command instead:
+
+```powershell
+$validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Where-Object -Property ObjectId -EQ $securityPrincipalObject.Id
+```
 
 ## Custom roles
 

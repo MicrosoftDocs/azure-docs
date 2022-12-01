@@ -14,7 +14,7 @@ Handling errors in Azure Functions is important to avoid lost data, missed event
 This article describes general strategies for error handling and the available retry strategies. 
 
 > [!IMPORTANT]
-> The retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in October 2022. For more information, see the [Retries section below](#retries).
+> The retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in December 2022. For more information, see the [Retries section below](#retries).
 
 ## Handling errors
 
@@ -107,7 +107,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/fixed-delay)
 
@@ -156,7 +156,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/exponential-backoff)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/exponential-backoff)
 

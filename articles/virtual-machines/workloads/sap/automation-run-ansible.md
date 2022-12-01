@@ -1,6 +1,6 @@
 ---
 title: Run Ansible to configure SAP system
-description: Configure the environment and install SAP using Ansible playbooks with the SAP deployment automation framework on Azure.
+description: Configure the environment and install SAP using Ansible playbooks with the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started Ansible configuration
 
-When you use the [SAP deployment automation framework on Azure](automation-deployment-framework.md), you have the option to do an [automated infrastructure deployment](automation-get-started.md), However, you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
+When you use the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), you have the option to do an [automated infrastructure deployment](automation-get-started.md), However, you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
 
 | Filename                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |

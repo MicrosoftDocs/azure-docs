@@ -7,11 +7,11 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl 
 ms.topic: how-to
-ms.custom: template-how-to, sdkv2, event-tier1-build-2022
+ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022
 ms.date: 05/26/2022
 ---
 
-# Prepare data for computer vision tasks with automated machine learning (preview)
+# Prepare data for computer vision tasks with automated machine learning
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -27,7 +27,7 @@ In this article, you learn how to prepare image data for training computer visio
 To generate models for computer vision tasks with automated machine learning, you need to bring labeled image data as input for model training in the form of an `MLTable`. 
 
 You can create an `MLTable` from labeled training data in JSONL format. 
-If your labeled training data is in a different format (like, pascal VOC or COCO), you can use a [conversion script](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/coco2jsonl.py) to first convert it to JSONL, and then create an `MLTable`. Alternatively, you can use  Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images, and export the labeled data to use for training your AutoML model.
+If your labeled training data is in a different format (like, pascal VOC or COCO), you can use a [conversion script](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/coco2jsonl.py) to first convert it to JSONL, and then create an `MLTable`. Alternatively, you can use  Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images, and export the labeled data to use for training your AutoML model.
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ my_data = Data(
 
 Next, you will need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
-If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs).
+If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs).
 
 Once you have created jsonl file following the above steps, you can register it as a data asset using UI. Make sure you select `stream` type in schema section as shown below.
 
@@ -165,7 +165,7 @@ If you have your labeled training data present in a container in Azure Blob stor
 
 Once you have your labeled data in JSONL format, you can use it to create `MLTable` as shown below. MLtable packages your data into a consumable object for training.
 
-:::code language="yaml" source="~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
 You can then pass in the `MLTable` as a [data input for your AutoML training job](./how-to-auto-train-image-models.md#consume-data).
 

@@ -1,9 +1,10 @@
 ---
-author: ElazarK
 ms.service: defender-for-cloud
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ---
 ## Remove the Defender profile
 
@@ -12,7 +13,7 @@ To remove this - or any - Defender for Cloud extension, it's not enough to turn 
 - **Enabling** auto provisioning, potentially impacts *existing* and *future* machines.
 - **Disabling** auto provisioning for an extension, only affects the *future* machines - nothing is uninstalled by disabling auto provisioning.
 
-Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../enable-data-collection.md).
+Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../monitoring-components.md).
 
 You can remove the profile using the REST API or a Resource Manager template as explained in the tabs below.
 

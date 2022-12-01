@@ -47,7 +47,17 @@ The image is hosted on Microsoft Download Center as a zip file. Download the fil
 
 ## Determine required resources for the VM
 
-Like every VM, the agent requires available compute, memory, and storage space resources on the host. Although overall data size may affect the time required to complete a migration, it's generally the number of files and folders that drives resource requirements.
+Like every VM, the agent requires available compute, memory, network, and storage space resources on the host. Although overall data size may affect the time required to complete a migration, it's generally the number of files and folders that drives resource requirements.
+
+### Network resources
+
+The agent will require unrestricted internet connectivity.
+
+There's no single network configuration option that will work for every environment. However, the simplest configuration will involve the deployment of an external virtual switch. The external switch type is connected to a physical adapter and will allow your host operating system (OS) to share its connection with all your virtual machines (VMs). This switch allows communication between your physical network, the management operating system, and the virtual adapters on your virtual machines. This approach is fine for a test environment, but may not be suitable for a production server.
+
+After the switch is created, ensure that the management and agent VMs are both on the same switch. On the WAN link firewall, outbound TCP port 443 must be open. Keep in mind that connectivity interruptions are to be expected when changing network configurations.
+
+You can get help with [creating a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) in the [Windows Server](/windows-server/) documentation.
 
 ### Recommended compute and memory resources
 
@@ -59,7 +69,7 @@ Like every VM, the agent requires available compute, memory, and storage space r
 | 50 million items       | 16 GiB       | 8 virtual cores                              |
 |100 million items       | 16 GiB       | 8 virtual cores                              |
 
-**Number of items refers to the total number of files and folders in the source.*
+**Number of items** *refers to the total number of files and folders in the source.*
 
 > [!IMPORTANT]
 > While agent VMs below minimal specs may work for your migration, they may not perform optimally.
@@ -85,7 +95,7 @@ At a minimum, the agent image needs 20 GiB of local storage. The amount required
    :::image type="content" source="media/agent-deploy/agent-vm-generation-select-sml.png" lightbox="media/agent-deploy/agent-vm-generation-select-lrg.png"  alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
 
    > [!IMPORTANT]
-   Only *Generation 1* VMs are supported. This Linux image won't boot as a *Generation 2* VM.
+   > Only *Generation 1* VMs are supported. This Linux image won't boot as a *Generation 2* VM.
 
 1. If you haven't already, [determine the amount of memory you'll need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane, noting that you need to enter the value in MiB. 1 GiB = 1024 MiB. Using the **Dynamic Memory** feature is fine.
 

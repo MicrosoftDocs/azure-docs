@@ -8,7 +8,7 @@ ms.date: 02/17/2022
 
 # Approach and process for adopting Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 This article helps you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 

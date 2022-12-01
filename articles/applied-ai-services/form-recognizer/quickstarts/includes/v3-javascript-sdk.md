@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -39,6 +39,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
 
 ## Set up
 
@@ -77,6 +80,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
+
 ## Build your application
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
@@ -90,7 +96,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
 
 <!-- markdownlint-disable MD036 -->
 
@@ -154,6 +160,9 @@ Once you've added a code sample to your application, run your program:
     ```console
     node index.js
     ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
 
 ### General document model output
 
@@ -260,6 +269,9 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -348,6 +360,9 @@ Once you've added a code sample to your application, run your program:
     ```console
     node index.js
     ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
 
 ### Prebuilt model output
 

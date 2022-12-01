@@ -1,6 +1,6 @@
 ---
 title: Azure Arc-enabled data services - Release notes
-description: Latest release notes
+description: This article provides highlights for the latest release, and a history of features introduced in previous releases.
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -12,9 +12,29 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
+
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## November 8, 2022
+
+### Image tag
+
+`v1.13.0_2022-11-08`
+
+For complete release version information, see [Version log](version-log.md#november-8-2022).
+
+New for this release:
+
+- Azure Arc data controller
+  - Support database as resource in Azure Arc data resource provider 
+
+- Arc-enabled PostgreSQL server
+  - Add support for automated backups
+
+- `arcdata` Azure CLI extension
+  - CLI support for automated backups: Setting the `--storage-class-backups` parameter for the create command will enable automated backups
 
 ## October 11, 2022
 
@@ -39,7 +59,13 @@ New for this release:
   - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
   - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
 
+Deprecation and breaking changes notices:
 
+The following properties in the Arc SQL Managed Instance status will be deprecated/moved in the _next_ release:
+- `status.logSearchDashboard`: use `status.endpoints.logSearchDashboard` instead.
+- `status.metricsDashboard`: use `status.endpoints.metricsDashboard` instead.
+- `status.primaryEndpoint`: use `status.endpoints.primary` instead.
+- `status.readyReplicas`: uses `status.roles.sql.readyReplicas` instead.
 
 ## September 13, 2022
 

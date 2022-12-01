@@ -162,10 +162,10 @@ Service Profiler session finished.              # A profiling session is complet
 ## View the Service Profiler traces
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
-1. Open the **Performance** blade in your Application Insights resource. 
+1. Open the **Performance** pane in your Application Insights resource. 
 1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
-      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance blade.":::
+      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance pane.":::
 
 
 

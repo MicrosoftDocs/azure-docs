@@ -158,7 +158,9 @@ kubectl delete crd dags.sql.arcdata.microsoft.com
 kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
 kubectl delete crd monitors.arcdata.microsoft.com
 kubectl delete crd activedirectoryconnectors.arcdata.microsoft.com
-
+kubectl delete crd failovergroups.sql.arcdata.microsoft.com
+kubectl delete crd kafkas.arcdata.microsoft.com
+kubectl delete crd otelcollectors.arcdata.microsoft.com
 
 ## Delete Cluster roles and Cluster role bindings
 kubectl delete clusterrole arcdataservices-extension
