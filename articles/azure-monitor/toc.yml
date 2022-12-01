@@ -1388,6 +1388,8 @@ items:
         href: alerts/alerts-non-common-schema-definitions.md
       - name: Customize alert notifications using Logic apps
         href: alerts/alerts-logic-apps.md
+      - name: Test notification troubleshooting
+        href: alerts/test-action-group-errors.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
