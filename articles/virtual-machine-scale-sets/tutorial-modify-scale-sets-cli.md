@@ -23,7 +23,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
-```output
+```Partial Output
 {
   "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
   "location": "eastus",
