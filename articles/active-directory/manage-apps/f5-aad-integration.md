@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 
 # Integrate F5 BIG-IP with Azure Active Directory
 
-With increases in the threat landscape and the use of multiple mobile devices, organizations are rethinking resource access and governance. Part of modernization programs include assessing your readiness across identities, devices, apps, infrastructure, network and dataputting. You can learn about the [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and the Zero Trust Assessment tool.
+With increases in the threat landscape and the use of multiple mobile devices, organizations are rethinking resource access and governance. Part of modernization programs include assessing your readiness across identities, devices, apps, infrastructure, network, and data. You can learn about the [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and the Zero Trust Assessment tool.
 
 At Microsoft and F5, we realize your digital transformation is a long-term journey, potentially critical resources are exposed until modernized. The goal of F5 BIG-IP and Azure Active Directory (Azure AD) secure hybrid access (SHA) is to improve remote access to on-premises applications, and strengthen the security posture of vulnerable legacy services.
 
@@ -36,7 +36,7 @@ Other benefits include:
 
 - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/)
   - One control plane to govern identity and access
-- Pre-emptive [Conditional Access](../conditional-access/overview.md)
+- Preemptive [Conditional Access](../conditional-access/overview.md)
 - [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 - [Identity Protection](../identity-protection/overview-identity-protection.md)
   - Adaptive protection through user and session risk profiling
@@ -122,7 +122,7 @@ Integrating an F5 BIG-IP with Azure AD for SHA has the following prerequisites:
   - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
 - Azure AD licensing:
-  - An [Azure free account](https://azure.microsoft.com/en-us/free/active-directory/) has minimum core requirements for SHA with password-less authentication
+  - An [Azure free account](https://azure.microsoft.com/free/active-directory/) has minimum core requirements for SHA with password-less authentication
   - A [Premium subscription](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) has [Conditional Access](../conditional-access/overview.md), [multi-factor authentication](../authentication/concept-mfa-howitworks.md), and [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 ## Configuration scenarios
@@ -177,9 +177,9 @@ Learn more: [Grant B2B users in Azure AD access to your on-premises applications
 
 ## Next steps
 
-You can conduct a SHA proof-of-concept using your BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md). To deploy a VM in Azure takes approximately 30 minutes, then you'll have:
+You can conduct a proof-of-concept for SHA using your BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md). To deploy a VM in Azure takes approximately 30 minutes, then you'll have:
 
-- A secured platform to model a SHA pilot
+- A secured platform to model a pilot for SHA
 - A pre-production instance for testing new BIG-IP system updates and hotfixes
 
 Identify one or two applications to be published with BIG-IP and protected with SHA.
