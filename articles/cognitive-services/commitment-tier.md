@@ -42,7 +42,7 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 ## Purchase a commitment plan by updating your Azure resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with the Azure subscription that was approved. 
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure subscription. 
 2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**.
 
     > [!NOTE]
