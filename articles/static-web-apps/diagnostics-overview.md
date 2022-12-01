@@ -10,44 +10,39 @@ ms.author: cshoe
 
 # Azure Static Web App diagnostics overview
 
-If issues arise with your Static Web App, Static Web App diagnostics can help you diagnose what went wrong and guide you through troubleshooting steps. Diagnostics for your Static Web App are accessible directly from the Azure Portal, with no additional configuration needed.
+If your static web app encounters issues, diagnose and solve features can guide you through steps to troubleshoot problems.
 
-Although these diagnostics are most helpful for issues that arose within 24 hours, all the diagnostic graphs are always available for you to analyze.
+Diagnostics for your Static Web App are accessible directly from the Azure portal, with no configuration required.
 
-## Open Static Web App diagnostics
+Although these diagnostics are most helpful for issues that have occurred in the last 24 hours, all the diagnostic data remains available for analysis.
 
-To access Static Web App diagnostics, navigate to your Static Web App in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
+## Categories
 
-In the Static Web App diagnostics homepage, you can perform a search for a symptom with your app, or choose a diagnostic category that best describes the issue with your app.
+You have access to diagnostic data in these categories:
 
-![Static Web App Diagnose and solve problems homepage with diagnostic search box and Troubleshooting categories for discovering diagnostics for the selected Azure Resource.](./media/diagnostics/static-web-app-diagnostics-overview.png)
+| Category | Description | Examples |
+|--|--|--|
+| Availability and performance | Health and performance data | Service down, platform health |
+| Configuration and Management | Application configuration data | Configuration, management, authentication |
+| Content Deployment | Content deployment data | Deployments |
 
-## Diagnostic Interface
+## View diagnostics
 
-The Static Web App diagnostics page offers access to the following:
+1. From the [Azure portal](https://portal.azure.com), go to your static web app.
 
-- **Search box**
-- **Troubleshooting categories**
+1. Select **Diagnose and solve problems**.
 
-## Search box
+From the diagnostics window you can search for a symptom, or select a diagnostic category.
 
-The search box is a quick way to find a diagnostic. The same diagnostic can be found through Troubleshooting categories.
+## Search
 
-![Static Web App Diagnose and solve problems search box with a dropdown of Custom Authentication Information, Get Static Web App Custom Domain configuration, Get Static Web App Deployment Information.](./media/diagnostics/static-web-app-diagnostics-search.png)
+You can search diagnostic data to locate data on a specific issue.
 
+## Reports
 
-## Troubleshooting categories
+Selecting an issue reveals a series of visualization for the diagnostic data.
 
-Troubleshooting categories group diagnostics for ease of discovery. The following are available:
+## Next steps
 
-- **Availability and Performance**
-- **Configuration and Management**
-- **Content Deployment**
-
-![Static Web App Diagnose and solve problems Troubleshooting categories list displaying Availability and Performance, Configuration and Management, and Content Deployment.](./media/diagnostics/static-web-app-diagnostics-categories.png)
-
-## Diagnostic report
-
-After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Configuration and Management overview:
-
-![Static Web App Diagnose and solve problems Configuration and Management, which displays different configuration aspects of a Static Web App such as General Information, Application Configuration, Custom Authentication, Managed Identity, App Settings, and Custom Domains.](./media/diagnostics/static-web-app-diagnostics-report.png)
+> [!div class="nextstepaction"]
+> [Troubleshooting deployment and runtime errors](troubleshooting.md)
