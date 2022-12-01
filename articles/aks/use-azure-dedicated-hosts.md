@@ -3,7 +3,7 @@ title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/13/2022
+ms.date: 12/01/2022
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -48,6 +48,12 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 > [!NOTE]
 > First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
 > Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
+
+Evaluate [host utilization](https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
+
+```azurecli-interactive
+az vm host -g myDHResourceGroup --host-group MyHostGroup --name MyHost
+```
 
 ## Create a Host Group
 
