@@ -35,17 +35,17 @@ This section will cover how to use the Azure App Configuration Push task in an A
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
-      > [!div class="mx-imgBorder"]
-      > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+        > [!div class="mx-imgBorder"]
+        > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
-      > [!div class="mx-imgBorder"]
-      > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+        > [!div class="mx-imgBorder"]
+        > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
 1. Search for the **Azure App Configuration Push** Task.
-> [!div class="mx-imgBorder"]
-> ![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
 1. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
-> [!div class="mx-imgBorder"]
-> ![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
 1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
@@ -56,11 +56,11 @@ This section will cover how to use the Azure App Configuration Push task in an A
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
-> [!div class="mx-imgBorder"]
-> ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
-> [!div class="mx-imgBorder"]
-> ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration Push** into the search box and select it.
 1. Configure the necessary parameters within the task to push your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
@@ -71,18 +71,10 @@ The following parameters are used by the App Configuration Push task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Endpoint**: A drop-down that loads your available configuration stores endpoint under the selected subscription. To update and refresh your list of available configuration stores endpoint, press the **Refresh App Configuration Endpoint** button to the right of the textbox. 
-- **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). The supported file formats are: yaml, json, properties. The following is an example configuration file in json format.
-    ```json
-    {
-        "TestApp:Settings:BackgroundColor":"#FFF",
-        "TestApp:Settings:FontColor":"#000",
-        "TestApp:Settings:FontSize":"24",
-        "TestApp:Settings:Message": "Message data"
-    }
-    ```
+- **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). The supported file formats depend on the file content profile. For the default profile the supported file formats are yaml, json and properties. For KvSet profile the supported file format is json.
 - **File Content Profile**: The Configuration File's [content profile](./concept-config-file.md). Default value is **Default**.
      - **Default**: Refers to the conventional configuration file formats that are directly consumable by applications.
-     - **Kvset**: Refers to a [file schema](https://aka.ms/latest-kvset-schema) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not supported when using the Kvset profile.
+     - **Kvset**: Refers to a [file schema](https://aka.ms/latest-kvset-schema) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The task parameters 'Separator', 'Label', 'Content type', 'Prefix', 'Tags', and 'Depth' are not applicable when using the Kvset profile.
 - **Import Mode**: The default value is **All**. Determines the behavior when importing key-values.
     - **All**: Imports all key-values in the configuration file to App Configuration. 
     - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration. Matching key-values are considered to be key-values with the same key, label, value, content type and tags.
