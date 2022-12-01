@@ -3,7 +3,7 @@ title: Seed offline backup with the Azure Import/Export service
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 12/05/2022
 ---
 # Offline backup workflow in Azure Backup
 
@@ -209,7 +209,7 @@ To update the tracking details, follow these steps:
 1. On the main menu, select **All services**.
 1. On the **All services** pane, enter **Azure Data Box** in the search box, and then select it from the search result.
 
-    :::image type="content" source="./media/backup-azure-backup-import-export/search-import-job.png" alt-text="Screenshot shows how to enter shipping information.":::
+    :::image type="content" source="./media/backup-azure-backup-import-export/search-import-job-inline.png" alt-text="Screenshot shows how to enter shipping information." lightbox="./media/backup-azure-backup-import-export/search-import-job-expanded.png":::
 
     On the **Azure Data Box** menu, the list of all Azure Data Box jobs under the selected subscription appears (including **Import/Export**).
 
@@ -217,12 +217,12 @@ To update the tracking details, follow these steps:
 
    If you've multiple subscriptions, select the subscription used to import the backup data.
 
-    :::image type="content" source="./media/backup-azure-backup-import-export/import-job-found.png" alt-text="Screenshot shows how to review shipping information.":::
+    :::image type="content" source="./media/backup-azure-backup-import-export/import-job-found-inline.png" alt-text="Screenshot shows how to review shipping information." lightbox="./media/backup-azure-backup-import-export/import-job-found-expanded.png":::
 
 1. Select the job, and then under the **Overview** pane, add the *Carrier and Tracking Number* to update the *Tracking information*.
 
 
-    :::image type="content" source="./media/backup-azure-backup-import-export/shipping-info.png" alt-text="Screenshot shows how to store shipping information.":::
+    :::image type="content" source="./media/backup-azure-backup-import-export/shipping-information-inline.png" alt-text="Screenshot shows how to store shipping information." lightbox="./media/backup-azure-backup-import-export/shipping-information-expanded.png":::
 
 ### Add return shipping details 
 
@@ -232,13 +232,13 @@ To add the return shipping details, follow these steps:
 1. Update the *carrier*, *carrier account number*, *contact details*, and the *return shipping address details*
 1. Select **Save**.
 
- :::image type="content" source="./media/backup-azure-backup-import-export/add-tracking-information.png" alt-text="Screenshot shows how to add return shipping details.":::]
+ :::image type="content" source="./media/backup-azure-backup-import-export/add-tracking-information-inline.png" alt-text="Screenshot shows how to add return shipping details." lightbox="./media/backup-azure-backup-import-export/add-tracking-information-expanded.png":::
 
 ### Edit notification email
 
 To update the email addresses that are notified on the Import job progress, select **Edit notification details**.
  
-:::image type="content" source="./media/backup-azure-backup-import-export/edit-notification-email.png" alt-text="Screenshot shows to how to edit notification email.":::
+:::image type="content" source="./media/backup-azure-backup-import-export/edit-notification-email-inline.png" alt-text="Screenshot shows to how to edit notification email." lightbox="./media/backup-azure-backup-import-export/edit-notification-email-expanded.png":::
 
 > [!IMPORTANT]
 > Ensure that the carrier information and tracking number are updated within two weeks of Azure import job creation. Failure to verify this information within two weeks can result in the job being deleted and drives not being processed.
@@ -258,7 +258,7 @@ For more information on the status of the import jobs, see [Monitor Azure Import
 
 After the import job successfully completes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure Backup copies the contents of the data from the storage account to the Recovery Services vault.
 
-   :::image type="content" source="./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png" alt-text="Screenshot shows how to copy data to Recovery Services vault.":::
+   :::image type="content" source="./media/backup-azure-backup-import-export/copying=from-storage-account-to-azure-backup-inline.png" alt-text="Screenshot shows how to copy data to Recovery Services vault." lightbox="./media/backup-azure-backup-import-export/copying=from-storage-account-to-azure-backup-expanded.png":::
 
 At the time of the next scheduled backup, Azure Backup performs an incremental backup.
 
