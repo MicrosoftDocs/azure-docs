@@ -34,7 +34,7 @@ Review these [basic concepts of distributed GPU training](concept-distributed-tr
 
 ## MPI
 
-Azure ML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. You can adopt this approach to run distributed training using either per-process-launcher or per-node-launcher, depending on whether `process_count_per_node` is set to 1 (the default) for per-node-launcher, or equal to the number of devices/GPUs for per-process-launcher. Azure ML constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
+Azure ML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. Azure ML constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
 
 > [!TIP]
 > The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [AzureML GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure ML also provides [curated environments](resource-curated-environments.md) for popular frameworks. 
@@ -42,11 +42,10 @@ Azure ML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to 
 To run distributed training using MPI, follow these steps:
 
 1. Use an Azure ML environment with the preferred deep learning framework and MPI. AzureML provides [curated environment](resource-curated-environments.md) for popular frameworks.
-1. Define  a `command` with `process_count_per_node` and `node_count`. `process_count_per_node` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
-
+1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
+1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
-
 
 
 ### Horovod
@@ -61,7 +60,7 @@ Make sure your code follows these tips:
 
 ### Horovod example
 
-* [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
+* For the full notebook to run the above example, see [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
 
 ### DeepSpeed
 
@@ -116,8 +115,6 @@ Beyond these, many applications will also need the following environment variabl
 - **`NODE_RANK`** - The rank of the node for multi-node training. The possible values are 0 to (total # of nodes - 1).
 
 
-### DistributedDataParallel (per-process-launch)
-
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
@@ -125,16 +122,11 @@ You don't need to use a launcher utility like `torch.distributed.launch`. To run
 
 Azure ML will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb?name=inputs)]
-
-
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb?name=job)]
 
 ### Pytorch example
 
-- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb)
-
-
-
+- For the full notebook to run the above example, see [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb)
 
 ## TensorFlow
 
@@ -143,7 +135,7 @@ If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed/tensorflow-mnist-distributed.ipynb?name=job)]
 
-If your training script uses the parameter server strategy for distributed training, such as for legacy TensorFlow 1.x, you'll also need to specify the number of parameter servers to use in the job, for example, `tf_config = TensorflowConfiguration(worker_count=2, parameter_server_count=1)`.
+If your training script uses the parameter server strategy for distributed training, such as for legacy TensorFlow 1.x, you'll also need to specify the number of parameter servers to use in the job, inside the `distribution` parameter of the `command`. In the above, for example, `"parameter_server_count" : 1` and `"worker_count": 2,
 
 ### TF_CONFIG
 
@@ -164,7 +156,7 @@ TF_CONFIG='{
 
 ### TensorFlow example
 
-- [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Tensorflow with Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
+- For the full notebook to run the above example, see [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Tensorflow with Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
 
 ## Accelerating distributed GPU training with InfiniBand
 
