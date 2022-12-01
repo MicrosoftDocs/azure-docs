@@ -445,13 +445,15 @@ New-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Restore BIG-IP
 
-Restoring a BIG-IP follows a similar procedure to the backup and can also be used for migrating configs between BIG-IP VMs. Details on supported upgrade paths should be observed before importing a backup.
+Restoring a BIG-IP is similar to the back-up process and can be used to migrate configs between BIG-IP VMs. Before you import a backup, confirm supported upgrade paths.
 
-1. Go to **System** > **Archives**
+1. Go to **System** > **Archives**.
 
-2. Either choose the link of a backup you wish to restore or select the **Upload** button to browse to a previously saved UCS archive that isn’t in the list
+* Select a backup link, **or**
+* Select Upload and browse to a saved UCS archive not in the list
 
-3. Provide the passphrase for the backup and select **Restore**
+2. Provide the backup passphrase.
+3. select **Restore**
 
 ```PowerShell
 # Authenticate to Azure
@@ -466,17 +468,14 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 ```
 
 >[!NOTE]
->At the time of writing, the AzVmSnapshot cmdlet is limited to restoring the most recent snapshot, based on date. Snapshots are stored in the root of the VM’s resource group. Be aware that restoring snapshots restarts an Azure VM, so time this carefully.
+>Currently, the AzVmSnapshot cmdlet can restore the most recent snapshot, based on date. Snapshots are stored in the VM resource-group root. Restoring snapshots restarts an Azure VM, so ensure the timing for the task is optimal.
 
 ## Additional resources
 
 - [Reset BIG-IP VE password in Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
 - [Reset the password without using the portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
-
 - [Change the NIC used for BIG-IP VE management](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
-
 - [About routes in a single NIC configuration](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
-
 - [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
 ## Next steps
