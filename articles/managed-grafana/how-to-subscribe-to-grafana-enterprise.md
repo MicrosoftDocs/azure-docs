@@ -37,9 +37,6 @@ Grafana Enterprise plugins:
 > [!NOTE]
 > Grafana Enterprise plugins are directly supported by Grafana Labs.
 
-> [!NOTE]
-> Grafana Enterprise is owned and charged by Grafana Labs, through Azure Marketplace.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
@@ -49,22 +46,27 @@ Grafana Enterprise plugins:
 
 You can enable access to Grafana Enterprise plugins by selecting a Grafana Enterprise plan when creating a new workspace, or you can add a Grafana Enterprise plan on an already-created Azure Managed Grafana instance.
 
+> [!NOTE]
+> The Grafana Enterprise monthly plan is a paid plan, owned and charged by Grafana Labs, through Azure Marketplace. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+
 ### Create an Azure Managed Grafana workspace with the Grafana Enterprise option enabled
 
 To activate Grafana Enterprise plugins when creating an Azure Managed Grafana Workspace, in **Create a Grafana Workspace**, go to the **Basics** tab and follow the steps below:
 
-1. Under **Grafana enterprise add-on**, check the box **Enable**.
-1. Under **Plan details**, select a plan: free trial or monthly plan.
+1. Under **Project Details**, select an Azure subscription and enter a resource group name or use the generated suggested resource group name
+1. Under **Instance Details**, select an Azure region and enter a resource name.
+1. Under **Grafana Enterprise**, check the box **Grafana Enterprise**, select **Free Trial - Azure Managed Grafana Enterprise Upgrade** and keep the option **Recurring billing** on **Disabled**.
 
-   > [!NOTE]
-   > The Grafana Enterprise monthly plan is a paid plan. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+    :::image type="content" source="media/grafana-enterprise/enable-enterprise-plan.png" alt-text="Screenshot of the Grafana dashboard, instance creation basic details.":::
 
-   > [!NOTE]
-   > Each subscription can benefit from one free trial opportunity.
+    > [!CAUTION]
+    > Each Azure subscription can benefit from one free Grafana Enterprise trial. The free trial lets you try the Grafana enterprise plan for one month. If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
 
-1. If you selected a paid plan, set **Recurring billing** to **On** or **Off** to indicate if you wish to subscribe to this plan or only try it once, until your next billing renewal. Read and check the waiver box.
-1. Select **Review + create** and review the information about your new instance, including the costs that may be associated with the Grafana Enterprise plan.
-1. Select **Create** to finalize the creation of your new Azure Managed Grafana instance.
+1. Select **Review + create** and review the information about your new instance, including the costs that may be associated with the Grafana Enterprise plan and potential other paid options.
+
+    :::image type="content" source="media/grafana-enterprise/creation-cost-review.png" alt-text="Screenshot of the Grafana dashboard. Workspace information and cost review.":::
+
+1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Create** to finalize the creation of your new Azure Managed Grafana instance.
 
 ### Update an existing Azure Managed Grafana instance
 
