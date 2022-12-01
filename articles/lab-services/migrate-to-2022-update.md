@@ -17,10 +17,13 @@ In this article, you'll learn the sequence to getting started using the features
 >[!Important]
 > While you don't have to migrate to the August 2022 update of Azure Lab Services yet, we do recommend you begin using the update for all new labs.
 
-A big part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the differences between lab plans and lab accounts in [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
+## What's different in the update?
+
+A big part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the differences between [lab plans and lab accounts](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
 
 If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
 
+For a full description of the update, read the article, [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
 ## Transition path at-a-glace
 
 There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
