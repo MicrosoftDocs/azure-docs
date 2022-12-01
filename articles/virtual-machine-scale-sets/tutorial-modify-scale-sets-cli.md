@@ -23,16 +23,14 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
-```Partial Output
+```output
 {
   "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
   "location": "eastus",
   "name": "myScaleSet",
   "orchestrationMode": "Flexible",
   "platformFaultDomainCount": 1,
-  "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
-  "singlePlacementGroup": false,
   "sku": {
     "capacity": 2,
     "name": "Standard_DS1_v2",
@@ -122,7 +120,18 @@ The exact presentation of the output depends on the options you provide to the c
 }
 ```
 
-These properties apply to the scale set as a whole. If you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
+You can use [az vmss update](/cli) to update various properties of your scale set. For example, updating your license type or a VMs instance protection policies: 
+
+```azurecli-interactive
+az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type windows_server
+```
+
+```azurecli-interactive
+az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
+```
+
+
+Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +146,7 @@ az vmss create \
 ```
 
 
-## Update the VM model
+## Updating individual VM instances in a scale set
 Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use:
 
  Azure CLI with [az vm show](/cli/azure/vm):
@@ -214,14 +223,12 @@ The exact presentation of the output depends on the options you provide to the c
       "osType": "Linux",
     }
   },
-  "tags": {},
   "timeCreated": "2022-11-29T22:16:44.500895+00:00",
   "type": "Microsoft.Compute/virtualMachines",
   "virtualMachineScaleSet": {
     "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
     "resourceGroup": "myResourceGroup"
   },
-  "vmId": "39afbef5-c942-495d-822b-19191c254921",
 }
 ```
 
@@ -256,6 +263,41 @@ Running [az vm show](/cli) again, we now will see that the VM instance has the n
     
 ```
 
+## Add an Instance to your scale set
+
+There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli) command and specifying the scale set name you want the instance added to. For example: 
+
+```azurecli-interactive
+az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image UbuntuLTS
+```
+
+```output
+
+{
+  "fqdns": "",
+  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myNewInstance",
+  "location": "eastus",
+  "macAddress": "60-45-BD-D7-13-DD",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.6",
+  "publicIpAddress": "20.172.144.96",
+  "resourceGroup": "myResourceGroup",
+  "zones": ""
+```
+
+If we then check our scale set, we will see the new instance added
+
+```cli
+az vm list --resource-group myResourceGroup --output table
+
+
+Name                 ResourceGroup    Location    
+-------------------  ---------------  ----------
+myNewInstance        myResourceGroup  eastus
+myScaleSet_4c53bcea  myResourceGroup  eastus
+myScaleSet_e1527581  myResourceGroup  eastus
+
+``` 
 ## Bring VMs up-to-date with the latest scale set model
 Scale sets have an "upgrade policy" that determine how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
 
@@ -263,7 +305,7 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
 - **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
 - **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs until a manual update is triggered.
  
-If your scale set is set to manual upgrades, you perform a manual upgrade using [az vmss update](/cli/azure/vmss)
+If your scale set is set to manual upgrades, you can trigger a manual upgrade using [az vmss update](/cli/azure/vmss)
 
 ```azurecli
 az vmss update --resource-group myResourceGroup --name myScaleSet 
@@ -325,32 +367,6 @@ az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualM
 
 >[!NOTE]
 > These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
-
-
-## Properties with restrictions on modification
-
-### Create-time properties
-Some properties can only be set when you create the scale set. These properties include:
-
-- Availability Zones
-- Image reference publisher
-- Image reference offer
-- Managed OS disk storage account type
-
-### Properties that can only be changed based on the current value
-Some properties may be changed, with exceptions depending on the current value. These properties include:
-
-- **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
-- **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
-- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
-
-### Properties that require deallocation to change
-Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
-
-- **SKU Name**- If the new VM SKU isn't supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/resize-vm.md). 
-
-## VM-specific updates
-Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/z_deprecated/preview/disk).
 
 
 ## Next steps
