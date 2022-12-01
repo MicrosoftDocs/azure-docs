@@ -43,7 +43,7 @@ Once a managed identity is created for your Azure Digital Twins instance, you'll
 
 ### Supported destinations and Azure roles 
 
-Here are the minimum roles that an identity needs to access an endpoint, depending on the type of destination. Roles with higher permissions (like Data Owner roles) will also work.
+Here are the minimum roles that your Azure Digital Twins identity needs to access an endpoint, depending on the type of destination. Roles with higher permissions (like Data Owner roles) will also work.
 
 | Destination | Azure role |
 | --- | --- |
@@ -73,9 +73,9 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     
     | Setting | Value |
     | --- | --- |
-    | Role | Select the desired role from the dropdown menu. |
-    | Assign access to | Under **Managed identity**, select **Digital Twins**. |
-    | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
+    | Role | Select the desired role from the options. |
+    | Assign access to | **Managed identity** |
+    | Members | Select the user-assigned or system-assigned managed identity of your Azure Digital Twins instance that's being assigned the role. A user-assigned identity will have the name you chose when you created the identity, and a system-assigned identity will have a name that matches the name of your Azure Digital Twins instance. |
     
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
 
