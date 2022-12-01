@@ -16,7 +16,7 @@ ms.date: 11/30/2022
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-In Azure Cosmos DB for NoSQL, data is scehma-free and typically denormalized. Instead of joining data across entities and sets, like you would in a relational database, joins occur within a single item. Specifically, joins are scoped to that item and can't occur across multiple items and containers.
+In Azure Cosmos DB for NoSQL, data is schema-free and typically denormalized. Instead of joining data across entities and sets, like you would in a relational database, joins occur within a single item. Specifically, joins are scoped to that item and can't occur across multiple items and containers.
 
 > [!TIP]
 > If you find yourself needing to join across items and containers, consider reworking your [data model](../../modeling-data.md) to avoid this.
