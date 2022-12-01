@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 12/01/2022
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
@@ -108,10 +108,6 @@ Receiving multiple HTTP responses simultaneously with body contents has implicat
 ### InitialTransferSize on download
 
 The Storage client libraries will make one download range request using `InitialTransferSize` before doing anything else. During this initial download request, the client libraries will know total resource size. If the initial request downloaded all of the content, the operation is complete. Otherwise, the download steps described earlier will continue until the request is completed.
-
-## Example scenarios
-
-TODO: A place to describe some typical development environments (machine on home network, VM in Azure) and offer some suggested values to test with as a baseline, with all the caveats that your mileage may vary and you need to do your own testing.
 
 ## Next steps
 
