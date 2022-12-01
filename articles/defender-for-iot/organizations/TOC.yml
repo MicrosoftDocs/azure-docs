@@ -123,6 +123,9 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
+  - name: Enhance security posture
+    href: recommendations.md
+    displayName: recommendations
   - name: Integrate with security partners
     items:
     - name: Integration catalog
@@ -205,6 +208,8 @@
     href: how-to-manage-sensors-on-the-cloud.md
   - name: Create and manage users
     items:
+    - name: Azure portal
+      href: manage-users-portal.md
     - name: OT sensor console
       href: manage-users-sensor.md
     - name: On-premises management console

@@ -57,6 +57,10 @@ When no longer needed, you can delete the resource group, lab plan, and all rela
 1. At the top of the page for the resource group, select **Delete resource group**.
 1. A page will open warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 In this quickstart, you created a resource group and a lab plan.  
