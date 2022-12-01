@@ -101,7 +101,7 @@ Let's assume we have a Node.js application built on Express with the `/getTokenF
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
     const identityClient = new CommunicationIdentityClient("<COMMUNICATION_SERVICES_CONNECTION_STRING>");
-    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken);
+    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken, '<AAD_CLIENT_ID>', '<TEAMS_USER_OBJECT_ID>');
     res.json({ communicationIdentityToken: communicationIdentityToken.token });
 });
 ```
