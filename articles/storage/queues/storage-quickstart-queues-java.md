@@ -29,7 +29,7 @@ Additional resources:
 - [API reference documentation](/java/api/overview/azure/storage-queue-readme)
 - [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 - [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-- [Samples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+- [Samples](../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json#queue-samples)
 
 ## Prerequisites
 

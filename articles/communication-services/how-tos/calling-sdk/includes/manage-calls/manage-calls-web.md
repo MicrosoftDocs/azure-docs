@@ -197,12 +197,14 @@ The state can be:
 - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
-
     ```js
     const callEndReason = remoteParticipant.callEndReason;
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
     ```
+    Note: 
+    - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
+    - In the scenario where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 

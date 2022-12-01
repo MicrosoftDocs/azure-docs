@@ -10,7 +10,7 @@ author: kaarthis
 
 ---
 
-#  Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster exclusively for weekly releases (preview)
+# Use Planned Maintenance window for scheduling exclusive Azure Kubernetes Service (AKS) weekly releases (Preview)
 
  Planned Maintenance allows you to schedule weekly maintenance windows that will ensure the weekly releases [releases] are controlled. Maintenance Windows are configured using the Azure CLI, allowing you to select from a set of pre-available configurations.
 
@@ -22,17 +22,15 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-When using Planned Maintenance, the following restrictions apply:
+When you use Planned Maintenance, the following restrictions apply:
 
 - AKS reserves the right to break these windows for unplanned/reactive maintenance operations that are urgent or critical.
 - Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
 - Updates cannot be blocked for more than seven days.
 
-
-
 ## Available pre-created public maintenance configurations for you to pick
 
-There are 2 general kinds of pre-created public maintenance configurations:
+There are two general kinds of pre-created public maintenance configurations:
 
 - For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
 - For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.

@@ -186,4 +186,5 @@ Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as desc
 ## Next steps
 
 - [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
+- [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

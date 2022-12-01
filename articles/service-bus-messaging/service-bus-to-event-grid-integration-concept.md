@@ -27,7 +27,7 @@ You can create Event Grid subscriptions for Service Bus namespaces in three diff
 
 - Azure portal. See the following tutorials to learn how to use Azure portal to create Event Grid subscriptions for Service Bus events with Azure Logic Apps and Azure Functions as handlers. 
     - [Azure Logic Apps](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
-    - [Azure Functions](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
+    - [Azure Functions](service-bus-to-event-grid-integration-function.md#connect-the-function-and-the-service-bus-namespace-via-event-grid)
 * Azure CLI. The following CLI example shows how to create an Azure Functions subscription for a [system topic](../event-grid/system-topics.md) created by a Service Bus namespace.
 
      ```azurecli-interactive
@@ -54,7 +54,7 @@ If you want to get events only from, for example, one queue or one subscription 
 ## Next steps
 See the following tutorials: 
 - [Azure Logic Apps to handle Service Bus messages received via Event Grid](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
-- [Azure Functions to handle Service Bus messages received via Event Grid](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
+- [Azure Functions to handle Service Bus messages received via Event Grid](service-bus-to-event-grid-integration-function.md#connect-the-function-and-the-service-bus-namespace-via-event-grid)
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

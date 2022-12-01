@@ -67,7 +67,7 @@ You can also create a key vault by using the [Resource Manager template](https:/
 ## Set key vault advanced access policies
 
 > [!IMPORTANT]
-> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
+> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](../articles/key-vault/general/soft-delete-overview.md).
 
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes.
 

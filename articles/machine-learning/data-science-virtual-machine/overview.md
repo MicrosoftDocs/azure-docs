@@ -25,7 +25,6 @@ The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cl
 The DSVM is available on:
 
 + Windows Server 2019
-+ Ubuntu 18.04 LTS
 + Ubuntu 20.04 LTS
 
 Additionally, we are excited to offer Azure DSVM for PyTorch (preview), which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), as well as an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.

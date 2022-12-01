@@ -125,10 +125,14 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
+  - name: Transition to August 2022 Update
+    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md  
+      href: how-to-request-capacity-increase.md?tabs=Labplans
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -299,14 +303,17 @@
       href: reference-powershell-module.md     
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
-  - name: Built-in policies
-    href: /azure/governance/policy/samples/built-in-policies#lab-services
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: Microsoft Azure SDK for Python
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources

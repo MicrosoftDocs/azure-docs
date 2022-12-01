@@ -46,6 +46,11 @@ landingContent:
       links:
       - text: How a reservation discount is applied
         url: reservation-discount-application.md
+    - linkListType: learn
+      links:
+      - text: Save money with Azure reserved instances
+        url: /training/modules/save-money-with-azure-reserved-instances/
+
 
   # Card (optional)
   - title: Manage reservations after purchase

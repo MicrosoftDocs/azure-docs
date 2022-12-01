@@ -4,7 +4,7 @@ description: Create an automated Azure Container Registry Tasks workflow to trac
 author: SteveLasker
 ms.topic: article
 ms.author: stevelas
-ms.date: 10/29/2020
+ms.date: 10/11/2022
 ms.custom:
 ---
 

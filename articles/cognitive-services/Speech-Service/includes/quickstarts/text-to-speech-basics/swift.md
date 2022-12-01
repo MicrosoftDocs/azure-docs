@@ -129,6 +129,9 @@ Follow these steps to synthesize speech in a macOS application.
 1. Make the debug output visible by selecting **View** > **Debug Area** > **Activate Console**.
 1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
 
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
 After you input some text and select the button in the app, you should hear the synthesized audio played.
 
 > [!div class="nextstepaction"]
@@ -138,8 +141,8 @@ After you input some text and select the button in the app, you should hear the 
 Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
-- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
-- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/cognitive-services/speech-service/batch-synthesis.md). 
 
 ## Clean up resources
 

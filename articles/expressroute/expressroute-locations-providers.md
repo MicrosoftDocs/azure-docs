@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 11/10/2022
 ms.author: duau
 ms.custom: references_regions
 
@@ -129,7 +129,7 @@ The following table shows connectivity locations and the service providers for e
 | **Taipei** | Chief Telecom | 2 | n/a | Supported | Chief Telecom, Chunghwa Telecom, FarEasTone |
 | **Tel Aviv** | Bezeq International | 2 | n/a | Supported | |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | Supported | Aryaka Networks, AT&T NetBond, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Telehouse - KDDI, Verizon </br></br> |
-| **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | Supported | AT TOKYO, China Unicom Global, Colt, Fibrenoire, IX Reach, Megaport, PCCW Global Limited, Tokai Communications |
+| **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | Supported | AT TOKYO, China Unicom Global, Colt, Equinix, Fibrenoire, IX Reach, Megaport, PCCW Global Limited, Tokai Communications |
 | **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | Supported | |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | Supported | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | Supported | |
@@ -168,12 +168,6 @@ Azure national clouds are isolated from each other and from global commercial Az
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ** ExpressRoute Local is not available in this location.
-
-### Germany
-| **Location** | **Service providers** |
-| --- | --- |
-| **Berlin** |e-shelter, Megaport+, T-Systems |
-| **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivity through Exchange providers
 If your connectivity provider is not listed in previous sections, you can still create a connection.

@@ -30,14 +30,23 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 
 ## Default roles
 
-Azure Machine Learning workspaces have a four built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the built-in roles described below.
+Azure Machine Learning workspaces have a five built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the built-in roles described below.
 
 | Role | Access level |
 | --- | --- |
 | **AzureML Data Scientist** | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. |
+| **AzureML Compute Operator** | Can create, manage and access compute resources within a workspace.|
 | **Reader** | Read-only actions in the workspace. Readers can list and view assets, including [datastore](how-to-access-data.md) credentials, in a workspace. Readers can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
+
+In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have a **AzureML Registry User** role that can be assigned to a registry resource to grant data scientists user-level prermissions. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
+
+| Role | Access level |
+| --- | --- |
+| **AzureML Registry User** | Can get registries, and read, write and delete assets within them. Cannot create new registry resources or delete them. |
+
+You can combine the roles to grant different levels of access. For example, you can grant a workspace user both **AzureML Data Scientist** and **Azure ML Compute Operator** roles to permit the user to perform experiments while creating computes in a self-service manner.
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
@@ -61,7 +70,7 @@ You can use Azure AD security groups to manage access to workspaces. This approa
 
 To use Azure AD security groups:
  1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
- 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
+ 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
  4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
 
@@ -152,7 +161,7 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 ## Use Azure Resource Manager templates for repeatability
 
-If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+If you anticipate that you'll need to recreate complex role assignments, an Azure Resource Manager template can be a significant help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 
@@ -581,7 +590,7 @@ A vendor quality assurance role can perform a customer quality assurance role, b
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
-- When you create a resource in Azure, such as a workspace, you are not directly the owner of the resource. Your role is inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
+- When you create a resource in Azure, such as a workspace, you're not directly the owner of the resource. Your role is inherited from the highest scope role that you're authorized against in that subscription. As an example if you're a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 
 - To perform quota operations in a workspace, you need subscription level permissions. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope.
 

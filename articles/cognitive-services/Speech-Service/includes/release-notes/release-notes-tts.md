@@ -2,9 +2,81 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 11/14/2022
 ms.author: eur
 ---
+
+### 2022-November release
+
+#### Prebuilt Neural TTS Voices (GA)
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/>`es-MX-CandelaNeural` (Female)<br/>`es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) | 
+| `it-IT` | Italian (Italy) | `it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male) | 
+| `pt-BR` | Portuguese (Brazil) | `pt-BR-BrendaNeural` (Female)<br/>`pt-BR-DonatoNeural` (Male)<br/>`pt-BR-ElzaNeural` (Female)<br/>`pt-BR-FabioNeural` (Male)<br/>`pt-BR-GiovannaNeural` (Female)<br/>`pt-BR-HumbertoNeural` (Male)<br/>`pt-BR-JulioNeural` (Male)<br/>`pt-BR-LeilaNeural` (Female)<br/>`pt-BR-LeticiaNeural` (Female)<br/>`pt-BR-ManuelaNeural` (Female)<br/>`pt-BR-NicolauNeural` (Male)<br/>`pt-BR-ValerioNeural` (Male)<br/>`pt-BR-YaraNeural` (Female) | 
+
+#### Custom neural voice
+
+The following locale support is added for [Custom Neural Voice](../../custom-neural-voice.md). See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+- Added support for the `fr-BE` locale with Custom Neural Voice Pro. 
+- Added support for the `es-ES` locale with Custom Neural Voice Lite.
+
+### 2022-October release
+
+#### Prebuilt Neural TTS Voices (GA)
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `eu-ES` | Basque | `eu-ES-AinhoaNeural` (Female)<br/>`eu-ES-AnderNeural` (Male) | 
+| `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | 
+
+#### Prebuilt Neural TTS Voices (Preview)
+
+The following voices are now available in public preview. See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural`(Female)<br/>`en-AU-CarlyNeural`(Female)<br/>`en-AU-DarrenNeural`(Male)<br/>`en-AU-DuncanNeural`(Male)<br/>`en-AU-ElsieNeural`(Female)<br/>`en-AU-FreyaNeural`(Female)<br/>`en-AU-JoanneNeural`(Female)<br/>`en-AU-KenNeural`(Male)<br/>`en-AU-KimNeural`(Female)<br/>`en-AU-NeilNeural`(Male)<br/>`en-AU-TimNeural`(Male)<br/>`en-AU-TinaNeural`(Female) | 
+| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`(Female)<br/>`es-ES-AlvaroNeural`(Male)<br/>`es-ES-ArnauNeural`(Male)<br/>`es-ES-DarioNeural`(Male)<br/>`es-ES-EliasNeural`(Male)<br/>`es-ES-EstrellaNeural`(Female)<br/>`es-ES-IreneNeural`(Female)<br/>`es-ES-LaiaNeural`(Female)<br/>`es-ES-LiaNeural`(Female)<br/>`es-ES-NilNeural`(Male)<br/>`es-ES-SaulNeural`(Male)<br/>`es-ES-TeoNeural`(Male)<br/>`es-ES-TrianaNeural`(Female)<br/>`es-ES-VeraNeural`(Female) | 
+| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`(Female)<br/>`ja-JP-DaichiNeural`(Male)<br/>`ja-JP-MayuNeural`(Female)<br/>`ja-JP-NaokiNeural`(Male)<br/>`ja-JP-ShioriNeural`(Female) | 
+| `ko-KR` | Korean (Korea) | `ko-KR-BongJinNeural`(Male)<br/>`ko-KR-GookMinNeural`(Male)<br/>`ko-KR-JiMinNeural`(Female)<br/>`ko-KR-SeoHyeonNeural`(Female)<br/>`ko-KR-SoonBokNeural`(Female)<br/>`ko-KR-YuJinNeural`(Female) | 
+| `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural` (Female)<br/>`wuu-CN-YunzheNeural` (Male) | 
+| `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural` (Female)<br/>`yue-CN-YunSongNeural` (Male) | 
+
+#### General TTS voice updates
+
+- Improved quality for the `fil-PH-AngeloNeural` and `fil-PH-BlessicaNeural` voices.
+- Text Normalization rules are updated for voices with the `es-CL` Spanish (Chile) and `uz-UZ` Uzbek (Uzbekistan) locales.
+- Added English letters spelling for voices with the `sq-AL` Albanian (Albania) and `az-AZ` Azerbaijani (Azerbaijan) locales.
+- Improved English pronunciation for the `zh-HK-WanLungNeural` voice.
+- Improved question tone for the `nl-NL-MaartenNeural` and `pt-BR-AntonioNeural` voices.
+- Added support for the `<lang ="en-US">` tag for better English pronunciation with the following voices: `de-DE-ConradNeural`, `de-DE-KatjaNeural`, `es-ES-AlvaroNeural`, `es-MX-DaliaNeural`, `es-MX-JorgeNeural`, `fr-CA-SylvieNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, `it-IT-DiegoNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="chat"` tag with the following voices: `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural`.
+
+### 2022-September release
+
+#### Prebuilt Neural TTS Voice
+
+* All the prebuilt neural voices have been upgraded to high-fidelity voices with 48kHz sample rate. 
+
+### 2022-August release
+
+#### Prebuilt Neural TTS Voice
+
+Released new voices in public preview:
+* Voices for English (United States): `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`.
+* Voices for Chinese dialects: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
+
+For more information, see the [language and voice list](../../language-support.md?tabs=stt-tts).
+
 ### 2022-July release
 
 #### Prebuilt Neural TTS Voice
@@ -13,11 +85,11 @@ ms.author: eur
 
 | Language | Locale  | Gender | Voice name| Style support|
 |---|---|---|---|---|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
 | English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
 
 *  Supported styles and roles for the added neural voices.
@@ -33,7 +105,7 @@ ms.author: eur
 #### Get facial position with viseme
 
 * Added support for blend shapes to drive the facial movements of a 3D character that you designed. Learn more at [how to get facial position with viseme](../../how-to-speech-synthesis-viseme.md).
-* SSML updated to support viseme element. See [speech synthesis markup](../../speech-synthesis-markup.md#viseme-element).
+* SSML updated to support viseme element. See [speech synthesis markup](../../speech-synthesis-markup-structure.md#viseme-element).
 
 ### 2022-June release
 
@@ -154,7 +226,7 @@ ms.author: eur
 
 #### Custom Neural Voice
 
-* Enabled to fix data issues online. Learn more on [how to fix data issues online](../../how-to-custom-voice-create-voice.md#fix-data-issues-online).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
 * Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool
@@ -174,7 +246,7 @@ ms.author: eur
 * Support 2 new styles `sports-commentary`, `sports-commentary-excited` in public preview for `zh-CN-YunjianNeural`. See [voice styles and roles](../../language-support.md?tabs=stt-tts).
 * Support 1 new style `advertisement-upbeat` in public preview for `zh-CN-YunhaoNeural`. See [voice styles and roles](../../language-support.md?tabs=stt-tts).
 * The `cheerful` and `sad` styles for `fr-FR-DeniseNeural` are generally available in all regions.
-* SSML updated to support MathML elements for en-US and en-AU voices. Learn more at [speech synthesis markup](../../speech-synthesis-markup.md#supported-mathml-elements).
+* SSML updated to support MathML elements for en-US and en-AU voices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-pronunciation.md#pronunciation-with-mathml).
 
 #### Custom Neural Voice
 
@@ -212,7 +284,7 @@ ms.author: eur
 
 #### Custom Neural Voice
 
-* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice-lite.md).
 * Extended language support to 49 locales. See [language support](../../language-support.md?tabs=stt-tts).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 
@@ -373,7 +445,7 @@ Neural Text-to-Speech now includes the [viseme event](../../how-to-speech-synthe
 
 **Add the bookmark element in Speech Synthesis Markup Language (SSML)**
 
-The [bookmark element](../../speech-synthesis-markup.md#bookmark-element) allows you to insert custom markers in SSML to get the offset of each marker in the audio stream. It can be used to reference a specific location in the text or tag sequence.
+The [bookmark element](../../speech-synthesis-markup-structure.md#bookmark-element) allows you to insert custom markers in SSML to get the offset of each marker in the audio stream. It can be used to reference a specific location in the text or tag sequence.
 
 ### 2021-February release
 
@@ -421,7 +493,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 #### New features
 - **Custom Voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
-- [SSML silence tag](../../speech-synthesis-markup.md#add-silence) support.
+- [SSML silence tag](../../speech-synthesis-markup-structure.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
 > Read more at [this tech blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
@@ -429,7 +501,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 ### 2020-October release
 
 #### New features
-- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md#adjust-speaking-styles).
+- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 - **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
 - **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms.
@@ -447,7 +519,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 * **Neural text-to-speech**
     * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
     * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](../../language-support.md?tabs=stt-tts).
-    * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md#adjust-speaking-styles).
+    * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
 * **Containers: Neural text-to-speech Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural text-to-speech](../../speech-container-howto.md)
 

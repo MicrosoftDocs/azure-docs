@@ -7,11 +7,11 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, ignite-2022
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB Emulator
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for local development purposes. After [installing the emulator](local-emulator.md), you can control the emulator with command line and PowerShell commands. This article describes how to use the command-line and PowerShell commands to start and stop the emulator, configure options, and perform other operations. You have to run the commands from the installation location.
 
@@ -32,15 +32,15 @@ To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at th
 |DataPath | Specifies the path in which to store data files. Default value is %LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: An accessible path |
 |Port | Specifies the port number to use for the emulator. Default value is 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<port\>: Single port number |
 | ComputePort | Specified the port number to use for the Compute Interop Gateway service. The Gateway's HTTP endpoint probe port is calculated as ComputePort + 79. Hence, ComputePort and ComputePort + 79 must be open and available. The default value is 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<computeport\>: Single port number |
-| EnableMongoDbEndpoint=3.2 | Enables MongoDB API 3.2 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
-| EnableMongoDbEndpoint=3.6 | Enables MongoDB API 3.6 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
-| EnableMongoDbEndpoint=4.0 | Enables MongoDB API 4.0 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=4.0 | |
+| EnableMongoDbEndpoint=3.2 | Enables API for MongoDB 3.2 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
+| EnableMongoDbEndpoint=3.6 | Enables API for MongoDB 3.6 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
+| EnableMongoDbEndpoint=4.0 | Enables API for MongoDB 4.0 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=4.0 | |
 | MongoPort | Specifies the port number to use for MongoDB compatibility API. Default value is 10255. |Microsoft.Azure.Cosmos.Emulator.exe /MongoPort=\<mongoport\>|\<mongoport\>: Single port number|
-| EnableCassandraEndpoint | Enables Cassandra API | Microsoft.Azure.Cosmos.Emulator.exe /EnableCassandraEndpoint | |
+| EnableCassandraEndpoint | Enables API for Cassandra | Microsoft.Azure.Cosmos.Emulator.exe /EnableCassandraEndpoint | |
 | CassandraPort | Specifies the port number to use for the Cassandra endpoint. Default value is 10350. | Microsoft.Azure.Cosmos.Emulator.exe /CassandraPort=\<cassandraport\> | \<cassandraport\>: Single port number |
-| EnableGremlinEndpoint | Enables Gremlin API | Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint | |
+| EnableGremlinEndpoint | Enables API for Gremlin | Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Port number to use for the Gremlin Endpoint. Default value is 8901. | Microsoft.Azure.Cosmos.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
-|EnableTableEndpoint | Enables Azure Table API | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
+|EnableTableEndpoint | Enables API for Table | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Port number to use for the Azure Table Endpoint. Default value is 8902. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
 | KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
 | ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<path> | \<path\>: File path  |

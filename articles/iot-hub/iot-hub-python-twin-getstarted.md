@@ -10,6 +10,7 @@ ms.date: 03/11/2020
 ms.author: kgremban
 ms.custom: mqtt, devx-track-python
 ---
+
 # Get started with device twins (Python)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -25,11 +26,13 @@ In this article, you create two Python console apps:
 
 ## Prerequisites
 
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -39,7 +42,7 @@ In this article, you create two Python console apps:
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
-## Create a device app with a direct method
+## Create a device app that updates reported properties
 
 In this section, you create a Python console app that connects to your hub as your **{Device ID}** and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
 
@@ -139,7 +142,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     ![receive desired properties on device app](./media/iot-hub-python-twin-getstarted/device-2.png)
 
-## Create a service app to trigger a reboot
+## Create a service app that updates desired properties and queries twins
 
 In this section, you create a Python console app that adds location metadata to the device twin associated with your **{Device ID}**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
@@ -227,14 +230,11 @@ In this section, you create a Python console app that adds location metadata to 
 
     ![first query showing all devices in Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
-
 In this article, you:
 
-* Configured a new IoT hub in the Azure portal
-* Created a device identity in the IoT hub's identity registry
 * Added device metadata as tags from a back-end app
 * Reported device connectivity information in the device twin
-* Queried the device twin information, using SQL-like IoT Hub query language
+* Queried the device twin information using the IoT Hub query language
 
 ## Next steps
 

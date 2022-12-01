@@ -16,6 +16,14 @@ ms.author: eur
 
 [Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
+## Speech Studio scenarios
+
+Explore, try out, and view sample code for some of common use cases.
+
+* [Captioning](https://aka.ms/speechstudio/captioning): Choose a sample video clip to see real-time or offline processed captioning results. Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. For more information, see the [captioning quickstart](captioning-quickstart.md).
+
+* [Call Center](https://aka.ms/speechstudio/callcenter): View a demonstration on how to use the Language and Speech services to analyze call center conversations. Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case. For more information, see the [call center quickstart](call-center-quickstart.md).
+
 ## Speech Studio features
 
 In Speech Studio, the following Speech service features are available as project types:

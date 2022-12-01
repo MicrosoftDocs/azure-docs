@@ -1,10 +1,10 @@
 ---
 title: The Advanced Security Information Model (ASIM) File Event normalization schema reference (Public preview)| Microsoft Docs
 description: This article describes the Microsoft Sentinel File Event normalization schema.
-author: batamig
+author: limwainstein
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
@@ -83,7 +83,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
 | Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcSubscriptionId](normalization-common-fields.md#dvcsubscriptionid)|
+
 
 
 
@@ -124,8 +125,8 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **SrcFileExtension**|Optional | String|The source file extension. <br><br>**Note**: A parser can provide this value the value is available in the log source, and does not need to be extracted from the full path.|
 |**SrcFileMimeType** |Optional |Enumerated |	The Mime or Media type of the source file. Supported values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository. |
 |**SrcFileName** |Optional |String | The name of the source file, without a path or a location, but with an extension if relevant. This field should be similar to the last element in the [SrcFilePath](#srcfilepath) field. <br><br>**Note**: A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
-| <a name="srcfilepath"></a>**SrcFilePath**| Mandatory|String |The full, normalized path of the source file, including the folder or location, the file name, and the extension. <br><br>For more information, see [Path structure](#path-structure).<br><br>Example: `/etc/init.d/networking` |
-|**SrcFilePathType** |Mandatory | Enumerated| The type of [SrcFilePath](#srcfilepath). For more information, see [Path structure](#path-structure).|
+| <a name="srcfilepath"></a>**SrcFilePath**| Recommended |String |The full, normalized path of the source file, including the folder or location, the file name, and the extension. <br><br>For more information, see [Path structure](#path-structure).<br><br>Example: `/etc/init.d/networking` |
+|**SrcFilePathType** | Recommended | Enumerated| The type of [SrcFilePath](#srcfilepath). For more information, see [Path structure](#path-structure).|
 |**SrcFileMD5**|Optional |MD5 |	The MD5 hash of the source file. <br><br>Example:           `75a599802f1fa166cdadb360960b1dd0` |
 |**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
 |**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example:<br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`|

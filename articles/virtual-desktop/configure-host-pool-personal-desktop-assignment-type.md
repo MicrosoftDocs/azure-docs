@@ -152,8 +152,8 @@ To reassign a personal desktop in the Azure portal:
 
 Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These articles will show you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-- [Connect with the web client](./user-documentation/connect-web.md)
-- [Connect with the Android client](./user-documentation/connect-android.md)
-- [Connect with the iOS client](./user-documentation/connect-ios.md)
-- [Connect with the macOS client](./user-documentation/connect-macos.md)
+- [Connect with the Windows Desktop client](./users/connect-windows.md)
+- [Connect with the web client](./users/connect-web.md)
+- [Connect with the Android client](./users/connect-android-chrome-os.md)
+- [Connect with the iOS client](./users/connect-ios-ipados.md)
+- [Connect with the macOS client](./users/connect-macos.md)

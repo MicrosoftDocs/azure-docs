@@ -12,6 +12,8 @@ ms.custom: mode-other
 
 # Quickstart: Set up a course and create a classroom
 
+[!Warning] This is the legacy version of Azure Education Hub
+
 This quickstart explains how to set up a course and classroom in the Microsoft Azure Education Hub, including subscription details.
 
 ## Prerequisites

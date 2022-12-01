@@ -5,10 +5,11 @@ description: Identify and manage common pitfalls of ML models with Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: blackmist
-ms.author: larryfr
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
 ---
 
@@ -114,7 +115,7 @@ The following techniques are additional options to handle imbalanced data **outs
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
++ Follow the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).

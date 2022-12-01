@@ -6,7 +6,7 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 03/09/2021
 ms.topic: article
-ms.service: azure-vmware-cloudsimple
+ms.service: azure-vmware
 ms.reviewer: cynthn
 manager: dikamath
 ---

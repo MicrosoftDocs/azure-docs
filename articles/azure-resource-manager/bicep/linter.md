@@ -2,7 +2,7 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 9/23/2022
+ms.date: 11/01/2022
 ---
 
 # Use Bicep linter
@@ -19,6 +19,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
 - [artifacts-parameters](./linter-rule-artifacts-parameters.md)
+- [decompiler-cleanup](./linter-rule-decompiler-cleanup.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
@@ -39,6 +40,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
+- [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)

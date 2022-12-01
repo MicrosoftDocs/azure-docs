@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/24/2022
 
 ms.author: mimart
 author: msmimart
@@ -52,8 +52,6 @@ For B2B collaboration with other Azure AD organizations, you should also review 
    - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
    - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with administrator roles to invite guests, select this radio button. The administrator roles include [Global Administrator](../roles/permissions-reference.md#global-administrator), [User Administrator](../roles/permissions-reference.md#user-administrator), and [Guest Inviter](../roles/permissions-reference.md#guest-inviter).
    - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
-     > [!NOTE]
-     > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 1. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 

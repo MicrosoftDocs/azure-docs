@@ -10,6 +10,12 @@ ms.author: juliako
 
 This article gives a brief overview of Azure Video Indexer terminology and concepts.
 
+## Artifact files
+
+If you plan to download artifact files, beware of the following: 
+	
+[!INCLUDE [artifacts](./includes/artifacts.md)]
+
 ## Confidence scores
 
 The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score the greater the confidence in the answer. For example: 
@@ -60,4 +66,4 @@ Azure Video Indexer supports embedding widgets in your apps. For more informatio
 ## Next steps
 
 - [overview](video-indexer-overview.md)
-- [Insights](video-indexer-output-json-v2.md)
+- Once you [set up](video-indexer-get-started.md), start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.

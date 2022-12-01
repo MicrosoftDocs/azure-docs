@@ -46,14 +46,12 @@ To enable Smart Tiering for Azure VM backup policies, follow these steps:
 
 1. In **Backup policy**, select **Enable Tiering**.
 
-   :::image type="content" source="./media/use-archive-tier-support/select-enable-tiering-inline.png" alt-text="Screenshot showing to select the Enable Tiering option." lightbox="./media/use-archive-tier-support/select-enable-tiering-expanded.png":::
-
 1. Select one of the following options to move to Vault-archive tier:
 
    - **Recommended recovery points**: This option moves all recommended recovery points to the vault-archive tier. [Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendations.
    - **Eligible recovery points**: This option moves all eligible recovery point after a specific number of days.
 
-     :::image type="content" source="./media/use-archive-tier-support/select-eligible-recovery-points-inline.png" alt-text="Screenshot showing to select the Eligible recovery points option." lightbox="./media/use-archive-tier-support/select-eligible-recovery-points-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/select-eligible-recovery-points-inline.png" alt-text="Screenshot showing to select the Eligible recovery points option." lightbox="./media/use-archive-tier-support/select-eligible-recovery-points-expanded.png":::
 
    >[!Note]
    >- The value of *x* can range from *3 months* to *(monthly/yearly retention in months -6)*.

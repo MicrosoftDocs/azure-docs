@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---

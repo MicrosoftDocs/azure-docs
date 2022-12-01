@@ -3,7 +3,7 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/28/2021
+ms.date: 10/16/2022
 ms.topic: tutorial 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal.
 
 >[!NOTE]
->  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) does not support workflows.
+>  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) and PowerShell 7.2 (preview) don't support workflows.
 
 In this tutorial, you learn how to:
 
@@ -299,8 +299,8 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 9, remove `(Connect-AzAccount -Identity)`,
-    1. Replace it with `(Connect-AzAccount -Identity -AccountId <ClientId>)`, and
+    1. From line 9, remove `Connect-AzAccount -Identity`,
+    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
     1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, then **Publish**, and then **Yes** when prompted.

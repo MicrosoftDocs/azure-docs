@@ -2,44 +2,41 @@
 title: Tutorial for AD Reporting API with certificates | Microsoft Docs
 description: This tutorial explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-
-# Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
+
+# Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
+
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
 
-The [Azure Active Directory (Azure AD) reporting APIs](concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. If you want to access the Azure AD Reporting API without user intervention, you must configure your access to use certificates.
+The [Azure Active Directory (Azure AD) reporting APIs](concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools. If you want to access the Azure AD Reporting API without user intervention, you must configure your access to use certificates.
 
 In this tutorial, you learn how to use a test certificate to access the MS Graph API for reporting. We don't recommend using test certificates in a production environment. 
 
 ## Prerequisites
 
-1. To access sign-in data, make sure you have an Azure Active Directory tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
+1. To access sign-in data, make sure you have an Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure AD edition. If you didn't have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
 
-2. Create or switch to a user account in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. 
+2. Create or switch to a user account in the **Global Administrator**, **Security Administrator**, **Security Reader** or **Report Reader** role for the tenant. 
 
 3. Complete the [prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
 
 4. Download and install [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
 
 5. Install [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). This module provides several utility cmdlets including:
-    - The ADAL libraries needed for authentication
-    - Access tokens from user, application keys, and certificates using ADAL
+    - The Microsoft Authentication Library libraries needed for authentication
+    - Access tokens from user, application keys, and certificates using Microsoft Authentication Library
     - Graph API handling paged results
 
 6. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** PowerShell command. Your session should look similar to this screen:
@@ -60,13 +57,13 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 ## Get data using the Azure Active Directory reporting API with certificates
 
-1. Navigate to the [Azure portal](https://portal.azure.com), select **Azure Active Directory**, then select **App registrations** and choose your application from the list. 
+1. Go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **App registrations** and choose your application from the list. 
 
-2. Select **Certificates & secrets** under **Manage** section on Application registration blade and select **Upload Certificate**.
+2. From the Application registration area, select **Certificates & secrets** under the **Manage** section, and then select **Upload Certificate**.
 
 3. Select the certificate file from the previous step and select **Add**. 
 
-4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Certificates & secrets** under **Manage** section. The thumbprint will be under the **Certificates** list.
+4. Note the Application ID, and the thumbprint of the certificate you registered with your application. To find the thumbprint, from your application page in the portal, go to **Certificates & secrets** under **Manage** section. The thumbprint will be under the **Certificates** list.
 
 5. Open the application manifest in the inline manifest editor and verify the *keyCredentials* property is updated with your new certificate information as shown below - 
 
@@ -85,13 +82,13 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
    ![Screenshot shows a PowerShell window with a command that creates an access token.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. Use the access token in your PowerShell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
+7. Use the access token in your PowerShell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the `signins` and `directoryAudits` endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
-8. Query the directoryAudits endpoint to retrieve the audit logs. 
+8. Query the `directoryAudits` endpoint to retrieve the audit logs. 
 
    ![Screenshot shows a PowerShell window with a command to query the directoryAudits endpoint using the access token from earlier in this procedure.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-9. Query the signins endpoint to retrieve the sign-in logs.
+9. Query the `signins` endpoint to retrieve the sign-in logs.
 
     ![Screenshot shows a PowerShell window with a command to query the signins endpoint using the access token from earlier in this procedure.](./media/tutorial-access-api-with-certificates/query-signins.png)
 

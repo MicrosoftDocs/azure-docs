@@ -61,7 +61,7 @@ The following list presents the set of features that are currently available in 
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Support for early media                                                                                             | ❌   | ✔️       | ✔️              | ✔️                 |
+|                   | Support for early media                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -83,7 +83,7 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
@@ -110,15 +110,16 @@ The maximum call duration is 30 hours, participants that reach the maximum call 
 
 The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge (Chromium)  |
-| ------------ | ------ | ------ | --------------   |
-| Android      | ✔️      | ❌      | ❌           | 
-| iOS          | ❌      | ✔️      | ❌           |
-| macOS        | ✔️      | ✔️      | ❌           | 
-| Windows      | ✔️      | ❌      | ✔️           |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
+| Platform     | Chrome | Safari | Edge (Chromium)  | Firefox |
+| ------------ | ------ | ------ | --------------   | ------- |
+| Android      | ✔️      | ❌      | ❌           | ❌      |
+| iOS          | ❌      | ✔️      | ❌           | ❌      |
+| macOS        | ✔️      | ✔️      | ✔️           | ✔️      |
+| Windows      | ✔️      | ❌      | ✔️           | ✔️      |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | 
 
 * Outgoing Screen Sharing is not supported on iOS or Android.
+* Firefox support is in public preview.
 * [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support

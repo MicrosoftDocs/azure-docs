@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 09/30/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -70,7 +70,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/sentiment-analysis-example.png" alt-text="A screenshot of a sentiment analysis example." lightbox="media/studio-examples/sentiment-analysis-example.png":::
    :::column-end:::
    :::column span="":::
-      [Sentiment analysis and opinion mining](./language-detection/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
+      [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
 
    :::column-end:::
 :::row-end:::
