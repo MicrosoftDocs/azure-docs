@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 
 # Media quality statistics 
-When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an Azure Communication Services call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics.
+Do help understand media quality in VoIP and Video calls using Azure Communication Services, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
 
 ## Media quality statistics for ongoing call
 > **NOTE**
@@ -41,7 +41,7 @@ Where
 - `aggregationInterval` is the interval in seconds that the statistics will be aggregated. 
 - `dataPointsPerAggregation` defines how many data points are there for each aggregation event.
 
-After adding an event listener to media stats collector, you will receive `mediaStatsEmitted` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
+After adding an event listener to media stats collector, you'll receive `mediaStatsEmitted` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
 
 Example:
 - If you set `aggregationInterval` = 1
@@ -78,36 +78,36 @@ mediaStatsCollector.dispose();
 We removed `disposeAllCollectors` method. The collectors will be reclaimed when mediaStatsFeature is disposed.
 
 ## Best practices
-If you want to collect this data for off-line inspection (after a call ends) it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
+If you want to collect this data for off-line inspection (after a call ends), it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
 ## MediaStats Metrics for SDK Version `>= 1.8.0`
 
-The bandwidth metrics is now `availableBitrate` in Audio Send / Video Send metrics.
+The bandwidth metrics have changes to `availableBitrate` in Audio Send / Video Send metrics.
 
 ### Audio Send metrics
 | Metric Name | Description | Comments |
 | ----------- | ----------- | -------- |
 | id | stats id | It is used to identify stats across the events, especially when there are multiple stats with same media type and direction in an event. |
-| codecName | codec name | OPUS, G722, etc |
-| bitrate | audio send bitrate (bps) | General values are in the 24 kbps range (36-128kbps typical) |
+| codecName | codec name | OPUS, G722|
+| bitrate | audio send bitrate (bps) | General values are in the 24 kbps range (36-128 kbps typical) |
 | jitterInMs | packet jitter (milliseconds) | Lower is better. |
 | packetsPerSecond | packet rate (packets/sec) | |
 | packetsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| rttInMs | round-trip time (milliseconds) | Lower is better. It is calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| pairRttInMs | rount-trip time (milliseconds) | Lower is better. It is similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
+| rttInMs | round-trip time (milliseconds) | Lower is better. It's calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
+| pairRttInMs | round-trip time (milliseconds) | Lower is better. It's similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
 | availableBitrate | bandwidth estimation (bps) | |
 | audioInputLevel | audio volume level from microphone | The value ranges from 0-65536. 0 represents silence |
 
-### Audio Recv metrics
+### Audio Receive metrics
 | Metric Name | Description | Comments |
 | ----------- | ----------- | -------- |
 | id | stats id | It is used to identify stats across the events, especially when there are multiple stats with same media type and direction in an event. |
-| codecName | codec name | OPUS, G722, etc |
-| bitrate | audio recv bitrate (bps) | General values are in the 24 kbps range (36-128kbps typical) |
+| codecName | codec name | OPUS, G722|
+| bitrate | audio receive bitrate (bps) | General values are in the 24 kbps range (36-128 kbps typical) |
 | jitterInMs | packet jitter (milliseconds) | Lower is better. |
 | packetsPerSecond | packet rate (packets/sec) | |
 | packetsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| pairRttInMs | rount-trip time (milliseconds) | Lower is better. It is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
+| pairRttInMs | round-trip time (milliseconds) | Lower is better. It is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
 | jitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the samples stay in the jitter buffer. |
 | audioOutputLevel | audio volume level from receiving stream | The value ranges from 0-65536. 0 represents silence. |
 | healedRatio | ratio of concealedSamples(except silentConcealedSamples) to total received samples | Information only. |
@@ -122,7 +122,7 @@ The bandwidth metrics is now `availableBitrate` in Audio Send / Video Send metri
 | packetsPerSecond | packet rate (packets/sec) | |
 | packetsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
 | rttInMs | round-trip time (milliseconds) | Lower is better. It is calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
-| pairRttInMs | rount-trip time (milliseconds) | Lower is better. It is similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
+| pairRttInMs | round-trip time (milliseconds) | Lower is better. It is similar to rttInMS but is calculated from STUN connectivity check. A round trip time of 200 ms or less is recommended. |
 | availableBitrate | bandwidth estimation (bps) | 1.5 Mbps or higher is recommended for high-quality video for upload/download. |
 | frameRateInput | frame rate originating from the video source (frames/sec) | |
 | frameWidthInput | frame width of the last frame originating from video source (pixel) | |
@@ -135,16 +135,16 @@ The bandwidth metrics is now `availableBitrate` in Audio Send / Video Send metri
 | framesEncoded | frames successfully encoded for the RTP stream | |
 | keyFramesEncoded | key frames successfully encoded for the RTP stream  | |
 
-### Video Recv metrics
+### Video Receive metrics
 | Metric Name | Description | Comments |
 | ----------- | ----------- | -------- |
 | id | stats id | It is used to identify stats across the events, especially when there are multiple stats with same media type and direction in an event. |
 | codecName | codec name | H264, VP8, VP9 |
-| bitrate | video recv bitrate (bps) | |
+| bitrate | video receive bitrate (bps) | |
 | jitterInMs | packet jitter (milliseconds) | Lower is better. |
 | packetsPerSecond | packet rate (packets/sec) | |
 | packetsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| pairRttInMs | rount-trip time (milliseconds) | Lower is better. A round trip time of 200 ms or less is recommended. |
+| pairRttInMs | round-trip time (milliseconds) | Lower is better. A round trip time of 200 ms or less is recommended. |
 | jitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is the how long the packets of the frame stay in the jitter buffer. |
 | streamId | stream id | The streamId value corresponds to id in VideoStreamCommon. It can be used to match the sender. |
 | frameRateOutput | frame rate output (frames/sec) | |
@@ -162,11 +162,11 @@ The bandwidth metrics is now `availableBitrate` in Audio Send / Video Send metri
 ### ScreenShare Send metrics
 Currently stats fields are the same as *Video Send metrics*
 
-### ScreenShare Recv metrics
-Currently stats fields are the same as *Video Recv metrics*
+### ScreenShare Receive metrics
+Currently stats fields are the same as *Video Receive metrics*
 
 ### Using Media Quality Statics on SDK Version `< 1.8.0` or older
-If you are using an ACS SDK version of 1.8.0 or older please see below for documentation on how to use this functionality. 
+If you are using an ACS SDK version of 1.8.0 or older, please see below for documentation on how to use this functionality. 
 
 As a developer you can invoke the `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
 
@@ -201,8 +201,8 @@ mediaStatsFeature.disposeAllCollectors();
 ### Audio quality metrics
 | Metric Name               | Purpose                      | Details                                                                                                                                                                               | Comments                                                     |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| audioSendBitrate          | Sent bitrate                 | Send bitrate of audio (bits per second)                                                                                                                                               | General values are in the 24 kbps range (36-128kbps typical) |
-| audioRecvBitrate          | Received bitrate             | Received bitrate of audio received (bits per second)                                                                                                                                  |                                                              |
+| audioSendBitrate          | Sent bitrate                 | Send bitrate of audio (bits per second)                                                                                                                                               | General values are in the 24 kbps range (36-128 kbps typical) |
+| audioRecvBitrate          | Received audio bitrate             | Received bitrate of audio received (bits per second)                                                                                                                                  |                                                              |
 | audioSendPackets          | Sent packets                 | The number of audio packets sent in last second (packets per second)                                                                                                                  |                                                              |
 | audioRecvJitterBufferMs   | Jitter buffer delay          | The jitter buffer is used for smooth playout. This value is the how long the packets of the samples stay in the jitter buffer. (in milliseconds (ms))                                                                                                             | Lower is better. |
 | audioRecvPacketsLost      | Received packet loss         | The number of audio packets that were to be received but were lost. Results are packets per second (over the last second).                                                            | Lower is better.                                             |
@@ -237,7 +237,7 @@ mediaStatsFeature.disposeAllCollectors();
 | VideoRecvPacketsLost           | Received packet loss             | The number of video packets that were to be received but were lost. Results are packets per second (over the last second).                                                                                                             | Lower is better                                                                                  |
 | videoSendPacketsLost           | Sent packet loss                 | The number of audio packets that were sent but were lost. Results are packets per second (over the last second).                                                                                                             | Lower is better                                                                                  |
 | videoSendFrameRateInput        | Sent framerate input             | Framerate measurements from the stream input into peerConnection                                                                         | Information only                                                                                 |
-| videoRecvFrameRateDecoded      | Received decoded framerate       | Framerate from decoder output. This takes  videoSendFrameRateInput as an input, might be some loss in decoding                           | Information only                                                                                 |
+| videoRecvFrameRateDecoded      | Received decoded framerate       | Framerate from decoder output. This metric takes  videoSendFrameRateInput as an input, might be some loss in decoding                           | Information only                                                                                 |
 | videoSendFrameWidthInput       | Sent frame width input           | Frame width of the stream input into peerConnection. This takes  videoRecvFrameRateDecoded as an input, might be some loss in rendering. | 1920, 1280, 960, 640, 480, 320                                                                   |
 | videoSendFrameHeightInput      | Sent frame height input          | Frame height of the stream input into peerConnection                                                                                     | 1080, 720, 540, 360, 270, 240                                                                    |
 | videoRecvLongestFreezeDuration | Received longest freeze duration | How long was the longest freeze                                                                                                          | Lower is better                                                                                  |
