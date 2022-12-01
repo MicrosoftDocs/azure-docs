@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 11/08/2022
+ms.date: 11/29/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -210,3 +210,5 @@ Currently, adjusting disk performance is only supported with Azure CLI or the Az
 ---
 
 ## Next steps
+
+Add a data disk using either the [Azure portal](linux/attach-disk-portal.md), [CLI](linux/add-disk.md), or [PowerShell](windows/attach-disk-ps.md).

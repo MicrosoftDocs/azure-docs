@@ -122,7 +122,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -1907,7 +1907,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/azure-ad-endpoint-comparison.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {

@@ -2,7 +2,7 @@
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
 author: piyushdhore-microsoft
-ms.author: piyushdhore-microsoft
+ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.date: 11/28/2022
