@@ -1,6 +1,6 @@
 ---
 title: Modify a site plan
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal. 
 author: b-branco
 ms.author: biancabranco
@@ -14,13 +14,13 @@ ms.custom: template-how-to
 
 The *site plan* determines the throughput and the number of devices each site supports. The plan you selected when creating the site can be easily updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
 
-<!-- Should we add a note like the one below? Do we have somewhere we can refer the user to for more information? e.g. https://azure.microsoft.com/en-us/products/private-5g-core/#pricing
+<!-- TODO: add note to external pricing documentation once available.
 > [!IMPORTANT]
-> Modifying the the site plan may affect how much you're charged. Refer to [link] for more information. -->
+> Modifying the the site plan will affect how much you're charged. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/products/private-5g-core/#pricing) for more information. -->
 
 ## Prerequisites
 
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Choose the new site plan
 
@@ -39,13 +39,16 @@ Use the following table to choose the new site plan that will best fit your requ
 You can view your current site plan in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Search for and select the **Mobile Network** resource representing the private mobile network.
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-3. In the **Resource** menu, select **Sites**.
-4. Select the site you're interested in.
-5. Check the **Site Plan** field under the **Essentials** heading to view the current site plan.
+1. In the resource menu, select **Sites**.
+1. Select the site you're interested in.
+
+    :::image type="content" source="media/mobile-network-sites.png" alt-text="Screenshot of the Azure portal showing the Sites view in the Mobile Network resource.":::
+
+1. Check the **Site Plan** field under the **Essentials** heading to view the current site plan.
 
     :::image type="content" source="media/modify-site-plan/view-site-plan.png" alt-text="Screenshot of the Azure portal showing a site resource. The Site Plan field is highlighted.":::
 
@@ -67,7 +70,7 @@ To modify your site plan:
 
 ## Next steps
 
-Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after you modify the site plan.
-
+Use Azure Monitor or the packet core dashboards to confirm your packet core instance is operating normally after you modify the site plan.
+<!-- TODO: add link to platform metrics -->
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
