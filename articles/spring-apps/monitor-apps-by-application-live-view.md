@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 [Application Live View for VMware Tanzu](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
-Application Live View provides visual insights into running apps by inspecting Spring Boot Actuator information. It provides a live view of the data from inside the app only. Application Live View does not store any of the app data for further analysis or historical views. The easy-to-use interface lets you troubleshoot, learn, and maintain an overview of certain aspects of the apps. It provides a certain level of control to users to let them change some parameters such as log levels and environment properties of running apps.
+Application Live View provides visual insights into running apps by inspecting Spring Boot Actuator information. It provides a live view of the data from inside the app only. Application Live View doesn't store any of the app data for further analysis or historical views. The easy-to-use interface lets you troubleshoot, learn, and maintain an overview of certain aspects of the apps. It provides a certain level of control to users to let them change some parameters such as log levels and environment properties of running apps.
 
 This article describes the Application Live View UI features, and the pages and views included in the Application Live View user interface.
 
@@ -95,7 +95,7 @@ The page includes the following features:
 
 ## Threads page
 
-To navigate to the **Threads** page, select the **Threads** option from the **Information Category** drop-down. This page displays all details related to JVM threads and running processes of the app. This tracks live threads and daemon threads real-time. It is a snapshot of different thread states.
+To navigate to the **Threads** page, select the **Threads** option from the **Information Category** drop-down. This page displays all details related to JVM threads and running processes of the app. This tracks live threads and daemon threads real-time. It's a snapshot of different thread states.
 
 The page includes the following features:
 
@@ -149,7 +149,7 @@ To navigate to the **HTTP Requests** page, select the **HTTP Requests** option f
 
 The page includes the following features:
 
-- Filter on the response status, which include `info`, `success`, `redirects`, `client-errors`, and `server-errors`.
+- Filter on the response status, which includes `info`, `success`, `redirects`, `client-errors`, and `server-errors`.
 - View the trace data in detail in a table format with metrics such as timestamp, method, path, status, content-type, length, and time.
 - Filter the traces based on the search field value using the search feature on the table.
 - View more details of the request such as method, headers, and response of the app by clicking on the timestamp.
@@ -191,7 +191,7 @@ To navigate to the **Conditions** page, select the **Conditions** option from th
 
 The page includes the following features:
 
-- Click on the bean name to view the conditions and the reason for the conditional match. If beans are not configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
+- Click on the bean name to view the conditions and the reason for the conditional match. If beans aren't configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
 - Filter on the beans and the conditions using the search feature.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/conditions.png" alt-text="Screenshot of the Conditions page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/conditions.png":::
