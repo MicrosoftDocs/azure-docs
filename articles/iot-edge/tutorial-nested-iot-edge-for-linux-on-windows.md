@@ -48,7 +48,7 @@ This tutorial uses a two device hierarchy for simplicity, pictured below. One de
 ![Diagram that shows the structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device.](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
 >[!NOTE]
->A downstream device is a lockdown device that emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Prerequisites
 

@@ -18,7 +18,7 @@ monikerRange: ">=iotedge-2020-11"
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
 
-In a gateway scenario, an IoT Edge device can be both a gateway and a downstream (child) device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream devices can authenticate and send or receive messages through their gateway (parent) device.
+In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream devices can authenticate and send or receive messages through their gateway device.
 
 There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that doesn't have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
 

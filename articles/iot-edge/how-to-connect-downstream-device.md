@@ -20,8 +20,10 @@ This article provides instructions for establishing a trusted connection between
 There are three general steps to set up a successful transparent gateway connection. This article covers the third step:
 
 1. Configure the gateway device as a server so that downstream devices can connect to it securely. Set up the gateway to receive messages from downstream devices and route them to the proper destination. For those steps, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
-2. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. **Connect the downstream device to the gateway device and start sending messages.**
+
+1. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+
+1. **Connect the downstream device to the gateway device and start sending messages.**
 
 This article discusses basic concepts for downstream device connections and guides you in setting up your downstream devices by:
 
@@ -32,7 +34,7 @@ This article discusses basic concepts for downstream device connections and guid
 In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
 
 >[!NOTE]
->A downstream device is a lockdown device that emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Prerequisites
 
