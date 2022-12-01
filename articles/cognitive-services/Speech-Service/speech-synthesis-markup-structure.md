@@ -133,7 +133,7 @@ Here are more details about the `strength` attribute.
 | Strong                        | 1,000 ms    |
 | X-strong                      | 1,250 ms    |
 
-### break examples
+### Break examples
 
 The supported values for attributes of the `break` element were [described previously](#add-or-prevent-a-break). 
 
@@ -182,7 +182,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the Speech service automatically determines the structure of the SSML document.
 
-### paragraph and sentence examples
+### Paragraph and sentence examples
 
 The following example defines two paragraphs that each contain sentences. In the second paragraph, the Speech service automatically determines the sentence structure, since they are not defined in the SSML document.
 
@@ -211,7 +211,7 @@ Usage of the `bookmark` element's attributes are described in the following tabl
 | ---------- | ---------- | ---------- |
 | `mark` | The reference text of the `bookmark` element. | Required |
 
-### bookmark examples
+### Bookmark examples
 
 The supported values for attributes of the `bookmark` element were [described previously](#bookmark-element).
 
@@ -240,7 +240,7 @@ Usage of the `viseme` element's attributes are described in the following table.
 > [!NOTE]
 > Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales.
 
-### viseme examples
+### Viseme examples
 
 The supported values for attributes of the `viseme` element were [described previously](#viseme-element).
 

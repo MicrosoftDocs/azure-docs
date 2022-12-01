@@ -30,7 +30,7 @@ Usage of the `voice` element's attributes are described in the following table.
 | ---------- | ---------- | ---------- |
 | `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
 
-### voice examples
+### Voice examples
 
 The supported values for attributes of the `voice` element were [described previously](#voice-element). 
 
@@ -229,7 +229,7 @@ Use this table to determine which speaking languages are supported for each neur
 | ---------- | ---------- | ---------- |
 | `en-US-JennyMultilingualNeural` | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN` |
 
-### lang examples
+### Lang examples
 
 The supported values for attributes of the `lang` element were [described previously](#adjust-speaking-languages). 
 
@@ -283,7 +283,7 @@ Usage of the `prosody` element's attributes are described in the following table
 | `rate` | Indicates the speaking rate of the text. Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to 2 times the original audio. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the original rate. A value of *0.5* results in a halving of the original rate. A value of *2* results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
 | `volume`  | Indicates the volume level of the speaking voice. Volume changes can be applied at the sentence level. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
-### prosody examples
+### Prosody examples
 
 The supported values for attributes of the `prosody` element were [described previously](#adjust-prosody). 
 
@@ -354,7 +354,7 @@ Usage of the `emphasis` element's attributes are described in the following tabl
 | ---------- | ---------- | ---------- |
 | `level`   | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute isn't specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2) | Optional             |
 
-### emphasis examples
+### Emphasis examples
 
 The supported values for attributes of the `emphasis` element were [described previously](#adjust-emphasis). 
 
@@ -386,7 +386,7 @@ Usage of the `audio` element's attributes are described in the following table.
 | ---------- | ---------- | ---------- |
 | `src`     | The URI location of the audio file. The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend that you put the audio file into Blob Storage in the same Azure region as the text-to-speech endpoint to minimize the latency. | Required |
 
-### audio examples
+### Audio examples
 
 The supported values for attributes of the `audio` element were [described previously](#add-recorded-audio). 
 
