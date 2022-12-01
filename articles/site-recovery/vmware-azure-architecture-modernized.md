@@ -78,10 +78,11 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 4. Communication happens as follows:
 
     - VMs communicate with the on-premises appliance on port HTTPS 443 inbound, for replication management.
-    - The appliance orchestrates replication with Azure over port HTTPS 443 outbound.
-    - VMs send replication data to the process server on port HTTPS 9443 inbound. This port can be modified.
-    - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
+    - VMs send replication data to the appliance on port HTTPS 9443 inbound. This port can be modified.
+    - The appliance receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed, and the data is stored in an Azure Managed Disk (called as *asrseeddisk*). The recovery points are created on this disk.
+
+[![VMware to Azure data flow with ports](./media/vmware-azure-architecture-modernized/v2a-architecture-modernized-with-ports.png)](./media/vmware-azure-architecture-modernized/v2a-architecture-modernized-with-ports.png#lightbox)
 
 ## Resynchronization process
 
