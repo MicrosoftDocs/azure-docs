@@ -8,7 +8,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/21/2021
 ms.author: ankitadutta
-
+ms.custom: engagement-fy23
 ---
 # About networking in Azure VM disaster recovery
 

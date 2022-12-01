@@ -14,8 +14,8 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500|
-|**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
-|**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
+|**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 <br>Up to 8x Monitoring ports|
+|**Physical specifications** | Mounting: 1U<br>Minimum dimensions ( H x W x D)1.70 x 17.11 x 15.05 in<br>Minimum dimensions ( H x W x D)4.32 x 43.46 x 38.22 cm|
 |**Status** | Supported; available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:

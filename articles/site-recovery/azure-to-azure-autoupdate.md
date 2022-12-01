@@ -8,6 +8,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/23/2020
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Automatic update of the Mobility service in Azure-to-Azure replication

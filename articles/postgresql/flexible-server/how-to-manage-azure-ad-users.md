@@ -56,11 +56,12 @@ Each PostgreSQL database role can be mapped to one of the following Azure AD obj
 ### List Azure AD roles using SQL
 
 ```sql
-select * from pgaadauth_list_principals(isAdmin);
+select * from pgaadauth_list_principals(true);
 ```
 
 **Parameters:**
-- *isAdmin* - Boolean flag if the function should only return Admin users, or all users.
+- *true*  -will return Admin users.
+- *false* -will return all AAD user both AAD admins and Non AAD admins.
 
 ## Create a role using Azure AD principal name
 

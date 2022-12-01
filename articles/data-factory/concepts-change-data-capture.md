@@ -86,6 +86,12 @@ The followings are the tutorials to start the change data capture in Azure Data 
 - [SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md#sap-cdc-capabilities)
 - [Incrementally copy data from a source data store to a destination data store tutorials](tutorial-incremental-copy-overview.md)
 
+## Templates
+
+The followings are the templates to use the change data capture in Azure Data Factory and Azure Synapse Analytics.
+
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
+
 
 ## Next steps
 
