@@ -56,7 +56,7 @@ Before you begin restoring a database, note the following:
 
      :::image type="content" source="./media/sap-hana-db-restore/hana-select-virtual-machines-inline.png" alt-text="Screenshot that shows where to review the backup readiness of the target VM." lightbox="./media/sap-hana-db-restore/hana-select-virtual-machines-expanded.png":::
 
-* To learn more about the restore types that SAP HANA supports, refer to [SAP HANA Note 1642148](https://launchpad.support.sap.com/#/notes/1642148)
+* To learn more about the restore types that SAP HANA supports, refer to [SAP HANA Note 1642148](https://launchpad.support.sap.com/#/notes/1642148).
 
 ## Restore a database
 
