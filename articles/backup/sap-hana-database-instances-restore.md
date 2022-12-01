@@ -57,7 +57,7 @@ In the following sections, you'll learn how to restore the system to the snapsho
 
 To select and mount the snapshot, do the following:
 
-1. In the Azure portal, go to Recovery Services vault.
+1. In the Azure portal, go to the Recovery Services vault.
 
 1. On the left pane, select **Backup items**.
 
