@@ -287,10 +287,10 @@ az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id
 
 ```
 ## Update the OS image for your scale set
-You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *16.04.201801090*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss)
+You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss)
 
 ```azurecli
-az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=18.04.202210180
 ```
 
 Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss)
