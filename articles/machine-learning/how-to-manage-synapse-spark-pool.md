@@ -29,7 +29,7 @@ In this article, you will learn how to attach a [Synapse Spark Pool](../synapse-
 - [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 - [Create an Apache Spark pool using the Azure portal](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - To enable this feature:
-  1. Navigate to Azure Machine Learning Studio UI.
+  1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
   :::image type="content" source="media/how-to-manage-synapse-spark-pool/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
@@ -82,7 +82,7 @@ The **Attach Synapse Spark pool (preview)** panel will open on the right side of
 
 1. Select a managed **Identity type** to use with this attached Synapse Spark Pool.
 
-1. Click **Update**, to complete the Synapse Spark Pool attach process.
+1. Select **Update**, to complete the Synapse Spark Pool attach process.
 
 # [CLI](#tab/cli)
 
@@ -395,7 +395,7 @@ To ensure that the attached Synapse Spark Pool works properly, assign the [Admin
 
     1. In the **Select user** search box, start typing the name of your Azure Machine Learning Workspace. It will show you a list of attached Synapse Spark pools. Select your desired Synapse Spark pool from the list.
 
-    1. Click **Apply**.
+    1. Select **Apply**.
 
         :::image type="content" source="media/how-to-manage-synapse-spark-pool/workspace-add-role-assignment.png" alt-text="Screenshot showing Add Role Assignment.":::
 
@@ -417,13 +417,13 @@ To update managed identity for the attached Synapse Spark pool:
 
 1. To assign a system-assigned managed identity:
    1.  Select **System-assigned** as the **Identity type**.
-   1.  Click **Update**.
+   1.  Select **Update**.
 
 1. To assign a user-assigned managed identity:
    1. Select **User-assigned** as the **Identity type**.
    1. Select an Azure **Subscription** from the dropdown menu.
    1. Type the first few letters of the name of user-assigned managed identity in the box showing text **Search by name**. A list with matching user-assigned managed identity names will appear. Select the user-assigned managed identity you want from the list. You can select multiple user-assigned managed identities, and assign them to the attached Synapse Spark pool.
-   1. Click **Update**.
+   1. Select **Update**.
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -639,7 +639,7 @@ ml_client.compute.begin_delete(name=synapse_name, action="Detach")
 
 ## Managed Synapse Spark Pool in Azure Machine Learning
 
-Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Click here to learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 

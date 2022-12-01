@@ -60,7 +60,7 @@ Spark jobs can use either user identity passthrough or a managed identity to acc
 |Managed (Automatic) Spark compute|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-Azure Machine Learning Managed (Automatic) Spark compute uses user assigned managed identity attached to the workspace, if an option to use managed identity is defined in the CLI or SDK code. You can attach a user assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2 or using using `ARMClient`.
+Azure Machine Learning Managed (Automatic) Spark compute uses user assigned managed identity attached to the workspace, if an option to use managed identity is defined in the CLI or SDK code. You can attach a user assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2 or using `ARMClient`.
 
 ### Attach user assigned managed identity using CLI v2
 1. Create YAML file defining the user assigned managed identity that should be attached to the workspace:
@@ -184,7 +184,7 @@ A standalone Spark job can be defined as a YAML specification file, which can be
   ```yaml
   compute: mysparkpool
   ```
-- `inputs` - this property defines inputs for the Spark job. Inputs for a Spark job can be either a literal value, or data stored in a file or folder. 
+- `inputs` - this property defines inputs for the Spark job. Inputs for a Spark job can be either a literal value, or data stored in a file or folder.
   - A **literal value** can be a number, a boolean value or a string. Some examples are shown here:
       ```yaml
       inputs:
@@ -663,7 +663,6 @@ ml_client.jobs.stream(pipeline_job.name)
 
 > [!NOTE]
 > To use an attached Synapse Spark pool, define `compute` parameter in the `azure.ai.ml.spark` function instead of `resources` parameter. For example, in the code sample shown above, define `spark_step.compute = "<ATTACHED_SPARK_POOL_NAME>"` instead of defining `spark_step.resources`.
----
 
 ## Next steps
 - [Code samples for Spark jobs using Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
