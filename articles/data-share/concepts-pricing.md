@@ -24,11 +24,11 @@ A Dataset Snapshot is the operation to move a dataset from its source to destina
 
 1. Select the **Run Start** of a snapshot.
  
-    ![Screenshot of the share snapshot history](./media/concepts/concepts-pricing/pricing-snapshot-history.png "Snapshot history") 
+    ![Screenshot of the share snapshot history.](./media/concepts/concepts-pricing/pricing-snapshot-history.png "Snapshot history") 
 
 1. View the list of Dataset Snapshot operations. Each line item corresponds to a Dataset Snapshot operation. In this example, there are two Dataset Snapshots.
 
-    ![Screenshot of the dataset snapshot operations](./media/concepts/concepts-pricing/pricing-dataset-snapshot.png "Dataset Snapshot operation")
+    ![Screenshot of the dataset snapshot operations.](./media/concepts/concepts-pricing/pricing-dataset-snapshot.png "Dataset Snapshot operation")
 
 ## Snapshot Execution
 
