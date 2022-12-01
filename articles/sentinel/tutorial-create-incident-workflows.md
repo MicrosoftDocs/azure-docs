@@ -18,8 +18,7 @@ Readers should have a clear idea of what they will do in this article after read
 introduction.
 Include a sentence that says, "In this tutorial you will do X..."
 -->
-[Add your introductory paragraph]
-TODO: Add your introductory paragraph
+In this tutorial, you learn how to use Microsoft Sentinel automation rules to create a standardized checklist of tasks for your SOC analysts to follow in handling, investigating, and remediating the incidents assigned to them.
 
 <!-- 3. Outline --------------------------------------------------------------------------
 
@@ -27,11 +26,11 @@ Required: Before your first H2, use the green checkmark format for the bullets t
 you'll cover in the tutorial.
 --->
 
-In this tutorial, you learn how to:
+When you complete this tutorial, you'll be able to:
 
 > [!div class="checklist"]
-> * [All tutorials include a list summarizing the steps to completion]
-> * [Each of these bullet points align to a key H2]
+> * Create an automation rule
+> * Define tasks for the automation rule to add to incidents
 > * [Use these green checkboxes in a tutorial]
 TODO: Complete your outline
 
