@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: mopeakande
-author: jhirono
-ms.author: jhirono
+author: dem108
+ms.author: sehan
 ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
@@ -31,16 +31,16 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension or the AzureML Python SDK v2. For more information, see the following articles:
+* You must install and configure the Azure CLI and `ml` extension or the AzureML Python SDK v2. For more information, see the following articles:
 
-    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
     * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
-* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
+* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your `ml` extension per the above article.
 
 * You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](./how-to-configure-private-link.md).
 
-    The workspace can be configured to allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
+    The workspace configuration can either allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
 
     Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
@@ -83,7 +83,7 @@ To secure scoring requests to the online endpoint to your virtual network, set t
 az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
 ```
 
-# [Python SDK](#tab/python)
+# [Python](#tab/python)
 
 ```python
 from azure.ai.ml.entities import ManagedOnlineEndpoint
@@ -97,20 +97,24 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 )
 ```
 
+# [Studio](#tab/azure-studio)
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. Select the **Workspaces** page from the left navigation bar.
+1. Enter a workspace by clicking its name.
+1. Select the **Endpoints** page from the left navigation bar.
+1. Select **+ Create** to open the **Create deployment** setup wizard.
+1. Disable the **Public network access** flag at the **Create endpoint** step.
+
+    :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
+
 ---
-When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
-To restrict communication between a deployment and the Azure resources used to by the deployment, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
-
-The following are the resources that the deployment communicates with over the private endpoint:
-
-* The Azure Machine Learning workspace.
-* The Azure Storage blob that is the default storage for the workspace.
-* The Azure Container Registry for the workspace.
-
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
+To restrict communication between a deployment and the Azure resources it uses, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
 
 # [Azure CLI](#tab/cli)
 
@@ -118,7 +122,7 @@ When you configure the `egress_public_network_access` to `disabled`, a new priva
 az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
 
-# [Python SDK](#tab/python)
+# [Python](#tab/python)
 
 ```python
 blue_deployment = ManagedOnlineDeployment(name='blue', 
@@ -136,7 +140,22 @@ blue_deployment = ManagedOnlineDeployment(name='blue',
 ml_client.begin_create_or_update(blue_deployment) 
 ```
 
+# [Studio](#tab/azure-studio)
+
+1. Follow the steps in the **Create deployment** setup wizard to the **Deployment** step.
+1. Disable the **Egress public network access** flag.
+
+    :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment." lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
+
 ---
+
+The deployment communicates with these resources over the private endpoint:
+
+* The Azure Machine Learning workspace
+* The Azure Storage blob that is the default storage for the workspace
+* The Azure Container Registry for the workspace
+
+When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry.
 
 ## Scenarios
 
