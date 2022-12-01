@@ -51,7 +51,7 @@ See code examples of working with secrets at [Azure Key Vault Secrets client lib
 
 ## Troubleshooting
 
-If your Key Vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the Key Vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
+If your Key Vault is running on a different Microsoft account than the one you're logged in to Visual Studio (for example, the Key Vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
 
 1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
 
