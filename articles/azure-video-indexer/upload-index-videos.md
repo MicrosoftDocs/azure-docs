@@ -118,7 +118,7 @@ After you copy the following code into your development platform, you'll need to
 
   To get your API key:
 
-  1. Go to the [Azure Video Indexer  API developer portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.
