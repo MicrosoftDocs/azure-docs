@@ -36,7 +36,7 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
 > [!NOTE]
-> Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **KeyCreationTime** property of the storage account has a null value for either of the account access keys, you will need to rotate them. If the keys need to be rotated, you will see an indication of that when trying to configure a policy using one of the methods below.
+> Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys, you will need to rotate them. If the keys need to be rotated, you will see an indication of that when trying to configure a policy using one of the methods below.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -49,10 +49,6 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
     If the setting is grayed out and you see the message shown in the image below, then you need to rotate both account access keys before you can set a recommended upper limit for SAS expiry interval:
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal":::
-
-    To verify the value of the **KeyCreationTime** property for both keys, go to the **Overview** page of the storage account and select **JSON View**, then under **API version** select the latest version. The keyCreationTime for key1 and key2 will be displayed as shown in the image below:
-
-    :::image type="content" source="media/sas-expiration-policy/json-view-storage-account.png" alt-text="Screenshot showing the account access keys with null values in the JSON View of the storage account":::
 
 1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
 

@@ -6,7 +6,7 @@ services: storage
 author: jimmart-dev
 
 ms.author: jammart
-ms.date: 11/17/2022
+ms.date: 12/01/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -170,6 +170,47 @@ az storage account show-connection-string --resource-group <resource-group> --na
 ```
 
 ---
+
+## Get the creation time of the account access keys for a storage account
+
+If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing related configurations such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
+
+# [Azure portal](#tab/portal)
+
+To display the creation time of the account access keys for a storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. On the **Overview** page, in the **Essentials** section, select the **JSON View** link.
+1. For the API version, select the most recent version.
+1. Under *properties* you will see the *keyCreationTime* for *key1* and *key2*.
+
+    :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot showing one account access key with null values and another with a date and time stamp in the JSON View of the storage account":::
+
+# [PowerShell](#tab/powershell)
+
+To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get its resource ID:
+
+```azurepowershell
+(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command and query the resource ID:
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query id \
+    --output tsv
+```
+
+---
+
+You can also get the resource ID for a storage account by calling the [Storage Accounts - Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation in the REST API.
+
+For more information about types of resources managed by Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Next steps
 
