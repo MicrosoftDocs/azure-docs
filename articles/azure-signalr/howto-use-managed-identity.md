@@ -15,7 +15,7 @@ In Azure SignalR Service, you can use a managed identity from Azure Active Direc
 - Obtain access tokens
 - Access secrets in Azure Key Vault
 
-The service supports only one managed identity, so you can create either a system-assigned or user-assigned identity. A system-assigned identity is dedicated to your SignalR instance and is deleted when you delete the instance. A user-assigned identity is managed independently of your SignalR resource.
+The service supports only one managed identity; you can create either a system-assigned or user-assigned identity. A system-assigned identity is dedicated to your SignalR instance and is deleted when you delete the instance. A user-assigned identity is managed independently of your SignalR resource.
 
 This article shows you how to create a managed identity for Azure SignalR Service and how to use it in serverless scenarios.
 
@@ -44,6 +44,8 @@ To add a system-managed identity to your SignalR instance:
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
 
+1. Select **Yes** to confirm the change.
+
 ### Add a user-assigned identity
 
 To add a user-assigned identity to your SignalR instance, you need to create the identity then add it to your service.
@@ -60,7 +62,7 @@ To add a user-assigned identity to your SignalR instance, you need to create the
 
 Azure SignalR Service is a fully managed service.  It uses a managed identity to obtain an access token. In serverless scenarios, the service adds the access token into the `Authorization` header in an upstream request.
 > [!NOTE]
-> Is this a specific type of upstream request?  If so, we should say so.
+> QUESTION: Is this a specific type of upstream request?  If so, we should say so.
 
 ### Enable managed identity authentication in upstream settings
 
@@ -71,7 +73,7 @@ Once you've added a [system-assigned identity](#add-a-system-assigned-identity) 
 1. Select the **Serverless** service mode.
 1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.
     > [!NOTE]
-    > Where do I get the upstream URL pattern?
+    > QUESTION: Where do I get the upstream URL pattern?
 1. Select Add one Upstream Setting and select any asterisk to get into a detailed page as shown below.
     :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
 
@@ -86,7 +88,7 @@ Once you've added a [system-assigned identity](#add-a-system-assigned-identity) 
     - Resource ID of an Azure service (For a list of Azure services that support managed identities, see [Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).)
 
     > [!NOTE]
-    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. Just make sure that the **Resource** value in **Auth** settings and the validation are consistent. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
+    > If you manually validate an access token your service, you can choose any one of the resource formats. Make sure that the **Resource** value in **Auth** settings and the validation are consistent. When you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource format that the service provider requests.
 
 ### Validate access tokens
 
@@ -111,11 +113,11 @@ You can easily set access validation for a Function App without code changes usi
 1. go to **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 
 > [!NOTE]
-> What application was created previously?  The Function App?
+> QUESTION: What application was created previously?  The Function App?
 
 After configuring these settings, the Function App will reject requests without an access token in the header.
 
-> [!Important] 
+> [!IMPORTANT]
 > To pass the authentication, the *Issuer Url* must match the *iss* claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md)).  
 
 To verify the *Issuer Url* format in your Function app:
@@ -127,7 +129,6 @@ To verify the *Issuer Url* format in your Function app:
 1. Select **Issuer Url**.
 1. Verify that the *Issuer Url* has the format `https://sts.windows.net/<tenant-id>/`.
 
-
 ## Use a managed identity for Key Vault reference
 
 SignalR Service can access Key Vault to get secrets using the managed identity.
@@ -136,7 +137,6 @@ SignalR Service can access Key Vault to get secrets using the managed identity.
 1. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
 
 Currently, this feature can be used to [Reference secret in Upstream URL Pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
-
 
 ## Next steps
 

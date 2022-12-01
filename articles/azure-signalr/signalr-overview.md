@@ -57,7 +57,6 @@ SignalR Service works with a broad range of clients, such as:
 * web and mobile browsers
 * desktop apps
 * mobile apps
-* server process
 * IoT devices
 * game consoles
 
@@ -65,9 +64,9 @@ SignalR Service works with a broad range of clients, such as:
 
 SignalR Service offers SDKs in different languages:
 
-* native ASP.NET Core or ASP.NET C# SDKs
-* JavaScript client SDK to enable web clients, and many other JavaScript frameworks for Java applications including Android native apps 
-* REST API
+* Client side: [Any client libraries supporting SignalR protocol](https://learn.microsoft.com/en-us/aspnet/core/signalr/client-features?view=aspnetcore-7.0) are compatible with SignalR service.
+* Server side: ASP.NET Core or ASP.NET web applications
+* Serverless support through REST APIs, Azure Functions triggers and bindings, and Event Grid integrations.
 
 **Handle large-scale client connections:**
 
