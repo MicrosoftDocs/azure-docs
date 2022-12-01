@@ -17,12 +17,6 @@ recommendations: false
 
 **This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
-> [!IMPORTANT]
->
-> * Form Recognizer containers are in gated release. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
->
-> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
-
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
 In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you'll also need the **Read** OCR container).
@@ -44,14 +38,6 @@ You'll also need the following to use Form Recognizer containers:
 |---------|----------|
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
-
-## Request approval to run the container
-
-Complete and submit the [Application for Gated Services form](https://aka.ms/csgate)  to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision within 10 business days.
-
-On the form, you must use an email address associated with an Azure subscription ID. The Azure resource you use to run the container must have been created with the approved Azure subscription ID. Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft. After you're approved, you'll be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
 
 ## Host computer requirements
 
