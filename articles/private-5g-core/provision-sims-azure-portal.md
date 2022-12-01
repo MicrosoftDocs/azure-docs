@@ -1,6 +1,6 @@
 ---
 title: Provision new SIMs - Azure portal
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -10,7 +10,7 @@ ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Provision new SIMs for Azure Private 5G Core Preview - Azure portal
+# Provision new SIMs for Azure Private 5G Core - Azure portal
 
 *SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
 

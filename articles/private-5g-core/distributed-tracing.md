@@ -1,6 +1,6 @@
 ---
 title: Distributed tracing
-titleSuffix: Azure Private 5G Core Preview 
+titleSuffix: Azure Private 5G Core 
 description: Information on the distributed tracing web GUI, which provides detailed traces for signaling flows involving packet core instances.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Distributed tracing
 
-Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
+Azure Private 5G Core offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
 ## Access the distributed tracing web GUI
 

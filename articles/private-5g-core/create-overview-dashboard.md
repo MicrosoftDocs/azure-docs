@@ -1,6 +1,6 @@
 ---
 title: Create an overview Log Analytics dashboard
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: Information on how to use an ARM template to create an overview Log Analytics dashboard you can use to monitor a packet core instance.
 author: djrmetaswitch
 ms.author: drichards

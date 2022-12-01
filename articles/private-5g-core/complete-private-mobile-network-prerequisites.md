@@ -1,7 +1,7 @@
 ---
 title: Prepare to deploy a private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: Learn how to complete the prerequisite tasks for deploying a private mobile network with Azure Private 5G Core Preview. 
+titleSuffix: Azure Private 5G Core
+description: Learn how to complete the prerequisite tasks for deploying a private mobile network with Azure Private 5G Core. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Complete the prerequisite tasks for deploying a private mobile network
 
-In this how-to guide, you'll carry out each of the tasks you need to complete before you can deploy a private mobile network using Azure Private 5G Core Preview.
+In this how-to guide, you'll carry out each of the tasks you need to complete before you can deploy a private mobile network using Azure Private 5G Core.
 
 ## Get access to Azure Private 5G Core for your Azure subscription
 

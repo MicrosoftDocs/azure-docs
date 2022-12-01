@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview.
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core.
 
 - You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 - Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
