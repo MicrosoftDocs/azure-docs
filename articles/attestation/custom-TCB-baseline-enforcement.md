@@ -55,7 +55,6 @@ Minimum PSW Windows version: "2.7.101.2"
 
 Feature will be released soon
 
-> [!NOTE]
 ## Key considerations:
 - It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
 - If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
