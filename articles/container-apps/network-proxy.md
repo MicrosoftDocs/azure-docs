@@ -36,7 +36,7 @@ Requests that come in to ports `80` and `443` are internally routed to the appro
 - Envoy terminates TLS after crossing its boundary
     - Envoy sends requests to apps over HTTP in plain text
 - mTLS is only available when using Dapr
-    - With Dapr, initial requests to the environment feature a TLS connection, and then a new TLS connection is established as requests are forwarded to a container app.
+    - When using the Dapr service invocation APIs, mTLS is enabled. However, because Envoy terminates mTLS, inbound calls from Envoy to Dapr-enabled container apps is not encrypted.
 
 HTTPs, GRPC, and HTTP/2 all follow the same architectural model.
 
