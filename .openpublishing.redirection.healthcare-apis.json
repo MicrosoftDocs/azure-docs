@@ -554,10 +554,34 @@
         "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iot-jsonpath-content-mappings",
         "redirect_document_id": false
     },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-iot-connector-in-azure.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-choose",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-02-new-button.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-button",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-03-new-manual.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-manual",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-05-new-config.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-config",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-06-new-deploy.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-deploy",
+        "redirect_document_id": false
+    },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-08-new-ps-cli.md",
         "redirect_url": "/azure/healthcare-apis/iot/deploy-new-powershell-cli",
         "redirect_document_id": false
     },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-bicep-ps-cli.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-bicep-powershell-cli",
+        "redirect_document_id": false
+    }, 
     {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
         "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
         "redirect_document_id": false
