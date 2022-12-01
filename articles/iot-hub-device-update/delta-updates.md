@@ -102,7 +102,7 @@ If your SWU files are signed (likely), you'll need another argument as well:
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive] "[signing_command]"`
 
-- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present).
+- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present). You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, then save it. See the examples section below for sample usage.
 
 The following table describes the arguments in more detail:
 
@@ -132,7 +132,7 @@ sudo ./DiffGenTool
 /mnt/o/temp/[recompressed file to be created.swu]
 ```  
 
-If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
+If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script referenced previously. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
 
 _Creating diff between input source file and recompressed/re-signed target file:_
 
@@ -153,7 +153,11 @@ sudo ./DiffGenTool
 
 The basic process of importing an update to the Device Update service is unchanged  for delta updates, so if you haven't already, be sure to review this page: [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
-The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
+The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). For delta updates, your import manifest will need to reference two files:
+- The _recompressed_ target SWU image created when you ran the DiffGen tool.
+- The delta file created when you ran the DiffGen tool.
+
+The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
 
 To create an import manifest for your delta update using the Related Files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) elements to your import manifest.
 
