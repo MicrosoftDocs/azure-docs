@@ -3,7 +3,7 @@ title: Debug your apps remotely in Azure Spring Apps
 description: Learn how to debug your apps remotely in Azure Spring Apps.
 ms.service: spring-apps
 ms.topic: how-to
-ms.author: karlerickson
+ms.author: karler
 author: shipeng, jialuogan
 ms.date: 11/18/2022
 ms.custom: devx-track-java, event-tier1-build-2022
@@ -29,9 +29,9 @@ This feature describes how to enable remote debugging of your applications in Az
 
 For security reasons, Azure Spring Apps disables remote debugging by default. Based on your company policy, you can enable remote debugging for your app yourself or see an admin to enable it for you. You can enable or disable remote debugging using the Azure CLI, Azure portal, or VS Code extension.
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
-Use the following steps to enable remote debugging for your application using the Azure Portal:
+Use the following steps to enable remote debugging for your application using the Azure portal:
 
 1. Navigate to your application page.
 1. Under **Settings** in the left navigation pane, select **Remote debugging**.
@@ -84,7 +84,7 @@ This section describes how to debug an app instance remotely using the Azure Too
 
 ### Prerequisites
 
-- [Azure Toolkit for IntelliJ](https://learn.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit).
+- [Azure Toolkit for IntelliJ](https://learn.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit).
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Ultimate or Community edition.
 
 ### Enable or disable remote debugging
@@ -123,8 +123,8 @@ This section provides troubleshooting information.
 
 - Take the following actions if you fail to attach debugger and receive an error similar to `java.net.SocketException, connection reset` or `Failed to attach to remote debugger, ClosedConnectionException`:
 
-  - Check the [RBAC role](#assign-an-azure-role) to make sure that you are authorized to remotely debug an app instance.
-  - Make sure that you are connecting to a valid instance. Refresh the deployment to get the latest instances.
+  - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
+  - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
     :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
@@ -174,8 +174,8 @@ This section provides troubleshooting information.
 
 - Take the following actions if you fail to attach debugger and receive an error similar to `java.net.SocketException, connection reset` or `Failed to attach to remote debugger, ClosedConnectionException`:
 
-  - Check the [RBAC role](#assign-an-azure-role) to make sure that you are authorized to remotely debug an app instance.
-  - Make sure that you are connecting to a valid instance. Refresh the deployment to get the latest instances.
+  - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
+  - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
     :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
@@ -200,7 +200,7 @@ Remote debugging is only supported for Java applications.
 
 ## Tips
 
-- Java remote debugging is very dangerous because it allows remote code execution. Azure Spring Apps helps you secure the communication between your client IDE and the remote application. However, you should disable remote debugging and remove the RBAC role after you are finished.
+- Java remote debugging is dangerous because it allows remote code execution. Azure Spring Apps helps you secure the communication between your client IDE and the remote application. However, you should disable remote debugging and remove the RBAC role after you're finished.
 - You should scale in the app instance to one to ensure that traffic can go to the instance.
 
 ## Next steps
