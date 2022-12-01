@@ -2,7 +2,7 @@
 title:  Azure Video Indexer terminology & concepts overview
 description: This article gives a brief overview of Azure Video Indexer terminology and concepts.
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 12/01/2022
 ms.author: juliako
 ---
 
@@ -45,11 +45,27 @@ Use textual and visual content moderation models to keep your users safe from in
 
 ## Insights	
 
-Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. For more information about available models, see [overview](video-indexer-overview.md).
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. 
 
-[!INCLUDE [insights](./includes/insights.md)]
+You can enable and view some insights in the [Azure Video Indexer](https://www.videoindexer.ai/) website. You can view all the available insights by downloading json file(s).
 
-The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows. For more information, see [Use editor to create projects](use-editor-create-project.md).
+Here are some common insights, you can also view the [Overview](video-indexer.md) topic for all the available Azure Video Indexer features.
+
+|**Insight**|**Description**|
+|---|---|
+|People||
+|Keywords||
+|Labels||
+|Named entities||
+|Audio effects||
+|Emotions||
+|Sentiments||
+|Keyframes||
+|Topics||
+|Scenes||
+|Speakers||
+|Transcript||
+|OCR||
 
 ## Keyframes
 
