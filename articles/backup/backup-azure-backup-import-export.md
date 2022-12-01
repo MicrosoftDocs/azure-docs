@@ -9,7 +9,18 @@ ms.date: 11/30/2022
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
-## offline-seeding workflow
+In this article, you'll learn about:
+
+> [!div class="checklist"]
+> - Offline-seeding process
+> - Supported configurations
+> - Prerequisites
+> - Workflow
+> - How to initiate offline backup
+> - How to prepare SATA drives and ship to Azure
+> - How to update shipping details on the Azure import job
+
+## Offline-seeding process
 
 The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
 
@@ -58,7 +69,7 @@ Before you start the offline backup workflow, complete the following prerequisit
     1. On the subscription menu, select **Resource providers** to view the list of providers.
     1. In the list of providers, scroll down to *Microsoft.DataBox*. If the **Status** is **NotRegistered**, select **Register**.
 
-        :::image type="content" source="./media/backup-azure-backup-import-export/registerimportexport.png" alt-text="Screenshot shows how to register the resource provider.":::
+        :::image type="content" source="./media/backup-azure-backup-import-export/register-import-export-inline.png" alt-text="Screenshot shows how to register the resource provider." lightbox="./media/backup-azure-backup-import-export/register-import-export-expanded.png":::
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * When you send disks to Azure, use only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../import-export/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
@@ -158,7 +169,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    | --- | --- |
    | Contact Name | Name of the contact for the Import/Export Job |
    | Contact Number | Phone number of the contact for the Import/Export Job |
-   | Email ID | Email id to notify for the Import/Export Job |
+   | Valid Email Id | Email ID to notify for the Import/Export Job |
    | Shipping Address | The return shipping address |
    | Country | Return shipping country |
    | Postal Code | Return shipping postal code |
