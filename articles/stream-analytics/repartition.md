@@ -2,8 +2,8 @@
 title: Use repartitioning to optimize Azure Stream Analytics jobs
 description: This article describes how to use repartitioning to optimize Azure Stream Analytics jobs that cannot be parallelized.
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc

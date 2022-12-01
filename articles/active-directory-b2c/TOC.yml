@@ -524,6 +524,8 @@
         href: threat-management.md
       - name: Secure access to legacy and on-premises apps
         items:
+        - name: Akamai
+          href: partner-akamai-secure-hybrid-access.md
         - name: Datawiza
           href: partner-datawiza.md
         - name: F5

@@ -76,6 +76,8 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 
 Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you'll pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges aren't included in the reservation.
 
+There are differences in how capacity reservations work with Azure file share snapshots for standard and premium file shares. If you're taking snapshots of standard file shares, then the snapshot differentials count against the reserved capacity and are billed as part of the normal used storage meter. However, if you're taking snapshots of premium file shares, then the snapshots are billed using a separate meter and don't count against the capacity reservation. For more information, see [Snapshots](#snapshots).
+
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
 ## Provisioned model

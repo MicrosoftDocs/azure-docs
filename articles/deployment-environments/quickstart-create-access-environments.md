@@ -60,7 +60,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 1. Sign in to the Azure CLI:
 
     ```azurecli
-        az login
+    az login
     ```
 
 1. List all the Azure Deployment Environments projects you have access to:
@@ -97,7 +97,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
+       --project-name <project-name> --environment-type <environment-type-name> 
        --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
    ```
 
