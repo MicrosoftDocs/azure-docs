@@ -939,8 +939,7 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
-        "articles/sentinel/**/*.md": "microsoft-sentinel"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
