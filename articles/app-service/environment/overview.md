@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 11/18/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -100,8 +100,8 @@ App Service Environment v3 is available in the following regions:
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
-| Australia Central    |                            |                             | ✅                           | 
-| Australia Central 2  |                          |                             | ✅                           | 
+| Australia Central    | ✅                           |                             | ✅                           | 
+| Australia Central 2  | ✅*                          |                             | ✅                           | 
 | Australia East       | ✅                           | ✅                          | ✅                           | 
 | Australia Southeast  | ✅                           |                             | ✅                           | 
 | Brazil South         | ✅                           | ✅                          | ✅                           | 
@@ -115,13 +115,13 @@ App Service Environment v3 is available in the following regions:
 | East US 2            | ✅                           | ✅                          | ✅                           |
 | France Central       | ✅                           | ✅                          | ✅                           | 
 | France South         |                               |                             | ✅                           | 
-| Germany North        |                            |                             | ✅                           | 
+| Germany North        | ✅                           |                             | ✅                           | 
 | Germany West Central | ✅                           | ✅                          | ✅                           | 
 | Japan East           | ✅                           | ✅                          | ✅                           | 
 | Japan West           |                              |                             | ✅                           | 
 | Jio India West       |                              |                             | ✅                           | 
 | Korea Central        | ✅                           | ✅                          | ✅                           | 
-| Korea South          |                            |                             | ✅                           | 
+| Korea South          | ✅                           |                             | ✅                           | 
 | North Central US     | ✅                           |                             | ✅                           | 
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
@@ -130,7 +130,7 @@ App Service Environment v3 is available in the following regions:
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    |                              |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |
-| South India          |                            |                             | ✅                           | 
+| South India          | ✅                           |                             | ✅                           | 
 | Southeast Asia       | ✅                           | ✅                          | ✅                           |
 | Sweden Central       | ✅                           | ✅                          |                              |
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
@@ -141,7 +141,7 @@ App Service Environment v3 is available in the following regions:
 | UK West              | ✅                           |                             | ✅                           | 
 | West Central US      | ✅                           |                             | ✅                           | 
 | West Europe          | ✅                           | ✅                          | ✅                           | 
-| West India           |                           |                             | ✅                           | 
+| West India           | ✅*                          |                             | ✅                           | 
 | West US              | ✅                           |                             | ✅                           | 
 | West US 2            | ✅                           | ✅                          | ✅                           | 
 | West US 3            | ✅                           | ✅                          | ✅                           | 

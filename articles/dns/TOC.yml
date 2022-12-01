@@ -39,6 +39,10 @@
       href: dns-private-resolver-get-started-portal.md
     - name: Create a private resolver - PowerShell
       href: dns-private-resolver-get-started-powershell.md
+    - name: Create a private resolver - Bicep
+      href: dns-private-resolver-get-started-bicep.md
+    - name: Create a private resolver - ARM Template
+      href: dns-private-resolver-get-started-template.md
 - name: Tutorials
   items:
   - name: Public DNS

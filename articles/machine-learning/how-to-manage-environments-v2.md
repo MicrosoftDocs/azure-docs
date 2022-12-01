@@ -252,7 +252,7 @@ Get the details of a specific environment:
 # [Azure CLI](#tab/cli)
 
 ```cli
-az ml environment list --name docker-image-example --version 1
+az ml environment show --name docker-image-example --version 1
 ```
 
 # [Python SDK](#tab/python)

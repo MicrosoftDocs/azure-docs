@@ -5,7 +5,8 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 06/23/2022
+ms.custom: engagement-fy23
 ---
 
 # Set up an appliance for servers in a VMware environment

@@ -1108,6 +1108,8 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Replicate data from SAP CDC
+      href: solution-template-replicate-multiple-objects-sap-cdc.md
     - name: Detect and mask PII data
       href: solution-template-pii-detection-and-masking.md
     - name: Extract data from PDF source
@@ -1199,6 +1201,9 @@ items:
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
         displayName: troubleshooting
+      - name: File System
+        href: connector-troubleshoot-file-system.md
+        displayName: troubleshooting        
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting

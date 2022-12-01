@@ -24,7 +24,7 @@ Azure Firewall Premium includes the following features:
 
 - **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
 - **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-- **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
+- **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL along with any additional path. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
 ## TLS inspection
@@ -151,7 +151,7 @@ You can identify what category a given FQDN or URL is by using the **Web Categor
 
 ### Category change
 
-Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a categorization change if you: 
+Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a category change if you: 
 
 - think an FQDN or URL should be under a different category 
 

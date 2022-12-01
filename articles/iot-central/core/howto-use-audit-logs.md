@@ -19,6 +19,7 @@ This article describes how to use audit logs to track who made what changes at w
 - Filter the audit log.
 - Customize the audit log.
 - Manage access to the audit log.
+- Export the audit log records.
 
 The audit log records information about who made a change, information about the modified entity, the action that made change, and when the change was made. The log tracks changes made through the UI, programatically with the REST API, and through the CLI.
 
@@ -75,6 +76,12 @@ The built-in **App Administrator** role has access to the audit logs by default.
 
 > [!IMPORTANT]
 > Any user granted permission to view the audit log can see all log entries even if they don't have permission to view or modify the entities listed in the log. Therefore, any user who can view the log can view the identity of and changes made to any modified entity.
+
+## Export logs
+
+You can export the audit log records to various destinations for long-term storage, detailed analysis, or integration with other logs. For more information, see [Export IoT data](howto-export-to-event-hubs.md).
+
+To send audit logs to [Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md), use IoT Central data export to send the audit logs to Event Hubs, and then use an Azure Function to add the audit log data to Log Analytics.
 
 ## Next steps
 

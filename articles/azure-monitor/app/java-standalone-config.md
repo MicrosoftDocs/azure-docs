@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 11/14/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc

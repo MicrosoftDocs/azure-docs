@@ -30,28 +30,28 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
 > Storage accounts must meet the following requirements to enforce access policies published from Microsoft Purview.
 > - Storage account versions >= 81.x.x.
 
-#### Region support for Azure Storage accounts
-Existing Azure Storage account(s) are supported in one of the regions listed below. You can also create a new one by [following this guide(../../storage/common/storage-account-create.md).
+If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
 
-Currently, Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
-- East US
-- East US2
-- South Central US
-- West US
-- West US2
-- Canada Central
-- North Europe
-- West Europe
-- France Central
-- UK South
-- East Asia
-- Southeast Asia
-- Japan East
-- Japan West
-- Australia East
-
-The following regions support only Azure Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*.
-- West US
-- East Asia
-- Japan East
-- Japan West
+#### Region support
+- All regions for Microsoft Purview are supported
+- Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
+    - East US
+    - East US2
+    - South Central US
+    - West US
+    - West US2
+    - Canada Central
+    - North Europe
+    - West Europe
+    - France Central
+    - UK South
+    - East Asia
+    - Southeast Asia
+    - Japan East
+    - Japan West
+    - Australia East
+- The following regions support only **new** Azure Storage accounts. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*.
+    - West US
+    - East Asia
+    - Japan East
+    - Japan West

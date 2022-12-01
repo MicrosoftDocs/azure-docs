@@ -1,6 +1,6 @@
 ---
-title: How to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
+title: How to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points (preview)
+titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points. (preview)
 author: jimmart-dev
 ms.service: storage

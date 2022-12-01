@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 06/28/2022
+ms.date: 11/17/2022
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Link a partner ID to your account that’s used to manage customers
 
-Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When a partner acts on behalf of the customer to manage, configure, and support Azure services, the partner users will need access to the customer’s environment. When partners use Partner Admin Link (PAL), they can associate their partner network ID with the credentials used for service delivery.
 
 PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
@@ -130,7 +130,7 @@ Yes. A linked partner ID can be changed, added, or removed.
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
-However, if you are managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+However, if you're managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Can other partners or customers edit or remove the link to the partner ID?**
 
@@ -158,7 +158,7 @@ Yes, You can link your partner ID for Azure Stack.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
 
-In order for Azure Lighthouse activities to be recognized, you'll need to associate your Partner ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your Partner ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+In order for Azure Lighthouse activities to be recognized, you need to associate your Partner ID with at least one user account that has access to each of your onboarded subscriptions. The association is needed in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your Partner ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 
@@ -166,8 +166,12 @@ Partner Admin Link (PAL) enables Microsoft to identify and recognize those partn
 
 **What data does PAL collect?**
 
-The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the telemetry to Microsoft where a partner is actively involved in a customer’s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (Azure role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
+The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the information to Microsoft where a partner is actively involved in a customer’s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (Azure role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
 
 **Does this impact the security of a customer’s Azure Environment?**
 
-PAL association only adds partner’s ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.
+PAL association only adds partner’s ID to the credential already provisioned and it doesn't alter any permissions (Azure role) or provide other Azure service data to partner or Microsoft.
+
+**What happens if the PAL identity is deleted?**
+
+If the partner network ID, also called MPN ID, is deleted, then all the recognition mechanisms including Azure Consumed Revenue (ACR) attribution stops working.
