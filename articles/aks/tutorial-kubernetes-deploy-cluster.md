@@ -39,7 +39,7 @@ To learn more about AKS and Kubernetes RBAC, see [Control access to cluster reso
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
+Create an AKS cluster using [`az aks create`][az aks create]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
 
 For more information about AKS resource limits and region availability, see [Quotas, virtual machine size restrictions, and region availability in AKS][quotas-skus-regions].
 
@@ -56,7 +56,7 @@ az aks create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Create an AKS cluster using [New-AzAksCluster][new-azakscluster]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
+Create an AKS cluster using [`New-AzAksCluster`][new-azakscluster]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
 
 For more information about AKS resource limits and region availability, see [Quotas, virtual machine size restrictions, and region availability in AKS][quotas-skus-regions].
 
@@ -81,7 +81,7 @@ Use the Kubernetes CLI, [`kubectl`][kubectl], to connect to the Kubernetes clust
 
 ### [Azure CLI](#tab/azure-cli)
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command.
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [`az aks install-cli`][az aks install-cli] command.
 
 ```azurecli
 az aks install-cli
@@ -89,7 +89,7 @@ az aks install-cli
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet.
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [`Install-AzAksKubectl`][install-azakskubectl] cmdlet.
 
 ```azurepowershell
 Install-AzAksKubectl
@@ -101,7 +101,7 @@ Install-AzAksKubectl
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [`az aks get-credentials`][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -109,7 +109,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [Import-AzAksCredential][import-azakscredential] cmdlet. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
 
 ```azurepowershell
 Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
