@@ -183,240 +183,244 @@ The example illustrates the 1-to-1 relationship between a VM public and private 
 >[!NOTE]
 >You need the secondary IP mappings for publishing BIG-IP services.
 
-![This image shows secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
+![Image shows secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
 
-To implement SHA using the BIG-IP Access Guided Configuration, repeat steps 5-11 to create additional private and public IP pairs for additional services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IPs Advanced Configuration. However, you can avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
+To implement SHA using the BIG-IP Access Guided Configuration, repeat steps to create additional private and public IP pairs for additional services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IP Advanced Configuration. However, avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
 
 ## DNS configuration
 
-To resolve your published SHA services to your BIG-IP-VM public IP(s), configure DNS for clients. The following steps assume the DNS zone of the public domain used for your SHA services is managed in Azure. However, the same DNS principles of creating locator record still apply no matter where your DNS zone is managed.
+To resolve your published SHA services to your BIG-IP-VM public IP(s), configure DNS for clients. The following steps assume the public domain DNS zone for your SHA services is managed in Azure. Apply DNS principles of creating a locator, no matter where your DNS zone is managed.
 
-1. If not already open, expand the portal’s left-hand menu and navigate to your BIG-IP-VM via the **Resource Groups** option
+1. Expand the portal left-hand menu.
+2. With the **Resource Groups** option, navigate to your BIG-IP-VM.
+3. From the BIG-IP VM menu, go to **Settings** > **Networking**.
+4. In the BIG-IP-VMs networking view, from the drop-down IP configuration list, select the first secondary IP.
+5. Select the link for its **NIC Public IP**.
 
-2. From your BIG-IP VM’s menu, go to **Settings** > **Networking**
+![The NIC public IP](./media/f5ve-deployment-plan/networking.png)
 
-3. In the BIG-IP-VMs networking view, select the first secondary IP from the drop-down IP configuration list and select the link for its **NIC Public IP**
+4. In the left-hand pane, below the **Settings** section, select **Configuration**. 
+5. The public IP and DNS properties menu appears.
+6. Select and **Create** alias record.
+7. From the drop-down menu, select your **DNS zone**. If there is no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Azure AD.
+8. To create the first DNS alias record:
 
-![Screenshot to show the NIC public IP](./media/f5ve-deployment-plan/networking.png)
+* **Subscription**: Same subscription as the BIG-IP-VM
+* **DNS zone**: DNS zone authoritative for the verified domain suffix your published websites use, for example, www.contoso.com
+* **Name**: The hostname you specify resolves to the public IP associated with the selected secondary IP. Define DNS-to IP-mappings. For example, intranet.contoso.com to 13.77.148.215
+* **TTL**: 1
+* **TTL units**: Hours
 
-4. Below the **Settings** section in the left-hand pane, select **Configuration** to bring up the public IP and DNS properties menu for the selected secondary IP
-
-5. Select and **Create** alias record and select your **DNS zone** from the drop-down list. If a DNS zone doesn’t already exist, then it may be managed outside of Azure, or you can create one for the domain suffix you would have verified in Azure AD.
-
-6. Use the following details to create the first DNS alias record:
-
- | Field | Value |
- |:-------|:-----------|
- |Subscription| Same subscription as the BIG-IP-VM|
- |DNS zone| DNS zone that is authoritative for the verified domain suffix your published websites will use, for example, www.contoso.com |
- |Name | The hostname you specify will resolve to the public IP that is associated with the selected secondary IP. Make sure to define the correct DNS to IP mappings. See last image in Networking configs section, for example, intranet.contoso.com > 13.77.148.215|
- | TTL | 1 |
- |TTL units | Hours |
-
-7. Select **Create** for Azure to save those settings to public DNS.
-
-8. Leave the **DNS name label (optional)** and select **Save** before closing the Public IP menu.
-
-9. Repeat steps 1 through 6 to create additional DNS records for every service you plan to publish using BIG-IP’s Guided Configuration.
-
-  With DNS records in place, you can use any of the online tools such as [DNS checker](https://dnschecker.org/) to verify that a created record has successfully propagated across all global public DNS servers.
-
-  If you manage your DNS domain namespace using an external provider like [GoDaddy](https://www.godaddy.com/), then you'll need to create records using their own DNS management facility.
+8. Select **Create**.
+9. Leave the **DNS name label (optional)**.
+10. Select **Save**.
+11. Close the Public IP menu.
 
 >[!NOTE]
->You can also use a PC’s local hosts file if testing and frequently switching DNS records. The local hosts file on a Windows PC can be accessed by pressing Win + R on the keyboard and entering *drivers* in the **Run** box. Just be mindful that a local host record will only provide DNS resolution for the local PC, not other clients.
+>To create additional DNS records for the services you wil publish using BIG-IP Guided Configuration, repeat steps 1 through 6.
+
+With DNS records in place, you can use tools such as [DNS checker](https://dnschecker.org/) to verify a created record propagated across global public DNS servers. If you manage your DNS domain namespace using an external provider like [GoDaddy](https://www.godaddy.com/), create records using their DNS management facility.
+
+>[!NOTE]
+>If testing and frequently switching DNS records, you can use a PC local hosts file: Select **Win** + **R**. In the **Run** box, enter **drivers**. 
+A local host record provides DNS resolution for the local PC, not other clients.
 
 ## Client traffic
 
-By default, Azure VNets and associated subnets are private networks that are unable to receive Internet traffic. Your BIG-IP-VM’s NIC should be attached to the NSG you specified during deployment. For external web traffic to reach the BIG-IP-VM you must define an inbound NSG rule to permit ports 443 (HTTPS) and 80 (HTTP) through from the public internet.
+By default, Azure virtual networks (VNets) and associated subnets are private networks unable to receive Internet traffic. Attach your BIG-IP-VM NIC to the NSG specified during deployment. For external web traffic to reach the BIG-IP-VM, define an inbound NSG rule to permit ports 443 (HTTPS) and 80 (HTTP) from the public internet.
 
-1. From the BIG-IP VM's main **Overview** menu, select **Networking**
+1. From the BIG-IP VM main **Overview** menu, select **Networking**.
+2. Select **Add** inbound rule.
+3. Enter NSG rule properties:
 
-2. Select **Add** inbound rule to enter the following NSG rule properties:
+* **Source**: Any
+* **Source port ranges**: *|
+* **Destination IP addresses**: Comma-separated list of BIG-IP-VM secondary private IPs
+* **Destination ports**: 80, 443
+* **Protocol**: TCP
+* **Action**: Allow
+* **Priority**: Lowest available value between 100 and 4096
+* **Name**: A descriptive name, for example: `BIG-IP-VM_Web_Services_80_443`
 
- |     Field   |   Value        |
- |:------------|:------------|
- |Source| Any|
- |Source port ranges| *|
- |Destination IP addresses|Comma-separated list of all BIG-IP-VM secondary private IPs|
- |Destination ports| 80,443|
- |Protocol| TCP |
- |Action| Allow|
- |Priority|Lowest available value between 100 - 4096|
- |Name | A descriptive name, for example: `BIG-IP-VM_Web_Services_80_443`|
+4. Select **Add**.
+5. Close the **Networking** menu.
 
-3. Select **Add** to commit the changes, and close the **Networking** menu.
-
-HTTP and HTTPS traffic from any location will now be allowed to reach all of your BIG-IP-VMs secondary interfaces. Permitting port 80 is useful in allowing the BIG-IP APM to auto redirect users from HTTP to HTTPS. This rule can be edited to add or remove destination IPs, whenever necessary.
+HTTP and HTTPS traffic can reach your BIG-IP-VMs secondary interfaces. To permit port 80 allows the BIG-IP APM to auto-redirect users from HTTP to HTTPS. Edit this rule to add or remove destination IPs.
 
 ## Manage BIG-IP
 
-A BIG-IP system is administered via its web config UI, which can be accessed using either of the following recommended methods:
+A BIG-IP system is administered with its web config UI. Access the UI:
 
-- From a machine within the BIG-IP’s internal network
-
-- From a VPN client connected to the BIG-IP-VM’s internal network
-
+- From a machine in the BIG-IP internal network
+- From a VPN client connected to the BIG-IP-VM internal network
 - Published via [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
-You’ll need to decide on the most suitable method before you can proceed with the remaining configurations. If necessary, you can connect directly to the web config from the internet by configuring the BIG-IP’s primary IP with a public IP. Then adding an NSG rule to allow the 8443 traffic to that primary IP. Make sure to restrict the source to your own trusted IP, otherwise anyone will be able to connect.
+>[!NOTE]
+>Select one of the three previous methods before you proceed with the remaining configurations. If necessary, connect directly to the web config from the internet by configuring the BIG-IP primary IP with a public IP. Then add an NSG rule to allow the 8443 traffic to that primary IP. Restrict the source to your own trusted IP, otherwise anyone can connect. 
 
-Once ready, confirm you can connect to the BIG-IP VM’s web config and login with the credentials specified during VM deployment:
+### Confirm connection
 
-- If you are connecting from a VM on its internal network or via VPN, connect directly to the BIG-IPs primary IP and web config port. For example, `https://<BIG-IP-VM_Primary_IP:8443`. Your browser will prompt about the connection being insecure, but you can ignore the prompt until the BIG-IP is configured. If the browser insists on blocking access, clear its cache, and try again.
+Confirm you can connect to the BIG-IP VM web config and sign in with the credentials specified during VM deployment:
 
-- If you published the web config via Application Proxy, then use the URL defined to access the web config externally, without appending the port, for example, `https://big-ip-vm.contoso.com`. The internal URL must be defined using the web config port, for example, `https://big-ip-vm.contoso.com:8443`
+- If connecting from a VM on its internal network or via VPN, connect to the BIG-IP primary IP and web config port. For example, `https://<BIG-IP-VM_Primary_IP:8443`. Your browser prompt might state the connection is insecure. Ignore the prompt until the BIG-IP is configured. If the browser blocks access, clear its cache, and try again.
+- If you published the web config via Application Proxy, use the URL defined to access the web config externally. Don't append the port, for example, `https://big-ip-vm.contoso.com`. Define the internal URL by using the web config port, for example, `https://big-ip-vm.contoso.com:8443`
 
-A BIG-IP system can also be managed via its underlying SSH environment, which is typically used for command-line (CLI) tasks and root level access. Several options exist for connecting to the CLI, including:
+You can manage a BIG-IP system with its SSH environment, typically used for command-line (CLI) tasks and root-level access. 
 
-- [Azure Bastion service](../../bastion/bastion-overview.md): Allows fast and secure connections to any VM within a vNET, from any location
+To connect to the CLI:
 
-- Connect directly via an SSH client like PowerShell through the JIT approach
-
-- Serial Console: Offered at the bottom of the Support and troubleshooting section of VMs menu in the portal. It doesn't support file transfers.
-
-- As with the web config, you can also connect directly to the CLI from the internet by configuring the BIG-IP’s primary IP with a public IP and adding an NSG rule to allow SSH traffic. Again, be sure to restrict the source to your own trusted IP, if using this method.  
+- [Azure Bastion service](../../bastion/bastion-overview.md): Connect to VMs in a VNet, from any location
+- SSH client, such as PowerShell with the just-in-time (JIT) approach
+- Serial Console: In the portal, in the VM menu, Support and troubleshooting section. It doesn't support file transfers.
+- From the internet: Configure the BIG-IP primary IP with a public IP. Add an NSG rule to allow SSH traffic. Restrict your trusted IP source.  
 
 ## BIG-IP license
 
-A BIG-IP system must be activated and provisioned with the APM module before it can be configured for publishing services and SHA.
+Before it can be configured for publishing services and SHA, activate and provision a BIG-IP systems with the APM module.
 
-1. Log back into the web config and on the **General properties** page select **Activate**
+1. Sign in to the web config.
+2. On the **General properties** page, select **Activate**.
+3. In the **Base Registration key** field, enter the case-sensitive key provided by F5.
+4. Leave the **Activation Method** set to **Automatic**.
+5. Select **Next**.
+6. BIG-IP validates the license and shows the end-user license agreement (EULA).
+7. Select **Accept** and wait for activation to complete.
+8. Select **Continue**.
+9. At the bottom of the License summary page, sign in.
+10. Select **Next**. 
+11. A list of modules required for SHA appear. 
 
-2. In the **Base Registration key** field, enter the case-sensitive key provided by F5
-
-3. Leave the **Activation Method** set to **Automatic** and select **Next**, the BIG-IP will validate the license and display the End-user license agreement (EULA).
-
-4. Select **Accept** and wait for activation to complete, before selecting **Continue**.
-
-5. Log back in and at the bottom of the License summary page, select **Next**. The BIG-IP will now display a list of modules that provide the various features that are required for SHA. If you don't see this, from the main tab go to **System** > **Resource Provisioning**.
-
-6. Check the provisioning column for Access Policy (APM)
+>[!NOTE]
+>If the list does not appear, in the main tab, go to **System** > **Resource Provisioning**. Check the provisioning column for Access Policy (APM)
 
 ![The image shows access provisioning](./media/f5ve-deployment-plan/access-provisioning.png)
 
-7. Select **Submit** and accept the warning
-
-8. Be patient and wait for the BIG-IP to complete lighting up the new features. It may cycle several times before being fully initialized. 
-
-9. When ready select **Continue** and from the **About** tab select **Run the setup utility**
+12. Select **Submit**.
+13. Accept the warning.
+14. Wait for initialization to complete.
+15. Select **Continue**.
+16. On the **About** tab, select **Run the setup utility**.
 
 >[!IMPORTANT]
->F5 licenses are constrained to being consumed by a single BIG-IP VE instance at any one time. There may be reasons for wanting to migrate a license from one instance to another, and if doing so then be sure to [revoke](https://support.f5.com/csp/article/K41458656) your trial license on the active instance before decommissioning it, otherwise the license will be permanently lost.
+>An F5 licenses is for one BIG-IP VE instance. To migrate a license from one instance to another, see the AskF5 article, [K41458656: Reusing a BIG-IP VE license on a different BIG-IP VE system](https://support.f5.com/csp/article/K41458656). Revoke your trial license on the active instance before you decommission it, otherwise the license will be permanently lost.
 
 ## Provision BIG-IP
 
-Securing management traffic to and from BIG-IPs web config is paramount. Configure a device management certificate to help protect the web config channel from compromise.
+It's important to secure management traffic to and from BIG-IP web config. To help protect the web config channel from compromise, configure a device management certificate.
 
-1. From the left-navigation bar, go to **System** > **Certificate Management** > **Traffic Certificate Management** > **SSL Certificate List** > **Import**
-
-2. From the **Import Type** drop down list, select **PKCS 12(IIS)** and **Choose File**. Locate an SSL web certificate that has a Subject name or SAN that will cover the FQDN you'll assign the BIG-IP-VM in the next few steps
-
-3. Provide the password for the certificate then select **Import**
-
-4. From the left-navigation bar, go to **System** > **Platform**
-
-5. Configure the BIG-IP-VM with a fully qualified hostname and the timezone for its environment’s, followed by **Update**
+1. From the left-navigation bar, go to **System** > **Certificate Management** > **Traffic Certificate Management** > **SSL Certificate List** > **Import**.
+2. From the **Import Type** drop-down list, select **PKCS 12(IIS)** and **Choose File**. 
+3. Locate an SSL web certificate with a Subject name or SAN that covers the FQDN, which you assign the BIG-IP-VM later.
+4. Provide the certificate password.
+5. Select **Import**.
+6. From the left-navigation bar, go to **System** > **Platform**.
+7. Configure the BIG-IP-VM with a fully qualified hostname and environment time zone.
+8. Select **Update**.
 
 ![The image shows general properties](./media/f5ve-deployment-plan/general-properties.png)
 
-6. From the left-navigation bar, go to **System** > **Configuration** > **Device** > **NTP**
+9. From the left-navigation bar, go to **System** > **Configuration** > **Device** > **NTP**.
+10. Specify an NTP source.
+11. Select **Add**.
+12. Select **Update**. For example, `time.windows.com`
 
-7. Specify a reliable NTP source and select **Add**, followed by **Update**. For example, `time.windows.com`
-
-You now need a DNS record to resolve the BIG-IPs FQDN specified in the previous steps, to its primary private IP. A record should be added to your environment's internal DNS, or to the localhost file of a PC that will be used to connect to the BIG-IP’s web config. Either way, the browser warning should no longer appear when you connect to the web config directly. That is, not via Application Proxy or any other reverse proxy.
+You need a DNS record to resolve the BIG-IPs FQDN to its primary private IP, which you specified in previous steps. Add a record to your environment internal DNS, or to a PC localhost file to connect to the BIG-IP web config. When you connect to the web config, the browser warning no longer appears, not with Application Proxy or any other reverse proxy.
 
 ## SSL profile
 
-As a reverse proxy, a BIG-IP system can act as a simple forwarding service, otherwise known as a Transparent proxy, or a Full proxy that actively participates in exchanges between clients and servers.
-A full proxy creates two distinct connections: a front-end TCP client connection along with a separate backend TCP server connection, coupled by a soft gap in the middle. Clients connect to the proxy listener on one end, otherwise known as a **Virtual Server**, and the proxy establishes a separate, independent connection to the backend server. This is bi-directional on both sides.
-In this full proxy mode, the F5 BIG-IP system is capable of inspecting traffic, and therefore interacting with requests and responses is also possible. Certain functions such as load balancing and web performance optimization, as well as more advanced traffic management services such as application layer security, web acceleration, page routing and secure remote access, rely on this functionality.
-When publishing SSL-based services, the process of decrypting and encrypting traffic between clients and backend services is handled by BIG-IP SSL profiles.
+As a reverse proxy, a BIG-IP system is a forwarding service, otherwise known as a Transparent proxy, or a Full proxy that participates in exchanges between clients and servers. A full proxy creates two connections: a front-end TCP client connection and a back-end TCP server connection, with a soft gap in the middle. Clients connect to the proxy listener on one end, a virtual server, and the proxy establishes a separate, independent connection to the back-end server. This is bi-directional on both sides.
+In this full proxy mode, the F5 BIG-IP system can inspect traffic, and interact with requests and responses. Functions such as load balancing and web performance optimization, and advanced traffic management services (application layer security, web acceleration, page routing, and secure remote access) rely on this functionality.
+When you publish SSL-based services, BIG-IP SSL profiles handing decrypting and encrypting traffic between clients and back-end services.
 
-Two types of profiles exist:
+There are two profile types:
 
-- **Client SSL**: The most common way of setting up a BIG-IP system to publish internal services with SSL is to create a Client SSL profile. With a Client SSL profile, a BIG-IP system can decrypt inbound client requests before sending them on to a downstream service. It then encrypts outbound backend responses before sending them to clients.
+- **Client SSL**: Creating this profile the most common way to set up a BIG-IP system to publish internal services with SSL. With a Client SSL profile, a BIG-IP system decrypts inbound client requests, before sending them to a down-stream service. It encrypts outbound back-end responses, then sends them to clients.
+- **Server SSL**: For back-end services configured for HTTPS, you can configure BIG-IP to use a Server SSL profile. With this profile, the BIG-IP re-encrypts the client request, then sends it to the destination back-end service. When the server returns an encrypted response, the BIG-IP system decrypts and re-encrypts the response, then sends it to the client, through the configured Client SSL profile.
 
-- **Server SSL**: For backend services configured for HTTPS, you can configure BIG-IP to use a Server SSL profile. With a Server SSL profile, the BIG-IP re-encrypts the client request before sending it on to the destination backend service. When the server returns an encrypted response, the BIG-IP system decrypts and re-encrypts the response, before sending it on to the client, through the configured Client SSL profile.
+For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client and Server SSL profiles.
 
-Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-configured and ready for all SHA scenarios.
-
-1. From the left-navigation bar, go to **System** > **Certificate Management** > **Traffic Certificate Management** > **SSL Certificate List** > **Import**
-
-2. From the **Import Type** drop down list, select **PKCS 12(IIS)**
-
-3. Provide a name for the imported certificate, such as `ContosoWildcardCert`.
-
-4. Select **Choose File** to browse to the SSL web certificate who’s subject name corresponds to the domain suffix you plan on using for published services
-
-5. Provide the **password** for the imported certificate then select **Import**
-
-6. From the left-navigation bar, go to **Local Traffic** > **Profiles** > **SSL** > **Client** and then select **Create**
-
-7. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile and ensure the Parent profile is set to `clientssl`.
+1. From the left-navigation, go to **System** > **Certificate Management** > **Traffic Certificate Management** > **SSL Certificate List** > **Import**.
+2. From the **Import Type** drop-down list, select **PKCS 12 (IIS)**.
+3. For the imported certificate, enter a name such as `ContosoWildcardCert`.
+4. Select **Choose File**.
+5. Browse to the SSL web certificate with a Subject name that corresponds to the domain suffix for published services.
+6. For the imported certificate, provide the **password**.
+7. Select **Import**.
+8. From the left-navigation, go to **Local Traffic** > **Profiles** > **SSL** > **Client**.
+9. Select **Create**.
+10. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile.
+11. Ensure the Parent profile is set to **clientssl**.
 
 ![The image shows update big-ip](./media/f5ve-deployment-plan/client-ssl.png)
 
-8. Select the far-right check box in the **Certificate Key Chain** row and select **Add**
-
-9. From the three drop down lists, select the wildcard certificate you imported without a passphrase, then select **Add** > **Finished**.
+8. In the **Certificate Key Chain** row, select the far-right check box.
+9. Select **Add**.
+10. From the three drop-down lists, select the wildcard certificate you imported without a passphrase.
+11. Select **Add**.
+12. Select **Finished**.
 
 ![The image shows update big-ip contoso wildcard](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-10.	Repeat steps 6-9 to create an **SSL server certificate profile**. From the top ribbon, select **SSL** > **Server** > **Create**.
-
-11.	In the **New Server SSL Profile** page, provide a unique friendly name for the new server SSL profile and ensure the Parent profile is set to `serverssl`.
-
-12.	Select the far-right check box for the Certificate and Key rows and from the drop-down list select your imported certificate, followed by **Finished**.
+13.	Repeat steps to create an **SSL server certificate profile**. 
+14.	From the top ribbon, select **SSL** > **Server** > **Create**.
+15.	In the **New Server SSL Profile** page, enter a unique friendly name for the new server SSL profile.
+16.	Ensure the Parent profile is set to **serverssl**.
+17.	Select the far-right check box for the Certificate and Key rows and from the drop-down list select your imported certificate, followed by **Finished**.
 
 ![The image shows update big-ip server all profile](./media/f5ve-deployment-plan/server-ssl-profile.png)
 
 >[!NOTE]
->Don’t despair if you’re unable to procure an SSL certificate, you can use the integrated self-signed BIG-IP server and client SSL certificates. You’ll just see a certificate error in the browser.
+>If you’re unable to procure an SSL certificate, use the integrated self-signed BIG-IP server and client SSL certificates. A certificate error appears in the browser.
 
-One final step in preparing a BIG-IP for SHA is to ensure it's able to locate the resources its publishing and also the directory service it relies on for SSO. A BIG-IP has two sources of name resolution, starting with its local/.../hosts file, or if a record is not found the BIG-IP system uses whatever DNS service it has been configured with. The hosts file method does not apply to APM nodes and pools that use an FQDN.
+### Locate the resource
 
-1. In the web config, go to **System** > **Configuration** > **Device** > **DNS**
+To prepare a BIG-IP for SHA, locate the resources its publishing, and the directory service it relies on for SSO. A BIG-IP has two sources of name resolution, starting with its local/.../hosts file. If a record is not found, the BIG-IP system uses the DNS service it was configured with. The hosts file method does not apply to APM nodes and pools that use an FQDN.
 
-2. In **DNS Lookup Server List**, enter the IP address of your environments DNS server
+1. In the web config, go to **System** > **Configuration** > **Device** > **DNS**.
+2. In **DNS Lookup Server List**, enter the IP address of your environment DNS server.
+3. Select **Add**.
+4. Select **Update**.
 
-3. Select **Add** > **Update**
-
-As a separate and optional step, you may consider an [LDAP configuration](https://somoit.net/f5-big-ip/authentication-using-active-directory) to authenticate BIG-IP sysadmins against AD instead of managing local BIG-IP accounts.
+An optional step is an [LDAP configuration](https://somoit.net/f5-big-ip/authentication-using-active-directory) to authenticate BIG-IP sysadmins against Active Directory, instead of managing local BIG-IP accounts.
 
 ## Update BIG-IP
 
-Your BIG-IP-VM should be updated to unlock all of the new functionalities covered in the [scenario-based guidance](f5-aad-integration.md). You can check the systems TMOS version hovering your mouse pointer over the BIG-IPs hostname on the top left of the main page. It's recommended to be running v15.x and above, obtainable from [F5 download](https://downloads.f5.com/esd/productlines.jsp). Use the [guidance](https://support.f5.com/csp/article/K34745165) to update the main system OS (TMOS).
+See the following list for update-related guidance. Update instructions follow. 
 
-If updating the main TMOS is not possible, then consider at least upgrading the Guided Configuration alone, using these steps.
+* To check the traffic management operating system (TMOS) version:
+  * On the top-left of the main page, hover your cursor over the BIG-IP hostname
+* Run v15.x and above. See, [F5 download](https://downloads.f5.com/esd/productlines.jsp). Sign-in required.
+* To update the main TMOS, see the F5 article, [K34745165: Managing software images on the BIG-IP system](https://support.f5.com/csp/article/K34745165)  
+  * If you can't update the main TMOS, you can upgrade the Guided Configuration. Use the following steps.
+* See also, [scenario-based guidance](f5-aad-integration.md)
 
-1. From the main tab in the BIG-IP web config go to **Access** > **Guided Configuration**
-
-2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**
+1. In the BIG-IP web config, on the main tab, go to **Access** > **Guided Configuration**.
+2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**.
 
 ![The image shows how to update big-ip](./media/f5ve-deployment-plan/update-big-ip.png)
 
-3. On the **Upgrade Guided Configuration** dialog, **Choose File** to upload the downloaded use case pack and select **Upload and Install**
+3. On the **Upgrade Guided Configuration** dialog, select **Choose File**. 
+4. Select **Upload and Install**.
+5. Wait for the upgrade to complete.
+6. Select **Continue**.
 
-4. When the upgrade has completed, select **Continue**.
+## Back up BIG-IP
 
-## Backup BIG-IP
+When the BIG-IP system is provisioned, we recommend a full configuration backup.
 
-With the BIG-IP system now fully provisioned, we recommend taking a full backup of its configuration:
+1. Go to **System** > **Archives** > **Create**.
+2. Provide a unique **File Name**.
+3. Enable **Encryption** with a passphrase.
+4. Set the **Private Keys** option to **Include** to back up device and SSL certificates.
+5. Select **Finished**.
+6. Wait for the process to complete.
+7. A message appears with results. 
+8. Select **OK**.
+9. Select the back-up link.
+10. Save the user configuration set (UCS) archive locally.
+11. Select **Download**.
 
-1. Go to **System** > **Archives** > **Create**
-
-2. Provide a unique **File Name** and enable **Encryption** with a passphrase
-
-3. Set the **Private Keys** option to **Include** to also back up device and SSL certificates
-
-4. Select **Finished** and wait for the process to complete
-
-5. An operation status will be displayed providing a status of backup result. Select **OK**
-
-6. Save the User configuration set (UCS) archive locally by choosing the link of the backup and select **Download**.
-
-As an optional step, you can also take a backup of the entire system disk using [Azure snapshots](../../virtual-machines/windows/snapshot-copy-managed-disk.md), which unlike the web config backup would provide some contingency for testing between TMOS versions, or rolling back to a fresh system.
+You can create a backup of the entire system disk using [Azure snapshots](../../virtual-machines/windows/snapshot-copy-managed-disk.md). This tool provides contingency for testing between TMOS versions, or rolling back to a fresh system.
 
 ```PowerShell
 # Install modules
