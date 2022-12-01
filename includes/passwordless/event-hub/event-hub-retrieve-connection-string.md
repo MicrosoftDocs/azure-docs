@@ -14,7 +14,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 
 To copy the primary connection string for your namespace, follow these steps: 
 
-1. On the **Event Hub Namespace** page, select **Shared access policies** on the left menu.
+1. On the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 2. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 3. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    

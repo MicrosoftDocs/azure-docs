@@ -12,7 +12,7 @@ ms.custom: include file
 
 When developing locally, make sure that the user account that connects to Azure Event Hubs has the correct permissions. You'll need the [Azure Event Hubs Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
 
-The following example assigns the `Azure Event Hub Data Owner` role to your user account, which provides full access to Azure Event Hubs resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to give users only the minimum permissions needed for a more secure production environment.
+The following example assigns the `Azure Event Hubs Data Owner` role to your user account, which provides full access to Azure Event Hubs resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to give users only the minimum permissions needed for a more secure production environment.
 
 ### Azure built-in roles for Azure Event Hubs
 For Azure Event Hubs, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to a Event Hubs namespace:
@@ -38,7 +38,7 @@ If you want to create a custom role, see [Rights required for Event Hubs operati
 
     :::image type="content" source="media/event-hub-assign-roles/add-role.png" alt-text="A screenshot showing how to assign a role.":::    
 
-5. Use the search box to filter the results to the desired role. For this example, search for `Azure Event Hub Data Owner` and select the matching result. Then choose **Next**.
+5. Use the search box to filter the results to the desired role. For this example, search for `Azure Event Hubs Data Owner` and select the matching result. Then choose **Next**.
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
@@ -58,7 +58,7 @@ Copy the output `Id` from the preceding command. You can then assign roles using
 
 ```azurecli
 az role assignment create --assignee "<user@domain>" \
---role "Azure Event Hub Data Owner" \
+--role "Azure Event Hubs Data Owner" \
 --scope "<your-resource-id>"
 ```
 
@@ -74,7 +74,7 @@ Copy the `Id` value from the preceding command output. You can then assign roles
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <user@domain> `
--RoleDefinitionName "Azure Event Hub Data Owner" `
+-RoleDefinitionName "Azure Event Hubs Data Owner" `
 -Scope <yourStorageAccountId>
 ```
 
