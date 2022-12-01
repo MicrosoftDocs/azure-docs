@@ -5,22 +5,23 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/29/2022
+ms.date: 12/01/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
+
+To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
 > - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
 
-To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
+> [!TIP]
+> To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
-For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
-
-## Deployment prerequisites
+## Rrerequisites
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
@@ -36,7 +37,7 @@ When you have these prerequisites, you're ready to deploy the ARM template.
 
 ## Review the ARM template
 
-The ARM template used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *azuredeploy.json* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The ARM template that you use to deploy your solution in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
 ## Deploy the MedTech service with the Azure Resource Manager template and Azure PowerShell
 
