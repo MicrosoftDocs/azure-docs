@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 11/28/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -33,7 +33,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
 - [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) (Preview): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`. The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=stt-tts) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language. 
 
-- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobooks, content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the preset target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
+- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobooks, content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the preset target speaking styles. You can also create up to 10 custom styles by providing style samples (at least 100 utterances per style) as additional training data for the same voice. 
 
 The language of the training data must be one of the [languages that are supported](language-support.md?tabs=stt-tts) for custom neural voice neural, cross-lingual, or multi-style training.
 
@@ -227,4 +227,3 @@ Navigate to the project where you copied the model to [deploy the model copy](ho
 - [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
-- [Long Audio API](long-audio-api.md)

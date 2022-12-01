@@ -502,7 +502,7 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 ```
 
 > [!NOTE]
-> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
+> The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Attribute**
 
@@ -811,7 +811,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
+> The 'audio' element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 
@@ -852,7 +852,7 @@ Only one background audio file is allowed per SSML document. You can intersperse
 > [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
 >
-> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 

@@ -238,4 +238,4 @@ If you want to provide feedback to us on the Remote Desktop client for Android a
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-android-chrome-os.md).

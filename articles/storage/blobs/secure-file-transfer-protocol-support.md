@@ -1,5 +1,5 @@
 ---
-title: SFTP support for Azure Blob Storage | Microsoft Docs
+title: SFTP support for Azure Blob Storage
 description: Blob storage now supports the SSH File Transfer Protocol (SFTP). 
 author: normesta
 ms.subservice: blobs
@@ -143,6 +143,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Moveit 12.7
 - OpenSSH 7.4+
 - paramiko 2.8.1+
+- phpseclib 1.0.13+
 - PuTTY 0.74+
 - QualysML 12.3.41.1+
 - RebexSSH 5.0.7119.0+
@@ -153,6 +154,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - WinSCP 5.10+
 - Workday
 - XFB.Gateway
+- JSCH 0.1.54+
 
 The supported client list above isn't exhaustive and may change over time.
 
@@ -162,7 +164,7 @@ See the [limitations and known issues article](secure-file-transfer-protocol-kno
 
 ## Pricing and billing
 
-Enabling the SFTP endpoint has an hourly cost. We will start applying this hourly cost on or after January 1, 2023. For the latest pricing information, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/).
+Enabling the SFTP endpoint has an hourly cost. We will start applying this hourly cost on or after January 1, 2023. For the latest pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Transaction, storage, and networking prices for the underlying storage account apply. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
 

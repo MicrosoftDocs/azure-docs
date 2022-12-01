@@ -385,8 +385,12 @@
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Export cost data with a Storage SAS key
       href: costs/export-cost-data-storage-account-sas-key.md
-    - name: Allocate costs
-      href: costs/allocate-costs.md
+    - name: Cost allocation
+      items:
+      - name: Group and allocate costs using tag inheritance
+        href: costs/enable-tag-inheritance.md
+      - name: Split shared costs
+        href: costs/allocate-costs.md
     - name: Connect with Power BI Desktop
       href: /power-bi/desktop-connect-azure-cost-management
     - name: Analyze Azure costs with the Power BI template app
@@ -471,6 +475,8 @@
       href: manage/resolve-past-due-balance.md
     - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
+    - name: View payment history
+      href: manage/view-payment-history.md
   - name: Troubleshoot
     items:
     - name: Error codes

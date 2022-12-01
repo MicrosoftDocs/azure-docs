@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 06/13/2022
+ms.custom: engagement-fy23
 ---
 
 # Assessment overview (migrate to Azure VMs)

@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure solution for periodic data transfer| Microsoft Docs
+title: Choose an Azure solution for periodic data transfer
 description: Learn how to choose an Azure solution for data transfer when you are transferring data periodically.
 services: storage
 author: alkohli
