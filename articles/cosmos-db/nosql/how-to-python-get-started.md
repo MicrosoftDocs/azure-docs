@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 
 This article shows you how to connect to Azure Cosmos DB for NoSQL using the Python SDK. Once connected, you can perform operations on databases, containers, and items.
 
-[Package (PyPi)](https://pypi.org/project/azure-cosmos/) | [Samples](samples-python.md) | [API reference](/python/api/azure-cosmos/azure.cosmos) | [Library source code]https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+[Package (PyPi)](https://pypi.org/project/azure-cosmos/) | [Samples](samples-python.md) | [API reference](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
 
 ## Prerequisites
 
