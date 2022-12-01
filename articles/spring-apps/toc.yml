@@ -134,6 +134,10 @@ items:
         href: how-to-configure-enterprise-spring-cloud-gateway.md
       - name: Debug your apps remotely in Azure Spring Apps
         href: how-to-remote-debugging-app-instance.md
+      - name: Use VMware Tanzu Application Accelerator
+        href: how-to-use-accelerator.md
+      - name: Use Tanzu Application Platform GUI tools
+        href: how-to-use-dev-tool-portal.md
   - name: Deploy
     items:
     - name: Set up a staging environment

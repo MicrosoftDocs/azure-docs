@@ -126,7 +126,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
     	];
     
     async function main() {
-    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	// create a Service Bus client using the passwordless authentication to the Service Bus namespace
     	const sbClient = new ServiceBusClient(fullyQualifiedNamespace, credential);
     	
     	// createSender() can also be used to create a sender for a topic.
@@ -308,7 +308,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
     const queueName = "<QUEUE NAME>"
 
      async function main() {
-    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	// create a Service Bus client using the passwordless authentication to the Service Bus namespace
     	const sbClient = new ServiceBusClient(fullyQualifiedNamespace, credential);
      
     	// createReceiver() can also be used to create a receiver for a subscription.

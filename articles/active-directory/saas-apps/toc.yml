@@ -2880,6 +2880,8 @@
         href: purecloud-by-genesys-provisioning-tutorial.md
       - name: getAbstract
         href: getabstract-provisioning-tutorial.md
+      - name: GHAE
+        href: ghae-provisioning-tutorial.md  
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE
