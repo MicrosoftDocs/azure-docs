@@ -4,7 +4,7 @@ description: Learn how to analyze and visualize blob inventory reports by using 
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 12/01/2022
 ms.author: normesta
 ms.subservice: blobs
 ---
@@ -83,6 +83,8 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 1. Download the [ReportAnalysis.ipynb](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.ipynb) sample notebook.
 
+   Make sure to save this file with the `.ipynb` extension.
+
 2. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio).
 
 3. In Synapse Studio, select the **Develop** tab.
@@ -121,11 +123,22 @@ In this section, you'll generate statistical data that you'll visualize in a rep
    
 2. Verify that the notebook ran successfully by selecting the **Data** tab.
 
-   A database named **reportdata** should appear in the **Workspace** tab of the **Data** pane.
+   A database named **reportdata** should appear in the **Workspace** tab of the **Data** pane. If this database does not appear, then you might have to refresh the web page.
    
    > [!div class="mx-imgBorder"]
    > ![Report data database](./media/storage-blob-inventory-report-analytics/report-data-database.png)
- 
+   
+   The database contains a set of tables. Each table contains information obtained by running the queries from the PySpark notebook. 
+
+3. To examine the contents of a table, expand the **Tables** folder of the **reportdata** database. Then, right-click a table, click **Select SQL script**, and then click **Select TOP 100 rows**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Menu option to create a new sql script](./media/storage-blob-inventory-report-analytics/run-sql-scripts-on-tables.png) 
+
+4. You can modify the query if you want and then select **Run** to view the results.
+
+   > [!div class="mx-imgBorder"]
+   > ![Query editor and results](./media/storage-blob-inventory-report-analytics/query-editor-and-results.png) 
 
 ## Visualize the data
 
@@ -162,6 +175,8 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 ## Next steps
 
+- Set up an Azure Synapse pipeline to keep running your notebook at regular intervals. That way you can process new inventory reports as they are created. After the initial run, each of the next runs will analyze incremental data and then update the tables with the results of that analysis. For guidance, see [Integrate with pipelines](../../synapse-analytics/get-started-pipelines.md).
+
 - Learn about ways to analyze individual containers in your storage account. See these articles:
 
   [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
@@ -175,6 +190,3 @@ In this section, you'll generate statistical data that you'll visualize in a rep
   [Estimate the cost of archiving data](archive-cost-estimation.md)
 
   [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
-
-
-Include cost optimization links.
