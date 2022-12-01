@@ -15,7 +15,7 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using the Azure CLI.
 
 ## Update the scale set model
-A scale set has a "scale set model" that captures the *desired* state of the scale set as a whole. To query the model for a scale set, you can use [az vmss show](/cli/azure/vmss?view=azure-cli-latest#az-vmss-show):
+A scale set has a "scale set model" that captures the *desired* state of the scale set as a whole. To query the model for a scale set, you can use [az vmss show](/cli/azure/vmss#az-vmss-show):
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -110,7 +110,7 @@ The exact presentation of the output depends on the options you provide to the c
 }
 ```
 
-You can use [az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update) to update various properties of your scale set. For example, updating your license type or a VMs instance protection policy.
+You can use [az vmss update](/cli/azure/vmss#az-vmss-update) to update various properties of your scale set. For example, updating your license type or a VMs instance protection policy.
 
 ```azurecli-interactive
 az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type windows_server
@@ -137,7 +137,7 @@ az vmss create \
 
 
 ## Updating individual VM instances in a scale set
-Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show).
+Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use [az vm show](/cli/azure/vm#az-vm-show).
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myScaleSet_Instanace1
@@ -243,7 +243,7 @@ Running [az vm show](/cli) again, we now will see that the VM instance has the n
 
 ## Add an Instance to your scale set
 
-There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) command and specifying the scale set name you want the instance added to. 
+There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to. 
 
 ```azurecli-interactive
 az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image UbuntuLTS
@@ -284,7 +284,7 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
 - **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
 - **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs until a manual update is triggered.
  
-If your scale set is set to manual upgrades, you can trigger a manual upgrade using [az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update).
+If your scale set is set to manual upgrades, you can trigger a manual upgrade using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
 az vmss update --resource-group myResourceGroup --name myScaleSet 
@@ -301,20 +301,20 @@ Virtual Machine Scale Sets will generate a unique name for each VM in the scale 
 - Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
 - Uniform orchestration mode: `{scale-set-name}_{instance-id}`
  
-In the cases where you need to reimage a specific instance, use [az vmss reimage](/cli/azure/vmss?view=azure-cli-latest#az-vmss-reimage) and specify the instance names.
+In the cases where you need to reimage a specific instance, use [az vmss reimage](/cli/azure/vmss#az-vmss-reimage) and specify the instance names.
 
 ```azurecli
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id myScaleSet_Instance1
 ```
 
 ## Update the OS image for your scale set
-You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update).
+You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
 az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=18.04.202210180
 ```
 
-Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update).
+Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
 az vmss update \
@@ -347,9 +347,6 @@ az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualM
 >[!NOTE]
 > These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
 
-
-## Next steps
-You can also perform common management tasks on scale sets with the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) .
 
 ## Next steps
 In this tutorial, you learned how to modify various aspects of your scale set and individual instances.
