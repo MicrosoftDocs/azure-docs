@@ -4,7 +4,7 @@ description: This article provides a walkthrough to create a .NET Core applicati
 ms.topic: quickstart
 ms.date: 02/28/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, contperf-fy22q3
+ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
 ---
 
 # Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
