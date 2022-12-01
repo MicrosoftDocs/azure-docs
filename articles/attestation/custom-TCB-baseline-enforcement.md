@@ -28,14 +28,16 @@ We recommend Azure Attestation users to use the custom TCB baseline enforcement 
 
 ## Default TCB baseline used by Azure Attestation when no custom TCB baseline is configured by users
 
-```TCB identifier: “azuredefault”
-```TCB evaluation data number": "10"    
-```Tcb release date: "2020-11-11T00:00:00"  
-```Minimum PSW Linux version: "2.9"
-```Minimum PSW Windows version: "2.7.101.2"
+```
+TCB identifier: “azuredefault”
+TCB evaluation data number": "10"    
+Tcb release date: "2020-11-11T00:00:00"  
+Minimum PSW Linux version: "2.9"
+Minimum PSW Windows version: "2.7.101.2"
+```
 
 ## TCB baselines available in Azure which can be configured as custom TCB baseline
-
+```
  TCB identifier: "11"
  TCB evaluation data number": "11"
  TCB release date: "2021-06-09T00:00:00"
@@ -47,11 +49,13 @@ We recommend Azure Attestation users to use the custom TCB baseline enforcement 
  Tcb release date: "2020-11-11T00:00:00"
  Minimum PSW Linux version: "2.9",
  Minimum PSW Windows version: "2.7.101.2"
-            
+```         
+
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience
 
 Feature will be released soon
-            
+
+> [!NOTE]
 ## Key considerations:
 - It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
 - If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
