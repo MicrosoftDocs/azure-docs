@@ -36,7 +36,7 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 - Japan East
 - Australia East
 
-#### Security considerations for SQL Server on Azure Arc-enabled servers
+#### Security considerations for Azure Arc-enabled SQL Server
 
 - The server admin can turn off the Microsoft Purview policy enforcement.
 - Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, this can lead to wrong policy enforcements. 

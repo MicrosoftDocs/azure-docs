@@ -4,6 +4,7 @@ description: Learn how to set up disaster recovery to Azure for Azure Stack VMs 
 ms.topic: conceptual
 ms.date: 10/02/2021
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 # Replicate Azure Stack VMs to Azure
 

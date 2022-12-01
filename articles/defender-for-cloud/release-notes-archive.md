@@ -2381,7 +2381,7 @@ name: "mico-rg-vnet",
 type: "Microsoft.Security/securityStatuses",
 properties:  {
     policyAssessments: [
-        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection should be enabled",...},
         {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
     ],
     securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
@@ -2400,7 +2400,7 @@ id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg
 name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
 properties:  {
     resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
-    displayName: "Azure DDOS Protection Standard should be enabled",
+    displayName: "Azure DDOS Protection should be enabled",
     status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
 }
 

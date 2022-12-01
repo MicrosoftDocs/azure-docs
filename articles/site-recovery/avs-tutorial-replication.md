@@ -7,7 +7,7 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/23/2022
 ms.author: ankitadutta
-ms.custom: MVC
+ms.custom: MVC, engagement-fy23
 
 ---
 # Setup Azure Site Recovery for Azure VMware Solution VMs
