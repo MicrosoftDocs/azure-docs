@@ -1,25 +1,24 @@
 ---
-title: "Tutorial: Register an application"
-description: Register an application in an Azure Active Directory tenant.
+title: "Tutorial: Register a web application with the Microsoft identity platform"
+description: In this tutorial, you learn how to register a web application with the Microsoft identity platform.
 author: davidmu1
 ms.author: davidmu
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
+#Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
 ---
 
 # Tutorial: Register an application
 
-To enable an application to use authentication with Azure Active Directory (Azure AD), it must be registered in a tenant. Registering an application establishes a trust relationship between the application and the Microsoft identity platform. The trust is unidirectional: the application trusts the Microsoft identity platform, and not the other way around.
+Before your applications can interact with the Microsoft identity platform, they must be registered in a tenant that you manage. This tutorial shows you how to register a web API using the Azure portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Locate a tenant in Azure AD
-> * Start registration and provide a name for the application that is seen by users
-> * Specify the account types that can be used with the application
-> * Register the application and record its identifiers
+> * Register a web application in an Azure AD tenant
+> * Record the web application's unique identifiers
 
 ## Prerequisites
 
@@ -32,31 +31,18 @@ In this tutorial, you learn how to:
 
 ## Register the application
 
-### Locate the tenant in Azure AD
+### Enter a registration name and select the account type
 
-Organizations may have more than one Azure AD tenant. Choose the tenant where the application should be registered.
+Provide a name for the application, then This will be seen by users who will use your application, and can be changed later if required.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.
-1. Use the **Directories + subscriptions** filter in the top menu to switch to the tenant where the application should be registered.
-
-    :::image type="content" source="./media/web-app-tutorial-01-register-application/select-tenant.png" alt-text="Screenshot of selecting a tenant in Azure Active Directory."::: 
-<!-- Refined screenshot required -->
-1. Once your tenant is selected, for example *Contoso*, close the page, and you will be brought to your tenant's **Overview** page.
-
-### Start registration and enter a name for the application
-
-Provide a name for the application. This will be seen by users who will use your application, and can be changed later if required.
-
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 <!-- Refined screenshot required -->
-
-### Select the account type and register the application
-
-Specify the type of accounts that the application supports and then register the application.
 
 1. Accept the selection of **Accounts in this organizational directory only (Contoso only - Single tenant)** for the **Supported account type**.
 1. Select **Register**.
@@ -69,7 +55,6 @@ For this tutorial series, the **Directory (tenant) ID** and the **Application (c
 1. Record these values to be used in later steps.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
-<!-- Refined screenshot required -->
 
 ## See also
 
