@@ -17,12 +17,6 @@ recommendations: false
 
 **This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
-> [!IMPORTANT]
->
-> * Form Recognizer containers are in gated release. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
->
-> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
-
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
 In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you'll also need the **Read** OCR container).
