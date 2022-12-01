@@ -105,13 +105,43 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure Portal. 
 1. On the Overview page, take note of your **Query endpoint**, this will be used when setting up your Grafana data source. 
+1. Select **Access control (IAM)**
+:::image type="content" source="./media/prometheus-selfmanaged-grafana/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
 
+1. Select **Add**, then **Add role assignment** from the **Access Control (IAM)** page.
+1. On the Add role Assignment page, search for *Monitoring*
+1. Select **Monitoring data reader**, then select the **Members** tab.
+    :::image type="content" source="./media/prometheus-selfmanaged-grafana/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page":::
 
-## Next steps
+1. Select **Select members**
+1. Search for the app that you registered in the *Register an app with AAD* step. and select it.
+1. Click **Select**
+1. Select **Review + assign**
+   :::image type="content" source="./media/prometheus-selfmanaged-grafana/select-members.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
+
+You have created your App registration and have assigned it access to query data from your Azure Monitor workspace. The next step is setting up your Grafana data source. 
+
+## Configure Grafana data source
+
+1. Sign-in to your Grafana instance.
+1. On the configuration page select the **Data sources** tab.
+1. Select **Add data source**.
+1. Select **Prometheus**.
+1. Enter a **Name** for your Prometheus data source.
+1. In the **URL** field, paste the Query endpoint vale from the workspace overview page.
+1. Under **Auth** Turn on  **Azure Authentication**.
+1. In the **Azure Authentication** section select **App Registration** from the **Authentication** dropdown.
+1. Enter the **Direct(tenant) ID**, **Application (client) ID**, and the **Client secret** from the [Register an app with AAD](#register-an-app-with-add) section.
+1. Select **Save & test**
+    :::image type="content" source="./media/prometheus-selfmanaged-grafana/configure-grafana.png" alt-text="A screenshot showing the  Grafana settings page for adding a data source.":::
 
 - [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
-- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
-- 
-- 
-- mVy8Q~3x0j4FKMgxK47ELYoRdA_2M758-xXP5ciJ
+- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).  
+   
+## Next steps
+   
+
+Application (client) ID: 226a56ff-d36b-48d3-bf8c-00953386a827 
+secret: WhN8Q~b-cPGpruVUvxZ1xq9-TaOA6pe3pNLcbcnS
+Directory (tenant) ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
