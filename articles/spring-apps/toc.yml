@@ -138,7 +138,7 @@ items:
         href: how-to-use-dev-tool-portal.md
       - name: Use Application Live View
         href: how-to-use-application-live-view.md
-      - name: Monitor apps using Application Live View with Azure Spring Apps Enterprise tier
+      - name: Monitor apps using Application Live View
         href: monitor-apps-by-application-live-view.md
   - name: Deploy
     items:

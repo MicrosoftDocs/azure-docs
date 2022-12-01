@@ -1,8 +1,7 @@
 ---
 title: Monitor apps using Application Live View with Azure Spring Apps Enterprise tier
-titleSuffix: Azure Spring Apps Enterprise Tier
 description: Learn how to monitor apps using Application Live View with Azure Spring Apps Enterprise tier.
-author: karlerickson
+author: KarlErickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
@@ -25,7 +24,7 @@ This article describes the Application Live View UI features, and the pages and 
 
 ## Prerequisites
 
-- Application Live View for VMware Tanzu. For more information, see [Use Application Live View](./how-to-use-application-live-view.md)
+- Application Live View for VMware Tanzu. For more information, see [Use Application Live View](./how-to-use-application-live-view.md).
 
 ## Details page
 
@@ -51,7 +50,7 @@ You can navigate between information categories by selecting from the drop-down 
 
 To navigate to the **Health** page, select the **Health** option from the **Information Category** drop-down. The health page provides detailed information about the health of the app.
 
-The page includes the following features:
+The **Health** page includes the following features:
 
 - View a list of all the components that make up the health of the app, such as readiness, liveness, and disk space.
 - View a display of the status and details associated with each of the components.
@@ -62,13 +61,13 @@ The page includes the following features:
 
 To navigate to the **Environment** page, select the **Environment** option from the **Information Category** drop-down. The environment page contains details of the app's environment. It contains properties including, but not limited to, system properties, environment variables, and configuration properties such as `application.properties` in a Spring Boot app.
 
-The page includes the following features:
+The **Environment** page includes the following features:
 
 - Search for a property or values using the search feature.
-- View all occurrences of a specific property using the search icon at the right corner. You can find the property key quickly, without manually typing in the search field. Clicking on this button trims down the page to that property name.
-- Probe the app to refresh all of the environment properties by clicking **Refresh Scope** at the top right corner of the page.
-- Edit existing properties by clicking **override** in the row and editing the value. After the value is saved, you can see the updated property in the **Applied overrides** section at the top of the page.
-- Reset the environment property to the original state by clicking **Reset**.
+- View all occurrences of a specific property using the search icon at the right corner. You can find the property key quickly, without manually typing in the search field. Selecting this button filters the page to that property name.
+- Probe the app to refresh all of the environment properties by selecting **Refresh Scope** at the top right corner of the page.
+- Edit existing properties by selecting **override** in the row and editing the value. After the value is saved, you can see the updated property in the **Applied overrides** section at the top of the page.
+- Reset the environment property to the original state by selecting **Reset**.
 - Add new environment properties to the app, and edit or remove overridden environment variables in the **Applied Overrides** section.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
@@ -80,16 +79,16 @@ The page includes the following features:
 
 To navigate to the **Log Levels** page, select the **Log Levels** option from the **Information Category** drop-down. The log levels page provides access to the app's loggers and the configuration of their levels.
 
-The page includes the following features:
+The **Log Levels** page includes the following features:
 
-- Configure the log levels, such as `INFO`, `DEBUG`, `TRACE`, in real-time from the UI.
+- Configure the log levels, such as `INFO`, `DEBUG`, and `TRACE`, in real-time from the UI.
 - Search for a package and edit its respective log level.
 - Configure the log levels at a specific class and package.
 - Deactivate all the log levels by modifying the log level of root logger to `OFF`.
 - Display the changed log levels using the **Changes Only** toggle.
 - Search by logger name using the search feature.
-- Reset the log levels to the original state clicking **Reset**.
-- Reset all the loggers to default state by clicking **Reset All** at the top right corner of the page.
+- Reset the log levels to the original state by selecting **Reset**.
+- Reset all the loggers to default state by selecting **Reset All** at the top right corner of the page.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/log-levels.png" alt-text="Screenshot of the Log Levels page." lightbox="media/monitor-apps-by-application-live-view/log-levels.png":::
 
@@ -97,12 +96,12 @@ The page includes the following features:
 
 To navigate to the **Threads** page, select the **Threads** option from the **Information Category** drop-down. This page displays all details related to JVM threads and running processes of the app. This tracks live threads and daemon threads real-time. It's a snapshot of different thread states.
 
-The page includes the following features:
+The **Threads** page includes the following features:
 
 - Navigate to a thread state to display all the information about a particular thread and its stack trace.
 - Search for threads by thread ID or state using the search feature.
 - Refresh to the latest state of the threads using the refresh icon.
-- View more thread details by clicking on the thread ID.
+- View more thread details by selecting the thread ID.
 - Download a thread dump for analysis purposes.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/threads-live.png" alt-text="Screenshot of the Threads page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/threads-live.png":::
@@ -115,7 +114,7 @@ To navigate to the **Memory** page, select the **Memory** option from the **Info
 
 The **Memory** page highlights the memory use inside of the JVM. It displays a graphical representation of the different memory regions within heap and non-heap memory. For Spring Boot apps running on a JVM, the **Memory** page visualizes data from inside of the JVM, giving you memory insights into the app in contrast to outside information about the Kubernetes pod level.
 
-The page includes the following features:
+The **Memory** page includes the following features:
 
 - View real-time graphs that display a stacked overview of the different spaces in memory along with the total memory used and total memory size.
 - View graphs to display the GC pauses and GC events.
@@ -130,9 +129,9 @@ The page includes the following features:
 
 To navigate to the **Request Mappings** page, select the **Request Mappings** option from the **Information Category** drop-down. This page provides information about the app's request mappings. For each mapping, the page displays the request handler method.
 
-The page includes the following features:
+The **Request Mappings** page includes the following features:
 
-- View more details about the request mapping, such as the header metadata of the app including the `produces`, `consumes`, and `HTTP` methods, by clicking on the mapping.
+- View more details about the request mapping, such as the header metadata of the app including the `produces`, `consumes`, and `HTTP` methods, by selecting the mapping.
 - Search on the request mapping or the method.
 - View the actuator related mappings for the app using the toggle **/actuator/\*\* Request Mappings**
 
@@ -147,13 +146,13 @@ The page includes the following features:
 
 To navigate to the **HTTP Requests** page, select the **HTTP Requests** option from the **Information Category** drop-down. The HTTP Requests page provides information about HTTP request-response exchanges to the app. The graph visualizes the requests per second indicating the response status of all the requests.
 
-The page includes the following features:
+The **HTTP Requests** page includes the following features:
 
 - Filter on the response status, which includes `info`, `success`, `redirects`, `client-errors`, and `server-errors`.
 - View the trace data in detail in a table format with metrics such as timestamp, method, path, status, content-type, length, and time.
 - Filter the traces based on the search field value using the search feature on the table.
-- View more details of the request such as method, headers, and response of the app by clicking on the timestamp.
-- Click the refresh icon above the graph to load the latest traces for the app.
+- View more details of the request such as method, headers, and response of the app by selecting the timestamp.
+- Select the refresh icon above the graph to load the latest traces for the app.
 - Display the actuator related traces for the app using the toggle **/actuator/\*\*** at the top right corner of the page.
 
 > [!NOTE]
@@ -167,11 +166,11 @@ The page includes the following features:
 
 To navigate to the **Caches** page, select the **Caches** option from the **Information Category** drop-down. The **Caches** page provides access to the app's caches. It gives the details of the cache managers associated with the app, including the fully qualified name of the native cache.
 
-The page includes the following features:
+The **Caches** page includes the following features:
 
 - Search for a specific cache or cache manager using the search feature.
-- Remove individual caches by clicking **Evict**, which causes the cache to be cleared.
-- Remove all the caches by clicking **Evict All**. If there are no cache managers for the app, a message is displayed `No cache managers available for the application`.
+- Remove individual caches by selecting **Evict**, which causes the cache to be cleared.
+- Remove all the caches by selecting **Evict All**. If there are no cache managers for the app, a message is displayed `No cache managers available for the application`.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/caches.png" alt-text="Screenshot of the HTTP Caches page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/caches.png":::
 
@@ -179,7 +178,7 @@ The page includes the following features:
 
 To navigate to the **Configuration Properties** page, select the **Configuration Properties** option from the **Information Category** drop-down. The **Configuration Properties** page provides information about the configuration properties of the app. For Spring Boot, it displays the app's `@ConfigurationProperties` beans. It gives a snapshot of all the beans and their associated configuration properties.
 
-The page includes the following feature:
+The **Configuration Properties** page includes the following feature:
 
 - Look up a key-value for a property or bean name using the search feature.
 
@@ -189,18 +188,18 @@ The page includes the following feature:
 
 To navigate to the **Conditions** page, select the **Conditions** option from the **Information Category** drop-down. The conditions evaluation report provides information about the evaluation of conditions on configuration and auto-configuration classes. For Spring Boot, the conditions evaluation report gives you a clear view of all the beans configured in the app.
 
-The page includes the following features:
+The **Conditions** page includes the following features:
 
-- Click on the bean name to view the conditions and the reason for the conditional match. If beans aren't configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
+- Select the bean name to view the conditions and the reason for the conditional match. If beans aren't configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
 - Filter on the beans and the conditions using the search feature.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/conditions.png" alt-text="Screenshot of the Conditions page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/conditions.png":::
 
 ## Scheduled Tasks page
 
-To navigate to the **Scheduled Tasks** page, select the **Scheduled Tasks** option from the **Information Category** drop-down. The **Scheduled Tasks** page provides information about the app's scheduled tasks. It includes cron tasks, fixed delay tasks and fixed rate tasks, custom tasks and the properties associated with them.
+To navigate to the **Scheduled Tasks** page, select the **Scheduled Tasks** option from the **Information Category** drop-down. The **Scheduled Tasks** page provides information about the app's scheduled tasks, including cron tasks, fixed delay tasks and fixed rate tasks, custom tasks and the properties associated with them.
 
-The page includes the following feature:
+The **Scheduled Tasks** page includes the following feature:
 
 - Search for a particular property or a task in the search bar to retrieve the task or property details.
 
@@ -210,7 +209,7 @@ The page includes the following feature:
 
 To navigate to the **Beans** page, select the **Beans** option from the **Information Category** drop-down. The **Beans** page provides information about a list of all app beans and its dependencies. It displays the information about the bean type, dependencies, and its resource.
 
-The page includes the following feature:
+The **Beans** page includes the following feature:
 
 - Search by the bean name or its corresponding fields.
 
@@ -220,23 +219,23 @@ The page includes the following feature:
 
 To navigate to the **Metrics** page, select the **Metrics** option from the **Information Category** drop-down. The **Metrics** page provides access to app metrics information.
 
-The page includes the following features:
+The **Metrics** page includes the following features:
 
 - Choose from the list of various metrics available for the app such as `jvm.memory.used`, `jvm.memory.max`, `http.server.request`. After you choose the metric, you can view the associated tags.
 - Choose the value of each of the tags based on filtering criteria.
-- Click **Add Metric** to add the metric, which is refreshed every five seconds by default.
+- Select **Add Metric** to add the metric, which is refreshed every five seconds by default.
 - Pause the auto refresh feature by disabling the **Auto Refresh** toggle.
-- Refresh the metrics manually by clicking **Refresh All**.
+- Refresh the metrics manually by selecting **Refresh All**.
 - Change the format of the metric value according to your needs.
-- Delete a particular metric by clicking on the minus symbol in the same row.
+- Delete a particular metric by selecting the minus symbol in the same row.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/metrics.png" alt-text="Screenshot of the Metrics page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/metrics.png":::
 
-## Actuator Page
+## Actuator page
 
 To navigate to the **Actuator** page, select the **Actuator** option from the **Information Category** drop-down. The **Actuator** page provides a tree view of the actuator data.
 
-The page includes the following feature:
+The **Actuator** page includes the following feature:
 
 - Choose from a list of actuator endpoints and parse through the raw actuator data.
 
