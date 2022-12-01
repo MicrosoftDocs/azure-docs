@@ -161,7 +161,7 @@ To view the data:
     | where TimeGenerated > ago(1d) 
     ```
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal.":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal." lightbox="media/api-management-howto-use-azure-monitor/query-resource-logs.png":::
 
 For more information about using resource logs for API Management, see:
 
