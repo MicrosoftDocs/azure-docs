@@ -245,8 +245,8 @@ You will install Azure PowerShell modules on your client that will work with you
     ```
 
     If there are existing versions, use the `Uninstall-Module` cmdlet to uninstall. For more information, see
-    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true#uninstall-the-az-module).
-    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true#uninstall-the-azurerm-module).
+    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps#uninstall-the-az-module).
+    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
@@ -458,7 +458,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         ----  --------------------                      -------------------------
         AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...
         ```
-        For more information, go to [Set-AzEnvironment](/powershell/module/az.accounts/set-azenvironment?view=azps-7.5.0).
+        For more information, go to [Set-AzEnvironment](/powershell/module/az.accounts/set-azenvironment).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 
