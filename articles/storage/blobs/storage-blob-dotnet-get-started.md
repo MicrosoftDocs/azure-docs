@@ -55,9 +55,7 @@ using Azure.Storage.Blobs.Specialized;
 
 ## Authorize access and connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token.
-
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can authorize access and create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
 
 ## [Azure AD](#tab/azure-ad)
 
@@ -70,7 +68,7 @@ To authorize with Azure AD, you'll need to use a security principal. The type of
 | Hosted in Azure | Managed identity | Apps hosted in Azure should use a **managed identity service principal**. Managed identities are designed to represent the identity of an app hosted in Azure and can only be used with Azure hosted apps.<br><br>For example, a .NET web app hosted in Azure App Service would be assigned a managed identity. The managed identity assigned to the app would then be used to authenticate the app to other Azure services.<br><br>[Authorize access from Azure-hosted apps using a managed identity](/dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 | Hosted outside of Azure (for example, on-premises apps) | Service principal | Apps hosted outside of Azure (for example on-premises apps) that need to connect to Azure services should use an **application service principal**. An application service principal represents the identity of the app in Azure and is created through the application registration process.<br><br>For example, consider a .NET web app hosted on-premises that makes use of Azure Blob Storage. You would create an application service principal for the app using the App registration process. The `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` would all be stored as environment variables to be read by the application at runtime and allow the app to authenticate to Azure using the application service principal.<br><br>[Authorize access from on-premises apps using an application service principal](/dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
-The easiest way to authenticate to Azure is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
+The easiest way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
 
 ```csharp
 public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
@@ -79,7 +77,7 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 
     string blobUri = "https://" + accountName + ".blob.core.windows.net";
 
-        blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
+    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
 }
 ```
 
@@ -137,6 +135,8 @@ To generate and manage SAS tokens, see any of these articles:
 - [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
 ---
+
+To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 ## Build your application
 
