@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.custom: subject-rbac-steps
 ms.topic: tutorial
-ms.date: 03/24/2022
+ms.date: 12/01/2022
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
@@ -181,7 +181,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 ### Externalize file system dependencies
 
- You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](../aks/concepts-storage.md)
+ You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](../aks/concepts-storage.md).
 
 1. Click **Edit** under App Folders to review the detected application folders. The detected application folders have been identified as mandatory artifacts needed by the application and will be copied into the container image.
 
@@ -201,7 +201,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 
 
-2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
+2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application is generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 
 3. **Trigger build process**: Select the applications to build images for and click **Build**. Clicking build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
 
@@ -267,6 +267,25 @@ A single folder is created for each application server. You can view and downloa
 ## Troubleshoot issues
 
 To troubleshoot any issues with the tool, you can look at the log files on the Windows machine running the App Containerization tool. Tool log files are located at *C:\ProgramData\Microsoft Azure Migrate App Containerization\Logs* folder.
+
+If you are using AKS 1.23+, make the following changes to the scripts before building the docker image to ensure a seamless migration. 
+
+Change the script below
+
+```powershell
+# Run entrypoint script.
+COPY ./Entryscript.ps1 c:/Entryscript.ps1
+ENTRYPOINT powershell c:/Entryscript.ps1
+``` 
+to 
+
+```powershell
+# Run entrypoint script. 
+COPY ["./Entryscript.ps1", "c:/Entryscript.ps1"]
+ENTRYPOINT ["powershell", "c:/Entryscript.ps1"]
+```
+
+
 
 ## Next steps
 
