@@ -50,7 +50,7 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |storeAccountKey | Specify whether to store account key to k8s secret. | `true` or `false`<br>`false` means driver leverages kubelet identity to get account key. | No | `true` |
 |secretName | Specify secret name to store account key. | | No |
 |secretNamespace | Specify the namespace of secret to store account key. | `default`,`kube-system`, etc | No | Pvc namespace, for example `csi.storage.k8s.io/pvc/namespace` |
-|useDataPlaneAPI | Specify whether use [data plane API](https://github.com/Azure/azure-sdk-for-go/blob/master/storage/share.go) for file share create/delete/resize. This could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there is firewall or Vnet setting on storage account. | `true` or `false` | No | `false` |
+|useDataPlaneAPI | Specify whether use [data plane API][data-plane-api] for file share create/delete/resize. This could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there is firewall or Vnet setting on a storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for NFS protocol** | --- | --- |
 |rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
 |mountPermissions | Mounted folder permissions. The default is `0777`. If set to `0`, driver doesn't perform `chmod` after mount | `0777` | No |
@@ -454,6 +454,7 @@ The output of the commands resembles the following example:
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
+[data-plane-api]: (https://github.com/Azure/azure-sdk-for-go/blob/master/storage/share.go)
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
