@@ -167,4 +167,4 @@ In this tutorial, you learned how to list the instances in your scale set and co
 
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets](tutorial-use-disks-powershell.md)
+> [Modify a scale set](tutorial-modify-scale-sets-cli.md)
