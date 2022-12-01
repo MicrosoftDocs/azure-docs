@@ -7,58 +7,50 @@ ms.topic: how-to
 
 # View alerts on your OT sensor
 
-Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
-This article describes how to view alerts triggered by your Microsoft Defender for IoT OT network sensors.
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
+
+For more information, see [Microsoft Defender for IoT alerts](alerts.md).
+
+## Prerequisites
+
+Sign into your sensor console as an **Admin**, **Security Analyst**, or **Viewer** user. 
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+## View alerts on an OT sensor
+
+1. On your sensor console, select the **Alerts** page.
+
+    By default, the following details are shown in the grid:
+
+    | Name | Description |
+    |--|--|
+    | **Severity** | The alert severity: Critical, Major, Minor, Warning|
+    | **Name** | The alert title |
+    | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
+    | **Last detection** | The last time the alert activity was detected.   |
+    | **Status** | Indicates if the alert is new or closed. |
+    | **Source Device** | The source device IP address |
+    | **Destination Device** | The destination device IP address |
+    | **ID** | The alert ID. |
+
+    1. To view more details, select the <!--add image-->**Edit columns** button.
+
+        In the **Edit Columns** dialog box, select **Add Column** and any of the following extra columns to add: <!--add more details-->
 
 
-## View alerts and alert details
+### Filter alerts displayed
 
-This section describes how to view and filter alerts details on your sensor.
+<!--validate this. time range?-->
+Use the **Search** box, **Grouping**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
 
-**To view alerts in the sensor:**
-
-- Select **Alerts** from the side menu. The  page displays the alerts detected by your sensor.
-
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Screenshot of the sensor Alerts page." lightbox="media/how-to-view-alerts/view-alerts-main-page.png":::
-
-The following information is available from the Alerts page:
-
-| Name | Description |
-|--|--|
-| **Severity** | The alert severity: Critical, Major, Minor, Warning|
-| **Name** | The alert title |
-| **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
-| **Last detection** | The last time the alert activity was detected.   |
-| **Status** | Indicates if the alert is new or closed. | 
-| **Source Device** | The source device IP address | 
-| **Destination Device** | The destination device IP address | 
-| **ID** | The alert ID. | 
-
-**To hide or display information:**
-
-1. Select **Edit Columns** from the Alerts page.
-1. Add and remove columns as required from the Edit columns dialog box.
-
-**How long are alerts saved?**
-
-- New alerts are automatically closed if no identical traffic detected 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor console.  
-
-- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
-
- Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long  the alert is displayed in the sensor console.
-
-### Filter the view
-
-Use filter, grouping and text search tools to view alerts of interest to you. 
-
-**To filter by category:**
-
-1. Select **Add filter**.
-1. Define a filter and select **Apply**.
+For example, filter alerts by **Category**:
 
     :::image type="content" source="media/how-to-view-alerts/alerts-filter.png" alt-text="Screenshot of Alert filter options.":::
 
+Grouping 
 **About the Groups type**
 
 The **Groups** option refers to the Device groups you created in the Device map and inventory.

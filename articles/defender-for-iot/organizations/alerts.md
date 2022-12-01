@@ -7,11 +7,7 @@ ms.topic: how-to
 
 # Microsoft Defender for IoT alerts
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged, such as:
-
-- Deviations from authorized network activity and device configurations
-- Protocol and operational anomalies
-- Suspected malware traffic
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
 For example:
 
@@ -38,7 +34,7 @@ The Azure portal and OT network sensors also provide the following extra investi
 > Alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only. For more information, see <xref>.
 >
 
-### Managing alerts in a hybrid deployment
+## Managing alerts in a hybrid deployment
 
 Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
 
@@ -53,6 +49,18 @@ Alert management across all interfaces functions as follows:
 - **Alert Exclusion rules**: If you're working with an on-premises management console, you may have defined alert *Exclusion rules* to determine the rules detected by relevant sensors.
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+
+## Alert data retention
+
+On an OT network sensor:
+
+- New alerts are automatically closed if no identical traffic detected 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor.
+
+- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
+
+Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long the alert is displayed in the sensor console.
+
+<!--missing more info. is this replicated to the portal? cm? sentinel?-->
 
 ## Next steps
 
