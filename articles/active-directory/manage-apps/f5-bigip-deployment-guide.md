@@ -17,7 +17,7 @@ ms.reviewer: miccohen
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure
 
-In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastructure as a service (IaaS). At the end of the tutorial you will have:
+In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastructure as a service (IaaS). At the end of the tutorial you'll have:
 
 - A prepared BIG-IP virtual machine (VM) for modeling a secure hybrid access (SHA) proof-of-concept
 - A staging instance to use for testing new BIG-IP system updates and hotfixes
@@ -45,7 +45,7 @@ VM deployment and base system configurations take approximately 30 minutes, then
 
 ### Testing scenarios
 
-For testing the scenarios, this tutorial assumes:
+When you test the scenarios, this tutorial assumes:
 
 * The BIG-IP is deployed into an Azure resource group with an Active Directory (AD) environment
 * The environment consists of a Domain Controller (DC) and web host (IIS) VMs
@@ -84,7 +84,7 @@ Complete the following steps to deploy BIG-IP VE from the [Azure Marketplace](ht
 * **Availability options** Enable if using VM in production
 * **Image**: F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)
 * **Azure Spot instance**: No, but enable it, if needed
-* **Size**: Minimum specification are 2 vCPUs and 8-GB memory
+* **Size**: Minimum specifications are 2 vCPUs and 8-GB memory
  
  9. For **Administrator account**:
  
@@ -133,9 +133,9 @@ When the BIG-IP VM starts, its NIC is provisioned with a **Primary** private IP 
 - Outbound access to the public internet
 - Inbound access to the BIG-IPs web config and SSH management interfaces
 
-Exposing the management interfaces to the internet increases BIG-IP attack surface. This risk is why the BIG-IPs primary IP was not provisioned with a public IP during deployment. Instead, a secondary internal IP, and associated public IP, is provisioned for publishing. This 1-to-1 mapping between a VM public IP, and private IP, enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
+Exposing the management interfaces to the internet increases BIG-IP attack surface. This risk is why the BIG-IPs primary IP wasn't provisioned with a public IP during deployment. Instead, a secondary internal IP, and associated public IP, is provisioned for publishing. This one-to-one mapping between a VM public IP, and private IP, enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
 
-The following diagram shows a NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management. There is a separate virtual server IP for publishing services. An NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded to the BIG-IP virtual server.
+The following diagram shows a NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management. There's a separate virtual server IP for publishing services. An NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded to the BIG-IP virtual server.
 
 ![The image shows the single nic deployment](./media/f5ve-deployment-plan/single-nic-deployment.png)
 
@@ -176,16 +176,16 @@ Your BIG-IP-VM is ready for:
   - Active Directory (AD)
   - Lightweight Directory Access Protocol (LDAP)
 - **Secondary private IP**: Use to create a BIG-IP APM virtual server to listen for inbound request to a published service(s)
-- **Public IP**: Associated with the secondary private IP, it enables client traffic from the public internet to reach the BIG-IP virtual server for the published service(s)
+- **Public IP**: It is associated with the secondary private IP; it enables client traffic from the public internet to reach the BIG-IP virtual server for the published service(s)
 
-The example illustrates the 1-to-1 relationship between a VM public and private IPs. An Azure VM NIC has one primary IP, and other IPs are secondary.
+The example illustrates the one-to-one relationship between a VM public and private IPs. An Azure VM NIC has one primary IP, and other IPs are secondary.
 
 >[!NOTE]
 >You need the secondary IP mappings for publishing BIG-IP services.
 
 ![Image shows secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
 
-To implement SHA using the BIG-IP Access Guided Configuration, repeat steps to create additional private and public IP pairs for additional services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IP Advanced Configuration. However, avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
+To implement SHA using the BIG-IP Access Guided Configuration, repeat steps to create more private and public IP pairs for services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IP Advanced Configuration. However, avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
 
 ## DNS configuration
 
@@ -202,7 +202,7 @@ To resolve your published SHA services to your BIG-IP-VM public IP(s), configure
 4. In the left-hand pane, below the **Settings** section, select **Configuration**. 
 5. The public IP and DNS properties menu appears.
 6. Select and **Create** alias record.
-7. From the drop-down menu, select your **DNS zone**. If there is no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Azure AD.
+7. From the drop-down menu, select your **DNS zone**. If there's no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Azure AD.
 8. To create the first DNS alias record:
 
 * **Subscription**: Same subscription as the BIG-IP-VM
@@ -245,14 +245,14 @@ By default, Azure virtual networks (VNets) and associated subnets are private ne
 4. Select **Add**.
 5. Close the **Networking** menu.
 
-HTTP and HTTPS traffic can reach your BIG-IP-VMs secondary interfaces. To permit port 80 allows the BIG-IP APM to auto-redirect users from HTTP to HTTPS. Edit this rule to add or remove destination IPs.
+HTTP and HTTPS traffic can reach your BIG-IP-VMs secondary interfaces. Permitting port 80 allows the BIG-IP APM to auto-redirect users from HTTP to HTTPS. Edit this rule to add or remove destination IPs.
 
 ## Manage BIG-IP
 
-A BIG-IP system is administered with its web config UI. Access the UI:
+A BIG-IP system is administered with its web config UI. Access the UI from:
 
-- From a machine in the BIG-IP internal network
-- From a VPN client connected to the BIG-IP-VM internal network
+- A machine in the BIG-IP internal network
+- A VPN client connected to the BIG-IP-VM internal network
 - Published via [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
 >[!NOTE]
@@ -276,7 +276,7 @@ To connect to the CLI:
 
 ## BIG-IP license
 
-Before it can be configured for publishing services and SHA, activate and provision a BIG-IP systems with the APM module.
+Before it can be configured for publishing services and SHA, activate and provision a BIG-IP system with the APM module.
 
 1. Sign in to the web config.
 2. On the **General properties** page, select **Activate**.
@@ -328,7 +328,7 @@ You need a DNS record to resolve the BIG-IPs FQDN to its primary private IP, whi
 
 ## SSL profile
 
-As a reverse proxy, a BIG-IP system is a forwarding service, otherwise known as a Transparent proxy, or a Full proxy that participates in exchanges between clients and servers. A full proxy creates two connections: a front-end TCP client connection and a back-end TCP server connection, with a soft gap in the middle. Clients connect to the proxy listener on one end, a virtual server, and the proxy establishes a separate, independent connection to the back-end server. This is bi-directional on both sides.
+As a reverse proxy, a BIG-IP system is a forwarding service, otherwise known as a Transparent proxy, or a Full proxy that participates in exchanges between clients and servers. A full proxy creates two connections: a front-end TCP client connection and a back-end TCP server connection, with a soft gap in the middle. Clients connect to the proxy listener on one end, a virtual server, and the proxy establishes a separate, independent connection to the back-end server. This configuration is bi-directional on both sides.
 In this full proxy mode, the F5 BIG-IP system can inspect traffic, and interact with requests and responses. Functions such as load balancing and web performance optimization, and advanced traffic management services (application layer security, web acceleration, page routing, and secure remote access) rely on this functionality.
 When you publish SSL-based services, BIG-IP SSL profiles handing decrypting and encrypting traffic between clients and back-end services.
 
@@ -374,7 +374,7 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 
 ### Locate the resource
 
-To prepare a BIG-IP for SHA, locate the resources its publishing, and the directory service it relies on for SSO. A BIG-IP has two sources of name resolution, starting with its local/.../hosts file. If a record is not found, the BIG-IP system uses the DNS service it was configured with. The hosts file method does not apply to APM nodes and pools that use an FQDN.
+To prepare a BIG-IP for SHA, locate the resources its publishing, and the directory service it relies on for SSO. A BIG-IP has two sources of name resolution, starting with its local/.../hosts file. If a record isn't found, the BIG-IP system uses the DNS service it was configured with. The hosts file method doesn't apply to APM nodes and pools that use an FQDN.
 
 1. In the web config, go to **System** > **Configuration** > **Device** > **DNS**.
 2. In **DNS Lookup Server List**, enter the IP address of your environment DNS server.
@@ -470,7 +470,7 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 >[!NOTE]
 >Currently, the AzVmSnapshot cmdlet can restore the most recent snapshot, based on date. Snapshots are stored in the VM resource-group root. Restoring snapshots restarts an Azure VM, so ensure the timing for the task is optimal.
 
-## Additional resources
+## Resources
 
 - [Reset BIG-IP VE password in Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
 - [Reset the password without using the portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
