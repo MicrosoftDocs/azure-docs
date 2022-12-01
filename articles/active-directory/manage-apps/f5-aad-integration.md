@@ -24,7 +24,7 @@ SHA enables organizations to continue using investments in F5 network and applic
 
 ## Benefits
 
-When Azure AD pre-authenticate access to BIG-IP published services, there are many benefits:
+When Azure AD pre-authenticates access to BIG-IP published services, there are many benefits:
 
 - Password-less authentication with:
   -  [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview)
@@ -36,7 +36,7 @@ Other benefits include:
 
 - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/)
   - One control plane to govern identity and access
-- Preemptive [Conditional Access](../conditional-access/overview.md)
+- Pre-emptive [Conditional Access](../conditional-access/overview.md)
 - [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 - [Identity Protection](../identity-protection/overview-identity-protection.md)
   - Adaptive protection through user and session risk profiling
@@ -73,7 +73,7 @@ The following diagram illustrates the front-end pre-authentication exchange betw
 ![Image shows the high level architecture](./media/f5-aad-integration/integration-flow-diagram.png)
 
 1. In the portal, a user selects an application icon, resolving URL to the SAML SP (BIG-IP)
-2. BIG-IP redirects the user to the SAML idenity provider (IdP), Azure AD, for pre-authentication
+2. BIG-IP redirects the user to the SAML identity provider (IdP), Azure AD, for pre-authentication
 3. Azure AD processes Conditional Access policies and [session controls](../conditional-access/concept-conditional-access-session.md) for authorization
 4. User goes back to BIG-IP, and presents the SAML claims issued by Azure AD
 5. BIG-IP requests session information for [SSO](../hybrid/how-to-connect-sso.md) and [role-based access control (RBAC)](../../role-based-access-control/overview.md) to the published service
@@ -83,9 +83,9 @@ The following diagram illustrates the front-end pre-authentication exchange betw
 
 Whether an employee, affiliate, or consumer, most users are acquainted with the Office 365 sign-in experience. Accessing BIG-IP services is similar.
 
-Users can find their BIG-IP published services in the Microsoft [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://support.microsoft.com/office/meet-the-microsoft-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) with self-service capabilities, regardless of device or location. Users can continue accessing published services with the BIG-IP Webtop portal. When users sign out, SHA ensures session termination for BIG-IP and Azure AD, helping services remain protected from unauthorized access.  
+Users can find their BIG-IP published services in the [My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [Microsoft 365 app launcher](https://support.microsoft.com/office/meet-the-microsoft-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) with self-service capabilities, regardless of device or location. Users can continue accessing published services with the BIG-IP Webtop portal. When users sign out, SHA ensures session termination for BIG-IP and Azure AD, helping services remain protected from unauthorized access.  
 
-Users access the Microsoft MyApps portal to find BIG-IP published services and to manage their account properties. See the gallery and self-service page in the following graphics. 
+Users access the My Apps portal to find BIG-IP published services and to manage their account properties. See the gallery and self-service page in the following graphics. 
 
 ![The screenshot shows woodgrove myapps gallery](media/f5-aad-integration/woodgrove-app-gallery.png)
 
@@ -95,7 +95,7 @@ Users access the Microsoft MyApps portal to find BIG-IP published services and t
 
 You can monitor deployed BIG-IP instances to ensure published services are highly available, at an SHA level and operationally.
 
-There are several options to log events locally, or remotely through a Security Information and Event Management (SIEM) solution, which enables storage and telemtry processing. To monitor Azure AD and SHA activity, you can use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together:
+There are several options to log events locally, or remotely through a Security Information and Event Management (SIEM) solution, which enables storage and telemetry processing. To monitor Azure AD and SHA activity, you can use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together:
 
 - Overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 - One control plane with view of signals, avoiding reliance on complex, and disparate tools
@@ -171,7 +171,7 @@ Tutorials for using Easy Button templates:
 
 ## Azure AD B2B guest access
 
-Azure AD B2B guest access to SHA-protected applications is possible, but might require additional steps not in the tutorials. One example is Kerberos SSO, when a BIG-IP performs kerberos constrained delegation (KCD) to obtain a service ticket from domain contollers. Without a local representation of a local guest user, a domain controller won't honor the request because there is no user. To support this scenario, ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. 
+Azure AD B2B guest access to SHA-protected applications is possible, but might require steps not in the tutorials. One example is Kerberos SSO, when a BIG-IP performs kerberos constrained delegation (KCD) to obtain a service ticket from domain controllers. Without a local representation of a local guest user, a domain controller won't honor the request because there's no user. To support this scenario, ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. 
 
 Learn more: [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
 
