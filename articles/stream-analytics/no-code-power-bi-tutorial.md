@@ -1,8 +1,8 @@
 ---
 title: Build near real-time dashboard with Azure Synapse Analytics and Power BI
 description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build near-real time dashboards using Power BI 
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/25/2022

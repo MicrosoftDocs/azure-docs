@@ -1,8 +1,8 @@
 ---
 title: Data error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with data error codes, which occur when there's bad data in the stream.
-ms.author: sidram
-author: sidramadoss
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/25/2022
 ms.service: stream-analytics

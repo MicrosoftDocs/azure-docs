@@ -1,8 +1,8 @@
 ---
 title: External availability error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with external availability error codes. 
-ms.author: sidram
-author: sidramadoss
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics

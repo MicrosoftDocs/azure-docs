@@ -1,9 +1,8 @@
 ---
 title: Integrate Azure Stream Analytics with Azure Machine Learning
 description: This article describes how to integrate an Azure Stream Analytics job with Azure Machine Learning models.
-author: sidramadoss
-ms.author: sidram
-
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
