@@ -36,14 +36,14 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ## TCB baselines available in Azure which can be configured as custom TCB baseline
 
- TCB identifier: “11”
+ TCB identifier: "11"
  TCB evaluation data number": "11"
- Tcb release date: "2021-06-09T00:00:00"
+ TCB release date: "2021-06-09T00:00:00"
  Minimum PSW Linux version: "2.13.3",
  Minimum PSW Windows version: "2.13.100.2"
 
- TCB identifier: “10”
- TCB evaluation data number": "10"
+ TCB identifier: "10"
+ TCB evaluation data number: "10"
  Tcb release date: "2020-11-11T00:00:00"
  Minimum PSW Linux version: "2.9",
  Minimum PSW Windows version: "2.7.101.2"
