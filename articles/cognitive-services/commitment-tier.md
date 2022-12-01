@@ -46,8 +46,7 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**.
 
     > [!NOTE]
-    > You will only see the option to purchase a commitment plan if:
-    > * The resource is using the standard pricing tier.
+    > You will only see the option to purchase a commitment plan if the resource is using the standard pricing tier.
  
 3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.
