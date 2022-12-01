@@ -1,5 +1,6 @@
 ---
-title: Download a blob with .NET - Azure Storage
+title: Download a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the .NET client library.
 services: storage
 author: pauljewellmsft

@@ -152,6 +152,9 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     # [Azure CLI](#tab/cli)
 
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
+
     ```azurecli
     az deployment group create \
         --resource-group exampleRG \
@@ -162,6 +165,9 @@ To run the Bicep template, use the following commands from the `machine-learning
         dsvmJumpboxPassword=securepassword
     ```
     # [Azure PowerShell](#tab/ps1)
+
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
 
     ```azurepowershell
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force

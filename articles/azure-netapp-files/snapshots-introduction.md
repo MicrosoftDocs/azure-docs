@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -243,3 +243,4 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

@@ -4,7 +4,7 @@ description: VMware Engine reverts the changes to ensure that service remains un
 titleSuffix: Azure VMware Solution by CloudSimple
 ms.date: 10/28/2020 
 ms.topic: article 
-ms.service: azure-vmware-cloudsimple 
+ms.service: azure-vmware
 author: divka78  
 ms.author: dikamath 
 ---
