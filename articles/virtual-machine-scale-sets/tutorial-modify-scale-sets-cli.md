@@ -165,7 +165,7 @@ The exact presentation of the output depends on the options you provide to the c
   },
   "osProfile": {
     "allowExtensionOperations": true,
-    "computerName": "myScaleSYGS9ZZ",
+    "computerName": "myScaleset_Computer1",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "enableVmAgentPlatformUpdates": false,
@@ -230,8 +230,8 @@ Running [az vm show](/cli) again, we now will see that the VM instance has the n
         "diskSizeGb": 1023,
         "lun": 0,
         "managedDisk": {
-          "id": "/subscriptions/49d84582-7207-4a4f-824e-044e83c71887/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/disks/disk_name1",
-          "resourceGroup": "MYRESOURCEGROUP",
+          "id": "/subscriptions/49d84582-7207-4a4f-824e-044e83c71887/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk_name1",
+          "resourceGroup": "myResourceGroup",
           "storageAccountType": "Premium_LRS"
         },
         "name": "disk_name1",
@@ -272,9 +272,9 @@ az vm list --resource-group myResourceGroup --output table
 ```output
 Name                 ResourceGroup    Location    
 -------------------  ---------------  ----------
-myNewInstance        myResourceGroup  eastus
-myScaleSet_4c53bcea  myResourceGroup  eastus
-myScaleSet_e1527581  myResourceGroup  eastus
+myNewInstance         myResourceGroup  eastus
+myScaleSet_Instance1  myResourceGroup  eastus
+myScaleSet_Instance1  myResourceGroup  eastus
 ``` 
 
 ## Bring VMs up-to-date with the latest scale set model
