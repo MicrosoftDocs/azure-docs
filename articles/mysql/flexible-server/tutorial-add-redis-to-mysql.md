@@ -27,7 +27,7 @@ For this quickstart you need:
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
-## Populate the mysql database
+## Populate the MySQL database
 
 Connect to [MySQL Server using MySQL Workbench](connect-workbench.md) and run the following query to populate the database. 
 
