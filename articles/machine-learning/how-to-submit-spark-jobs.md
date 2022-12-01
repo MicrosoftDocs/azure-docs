@@ -22,16 +22,6 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 - Azure Machine Learning SDK
 
 ## Prerequisites
-# [Studio UI](#tab/studio-ui)
-- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
-- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning Studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
-- [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
-
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
@@ -49,6 +39,18 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ---
+
+### Studio UI
+Prerequisites for submitting a Spark job from Azure Machine Learning Studio UI are as follows: 
+- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
+- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
+- To enable this feature:
+  1. Navigate to Azure Machine Learning Studio UI.
+  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
+  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+- [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
+
 
 ## Ensuring resource access for Spark jobs
 Spark jobs can use either user identity passthrough or a managed identity to access data and other resource. Different mechanisms for accessing resources while using Azure Machine Learning Managed (Automatic) Spark compute and attached Synapse Spark pool are summarized in the following table. 
@@ -97,8 +99,8 @@ Azure Machine Learning Managed (Automatic) Spark compute uses user assigned mana
     ```
 
 > [!NOTE]
-> To ensure successful execution of spark job, the identity being used for the Spark job should be assigned **Contributor** and **Storage Blob Data Contributor** roles on the Azure storage account used for data input and output.
-> If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
+> - To ensure successful execution of spark job, the identity being used for the Spark job should be assigned **Contributor** and **Storage Blob Data Contributor** roles on the Azure storage account used for data input and output.
+> - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
 
 ## Submit a standalone Spark job
 Once a Python script is developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md), it can be used for submitting a batch job to process a larger volume of data after making necessary changes for parameterization of the Python script. A simple data wrangling batch job can be submitted as a standalone Spark job. 
@@ -172,12 +174,12 @@ A standalone Spark job can be defined as a YAML specification file, which can be
     - `3.1`
     - `3.2`
 
-      An example is shown here:
-    ```yaml
-    resources:
-      instance_type: standard_e8s_v3
-      runtime_version: "3.2"
-    ```
+  An example is shown here:
+  ```yaml
+  resources:
+    instance_type: standard_e8s_v3
+    runtime_version: "3.2"
+  ```
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
   ```yaml
   compute: mysparkpool
