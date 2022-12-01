@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 12/01/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
@@ -36,7 +36,7 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
 > [!NOTE]
-> Before you can configure a SAS expiration policy, you may need to rotate each of your account access keys at least once.
+> Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **KeyCreationTime** property of the storage account has a null value for either of the account access keys, you will need to rotate them. If the keys need to be rotated, you will see an indication of that when trying to configure a policy using one of the methods below.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -44,7 +44,16 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**. If the setting appears disabled, then you need to rotate both account access keys before you can set a recommended upper limit for SAS expiry interval.
+1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
+
+    If the setting is grayed out and you see the message shown in the image below, then you need to rotate both account access keys before you can set a recommended upper limit for SAS expiry interval:
+
+    :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal":::
+
+    To verify the value of the **KeyCreationTime** property for both keys, go to the **Overview** page of the storage account and select **JSON View**, then under **API version** select the latest version. The keyCreationTime for key1 and key2 will be displayed as shown in the image below:
+
+    :::image type="content" source="media/sas-expiration-policy/json-view-storage-account.png" alt-text="Screenshot showing the account access keys with null values in the JSON View of the storage account":::
+
 1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal":::
