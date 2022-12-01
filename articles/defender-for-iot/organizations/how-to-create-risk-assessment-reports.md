@@ -87,4 +87,6 @@ Risk assessment reports include the following details:
 
 ## Next steps
 
-Take action based on the recommendations provided in the risk assessment reports to improve your overall network security score. For example, you might install the latest security or firmware updates, or investigate any PLCs that are currently in unsecure states. For more information, see [Enhance security posture with security recommendations](recommendations.md).
+Take action based on the recommendations provided in the risk assessment reports to improve your overall network security score. For example, you might install the latest security or firmware updates, or investigate any PLCs that are currently in unsecure states. 
+
+For more information, see [Enhance security posture with security recommendations](recommendations.md).
