@@ -16,7 +16,7 @@ or Azure Active Directory.
 
 See [Configure Azure Managed Grafana](./prometheus-grafana.md) for the manual process for adding an Azure Monitor managed service for Prometheus data source to Azure Managed Grafana.
 
-## Managed system identity authentication 
+### [Managed system identity authentication](#tab/managedidnetity)
 
 ### Configure system identity
 Azure virtual machines support both system assigned and user assigned identity. The following steps configure system assigned identity.
@@ -68,7 +68,8 @@ Versions 9.x and greater of Grafana support Azure Authentication, but it's not e
 
 :::image type="content" source="media/prometheus-grafana/prometheus-data-source.png" alt-text="Screenshot of configuration for Prometheus data source." lightbox="media/prometheus-grafana/prometheus-data-source.png":::
 
-## Azure Active Directory authentication.
+
+## [Azure Active Directory authentication](#tab/ADD)
 
 To set up Azure Active Directory (AAD) authentication:
 1. Register an app with AAD.
@@ -134,6 +135,8 @@ You have created your App registration and have assigned it access to query data
 1. Enter the **Direct(tenant) ID**, **Application (client) ID**, and the **Client secret** from the [Register an app with AAD](#register-an-app-with-add) section.
 1. Select **Save & test**
     :::image type="content" source="./media/prometheus-selfmanaged-grafana/configure-grafana.png" alt-text="A screenshot showing the  Grafana settings page for adding a data source.":::
+
+--- 
 
 - [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
