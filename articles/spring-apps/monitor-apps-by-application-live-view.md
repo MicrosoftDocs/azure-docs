@@ -29,7 +29,7 @@ This article describes the Application Live View UI features, and the pages and 
 
 ## Details page
 
-The **Details** page is the default page loaded in the **Live View** section. This page gives a tabular overview containing the following:
+The **Details** page is the default page loaded in the **Live View** section. This page gives a tabular overview containing the following properties:
 
 - App name
 - Instance ID
@@ -71,7 +71,7 @@ The page includes the following features:
 - Reset the environment property to the original state by clicking **Reset**.
 - Add new environment properties to the app, and edit or remove overridden environment variables in the **Applied Overrides** section.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Environmennt page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
 
 > [!NOTE]
 > You must set `management.endpoint.env.post.enabled=true` in the app config properties of the app, and a corresponding, editable environment must be present in the app.
@@ -113,7 +113,7 @@ The page includes the following features:
 
 To navigate to the **Memory** page, select the **Memory** option from the **Information Category** drop-down.
 
-The **Memory** page highlights the memory use inside of the JVM. It displays a graphical representation of the different memory regions within heap and non-heap memory. For Spring Boot apps running on a JVM, this visualizes data from inside of the JVM, giving you memory insights into the app in contrast to outside information about the Kubernetes pod level.
+The **Memory** page highlights the memory use inside of the JVM. It displays a graphical representation of the different memory regions within heap and non-heap memory. For Spring Boot apps running on a JVM, the **Memory** page visualizes data from inside of the JVM, giving you memory insights into the app in contrast to outside information about the Kubernetes pod level.
 
 The page includes the following features:
 
@@ -149,8 +149,8 @@ To navigate to the **HTTP Requests** page, select the **HTTP Requests** option f
 
 The page includes the following features:
 
-- Filter on the response statuses which include `info`, `success`, `redirects`, `client-errors`, and `server-errors`.
-- View the trace data, captured in detail in a tabular format with metrics such as timestamp, method, path, status, content-type, length, and time.
+- Filter on the response status, which include `info`, `success`, `redirects`, `client-errors`, and `server-errors`.
+- View the trace data in detail in a table format with metrics such as timestamp, method, path, status, content-type, length, and time.
 - Filter the traces based on the search field value using the search feature on the table.
 - View more details of the request such as method, headers, and response of the app by clicking on the timestamp.
 - Click the refresh icon above the graph to load the latest traces for the app.
@@ -165,7 +165,7 @@ The page includes the following features:
 
 ## Caches page
 
-To navigate to the **Caches** page, select the **Caches** option from the **Information Category** drop-down. The **Caches** page provides access to the app's caches. It gives the details of the cache managers associated with the app, including the fully-qualified name of the native cache.
+To navigate to the **Caches** page, select the **Caches** option from the **Information Category** drop-down. The **Caches** page provides access to the app's caches. It gives the details of the cache managers associated with the app, including the fully qualified name of the native cache.
 
 The page includes the following features:
 
@@ -187,11 +187,11 @@ The page includes the following feature:
 
 ## Conditions page
 
-To navigate to the **Conditions** page, select the **Conditions** option from tthe **Information Category** drop-down. The conditions evaluation report provides information about the evaluation of conditions on configuration and auto-configuration classes. For Spring Boot, this gives the user a clear view of all the beans configured in the app.
+To navigate to the **Conditions** page, select the **Conditions** option from the **Information Category** drop-down. The conditions evaluation report provides information about the evaluation of conditions on configuration and auto-configuration classes. For Spring Boot, the conditions evaluation report gives you a clear view of all the beans configured in the app.
 
 The page includes the following features:
 
-- Click on the bean name to view the conditions and the reason for the conditional match. If beans are not configured, it shows both the matched and unmatched conditions of the bean if any. In addition to this, it also displays names of unconditional auto configuration classes if any.
+- Click on the bean name to view the conditions and the reason for the conditional match. If beans are not configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
 - Filter on the beans and the conditions using the search feature.
 
 :::image type="content" source="media/monitor-apps-by-application-live-view/conditions.png" alt-text="Screenshot of the Conditions page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/conditions.png":::
