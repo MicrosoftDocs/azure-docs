@@ -52,7 +52,7 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 Evaluate [host utilization](https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
 
 ```azurecli-interactive
-az vm host -g myDHResourceGroup --host-group MyHostGroup --name MyHost
+az vm host get-instance-view -g myDHResourceGroup --host-group MyHostGroup --name MyHost
 ```
 
 ## Create a Host Group
