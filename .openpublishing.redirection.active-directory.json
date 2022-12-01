@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
+      "redirect_url": "/graph/api/resources/identitygovernance-workflow",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-offboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-offboard-custom-workflow",
       "redirect_document_id": false
@@ -117,7 +122,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -1902,7 +1907,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/azure-ad-endpoint-comparison.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -10953,7 +10958,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
-      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal",
       "redirect_document_id": false
     },
     {

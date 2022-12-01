@@ -132,7 +132,7 @@ Create an item in the container by using the [`ContainerProxy.create_item`](/pyt
 
 ### Get an item
 
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
+In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="read_item":::
 
@@ -185,7 +185,7 @@ The output of the app should be similar to this example:
 ```
 
 > [!NOTE]
-> The fields assigned by Azure Cosmos DB (ex. ) will vary from this sample output.
+> The fields assigned by Azure Cosmos DB will vary from this sample output.
 
 ## Clean up resources
 
@@ -194,6 +194,3 @@ The output of the app should be similar to this example:
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the Python SDK. You can now dive deeper into guidance on how to import your data into the API for NoSQL.
-
-> [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)

@@ -795,7 +795,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 # [JavaScript](#tab/javascript)
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
 
 See [Start instances](#javascript-function-json) for the function.json configuration.
 

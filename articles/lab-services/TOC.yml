@@ -125,10 +125,12 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
+  - name: Transition to August 2022 Update
+    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md
+      href: how-to-request-capacity-increase.md?tabs=Labplans
     - name: Determine Usage and Quota
       href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
@@ -301,6 +303,8 @@
       href: reference-powershell-module.md     
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/labservices
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module
