@@ -293,4 +293,4 @@ You can learn to deploy to managed online endpoints with SDK more in [Deploy mac
 ## Next steps
 
 - [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)

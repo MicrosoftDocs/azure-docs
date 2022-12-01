@@ -85,7 +85,7 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 - Set a resource lock on Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
 - Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated.
 - Keep a copy of the customer-managed key in a secure place or escrow it to the escrow service.
-- If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey?view=azps-8.3.0).
+- If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
 ## Inaccessible customer-managed key condition
 
