@@ -9,7 +9,10 @@ ms.date: 11/30/2022
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
+## offline-seeding workflow
+
 The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
+
   :::image type="content" source="./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png" alt-text="Screenshot shows the overview of offline import workflow process.":::
 
 The offline backup process involves these steps:
@@ -49,11 +52,11 @@ Before you start the offline backup workflow, complete the following prerequisit
 * On the computer running the Azure Backup Agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
 * Create an Azure storage account in the same subscription as the Recovery Services vault.
 * Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The offline backup workflow creates an Azure Active Directory application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
-* Register the *Microsoft.ImportExport* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
+* Register the *Microsoft.DataBox* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
     1. On the main menu, select **Subscriptions**.
     1. If you're subscribed to multiple subscriptions, select the subscription you plan to use for the offline backup. If you use only one subscription, then your subscription appears.
     1. On the subscription menu, select **Resource providers** to view the list of providers.
-    1. In the list of providers, scroll down to *Microsoft.ImportExport*. If the **Status** is **NotRegistered**, select **Register**.
+    1. In the list of providers, scroll down to *Microsoft.DataBox*. If the **Status** is **NotRegistered**, select **Register**.
 
         :::image type="content" source="./media/backup-azure-backup-import-export/registerimportexport.png" alt-text="Screenshot shows how to register the resource provider.":::
 
@@ -144,12 +147,12 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
-1. After a successful copy of the data from the staging location to the disks, the tool appears. Enter the required details to create the *Import/Export Job*:
+1. After successfully copying the data from the staging location to the disks, the tool shows the following details:
 
-   - The list of disks prepared for seeding. 
-   - The name of the storage account, resource group, country and region of the import/export job. 
+   - The list of disks prepared for seeding.
+   - The name of the storage account, resource group, country, and region of the Import/Export Job.
 
-   Enter the following details to create the *Import/Export Job*. (All the fields are required.)
+   The tool lists the fields required to creat the Import/Export Job.* Enter the following details:
 
    | Required Parameter | Detail|
    | --- | --- |
@@ -159,6 +162,9 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    | Shipping Address | The return shipping address |
    | Country | Return shipping country |
    | Postal Code | Return shipping postal code |
+
+   **All fields are required.*
+
 
    You can edit these parameters in future in the Azure portal for the *Import/Export Job*.    
 
