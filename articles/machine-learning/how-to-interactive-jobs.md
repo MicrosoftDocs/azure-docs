@@ -254,4 +254,4 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).

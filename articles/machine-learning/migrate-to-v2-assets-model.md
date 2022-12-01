@@ -85,5 +85,5 @@ For more information, see the documentation here:
 * [Create a model in v1](v1/how-to-deploy-and-where.md?tabs=python#register-a-model-from-a-local-file)
 * [Deploy a model in v1](v1/how-to-deploy-and-where.md?tabs=azcli#workflow-for-deploying-a-model)
 * [Create a model in v2](how-to-manage-models.md)
-* [Deploy a model in v2](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a model in v2](how-to-deploy-online-endpoints.md)
 

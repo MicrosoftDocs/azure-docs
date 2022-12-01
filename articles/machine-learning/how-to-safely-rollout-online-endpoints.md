@@ -258,7 +258,7 @@ We'll send a sample request using a [json](https://github.com/Azure/azureml-exam
 
 # [Azure CLI](#tab/azure-cli)
 
-In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
+In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 

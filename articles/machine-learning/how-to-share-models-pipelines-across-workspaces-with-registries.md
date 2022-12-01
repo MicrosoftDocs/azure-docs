@@ -589,8 +589,8 @@ In the last section, you'll deploy a model from registry to an online endpoint i
 
 Online endpoints let you deploy model and submit inference requests through the REST APIs. For more information, see the following articles:
 
-* [Managed endpoints (CLI)](how-to-deploy-managed-online-endpoints.md)
-* [Managed endpoints (SDK)](how-to-deploy-managed-online-endpoint-sdk-v2.md) 
+* [Deploy an ML model with an online endpoint (CLI)](how-to-deploy-online-endpoints.md)
+* [Deploy an ML model with an online endpoint (SDK)](how-to-deploy-online-endpoint-sdk-v2.md) 
 
 # [Azure CLI](#tab/cli)
 
