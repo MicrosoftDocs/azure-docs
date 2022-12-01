@@ -23,7 +23,7 @@ The different deployment methods are:
 
 Using an ARM template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity Azure role-based access (RBAC) roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
 
-For more information about the ARM template and the Deploy to Azure button, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-02-new-button.md).
+For more information about the ARM template and the Deploy to Azure button, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
 
 ## Azure PowerShell and Azure CLI automation
 
@@ -35,7 +35,7 @@ For more information about Using an ARM template with Azure PowerShell or Azure 
 
 The manual deployment method uses the Azure portal to implement each deployment task individually. Using the manual deployment method will allow you to see all the details of how to complete the sequence of each deployment task. The manual deployment method can be beneficial if you need to customize or troubleshoot your deployment process. The manual deployment is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment precisely.
 
-For more information about manual deployment with Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-03-new-manual.md).
+For more information about manual deployment with Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md).
 
 ## Deployment architecture overview
 
@@ -79,11 +79,11 @@ Each method must add **all** these post-deployment tasks:
 
 ### Granting access to the device message event hub
 
-For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-06-new-deploy.md#grant-access-to-the-device-message-event-hub).
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub).
 
 ### Granting access to the FHIR service
 
-For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-06-new-deploy.md#grant-access-to-the-fhir-service).
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-new-deploy.md#grant-access-to-the-fhir-service).
 
 ## Next steps
 
