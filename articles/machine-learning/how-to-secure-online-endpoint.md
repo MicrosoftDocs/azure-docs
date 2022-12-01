@@ -145,7 +145,7 @@ ml_client.begin_create_or_update(blue_deployment)
 1. Follow the steps in the **Create deployment** setup wizard to the **Deployment** step.
 1. Disable the **Egress public network access** flag.
 
-    :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment" lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
+    :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment." lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
 
 ---
 
