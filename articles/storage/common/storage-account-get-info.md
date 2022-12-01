@@ -188,35 +188,34 @@ To display the creation time of the account access keys for a storage account in
 
 # [PowerShell](#tab/powershell)
 
-To return the creation time of the account access keys for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get the account access key creation time:
+To return the creation time of the account access keys for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get the account access key creation time. In this sample code we get the keyCreationTime for both keys and display the value of each key. We also test whether each value is null to distinguish a blank string value from a null value.:
 
 ```azurepowershell
-$rg = <resource-group-name>
-$sa = <storage-account-name>
-(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key1
-(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key1 -eq $null
-(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key2
-(Get-AzStorageAccount -ResourceGroupName $rg -Name $sa).keyCreationTime.key2 -eq $null
+$rgName      = <resource-group>
+$accountName = <storage-account>
+
+$keyCreationTime = (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).keyCreationTime
+$keyCreationTime.key1
+$keyCreationTime.key1 -eq $null
+$keyCreationTime.key2
+$keyCreationTime.key2 -eq $null
 
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command and query the resource ID:
+To return the creation time of the account access keys for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command and query the keyCreationTime:
 
 ```azurecli
 az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --query id \
-    --output tsv
+    --query keyCreationTime
 ```
 
 ---
 
-You can also get the resource ID for a storage account by calling the [Storage Accounts - Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation in the REST API.
-
-For more information about types of resources managed by Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
+You can also get the keyCreationTime for a storage account by calling the [Storage Accounts - Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation in the REST API.
 
 ## Next steps
 
