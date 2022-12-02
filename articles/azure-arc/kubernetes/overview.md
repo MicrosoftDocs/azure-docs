@@ -28,7 +28,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * Enforce threat protection using [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Ensure governance through applying policies [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Ensure governance through applying policies with [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Manage access by using [Azure Active Directory for authentication and authorization checks](azure-rbac.md) on your cluster.
 
