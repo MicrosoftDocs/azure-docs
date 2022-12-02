@@ -37,7 +37,7 @@ When you configure a SAS expiration policy on a storage account, the policy appl
 
 ### Do I need to rotate the account access keys first?
 
-Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys, you will need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated, you will see a message indicating that.
+Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys (key1 and key2), you will need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated first, you will see a message indicating that.
 
 ### How to configure a SAS expiration policy
 
@@ -52,7 +52,7 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
 
     > [!NOTE]
-    > If the setting is grayed out and you see the message shown in the image below, then [you need to rotate both account access keys](#do-you-need-to-rotate-the-account-access-keys-first) before you can set a recommended upper limit for SAS expiry interval:
+    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set a **Recommended upper limit for SAS expiry interval**:
     >
     > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal" lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
 
@@ -76,7 +76,7 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
 > You can also set the SAS expiration policy as you create a storage account by setting the `-SasExpirationPeriod` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
 > [!NOTE]
-> If you get error message *No KeyCreationTime for key: key\<key number>, please regenerate that key*, [rotate the account access keys](#do-you-need-to-rotate-the-account-access-keys-first) and try again.
+> If you get error message *"No KeyCreationTime for key: key\<key number>, please regenerate that key"*, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
 
 To verify that the policy has been applied, use the `SasPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command.
   
@@ -104,7 +104,7 @@ az storage account update \
 > You can also set the SAS expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
 > [!NOTE]
-> If you get error message *No KeyCreationTime for key: key\<key number>, please regenerate that key*, [rotate the account access keys](#do-you-need-to-rotate-the-account-access-keys-first) and try again.
+> If you get error message *"No KeyCreationTime for key: key\<key number>, please regenerate that key"*, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{SasPolicy:sasPolicy}` for the `-query` parameter.
   
