@@ -9,65 +9,72 @@ ms.date: 11/11/2022
 ms.author: kgremban
 ---
 
-# Message routing with IoT Hub — PowerShell
+# Create and delete routes and endpoints by using PowerShell
 
-This article shows you how to create a route and endpoint in your IoT hub, then delete your route and endpoint. We use the PowerShell to create routes and endpoints to Event Hubs, Service Bus queue, Service Bus topic, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and testing on a simulated device, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
 ## Prerequisites
 
-**Azure PowerShell**
+The procedures that are described in the article use the following prerequisites:
 
-To use PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps). Alternatively, to use the Azure PowerShell in a browser enable [Azure Cloud Shell](/azure/cloud-shell/overview).
+* Azure PowerShell
+* An IoT hub
+* An endpoint service
 
-**IoT Hub and an endpoint service**
+### Azure PowerShell
 
-You need an IoT hub and at least one other service to serve as an endpoint to an IoT hub route. You can choose which Azure service (Event Hubs, Service Bus queue or topic, or Azure Storage) endpoint that you'd like to connect with your IoT Hub route.
+To use PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub using the New-AzIotHub cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
+### IoT Hub and an endpoint service
 
-* (Optional) An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
-* (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  If you don't have a hub yet, complete the steps to [create an IoT hub by using the New-AzIotHub PowerShell cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
 
-* (Optional) A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus Messaging](/azure/service-bus-messaging/) documentation.
+* (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
 
-* (Optional) An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
+* (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
 
-## Create, update, or remove endpoints and routes
+* (Optional) A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus messaging](/azure/service-bus-messaging/) documentation.
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint, where the messages or events end up, and a data source, where the messages or events originate. You choose these locations when creating a new route in the IoT Hub. Routing queries are then used to filter messages or events before they go to the endpoint.
+* (Optional) An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
 
-You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be the endpoint for your IoT hub route. The service must first exist in your Azure account.
+## Create, update, and remove endpoints and routes
+
+In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint where the messages or events end up, and a data source where the messages or events originate. You choose these locations when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+
+You can use an event hubs, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
 
 > [!NOTE]
-> If you're using a local version of PowerShell, [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps) before proceeding.
-> 
+> If you're using a local version of PowerShell, [sign in to Azure PowerShell](/powershell/azure/authenticate-azureps) before you begin.
+>
 
 # [Event Hubs](#tab/eventhubs)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [Az.IotHub](/powershell/module/az.iothub/)
 * [Az.EventHub](/powershell/module/az.eventhub/)
 
-### Create an Event hub
+### Create an event hub
 
-Let's create a new Event Hubs resource with an authorization rule.
+To create a new Event Hubs resource that has an authorization rule:
 
-1. Create a new Event Hubs namespace. For **NamespaceName**, use a unique value.
+1. Create a new Event Hubs namespace. For `NamespaceName`, use a unique value.
 
    ```powershell
    New-AzEventHubNamespace -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Location MyLocation
    ```
 
-1. Create your new Event hubs entity. Use a unique **Name**. Use the same **NamespaceName** you created in the previous step.
+1. Create your new Event Hubs entity. For `Name`, use a unique value. For `NamespaceName`, use the namespace name you created in the preceding step.
 
    ```powershell
    New-AzEventHub -Name MyEventHub -NamespaceName MyNamespace -ResourceGroupName MyResourceGroup
    ```
 
-1. Create a new authorization rule. Use the **Name** of your entity for **EventHubName**. Use a unique **Name** for your authorization rule.
+1. Create a new authorization rule. For `Name`, use the name of your entity for `EventHubName`. For the name of your authorization rule, use a unique value.
 
    ```powershell
    New-AzEventHubAuthorizationRule -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName MyEventHub -Name MyAuthRule -Rights @('Manage', 'Send', 'Listen')
@@ -75,15 +82,15 @@ Let's create a new Event Hubs resource with an authorization rule.
 
    For more information about access, see [Authorize access to Azure Event Hubs](/azure/event-hubs/authorize-access-event-hubs).
 
-### Create an Event Hubs endpoint
+### Create an event hub endpoint
 
-1. Retrieve the primary connection string from your Event hub. Copy the connection string for later use.
+1. Get the primary connection string from your event hub. Copy the connection string to use later.
 
    ```powershell
    Get-AzEventHubKey -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName MyEventHub -Name MyAuthRule
    ```
 
-1. Create a new IoT hub endpoint to Event Hubs. Use your primary connection string from the previous step. The `EndpointType` must be `EventHub`, otherwise all other values should be your own.
+1. Create a new IoT hub endpoint to Event Hubs. Use your primary connection string from the preceding step. The value for `EndpointType` must be `EventHub`. For all other parameters, use the values for your scenario.
 
    ```powershell
    Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType EventHub -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "Endpoint=<my connection string>"
@@ -93,21 +100,22 @@ Let's create a new Event Hubs resource with an authorization rule.
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [Az.IotHub](/powershell/module/az.iothub/)
 * [Az.ServiceBus](/powershell/module/az.servicebus/)
 
 ### Create a Service Bus namespace and queue
 
-Let's create a new [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) queue resource.
+To create a new [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) queue resource:
 
-1. Create a new Service Bus namespace. Use a unique `Name`.
+1. Create a new Service Bus namespace. For `Name`, use a unique value.
 
    ```powershell
    New-AzServiceBusNamespace -ResourceGroupName MyResourceGroup -Name MyNamespace -Location MyRegion
    ```
 
-1. Create a new Service Bus queue. Use the same `NamespaceName` you created in the previous step. Use a unique `Name` for your queue. 
+1. Create a new Service Bus queue. Use the value for `NamespaceName` you created in the preceding step. For the name of your queue, use a unique value.
 
    ```powershell
    New-AzServiceBusQueue -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Name MyQueue
@@ -115,13 +123,15 @@ Let's create a new [Service Bus](/azure/service-bus-messaging/service-bus-messag
 
 ### Create a Service Bus queue endpoint
 
-1. Retrieve the primary connection string from your Service Bus namespace. Copy the connection string for later use.
+To create a new Service Bus queue endpoint:
+
+1. Retrieve the primary connection string from your Service Bus namespace. Copy the connection string to use later.
 
    ```powershell
    Get-AzServiceBusKey -ResourceGroupName MyResourceGroup -Namespace MyNamespace -Name RootManageSharedAccessKey
    ```
 
-1. Create a new IoT hub endpoint to your Service Bus queue. Use your primary connection string from the previous step with `;EntityPath=MyServiceBusQueue` added to the end. The `EndpointType` must be `ServiceBusQueue`, otherwise all other values should be your own. Use a unique name for your `EndpointName`.
+1. Create a new IoT hub endpoint to your Service Bus queue. Use your primary connection string from the preceding step with `;EntityPath=MyServiceBusQueue` added to the end. The value for `EndpointType` must be `ServiceBusQueue`. For all other parameters, use the values for your scenario. For `EndpointName`, use a unique value.
 
    ```powershell
    Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType EventHub -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "Endpoint=my-connection-string;EntityPath=MyServiceBusQueue"
@@ -131,27 +141,30 @@ Let's create a new [Service Bus](/azure/service-bus-messaging/service-bus-messag
 
 # [Service Bus topic](#tab/servicebustopic)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [Az.IotHub](/powershell/module/az.iothub/)
 * [Az.ServiceBus](/powershell/module/az.servicebus/)
 
-With [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) topics, users can subscribe to one or more topics. Let's create a Service Bus namespace, topic, and then subscribe to the topic.
+With [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) topics, users can subscribe to one or more topics.
+
+To create a Service Bus namespace, topic, and then subscribe to the topic:
 
 ### Create a Service Bus namespace, topic, and subscription
 
-1. Create a new Service Bus namespace. Use a unique `Name` for your namespace.
+1. Create a new Service Bus namespace. For `Name` for your namespace, use a unique value.
 
    ```powershell
    New-AzServiceBusNamespace -ResourceGroupName MyResourceGroup -Name MyNamespace -Location MyRegion
    ```
 
-1. Create a new Service Bus topic. Use a unique `Name` for your topic.
+1. Create a new Service Bus topic. For the topic name, use a unique value.
 
    ```powershell
    New-AzServiceBusTopic -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Name MyTopic
    ```
 
-1. Create a new subscription to your topic. Use your topic from the previous step for `TopicName`. Use a unique `Name` for your subscription.
+1. Create a new subscription to your topic. For `TopicName`, use the topic name you created in the preceding step. For your subscription name, use a unique value.
 
    ```powershell
    New-AzServiceBusSubscription -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -TopicName MyTopic -Name MySubscription
@@ -159,13 +172,13 @@ With [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) 
 
 ### Create a Service Bus topic endpoint
 
-1. Retrieve the primary connection string from your Service Bus namespace. Copy the connection string for later use.
+1. Retrieve the primary connection string from your Service Bus namespace. Copy the connection string to use later.
 
    ```powershell
    Get-AzServiceBusKey -ResourceGroupName MyResourceGroup -Namespace MyNamespace -Name RootManageSharedAccessKey
    ```
 
-1. Create a new IoT hub endpoint to your Service Bus topic. Use your primary connection string from the previous step with `;EntityPath=MyServiceBusTopic` added to the end. The `EndpointType` must be `ServiceBusTopic`, otherwise all other values should be your own. Use a unique name for your `EndpointName`.
+1. Create a new IoT hub endpoint to your Service Bus topic. Use your primary connection string from the preceding step with `;EntityPath=MyServiceBusTopic` added to the end. The value for `EndpointType` must be `ServiceBusTopic`. For all other parameters, use the values for your scenario. For `EndpointName`, use a unique value.
 
    ```powershell
    Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType ServiceBusTopic -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "Endpoint=<my connection string>;EntityPath=MyServiceBusTopic"
@@ -175,11 +188,12 @@ With [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) 
 
 # [Azure Storage](#tab/azurestorage)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [Az.IotHub](/powershell/module/az.iothub/)
 * [Az.Storage](/powershell/module/az.storage/)
 
-To create an Azure Storage endpoint and route, you need an Azure Storage account and container.
+To create an Azure storage endpoint and route, you need an Azure storage account and container.
 
 ### Create an Azure Storage account and container
 
@@ -226,7 +240,7 @@ To create an endpoint to Azure Storage, you need your access key to construct a 
 
 Finally, with your new endpoint in your IoT hub, you can create a new route.
 
-The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more information on source options, see [Add-AzIotHubRoute](/powershell/module/az.iothub/add-aziothubroute#parameters). The `Enabled` parameter is a switch, so no value needs to follow it.
+The default fallback route in IoT Hub collects messages from `DeviceMessages`, so  choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more information on source options, see [Add-AzIotHubRoute](/powershell/module/az.iothub/add-aziothubroute#parameters). The `Enabled` parameter is a switch, so no value needs to follow it.
 
 ```powershell
 Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint -Enabled
@@ -242,7 +256,7 @@ Condition     : true
 IsEnabled     : True
 ```
 
-## Update your IoT hub route
+## Update an IoT hub route
 
 To make changes to an existing route, use the following command. Try changing the name of your route.
  
@@ -256,22 +270,22 @@ Use the `Get-AzIotHubRoute` command to confirm the change in your route.
 Get-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub
 ```
 
-## Delete your Event hubs endpoint
+## Delete an Event Hubs endpoint
 
 ```powershell
 Remove-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -PassThru
 ```
 
-## Delete your IoT hub route
+## Delete an IoT hub route
 
 ```powershell
 Remove-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -PassThru
 ```
 
 > [!TIP]
-> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
+> Deleting a route doesn't delete any endpoints in your Azure account. You must delete an endpoint separately from deleting a route.
 
-## Next Steps
+## Next steps
 
 In this how-to article you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage. 
 

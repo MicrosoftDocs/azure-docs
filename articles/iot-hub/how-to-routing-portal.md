@@ -17,17 +17,21 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 ## Prerequisites
 
-The steps that are described in the article require the following prerequisites:
+The procedures that are described in the article Use the following prerequisites:
+
+* The Azure portal
+* An IoT hub
+* An endpoint service
 
 ### Azure portal
 
-This article uses the Azure portal to work with IoT Hub and other Azure services. To be more familiar with the portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview)
+This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview)
 
 ### IoT hub and an endpoint service
 
-You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
+You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
 
 * (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
 
@@ -43,9 +47,9 @@ You need an IoT hub created with Azure IoT Hub and at least one other service to
 
 In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint where the messages or events end up, and a data source where the messages or events originate. You choose these locations when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
-You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use as your endpoint must first exist in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
 
-Decide which route type (event hubs, Service Bus queue or topic, or Azure storage) you want to create. For the service you choose to use, complete the steps to create an endpoint.
+Decide which route type (event hub, Service Bus queue or topic, or Azure storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
