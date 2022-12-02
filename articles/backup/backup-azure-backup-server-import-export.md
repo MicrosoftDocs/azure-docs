@@ -7,7 +7,7 @@ author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Offline seeding workflow for DPM and MABS using customer owned disks with Azure Import/Export
+# Offline seeding for DPM/MABS using customer owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from DPM/MABS to Azure using customer owned disks instead of sending it via the network. Learn about [sending the initial full backup data from MARS to Azure using customer owned disks](backup-azure-backup-import-export.md).
 
@@ -25,7 +25,7 @@ In this article, you'll learn about:
 > - How to update the tracking and shipping details on the Azure import job
 
 >[!IMPORTANT]
-> These steps are applicable for DPM 2019 UR1 (or above) and MABS v3 UR1 (or higher). Ensure that you've the latest MARS agent (version 2.0.9250.0 or higher) before following the below section. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-your-own-disks-importexport-is-not-working)
+> These steps are applicable for DPM 2019 UR1 (or above) and MABS v3 UR1 (or higher). Ensure that you've the latest MARS agent (version 2.0.9250.0 or higher) before following the below section. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-customer-owned-disks-importexport-is-not-working).
 
 ## Offline-seeding process
 

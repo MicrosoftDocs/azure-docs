@@ -5,7 +5,7 @@ ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
 ---
-# Offline seeding workflow for MARS using customer owned disks with Azure Import/Export
+# Offline seeding for MARS using customer owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from MARS to Azure using customer owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer owned disks](backup-azure-backup-server-import-export.md).
 
@@ -37,7 +37,7 @@ The offline backup process involves these steps:
 1. Azure Backup copies the backup data from the storage account to the Recovery Services vault, and incremental backups are scheduled.
 
 >[!Note]
->Ensure that you use the latest MARS agent (version 2.0.9250.0 or higher) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-your-own-disks-importexport-is-not-working).
+>Ensure that you use the latest MARS agent (version 2.0.9250.0 or higher) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-customer-owned-disks-importexport-is-not-working).
 
 ## Supported configurations
 
