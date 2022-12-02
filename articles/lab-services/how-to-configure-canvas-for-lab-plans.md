@@ -47,7 +47,7 @@ You can use Canvas for accessing Azure Lab Services by enabling the Azure Lab Se
 
 After enabling the Azure Lab Services app in Canvas, you add the app to a course. Canvas administrators may choose to enable the Azure Lab Services app for an account. Enabling the app at the account level avoids that educators have to add the app for each individual course. Instead, educators can quickly enable or disable navigation to Azure Lab Services per course.
 
-If you want to add the app to a specific course, skip to [Add the Azure Lab Services app to a course](#add-the-azure-lab-services-app).
+If you want to add the app to a specific course, skip to [Add the Azure Lab Services app to a course](#add-the-azure-lab-services-app-to-a-course).
 
 To add the app at the account level:
 
@@ -75,7 +75,9 @@ The Azure Lab Services app will now be available for all courses in that account
 
 ## Add Azure Lab Services to a course
 
-To use Azure Lab Services in a course, you now add the Azure Lab Services app to a course. If you previously added the app to the account, you can skip to [enable the app in the course navigation](#enable-azure-lab-services-in-course-navigation).
+To use Azure Lab Services in a course, you now add the Azure Lab Services app to a course. 
+
+If you previously added the app at the account level, you only need to enable the app in the course navigation. Skip to [enable the app in the course navigation](#enable-azure-lab-services-in-course-navigation).
 
 ### Add the Azure Lab Services app to a course
 
