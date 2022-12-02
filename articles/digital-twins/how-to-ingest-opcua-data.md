@@ -18,9 +18,9 @@ ms.service: digital-twins
 
 This article describes a solution for an automated data ingestion path from [OPC Unified Architecture (OPC UA)](https://opcfoundation.org) manufacturing assets in multiple factories to digital twins hosted in an Azure Digital Twins instance. 
 
-## About OPC UA
+## Microsoft's support for OPC UA
 
-The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine-to-machine communication, machine-to-SCADA-system communication, manufacturing execution system communication, and, more recently, field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities, and is a leading standard for modeling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body, since its inception. Microsoft has been integrating OPC UA into its products since 2015, and has been instrumental in defining the use of OPC UA in the cloud.
+The IEC62541 [OPC Unified Architecture (OPC UA)](https://opcfoundation.org) is a platform independent, service-oriented architecture for industrial verticals. It is the leading standard for modeling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body, since its inception. Microsoft has been integrating OPC UA into its products since 2015, and has been instrumental in defining the use of OPC UA in the cloud.
 
 ## Solution description
 
@@ -65,7 +65,7 @@ Once the deployment is complete, follow these steps to finish configuring the si
 1. Connect to the deployed Windows VM with an RDP (remote desktop) connection. You can download the RDP file in the [Azure portal](https://portal.azure.com) page for the VM, under the **Connect** options. Log in using the credentials you provided during deployment.
 1. Inside the VM, navigate in a browser to the [Docker Desktop page](https://www.docker.com/products/docker-desktop). Download and install the Docker Desktop, including the Windows Subsystem for Linux (WSL) integration. 
 1. After installation, the VM will need to restart. Log back in after the restart. 
-1. Follow the instructions in the VM to accept the license terms and install the WSL Linux kernel. 
+1. Follow the instructions in the VM to accept the Docker Desktop license terms and install the WSL Linux kernel. 
 1. Restart the VM one more time and log back in after the restart.
 1. In the VM, verify that Docker Desktop is running in the Windows System Tray. Enable Kubernetes under **Settings**, **Kubernetes**, **Enable Kubernetes**, and **Apply & restart**.
 
@@ -81,7 +81,7 @@ Once the VM is set up, follow these steps on the virtual machine to run the prod
 1. From the *OnPremAssets* folder, run the following command to start the simulation. You'll need to supply the *primary key connection string* of the Event Hubs namespace that was [deployed with the solution](#install-the-solution). You can find the primary key connection string value in the [Azure portal](https://portal.azure.com) by opening your Event Hubs namespace, selecting **Shared access policy** from its left menu, and selecting **RootManagedSharedAccessKey**.
 
     ```
-    StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<primary-key-connection-string-value>
+    StartSimulation <primary-key-connection-string-value>
     ```
 
     This will start the data flow from the simulated production line into Azure Digital Twins.
