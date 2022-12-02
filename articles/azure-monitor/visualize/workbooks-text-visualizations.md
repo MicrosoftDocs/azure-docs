@@ -14,7 +14,7 @@ The text *visualization* in query steps is different from the [text *step*](work
 
 The text *visualization* is similar to the Azure Data Explorer [`render card`](/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer) behavior, where the first cell value returned by the query (and *only* the first cell value: row 0, column 0) is displayed in the visualization.
 
-The text visualization has a style settings to change the style of the text displayed in the workbook.
+The text visualization has a style setting to change the style of the text displayed in the workbook.
 
 ### Text styles
 The following text styles are available for text steps:
@@ -25,7 +25,7 @@ The following text styles are available for text steps:
 |`header`|The text is formatted with the same styling as step headers   |
 |`bignumber`     |The text is formatted in the "big number" style used in [Tile](workbooks-tile-visualizations.md) and [Graph](workbooks-graph-visualizations.md) based visualizations.       |
 |`markdown`|The text value is rendered in a markdown section, any markdown content in the text content will be interpreted as such and used for formatting.   |
-|`editor`     |The text value is displayed in a editor control, respecting newlines, tab formatting.       |
+|`editor`     |The text value is displayed in an editor control, respecting newlines, tab formatting.       |
 
 ### Examples
 
@@ -48,7 +48,7 @@ Text will wrap, and any special formatting values will be displayed as is, with 
 Text will be displayed in the same style as step headers.
 
 ### Big Number example
-:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in bugnumber style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png":::
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in big number style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png":::
 
 Text will be displayed in big number style.
 
