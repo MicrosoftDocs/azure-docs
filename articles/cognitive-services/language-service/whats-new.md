@@ -31,16 +31,6 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Opinion mining](./sentiment-opinion-mining/language-support.md)
 * Conversational PII now supports up to 40,000 characters as document size.
 * New versions of the text analysis client library are available in preview:
-    
-    ### [C#/.NET](#tab/csharp)
-    
-    [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.3.0-beta.1)
-    
-    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
-    
-    [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
-    
-    [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
     ### [Java](#tab/java)
     
