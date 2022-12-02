@@ -24,7 +24,7 @@ Azure Event Grid is a fully managed event routing service, which uses a publish-
 
 ## Azure Maps events types
 
-Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types:
+Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
