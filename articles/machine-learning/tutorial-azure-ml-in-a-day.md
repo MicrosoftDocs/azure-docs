@@ -69,6 +69,7 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 1. Copy the value for workspace, resource group and subscription ID into the code.  
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/find-credentials.png" alt-text="Screenshot: find the credentials for your code in the upper right of the toolbar.":::
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=ml_client)]
 
@@ -99,7 +100,7 @@ First, create a directory to store the file in.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=dependencies_dir)]
 
-Now, create the file in the dependencies directory.
+Now, create the file in the dependencies directory. This next cell will write the file into the directory you just created.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)]
 
