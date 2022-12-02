@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 12/02/2022
 ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
@@ -18,28 +18,40 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 ## Safety instructions in Azure languages
 
-|Language              |Code link  |
-|----------------------|---------|
-|Arabic - العربية     |[ar article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|English - English     |[en article](https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Czech - Čeština       |[cs article](https://learn.microsoft.com/cs/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|German - Deutsch      |[de article](https://learn.microsoft.com/de/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Spanish - Español     |[es article](https://learn.microsoft.com/es/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|French - Français     |[fr article](https://learn.microsoft.com/fr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Hungarian - Magyar    |[hu article](https://learn.microsoft.com/hu/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Indonesian - Bahasa Indonesia  |[id article](https://learn.microsoft.com/id/azure/databox-online/azure-stack-edge-pro-2-safety)    |
-|Italian - Italiano    |[it article](https://learn.microsoft.com/it/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Japanese - 日本語      |[ja article](https://learn.microsoft.com/ja/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Korean - 한국어       |[ko article](https://learn.microsoft.com/ko/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Dutch - Nederlands    |[nl article](https://learn.microsoft.com/nl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Polish - Polski       |[pl article](https://learn.microsoft.com/pl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Portuguese-Brazil - Português (Brasil)   |[pt - br article](https://learn.microsoft.com/pt-br/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Portuguese-Portugal - Português (Portugal) |[pt - pt article](https://learn.microsoft.com/pt-pt/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Russian - Русский     |[ru article](https://learn.microsoft.com/ru/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Swedish - Svenska     |[sv article](https://learn.microsoft.com/sv/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Turkish - Türkçe      |[tr article](https://learn.microsoft.com/tr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Chinese-simplified - 中文 (简体) |[zh - hans article](https://learn.microsoft.com/zh-hans/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Chinese-traditional - 中文 (繁體) |[zh - hant article](https://learn.microsoft.com/zh-hant/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+Use a locale code in the table below to create a URL for the article in a specific language.
+
+Examples:
+ - English-language article using the *es* locale code: 
+   ```http
+   https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety
+   ```
+
+- Japanese-language article using the *ja* locale code:
+  ```http
+  https://learn.microsoft.com/ja/azure/databox-online/azure-stack-edge-pro-2-safety
+  ```
+
+|Language              |Locale code  |
+|----------------------|-------------|
+|English - English     |en  |
+|Czech - Čeština       |cs  |
+|German - Deutsch      |de  |
+|Spanish - Español     |es  |
+|French - Français     |fr  |
+|Hungarian - Magyar    |hu  |
+|Indonesian - Bahasa Indonesia  |id    |
+|Italian - Italiano    |it  |
+|Japanese - 日本語      |ja  |
+|Korean - 한국어       |ko   |
+|Dutch - Nederlands    |nl  |
+|Polish - Polski       |pl  |
+|Portuguese-Brazil - Português (Brasil)   |pt-br     |
+|Portuguese-Portugal - Português (Portugal) |pt-pt   |
+|Russian - Русский     |ru  |
+|Swedish - Svenska     |sv  |
+|Turkish - Türkçe      |tr  |
+|Chinese-simplified - 中文 (简体) |zh-hans    |
+|Chinese-traditional - 中文 (繁體) |zh-hant   |
 
 ## Safety instructions in other languages
 
