@@ -19,7 +19,7 @@ The text visualization has a style settings to change the style of the text disp
 ### Text styles
 The following text styles are available for text steps:
 style | explanation
----|---
+|---|---|
 `plain` | No additional formatting is applied, the text value is presumed to be plain text and no special formatting is applied
 `header` | The text is formatted with the same styling as step headers
 `bignumber` | The text is formatted in the "big number" style used in [Tile](workbooks-tile-visualizations.md) and [Graph](workbooks-graph-visualizations.md) based visualizations.
