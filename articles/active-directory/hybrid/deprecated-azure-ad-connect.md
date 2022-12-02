@@ -1,13 +1,13 @@
 ---
-title: 'Attribute mapping in Azure AD Connect cloud sync'
-description: This article describes how to use the cloud sync feature of Azure AD Connect to map attributes.
+title: 'Using a deprecated version of Azure AD Connect'
+description: This article describes what to do if you find that you are running a deprecated version.
 services: active-directory
 author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 12/02/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
