@@ -59,7 +59,7 @@ For more information on installing Azure Functions Extensions via the Core Tools
 
 As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql&preserve-view=true), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
 
-You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
+You can also do local, offline development with [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Linux container. For ease of setup, we will focus on the latter.
 
 ### Set up your local Docker-based SQL Server
 
