@@ -1,5 +1,5 @@
 ---
-title: Use BlobFuse to mount an Azure Blob Storage container on Linux - BlobFuse2 (preview)
+title: Use BlobFuse to mount an Azure Blob Storage container on Linux - BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to use the latest version of BlobFuse, BlobFuse2, to mount an Azure Blob Storage container on Linux.
 author: jimmart-dev
@@ -8,11 +8,11 @@ ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 12/02/2022
 ms.custom: engagement-fy23
 ---
 
-# Mount an Azure Blob Storage container on Linux with BlobFuse2 (preview)
+# Mount an Azure Blob Storage container on Linux with BlobFuse2
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
@@ -20,8 +20,6 @@ This article shows you how to install and configure BlobFuse2, mount an Azure bl
 - [Configure BlobFuse2](#configure-blobfuse2)
 - [Mount a blob container](#mount-a-blob-container)
 - [Access data](#access-data)
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Install BlobFuse2
 
@@ -51,14 +49,14 @@ To install BlobFuse2 binaries:
 1. Retrieve the latest BlobFuse2 binary for your distribution from GitHub. For example:
 
     ```bash
-    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview.3/blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
+    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0/blobfuse2-2.0.0-Ubuntu-22.04-x86-64.deb
     ```
 
 1. Install BlobFuse2. For example, on an Ubuntu distribution, run:
 
     ```bash
     sudo apt-get install libfuse3-dev fuse3 
-    sudo dpkg -i blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
+    sudo dpkg -i blobfuse2-2.0.0-Ubuntu-22.04-x86-64.deb
     ```
 
 ### Option 2: Build binaries from source code
