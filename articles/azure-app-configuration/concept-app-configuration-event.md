@@ -23,7 +23,7 @@ Take a look at [Use Event Grid for data change notifications](./howto-app-config
 
 :::image type="content" source="./media/event-grid-functional-model.png" alt-text="Diagram that shows Event Grid Model.":::
 
-[!INCLUDE [event-schema-app-configuration](includes/event-schema-app-configuration.md)]
+[!INCLUDE [event-schema-app-configuration](../event-grid/includes/schema-app-configuration.md)]
 
 For more information, see [Azure App Configuration events schema](../event-grid/event-schema-app-configuration.md).
 

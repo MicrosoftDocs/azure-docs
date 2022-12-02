@@ -8,7 +8,7 @@ ms.date: 12/02/2021
 # Azure App Configuration as an Event Grid source
 This article provides the properties and schema for Azure App Configuration events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure App Configuration as an event source.
 
-[!INCLUDE [event-schema-app-configuration](includes/event-schema-app-configuration.md)]
+[!INCLUDE [event-schema-app-configuration](includes/schema-app-configuration.md)]
 
 ## Tutorials and how-tos
 
