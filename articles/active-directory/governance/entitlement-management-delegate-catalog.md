@@ -25,6 +25,12 @@ ms.collection: M365-identity-device-management
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. By default, a Global administrator or an Identity governance administrator can [create a catalog](entitlement-management-catalog-create.md), and can add additional users as catalog owners.
 
+There are three ways an organization can delegate with catalogs:
+
+- When getting started in a pilot project, identity governance administrators can [create](entitlement-management-catalog-create.md) and manage the catalog.  Later, when moving from pilot to production, they could delegate a catalog by [assigning non-administrators as owners to the catalog](entitlement-management-catalog-create.md#add-more-catalog-owners), so that those users could maintain the policies going forward.
+- If there are resources that don't have owners, then administrators can create catalogs, add those resources to each catalog, and then [assign non-administrators as owners to a catalog](entitlement-management-catalog-create.md#add-more-catalog-owners).  This allows users who aren't administrators and aren't resource owners to manage their own access policies for those resources.
+- If resources have owners, then administrators can assign a collection of users, such as an `All Employees` dynamic group, to the catalog creators role, so a user who are in that group and own resources can create a catalog for their own resources.
+
 To delegate to users who aren't administrators, so that they can create their own catalogs, you can add those users to the Azure AD entitlement management-defined catalog creator role. You can add individual users, or you can add a group, whose members are then able to create catalogs.  After creating a catalog, they can subsequently add resources they own to their catalog.
 
 ## As an IT administrator, delegate to a catalog creator
