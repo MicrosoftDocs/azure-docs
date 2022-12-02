@@ -17,7 +17,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 ---
 # Azure Active Directory B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process. [With our API](https://learn.microsoft.com/en-us/graph/api/resources/invitation?view=graph-rest) you can customize the invitation process in a way that works best for your organization.
+We've had many customers tell us that they want to customize the invitation process. [With our API](https://learn.microsoft.com/en-us/graph/api/resources/invitation?view=graph-rest), you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 
@@ -58,7 +58,7 @@ The API offers the following capabilities:
 
    In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
 
-6. Finally, if you are an admin, you can choose to invite the user as member.
+6. Finally, if you're an admin, you can choose to invite the user as member.
 
     ```
     "invitedUserType": "Member"
@@ -66,7 +66,7 @@ The API offers the following capabilities:
 
 ## Determine if a user was already invited to your directory
 
-You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the already email exists as a UPN or other sign-in property.
+You can use the invitation API to determine if a user already exists in your resource tenant. This can be useful when you're developing an app that uses the invitation API to invite a user. If the user already exists in your resource directory, they won't receive an invitation, so you can run a query first to determine whether the email exists as a UPN or other sign-in property.
 
 1. Make sure the user's email domain isn't part of your resource tenant's verified domain.
 2. In the resource tenant, use the following get user query where {0} is the email address you're inviting:
@@ -87,7 +87,7 @@ In this mode, whoever is using the API needs to have the permissions to be creat
 
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
-For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
+For more information, see: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 ## PowerShell
 
