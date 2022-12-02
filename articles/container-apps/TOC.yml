@@ -16,13 +16,6 @@
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
-  - name: With an existing container image
-    expanded: true
-    items:
-    - name: Azure portal
-      href: get-started-existing-container-image-portal.md
-    - name: Command line
-      href: get-started-existing-container-image.md
   - name: With code on your local machine
     expanded: true
     items:
@@ -136,19 +129,32 @@
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: Tutorials
-  items:
-    - name: Communicate between microservices
-      href: communicate-between-microservices.md
+  expanded: true
+  items: 
+  - name: Deploy backend API microservice from code
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
+  - name: Communicate between microservices - Deploy the frontend service
+    href: communicate-between-microservices.md
+  - name: Deploy microservices with Dapr
+    expanded: true
+    items:
     - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
       href: microservices-dapr-azure-resource-manager.md
     - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
-    - name: Background processing
-      href: background-processing.md
-    - name: Create an Azure Files storage mount
-      href: storage-mounts-azure-files.md
+  - name: Background processing
+    href: background-processing.md
+  - name: Create an Azure Files storage mount
+    href: storage-mounts-azure-files.md
 - name: Reference
   items:
     - name: ARM and YAML specifications
