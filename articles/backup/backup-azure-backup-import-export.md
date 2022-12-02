@@ -1,13 +1,13 @@
 ---
-title: Offline seeding workflow for MARS using customer owned disks with Azure Import/Export - Azure Backup
+title: Offline seeding workflow for MARS using customer-owned disks with Azure Import/Export - Azure Backup
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
 ---
-# Offline seeding for MARS using customer owned disks with Azure Import/Export
+# Offline seeding for MARS using customer-owned disks with Azure Import/Export
 
-This article describes how to send the initial full backup data from MARS to Azure using customer owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer owned disks](backup-azure-backup-server-import-export.md).
+This article describes how to send the initial full backup data from MARS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer-owned disks](backup-azure-backup-server-import-export.md).
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
