@@ -70,7 +70,7 @@ For more information on how to configure IP banding with an FQDN, see the [Updat
 
 ## Configure TLS/SSL in the Azure Machine Learning extension
 
-For a Kubernetes online endpoint that's set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the Azure Machine Learning extension](how-to-deploy-managed-online-endpoints.md) in a Kubernetes cluster. 
+For a Kubernetes online endpoint that's set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the Azure Machine Learning extension](how-to-deploy-online-endpoints.md) in a Kubernetes cluster. 
 
 At deployment time for the Azure Machine Learning extension, the `allowInsecureConnections` configuration setting is `False` by default. To ensure successful extension deployment, you need to specify either the `sslSecret` configuration setting or a combination of `sslKeyPemFile` and `sslCertPemFile` configuration-protected settings. Otherwise, you can set `allowInsecureConnections=True` to support HTTP and disable TLS termination.
 
@@ -192,6 +192,6 @@ To disable TLS for a model deployed to Kubernetes:
 ## Next steps
 
 Learn how to:
-- [Consume a machine learning model deployed as an online endpoint](how-to-deploy-managed-online-endpoints.md#invoke-the-local-endpoint-to-score-data-by-using-your-model)
+- [Consume a machine learning model deployed as an online endpoint](how-to-deploy-online-endpoints.md#invoke-the-local-endpoint-to-score-data-by-using-your-model)
 - [Secure a Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md)
 - [Use your workspace with a custom DNS server](how-to-custom-dns.md)
