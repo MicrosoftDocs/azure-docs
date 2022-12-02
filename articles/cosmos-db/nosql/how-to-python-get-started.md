@@ -64,7 +64,7 @@ pip install azure-cosmos
     
     from azure.core.exceptions import AzureError
     from azure.cosmos import CosmosClient, PartitionKey
-        ```
+    ```
 
     The preceding code imports modules that you'll use in the rest of the article.
 
