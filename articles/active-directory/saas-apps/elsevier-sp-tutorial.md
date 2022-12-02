@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Elsevier SP
 
-In this article, you'll learn how to integrate Elsevier SP with Azure Active Directory (Azure AD). Elsevier SP provide access to your organization's Elsevier subscriptions using your Azure AD credentials. When you integrate Elsevier SP with Azure AD, you can:
+In this article, you'll learn how to integrate Elsevier SP with Azure Active Directory (Azure AD). Elsevier SP provides access to your organization's Elsevier subscriptions using your Azure AD credentials. When you integrate Elsevier SP with Azure AD, you can:
 
 * Control in Azure AD who has access to Elsevier SP.
 * Enable your users to be automatically signed-in to Elsevier SP with their Azure AD accounts.
@@ -71,7 +71,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://auth.elsevier.com/ShibAuth/institutionLogin?entityID=<customer-URL-encoded-entityID>&appReturnURL=https%3A%2F%2Fwww.sciencedirect.com`
 
-1. Your Elsevier SP application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Elsevier SP expects this to be mapped with a Persistent Name ID . For that you can use **user.objectid** attribute from the list or use the appropriate attribute value based on your organization configuration.
+1. Your Elsevier SP application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the example. The default value of **Unique User Identifier** is **user.userprincipalname** but Elsevier SP expects this to be mapped with a Persistent Name ID. For that you can use **user.objectid** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![Screenshot shows the image of token attributes.](common/default-attributes.png "Image")
 
@@ -95,9 +95,9 @@ In this section, you create a user called Britta Simon in Seculio. Work with [El
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Elsevier SP Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Elsevier SP Sign on URL where you can initiate the login flow. 
 
-* Go to Elsevier SP Sign-on URL directly and initiate the login flow from there.
+* Go to Elsevier SP Sign on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Elsevier SP tile in the My Apps, this will redirect to Elsevier SP Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
