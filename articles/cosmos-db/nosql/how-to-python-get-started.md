@@ -235,7 +235,7 @@ The  **CosmosClient** class has a [from_connection_string](/python/api/azure-cos
 | Parameter | Example value | Description |
 | --- | --- | --- |
 | `conn_str` | `COSMOS_CONNECTION_STRING` environment variable | Connection string to the API for NoSQL account |
-| `credential` | `COSMOS_KEY` environment variable | Optional alternative zccount key or resource token to use instead of one in the connection string. |
+| `credential` | `COSMOS_KEY` environment variable | Optional alternative account key or resource token to use instead of the one in the connection string. |
 
 
 #### Retrieve your account connection string
@@ -353,7 +353,7 @@ Import the [azure-identity](https://pypi.org/project/azure-identity/) package in
 pip install azure-identity
 ```
 
-In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
+In your *app.py*, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
 
 ```Python
 from azure.identity import DefaultAzureCredential
@@ -364,30 +364,46 @@ from azure.identity import DefaultAzureCredential
 
 #### Create CosmosClient with default credential implementation
 
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure.identity.defaultazurecredential) instance.
+If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure-identity/azure.identity.defaultazurecredential) instance.
 
-For this example, we saved the instance in a variable of type [``TokenCredential``](/python/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
+For this example, we saved the instance in a variable of type [``TokenCredential``](/python/api/azure-core/azure.core.credentials.tokencredential) as that's a more generic type that's reusable across SDKs.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="credential":::
-
+```python
+credential = DefaultAzureCredential()
+```
+<!-- 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
+-->
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
-
+```python
+client = CosmosClient(ENDPOINT, credential, ConsistencyLevel.Session)
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="default_credential":::
+-->
 #### Create CosmosClient with a custom credential implementation
 
 If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
 
-For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
+For this example, we create a [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
-
+```python
+TBD
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-python-samples/104-client-secret-credential/app.py" id="credential":::
+-->
 You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
-
+```python
+TBD
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/app.py" id="secret_credential":::
+-->
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
@@ -406,11 +422,11 @@ The following diagram shows the relationship between these resources.
     Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
-Each type of resource is represented by one or more associated .NET classes. Here's a list of the most common classes:
+Each type of resource is represented by one or more associated Python classes. Here's a list of the most common classes:
 
 | Class | Description |
 |---|---|
-| [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
+| [``CosmosClient``](/python/api/azure-cosmos/azure.cosmos.cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
 | [``Database``](/dotnet/api/microsoft.azure.cosmos.database) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
 | [``Container``](/dotnet/api/microsoft.azure.cosmos.container) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
 
@@ -436,4 +452,4 @@ The following guides show you how to use each of these classes to build your app
 Now that you've connected to an API for NoSQL account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md)
+> [Create a database in Azure Cosmos DB for NoSQL using Python](how-to-python-create-database.md)
