@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 11/21/2022
 ms.devlang: python
 ms.custom: devx-track-python
-zone_pivot_groups: python-mode-functions
+zone_pivot_groups: python-mode-functions, py-fresh-zinc
 ---
 
 # Troubleshoot Python errors in Azure Functions
