@@ -160,7 +160,7 @@ items:
   - name: Custom models
     items:
     - name: Custom model
-      displayName: table, label, ocr, confidence
+      displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures
