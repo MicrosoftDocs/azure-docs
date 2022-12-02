@@ -261,14 +261,16 @@ Set-AzVmssVM -Reimage -ResourceGroupName myResourceGroup -VMScaleSetName myScale
 You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
-$myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet        
+$myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet      
+  
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -ImageReferenceVersion virtualMachineProfile.storageProfile.imageReference.version=18.04.202210180
 ```
 
 Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
-$myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet        
+$myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet     
+   
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -ImageReferenceVersion virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
 ```
 
@@ -279,19 +281,6 @@ If you use Azure platform images, you can update the image by modifying the *ima
 
 If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
-## Update the load balancer for your scale set
-Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly.
-
-```azurepowershell-interactive
-# Remove the load balancer backend pool from the scale set model
-az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
-    
-# Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
-    
-# Add the application gateway backend pool to the scale set model
-az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
-```
 
 >[!NOTE]
 > These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
@@ -307,7 +296,6 @@ In this tutorial, you learned how to modify various aspects of your scale set an
 > * Bring VMs up-to-date with the latest scale set model
 > * Reimage a scale set
 > * Update the OS image for your scale set
-> * Update the load balancer for your scale set
 
 
 > [!div class="nextstepaction"]
