@@ -32,7 +32,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-When you have these prerequisites, you're ready to deploy the ARM template using the **Deploy to Azure** button.
+When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
 ## Review the ARM template - Optional
 
