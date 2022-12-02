@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurepowershell, devx-track-azurepowershell
 
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using PowerShell
@@ -15,7 +14,7 @@ ms.custom: mimckitt, devx-track-azurepowershell, devx-track-azurepowershell
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using PowerShell.
 
 ## Update the scale set model
-A scale set has a "scale set model" that captures the *desired* state of the scale set as a whole. To query the model for a scale set, you can use [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
+A scale set has a "scale set model" that captures the *desired* state of the scale set as a whole. To query the model for a scale set, you can use [Get-AzVmss](/powershell/module/az.compute/get-azvmss).
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
@@ -72,10 +71,11 @@ OrchestrationMode                           : Flexible
 TimeCreated                                 : 12/2/2022 5:41:21 PM
 ```
 
-You can use [Update-AzVmss](/powershell/module/az.compute/update-azvmss) to update various properties of your scale set. For example, updating your license type. 
+You can also use [Update-AzVmss](/powershell/module/az.compute/update-azvmss) to update various properties of your scale set. For example, updating your license type. 
 
 ```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
+
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -LicenseType Windows_Server
 ```
 
@@ -162,7 +162,7 @@ Statuses[1]             :
   Code                  : PowerState/running
   Level                 : Info
   DisplayStatus         : VM running
-
+```
 
 These properties describe the configuration of a VM instance within a scale set, not the configuration of the scale set as a whole. 
 
@@ -170,7 +170,9 @@ You can perform updates to individual VM instances in a scale set just like you 
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myScaleSet_Instance1"
+
 Add-AzVMDataDisk -VM $VirtualMachine -Name "disk1" -LUN 0 -Caching ReadOnly -DiskSizeinGB 128 -CreateOption Empty
+
 Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
@@ -180,27 +182,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) command and specifying the scale set name you want the instance added to. 
 
 ```azurepowershell-interactive
-Get-AzVmss -ResourceGroup myResourceGroup -name myScaleSet
-```
-
-```output
-ResourceGroupName                           : myResourceGroup
-Sku                                         : 
-  Name                                      : Standard_DS1_v2
-  Tier                                      : Standard
-  Capacity                                  : 2
-ProvisioningState                           : Succeeded
-SinglePlacementGroup                        : False
-PlatformFaultDomainCount                    : 1
-Id                                          : /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
-Name                                        : myScaleSet
-Type                                        : Microsoft.Compute/virtualMachineScaleSets
-Location                                    : eastus
-Tags                                        : {}
-```
-
-```azurepowershell-interactive
-New-AzVM -Name myNewInstance -ResourceGroupName myResourceGroup -image UbuntuLTS -VmssId /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
+New-AzVM `
+-Name myNewInstance `
+-ResourceGroupName myResourceGroup `
+-image UbuntuLTS -VmssId /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
 ```
 
 ```output
@@ -219,6 +204,7 @@ FullyQualifiedDomainName : mynewinstance-21bc01.eastus.cloudapp.azure.com
 VirtualMachineScaleSet   : {Id}                                                                                         
 TimeCreated              : 12/2/2022 6:40:20 PM   
 ``` 
+By running [Get-AzVM](/powershell/module/az.compute/get-azvmss) again, we can see the new instance was created and added to the existing scale set.
 
 ```azurepowershell-interactive
 Get-AzVm -ResourceGroupName myResourceGroup 
@@ -244,6 +230,7 @@ If your scale set is set to manual upgrades, you can trigger a manual upgrade us
 
 ```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
+
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet
 ```
 
