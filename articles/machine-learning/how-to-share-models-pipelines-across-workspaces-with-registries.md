@@ -118,7 +118,7 @@ print(ml_client_registry)
 
 ## Create environment in registry
 
-Environments define the docker container and python dependencies required to run training jobs or deploy models. For more information on environments, see the following articles:
+Environments define the docker container and Python dependencies required to run training jobs or deploy models. For more information on environments, see the following articles:
 
 * [Environment concepts](./concept-environments.md)
 * [How to create environments (CLI)](./how-to-manage-environments-v2.md) articles. 

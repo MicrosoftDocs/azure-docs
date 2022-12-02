@@ -56,7 +56,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
 
-* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](create-custom-ip-address-prefix-powershell.md).
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 
 * IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
 
