@@ -13,10 +13,10 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 
 |                  |Free tier|Standard tier|
 |------------------|---------|--------|
-|**When to use**|• You want to experiment with AKS at no additional cost and with no additional risks <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> * You need a financially backed SLA|
-|**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with less than ten nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
+|**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA|
+|**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
 |**Pricing**|• Free basic cluster management <br> • Pay-as-you-go for resources you consume|• $0.10 per cluster per hour for greater scaling and performance support <br> • Pay-as-you-go for resources you consume|
-|**Feature comparison**|• Recommended for clusters with less than ten nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• [Uptime SLA](#uptime-sla-feature) <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
+|**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• [Uptime SLA](#uptime-sla-feature) <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
 
 You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
 
@@ -33,7 +33,7 @@ The Uptime SLA feature in the Standard pricing tier enables a financially backed
 
 ### Uptime SLA terms and conditions
 
-The Uptime SLA feature is included in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. See the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
+The Uptime SLA feature is included in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Region availability
 
@@ -76,7 +76,7 @@ You can update your existing clusters to use Uptime SLA.
 > [!NOTE]
 > Updating your cluster to enable the Uptime SLA does not disrupt its normal operation or impact its availability.
 
-The following command uses the [az aks update][az-aks-update] command to update the existing cluster:
+The following example uses the [`az aks update`][az-aks-update] command to update the existing cluster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
