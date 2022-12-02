@@ -79,7 +79,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 3. Upload this file to the container in your primary storage account that you specified when you created the Synapse workspace. 
 
-#### Import the sample PySpark Notebook
+#### Import the sample PySpark notebook
 
 1. Download the [ReportAnalysis.ipynb](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.ipynb) sample notebook.
 
@@ -99,7 +99,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 6. In the **Properties** dialog box, select the **Configure session** link.
 
    > [!div class="mx-imgBorder"]
-   > ![Import properties dialog box](./media/storage-blob-inventory-report-analytics/import-properties-dialog-box.png) 
+   > ![Screenshot of the Import properties dialog box](./media/storage-blob-inventory-report-analytics/import-properties-dialog-box.png) 
 
    The **Configure session** dialog box opens.
 
@@ -127,19 +127,19 @@ In this section, you'll generate statistical data that you'll visualize in a rep
    A database named **reportdata** should appear in the **Workspace** tab of the **Data** pane. If this database doesn't appear, then you might have to refresh the web page.
    
    > [!div class="mx-imgBorder"]
-   > ![Report data database](./media/storage-blob-inventory-report-analytics/report-data-database.png)
+   > ![Screenshot of the Data pane which shows the reportdata database](./media/storage-blob-inventory-report-analytics/report-data-database.png)
    
    The database contains a set of tables. Each table contains information obtained by running the queries from the PySpark notebook. 
 
 3. To examine the contents of a table, expand the **Tables** folder of the **reportdata** database. Then, right-click a table, select **Select SQL script**, and then select **Select TOP 100 rows**.
 
    > [!div class="mx-imgBorder"]
-   > ![Menu option to create a new sql script](./media/storage-blob-inventory-report-analytics/run-sql-scripts-on-tables.png) 
+   > ![Screenshot of the menu option to create a new sql script](./media/storage-blob-inventory-report-analytics/run-sql-scripts-on-tables.png) 
 
 4. You can modify the query as needed and then select **Run** to view the results.
 
    > [!div class="mx-imgBorder"]
-   > ![Query editor and results](./media/storage-blob-inventory-report-analytics/query-editor-and-results.png) 
+   > ![Screenshot of the query editor and query results](./media/storage-blob-inventory-report-analytics/query-editor-and-results.png) 
 
 ## Visualize the data
 
@@ -152,7 +152,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit)**. 
 
    > [!div class="mx-imgBorder"]
-   > ![The Power BI template files type in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
+   > ![Screenshot of the the Power BI template files type that appears in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
 
 4. Browse to the location of the **ReportAnalysis.pbit** file that you downloaded, and then select **Open**.
 
@@ -161,18 +161,18 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 5. In the dialog box, set the **synapse_workspace_name** field to the workspace name and set the **database_name** field to `reportdata`. Then, select the **Load** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Report configuration dialog box](./media/storage-blob-inventory-report-analytics/report-configuration-dialog-box.png) 
+   > ![Screenshot of the report configuration dialog box](./media/storage-blob-inventory-report-analytics/report-configuration-dialog-box.png) 
 
    A report appears which provides visualizations of the data retrieved by the notebook. The following images show the types of the charts and graphs that appear in this report.
 
    > [!div class="mx-imgBorder"]
-   > ![Overview tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-overview.png) 
+   > ![Screenshot of the overview tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-overview.png) 
 
    > [!div class="mx-imgBorder"]
-   > ![Detailed analysis tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-detailed-analysis.png) 
+   > ![Screenshot of the detailed analysis tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-detailed-analysis.png) 
 
    > [!div class="mx-imgBorder"]
-   > ![Breakdown tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-breakdown.png) 
+   > ![Screenshot of the breakdown tab of the report](./media/storage-blob-inventory-report-analytics/power-bi-report-breakdown.png) 
 
 ## Next steps
 
