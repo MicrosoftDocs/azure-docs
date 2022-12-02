@@ -101,7 +101,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. You need to grant SharePoint Online site permission. Refer to [Prerequisites](#prerequisites) for the configuration steps.| Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
