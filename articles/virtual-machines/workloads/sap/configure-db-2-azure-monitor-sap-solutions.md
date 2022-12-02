@@ -21,10 +21,10 @@ In this how-to guide, you'll learn how to create an IBM Db2 provider for Azure M
 - An Azure subscription. 
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
 
-## Create Azure Monitor for SAP solutions user for DB2 Server
+## Create user for DB2 Server
 
-After creating a new DB2 user, execute the below script to provide the new DB2 user appropriate permissions. Make sure to replace:
-- `<username>` with the username for your user
+First, create a new user for your Db2 server, for use by Azure Monitor for SAP solutions. Then, run the following script to provide the new Db2 user with appropriate permissions.
+Make sure to replace `<username>` with the Db2 username.
 
 ```sql
 GRANT SECADM ON DATABASE TO USER <username>;
@@ -32,7 +32,7 @@ GRANT DATAACCESS ON DATABASE TO USER <username>;
 GRANT ROLE SAPAPP TO USER <username>;
 ```
 
-Use the below query to create SAPAPP role in your DB2 server if that is missing.
+Next, if you don't have an **SAPAPP** role in your Db2 server, use the following query to create the role.
 
 ```sql
 CREATE ROLE SAPMON;
