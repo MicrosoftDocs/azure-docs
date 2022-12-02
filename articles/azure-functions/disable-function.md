@@ -97,6 +97,8 @@ To learn more, see [Azure Functions Deployment slots](functions-deployment-slots
 
 You can still cause a disabled function to run by supplying the [master key](functions-bindings-http-webhook-trigger.md#master-key-admin-level) in a REST request to the endpoint URL of the disabled function. In this way, you can develop and validate functions in Azure in a disabled state while preventing them from being accessed by others. Using any other type of key in the request returns an HTTP 404 response. 
 
+[!INCLUDE [functions-master-key-caution](../../includes/functions-master-key-caution.md)]
+
 To learn more about the master key, see [Obtaining keys](functions-bindings-http-webhook-trigger.md#obtaining-keys). To learn more about calling non-HTTP triggered functions, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
 
 ## local.settings.json

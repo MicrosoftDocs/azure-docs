@@ -25,4 +25,4 @@ Each key is named for reference, and there is a default key (named "default") at
 
 Each function app also has an admin-level host key named `_master`. In addition to providing host-level access to all functions in the app, the master key also provides administrative access to the runtime REST APIs. This key cannot be revoked. When you set an access level of `admin`, requests must use the master key; any other key results in access failure.
 
-[!INCLUDE [functions-master-key-caution](../../includes/functions-master-key-caution.md)]
+[!INCLUDE [functions-master-key-caution](functions-master-key-caution.md)]
