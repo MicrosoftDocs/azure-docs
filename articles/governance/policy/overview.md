@@ -96,7 +96,7 @@ on Channel 9.
 ### Azure Policy and Azure RBAC
 
 There are a few key differences between Azure Policy and Azure role-based access control (Azure
-RBAC). Azure Policy evaluates state by examining properties on resources that are represented in Resource Manager and properties of some Resource Providers. Azure Policy ensures that resource state is compliant to your business rules without concern for who made the change or who has permission to make a change. Azure Policy through DenyAction effect can also block certian actions on resources. Some Azure Policy resources, such as [policy definitions](#policy-definition), [initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to all users. This design enables transparency to all users and services for what policy rules are set
+RBAC). Azure Policy evaluates state by examining properties on resources that are represented in Resource Manager and properties of some Resource Providers. Azure Policy ensures that resource state is compliant to your business rules without concern for who made the change or who has permission to make a change. Azure Policy through DenyAction effect can also block certain actions on resources. Some Azure Policy resources, such as [policy definitions](#policy-definition), [initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to all users. This design enables transparency to all users and services for what policy rules are set
 in their environment.
 
 Azure RBAC focuses on managing user
@@ -170,7 +170,7 @@ settings and objects. To find out more, see
 
 Here are a few pointers and tips to keep in mind:
 
--  Start with an `audit` or `auditIfNotExist` effect instead of a enforcement (`deny`, `modify`, `deployIfNotExist`)  effect to track impact of your policy definition on the resources in your environment. If you have scripts already in place to autoscale yourapplications, setting an enforcement effect may hinder such automation tasks already in place.
+-  Start with an `audit` or `auditIfNotExist` effect instead of an enforcement (`deny`, `modify`, `deployIfNotExist`)  effect to track impact of your policy definition on the resources in your environment. If you have scripts already in place to autoscale your applications, setting an enforcement effect may hinder such automation tasks already in place.
 
 - Consider organizational hierarchies when creating definitions and assignments. We recommend
   creating definitions at higher levels such as the management group or subscription level. Then,

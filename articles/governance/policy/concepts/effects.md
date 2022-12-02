@@ -476,7 +476,7 @@ Policy will evaluate resources that support location and tags against `DenyActio
 #### Cascade deletion
 Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child). 
 
-[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-denyAction.md)]
+[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
 
 ### DenyAction properties
 
