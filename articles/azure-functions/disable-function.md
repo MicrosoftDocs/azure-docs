@@ -2,7 +2,7 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 03/15/2021 
+ms.date: 12/01/2022 
 ms.custom: "devx-track-csharp, devx-track-azurepowershell"
 ---
 
@@ -21,13 +21,7 @@ Use the **Enable** and **Disable** buttons on the function's **Overview** page. 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
 Even when you publish to your function app from a local project, you can still use the portal to disable functions in the function app. 
-
-> [!NOTE]  
-> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
-
-# [Azure CLI](#tab/azurecli)
-
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
+,,,,,,,,,,,ueueTrigger.Disabled` and setting it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -92,6 +86,10 @@ Azure PowerShell currently doesn't support this functionality.
 ---
 
 To learn more, see [Azure Functions Deployment slots](functions-deployment-slots.md).
+
+## Running a disabled function
+
+You can still cause a disabled function to run by supplying the [master key](functions-bindings-http-webhook-trigger.md#master-key-admin-level) in a REST request to the endpoint URL of the disabled function. In this way, you can develop and validate functions in Azure in a disabled state while preventing them from being accessed by others. Because the Azure portal uses a master key during portal-integration testing, disabled functions still run in the portal. To learn more, see [Obtaining keys](functions-bindings-http-webhook-trigger.md#obtaining-keys). To learn more about calling non-HTTP trigger functions, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
 
 ## local.settings.json
 
