@@ -544,7 +544,7 @@
         - name: Online endpoints (real-time)
           items:
             - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
+              href: how-to-deploy-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
