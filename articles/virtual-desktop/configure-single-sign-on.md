@@ -19,7 +19,7 @@ ms.author: helohr
 
 This article will walk you through the process of configuring single sign-on (SSO) using Azure Active Directory (Azure AD) authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your Azure Virtual Desktop and Remote Applications.  
 
-For addtional passwordless functionality within the session, see the **Next Steps** section for configuring in-session passwordless authentication below.
+For additional passwordless functionality within the session, see the **Next Steps** section for configuring in-session passwordless authentication below.
 
 > [!NOTE]
 > Azure Virtual Desktop (classic) doesn't support this feature.
