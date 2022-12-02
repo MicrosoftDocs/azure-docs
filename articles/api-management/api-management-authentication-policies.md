@@ -21,7 +21,7 @@ The following API Management policies are used for authentication with API backe
 
 -   [Authenticate with client certificate](authentication-certificate-policy.md) - Authenticate with a backend service using client certificates.
 
--   [Authenticate with managed identity](authentication-managed-identity.md) - Authenticate with the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the API Management service.
+-   [Authenticate with managed identity](authentication-managed-identity-policy.md) - Authenticate with the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the API Management service.
 
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

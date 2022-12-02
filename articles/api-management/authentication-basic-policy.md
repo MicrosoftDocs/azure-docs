@@ -42,7 +42,7 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 
 ## Example
 
-### Provide username and passsword to backend service
+### Provide username and password to backend service
 
 ```xml
 <authentication-basic username="testuser" password="testpassword" />

@@ -55,7 +55,7 @@ More information about policies:
 ## Authentication policies
 -   [Authenticate with Basic](authentication-basic-policy.md) - Authenticate with a backend service using Basic authentication.
 -   [Authenticate with client certificate](authentication-certificate-policy.md) - Authenticate with a backend service using client certificates.
--   [Authenticate with managed identity](authentication-managed-identity.md) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+-   [Authenticate with managed identity](authentication-managed-identity-policy.md) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Caching policies
 -   [Get from cache](cache-lookup-policy.md) - Perform cache lookup and return a valid cached response when available.
