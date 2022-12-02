@@ -50,6 +50,8 @@
       href: manage-arc-enabled-servers-programmatically.md
     - name: Automate assessment at scale using Policy
       href: periodic-assessment-at-scale.md
+    - name: Manage workbooks
+      href: manage-workbooks.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues
