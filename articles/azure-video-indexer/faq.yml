@@ -68,7 +68,7 @@ sections:
  
       - question: How many files can I stitch and render in a project?
         answer: |
-          In Azure Video Indexer you can create a project and add multiple files to stitch and render as a new file. The number of source files is set to 10 in the portal UI and 100 in the API. This is a limit set by the Azure Media Services Media Encoder Standard API where we have a dependency on.
+          In Azure Video Indexer you can create a project and add multiple files to stitch and render as a new file. The number of source files is set to 10 in the [website](https://www.videoindexer.ai/) and 100 in the API. This is a limit set by the Azure Media Services Media Encoder Standard API where we have a dependency on.
 
       - question: How long does it take Azure Video Indexer to extract insights from media?
         answer: |
@@ -118,7 +118,7 @@ sections:
       - question: Where does Azure Video Indexer store customer data?
         answer: By default, your data is replicated to the paired region into which you deployed the Azure Video Indexer instance. For region with data residency requirements, your data is always kept within the same region. For more related information, check out other **Privacy Questions** in this section.
       
-      - question: Can I delete my files that are stored in Azure Video Indexer Portal?
+      - question: Can I delete my files that are stored in the Azure Video Indexer website?
         answer: Yes, you can always delete your video and audio files as well as any metadata and insights extracted from them by Azure Video Indexer. Once you delete a file from Azure Video Indexer, the file and its metadata and insights are permanently removed from Azure Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
 
       - question: Can I control user access to my Azure Video Indexer account?
@@ -161,7 +161,7 @@ sections:
 
           In order to set the video for public access, you can either:
 
-          * Build your own interface layer (such as app or website) and use it to interact with the Azure Video Indexer service. This way the video remains private in our portal and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface.
+          * Build your own interface layer (such as app or website) and use it to interact with the Azure Video Indexer service. This way the video remains private in our [website](https://www.videoindexer.ai/) and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface.
           * Request a human review of the content, which would result in removing of the restriction assuming the content is not explicit.
 
               This option can be explored if the Azure Video Indexer website is used directly by your users as the interface layer, and for public (unauthenticated) viewing.
@@ -170,7 +170,7 @@ sections:
     questions:
       - question: What APIs does Azure Video Indexer offer?
         answer: |
-          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/).
 
       - question: What client SDKs does Azure Video Indexer offer?
         answer: There are currently no client SDKs offered. The Azure Video Indexer team is working on the SDKs and plans to deliver them soon.

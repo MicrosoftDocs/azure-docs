@@ -28,7 +28,7 @@ The IoT Edge security subsystem includes a set of native components that need to
 Check the version of the security subsystem running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
 <!-- Separated Linux content support RHEL - Some content repeated in RHEL tab-->
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/linux)
 
 >[!IMPORTANT]
 >If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
@@ -119,7 +119,6 @@ If you want to update to the most recent version of IoT Edge, use the following 
 ```bash
 sudo yum install aziot-edge
 ```
----
 
 <!-- end iotedge-2020-11 -->
 :::moniker-end
@@ -243,7 +242,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 ## Special case: Update from 1.0 or 1.1 to latest release
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/linux)
 
 Starting with version 1.2, the IoT Edge service uses a new package name and has some differences in the installation and configuration processes. If you have an IoT Edge device running version 1.0 or 1.1, use these instructions to learn how to update to the latest release.
 
@@ -288,8 +287,6 @@ It's recommended to install the micro agent with the Edge agent to enable securi
    sudo iotedge config import
    ```
 
-Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
-
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
@@ -303,6 +300,9 @@ If you're using Windows containers or IoT Edge for Linux on Windows, this specia
 Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 
 ---
+
+Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
+
 
 ## Next steps
 
