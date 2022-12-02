@@ -91,7 +91,13 @@ After running these commands, you should have a local SQL Server running on Dock
 > [!NOTE]
 > To stop and delete a running container, you may use `docker stop <containerName>` and `docker rm <containerName>` respectively. You may use these commands to re-create your container, and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
 
-For validation's sake, you may query your new SQL DB through `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "<your SQL query>"`. For example, to ensure the `DurableDB` database exists, you may execute `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT name FROM sys.databases"`, which should output something like the following
+To validate your database installation, you can query for your new SQL database using the following Docker command:
+
+``powershell
+docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "SELECT name FROM sys.databases"
+``
+
+If the database setup completed successfully, you should see the name of your created database (for example, "DurableDB") in the command-line output.
 
 ```bash
 name
