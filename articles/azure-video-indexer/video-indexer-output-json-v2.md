@@ -14,60 +14,7 @@ ms.author: juliako
 
 When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-To visually examine the video's insights, press the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
-
-![Screenshot of the Insights tab in Azure Video Indexer.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-When indexing with an API and the response status is OK, you get a detailed JSON output as the response content. When calling the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, we recommend passing `&includeSummarizedInsights=false`. 
-
-[!INCLUDE [insights](./includes/insights.md)]
-
-This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-models).
-
-> [!NOTE]
-> All the access tokens in Azure Video Indexer expire in one hour.
-
-## Get the insights using the website
-
-To get insights produced on the website or the Azure portal:
-
-1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
-1. Find a video whose output you want to examine.
-1. Press **Play**.
-1. Choose the **Insights** tab.
-2. Select which insights you want to view (under the **View** drop-down).
-3. Go to the **Timeline** tab to see timestamped transcript lines.
-4. Select **Download** > **Insights (JSON)** to get the insights output file.
-5. If you want to download artifacts, beware of the following:
-
-    [!INCLUDE [artifacts](./includes/artifacts.md)]
-
-For more information, see [View and edit video insights](video-indexer-view-edit.md).
-
-## Get insights produced by the API
-
-To retrieve the JSON file (OCR, face, keyframe, etc.) or an artifact type, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
-
-This API returns a URL only with a link to the specific resource type you request. An additional GET request must be made to this URL for the specific artifact. The file types for each artifact type vary depending on the artifact:
-
-### JSON
-
-* OCR 
-* Faces
-* VisualContentModeration
-* LanguageDetection
-* MultiLanguageDetection 
-* Metadata
-* Emotions
-* TextualContentModeration
-* AudioEffects
-* ObservedPeople  
-* Labels
-
-### Zip file containing JPG images
-
-* KeyframesThumbnails
-* FacesThumbnails
+For for inofmation, see [Azure Video Indexer insights](insights-overview.md).
 
 ## Root elements of the insights
 
