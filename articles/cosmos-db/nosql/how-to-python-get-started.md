@@ -54,19 +54,19 @@ pip install azure-cosmos
 
 ### Create the Python application
 
-2. In your environment, create a new *app.py* file and add the following code to it:
+In your environment, create a new *app.py* file and add the following code to it:
 
-    ```python
-    import json
-    import os
-    import sys
-    import uuid
-    
-    from azure.core.exceptions import AzureError
-    from azure.cosmos import CosmosClient, PartitionKey
-    ```
+```python
+import json
+import os
+import sys
+import uuid
 
-    The preceding code imports modules that you'll use in the rest of the article.
+from azure.core.exceptions import AzureError
+from azure.cosmos import CosmosClient, PartitionKey
+```
+
+The preceding code imports modules that you'll use in the rest of the article.
 
 
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
