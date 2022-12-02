@@ -71,7 +71,7 @@ landingContent:
            url: automation-hybrid-runbook-worker.md
       - linkListType: deploy
         links:
-          - text: Deploy extension-based Windows or Linux Worker (Preview)
+          - text: Deploy extension-based Windows or Linux Worker
             url: extension-based-hybrid-runbook-worker-install.md
           - text: Deploy Windows Hybrid Runbook Worker
             url: automation-windows-hrw-install.md

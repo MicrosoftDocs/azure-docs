@@ -70,6 +70,8 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
   |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
 
+#### Allow URLs for government clouds
+
 Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
 
   | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
