@@ -75,6 +75,7 @@ Applications that handle Azure Maps geofence events should follow a few recommen
 * When a GET or a POST request in the Geofence API is called with the mode parameter set to `EnterAndExit`, then an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
 
 ## Next steps
+For details about all the events supported by Azure Maps and the schema, see [Azure Maps as an Event Grid source](../event-grid/event-schema-azure-maps.md).
 
 To learn more about how to use geofencing to control operations at a construction site, see:
 
