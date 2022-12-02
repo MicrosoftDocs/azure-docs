@@ -8,4 +8,4 @@ ms.author: baanders
 ---
 
 >[!NOTE]
->Currently, Azure Digital Twins Explorer only works with twins and models that are compatible with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
+>Currently, Azure Digital Twins Explorer only works with twins and models that are compatible with [version 2 of DTDL](../articles/digital-twins/concepts-models.md#supported-dtdl-versions).
