@@ -12,6 +12,9 @@ ms.date: 07/07/2022
 
 Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. Before learning about auto-upgrade, make sure you understand upgrade fundamentals by reading [Upgrade an AKS cluster][upgrade-aks-cluster].
 
+> [!NOTE]
+> Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+
 ## Why use auto-upgrade
 
 Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS and upstream Kubernetes.
@@ -20,7 +23,7 @@ AKS follows a strict versioning window with regard to supportability. With prope
 
 ## Using auto-upgrade
 
-Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel.
+Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect.
 
 The following upgrade channels are available:
 
@@ -51,7 +54,12 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 
 ## Using auto-upgrade with Planned Maintenance
 
-If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
+If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. 
+
+> [!NOTE]
+> To ensure proper functionality, use a maintenance window of four hours or more.
+
+For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
 ## Best practices for auto-upgrade
 
@@ -71,3 +79,4 @@ The following best practices will help maximize your success when using auto-upg
 
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[release-tracker]: release-tracker.md

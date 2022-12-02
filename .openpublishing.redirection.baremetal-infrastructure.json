@@ -49,7 +49,87 @@
             "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/use-cases-and-supported-scenarios.md",
             "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/use-cases-and-supported-scenarios",
             "redirect_document_id": false
-        }                                  
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/concepts-oracle-high-availability.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/options-considerations-high-availability.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/configure-snapcenter-oracle-baremetal.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/create-on-demand-backup-oracle-baremetal.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-architecture.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-ethernet.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-overview.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-patching.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-provision.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-skus.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-baremetal-storage.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/oracle-high-availability-recovery.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/restore-oracle-database-baremetal.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/set-up-snapcenter-to-route-traffic.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/high-availability-features.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        }                     
     ]
 }
 

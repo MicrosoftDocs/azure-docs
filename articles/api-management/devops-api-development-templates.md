@@ -27,7 +27,7 @@ An API developer writes an API definition by providing a specification, settings
 There are several tools to assist producing the API definition:
 
 * The [Azure API Management DevOps Resource Toolkit][4] includes two tools that provide an Azure Resource Manager (ARM) template.  The _extractor_ creates an ARM template by extracting an API definition from an API Management service. The _creator_ produces the ARM template from a YAML specification.  The DevOps Resource Toolkit supports SOAP, REST, and GraphQL APIs.
-* The [Azure APIOps Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ similar to the DevOps Resource Toolkit to produce an API definition that is then applied to a target API Management service.  APIOps supports REST only at this time.
+* The [Azure APIOps Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ similar to the DevOps Resource Toolkit to produce an API definition that is then applied to a target API Management service.  APIOps supports REST and GraphQL APIs at this time.
 * The [dotnet-apim][6] tool converts a well-formed YAML definition into an ARM template for later deployment.  The tool is focused on REST APIs.
 * [Terraform][7] is an alternative to Azure Resource Manager to configure resources in Azure.  You can create a Terraform configuration (together with policies) to implement the API in the same way that an ARM template is created.
 
@@ -105,7 +105,7 @@ Review [Automated API deployments with APIOps][28] in the Azure Architecture Cen
 [14]: https://owasp.org/www-community/api_security_tools
 [15]: https://github.com/postmanlabs/newman
 [16]: https://learning.postman.com/docs/getting-started/creating-the-first-collection/
-[17]: /azure/azure-resource-manager/templates/deployment-tutorial-pipeline
+[17]: ../azure-resource-manager/templates/deployment-tutorial-pipeline.md
 [18]: https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template
 [19]: https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform
 [20]: https://learn.hashicorp.com/tutorials/terraform/github-actions

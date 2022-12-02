@@ -59,8 +59,7 @@ More about Azure Key Vault management guidelines, see:
 | Key Vault Secrets User | Read secret contents including secret portion of a certificate with private key. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 > [!NOTE]
-> There is no 'Key Vault Certificate User` because applications require secrets portion of certificate with private key. 'Key Vault Secrets User` role should be used for applications to retrieve certificate.
-
+> There is no `Key Vault Certificate User` because applications require secrets portion of certificate with private key. The `Key Vault Secrets User` role should be used for applications to retrieve certificate.
 
 For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 

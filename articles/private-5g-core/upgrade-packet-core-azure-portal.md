@@ -23,7 +23,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 To check which version your packet core instance is currently running, and whether there is a newer version available:
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
@@ -32,9 +32,9 @@ To check which version your packet core instance is currently running, and wheth
 1. Select the site containing the packet core instance you're interested in.
 1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+    :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-1. Check the **Version** field under the **Configuration** heading to view the current software version. If there's an attention icon next to this field, a new packet core version is available. If there's a warning that you're running an unsupported version, we advise that you upgrade your packet core instance to a version that Microsoft currently supports.
+2. Check the **Version** field under the **Configuration** heading to view the current software version. If there's an attention icon next to this field, a new packet core version is available. If there's a warning that you're running an unsupported version, we advise that you upgrade your packet core instance to a version that Microsoft currently supports.
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource overview." lightbox="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png":::
 

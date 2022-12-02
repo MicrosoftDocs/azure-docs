@@ -44,6 +44,8 @@ Follow these steps to create a Node.js console application for speech recognitio
     ```javascript
     const fs = require("fs");
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
+
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
     speechConfig.speechRecognitionLanguage = "en-US";
 

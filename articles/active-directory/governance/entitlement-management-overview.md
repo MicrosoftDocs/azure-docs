@@ -41,7 +41,7 @@ These problems are compounded for users who need access from another organizatio
 - No one person may know all of the specific individuals in other organization's directories to be able to invite them
 - Even if they were able to invite these users, no one in that organization may remember to manage all of the users' access consistently
 
-Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
+Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Mississippi Division of Medicaid](https://customers.microsoft.com/story/1509263251891323344-mississippi-medicaid-microsoft-security-solutions), [Storebrand](https://customers.microsoft.com/story/1540760473505561700-storebrand-banking-microsoft-security-solutions) and [Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) case studies.  This video provides an overview of entitlement management and its value:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -137,8 +137,6 @@ To better understand entitlement management and its documentation, you can refer
 ## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
-
-Specialized clouds, such as Azure Germany, and Azure China 21Vianet, aren't currently available for use.
 
 ### How many licenses must you have?
 

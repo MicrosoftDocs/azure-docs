@@ -1,13 +1,13 @@
 ---
 title: Select a disk type for Azure IaaS VMs - managed disks
-description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2 (preview), Premium SSDs, standard SSDs, and Standard HDDs.
+description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 08/01/2022
+ms.date: 10/12/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Azure managed disk types
@@ -17,7 +17,7 @@ ms.custom: references_regions
 Azure managed disks currently offers five disk types, each intended to address a specific customer scenario:
 
 - [Ultra disks](#ultra-disks)
-- [Premium SSD v2 (preview)](#premium-ssd-v2-preview)
+- [Premium SSD v2](#premium-ssd-v2)
 - [Premium SSDs (solid-state drives)](#premium-ssds)
 - [Standard SSDs](#standard-ssds)
 - [Standard HDDs (hard disk drives)](#standard-hdds)
@@ -89,9 +89,9 @@ It's possible for a performance resize operation to fail because of a lack of pe
 
 If you would like to start using ultra disks, see the article on [using Azure ultra disks](disks-enable-ultra-ssd.md).
 
-## Premium SSD v2 (preview)
+## Premium SSD v2
 
-Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads that require consistent sub-millisecond disk latencies and high IOPS and throughput at a low cost. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs. For example, a transaction-intensive database workload may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS during peak hours. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
+Azure Premium SSD v2 is designed for IO-intense enterprise workloads that require consistent sub-millisecond disk latencies and high IOPS and throughput at a low cost. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs. For example, a transaction-intensive database workload may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS during peak hours. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
 ### Differences between Premium SSD and Premium SSD v2
 
@@ -113,7 +113,7 @@ With Premium SSD v2 disks, you can individually set the capacity, throughput, an
 
 Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-Premium SSD v2 offers up to 32 TiBs per region per subscription by default in the public preview, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Premium SSD v2 offers up to 32 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
@@ -134,7 +134,7 @@ The following table provides a comparison of disk capacities and performance max
 |---------|---------|---------|
 |1 GiB-64 TiBs    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
 
-To deploy a Premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
+To deploy a Premium SSD v2, see [Deploy a Premium SSD v2](disks-deploy-premium-v2.md).
 
 ## Premium SSDs
 

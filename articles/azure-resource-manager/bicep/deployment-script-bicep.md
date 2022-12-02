@@ -5,9 +5,8 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 11/01/2022
 ms.author: jgao
-
 ---
 
 # Use deployment scripts in Bicep
@@ -18,7 +17,7 @@ Learn how to use deployment scripts in Bicep. With [Microsoft.Resources/deployme
 - perform data plane operations, for example, copy blobs or seed database
 - look up and validate a license key
 - create a self-signed certificate
-- create an object in Azure AD
+- create an object in Azure Active Directory (Azure AD)
 - look up IP Address blocks from custom system
 
 The benefits of deployment script:
@@ -38,7 +37,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ### Training resources
 
-If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
+If you would rather learn about deployment scripts through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -101,7 +100,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '6.4' // or azCliVersion: '2.28.0'
+    azPowerShellVersion: '8.3' // or azCliVersion: '2.40.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
@@ -174,12 +173,13 @@ Property value details:
 - [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault.bicep): create a key vault and use deployment script to assign a certificate to the key vault.
 - [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-subscription.bicep): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
 - [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-mi.bicep): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
+- [Sample 4](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Azure AD applications; in the Bicep file, use a deployment script to create an Azure AD application and service principal, and output the object IDs and client ID.
 
 ## Use inline scripts
 
 The following Bicep file has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The highlighted part is the inline script.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/inlineScript.bicep" range="1-25" highlight="11-17":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/inlineScript.bicep" range="1-26" highlight="12-18":::
 
 The script takes a parameter, and output the parameter value. `DeploymentScriptOutputs` is used for storing outputs. The output line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts). For the property descriptions, see [Sample Bicep files](#sample-bicep-files).
 
@@ -206,7 +206,7 @@ You can use the [loadTextContent](bicep-functions-files.md#loadtextcontent) func
 
 The following example loads a script from a file and uses it for a deployment script.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
 
 ## Use external scripts
 
@@ -246,7 +246,7 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 The following Bicep file shows how to pass values between two `deploymentScripts` resources:
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValues.bicep" range="1-45" highlight="17-18,33":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValues.bicep" range="1-46" highlight="18-19,34":::
 
 In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. Use resource symbolic name to access the output values.
 
@@ -256,7 +256,7 @@ Different from the PowerShell deployment script, CLI/bash support doesn't expose
 
 Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-35" highlight="29":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-36" highlight="30":::
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
@@ -379,10 +379,10 @@ SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 3.0
-StartTime           : 6/18/2020 7:46:45 PM
-EndTime             : 6/18/2020 7:49:45 PM
-ExpirationDate      : 6/19/2020 7:49:45 PM
+AzPowerShellVersion : 8.3
+StartTime           : 6/18/2022 7:46:45 PM
+EndTime             : 6/18/2022 7:49:45 PM
+ExpirationDate      : 6/19/2022 7:49:45 PM
 CleanupPreference   : OnSuccess
 StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
 ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
@@ -410,13 +410,13 @@ The list command output is similar to:
 [
   {
     "arguments": "-name \\\"John Dole\\\"",
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "8.3",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20200625T025902Z",
+    "forceUpdateTag": "20220625T025902Z",
     "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
@@ -441,19 +441,19 @@ The list command output is similar to:
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "endTime": "2022-06-25T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
-      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "expirationTime": "2022-06-26T03:00:16.796923+00:00",
+      "startTime": "2022-06-25T02:59:07.595140+00:00",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
     "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdAt": "2022-06-25T02:59:04.750195+00:00",
       "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedAt": "2022-06-25T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
@@ -502,15 +502,15 @@ The output is similar to:
   "systemData": {
     "createdBy": "someone@contoso.com",
     "createdByType": "User",
-    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "createdAt": "2022-06-25T02:59:04.7501955Z",
     "lastModifiedBy": "someone@contoso.com",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+    "lastModifiedAt": "2022-06-25T02:59:04.7501955Z"
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "forceUpdateTag": "20200625T025902Z",
-    "azPowerShellVersion": "3.0",
+    "forceUpdateTag": "20220625T025902Z",
+    "azPowerShellVersion": "8.3",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -519,9 +519,9 @@ The output is similar to:
     "status": {
       "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
       "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
-      "startTime": "2020-06-25T02:59:07.5951401Z",
-      "endTime": "2020-06-25T03:00:16.7969234Z",
-      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+      "startTime": "2022-06-25T02:59:07.5951401Z",
+      "endTime": "2022-06-25T03:00:16.7969234Z",
+      "expirationTime": "2022-06-26T03:00:16.7969234Z"
     },
     "outputs": {
       "text": "Hello John Dole"
@@ -613,6 +613,20 @@ After the script is tested successfully, you can use it as a deployment script i
 | DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance (ACI), ACI threw a service unavailable error. |
 | DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope (same subscription, resource group name, and resource name). |
 | DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
+
+## Use Microsoft Graph within a deployment script
+
+A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Azure AD.
+
+### Commands
+
+When you use Azure CLI deployment scripts, you can use commands within the `az ad` command group to work with applications, service principals, groups, and users. You can also directly invoke Microsoft Graph APIs by using the `az rest` command.
+
+When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMethod` cmdlet to directly invoke the Microsoft Graph APIs.
+
+### Permissions
+
+The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your Bicep file, such as by pre-creating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
 
 ## Next steps
 

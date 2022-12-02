@@ -4,7 +4,7 @@ description: Describes how to use the CloudEvents schema for events in Azure Eve
 ms.topic: conceptual
 ms.date: 07/20/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
@@ -20,7 +20,7 @@ This article describes how to use the CloudEvents schema with Event Grid.
 
 Here's an example of an Azure Blob Storage event in CloudEvents format:
 
-``` JSON
+```json
 {
     "specversion": "1.0",
     "type": "Microsoft.Storage.BlobCreated",  
