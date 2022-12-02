@@ -137,7 +137,7 @@ az network private-endpoint create \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> \
+    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>" \
     --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
     --location <LOCATION> \
     --group-ids topic
@@ -181,7 +181,7 @@ az network private-endpoint create \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> \
+    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>" \
     --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
     --location <LOCATION> \
     --group-ids topic

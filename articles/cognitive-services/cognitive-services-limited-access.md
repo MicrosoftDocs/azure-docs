@@ -25,7 +25,6 @@ Limited Access services are made available to customers under the terms governin
 
 The following services are Limited Access: 
 
-- [Embedded Speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context): All features
 - [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context): Pro features 
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
 - [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features, face ID property
@@ -40,7 +39,6 @@ Features of these services that aren't listed above are available without regist
 
 Submit a registration form for each Limited Access service you would like to use: 
 
-- [Embedded Speech](https://aka.ms/csgate-embedded-speech): All features 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
@@ -69,7 +67,6 @@ Existing customers have until June 30, 2023 to submit a registration form and be
 
 The registration forms can be found here: 
 
-- [Embedded Speech](https://aka.ms/csgate-embedded-speech): All features 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
@@ -98,6 +95,10 @@ Detailed information about supported regions for Custom Neural Voice and Speaker
 ### What happens to my data if my application is denied? 
 
 If you're an existing customer and your application for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft's data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
+
+### How long will the registration process take?
+
+You'll receive communication from us about your application within 10 business days. In some cases, reviews can take longer. You'll receive an email as soon as your application is reviewed.
 
 ## Help and support 
 

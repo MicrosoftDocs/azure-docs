@@ -190,7 +190,7 @@ The *Files* part contains the metadata of update payload files like their names,
 
 ## Create an import manifest
 
-You may use any text editor to create import manifest JSON file. There are also sample scripts for creating import manifest programmatically in [Azure/iot-hub-device-update](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) on GitHub.
+While it's possible to author an import manifest JSON manually using a text editor, the Azure Command Line Interface (CLI) simplifies the process greatly. When you're ready to try out the creation of an import manifest, you can use the [How-to guide](create-update.md#create-a-basic-device-update-import-manifest).
 
 > [!IMPORTANT]
 > An import manifest JSON filename must end with `.importmanifest.json` when imported through Azure portal.

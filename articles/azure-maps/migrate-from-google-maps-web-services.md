@@ -473,7 +473,7 @@ In addition to this API, Azure Maps provides many time zone APIs. These APIs con
 
 Azure Maps provides client libraries for the following programming languages:
 
-* JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [npm package](https://www.npmjs.com/package/azure-maps-rest)
 
 These Open-source client libraries are for other programming languages:
 

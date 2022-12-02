@@ -6,7 +6,7 @@ ms.author: saraic
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.date: 11/01/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
 

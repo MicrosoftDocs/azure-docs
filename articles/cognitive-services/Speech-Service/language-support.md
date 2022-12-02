@@ -53,7 +53,7 @@ Please note that the following neural voices are retired.
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
 Use the following table to determine supported styles and roles for each neural voice.
 

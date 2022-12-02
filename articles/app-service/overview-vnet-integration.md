@@ -44,8 +44,6 @@ When all traffic routing is enabled, all outbound traffic is sent into your virt
 
 The feature supports two virtual interface per worker. Two virtual interfaces per worker means two regional virtual network integrations per App Service plan. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet. If you need an app to connect to additional virtual networks or additional subnets in the same virtual network, you need to create another App Service plan. The virtual interfaces used isn't a resource that customers have direct access to.
 
-Because of the nature of how this technology operates, the traffic that's used with virtual network integration doesn't show up in Azure Network Watcher or NSG flow logs.
-
 ### Subnet requirements
 
 Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used.

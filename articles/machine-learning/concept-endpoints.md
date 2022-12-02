@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
-ms.reviewer: mopekande
+ms.reviewer: mopeakande
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ms.date: 05/24/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following elements:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the [CLI](how-to-deploy-managed-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
+Learn how to deploy online endpoints from the [CLI](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 
@@ -93,7 +93,7 @@ Traffic to one deployment can also be mirrored (copied) to another deployment. M
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
-Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
+Learn how to [safely rollout to online endpoints](how-to-safely-rollout-online-endpoints.md).
 
 ### Application Insights integration
 
@@ -145,12 +145,12 @@ The following table highlights the key differences between managed online endpoi
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Supported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 	Unsupported |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-online-endpoints.md#optional-integrate-with-log-analytics) | 	Unsupported |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
-| **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
+| **Mirrored traffic** | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
 | **No-code deployment** | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
 
 ### Managed online endpoints
@@ -178,7 +178,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
     >
     > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
+For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-online-endpoints.md).
 
 ## What are batch endpoints?
 
@@ -235,7 +235,7 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI and Python SDK](batch-inference/how-to-use-batch-endpoint.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)

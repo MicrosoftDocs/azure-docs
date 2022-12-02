@@ -141,7 +141,25 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 After encrypting your protected values, [specify encrypted secrets in Service Fabric Application](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code).
 
-## Include certificate in Service Fabric applications
+## Include endpoint certificate in Service Fabric applications
+
+To configure your application endpoint certificate, include the certificate by adding a **EndpointCertificate** element along with the **User** element for the principal account to the application manifest. By default the principal account is NetworkService. This will provide management of the application certificate private key ACL for the provided principal.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Principals>
+    <Users>
+      <User Name="Service1" AccountType="NetworkService" />
+    </Users>
+  </Principals>
+  <Certificates>
+    <EndpointCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+## Include secret certificate in Service Fabric applications
 
 To give your application access to secrets, include the certificate by adding a **SecretsCertificate** element to the application manifest.
 
@@ -149,7 +167,7 @@ To give your application access to secrets, include the certificate by adding a 
 <ApplicationManifest … >
   ...
   <Certificates>
-    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
   </Certificates>
 </ApplicationManifest>
 ```

@@ -17,14 +17,14 @@ Azure Files and Azure File Sync provide two main types of endpoints for accessin
 
 For both Azure Files and Azure File Sync, the Azure management objects, the storage account and the Storage Sync Service respectively, control both the public and private endpoints. The storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. The Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship.
 
-This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](../files/storage-files-networking-endpoints.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](../files/storage-files-networking-endpoints.md?toc=/azure/storage/filesync/toc.json).
 
 We recommend reading [Azure File Sync networking considerations](file-sync-networking-overview.md) prior to reading this how to guide.
 
 ## Prerequisites 
 This article assumes that:
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+- You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json).
 - You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
 Additionally:
@@ -45,7 +45,7 @@ When you are creating a private endpoint for an Azure resource, the following re
 # [Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
 
 ```console
 nslookup <storage-account-name>.file.core.windows.net
@@ -66,7 +66,7 @@ Aliases:  storageaccount.file.core.windows.net
 # [PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly with the following commands:
 
 ```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
@@ -93,7 +93,7 @@ IP4Address : 192.168.0.5
 # [Azure CLI](#tab/azure-cli)
 [!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly with the following commands:
 
 ```azurecli
 httpEndpoint=$(az storage account show \
@@ -552,7 +552,10 @@ Access restriction to the public endpoint is done using the storage account fire
 - [Create one or more private endpoints for the storage account](#create-the-storage-account-private-endpoint) and disable access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
-#### Disable access to the storage account public endpoint
+> [!Note]  
+> The **Allow Azure services on the trusted services list to access this storage account** exception must be selected on your storage account to allow trusted first party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Grant access to trusted Azure services](../common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
+#### Grant access to trusted Azure services and disable access to the storage account public endpoint
 When access to the public endpoint is disabled, the storage account can still be accessed through its private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
@@ -566,7 +569,7 @@ When access to the public endpoint is disabled, the storage account can still be
 
 ---
 
-#### Restrict access to the storage account public endpoint to specific virtual networks
+#### Grant access to trusted Azure services and restrict access to the storage account public endpoint to specific virtual networks 
 When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
@@ -613,7 +616,7 @@ The following pre-defined policies are available for Azure Files and Azure File 
 
 | Action | Service | Condition | Policy name |
 |-|-|-|-|
-| Audit | Azure Files | The storage account's public endpoint is enabled. See [Disable access to the storage account public endpoint](#disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
+| Audit | Azure Files | The storage account's public endpoint is enabled. See [Grant access to trusted Azure services and disable access to the storage account public endpoint](#grant-access-to-trusted-azure-services-and-disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
 | Audit | Azure File Sync | The Storage Sync Service's public endpoint is enabled. See [Disable access to the Storage Sync Service public endpoint](#disable-access-to-the-storage-sync-service-public-endpoint) for more information. | Public network access should be disabled for Azure File Sync |
 | Audit | Azure Files | The storage account needs at least one private endpoint. See [Create the storage account private endpoint](#create-the-storage-account-private-endpoint) for more information. | Storage account should use a private link connection |
 | Audit | Azure File Sync | The Storage Sync Service needs at least one private endpoint. See [Create the Storage Sync Service private endpoint](#create-the-storage-sync-service-private-endpoint) for more information. | Azure File Sync should use private link |

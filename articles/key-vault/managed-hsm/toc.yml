@@ -29,7 +29,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
