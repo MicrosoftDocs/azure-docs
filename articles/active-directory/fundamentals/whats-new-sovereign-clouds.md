@@ -24,7 +24,7 @@ This page is updated monthly, so revisit it regularly.
 
 ## November 2022
 
-### Generally Availability - Windows Hello for Business, Cloud Kerberos Trust deployment
+### General availability - Windows Hello for Business, cloud Kerberos trust deployment
 
 
 
@@ -36,7 +36,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ---
 
-### General Availability- Expression builder with Application Provisioning
+### General availability - Expression builder with Application Provisioning
 
 **Type:** Changed feature  
 **Service category:** Provisioning  
@@ -48,7 +48,7 @@ Accidental deletion of users in your apps or in your on-premises directory could
 
 ---
 
-### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect cloud sync
+### General availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
 
 
 
@@ -60,7 +60,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General Availability - Prevent accidental deletions
+### General availability - Prevent accidental deletions
 
 
 
@@ -76,7 +76,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 ---
 
-### General Availability -  Create Group in Administrative Unit
+### General availability - Create group in administrative unit
 
 **Type:** New feature  
 **Service category:** RBAC       
@@ -87,7 +87,7 @@ Groups Administrators and other roles scoped to an administrative unit can now c
  
 ---
 
-### General Availability - Number Matching for Microsoft Authenticator notifications
+### General availability - Number matching for Microsoft Authenticator notifications
 
 
 
@@ -104,7 +104,7 @@ For more information, see: [How to use number matching in multifactor authentica
 
 ---
 
-### General Availability - Additional context in Microsoft Authenticator notifications
+### General availability - Additional context in Microsoft Authenticator notifications
 
 
 
