@@ -61,7 +61,7 @@ As the MSSQL backend is designed for portability, you have several options to se
 
 You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
 
-### Set up your Docker-based local DBMS
+### Set up your local Docker-based SQL Server
 
 You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](/powershell/scripting/install/installing-powershell-on-linux) and [macOS](/powershell/scripting/install/installing-powershell-on-macos).
 
