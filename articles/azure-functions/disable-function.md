@@ -21,7 +21,13 @@ Use the **Enable** and **Disable** buttons on the function's **Overview** page. 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
 Even when you publish to your function app from a local project, you can still use the portal to disable functions in the function app. 
-,,,,,,,,,,,ueueTrigger.Disabled` and setting it to `true`. 
+
+> [!NOTE]  
+> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. To learn more, see [Run a disabled function](#run-a-disabled-function).
+
+# [Azure CLI](#tab/azurecli)
+
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`.  
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -87,7 +93,7 @@ Azure PowerShell currently doesn't support this functionality.
 
 To learn more, see [Azure Functions Deployment slots](functions-deployment-slots.md).
 
-## Running a disabled function
+## Run a disabled function
 
 You can still cause a disabled function to run by supplying the [master key](functions-bindings-http-webhook-trigger.md#master-key-admin-level) in a REST request to the endpoint URL of the disabled function. In this way, you can develop and validate functions in Azure in a disabled state while preventing them from being accessed by others. Because the Azure portal uses a master key during portal-integration testing, disabled functions still run in the portal. To learn more, see [Obtaining keys](functions-bindings-http-webhook-trigger.md#obtaining-keys). To learn more about calling non-HTTP trigger functions, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
 
@@ -168,7 +174,7 @@ In the second example, the function is disabled when there is an app setting tha
 
 Keep the following considerations in mind when you disable functions:
 
-+ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
++ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer and [in the portal](#run-a-disabled-function).  
 
 + At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux plan. If you need to disable your functions when running on Linux plan, don't use hyphens in your function names.
 
