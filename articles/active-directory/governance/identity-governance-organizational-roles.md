@@ -27,9 +27,9 @@ In Azure AD, you can use role models in several ways to manage access at scale t
  * Applications [can define their own roles](../develop/howto-add-app-roles-in-azure-ad-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
  * You can use roles for [delegating administrative access](entitlement-management-delegate.md).  If you have a catalog for all the access packages needed by sales, you could assign someone to be responsible for that catalog, by assigning them a catalog-specific role.
 
-This article discusses how to model organizational roles, using entitlement management access packages.
+This article discusses how to model organizational roles, using entitlement management access packages, so you can migrate your role definitions to Azure AD to enforce access.
 
-## Mapping organizational role concepts
+## Migrating an organizational role model
 
 The following table illustrates how concepts in organizational role definitions you might be familiar with in other products correspond to capabilities in entitlement management.
 
@@ -43,6 +43,46 @@ The following table illustrates how concepts in organizational role definitions 
 | Users can request and be approved for a role | [Configure policy settings for who can request an access package](entitlement-management-access-package-request-policy.md) |
 | Access recertification of role members | [Set recurring access review settings in an access package policy](entitlement-management-access-reviews-create.md) |
 | Separation of duties between roles | [Define two or more access packages as incompatible](entitlement-management-access-package-incompatible.md)|
+
+The next sections outline the sequence for performing the migration and creating the Azure AD artifacts to implement the equivalent access of an organizational role model.
+
+### Connect apps whose permissions are referenced in the organizational roles to Azure AD
+
+If your organizational roles are used to assign permissions that control access to non-Microsoft SaaS apps, on-premises apps or your own cloud apps, then you will need to connect your applications to Azure AD.
+
+In order to for an access package representing an organizational role to be able to refer to an application's roles as the permissions to include in the role, for an application that  has multiple roles and supports modern standards such as SCIM, you should [integrate the application with Azure AD](identity-governance-applications-integrate.md) and ensure that the application's roles are listed in the application manifest.
+
+If the application only has a single role, then you should still [integrated the application with Azure AD](identity-governance-applications-integrate.md).  For applications that do not support SCIM, Azure AD can write users into an application's existing directory or SQL database, or add AD users into an AD group.
+
+### Populate Azure AD schema used by apps and for user scoping rules in the organizational roles
+
+If your role definitions include statements of the form "all users with these attribute values get assigned to the role automatically" or "users with these attribute values are allowed to request", then you will need to ensure those attributes are present in Azure AD.
+
+You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md) and then populate those attributes either from on-premises AD, via Azure AD Connect, or from a HR system such as Workday or SuccessFactors.
+
+### Create catalogs for delegation
+
+If the ongoing maintenance of roles are delegated, then you can delegate the administration of access packages by creating a catalog for each part of the organization you will be delegating to.
+
+If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create#create-a-catalog-with-powershell).
+
+If you are not planning to delegate the administration of the access packages, then you can keep the access packages in a single catalog.
+
+### Add resources to the catalogs
+
+Now that you have the catalogs identified, then add the applications, groups or other resources that will be included in the access packages representing the organization roles to the catalogs.
+
+If you have many resources, you can use a PowerShell script to [add each resource to a catalog](entitlement-management-catalog-create.md#add-a-resource-to-a-catalog-with-powershell).
+
+### Create access packages corresponding to organizational role definitions
+
+Once you've created an access package, then you'll link the one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
+
+### Add policies in those access packages for auto assignment
+
+### Set access packages as incompatible for separation of duties
+
+### Add groups and policies to access packages for users allowed to request
 
 
 ## Next steps
