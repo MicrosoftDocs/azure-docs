@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 
 This article shows you how to connect to Azure Cosmos DB for NoSQL using the Python SDK. Once connected, you can perform operations on databases, containers, and items.
 
-[Package (PyPi)](https://pypi.org/project/azure-cosmos/) | [Samples](samples-python.md) | [API reference](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+[Package (PyPi)](https://pypi.org/project/azure-cosmos/) | [Samples](samples-python.md) | [API reference](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Create an environment that you can run Python code in.
 
 With a [virtual environment](/azure/developer/python/configure-local-development-environment#configure-python-virtual-environment), you can install Python packages in an isolated environment without affecting the rest of your system. 
 
-Install the Azure Cosmos DB for NoSQL Python SDK in the dev container.
+Install the Azure Cosmos DB for NoSQL Python SDK in the virtual environment.
 
 ```bash
 pip install azure-cosmos
@@ -42,7 +42,7 @@ pip install azure-cosmos
 
 ##### [Dev container](#tab/env-container)
 
-The Visual Studio Code [dev container](https://code.visualstudio.com/docs/devcontainers/containers) is a pre-configured environment that you can use to run Python code. Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. For an example of a dev container definition, see [devcontainer.json](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/blob/main/.devcontainer/devcontainer.json) 
+The Visual Studio Code [dev container](https://code.visualstudio.com/docs/devcontainers/containers) is a pre-configured environment that you can use to run Python code. Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. For an example of a dev container definition you can use to run these samples, see [devcontainer.json](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/blob/main/.devcontainer/devcontainer.json).
 
 Install the Azure Cosmos DB for NoSQL Python SDK in the dev container.
 
@@ -57,13 +57,14 @@ pip install azure-cosmos
 2. In your environment, create a new *app.py* file and add the following code to it:
 
     ```python
+    import json
     import os
     import sys
     import uuid
-    import json
-    from azure.cosmos import CosmosClient, PartitionKey
+    
     from azure.core.exceptions import AzureError
-    ```
+    from azure.cosmos import CosmosClient, PartitionKey
+        ```
 
     The preceding code imports modules that you'll use in the rest of the article.
 
