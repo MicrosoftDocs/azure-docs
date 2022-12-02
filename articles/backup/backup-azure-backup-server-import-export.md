@@ -1,13 +1,15 @@
 ---
-title: Offline backup for DPM and Azure Backup Server
+title: Offline seeding workflow for DPM and MABS using customer owned disks with Azure Import/Export - Azure Backup
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
 ms.topic: how-to
-ms.date: 12/02/2022
+ms.date: 12/05/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Offline backup workflow for DPM and Azure Backup Server (MABS)
+# Offline seeding workflow for DPM and MABS using customer owned disks with Azure Import/Export
+
+This article describes how to send the initial full backup data from DPM/MABS to Azure using customer owned disks instead of sending it via the network. Learn about [sending the initial full backup data from MARS to Azure using customer owned disks](backup-azure-backup-import-export.md).
 
 System Center Data Protection Manager and Azure Backup Server (MABS) integrate with Azure Backup and use several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
 
@@ -48,7 +50,7 @@ With the offline-seeding capability of Azure Backup and the Azure Import/Export 
 
 Ensure that the following prerequisites are met before you start the offline backup workflow:
 
-* A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)tutorial-backup-windows-server-to-azure#create-a-recovery-services-vault).
+* A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
 * Ensure that only the [latest version of Microsoft Azure Recovery Services agent](https://aka.ms/azurebackup_agent) is installed on the SC DPM or MABS and registered to Recovery Services vault.
 * Update Rollup 1 is installed on SC DPM 2019 or MABS v3, along with the [latest MARS agent](https://aka.ms/azurebackup_agent).
 
@@ -150,7 +152,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    - The list of disks prepared for seeding.
    - The name of the storage account, resource group, country, and region of the Import/Export Job.
 
-   The tool lists the fields required to creat the Import/Export Job.* Enter the following details:
+   The tool lists the fields required to create the Import/Export Job.* Enter the following details:
 
    | Required Parameter | Detail|
    | --- | --- |
@@ -236,7 +238,7 @@ The amount of time it takes to process an Azure import job varies. The process t
 
 ### Monitor Azure import job status
 
-You can monitor the status of your Import job from the Azure portal by navigating to the **Import/Export jobs** page and selecting your job. For more information on the status of the Import jobs, see the [Storage Import Export service](../import-export/storage-import-export-service.md) article.
+You can monitor the status of your Import job from the Azure portal by navigating to the **Import/Export jobs** page and selecting your job. For more information on the status of the Import jobs, see the [Azure Data Box](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) page.
 
 ### Complete the workflow
 

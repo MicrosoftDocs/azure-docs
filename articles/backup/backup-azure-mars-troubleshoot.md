@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 11/30/2022
+ms.date: 12/05/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -279,7 +279,7 @@ Unable to find changes in a file. This could be due to various reasons. Please r
 
 Azure Import/Export now uses Azure Data Box APIs for offline seeding on your own disks. The Azure portal also list the Import/Export jobs created using the new API under [Azure Data Box jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview) with the Model column as Import/Export.
 
-Currently, MARS use`s Azure Import/Export APIs for offline seeding. The [old Azure Import/Export APIs](/rest/api/storageimportexport/) will be discontinued after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or higher that uses the new Azure Data Box APIs for offline seeding on your own disks.
+ MARS agent versions *2.0.9250.0* used the [old Azure Import/Export APIs](/rest/api/storageimportexport/), which will be discontinued after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or higher that uses the new Azure Data Box APIs for offline seeding on your own disks.
 
 If you've ongoing Import/Export jobs created from older MARS agents, you can still monitor them in the Azure portal, under Import/Export jobs.
 

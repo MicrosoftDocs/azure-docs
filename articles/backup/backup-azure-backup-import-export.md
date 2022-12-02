@@ -1,11 +1,13 @@
 ---
-title: Seed offline backup with the Azure Import/Export service
+title: Offline seeding workflow for MARS using customer owned disks with Azure Import/Export - Azure Backup
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
 ---
-# Offline backup workflow in Azure Backup
+# Offline seeding workflow for MARS using customer owned disks with Azure Import/Export
+
+This article describes how to send the initial full backup data from MARS to Azure using customer owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer owned disks](backup-azure-backup-server-import-export.md).
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
@@ -35,20 +37,18 @@ The offline backup process involves these steps:
 1. Azure Backup copies the backup data from the storage account to the Recovery Services vault, and incremental backups are scheduled.
 
 >[!Note]
->Ensure that you use the latest MARS agent (version 2.0.9250.0 or above) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-your-own-disks-importexport-is-not-working).
+>Ensure that you use the latest MARS agent (version 2.0.9250.0 or higher) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-your-own-disks-importexport-is-not-working).
 
 ## Supported configurations
 
 The following Azure Backup features or workloads support the use of offline backup for:
 
-> [!div class="checklist"]
->
-> * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) Agent, also referred to as the Azure Backup Agent.
-> * Backup of all workloads and files with System Center Data Protection Manager (DPM).
-> * Backup of all workloads and files with Microsoft Azure Backup Server.
+* Backup of files and folders with the Microsoft Azure Recovery Services (MARS) Agent, also referred to as the Azure Backup Agent.
+* Backup of all workloads and files with System Center Data Protection Manager (DPM).
+* Backup of all workloads and files with Microsoft Azure Backup Server.
 
-   > [!NOTE]
-   > Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
+> [!NOTE]
+> Offline backup isn't supported for system state backups done by using the Azure Backup agent.
 
 ## Prerequisites
 
@@ -163,7 +163,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
    - The list of disks prepared for seeding.
    - The name of the storage account, resource group, country, and region of the Import/Export Job.
 
-   The tool lists the fields required to creat the Import/Export Job.* Enter the following details:
+   The tool lists the fields required to create the Import/Export Job.* Enter the following details:
 
    | Required Parameter | Detail|
    | --- | --- |
