@@ -7,4 +7,4 @@ ms.author: glenga
 ---
 
 > [!CAUTION]  
-> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin access level.
+> Due to the elevated permissions in your function app granted by the master key, you shouldn't share this key with third parties or distribute it in native client applications. Use caution when choosing the [admin access level](./functions-authorization-keys.md#master-key-admin-level).
