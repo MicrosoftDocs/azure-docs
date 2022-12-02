@@ -72,7 +72,7 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 ## Networking workbooks
 
-- **NPM Configuration**: Monitoring of your network configurations, which are configured through the network policy manager (NPM) for the:
+- **NPM Configuration**: Monitoring of your network configurations, which are configured through the network policy manager (npm) for the:
 
   - Summary information about overall configuration complexity.
   - Policy, rule, and set counts over time, allowing insight into the relationship between the three and adding a dimension of time to debugging a configuration.
