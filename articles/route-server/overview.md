@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: overview
-ms.date: 07/27/2022
+ms.date: 11/09/2022
 ms.author: halkazwini
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---

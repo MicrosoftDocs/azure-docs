@@ -331,3 +331,4 @@ The following recommended playbooks, and other similar playbooks are available t
 ## Next steps
 
 - [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
+- [Create and perform incident tasks in Microsoft Sentinel using playbooks](create-tasks-playbook.md)

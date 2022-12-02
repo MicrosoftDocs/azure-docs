@@ -86,7 +86,7 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
     ```
 
     > [!WARNING]
-    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the parameter **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from az 3.4.0 onwards.
+    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from Azure CLI 3.4.0 onwards.
 
     ```azurecli-interactive
     az backup restore restore-disks \

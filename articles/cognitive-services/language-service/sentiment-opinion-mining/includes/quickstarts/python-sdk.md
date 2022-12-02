@@ -24,7 +24,19 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ### Install the client library
 

@@ -6,8 +6,8 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/25/2022
-ms.custom: template-how-to , devx-track-azurecli 
+ms.date: 10/28/2022
+ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 

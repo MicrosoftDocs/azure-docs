@@ -123,9 +123,6 @@ The Azure portal generates the redirect URI for you and displays it in the **And
 
 For more information about signing your app, see [Sign your app](https://developer.android.com/studio/publish/app-signing) in the Android Studio User Guide.
 
-> [!IMPORTANT]
-> Use your production signing key for the production version of your app.
-
 #### Configure MSAL to use a broker
 
 To use a broker in your app, you must attest that you've configured your broker redirect. For example, include both your broker enabled redirect URI--and indicate that you registered it--by including the following settings in your MSAL configuration file:

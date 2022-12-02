@@ -44,6 +44,7 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 The following versions of Windows are supported:
 
+- **Windows Server 2022**
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**

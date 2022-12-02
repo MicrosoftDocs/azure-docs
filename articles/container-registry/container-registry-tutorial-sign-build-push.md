@@ -101,7 +101,7 @@ In this tutorial:
 
 ## Store the signing certificate in AKV
 
-If you have an existing certificate, upload it to AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements)
+If you have an existing certificate, upload it to AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/notaryproject/notaryproject/blob/main/specs/signature-specification.md#certificate-requirements)
 Otherwise create an x509 self-signed certificate storing it in AKV for remote signing using the steps below.
 
 ### Create a self-signed certificate (Azure CLI)

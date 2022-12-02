@@ -165,7 +165,7 @@ Follow these steps to restrict access to the storage account.
 1. Select **Disabled** for **Allow storage account key access**
 1. Select **Save**.
 
-For more information, see [Prevent anonymous public read access to containers and blobs](/azure/storage/blobs/anonymous-read-access-prevent) and [Prevent Shared Key authorization for an Azure Storage account](/azure/storage/common/shared-key-authorization-prevent).
+For more information, see [Prevent anonymous public read access to containers and blobs](../../storage/blobs/anonymous-read-access-prevent.md) and [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md).
 
 ### Configure Azure Storage firewall
 

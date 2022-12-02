@@ -4,7 +4,7 @@ description: Application Insights automatically collect and visualize dependenci
 ms.topic: reference
 ms.devlang: csharp, java, javascript
 ms.custom: devx-track-dotnet
-ms.date: 08/22/2022
+ms.date: 11/15/2022
 ms.reviewer: mmcc
 ---
 
@@ -55,5 +55,5 @@ A list of the latest [currently-supported modules](https://github.com/microsoft/
 - Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](./data-model.md) for Application Insights types and data model.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

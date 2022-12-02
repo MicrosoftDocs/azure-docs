@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/21/2021
+ms.date: 11/16/2022
 ---
 
 # Monitor Azure Machine Learning
@@ -41,7 +41,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Machine Learning. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Machine Learning
 

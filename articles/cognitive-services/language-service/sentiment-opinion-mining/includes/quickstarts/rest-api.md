@@ -5,12 +5,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -25,7 +25,19 @@ Use this quickstart to send sentiment analysis requests using the REST API. In t
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ## Create a JSON file with the example request body
 
@@ -223,6 +235,8 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
 
+[!INCLUDE [clean up environment variables](../../../includes/clean-up-variables.md)]
+
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
 
@@ -230,4 +244,4 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
 * [How to call the API](../../how-to/call-api.md)  
-* [Reference documentation](/rest/api/language/text-analysis-runtime)
+* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)

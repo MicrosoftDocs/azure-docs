@@ -36,7 +36,7 @@ ms.custom: template-how-to
 
   - If you're manually entering provisioning values, you'll need the name of the SIM policy.
 
-  - If you're using a JSON file, you'll need the full resource ID of the SIM policy.
+  - If you're using a JSON file, you'll need the full resource ID of the SIM policy. You can collect this by navigating to the SIM Policy resource, selecting **JSON View** and copying the contents of the **Resource ID** field.
 
 ## Collect the required information for your SIMs
 

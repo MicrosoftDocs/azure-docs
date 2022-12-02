@@ -1,9 +1,9 @@
 ---
 title: Provisioning Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Provisioning Device Update for Azure IoT Hub Agent
-author: eross-msft
-ms.author: lizross
-ms.date: 1/26/2022
+author: EshaShah
+ms.author: eshashah
+ms.date: 8/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -12,11 +12,9 @@ ms.service: iot-hub-device-update
 
 The Device Update Module agent can run alongside other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This section describes how to provision the Device Update agent as a module identity. 
 
-## Changes to Device Update agent at Public Preview Refresh
+## Changes to Device Update agent at GA release
 
-We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). See [list of new capabilities](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for details.
-
-If you are using the Device Update agent versions 0.6.0 or 0.7.0 please migrate to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](migration-pp-to-ppr.md)
+If you are using the Device Update agent versions, please migrate to the latest agent version 1.0.0 which is the GA version. See [GA agent for changes and how to upgrade](migration-public-preview-refresh-to-ga.md)
 
 You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
@@ -102,13 +100,18 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
         ```
 	
         ```shell
-        sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+        sudo apt-get install deviceupdate-agent
         ```
 	
     - For any 'rc' i.e. release candidate agent versions from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) : Download the .deb file to the machine you want to install the Device Update agent on, then:
    
         ```shell
         sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEB FILE NAME>"
+        ```
+    - If you are setting up a [MCC for a disconnected device scenario](connected-cache-disconnected-device-update.md), then install the Delivery Optmization Apt plugin:
+
+         ```shell
+        sudo apt-get install deliveryoptimization-plugin-apt
         ```
 	
 1. You are now ready to start the Device Update agent on your IoT Edge device. 
@@ -167,13 +170,13 @@ This section describes how to start and verify the Device Update agent as a modu
 1. Open a Terminal window, and enter the command below.
 
     ```shell
-    sudo systemctl restart adu-agent
+    sudo systemctl restart deviceupdate-agent
     ```
     
 1. You can check the status of the agent using the command below. If you see any issues, refer to this [troubleshooting guide](troubleshoot-device-update.md).
 	
     ```shell
-    sudo systemctl status adu-agent
+    sudo systemctl status deviceupdate-agent
     ```
     
     You should see status OK.

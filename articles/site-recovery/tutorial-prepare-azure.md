@@ -5,7 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Prepare Azure for on-premises disaster recovery to Azure
 
