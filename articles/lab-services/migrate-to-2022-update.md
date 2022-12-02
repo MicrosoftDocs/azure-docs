@@ -67,6 +67,8 @@ As a customer, you're now assigned your own [dedicated VM cores quota](/azure/la
 
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
   - For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+ 
+
 ## 3. Configure shared resources  
 
 You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](/azure/lab-services/how-to-create-a-lab-with-shared-resource) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](/azure/lab-services/how-to-connect-vnet-injection#connect-the-virtual-network-during-lab-plan-creation) enabled as shown in the next step.
