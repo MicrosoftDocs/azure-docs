@@ -18,7 +18,7 @@ The text visualization has a style settings to change the style of the text disp
 
 ### Text styles
 The following text styles are available for text steps:
-style | explanation
+|Style | Explanation|
 |---|---|
 `plain` | No additional formatting is applied, the text value is presumed to be plain text and no special formatting is applied
 `header` | The text is formatted with the same styling as step headers
@@ -63,8 +63,3 @@ For the editor example, newline `\n` and tab `\t` characters have been added to 
 :::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-editor.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in editor style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-editor.png":::
 
 Notice how in this example, the editor has horizontal scrollbar, indicating that some of the lines in this text are wider than the control.
-
-## Next steps
-
-* Learn how to create a [chart in workbooks](workbooks-chart-visualizations.md).
-* Learn how to create a [grid in workbooks](workbooks-grid-visualizations.md).
