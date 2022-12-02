@@ -11,6 +11,8 @@ ms.date: 05/12/2022
 ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: blobs
+ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Run PowerShell commands with Azure AD credentials to access blob data
