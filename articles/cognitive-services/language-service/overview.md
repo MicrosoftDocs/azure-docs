@@ -186,15 +186,15 @@ This section will help you decide which Language service feature you should use 
 
 |What do you want to do?  |Document format  |Your best solution  | Is this solution customizable?* |
 |---------|---------|---------|---------|
-| Extract and redact Personally Identifiable Information (PII) and Personally identifying Information (PHI). | Unstructured text | [PII detection](./personally-identifiable-information/overview.md) | |
+| Detect and/or redact Personally Identifiable Information (PII) and Personally identifying Information (PHI). | Unstructured text <br> formatted text-based or transcribed conversations | [PII detection](./personally-identifiable-information/overview.md) | |
 | Extract categories of information, without creating a custom model.     | Unstructured text         | The [pre-configured NER feature](./named-entity-recognition/overview.md) |       |
 | Extract categories of information using a model specific to your data. | Unstructured text | [Custom NER](./custom-named-entity-recognition/overview.md) | ✓ |
-|Extract key phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
+|Extract main topics and important phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
 | Determine the sentiment of text, and opinions about specific topics. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | |
-| Summarize long chunks of text or conversations | Unstructured text, formatted textual or transcribed conversations. | [Summarization](./summarization/overview.md) | | 
+| Summarize long chunks of text or conversations. | Unstructured text <br> formatted text-based or transcribed conversations. | [Summarization](./summarization/overview.md) | | 
 | Disambiguate entities and get links to Wikipedia. | Unstructured text | [entity linking](./entity-linking/overview.md) | | 
 | Classify documents into categories you define. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
-| Extract and label medical information from clinical/medical documents | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
+| Extract, label, and associate medical information from clinical/medical documents. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
 | Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
 | Detect the language a text was written in | Unstructured text | [Language detection](./language-detection/overview.md) | | 
 | Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) | ✓ |
