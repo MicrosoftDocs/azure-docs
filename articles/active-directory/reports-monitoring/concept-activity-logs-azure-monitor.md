@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2022
+ms.date: 12/02/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -36,20 +36,22 @@ You can route Azure AD audit logs and sign-in logs to your Azure Storage account
 
 ## Getting started
 
-To use this feature, you need:
+To use this feature, you need the appropriate license and roles.
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
-* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
 * Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
+* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
 
 Depending on where you want to route the audit log data, you also need one of the following endpoints:
 
-* An [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) to send logs to Azure Monitor logs.
-* An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An [Azure Event Hubs namespace](../../event-hubs/event-hubs-create.md) to integrate with third-party solutions.
+* An **[Azure Log Analytics workspace](tutorial-log-analytics-wizard.md)** to send Azure AD logs to Azure Monitor. 
+* An **[Azure storage account](../../storage/common/storage-account-create.md)** that you have `ListKeys` permissions for.
+    - We recommend that you use a general storage account and not a Blob storage account.
+    - For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* An **[Azure Event Hubs namespace](../../event-hubs/event-hubs-create.md)** to integrate with third-party solutions.
 
-Once you have your endpoint established, go to **Azure AD** and then **Diagnostic settings.** From here you can choose what logs to send to the endpoint of your choice. Follow the [Configure a Log Analytics workspace tutorial](tutorial-log-analytics-wizard.md).
+Once you have your endpoint established, go to **Azure AD** and then **Diagnostic settings.** From here you can choose what logs to send to the endpoint of your choice. For more information, see the **Create diagnostic settings** section of the [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) article.
 
 ## Cost considerations
 
