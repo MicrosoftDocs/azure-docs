@@ -208,6 +208,8 @@
     href: how-to-manage-sensors-on-the-cloud.md
   - name: Create and manage users
     items:
+    - name: Azure portal
+      href: manage-users-portal.md
     - name: OT sensor console
       href: manage-users-sensor.md
     - name: On-premises management console
