@@ -11,6 +11,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Connect to an app instance for troubleshooting
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
 
 Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
