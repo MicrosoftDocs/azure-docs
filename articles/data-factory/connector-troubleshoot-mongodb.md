@@ -15,7 +15,7 @@ ms.custom: has-adal-ref, synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides suggestions to troubleshoot common problems with the mongodb connector in Azure Data Factory and Azure Synapse.
+This article provides suggestions to troubleshoot common problems with the MongoDB connector in Azure Data Factory and Azure Synapse.
 
 ## Error code: MongoDbUnsupportedUuidType
 
