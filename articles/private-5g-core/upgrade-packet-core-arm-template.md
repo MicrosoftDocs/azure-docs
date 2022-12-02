@@ -27,7 +27,6 @@ If your environment meets the prerequisites, you're familiar with using ARM temp
 - You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the site that hosts the packet core instance you want to upgrade.
-- Make a note of your current packet core version. You'll need this information in case you encounter any issues and need to revert the upgrade.
 
 ## Review the template
 
@@ -55,9 +54,9 @@ When planning for your upgrade, make sure you're allowing sufficient time for an
 The following list contains data that will get lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
-2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
-3. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
-4. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
+1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
+1. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
 ### Upgrade ASE
 
@@ -103,16 +102,16 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
 Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
 1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
-2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
-3. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
-4. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
+1. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
+1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
+1. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
 
 ### Verify upgrade
 
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
-2. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
+1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback
 
@@ -120,28 +119,31 @@ If you encountered issues after the upgrade, you can roll back the packet core i
 
 Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
 
+> [!NOTE]
+> You can roll back your packet core instance to version [PMN-4-18-0](azure-private-5g-core-release-notes-2210.md) or later.
+
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
-2. Select the following link to sign in to Azure and open the template.
+1. Select the following link to sign in to Azure and open the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2FcreateUiDefinition.json)
 
-3. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
     - **Region:** select **East US**.
     - **Existing packet core:** select the name of the packet core instance you want to upgrade.
-    - **New version:** enter the packet core version you want to downgrade to.
+    - **New version:** enter the packet core version you want to downgrade to. This value can be version PMN-4-18-0 or later.
 
     :::image type="content" source="media/upgrade-packet-core-arm-template/upgrade-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the upgrade ARM template.":::
 
-4. Select **Review + create**.
-5. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+1. Select **Review + create**.
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-6. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been downgraded.
-7. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
+1. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been downgraded.
+1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 
 ## Next steps
 
