@@ -2482,7 +2482,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-and-where.md",
-        "redirect_url": "/articles/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
