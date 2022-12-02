@@ -67,7 +67,7 @@ In order to use the remote log collection feature, you must first link an Azure 
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot du instance create](/cli/azure/iot/device-update/instance#az-iot-du-instance-create) command to configure diagnostics for your Device Update instance.
+Use the [az iot du instance create](/cli/azure/iot/du/instance#az-iot-du-instance-create) command to configure diagnostics for your Device Update instance.
 
 >[!TIP]
 >You can use the `az iot du instance create` command on an existing Device Update instances and it will configure the instance with the updated parameters.
@@ -124,7 +124,7 @@ Log operations are a service-driven action that you can instruct your IoT device
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot du device log collect](/cli/azure/iot/device-update/device/log#az-iot-du-device-log-collect) command to configure a diagnostics log collection operation.
+Use the [az iot du device log collect](/cli/azure/iot/du/device/log#az-iot-du-device-log-collect) command to configure a diagnostics log collection operation.
 
 The `device log collect` command takes the following arguments:
 
@@ -144,7 +144,7 @@ az iot du device log collect \
     --agent-id deviceId=<device name> moduleId=<module name>
 ```
 
-Use [az iot du device log show](/cli/azure/iot/device-update/device/log#az-iot-du-device-log-show) to view the details of a specific diagnostic log collection operation.
+Use [az iot du device log show](/cli/azure/iot/du/device/log#az-iot-du-device-log-show) to view the details of a specific diagnostic log collection operation.
 
 ```azurecli
 az iot du device log show \

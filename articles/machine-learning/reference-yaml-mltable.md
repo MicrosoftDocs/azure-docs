@@ -65,7 +65,7 @@ paths:
   - pattern: ./*.txt
 transformations:
   - read_delimited:
-      delimiter: ,
+      delimiter: ','
       encoding: ascii
       header: all_files_same_headers
   - columns: [Trip_Pickup_DateTime, Trip_Dropoff_DateTime]
@@ -163,7 +163,7 @@ If the user doesn't define options for `read_parquet` transformation, default op
 type: mltable
 
 paths:
-- abfss://my_delta_files
+- folder: abfss://my_delta_files
 
 transforms:
  - read_delta_lake:

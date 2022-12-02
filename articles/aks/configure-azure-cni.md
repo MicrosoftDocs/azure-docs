@@ -185,7 +185,7 @@ The pods per node values when using Azure CNI with dynamic allocation of IPs hav
 |Traditional Azure CNI|30|Yes (up to 250)|
 |Azure CNI with dynamic allocation of IPs|250|Yes (up to 250)|
 
-All other guidance related to configuring the maximum nodes per pod remains the same.
+All other guidance related to configuring the maximum pods per node remains the same.
 
 ### Additional deployment parameters
 
@@ -295,7 +295,7 @@ The following questions and answers apply to the **Azure CNI network configurati
 Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
-* [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 * [Enable the HTTP application routing add-on][aks-http-app-routing]

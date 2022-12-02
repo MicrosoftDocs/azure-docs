@@ -330,7 +330,7 @@
         href: sizes-hpc.md
       - name: H-series
         items: 
-        - name: H-series overview
+        - name: H-series
           href: h-series.md
         - name: H-series retirement
           href: h-series-retirement.md
@@ -351,21 +351,25 @@
         - name: Performance
           href: ./workloads/hpc/hbv2-performance.md
       - name: HBv3-series
-        href: hbv3-series.md
         items:
         - name: Overview
           href: ./workloads/hpc/hbv3-series-overview.md
+        - name: HBv3-series
+          href: hbv3-series.md
         - name: Performance
           href: ./workloads/hpc/hbv3-performance.md
+      - name: HBv4-series
+        href: hbv4-series.md
       - name: HC-series
-        href: hc-series.md
         items:
         - name: Overview
           href: ./workloads/hpc/hc-series-overview.md
-      - name: Performance
-        href: ./workloads/hpc/hc-series-performance.md
-      - name: HB-series retirement
-        href: hb-series-retirement.md
+        - name: HC-series
+          href: hc-series.md
+        - name: Performance
+          href: ./workloads/hpc/hc-series-performance.md
+      - name: HX-series
+        href: hx-series.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -1466,17 +1470,17 @@
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
       - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
       - name: Create a snapshot from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
   items:
   - name: Overview

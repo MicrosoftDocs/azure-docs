@@ -193,7 +193,9 @@ items:
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
   - name: Pipeline parameters and variables
-    href: concepts-parameters-variables.md 
+    href: concepts-parameters-variables.md
+  - name: Annotations and user properties
+    href: concepts-annotations-user-properties.md 
   - name: Nested activities
     href: concepts-nested-activities.md
     displayName: nested, nesting
@@ -1106,6 +1108,8 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Replicate data from SAP CDC
+      href: solution-template-replicate-multiple-objects-sap-cdc.md
     - name: Detect and mask PII data
       href: solution-template-pii-detection-and-masking.md
     - name: Extract data from PDF source
@@ -1132,7 +1136,7 @@ items:
       displayName: diu
     - name: Pricing examples     
       items:
-      - name: Overview
+      - name: Pricing overview
         href: pricing-concepts.md
         displayName: diu 
       - name: Copy data from AWS S3 to Azure Blob storage
@@ -1197,6 +1201,9 @@ items:
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
         displayName: troubleshooting
+      - name: File system
+        href: connector-troubleshoot-file-system.md
+        displayName: troubleshooting        
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
@@ -1205,6 +1212,9 @@ items:
         displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md  
+        displayName: troubleshooting
+      - name: MongoDB
+        href: connector-troubleshoot-mongodb.md  
         displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md

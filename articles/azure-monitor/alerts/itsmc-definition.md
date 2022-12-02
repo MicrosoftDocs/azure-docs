@@ -56,15 +56,13 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
 
 1. Select **Add Connection**.
 
-1. Specify the connection settings for the ITSM product that you're using:
+1. Specify the ServiceNow connection settings.
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
-    - [System Center Service Manager](./itsmc-connections.md)
 
-   > [!NOTE]
-   > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
-   >
-   > ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
+1. By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
+
+    ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
 
 ## Create ITSM work items from Azure alerts
 
@@ -133,6 +131,8 @@ When you create or edit an Azure alert rule, use an action group, which has an I
 > * The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
 >
 > * In case you have policies for inbound traffic for your ServiceNow instances, add ActionGroup service tag to allowList.
+> 
+> * Notice that when you are defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping will enable to map the configuration items to the ITSM payload
 
 ## Next steps
 

@@ -148,7 +148,7 @@ Groups are automatically created based on the tags assigned as well as the compa
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device group list](/cli/azure/iot/device-update/device/group#az-iot-du-device-group-list) to view all device groups in a Device Update instance.
+Use [az iot du device group list](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to view all device groups in a Device Update instance.
 
 ```azurecli
 az iot du device group list \
@@ -173,10 +173,12 @@ You can use the `--order-by` argument to order the groups returned based on aspe
 3. You can also select an individual device within a group to be redirected to the device details page in IoT Hub.
 
    :::image type="content" source="media/create-update-group/device-details.png" alt-text="Screenshot of device details view." lightbox="media/create-update-group/device-details.png":::
+   
+   :::image type="content" source="media/create-update-group/device-details-2.png" alt-text="Screenshot of device details view in IoT hub." lightbox="media/create-update-group/device-details-2.png":::
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device group show](/cli/azure/iot/device-update/device/group#az-iot-du-device-group-show) to view details of a specific device group.
+Use [az iot du device group show](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to view details of a specific device group.
 
 The optional `--best-updates` flag returns a list of the best available updates for the device group, including a count of how many devices need each update.
 

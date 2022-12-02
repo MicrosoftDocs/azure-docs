@@ -77,7 +77,7 @@ Two commands are currently available in the package:
 
 ### Export ARM template
 
-Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example:
+Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example using a resource group named **testResourceGroup**:
 
 ```dos
 npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
@@ -119,7 +119,7 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"

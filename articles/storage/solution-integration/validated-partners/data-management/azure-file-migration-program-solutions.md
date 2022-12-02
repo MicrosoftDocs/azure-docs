@@ -121,7 +121,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 - [Azure File Migration Program](https://www.microsoft.com/en-us/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
 - [Storage migration overview](../../../common/storage-migration-overview.md)
-- [Choose an Azure solution for data transfer](../../../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Choose an Azure solution for data transfer](../../../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json)
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)

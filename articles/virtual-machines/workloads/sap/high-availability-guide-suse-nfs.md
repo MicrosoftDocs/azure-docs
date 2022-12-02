@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/25/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 
 ---
@@ -522,7 +522,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive vip_<b>NW1</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.4</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
+   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -564,7 +565,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive vip_<b>NW2</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.5</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
+   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs

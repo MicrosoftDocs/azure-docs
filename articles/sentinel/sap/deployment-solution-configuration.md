@@ -97,18 +97,23 @@ By default, all analytics rules provided in the Microsoft Sentinel Solution for 
 7. Function module tested
 8. The SAP audit log monitoring analytics rules
 
-## Enabling and disabling the ingestion of specific SAP logs 
+## Enable or disable the ingestion of specific SAP logs
 
-It is possible to enable and disable the ingestion of a specific log. To do this, edit the *systemconfig.ini* file located under /opt/sapcon/SID/ directory on the connector Virtual Machine.
-Inside the configuration file you can pick a relevant log,  change the value to `True` to enable the log or to `False` to disable the log.
+To enable or disable the ingestion of a specific log:
+ 
+1. Edit the *systemconfig.ini* file located under */opt/sapcon/SID/* on the connector's VM. 
+1. Inside the configuration file, locate the relevant log and do one of the following:
+    - To enable the log, change the value to `True`. 
+    - To disable the log, change the value to `False`.
 
-For example, to stop ingesting the `ABAPJobLog`, change its value to `False`:
+For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`:
 
 ```
 ABAPJobLog = False
 ```
-The list of available logs can be found in the [systemconfig.ini reference](reference-systemconfig.md#logs-activation-status-section).
-It is also possible to [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection). 
+Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
+
+You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
 > [!NOTE]
 >
