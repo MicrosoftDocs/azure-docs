@@ -182,8 +182,11 @@ Certain machine learning scenarios involve working with private data. In such ca
 To enable authentication with compute managed identity:
 
  * Create compute with managed identity enabled. See the [compute cluster](#compute-cluster) section, or for compute instance, the [Assign managed identity (preview)](how-to-create-manage-compute-instance.md) section.
- * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
+ * Grant compute managed identity at least Storage Blob Data Reader role on the storage account. Look
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
+
+ [!NOTE]
+> The name of the created system managed identity for compute instance or cluster will be in the format /workspace-name/computes/compute-name in your Azure Active Directory.
 
 Once the identity-based authentication is enabled, the compute managed identity is used by default when accessing data within your training jobs. Optionally, you can authenticate with user identity using the steps described in next section.
 
