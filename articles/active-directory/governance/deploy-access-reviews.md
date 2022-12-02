@@ -1,5 +1,5 @@
 ---
-title: Plan an Microsoft Entra access reviews deployment
+title: Plan a Microsoft Entra access reviews deployment
 description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Plan an Microsoft Entra access reviews deployment
+# Plan a Microsoft Entra access reviews deployment
 
 [Microsoft Entra access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
 
