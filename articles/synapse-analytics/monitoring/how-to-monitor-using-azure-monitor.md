@@ -107,7 +107,7 @@ Here are the logs emitted by Azure Synapse Analytics workspaces:
 | SynapseIntegrationTriggerRuns | IntegrationTriggerRuns | Azure Synapse integration trigger runs. |
 
    > [!NOTE]  
-   > The event **SynapseBuiltinSqlReqsEnded** is only emitted for queries that read data from storage, it will not be emitted for queries that only process metadata.
+   > The event **SynapseBuiltinSqlReqsEnded** is only emitted for queries that read data from storage. It will not be emitted for queries that only process metadata.
 
 
 ### Dedicated SQL pool logs
