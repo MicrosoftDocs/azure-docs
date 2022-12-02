@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 12/03/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to create an IBM Db2 provider so that I can monitor the resource through Azure Monitor for SAP solutions.
 ---
