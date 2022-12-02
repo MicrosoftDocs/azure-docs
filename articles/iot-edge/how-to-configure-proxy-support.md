@@ -440,9 +440,15 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 ## Working with traffic-inspecting proxies
 
-If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
+Some proxies have the option of inspecting the traffic sent on TLS-secured connections. One such example we encounter regularly with this behavior is [Zscaler](https://www.zscaler.com). If you intend to use TLS inspection at the proxy, you should take additional steps to successfully run Azure IoT Edge in your environment. The certificate returned by the proxy will not be the certificate from the target server but will be a certificate signed by the proxy's own root certificate. This certificate will not be trusted by edgeAgent or edgeHub since they will not have the root certificate in their trusted root store causing them to reject the spoofed certificate and fail to negotiate a secured TLS connection.
 
-To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
+To resolve this, the proxy's root certificate will need to be trusted by both the host operating system running IoT Edge and the two Edge containers, edgeAgent and edgeHub.
+
+Having the host operating system trust the proxy's certificate will vary upon which distribution of Linux it is running. Consult your distribution's documentation to determine how to add an additional trusted root certificate. After this, you will need to configure your IoT Edge device to communicate through a proxy server.
+
+Once this is complete, adding the proxy's trusted root certificate to edgeAgent and edgeHub on Edge 1.2+ is trivial. You simply need to reference the certificate in the trust_bundle_cert file parameter in `config.yaml`. If you already have certificates in that file, simply append the proxy's certificate to the end of that file. The edgeAgent and edgeHub containers will automatically trust any certificate in that file.
+
+Note that these steps will only resolve the issue with the IoT Edge system containers. If you have other containers, such as a docker proxy, that also need to access the internet, then you will need an alternative mechanism to address those. The recommended method is to bind the proxy's certificate into the container at the appropriate location in the file system so that it is trusted. A description of how to do this is beyond the scope of this document. Your proxy vendor should be able to assist you with this.
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
