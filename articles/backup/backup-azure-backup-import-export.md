@@ -258,7 +258,7 @@ For more information on the status of the import jobs, see [Monitor Azure Import
 
 After the import job successfully completes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure Backup copies the contents of the data from the storage account to the Recovery Services vault.
 
-   :::image type="content" source="./media/backup-azure-backup-import-export/copying=from-storage-account-to-azure-backup-inline.png" alt-text="Screenshot shows how to copy data to Recovery Services vault." lightbox="./media/backup-azure-backup-import-export/copying=from-storage-account-to-azure-backup-expanded.png":::
+   :::image type="content" source="./media/backup-azure-backup-import-export/copying-from-storage-account-to-azure-backup-inline.png" alt-text="Screenshot shows how to copy data to Recovery Services vault." lightbox="./media/backup-azure-backup-import-export/copying-from-storage-account-to-azure-backup-expanded.png":::
 
 At the time of the next scheduled backup, Azure Backup performs an incremental backup.
 
