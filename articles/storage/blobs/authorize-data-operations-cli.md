@@ -11,6 +11,7 @@ ms.date: 07/12/2021
 ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
