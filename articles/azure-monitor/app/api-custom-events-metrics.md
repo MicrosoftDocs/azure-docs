@@ -20,7 +20,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 
 | Method | Used for |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
+| [`TrackPageView`](#page-views) |Pages, screens, panes, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
 | [`GetMetric`](#getmetric) |Zero and multidimensional metrics, centrally configured aggregation, C# only. |
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
@@ -220,7 +220,7 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 ## Page views
 
-In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
+In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or panes, you might want to track a page whenever the user opens a new pane.
 
 User and session data is sent as properties along with page views, so the user and session charts come alive when there's page view telemetry.
 

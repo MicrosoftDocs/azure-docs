@@ -93,7 +93,7 @@ Traffic to one deployment can also be mirrored (copied) to another deployment. M
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
-Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
+Learn how to [safely rollout to online endpoints](how-to-safely-rollout-online-endpoints.md).
 
 ### Application Insights integration
 
@@ -150,7 +150,7 @@ The following table highlights the key differences between managed online endpoi
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
-| **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
+| **Mirrored traffic** | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
 | **No-code deployment** | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
 
 ### Managed online endpoints

@@ -29,7 +29,7 @@ The following sections show you how to calculate each component.
 
 This article uses fictitious prices in all calculations. You can find these sample prices in the [Sample prices](#sample-prices) section at the end of this article. These prices are meant only as examples, and shouldn't be used to calculate your costs.
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
 #### The cost to write
 
@@ -388,7 +388,7 @@ This article uses the following fictitious prices.
 | Price of data retrieval (per GB)                      | $0.02    | $0.01     |
 | Price of high priority data retrieval (per GB)        | $0.10    | N/A       |
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
+For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
 
 For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 

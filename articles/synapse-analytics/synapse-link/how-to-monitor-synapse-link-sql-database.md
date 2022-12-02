@@ -14,10 +14,6 @@ ms.reviewer: imotiwala, yexu
 
 This article provides a guide on how to get started with monitoring your Azure Synapse Link for Azure SQL Database connections. Before you go through this article, you should know how to create and start an Azure Synapse Link for Azure SQL Database link connection from [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md). Once you've created and started your Synapse Link connection, you can monitor your link connection through Synapse Studio or Azure Monitor. 
 
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Monitor the status of an Azure Synapse Link for Azure SQL Database connection in Synapse Studio
 
 You can monitor the status of your Azure Synapse Link connection, see which tables are being initially copied over (*snapshotting*), and see which tables are in continuous replication mode (*replicating*) directly in Synapse Studio. In this section, we'll deep dive link-level monitoring and table-level monitoring:
