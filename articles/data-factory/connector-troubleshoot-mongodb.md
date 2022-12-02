@@ -11,7 +11,7 @@ ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
 
-## Error code: MongoDbUnsupportedUuidType
+# Error code: MongoDbUnsupportedUuidType
 
 - **Message**:
     `Failed to read data via MongoDB client.,
