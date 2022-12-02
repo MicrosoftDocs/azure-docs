@@ -196,7 +196,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 ## Build container image
 
 > [!Important]
-> If you are using AKS 1.23+, make the following changes to the scripts before building the docker image to ensure a seamless migration. 
+> If you are using AKS 1.23+, edit the scripts as shown below before building the docker image, to ensure a seamless migration. 
 >
 > Change the script below
 >
@@ -286,25 +286,6 @@ A single folder is created for each application server. You can view and downloa
 ## Troubleshoot issues
 
 To troubleshoot any issues with the tool, you can look at the log files on the Windows machine running the App Containerization tool. Tool log files are located at *C:\ProgramData\Microsoft Azure Migrate App Containerization\Logs* folder.
-
-If you are using AKS 1.23+, make the following changes to the scripts before building the docker image to ensure a seamless migration. 
-
-Change the script below
-
-```powershell
-# Run entrypoint script.
-COPY ./Entryscript.ps1 c:/Entryscript.ps1
-ENTRYPOINT powershell c:/Entryscript.ps1
-``` 
-to 
-
-```powershell
-# Run entrypoint script. 
-COPY ["./Entryscript.ps1", "c:/Entryscript.ps1"]
-ENTRYPOINT ["powershell", "c:/Entryscript.ps1"]
-```
-
-
 
 ## Next steps
 
