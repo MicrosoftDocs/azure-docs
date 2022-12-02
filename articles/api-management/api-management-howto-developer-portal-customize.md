@@ -184,7 +184,7 @@ When a user visits the developer portal with visibility and access controls appl
 * An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
 
 > [!TIP]
-> Using the administrative interface, you can preview pages as a user associated with a specific group, by selecting the "Impersonate" icon in the menu at the bottom. 
+> Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting the **Impersonate** icon in the menu at the bottom. 
 > 
 
 ### Customization example
