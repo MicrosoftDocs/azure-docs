@@ -1,7 +1,7 @@
 ---
 title: Migrate Load Balancer to availability zone support 
 description: Learn how to migrate Load Balancer to availability zone support.
-author: anaharris-ms
+author: sonmitt
 ms.service: azure
 ms.topic: conceptual
 ms.date: 05/09/2022

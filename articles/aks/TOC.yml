@@ -186,8 +186,8 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
-        - name: Use cluster snapshots (preview)
-          href: managed-cluster-snapshot.md
+        - name: Configure AKS Diagnostics
+          href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
         - name: Use Vertical Pod Autoscaler (preview)

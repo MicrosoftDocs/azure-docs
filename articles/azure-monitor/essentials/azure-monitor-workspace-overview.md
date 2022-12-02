@@ -26,11 +26,15 @@ A single Azure Monitor workspace can collect data from multiple sources, but the
 
 There are several reasons that you may consider creating additional workspaces including the following.
 
-- Azure tenants. If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant.
-- Azure regions. Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations.
-- Data ownership. You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies.
-- Workspace limits. See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces.
-- Multiple environments. You may have Azure Monitor workspaces supporting different environments such as test, pre-production, and production.
+| Criteria | Description |
+|:---|:---|
+| Azure tenants | If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant. |
+| Azure regions | Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations. |
+| Data ownership | You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies. |
+| Multiple environments | You may have Azure Monitor workspaces supporting different environments such as test, pre-production, and production. |
+| Logical boundaries | You may choose to separate your data based on logical boundaries such as application team or company division. |
+| Workspace limits | See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces. If your capacity reaches 80%, you should consider creating multiple workspaces according to logical boundaries that make sense for your organization.  |
+
 
 > [!NOTE]
 > You cannot currently query across multiple Azure Monitor workspaces.

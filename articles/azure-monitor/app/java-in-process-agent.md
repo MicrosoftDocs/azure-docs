@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 11/14/2022
 ms.devlang: java
 ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
