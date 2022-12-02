@@ -93,6 +93,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.Elastic](#microsoftelastic)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
