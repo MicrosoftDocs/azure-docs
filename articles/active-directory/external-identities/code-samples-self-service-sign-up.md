@@ -11,7 +11,7 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # Samples for External Identities self-service sign-up
