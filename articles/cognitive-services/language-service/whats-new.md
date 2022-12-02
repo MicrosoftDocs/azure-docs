@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## December 2022
 
-* New version of the text analysis client library is available in preview for C#/.NET:
+* New version (v5.2.0-beta.1) of the text analysis client library is available in preview for C#/.NET:
     * [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.3.0-beta.1)
     * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
     * [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
