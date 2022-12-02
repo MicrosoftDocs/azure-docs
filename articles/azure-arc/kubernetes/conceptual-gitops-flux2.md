@@ -31,6 +31,9 @@ GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Micros
 
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](#migrate-from-flux-v1) as soon as possible.
+
 ### Controllers
 
 The `microsoft.flux` extension installs by default the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can control which of these controllers is installed and can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
