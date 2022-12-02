@@ -148,7 +148,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - We recommend you avoid using FSLogix when using a personal host pool configuration.
 
-- Virtual Machine provisioning isn't guaranteed in the failover region.
+- Virtual machine provisioning isn't guaranteed in the failover region.
 
 - Run [controlled failover](../site-recovery/azure-to-azure-tutorial-dr-drill.md) and [failback](../site-recovery/azure-to-azure-tutorial-failback.md) tests at least once every six months.
 
