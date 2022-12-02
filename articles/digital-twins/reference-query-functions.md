@@ -26,14 +26,13 @@ A function to determine whether an array property of a twin (supported in DTDL V
 ### Syntax
 
 ```sql
-ARRAY_CONTAINS(<array-to-check>,<contained-value>,<partial-match>)
+ARRAY_CONTAINS(<array-to-check>,<contained-value>)
 ```
 
 ### Arguments
 
 * `<array-to-check>`: An array-type twin property that you want to check for the specified value
 * `<contained-value>`: A string, integer, double, or boolean representing the value to check for inside the array
-* `<partial-match>`: An optional boolean parameter indicating whether partial matches should be included in the result. If this parameter isn't present, it defaults to "true." 
 
 ### Returns
 
@@ -58,8 +57,8 @@ The ARRAY_CONTAINS() function has the following limitations:
     - For example, `SELECT T.name FROM DIGITALTWINS T WHERE ARRAY_CONTAINS (SELECT S.floor_number FROM DIGITALTWINS S, 4)`
 * ARRAY_CONTAINS() is not supported on properties of relationships. 
     - For example, say `Floor.Contains` is a relationship from Floor to Room and it has a `lift` property with a value of `["operating", "under maintenance", "under construction"]`. Queries like this are not supported: `SELECT Room FROM DIGITALTWINS Floor JOIN Room RELATED Floor.Contains WHERE 	Floor.$dtId = 'Floor-35' AND ARRAY_CONTAINS(Floor.Contains.lift, "operating")`.
-* ARRAY_CONTAINS() is not supported if the array is nested. 
-    - For example, say a twin has a `tags` property with a value of `[1, [2,3], 3, 4]`. Queries like this are not supported: `SELECT * FROM DIGITALTWINS WHERE ARRAY_CONTAINS(tags, 2)`.
+* ARRAY_CONTAINS() does not search inside nested arrays. 
+    - For example, say a twin has a `tags` property with a value of `[1, [2,3], 3, 4]`. A search for `2` using the query `SELECT * FROM DIGITALTWINS WHERE ARRAY_CONTAINS(tags, 2)` will return `False`. A search for a value in the top level array, like `1` using the query `SELECT * FROM DIGITALTWINS WHERE ARRAY_CONTAINS(tags, 1)`, will return `True`.
 * ARRAY_CONTAINS() is not supported if the array contains objects.
     - For example, say a twin has a `tags` property with a value of `[Room1, Room2]` where `Room1` and `Room2` are objects. Queries like this are not supported: `SELECT * FROM DIGITALTWINS WHERE ARRAY_CONTAINS(tags, Room2)`.
 
