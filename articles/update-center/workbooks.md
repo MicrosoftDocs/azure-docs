@@ -39,10 +39,10 @@ The gallery lists all the saved workbooks and templates for your workspace. You 
 - In the **Quick start** tile, you can create new workbooks.
 - In the **Recently modified** tile, you can view and edit the workbooks.
 - In the **Update management center** tile, you can view the following summary:
-      - **Machines overall status and configurations** - provides the status of all machines in a specific subscription
-      - **Updates data overview** - provides a summary of machines that have no updates, assessments and reboot needed including the pending Windows and Linux updates by classification and by machine count.
-      - **Schedules/maintenance configurations** - provides a summary of schedules, maintenance configurations and list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
-      - **History of installation runs** - provides a history of machines and maintenance runs.
+   - **Machines overall status and configurations** - provides the status of all machines in a specific subscription
+   - **Updates data overview** - provides a summary of machines that have no updates, assessments and reboot needed including the pending Windows and Linux updates by classification and by machine count.
+   - **Schedules/maintenance configurations** - provides a summary of schedules, maintenance configurations and list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
+   - **History of installation runs** - provides a history of machines and maintenance runs.
     
      :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot of workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
 
