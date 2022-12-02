@@ -89,7 +89,7 @@ az containerapp browse --resource-group myResourceGroup \
 ## Get diagnostic logs using Log Analytics
 
 > [!NOTE]
-> A Log Analytics configuration is required as you [install the application environment extension](azure-arc-enable-cluster.md) to view diagnostic information. If you installed the extension without Log Analytics, skip this step.
+> A Log Analytics configuration is required as you [install the Container Apps extension](azure-arc-enable-cluster.md) to view diagnostic information. If you installed the extension without Log Analytics, skip this step.
 
 Navigate to the [Log Analytics workspace that's configured with your App Service extension](azure-arc-enable-cluster.md), then select **Logs** in the left navigation.
 
@@ -107,7 +107,7 @@ ContainerAppsConsoleLogs_CL
 
 The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.
 
-* **Log_s** contains application logs for a given Application environment extension
+* **Log_s** contains application logs for a given Container Apps extension
 * **AppName_s** contains the Container App app name. In addition to logs you write via your application code, the *Log_s* column also contains logs on container startup and shutdown.
 
 You can learn more about log queries in [getting started with Kusto](../azure-monitor/logs/get-started-queries.md).

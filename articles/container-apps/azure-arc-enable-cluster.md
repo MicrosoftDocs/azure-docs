@@ -19,7 +19,7 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > [!div class="checklist"]
 > * Create a connected cluster.
 > * Create a Log Analytics workspace.
-> * Install the Application environment extension.
+> * Install the Container Apps extension.
 > * Create a custom location.
 > * Create the Azure Container Apps connected environment.
 
@@ -255,9 +255,9 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     ---
 
-## Install the Application environment extension
+## Install the Container Apps extension
 
-1. Set the following environment variables to the desired name of the [Application environment extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
+1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
     # [bash](#tab/bash)
 
@@ -277,7 +277,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     ---
 
-1. Install the Application environment extension to your Azure Arc-connected cluster with Log Analytics enabled. Log Analytics can't be added to the extension later.
+1. Install the Container Apps extension to your Azure Arc-connected cluster with Log Analytics enabled. Log Analytics can't be added to the extension later.
 
     # [bash](#tab/bash)
 
@@ -333,13 +333,13 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     | - | - |
     | `Microsoft.CustomLocation.ServiceAccount` | The service account created for the custom location. It's recommended that it 's set to the value `default`. |
     | `appsNamespace` | The namespace used to create the app definitions and revisions. It **must** match that of the extension release namespace. |
-    | `CLUSTER_NAME` | The name of the Application environment extension Kubernetes environment that will be created against this extension. |
+    | `CLUSTER_NAME` | The name of the Container Apps extension Kubernetes environment that will be created against this extension. |
     | `logProcessor.appLogs.destination` | Optional. Destination for application logs. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
     | | |
 
-1. Save the `id` property of the Application environment extension for later.
+1. Save the `id` property of the Container Apps extension for later.
 
     # [bash](#tab/bash)
 

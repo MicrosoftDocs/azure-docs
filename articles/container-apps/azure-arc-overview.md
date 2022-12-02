@@ -16,7 +16,7 @@ You can run Container Apps on an Azure Arc-enabled Kubernetes cluster on-premise
 Running in an Azure Arc-enabled Kubernetes cluster allows:
 
 - Developers to take advantage of Container Apps' features
-- IT administrators to maintain corporate compliance by hosting Container Apps on an internal infrastructure.
+- IT administrators to maintain corporate compliance by hosting Container Apps on internal infrastructure.
 
 Learn to set up your Kubernetes cluster for Container Apps, via [Set up an Azure Arc-enabled Kubernetes cluster to run Azure Container Apps](azure-arc-enable-cluster.md)
 
@@ -24,7 +24,7 @@ As you configure your cluster, you'll carry out these actions:
 
 - **The connected cluster**, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
 
-- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required revisions into your connected cluster](#resources-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required resources into your connected cluster](#resources-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
 
 - **A custom location**, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 
@@ -32,7 +32,7 @@ As you configure your cluster, you'll carry out these actions:
 
 ## Public preview limitations
 
-The following public preview limitations apply to Container Apps Kubernetes environments.
+The following public preview limitations apply to Azure Container Apps on Azure Arc-enabled Kubernetes.
 
 | Limitation | Details |
 |---|---|
@@ -73,7 +73,7 @@ TODO
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can I deploy the Application environment extension on an ARM64 based cluster?](#can-i-deploy-the-application-environment-extension-on-an-arm64-based-cluster)
+- [Can I deploy the Container Apps extension on an ARM64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
 
@@ -103,7 +103,7 @@ By default, logs from system components are sent to the Azure team. Application 
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
-### Can I deploy the Application environment extension on an ARM64 based cluster?
+### Can I deploy the Container Apps extension on an ARM64 based cluster?
 
 ARM64 based clusters aren't supported at this time.  
 
