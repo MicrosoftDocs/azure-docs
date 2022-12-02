@@ -8,7 +8,7 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: article
-ms.custom: seodec18
+ms.custom: FY23 content-maintenance
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2022
