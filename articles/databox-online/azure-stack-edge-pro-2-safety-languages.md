@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
 
-This article describes where to find the safety instructions for your Azure Stack Edge Pro 2 in other languages, excluding English. Locate the safety instructions in a desired language and make sure to read and observe all the warnings and precautions before you unpack, install, or maintain your Azure Stack Edge Pro 2 device.
+This article describes where to find the safety instructions for your Azure Stack Edge Pro 2 in other languages. Use the safety instructions in a desired language to read and observe all the warnings and precautions before you unpack, install, or maintain your Azure Stack Edge Pro 2 device.
 
 For safety instructions in English, go to [Safety instructions for your Azure Stack Edge Pro 2](./azure-stack-edge-pro-2-safety.md).
 
