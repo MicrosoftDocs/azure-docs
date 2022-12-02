@@ -55,6 +55,13 @@ moments to complete.
 
    :::image type="content" source="media/set-up-lab/finalize-lab.png" alt-text="Create a classroom in Azure Education Hub" border="false":::
 
+1. You lab should now be created. If you are using the invitation code method, share the invite code with who you would like to be in the lab. 
+    :::image type="content" source="media/set-up-lab/lab-created.png" alt-text="Finish creating a lab in education hub" border="false":::
+
+1. Finally, after a student has entered the invitation code, you must visit the Pending approvals section of the lab to finalize the student which will send them an invite to accept a subscription with the specified credit attached to it.
+    :::image type="content" source="media/set-up-lab/finalize-student.png" alt-text="Finalize the invitation code student" border="false":::
+   
+
 ## Next steps
 
 > [!div class="nextstepaction"]
