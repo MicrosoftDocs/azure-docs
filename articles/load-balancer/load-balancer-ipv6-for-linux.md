@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2019
+ms.date: 12/02/2022
 ms.author: mbender
 ---
 
@@ -36,18 +36,26 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
     timeout 10;
     ```
 
-2. Edit the network configuration for the eth0 interface with the following configuration:
+1. Edit the network configuration for the eth0 interface with the following configuration:
 
    * On **Ubuntu 12.04 and 14.04**, edit the */etc/network/interfaces.d/eth0.cfg* file. 
-   * On **Ubuntu 16.04**, edit the */etc/network/interfaces.d/50-cloud-init.cfg* file.
+   * On **Ubuntu 16.04**, create a new override file in the cloud.cfg.d folder that will retain your configuration, for example a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
 
     ```config
     iface eth0 inet6 auto
         up sleep 5
         up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+    
+    network:
+        ethernets:
+            eth0:
+                addresses: 172.16.0.30/24
+                dhcp4: true
+                dhcp6: true
     ```
+1.  Save the file and reboot.
 
-3. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -76,7 +84,7 @@ For reference information about NETPLAN, see https://netplan.io/reference.
     timeout 10;
     ```
 
-2. Edit the */etc/network/interfaces* file, and add the following configuration:
+1. Edit the */etc/network/interfaces* file, and add the following configuration:
 
     ```config
     iface eth0 inet6 auto
@@ -84,7 +92,7 @@ For reference information about NETPLAN, see https://netplan.io/reference.
         up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
     ```
 
-3. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -98,14 +106,14 @@ For reference information about NETPLAN, see https://netplan.io/reference.
     NETWORKING_IPV6=yes
     ```
 
-2. Edit the */etc/sysconfig/network-scripts/ifcfg-eth0* file, and add the following two parameters:
+1. Edit the */etc/sysconfig/network-scripts/ifcfg-eth0* file, and add the following two parameters:
 
     ```config
     IPV6INIT=yes
     DHCPV6C=yes
     ```
 
-3. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -121,13 +129,13 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     sudo zypper install dhcp-client
     ```
 
-2. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and add the following parameter:
+1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and add the following parameter:
 
     ```config
     DHCLIENT6_MODE='managed'
     
 
-3. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -143,13 +151,13 @@ Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. N
     BOOTPROTO='dhcp'
     ```
 
-2. To the */etc/sysconfig/network/ifcfg-eth0* file, add the following parameter:
+1. To the */etc/sysconfig/network/ifcfg-eth0* file, add the following parameter:
 
     ```config
     DHCLIENT6_MODE='managed'
     ```
 
-3. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -169,7 +177,7 @@ Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additiona
     DHCP=ipv6
     ```
 
-2. Renew the IPv6 address:
+1. Renew the IPv6 address:
 
     ```bash
     sudo systemctl restart systemd-networkd
