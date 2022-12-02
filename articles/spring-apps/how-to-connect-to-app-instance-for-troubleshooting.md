@@ -40,26 +40,28 @@ You can assign an Azure role using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
+Use the following steps to assign an Azure role.
+
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Azure Spring Apps service instance.
 1. Select **Access Control(IAM)** from the left menu.
-1. Select **Add** in the command bar, then click **Add role assignment**.
+1. Select **Add** in the command bar, and then select **Add role assignment**.
    
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-1.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-1.png":::
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) page showing the Add role assignment command." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png":::
 
-1. Search for **Azure Spring Apps Connect Role** the list and click next.
+1. Search for **Azure Spring Apps Connect Role** the list, and then select **Next**.
 
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-2.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-2.png":::
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png" alt-text="Screenshot of the Add role assignment page showing Azure Spring Apps Connect Role." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png":::
 
-1. Click **Select members** and search for your username.
+1. Select **Select members**, and then search for your username.
 
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png":::
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/select-members.png" alt-text="Screenshot of the Add role assignment page showing the Select members pane." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/select-members.png":::
 
-1. Click **Review + assign**.
+1. Select **Review + assign**.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following command to assign the *Azure Spring Apps Connect Role* role:
+Use the following command to assign the *Azure Spring Apps Connect Role* role using the Azure CLI:
 
 ```azurecli
 az role assignment create \
@@ -72,9 +74,31 @@ az role assignment create \
 
 ## Connect to an app instance
 
-### Azure CLI
+You can connect to an app instance using the Azure portal or Azure CLI.
 
-If your app contains only one instance, use the following command to connect to the instance:
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to connect to an app instance using Azure portal.
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Open your existing Azure Spring Apps service instance.
+1. Select **Apps** from left the menu, then select one of your apps.
+1. Select **Console** from the left menu.
+1. Select an application instance.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-instance.png" alt-text="Screenshot of the Azure portal Console page showing an app instance." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-instance.png":::
+
+1. Select or input a shell to run in the container.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-shell.png" alt-text="Screenshot of the Azure portal Console page showing a Custom Shell entry." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-shell.png":::
+
+1. Select **Connect**.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-connect.png" alt-text="Screenshot of the Azure portal Console page showing the Connect command." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-connect.png":::
+
+### [Azure CLI](#tab/azure-cli)
+
+If your app contains only one instance, use the following command to connect to the instance in the Azure CLI:
 
 ```azurecli
 az spring app connect \
@@ -115,23 +139,7 @@ az spring app connect \
 
 If your app is deployed with a custom image and shell, you can also use the `--shell-cmd` parameter to specify your shell.
 
-### Portal
-
-1. Open the [Azure portal](https://portal.azure.com).
-1. Open your existing Azure Spring Apps service instance.
-1. Select **Apps** from left the menu, then select one of your apps.
-1. Select **Console** from the left menu.
-1. Choose an application instance.
-
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-1.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-1.png":::
-
-1. Select or input a shell to run in the container.
-
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-2.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-2.png":::
-
-1. Click the **Connect** button.
-
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-3.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade-3.png":::
+---
 
 ## Troubleshoot your app instance
 
@@ -187,11 +195,11 @@ The available tools depend on your service tier and type of app deployment. The 
 | Enterprise Tier       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
 
 > [!NOTE]
-> For the **source code** deployment, the JDK tools aren't included in the path. Please run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
+> JDK tools aren't included in the path for the **source code** deployment type. Run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 
-Using the shell environment inside your application instances has the following limitation:
+Using the shell environment inside your application instances has the following limitations:
 
 - Because the app is running as a non-root user, you can't execute some actions requiring root permission. For example, you can't install new tools by using the system package manager `apt / yum`.
 
