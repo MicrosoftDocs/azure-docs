@@ -35,13 +35,15 @@ Single sign-on is available on session hosts using the following operating syste
 Session Hosts must be Azure AD or Hybrid Joined:  
   - You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. If session hosts need access to SMB shares for FSLogix profiles, you will also need to enable [Kerberos for Azure AD.](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md)  
   - You can also use SSO to access Hybrid Azure AD-joined VMs, but only after [creating a Kerberos Server object within your Active Directory.](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object)    
-> [!NOTE]Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
+> [!NOTE]
+> Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
 
 Connections currently supported:  
   - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. 
   - [Web client](users/connect-web.md).
 
-> [!IMPORTANT]SSO is currently only supported in the Azure Public cloud.
+> [!IMPORTANT]
+> SSO is currently only supported in the Azure Public cloud.
 
 ## Enable single sign-on
 
