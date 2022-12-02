@@ -8,7 +8,7 @@ description: "This article provides an overview of Azure Arc-enabled Kubernetes.
 
 # What is Azure Arc-enabled Kubernetes?
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premises data center (such as VMware vSphere or Azure Stack HCI) to Azure Arc.
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premises data center (such as VMware vSphere or Azure Stack HCI) to Azure through the Arc platform.
 
 When you connect a Kubernetes cluster to Azure, it will:
 
