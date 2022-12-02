@@ -33,7 +33,7 @@ Single sign-on is available on session hosts using the following operating syste
   - Windows Server 2022 with the [2022-09 Cumulative Update for Microsoft server operating system preview (KB5017381)](https://support.microsoft.com/kb/KB5017381) or later installed.
 
 Session Hosts must be Azure AD or Hybrid Joined:  
-  - You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. If session hosts need access to SMB shares for FSLogix profiles, you will also need to enable [Kerberos for Azure AD.](../articles/storage/files/storage-files-identity-auth-azure-active-directory-enable.md)  
+  - You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. If session hosts need access to SMB shares for FSLogix profiles, you will also need to enable [Kerberos for Azure AD.](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md)  
   - You can also use SSO to access Hybrid Azure AD-joined VMs, but only after [creating a Kerberos Server object within your Active Directory.](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object)    
 > [!NOTE]Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
 
