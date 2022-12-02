@@ -149,7 +149,7 @@ Use the following steps to enable or disable remote debugging:
 1. Sign in to your Azure subscription.
 1. Select an app instance, and then select **Enable Remote Debugging**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/vscode-enable-remote-debugging.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/vscode-enable-remote-debugging.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-enable-remote-debugging.png":::
 
 ### Attach debugger
 
@@ -166,7 +166,7 @@ Use the following steps to attach debugger.
 
 1. Select an app instance, and then select **Attach Debugger**. VS Code connects to the app instance and starts remote debugging.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/vscode-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/vscode-remote-debugging-instance.png":::
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png":::
 
 ### Troubleshooting
 
