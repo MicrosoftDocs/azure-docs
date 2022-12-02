@@ -45,12 +45,12 @@ Scaling is driven by three different categories of triggers:
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
 - [TCP](#tcp): Based on the number of concurrent TCP connections to your revision.
-- [Custom](#custom): Based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/) using a KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) with these defaults:
-
-    | Defaults | Seconds |
-    |--|--|
-    | Polling interval | 30 |
-    | Cool down period | 300 |
+- [Custom](#custom): Based on CPU, memory, or supported event-driven data sources such as:
+    - Azure Service Bus
+    - Azure Event Hubs
+    - Apache Kafka
+    - Redis
+    
 
 ## HTTP
 
@@ -224,10 +224,11 @@ Not supported in the Azure portal.
 ## Custom
 
 You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/)  with these defaults:
-    | Defaults | Seconds |
-    |--|--|
-    | Polling interval | 30 |
-    | Cool down period | 300 |
+
+| Defaults | Seconds |
+|--|--|
+| Polling interval | 30 |
+| Cool down period | 300 |
 
 The following example demonstrates how to create a custom scale rule.
 
@@ -329,17 +330,17 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In the CLI command, set the `scale-rule-type` parameter to the specification `type` value.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="9":::
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6,7,8,9,10":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
 
 1. In the CLI command, set the `scale-rule-metadata` parameter to the metadata values.
 
     You'll need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10,11,12,13,14,15,16":::
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="11,12,13":::
 
 ### Authentication
 
@@ -348,13 +349,13 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
 1. In the CLI command, set authentication values for the `scale-rule-auth` parameter. Create an entry for each KEDA `secretTargetRef` parameter. If there are multiple entries, separate them with a space.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="17":::
+    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="8,14":::
 
 ::: zone-end
 
@@ -384,9 +385,9 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In the *Custom rule type* box, enter the scaler `type` value.
 
-1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
-
 ### Authentication
+
+1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
 
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
