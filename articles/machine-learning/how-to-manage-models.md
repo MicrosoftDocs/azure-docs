@@ -48,7 +48,7 @@ When you run a job with model inputs/outputs, you can specify the *mode* - for e
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` 
 ------ | ------ | :---: | :---: | :---: | :---: | :---: 
-`custom` file  | Input  |   | ✓  |  ✓ |  | ✓   
+`custom` file  | Input  |   |  |   |  |    
 `custom` folder    | Input |   | ✓ | ✓  | |✓  
 `mlflow`    | Input |   | ✓ |  ✓ |   |   
 `custom` file | Output  | ✓  |   |    | ✓  | ✓   
