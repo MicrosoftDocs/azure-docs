@@ -19,6 +19,9 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 This article shows how to delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled container soft delete, you can restore deleted containers.
 
+> [!NOTE]
+> The examples in this article assume that you've created a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md) article.
+
 ## Delete a container
 
 To delete a container in .NET, use one of the following methods:
