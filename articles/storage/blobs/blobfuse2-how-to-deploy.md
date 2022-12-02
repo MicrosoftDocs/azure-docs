@@ -75,19 +75,19 @@ Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to
 On an Ubuntu/Debian distribution:
 
 ```bash
-sudo apt-get install blobfuse
+sudo apt-get install blobfuse2
 ```
 
 On a Redhat Enterprise Linux distribution:
 
 ```bash
-sudo yum install blobfuse
+sudo yum install blobfuse2
 ```
 
 On a SUSE distribution:
 
 ```bash
-sudo zypper install blobfuse
+sudo zypper install blobfuse2
 ```
 
 ### Option 2: Build the binaries from source code
