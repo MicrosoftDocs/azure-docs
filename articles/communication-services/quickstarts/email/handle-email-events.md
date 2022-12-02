@@ -116,7 +116,9 @@ In this quickstart, you learned how to consume Email events. You can receive Ema
 > [!div class="nextstepaction"]
 > [Send Email](../email/send-email.md)
 
-You might also want to:
+For schema information and example events, see [Azure Communication Services - Email events](../../../event-grid/communication-services-email-events.md).
 
- - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
- - [Learn about Event Grid](../../../event-grid/overview.md)
+You might also want to see the following articles: 
+
+- [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
+- [Learn about Event Grid](../../../event-grid/overview.md)

@@ -88,4 +88,4 @@ If a child jobs failed, select the name of that child job to enter detail page o
 ## Next steps
 
 - [Track an experiment](how-to-log-view-metrics.md)
-- [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a trained model](how-to-deploy-online-endpoints.md)
