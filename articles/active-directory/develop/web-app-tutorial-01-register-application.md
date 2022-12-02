@@ -40,12 +40,10 @@ Provide a name for the application, then This will be seen by users who will use
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
-
-    :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
-<!-- Refined screenshot required -->
-
 1. Accept the selection of **Accounts in this organizational directory only (Contoso only - Single tenant)** for the **Supported account type**.
 1. Select **Register**.
+
+    :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 
 ### Record the identifiers for the application
 
