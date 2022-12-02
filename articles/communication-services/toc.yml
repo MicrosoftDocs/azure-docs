@@ -140,6 +140,14 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Get users ready for their call with UI Library
+    items:
+      - name: Ensure user is on a supported browser
+        href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+      - name: Request camera and microphone permissions
+        href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+      - name: Microphone and camera setup before a call
+        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-and-microphone-setup.md
   - name: Enable Push Notifications in your chat app
     href: tutorials/add-chat-push-notifications.md
 - name: Concepts
