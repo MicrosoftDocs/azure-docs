@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Apache Spark to wrangle data with Azure Machine Learning
 author: ynpandey
 ms.author: franksolomon
-ms.reviewer: scottpolly
+ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
@@ -138,6 +138,7 @@ To create and configure a Managed (Automatic) Spark compute in an open notebook:
 
 The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
 
+1. Select **Configure session** at the bottom of the screen.
 1. Select a version of **Apache Spark** from the dropdown menu.
 1. Select **Instance type** from the dropdown menu.
 1. Input a Spark **Session timeout** value, in minutes.
@@ -389,5 +390,5 @@ df.head()
 
 - [Code samples for interactive data wrangling with Apache Spark in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/sdk/python/data-wrangling)
 - [Optimize Apache Spark jobs in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-performance.md)
-- [What are Azure Machine Learning pipelines?](/concept-ml-pipelines.md)
-- [Submit Spark jobs in Azure Machine Learning (preview)](/how-to-submit-spark-jobs.md)
+- [What are Azure Machine Learning pipelines?](./concept-ml-pipelines.md)
+- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)

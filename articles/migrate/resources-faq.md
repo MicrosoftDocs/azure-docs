@@ -5,7 +5,7 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 11/16/2022
 ---
 
 # Azure Migrate: Common questions
@@ -94,6 +94,10 @@ You can track your migration journey from within the Azure Migrate project, acro
 ## How do I delete a project?
 
 Learn how to [delete a project](how-to-delete-project.md).
+
+## Can an Azure Migrate resource be moved?
+
+No, Azure Migrate does not support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
 
 ## Next steps
 

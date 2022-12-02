@@ -73,7 +73,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -107,7 +107,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -180,7 +180,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -220,7 +220,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}

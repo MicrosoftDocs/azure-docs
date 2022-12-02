@@ -26,48 +26,48 @@ In this tutorial, you learn how to:
 > * Optionally remove resources in the source region after the move.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options.
+> Tutorials show the quickest path for trying out a scenario and use default options.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
 
-**Requirement** | **Description**
---- | ---
-**Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
-**Resource Mover support** | [Review](common-questions.md) supported regions and other common questions.
-**VM support** |  Check that any VMs you want to move are supported.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/><br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
-**SQL support** | If you want to move SQL resources, review the [SQL requirements list](tutorial-move-region-sql.md#check-sql-requirements).
-**Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
+| Requirement | Description |
+| --- | --- |
+| **Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
+| **Resource Mover support** | [Review](common-questions.md) supported regions and other common questions.|
+| **VM support** |  Check that any VMs you want to move are supported.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/><br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
+| **SQL support** | If you want to move SQL resources, review the [SQL requirements list](tutorial-move-region-sql.md#check-sql-requirements).|
+| **Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).|
+| **Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you. |
 
 ### Review PowerShell requirements
 
 Most move resources operations are the same whether using the Azure portal or PowerShell, with a couple of exceptions.
 
-**Operation** | **Portal** | **PowerShell**
---- | --- | ---
-**Create a move collection** | A move collection (a list of all the resources you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You use PowerShell cmdlets to:<br/><br/> - Create a resource group for the move collection and specify the location for it.<br/><br/> - Assign a managed identity to the collection.<br/><br/> - Add resources to the collection.
-**Remove a move collection** | You can't directly remove a move collection in the portal. | You use a PowerShell cmdlet to remove a move collection.
-**Resource move operations**<br/><br/> (Prepare, initiate move, commit etc.).| Single steps with automatic validation by Resource Mover. | PowerShell cmdlets to:<br/><br/> 1) Validate dependencies.<br/><br/> 2) Perform the move.
-**Delete source resources** | Directly in the Resource Mover portal. | PowerShell cmdlets at the resource-type level.
+| **Operation** | **Portal** | **PowerShell** |
+| --- | --- | --- |
+| **Create a move collection** | A move collection (a list of all the resources you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You use PowerShell cmdlets to:<br/><br/> - Create a resource group for the move collection and specify the location for it.<br/><br/> - Assign a managed identity to the collection.<br/><br/> - Add resources to the collection.|
+| **Remove a move collection** | You can't directly remove a move collection in the portal. | You use a PowerShell cmdlet to remove a move collection.|
+| **Resource move operations**<br/><br/> (Prepare, initiate move, commit, etc.).| Single steps with automatic validation by Resource Mover. | PowerShell cmdlets to:<br/><br/> 1) Validate dependencies.<br/><br/> 2) Perform the move.|
+| **Delete source resources** | Directly in the Resource Mover portal. | PowerShell cmdlets at the resource-type level. |
 
 ### Sample values
 
 We're using these values in our script examples:
 
-**Setting** | **Value**
---- | ---
-Subscription ID | subscription-id
-Source region |  Central US
-Target region | West Central US
-Resource group (holding metadata for move collection) | RG-MoveCollection-demoRMS
-Move collection name | PS-centralus-westcentralus-demoRMS
-Resource group (source region) | PSDemoRM
-Resource group (target region) | PSDemoRM-target
-Resource Move service location | East US 2
-IdentityType | SystemAssigned
-VM to move | PSDemoVM
+| **Setting** | **Value** |
+| --- | --- |
+| Subscription ID | subscription-id |
+| Source region |  Central US |
+| Target region | West Central US |
+| Resource group (holding metadata for move collection) | RG-MoveCollection-demoRMS |
+| Move collection name | PS-centralus-westcentralus-demoRMS |
+| Resource group (source region) | PSDemoRM |
+| Resource group (target region) | PSDemoRM-target |
+| Resource Move service location | East US 2 |
+| IdentityType | SystemAssigned |
+| VM to move | PSDemoVM |
 
 ## Sign in to Azure
 
@@ -79,7 +79,7 @@ Connect-AzAccount – Subscription "<subscription-id>"
 
 ## Set up the move collection
 
-The MoveCollection object stores metadata and configuration information about resources you want to move. To set up a move collection, you do the following:
+The MoveCollection object stores metadata and configuration information about the resources you want to move. To set up a move collection, you do the following:
 
 - Create a resource group for the move collection.
 - Register the service provider to the subscription, so that the MoveCollection resource can be created.
@@ -167,7 +167,7 @@ Add resources as follows:
 
     ![Output text after retrieving the resource ID](./media/tutorial-move-region-powershell/output-retrieve-resource.png)
 
-2. Create the target resource settings object in accordance with the resource you're moving. In our case it's a VM.
+2. Create the target resource settings object per the resource you're moving. In our case, it's a VM.
 
     ```azurepowershell-interactive
     $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Api202101.VirtualMachineResourceSettings
@@ -278,7 +278,7 @@ Add the source resource group that contains resources you want to move to the mo
 You usually need to prepare resources in the source region before the move. For example:
 
 - To move stateless resources such as Azure virtual networks, network adapters, load balancers, and network security groups, you might need to export an Azure Resource Manager template.
-- To move stateful resources such as Azure VMs and SQL databases, you might need to start replicating resources from the source to destination region.
+- To move stateful resources such as Azure VMs and SQL databases, you might need to start replicating resources from the source to the destination region.
 
 In this tutorial, since we're moving VMs, we need to prepare the source resource group, and then initiate and commit its move, before we can start preparing VMs.
 
@@ -352,7 +352,7 @@ After preparing and moving the source resource group, we can prepare VM resource
     ![Output text after initating prepare of all resources](./media/tutorial-move-region-powershell/initiate-prepare-all.png)
 
     > [!NOTE]
-    > You can provide the source resource ID instead of resource name as the input parameters for the Prepare cmdlet, as well as in the Initiate Move and Commit cmdlets. To do this, run:
+    > You can provide the source resource ID instead of the resource name as the input parameters for the Prepare cmdlet, as well as in the Initiate Move and Commit cmdlets. To do this, run:
 
     ```azurepowershell-interactive
         Invoke-AzResourceMoverPrepare -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResourceInputType MoveResourceSourceId  -MoveResource $('/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/PSDemoRMS/providers/Microsoft.Network/networkSecurityGroups/PSDemoVM-nsg')
@@ -382,7 +382,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
 ## Discard or commit?
 
-After the initial move, you can decide whether you want to commit the move, or to discard it.
+After the initial move, you can decide whether you want to commit the move or discard it.
 
 - **Discard**: You might discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of *Initiate move pending*. You can then initiate the move again if needed.
 - **Commit**: Commit completes the move to the target region. After committing, a source resource will be in a state of *Delete source pending*, and you can decide if you want to delete it.

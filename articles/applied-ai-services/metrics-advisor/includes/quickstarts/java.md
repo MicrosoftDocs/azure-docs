@@ -28,7 +28,7 @@ ms.author: mbullwin
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
     
-## Setting up
+## Set up
 
 ### Create a new Gradle project
 
@@ -72,7 +72,7 @@ Navigate to the new folder and create a file called *MetricsAdvisorQuickstarts.j
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples), which contains the code examples in this quickstart.
 
 
-## Creating environment variables
+## Environment variables
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
@@ -81,7 +81,7 @@ To successfully make a call against the Anomaly Detector service, you'll need th
 | `METRICS_ADVISOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
 | `METRICS_ADVISOR_KEY` | The key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 |`METRICS_ADVISOR_API_KEY` |The key value can be found under **Settings** >  **API keys** when examining your resource from the [Metrics Advisor portal](https://metricsadvisor.azurewebsites.net/). You can use either `KEY1` or `KEY2`.  |
-|`SQL_CONNECTION_STRING` | This quickstart requires you to have your own SQL Database + connection string. An example connection string would look similar to the following example:`Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>` for more information on constructing SQL connection strings, see the [SQL documentation](/azure/applied-ai-services/metrics-advisor/data-feeds-from-different-sources#azure-sql-database--sql-server).  |
+|`SQL_CONNECTION_STRING` | This quickstart requires you to have your own SQL Database + connection string. An example connection string would look similar to the following example:`Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>` for more information on constructing SQL connection strings, see the [SQL documentation](../../data-feeds-from-different-sources.md#azure-sql-database--sql-server).  |
 |`SQL_QUERY`| Unique query specific to your dataset.|
 
 ### Create environment variables
@@ -157,7 +157,7 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
-### Creating your java application
+## Create your application
 
 Replace the contents of your .java file with the following:
 

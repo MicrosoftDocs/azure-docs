@@ -553,9 +553,9 @@ The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and 
 
 Based on customer feedback, we've released a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
 
-### Azure Monitor for Azure Virtual Desktop is now in General Availability
+### Azure Virtual Desktop Insights is now in General Availability
 
-Azure Monitor for Azure Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+Azure Virtual Desktop Insights is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](insights.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
 
 ### March 2021 updates for Teams on Azure Virtual Desktop
 
@@ -641,9 +641,9 @@ We've recently published [an article about the Azure security baseline](security
 
 Here's what changed in December 2020: 
 
-### Azure Monitor for Azure Virtual Desktop
+### Azure Virtual Desktop Insights
 
-The public preview for Azure Monitor for Azure Virtual Desktop is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Azure Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
+The public preview for Azure Virtual Desktop Insights is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Azure Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
 
 ### Azure Resource Manager template change 
 

@@ -35,15 +35,23 @@ Microsoft will work with Thales to ensure that customers meet the prerequisites 
 
 The HSM base firmware installed is Thales payShield10K base software version 1.4a 1.8.3 with the Premium Package license. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
 
+The Premium Package license included in Azure payment HSM features: 
+- Premium Key Management
+- Magnetic Stripe Issuing 
+- Magnetic Stripe Transaction Processing
+- EMV Chip, Contactless & Mobile Issuing 
+- EMV Transaction Processing 
+- Premium Data Protection 
+- Remote payShield Manager
+- Hosted HSM
+
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs, as needed. If customers have questions or require assistance, they should work with Thales support.
 
 Microsoft is responsible for applying payShield security patches to unallocated HSMs.  
 
 ## Microsoft support
 
-Microsoft will provide support for hardware issues, networking issues, and provisioning issues.
-
-Explore the range of Azure support options and choose the plan that best fits at [Microsoft Support Plans](https://azure.microsoft.com/support/plans/). Customers should understand initial response time, listed at [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
+Microsoft will provide support for hardware issues, networking issues, and provisioning issues. Enterprise customers should contact their CSAM to find out details of their support contract .
 
 Microsoft support can be contacted by creating a support ticket through the Azure portal:
 

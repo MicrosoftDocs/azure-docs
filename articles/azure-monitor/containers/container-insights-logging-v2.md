@@ -63,8 +63,8 @@ If your ConfigMap doesn't yet have the `log_collection_settings.schema` field, y
    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
 >[!NOTE]
->* The configuration change can take a few minutes to complete before it takes effect. All OMS agent pods in the cluster will restart. 
->* The restart is a rolling restart for all OMS agent pods. It won't restart all of them at the same time.
+>* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
+>* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
