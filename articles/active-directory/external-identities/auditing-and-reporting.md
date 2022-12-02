@@ -31,7 +31,7 @@ The Azure AD audit logs provide records of system and user activities, including
 
 You can dive into each of these events to get the details. For example, let's look at the user update details.
 
-:::image type="content" source="media/auditing-and-reporting/activity-details.png" alt-text="Screenshot showing and example of activity details output." lightbox="media/auditing-and-reporting/activity-details-large.png":::
+:::image type="content" source="media/auditing-and-reporting/activity-details.png" alt-text="Screenshot showing an example of activity details output." lightbox="media/auditing-and-reporting/activity-details-large.png":::
 
 You can also export these logs from Azure AD and use the reporting tool of your choice to get customized reports.
 
