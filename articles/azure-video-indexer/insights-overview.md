@@ -28,9 +28,9 @@ Here some common insights:
 |Speakers|Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.|
 |Transcript|For more information, see [Transcription, translation, language](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context).|
 
-For information about what features and other insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-models).
+For information about features and other insights, see [Azure Video Indexer insights](video-indexer-overview.md#video-models).
 
-Once you are [set up](video-indexer-get-started.md) with Azure Video Indexer, get insights as described below. You can enable and view some insights in the [Azure Video Indexer](https://www.videoindexer.ai/) website. You can view all the available insights by downloading json file(s).
+Once you [set up](video-indexer-get-started.md) a Azure Video Indexer account and [upload a video](upload-index-videos.md), you can view insights as described below.
 
 ## Get the insights using the website
 
@@ -61,8 +61,10 @@ This API returns a URL only with a link to the specific resource type you reques
 
 [!INCLUDE [artifacts](./includes/artifacts.md)]
 
+## Examine the Azure Video Indexer output
+
+For more information, see [Examine the Azure Video Indexer output]( video-indexer-output-json-v2.md).
+
 ## Next steps
 
-- View the [Overview](video-indexer-overview.md) topic for all the available Azure Video Indexer features.
-- [Examine output JSON](video-indexer-output-json-v2.md) and check out other **How to guides**.
-- [View and edit video insights](video-indexer-view-edit.md).
+[View and edit video insights](video-indexer-view-edit.md).
