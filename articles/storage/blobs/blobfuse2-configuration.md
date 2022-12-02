@@ -1,7 +1,7 @@
 ---
-title: Configure settings for BlobFuse2
+title: How to configure settings for BlobFuse2
 titleSuffix: Azure Storage
-description: Learn about your options for setting and changing configuration settings for BlobFuse2.
+description: Learn how to configure settings for BlobFuse2.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ---
 
-# Configure settings for BlobFuse2
+# How to configure settings for BlobFuse2
 
 You can use configuration settings to manage BlobFuse2 in your deployment. Through configuration settings, you can set these aspects of how BlobFuse2 works in your environment:
 

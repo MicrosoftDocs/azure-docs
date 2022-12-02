@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ---
 
-# Troubleshoot issues in BlobFuse2
+# How to troubleshoot issues in BlobFuse2
 
 This article provides references to help you troubleshoot BlobFuse2 issues.
 ## BlobFuse2 troubleshooting guide

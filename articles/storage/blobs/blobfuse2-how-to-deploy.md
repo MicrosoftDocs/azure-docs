@@ -1,7 +1,7 @@
 ---
-title: Use BlobFuse to mount an Azure Blob Storage container on Linux - BlobFuse2
+title: How to mount an Azure Blob Storage container on Linux with BlobFuse2
 titleSuffix: Azure Storage
-description: Learn how to use the latest version of BlobFuse, BlobFuse2, to mount an Azure Blob Storage container on Linux.
+description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
@@ -12,16 +12,16 @@ ms.date: 12/02/2022
 ms.custom: engagement-fy23
 ---
 
-# Mount an Azure Blob Storage container on Linux with BlobFuse2
+# How to mount an Azure Blob Storage container on Linux with BlobFuse2
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
-- [Install BlobFuse2](#install-blobfuse2)
-- [Configure BlobFuse2](#configure-blobfuse2)
-- [Mount a blob container](#mount-a-blob-container)
-- [Access data](#access-data)
+- [Install BlobFuse2](#how-to-install-blobfuse2)
+- [Configure BlobFuse2](#how-to-configure-blobfuse2)
+- [Mount a blob container](#how-to-mount-a-blob-container)
+- [Access data](#how-to-access-data)
 
-## Install BlobFuse2
+## How to install BlobFuse2
 
 To install BlobFuse2, you have two basic options:
 
@@ -97,7 +97,7 @@ To build the BlobFuse2 binaries from source code:
 > [!TIP]
 > If you need to install Go, see [Download and install Go](https://go.dev/doc/install).
 
-## Configure BlobFuse2
+## How to configure BlobFuse2
 
 You can configure BlobFuse2 by using various settings. Some of the typical settings include:
 
@@ -203,7 +203,7 @@ You must grant access to the storage account for the user who mounts the contain
 
 You can provide authorization information in a configuration file or in environment variables. For more information, see [Configure settings for BlobFuse2](blobfuse2-configuration.md).
 
-## Mount a blob container
+## How to mount a blob container
 
 > [!IMPORTANT]
 > BlobFuse2 doesn't support overlapping mount paths. If you run multiple instances of BlobFuse2, make sure that each instance has a unique and non-overlapping mount point.
@@ -227,7 +227,7 @@ mkdir test
 echo "hello world" > test/blob.txt
 ```
 
-## Access data
+## How to access data
 
 Generally, you can work with the BlobFuse2-mounted storage like you would work with the native Linux file system. It uses the virtual directory scheme with a forward slash (`/`) as a delimiter in the file path and supports basic file system operations such as `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
 
