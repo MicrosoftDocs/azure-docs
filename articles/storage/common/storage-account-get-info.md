@@ -6,7 +6,7 @@ services: storage
 author: jimmart-dev
 
 ms.author: jammart
-ms.date: 12/01/2022
+ms.date: 12/02/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -173,7 +173,7 @@ az storage account show-connection-string --resource-group <resource-group> --na
 
 ## Get the creation time of the account access keys for a storage account
 
-If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing related configurations such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
+If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing configurations or tasks that rely on the keys, such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
@@ -188,7 +188,7 @@ To display the creation time of the account access keys for a storage account in
 
 # [PowerShell](#tab/powershell)
 
-To return the creation time of the account access keys for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get the account access key creation time. In this sample code we get the keyCreationTime for both keys and display the value of each key. We also test whether each value is null to distinguish a blank string value from a null value.:
+To return the creation time of the account access keys for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get the account access key creation time. In the sample code below we get the keyCreationTime for both keys and display the value of each We also test whether each value is null to distinguish a blank string value from a null value.:
 
 ```azurepowershell
 $rgName      = <resource-group>
