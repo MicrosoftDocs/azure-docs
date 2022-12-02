@@ -1,6 +1,6 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
+description: Reference for the advanced policies available for use in Azure API Management.
 author: dlepow
 ms.topic: article
 ms.date: 04/28/2022
@@ -10,11 +10,9 @@ ms.author: danlep
 
 # API Management advanced policies
 
-This article provides a reference for advanced API Management policies, such as those that are based on policy expressions. 
+The following API Management policies are for advanced use, including use of policy expressions. 
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
-## <a name="AdvancedPolicies"></a> Advanced policies
 
 -   [Control flow](choose-policy.md) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](forward-request-policy.md) - Forwards the request to the backend service.
@@ -32,7 +30,6 @@ This article provides a reference for advanced API Management policies, such as 
 -   [Set status code](set-status-policy.md) - Changes the HTTP status code to the specified value.
 -   [set-variable-policy.md](set-variable-policy.md) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
 -   [Trace](trace-policy.md) - Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
--   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](choose-policy.md) policies to complete before proceeding.
-
+-   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -173,7 +173,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 | `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
 | `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.  | No  | 
 | `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 
-| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) policy.  | No  | 
+| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
 | `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
 | `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
 | `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 

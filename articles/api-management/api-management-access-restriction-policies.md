@@ -13,7 +13,7 @@ ms.author: danlep
 
 # API Management access restriction policies
 
-This article provides a reference for API Management access restriction policies. 
+The following API Management policies are used for access restriction. 
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
