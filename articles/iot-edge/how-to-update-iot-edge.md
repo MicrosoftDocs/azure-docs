@@ -24,8 +24,8 @@ You should update the IoT Edge runtime and application layers use the same relea
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
 1. Verify versions match
-   * Use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.4.2*.
-   * In your deployment runtime settings, verify *edgehub* and *edgeagent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.4.2, the image versions would be 1.4. For example, *mcr.microsoft.com/azureiotedge-hub:1.4* and *mcr.microsoft.com/azureiotedge-agent:1.4*.
+   * On your device, use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.4.2*.
+   * In your device deployment runtime settings, verify *edgehub* and *edgeagent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.4.2, the image versions would be 1.4. For example, *mcr.microsoft.com/azureiotedge-hub:1.4* and *mcr.microsoft.com/azureiotedge-agent:1.4*.
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
