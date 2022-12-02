@@ -17,9 +17,10 @@ ms.topic: how-to
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
 1. Under **Monitoring**, select **Workbooks** to view the Update management center (Preview)| Workbooks|Gallery
 1. Select **Quick start** tile > **Empty** or alternatively, you can select **+New** to create a workbook.
-1. Select **+Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook to add to the workbook.
+1. Select **+Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
 
    :::image type="content" source="./media/manage-workbooks/create-workbook-elements.png" alt-text="Screenshot of how to create workbook using elements.":::
+
 1. Select **Done Editing**.
 
 
