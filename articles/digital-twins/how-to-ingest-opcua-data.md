@@ -49,7 +49,7 @@ Below is a diagram illustrating the data flow through this solution, followed by
 
 ### Mapping OPC UA data to the ISA95 hierarchy model
 
-This solution uses [ISA95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95) as the modeling system to represent digital twin data received from OPC UA. Here are the steps taken by the UA Cloud Twin to map OPC UA data to the ISA95 hierarchy model.
+This solution uses [ISA95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95) as the ontology to describe digital twins. Here are the steps taken by the UA Cloud Twin to map OPC UA data to the ISA95 hierarchy model.
 1. The UA Cloud Twin takes the OPC UA Publisher ID and creates ISA95 Area assets for each one.
 1. The UA Cloud Twin takes the combination of the OPC UA Application URI and the OPC UA Namespace URIs discovered in the OPC UA telemetry stream (specifically, in the OPC UA PubSub metadata messages), and creates ISA95 Work Center assets for each one. UA Cloud Publisher sends the OPC UA PubSub metadata messages to a separate broker topic to make sure all metadata can be read by UA Cloud Twin before the processing of the telemetry messages starts.
 1. UA Cloud Twin takes each OPC UA Field discovered in the received Dataset metadata and creates an ISA95 Work Unit asset for each.
