@@ -29,6 +29,12 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 |:--:|:--:|:--:|:--:|:--:|
 | Supported| Supported | Supported | Supported| Supported |
 
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document. For more information *see* [Custom model build mode](concept-custom.md#build-mode)
+
 ## Tabular fields
 
 With the release of API versions **2022-06-30-preview** and  later, custom template models will add support for **cross page** tabular fields (tables):  
