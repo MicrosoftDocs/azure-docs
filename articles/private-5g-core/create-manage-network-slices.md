@@ -16,12 +16,22 @@ ms.custom: template-how-to
 
 In this how-to guide, you'll learn how to view, create, modify, and delete network slices using the Azure portal. You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
 
+> [!IMPORTANT]
+> You can't create, manage or delete network slices when a packet core instance is running. Choose one of the following options:
+>
+> - Configure all the network slices required for your solution before deploying a site.
+> - If you already have a site deployed:
+>     1. Uninstall the packet core instance by following [Modify the packet core instance in a site](modify-packet-core.md) and setting the **Custom ARC location** field to **None**. Keep a record of your previous custom location value.
+>     1. Configure all the network slices required for your deployment.
+>     1. Follow [Modify the packet core instance in a site](modify-packet-core.md) again to reset the **Custom ARC location** field to the recorded custom location value.
+
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - If you're creating a new slice, collect the information listed in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice). If the slice will be used by 4G UEs, you don't need to collect SST and SD values.
 - If you're making changes to a slice, refer to [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to collect the required values and make sure they're in the correct format.
+- Navigate to your **Azure Network Function Manager - Network Function** resource and make sure that the **Provisioning State** field contains **Succeeded**. This to avoid errors when managing your network slices by ensuring no other processes are running.
 
 ## View existing network slices
 
@@ -96,4 +106,5 @@ To delete a network slice:
 
 ## Next steps
 
-See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.
+- [Collect the required information for a site](collect-required-information-for-a-site.md)
+- See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

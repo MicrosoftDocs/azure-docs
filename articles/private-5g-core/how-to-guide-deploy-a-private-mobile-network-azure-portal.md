@@ -76,7 +76,8 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 ## Next steps
 
-You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network.  
+You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network. If you want to configure your mobile network to have more than one network slice, provision all the required slices before creating a site.
 
+- [Create and manage network slices](create-manage-network-slices.md)
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
