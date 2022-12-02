@@ -11,7 +11,7 @@ ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
 
-# Troubleshoot the mongodb connector in Azure Data Factory and Azure Synapse
+# Troubleshoot the MongoDB connector in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
