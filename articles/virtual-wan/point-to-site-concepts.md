@@ -50,7 +50,7 @@ If a P2S VPN gateway is configured to use RADIUS-based authentication, the P2S V
 
 ### Azure Active Directory Authentication concepts
 
-The following concepts are related to server configurations that use Azure Active Directory based authentication. Azure Active Directory based authentication is only available if the tunnel type is OpenVPN.
+The following concepts are related to server configurations that use Azure Active Directory-based authentication. Azure Active Directory-based authentication is only available if the tunnel type is OpenVPN.
 
 | Concept | Description | Available Parameters|
 |--| --|--|
@@ -99,7 +99,7 @@ The following sections describe concepts associated with the P2S VPN gateway. Ev
 
 |Concept| Description| Notes|
 |--| --|--|
-| Use Remote/On-premises RADIUS server setting | Controls whether or not Virtual WAN can forward RADIUS authentication packets to RADIUS servers hosted on-premises or in a Virtual Network connected to a different Virtual Hub. | This setting has two values, true or false. When Virtual WAN is configured to use RADIUS based authentication, Virtual WAN P2S gateway serves as a RADIUS proxy that sends authentication requests to your RADIUS severs. This setting (if true) allows Virtual WAN gateway to communicate with RADIUS servers deployed on-premises or in a Virtual Network connected to a different hub. If false, the Virtual WAN will only be able to authenticate with RADIUS servers hosted in Virtual Networks connected to the hub with the gateway.|
+| Use Remote/On-premises RADIUS server setting | Controls whether or not Virtual WAN can forward RADIUS authentication packets to RADIUS servers hosted on-premises or in a Virtual Network connected to a different Virtual Hub. | This setting has two values, true or false. When Virtual WAN is configured to use RADIUS-based authentication, Virtual WAN P2S gateway serves as a RADIUS proxy that sends authentication requests to your RADIUS severs. This setting (if true) allows Virtual WAN gateway to communicate with RADIUS servers deployed on-premises or in a Virtual Network connected to a different hub. If false, the Virtual WAN will only be able to authenticate with RADIUS servers hosted in Virtual Networks connected to the hub with the gateway.|
 | RADIUS Proxy IPs | RADIUS authentication packets sent by the P2S VPN gateway to your RADIUS server have source IPs specified by the RADIUS Proxy IP's field. These IPs need to be allow-listed as RADIUS clients on your RADIUS server. | This parameter isn't directly configurable. If 'Use Remote/On-premises RADIUS server' is set to true, the RADIUS Proxy IPs are automatically configured as IP addresses from client address pools specified on the gateway. If this setting is false, the IPs are IP addresses from within the hub address space. RADIUS proxy IPs can be found on Azure portal on the P2S VPN gateway page. |
 
 ### Connection configuration concepts
