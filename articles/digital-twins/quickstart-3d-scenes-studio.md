@@ -202,25 +202,19 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
 1. Skip the **Twins** tab, which isn't used in this quickstart. 
 
-1. Switch to the **Visual rules** tab. *Visual rules* are data-driven overlays on your elements that you can configure to indicate the health or status of the element. Here, you'll set value ranges for a property on the element and associate certain colors with each range.
+1. Switch to the **Visual rules** tab. *Visual rules* are data-driven overlays on your elements that you can configure to indicate the health or status of the element. Here, you'll identify a problematic value range for a property on the element, and associate values in this range with the color red in the visual.
 
     1. Select **Add Rule**.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Visual rules options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png":::
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Visual rules options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png":::
 
-    1. Enter a **Display name** of *Failed pickups*. Leave the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *FailedPickupsLastHr*.Then, select **New condition**.
+    1. Enter a **Display name** of *Failed pickups*. Leave the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *FailedPickupsLastHr*.Then, select **Add condition**.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the New visual rule options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png":::
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the New visual rule options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png":::
 
-    1. In this sample scenario, let's flag that when an arm misses three or more pickups in an hour, it requires maintenance. Define a value range between *3* and *Infinity* (the min range value is inclusive, and the max value is exclusive), and assign a **Mesh coloring** of red. Select **Save**.
+    1. In this sample scenario, let's flag that when an arm misses three or more pickups in an hour, it requires maintenance. Define a value range between *3* and *Infinity* (the min range value is inclusive, and the max value is exclusive), and assign an **Element coloring** of red. Select **Save**.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
-
-    1. Next, let's create a second condition that shows an alert badge when the arm fails to pick up any package. Change the **Property expression** to the *PickupFailedAlert* property, and select **New condition** again to define the second condition.
-    
-    *TO-DO: Describe the bool condition selection.* Create a **Badge** with a color and icon choice. Select **Save**.
-
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-4.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the second described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-4.png":::
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
 
 1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add two visual widgets to display property information for the arm element.
 

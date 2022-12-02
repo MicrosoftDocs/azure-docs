@@ -230,7 +230,7 @@ Choose a **Display name** for the rule.
 
 Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-Once you've defined your property expression, select **New condition** to define the conditional visual effects.
+Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The described fields are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png":::
 
