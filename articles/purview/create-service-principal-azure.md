@@ -44,11 +44,11 @@ You can create a new or use an existing service principal in your Azure Active D
 
     :::image type="content" source="media/create-service-principal-azure/create-service-principal-azure-app-select.png" alt-text="Screenshot that shows the app for registration.":::
 
-1. Click on the **Add a certificate or secret**
+1. Select **Add a certificate or secret**
 
     :::image type="content" source="media/create-service-principal-azure/create-service-principal-azure-add-secret.png" alt-text="Screenshot that shows the app.":::
 
-1. Click on the **+ New client secret** under **Client secrets**
+1. Select **+ New client secret** under **Client secrets**
 
     :::image type="content" source="media/create-service-principal-azure/create-service-principal-azure-new-client-secret.png" alt-text="Screenshot that shows the client secret menu.":::
 
