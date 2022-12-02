@@ -63,7 +63,7 @@ You can also do local, offline development with [MS SQL Server Express](https://
 
 ### Set up your local Docker-based SQL Server
 
-You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](/powershell/scripting/install/installing-powershell-on-linux) and [macOS](/powershell/scripting/install/installing-powershell-on-macos).
+To run these steps, you will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local SQL Server database on Docker. Note that PowerShell can be installed on Windows, macOS, or Linux using the installation instructions [here](/powershell/scripting/install/installing-powershell).
 
 ```powershell
 # primary parameters
