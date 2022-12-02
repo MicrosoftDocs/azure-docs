@@ -279,9 +279,6 @@ If you use Azure platform images, you can update the image by modifying the *ima
 If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 
->[!NOTE]
-> These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than *0*.
-
 
 ## Next steps
 In this tutorial, you learned how to modify various aspects of your scale set and individual instances using PowerShell.
