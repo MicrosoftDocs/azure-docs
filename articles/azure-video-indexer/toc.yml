@@ -69,6 +69,8 @@
     href: manage-multiple-tenants.md
   - name: Using at scale 
     href: considerations-when-use-at-scale.md
+  - name: Insights
+    href: insights-overview.md          
   - name: Customizing content models
     items:
     - name: Overview
@@ -85,8 +87,6 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
-  - name: Insights
-    href: insights-overview.md      
   - name: Post-production insights
     items:
     - name: Slate detection

@@ -132,6 +132,8 @@ items:
         href: how-to-use-enterprise-spring-cloud-gateway.md
       - name: Configure Spring Cloud Gateway
         href: how-to-configure-enterprise-spring-cloud-gateway.md
+      - name: Debug your apps remotely
+        href: how-to-remote-debugging-app-instance.md
       - name: Use VMware Tanzu Application Accelerator
         href: how-to-use-accelerator.md
       - name: Use Tanzu Application Platform GUI tools
