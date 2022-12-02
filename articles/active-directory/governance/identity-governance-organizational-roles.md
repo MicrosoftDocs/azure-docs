@@ -64,7 +64,7 @@ You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-
 
 If the ongoing maintenance of roles are delegated, then you can delegate the administration of access packages by creating a catalog for each part of the organization you will be delegating to.
 
-If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create#create-a-catalog-with-powershell).
+If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create.md#create-a-catalog-with-powershell).
 
 If you are not planning to delegate the administration of the access packages, then you can keep the access packages in a single catalog.
 
