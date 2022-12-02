@@ -47,7 +47,7 @@ There are many ways to achieve this, especially for C# users who may leverage [V
 However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
 
 ```cmd
-func extensions install --package Microsoft.Azure.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
+func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
 ```
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-extensions).
