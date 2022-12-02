@@ -105,7 +105,8 @@ Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](/az
 
 ## 6. Create and publish labs
 
-Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. Creating and selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
+Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. 
+Creating a selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
 ### Lab strategies
 
 You cannot migrate existing labs to the August 2022 Update. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.

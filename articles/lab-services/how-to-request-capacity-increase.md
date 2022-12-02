@@ -12,8 +12,6 @@ ms.date: 10/06/2022
 # Request a core limit increase
 If you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-For example, you may need to carry more capacity than you actually need for a single session to allow for a short overlap period between sessions. Often you need to keep the previous session's labs available to allow students to finish incomplete work.  However, we don't recommend that you make the full capacity request immediately, instead break it into separate requests starting with the immediate session's needs. Later, you can request the capacity you need for the period between sessions.
-
 For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 ## Prepare to submit a request
 Before you begin your request for a core limit increase, you should make sure that you have all the information you need available and verify that you have the appropriate permissions. Gather information like the number and size of cores you want to add, the regions you can use, and the location of resources like your existing labs and virtual networks.  
@@ -81,6 +79,8 @@ Remember that the total number of cores is the existing cores and the new cores 
 
 ## Best practices for requesting a core limit increase
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
+
+For example, you may need to carry more capacity than you actually need for a single session to allow for a short overlap period between sessions. Often you need to keep the previous session's labs available to allow students to finish incomplete work.  However, we don't recommend that you make the full capacity request immediately, instead break it into separate requests starting with the immediate session's needs. Later, you can request the capacity you need for the period between sessions.
 
 
 ## Start a new support request
