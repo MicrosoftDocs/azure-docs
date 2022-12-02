@@ -30,7 +30,7 @@ If you are still using a deprecated and unsupported version of Azure AD Connect,
 
  Follow this link to see if you are eligible for Azure AD Cloud Sync.
 
- 2.	If you are not yet eligible for Azure AD Cloud Sync, please follow this [link to download](https://www.microsoft.com/download/details.aspx?id=47594) and install the latest version of Azure AD Connect. In most cases, upgrading to the latest version will only take a few moments. To read more about upgrading your Azure AD Connect server, please follow this link.
+ 2.	If you are not yet eligible for Azure AD Cloud Sync, please follow this [link to download](https://www.microsoft.com/download/details.aspx?id=47594) and install the latest version of Azure AD Connect. In most cases, upgrading to the latest version will only take a few moments. For more information, see [Upgrading Azure AD Connect from a previous version.](how-to-upgrade-previous-version.md).
 
 
 ## Next steps
