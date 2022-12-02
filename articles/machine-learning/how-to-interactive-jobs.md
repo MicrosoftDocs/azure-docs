@@ -210,7 +210,7 @@ You can access the applications only when they are in **Running** status and onl
 ### Interact with the applications
 When you click on the endpoints to interact when your job, you're taken to the user container under your working directory, where you can access your code, inputs, outputs, and logs. If you run into any issues while connecting to the applications, the interactive capability and applications logs can be found from **system_logs->interactive_capability** under **Outputs + logs** tab.
 
-:::image type="content" source="./media/interactive-jobs/ij-logs.png" alt-text="Screenshot of interactive jobs interactive logs panel location.":::
+:::image type="content" source="./media/interactive-jobs/interactive-logs.png" alt-text="Screenshot of interactive jobs interactive logs panel location.":::
 
 - You can open a terminal from Jupyter Lab and start interacting within the job container. You can also directly iterate on your training script with Jupyter Lab. 
 
