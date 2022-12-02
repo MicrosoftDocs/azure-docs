@@ -19,8 +19,6 @@ In this quickstart, you'll learn how to:
 > - Open an ARM template in the Azure portal.
 > - Configure the template for your deployment.
 
-The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
-
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
@@ -34,7 +32,11 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-When you have these prerequisites, you're ready to deploy the ARM template using the **Deploy to Azure** button. 
+When you have these prerequisites, you're ready to deploy the ARM template using the **Deploy to Azure** button.
+
+## Review the ARM template - Optional
+
+The ARM template that you use to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub). 
 
 ## Use the Deploy to Azure button
 
