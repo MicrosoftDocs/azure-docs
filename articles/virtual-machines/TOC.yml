@@ -342,7 +342,7 @@
         - name: Performance
           href: ./workloads/hpc/hb-series-performance.md  
         - name: HB-series retirement
-          href: ./workloads/hpc/hb-series-retirement.md
+          href: hb-series-retirement.md
       - name: HBv2-series
         href: hbv2-series.md
         items:
