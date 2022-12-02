@@ -33,13 +33,17 @@ You have two options for installing BlobFuse2:
 
 ### Option 1: Install BlobFuse2 from the Microsoft software repositories for Linux
 
-BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentOS, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list.
+To see supported distributions, see [BlobFuse2 releases](https://github.com/Azure/azure-storage-fuse/releases).
 
-BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to determine your version:
+For information about libfuse support, see the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#distinctive-features-compared-to-blobfuse-v1x).
+
+To check your version of Linux, run the following command:
 
 ```bash
 lsb_release -a
 ```
+
+If no binaries are available for your distribution, you can [build the binaries from source code](https://github.com/MicrosoftDocs/azure-docs-pr/pull/203174#option-2-build-from-source).
 
 To install BlobFuse2 from the repositories:
 
