@@ -6,17 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 02/12/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to customize the invitation process with the API.   
 ---
 # Azure Active Directory B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
+We've had many customers tell us that they want to customize the invitation process. [With our API](https://learn.microsoft.com/en-us/graph/api/resources/invitation?view=graph-rest) you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 
@@ -25,8 +26,8 @@ The API offers the following capabilities:
 1. Invite an external user with *any* email address.
 
     ```
-    "invitedUserDisplayName": "Sam"
-    "invitedUserEmailAddress": "gsamoogle@gmail.com"
+    "invitedUserDisplayName": "Taylor"
+    "invitedUserEmailAddress": "taylor@fabrikam.com"
     ```
 
 2. Customize where you want your users to land after they accept their invitation.
@@ -35,13 +36,13 @@ The API offers the following capabilities:
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
     ```
 
-3. Choose to send the standard invitation mail through us
+3. Choose to send the standard invitation mail through us.
 
     ```
     "sendInvitationMessage": true
     ```
 
-   with a message to the recipient that you can customize
+   with a message to the recipient that you can customize.
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -88,7 +89,6 @@ In app only context, the app needs the User.Invite.All scope for the invitation 
 
 For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
-
 ## PowerShell
 
 You can use PowerShell to add and invite external users to an organization easily. Create an invitation using the cmdlet:
@@ -128,6 +128,5 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [Add and invite guest users](add-users-administrator.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
-- [B2B collaboration invitation redemption](redemption-experience.md)
-- [Add B2B collaboration users without an invitation](add-user-without-invite.md)
