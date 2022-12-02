@@ -40,18 +40,18 @@ You can assign an Azure role using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to assign an Azure role.
+Use the following steps to assign an Azure role using the Azure portal.
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Azure Spring Apps service instance.
-1. Select **Access Control(IAM)** from the left menu.
+1. Select **Access Control (IAM)** from the left menu.
 1. Select **Add** in the command bar, and then select **Add role assignment**.
    
    :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) page showing the Add role assignment command." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png":::
 
-1. Search for **Azure Spring Apps Connect Role** the list, and then select **Next**.
+1. Search for **Azure Spring Apps Connect Role** in the list, and then select **Next**.
 
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png" alt-text="Screenshot of the Add role assignment page showing Azure Spring Apps Connect Role." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png":::
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png" alt-text="Screenshot of the Add role assignment page showing the Azure Spring Apps Connect Role." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png":::
 
 1. Select **Select members**, and then search for your username.
 
@@ -78,7 +78,7 @@ You can connect to an app instance using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to connect to an app instance using Azure portal.
+Use the following steps to connect to an app instance using the Azure portal.
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Azure Spring Apps service instance.
@@ -98,7 +98,7 @@ Use the following steps to connect to an app instance using Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-If your app contains only one instance, use the following command to connect to the instance in the Azure CLI:
+If your app contains only one instance, use the following command to connect to the instance using the Azure CLI:
 
 ```azurecli
 az spring app connect \
@@ -195,7 +195,7 @@ The available tools depend on your service tier and type of app deployment. The 
 | Enterprise Tier       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
 
 > [!NOTE]
-> JDK tools aren't included in the path for the **source code** deployment type. Run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
+> JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 
