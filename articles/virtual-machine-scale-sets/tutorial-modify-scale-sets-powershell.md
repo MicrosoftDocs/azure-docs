@@ -17,14 +17,13 @@ Throughout the lifecycle of your applications, you may need to modify or update 
 ## Update the scale set model
 A scale set has a "scale set model" that captures the *desired* state of the scale set as a whole. To query the model for a scale set, you can use [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
 ```
 
 The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from PowerShell:
 
 ```output
-                : myResourceGroup
 Sku                                         : 
   Name                                      : Standard_DS1_v2
   Tier                                      : Standard
@@ -37,7 +36,6 @@ Type                                        : Microsoft.Compute/virtualMachineSc
 Location                                    : eastus
 VirtualMachineProfile                       : 
     ComputerNamePrefix                      : myScaleSe
-    AdminUsername                           : azureuser
       ProvisionVMAgent                      : True
       EnableAutomaticUpdates                : True
         PatchMode                           : AutomaticByOS
@@ -74,33 +72,26 @@ OrchestrationMode                           : Flexible
 TimeCreated                                 : 12/2/2022 5:41:21 PM
 ```
 
-You can use [Update-AzVmss](/powershell/module/az.compute/update-azvmss) to update various properties of your scale set. For example, updating your license type or enabling automatic instance repair.
+You can use [Update-AzVmss](/powershell/module/az.compute/update-azvmss) to update various properties of your scale set. For example, updating your license type. 
 
 ```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -LicenseType Windows_Server
 ```
 
-```azurepowershell-interactive
-az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
-```
-
-
 ## Updating individual VM instances in a scale set
 Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use [Get-AzVM](/powershell/module/az.compute/get-azvm).
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzVM -ResourceGroupName myResourceGroup -name MyScaleSet_Instance1
 ```
 
 ```output
 ResourceGroupName      : myResourceGroup
 Id                     : /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_Instance1
-VmId                   : 5a5c2c5f-ec50-4848-ba29-3736a27643f6
 Name                   : myScaleSet_Instance1
 Type                   : Microsoft.Compute/virtualMachines
 Location               : eastus
-Tags                   : {}
 Extensions             : {MicrosoftMonitoringAgent}
 HardwareProfile        : {VmSize}
 NetworkProfile         : {NetworkInterfaces}
@@ -113,14 +104,13 @@ TimeCreated            : 12/2/2022 5:41:23 PM
 
 You can also add the `-Status` flag to get the Instance View, which provides more details about the VM. 
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzVM -ResourceGroupName myResourceGroup -name MyScaleSet_Instance1 -Status                                    
 ```
 
 ```output
 ResourceGroupName       : myResourceGroup
 Name                    : MyScaleSet_Instance1
-ComputerName            : myScaleSeTXQ8AK
 OsName                  : Windows Server 2016 Datacenter
 OsVersion               : 10.0.14393.5501
 HyperVGeneration        : V1
@@ -209,7 +199,7 @@ Location                                    : eastus
 Tags                                        : {}
 ```
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzVM -Name myNewInstance -ResourceGroupName myResourceGroup -image UbuntuLTS -VmssId /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
 ```
 
@@ -230,7 +220,7 @@ VirtualMachineScaleSet   : {Id}
 TimeCreated              : 12/2/2022 6:40:20 PM   
 ``` 
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzVm -ResourceGroupName myResourceGroup 
 ```
 
@@ -252,7 +242,7 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
  
 If your scale set is set to manual upgrades, you can trigger a manual upgrade using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
-```azurepowershell
+```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet
 ```
@@ -268,23 +258,29 @@ Virtual Machine Scale Sets will generate a unique name for each VM in the scale 
 - Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
 - Uniform orchestration mode: `{scale-set-name}_{instance-id}`
  
-In the cases where you need to reimage a specific instance, use [az vmss reimage](/cli/azure/vmss#az-vmss-reimage) and specify the instance names.
+In the cases where you need to reimage a specific instance, use [Set-AzVmss](/powershell/module/az.compute/set-azvmss) and specify the instance name.
 
-```azurepowershell
-az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id myScaleSet_Instance1
+```azurepowershell-interactive
+Set-AzVmssVM -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet -InstanceId myScaleSet_Instance1 -Reimage
+```
+
+To reimage all instances in a scale set simply specify the scale set name and omit any instanceIDs. 
+
+```azurepowershell-interactive
+Set-AzVmssVM -Reimage -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
 ```
 
 ## Update the OS image for your scale set
 You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
-```azurepowershell
+```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet        
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -ImageReferenceVersion virtualMachineProfile.storageProfile.imageReference.version=18.04.202210180
 ```
 
 Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
-```azurepowershell
+```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet        
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -ImageReferenceVersion virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
 ```
