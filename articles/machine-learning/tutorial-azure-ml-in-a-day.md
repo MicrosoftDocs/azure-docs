@@ -108,7 +108,7 @@ First, create a directory to store the file in.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=dependencies_dir)]
 
-Now, create the file in the dependencies directory. This next cell will write the file into the directory you just created.
+Now, create the file in the dependencies directory. The cell below uses IPython magic to write the file into the directory you just created.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)]
 
@@ -141,6 +141,8 @@ This script handles the preprocessing of the data, splitting it into test and tr
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
 
+The cell below uses IPython magic to write the training script into the directory you just created.
+
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_main)]
 
 As you can see in this script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
@@ -161,7 +163,6 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 ## Submit the job 
 
 It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
-
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=create_job)]
 
