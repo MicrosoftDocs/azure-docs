@@ -2,7 +2,7 @@
 title: Azure Media Services as Event Grid source
 description: Describes the properties that are provided for Media Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure Media Services as an Event Grid source
@@ -1005,8 +1005,7 @@ An event has the following top-level data:
 ---
 
 ## Next steps
-
-[Register for job state change events](/azure/media-services/latest/monitoring/job-state-events-cli-how-to)
+See [Register for job state change events](/azure/media-services/latest/monitoring/job-state-events-cli-how-to)
 
 ## See also
 
