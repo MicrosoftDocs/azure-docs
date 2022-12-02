@@ -21,7 +21,7 @@ Thales doesn't provide PayShield SDK to customers, which supports HA over a clus
 
 > [!IMPORTANT]
 > - Virtual network peering does not support cross-region communication between payment HSM instances. A payment HSM instance in one region cannot communicate with a payment HSM instance in another region.  
-> - NSGs are not supported for payment HSM subnet.
+> - Network Security Groups and User Defined Routes are not not supported for payment HSM subnets.
 > - Customers can allocate a maximum of two payment HSMs from each stamp in one region under same subscription.
 > - If customer does not have a High Availability setup in their production environment, the customer will not be able to receive S2 support from Microsoft side.
 > - Please ensure your Microsoft Cloud Solution Architect has reviewed your payment HSM deployment architecture design and readiness before production launch.
@@ -41,6 +41,7 @@ This scenario caters to regional-level failure. The usual strategy is to complet
 ## Next steps
 
 - Learn more about [Azure Payment HSM](overview.md)
+- See the Azure Payment HSM [Solution design](solution-design.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)
 - Learn how to [Create a payment HSM](create-payment-hsm.md)
 - Read the [frequently asked questions](faq.yml)
