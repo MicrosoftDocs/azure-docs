@@ -12,7 +12,7 @@
 
 ## Available event types
 
-Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure App Configuration emits the following event types: 
+Event Grid uses [event subscriptions](../concepts.md#event-subscriptions) to route event messages to subscribers. Azure App Configuration emits the following event types: 
 
 | Event type | Description |
 | ---------- | ----------- |
