@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiangy
 ms.service: spring-apps
 ms.topic: article
-ms.date: 11/09/2021
+ms.date: 12/02/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -36,17 +36,9 @@ Although Azure Spring Apps offers various managed troubleshooting approaches, yo
 
 Before connecting to an app instance, you must be granted the role *Azure Spring Apps Connect Role*. Connecting to an app instance requires the data action permission `Microsoft.AppPlatform/Spring/apps/deployments/connect/action`.
 
-### Azure CLI
-Use the following command to assign the *Azure Spring Apps Connect Role* role:
+You can assign an Azure role using the Azure portal or Azure CLI.
 
-```azurecli
-az role assignment create \
-    --role 'Azure Spring Apps Connect Role' \
-    --scope '<service-instance-resource-id>' \
-    --assignee '<your-identity>'
-```
-
-### Portal
+### [Azure portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Azure Spring Apps service instance.
@@ -64,6 +56,19 @@ az role assignment create \
    :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role-3.png":::
 
 1. Click **Review + assign**.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following command to assign the *Azure Spring Apps Connect Role* role:
+
+```azurecli
+az role assignment create \
+    --role 'Azure Spring Apps Connect Role' \
+    --scope '<service-instance-resource-id>' \
+    --assignee '<your-identity>'
+```
+
+---
 
 ## Connect to an app instance
 
