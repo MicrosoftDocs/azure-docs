@@ -20,7 +20,7 @@ This table lists the steps for fixing the following migration issues:
 **Error code** | **Error message** | **Troubleshooting steps**
 ----------- | ------------- | -----------
 AccessDenied | Access denied. | Check error details. This may be due to a change since last web app discovery. Confirm that the web app discovery is still successful and/or troubleshoot web app discovery access issues first.
-AddConflict | Insert error message here | This may be due to AKS 1.23+ version. If you are using AKS 1.23+, edit the script as mentioned in [Troubleshooting](tutorial-app-containerization-aspnet-kubernetes.md#troubleshoot-issues) before building the docker image.
+AddConflict | The role assignment already exists. | This may be due to AKS 1.23+ version. If you are using AKS 1.23+, edit the script as mentioned in [Troubleshooting](tutorial-app-containerization-aspnet-kubernetes.md#troubleshoot-issues) before building the docker image.
 AppContentAlreadyExists | Application content appContent.zip already present on storage before content copy. | Retry the migration using a new storage account. Contact support if this occurs persistently.
 AppZipUploadFailed | Error uploading application content to storage account. | Retry if it is a transient issue and confirm connectivity between the appliance and the Azure storage account specified for the migration.
 CopyAppContentToApplianceFailure | Error occurred copying content from IIS web server to appliance. | Check error details for more information. Confirm connectivity between appliance and web server such as by looking for recently successful web app discovery.

@@ -195,6 +195,25 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 ## Build container image
 
+> [!Important]
+> If you are using AKS 1.23+, make the following changes to the scripts before building the docker image to ensure a seamless migration. 
+>
+> Change the script below
+>
+>```powershell
+> # Run entrypoint script.
+> COPY ./Entryscript.ps1 c:/Entryscript.ps1
+> ENTRYPOINT powershell c:/Entryscript.ps1
+> ``` 
+> to 
+>
+> ```powershell
+> # Run entrypoint script. 
+> COPY ["./Entryscript.ps1", "c:/Entryscript.ps1"]
+> ENTRYPOINT ["powershell", "c:/Entryscript.ps1"]
+> ```
+
+
 
 1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
