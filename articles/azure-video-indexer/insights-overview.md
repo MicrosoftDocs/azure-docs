@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Azure Video Indexer insights
 
-When a video is indexed, Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Insights contain an aggregated view of the data: transcripts, optical character recognition elements (OCRs), face, topics, emotions, etc. Once the video is indexed and analyzed, Azure Video Indexer produces a JSON content that contains details of the specified video insights. For example, each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Insights contain an aggregated view of the data: transcripts, optical character recognition elements (OCRs), face, topics, emotions, etc. Once the video is indexed and analyzed, Azure Video Indexer produces a JSON content that contains details of the video insights. For example, each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 Here some common insights:
 
