@@ -42,6 +42,8 @@
     items:
     - name: Azure CLI
       href: tutorial-modify-scale-sets-cli.md
+    - name: Azure PowerShell
+      href: tutorial-modify-scale-sets-powershell.md
   - name: Use data disks
     items:
     - name: Azure CLI
