@@ -25,11 +25,13 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
-- Creating large mount of file shares in parallel
+- Creating large mount of file shares in parallel.
 
 ## Use a persistent volume with Azure Files
 
 A [persistent volume (PV)][persistent-volume] represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or [NFS protocol][nfs-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share][azure-files-pvc-manual].
+
+With Azure Files shares, there is no limit as to how many can be mounted on a node.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 

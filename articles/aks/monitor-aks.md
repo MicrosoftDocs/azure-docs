@@ -111,7 +111,7 @@ Use existing views and reports in Container Insights to monitor cluster level co
 
 :::image type="content" source="media/monitor-aks/container-insights-cluster-view.png" alt-text="Container insights cluster view" lightbox="media/monitor-aks/container-insights-cluster-view.png":::
 
-Use **Node** workbooks in Container Insights to analyze disk capacity and IO in addition to GPU usage. See [Node workbooks](../azure-monitor/containers/container-insights-reports.md#node-workbooks) for a description of these workbooks.
+Use **Node** workbooks in Container Insights to analyze disk capacity and IO in addition to GPU usage. See [Node Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#node-monitoring-workbooks) for a description of these workbooks.
 
 :::image type="content" source="media/monitor-aks/container-insights-node-workbooks.png" alt-text="Container insights node workbooks" lightbox="media/monitor-aks/container-insights-node-workbooks.png":::
 
