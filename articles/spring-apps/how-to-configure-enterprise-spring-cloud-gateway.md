@@ -122,6 +122,18 @@ You can also view or edit those properties in the Azure portal, as shown in the 
 >
 > After configuring SSO, remember to set `ssoEnabled: true` for the Spring Cloud Gateway routes.
 
+## Configure single sign-on (SSO) logout
+VMware Spring Cloud Gateway service instances provide a default API endpoint to logout of the current SSO session. The path to this endpoint is `/scg-logout`. There are two different outcomes that can be accomplished depending on how the logout endpoint is called: logout of session and redirect to UAA logout or only logout the service instance session.
+
+### Logout of UAA and SSO Session
+Sending a GET request to the `/scg-logout` endpoint then it will send a 302 redirect response to the UAA logout URL. In order for user to be returned back to a path on the Gateway service instance, you can add a redirect parameter to the GET `/scg-logout` request. For example, if a user goes to `${serverUrl}/scg-logout?redirect=/home` in their browser they will be redirected back to `${serverUrl}/home` after logging out of UAA.
+
+> [!NOTE]
+> The value of the redirect parameter is a valid path on the Gateway service instance. You cannot redirect to an external URL.
+
+### Only Logout SSO Session
+If the GET request to the `/scg-logout` is sent using a XMLHttpRequest (XHR), then the 302 redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the Gateway service instance and would still have a valid UAA session. The behavior typically seen in this case is that if the user attempts to login again they are automatically sent back to gateway as authenticated from UAA.
+
 ## Configure cross-origin resource sharing (CORS)
 
 Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. The available CORS configuration options are described in the following table.
