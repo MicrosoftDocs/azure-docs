@@ -444,11 +444,11 @@ Some proxies have the option of inspecting the traffic sent on TLS-secured conne
 
 To resolve this, the proxy's root certificate will need to be trusted by both the host operating system running IoT Edge and the two Edge containers, edgeAgent and edgeHub.
 
-Having the host operating system trust the proxy's certificate will vary upon which distribution of Linux it is running. Consult your distribution's documentation to determine how to add an additional trusted root certificate. After this, you will need to configure your IoT Edge device to communicate through a proxy server.
+Your host operating system may have specific requirement for trusted root certificate for the proxy depending upon the distribution of Linux you are running.For more information about managing IoT Edge certificates, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md). Following this, you will need to configure your IoT Edge device to communicate through a proxy server.
 
-Once this is complete, adding the proxy's trusted root certificate to edgeAgent and edgeHub on Edge 1.2+ is trivial. You simply need to reference the certificate in the trust_bundle_cert file parameter in `config.yaml`. If you already have certificates in that file, simply append the proxy's certificate to the end of that file. The edgeAgent and edgeHub containers will automatically trust any certificate in that file.
+Once this is complete, you need to reference the certificate in the trust bundle. For more information on how to configure the trust bundle, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).If you already have certificates in that file, append the proxy's certificate to the end of that file. The edgeAgent and edgeHub containers will automatically trust any certificate in that file.
 
-Note that these steps will only resolve the issue with the IoT Edge system containers. If you have other containers, such as a docker proxy, that also need to access the internet, then you will need an alternative mechanism to address those. The recommended method is to bind the proxy's certificate into the container at the appropriate location in the file system so that it is trusted. A description of how to do this is beyond the scope of this document. Your proxy vendor should be able to assist you with this.
+To configure traffic inspection proxy support for containers not managed by IoT Edge, contact your proxy provider. 
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
