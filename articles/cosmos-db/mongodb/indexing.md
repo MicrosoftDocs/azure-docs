@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
