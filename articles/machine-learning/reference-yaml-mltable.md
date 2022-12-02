@@ -163,7 +163,7 @@ If the user doesn't define options for `read_parquet` transformation, default op
 type: mltable
 
 paths:
-- abfss://my_delta_files
+- folder: abfss://my_delta_files
 
 transforms:
  - read_delta_lake:

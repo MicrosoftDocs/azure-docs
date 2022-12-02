@@ -1,5 +1,5 @@
 ---
-title: azcopy remove | Microsoft Docs
+title: azcopy remove
 description: This article provides reference information for the azcopy remove command.
 author: normesta
 ms.service: storage

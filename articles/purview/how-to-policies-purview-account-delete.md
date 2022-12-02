@@ -1,5 +1,5 @@
 ---
-title: Impact of deleting Microsoft Purview account on access policies (preview)
+title: Impact of deleting Microsoft Purview account on access policies
 description: This guide discusses the consequences of deleting a Microsoft Purview account on published access policies
 author: inward-eye
 ms.author: vlrodrig

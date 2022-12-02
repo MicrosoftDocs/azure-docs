@@ -115,7 +115,7 @@ To resolve this issue, verify that your firewall and/or DNS settings are not blo
 
 ## Error: 3019
 
-On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the the [Required URL list](safe-url-list.md). Work with your networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Azure Virtual Desktop service is being blocked. If you open a Microsoft Support case for this particular issue, make sure to attach your network trace logs to the request.
+On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the [Required URL list](safe-url-list.md). Work with your networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Azure Virtual Desktop service is being blocked. If you open a Microsoft Support case for this particular issue, make sure to attach your network trace logs to the request.
 
 ## Error: InstallationHealthCheckFailedException
 
@@ -360,7 +360,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
 1. Run the agent installer
-1. When the installer asks you for the registration token, paste the registration key from the from your clipboard.
+1. When the installer asks you for the registration token, paste the registration key from your clipboard.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of pasted registration token](media/pasted-agent-token.png)
@@ -384,7 +384,6 @@ If the issue continues, create a support case and include detailed information a
 - To troubleshoot issues while creating a host pool in a Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md).
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

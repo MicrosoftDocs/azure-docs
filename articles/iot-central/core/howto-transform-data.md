@@ -506,7 +506,7 @@ To configure the device bridge to transform the exported device data:
 
 1. Select **Go &rarr;** to open the **App Service Editor** page. Make the following changes:
 
-    1. Open the *wwwroot/IoTCIntegration/index.js* file. Replace all the code in this file with the code in [index.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/index.js).
+    1. Open the *wwwroot/IoTCIntegration/index.js* file. Replace all the code in this file with the code in [index.js](https://raw.githubusercontent.com/Azure/iot-central-compute/main/Azure_function/index.js).
 
     1. In the new *index.js*, update the `openWeatherAppId` variable file with Open Weather API key you obtained previously.
 
@@ -529,7 +529,7 @@ To configure the device bridge to transform the exported device data:
         message.properties.add('computed', true);
         ```
 
-        For reference, you can view a completed example of the [engine.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/lib/engine.js) file.
+        For reference, you can view a completed example of the [engine.js](https://raw.githubusercontent.com/Azure/iot-central-compute/main/Azure_function/lib/engine.js) file.
 
 1. In the **App Service Editor**, select **Console** in the left navigation. Run the following commands to install the required packages:
 
@@ -554,7 +554,7 @@ To configure the device bridge to transform the exported device data:
 
 This section describes how to set up the Azure IoT Central application.
 
-First, save the [device model](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/model.json) file to your local machine.
+First, save the [device model](https://raw.githubusercontent.com/Azure/iot-central-compute/main/model.json) file to your local machine.
 
 To add a device template to your IoT Central application, navigate to your IoT Central application and then:
 
@@ -593,7 +593,7 @@ To run a sample device that tests the scenario:
 1. Clone the GitHub repository that contains the sample code, run the following command:
 
     ```bash
-    git clone https://github.com/iot-for-all/iot-central-compute
+    git clone https://github.com/Azure/iot-central-compute
     ```
 
 1. To connect the sample device to your IoT Central application, edit the connection settings in the *iot-central-compute/device/device.js* file. Replace the scope ID and group SAS key with the values you made a note of previously:

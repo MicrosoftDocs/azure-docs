@@ -960,7 +960,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccountnames | No | No | No |
 > | databaseaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DomainRegistration

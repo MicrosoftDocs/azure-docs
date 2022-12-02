@@ -150,7 +150,7 @@ When you set up your NSG, you must configure it to allow both the URLs in the [r
 
 To validate your Private Link for Azure Virtual Desktop and make sure it's working:
 
-1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with [Azure Monitor](azure-monitor.md).
+1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with [Azure Monitor](insights.md).
 
 1. Next, test your feed connections to make sure they perform as expected. Use the client and make sure you can add and refresh workspaces.
 

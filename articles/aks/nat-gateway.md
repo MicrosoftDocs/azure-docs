@@ -24,7 +24,7 @@ To use Managed NAT gateway, you must have the following:
 * Kubernetes version 1.20.x or above
 
 ## Create an AKS cluster with a Managed NAT Gateway
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
 
 
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az aks create \
     --node-count 3 \
     --outbound-type managedNATGateway \
     --nat-gateway-managed-outbound-ip-count 2 \
-    --nat-gateway-idle-timeout 30
+    --nat-gateway-idle-timeout 4
 ```
 
 > [!IMPORTANT]

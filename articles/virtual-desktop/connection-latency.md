@@ -224,4 +224,4 @@ Azure Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/servic
 - To get started with your Azure Virtual Desktop deployment, check out [our tutorial](./create-host-pools-azure-marketplace.md).
 - To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
 - To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
-- Learn how to use Azure Monitor at [Get started with Azure Monitor for Azure Virtual Desktop](azure-monitor.md).
+- Learn how to use Azure Virtual Desktop Insights at [Get started with Azure Virtual Desktop Insights](insights.md).
