@@ -58,7 +58,7 @@ Updates for AzureML based images are released regularly, with a commitment of no
 It's your responsibility to evaluate the threat and address vulnerabilities in environments.
 Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
 > [!IMPORTANT]
-> There's no guarantee that the same set of python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
+> There's no guarantee that the same set of Python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
 
 ## **Environment definition problems**
 
