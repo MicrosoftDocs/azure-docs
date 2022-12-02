@@ -4,7 +4,7 @@ description: Understand planning for an Azure Files deployment. You can either d
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 11/15/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -41,7 +41,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Symbolic link support | Not supported | Supported |
 | Optionally internet accessible | Yes (SMB 3.0+ only) | No |
 | Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
-| Mandatory lock/advisory byte range lock | Not supported | Supported |
+| Mandatory byte range locks | Supported | Not supported |
+| Advisory byte range locks | Not supported | Supported |
 | Extended/named attributes | Not supported | Not supported |
 | Alternate data streams | Not supported | N/A |
 | Object identifiers | Not supported | N/A |

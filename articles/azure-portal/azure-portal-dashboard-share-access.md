@@ -43,7 +43,7 @@ To share access to a dashboard, you must first publish it. When you do so, other
 
     By default, sharing publishes your dashboard to a resource group named **dashboards**. To select a different resource group, clear the checkbox.
 
-1. To [add optional tags](/azure/azure-resource-manager/management/tag-resources) to the dashboard, enter one or more name/value pairs.
+1. To [add optional tags](../azure-resource-manager/management/tag-resources.md) to the dashboard, enter one or more name/value pairs.
 
 1. Select **Publish**.
 

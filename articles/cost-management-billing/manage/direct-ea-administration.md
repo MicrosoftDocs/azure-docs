@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2022
+ms.date: 11/11/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -204,6 +204,19 @@ After the account owner receives an account ownership email, they need to confir
     :::image type="content" source="./media/direct-ea-administration/activate-account.png" alt-text="Screenshot showing the Activate Account page." lightbox="./media/direct-ea-administration/activate-account.png" :::
 
 After account ownership is confirmed, you can create subscriptions and purchase resources with the subscriptions.
+
+### To activate an enrollment account with a .onmicrosoft.com email account
+
+If you're a new EA account owner with a .onmicrosoft.com email account, you might not have a forwarding email address by default. In that situation, you might not receive the activation email. If this situation applies to you, use the following steps to activate your account ownership.
+
+1. Sign into the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Navigate to **Cost Management + Billing** and select a billing scope.
+1. Select your account.
+1. In the left menu under **Settings**, select **Activate Account**.
+1. On the Activate Account page, select **Yes, I wish to continue** and the select **Activate this account**.  
+    :::image type="content" source="./media/direct-ea-administration/activate-account.png" alt-text="Screenshot showing the Activate Account page for onmicrosoft.com accounts." lightbox="./media/direct-ea-administration/activate-account.png" :::
+1. After the activation process completes, copy and paste the following link to your browser. The page will open and create a subscription that's associated with your enrollment.  
+    `https://signup.azure.com/signup?offer=MS-AZR-0017P&appId=IbizaCatalogBlade`
 
 ## Change Azure subscription or account ownership
 

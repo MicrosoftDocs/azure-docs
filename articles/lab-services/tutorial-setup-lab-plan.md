@@ -51,6 +51,10 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 
 [!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 In this tutorial, you created a lab plan and gave lab creation permissions to an educator. To learn about how to create a lab as an educator, advance to the next tutorial:

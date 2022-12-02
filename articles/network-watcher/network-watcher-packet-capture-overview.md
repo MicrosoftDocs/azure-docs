@@ -3,25 +3,24 @@ title: Introduction to Packet capture in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher packet capture's capability
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
-
+ms.date: 06/07/2022
+ms.author: shijaiswal
+ms.custom: engagement-fy23
 ---
 
 # Introduction to variable packet capture in Azure Network Watcher
-
->[!IMPORTANT] 
->[!NEW]
-> Packet capture ia now also available for `Virtual Machine Scale Sets`. To checkout please visit [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md)
+ 
+> [!Important]
+> Packet capture is now also available for **Virtual Machine Scale Sets**. To check it out, visit [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md).
 
 Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
-Packet capture is an extension that is remotely started through Network Watcher. This capability eases the burden of running a packet capture manually on the desired virtual machine or virtual machine scale set instance/(S), which saves valuable time. Packet capture can be triggered through the portal, PowerShell, CLI, or REST API. One example of how packet capture can be triggered is with Virtual Machine alerts. Filters are provided for the capture session to ensure you capture traffic you want to monitor. Filters are based on 5-tuple (protocol, local IP address, remote IP address, local port, and remote port) information. The captured data is stored in the local disk or a storage blob. 
+Packet capture is an extension that is remotely started through Network Watcher. This capability eases the burden of running a packet capture manually on the desired virtual machine or Virtual Machine Scale Sets instance/(s), which saves valuable time. Packet capture can be triggered through the portal, PowerShell, CLI, or REST API. One example of how packet capture can be triggered is with Virtual Machine alerts. Filters are provided for the capture session to ensure you capture traffic you want to monitor. Filters are based on 5-tuple (protocol, local IP address, remote IP address, local port, and remote port) information. The captured data is stored in the local disk or a storage blob. 
 
 > [!IMPORTANT]
 > Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
@@ -52,7 +51,7 @@ There's a limit of 10,000 parallel packet capture sessions per region per subscr
 
 ### Next steps
 
-Learn how you can manage packet captures through the portal by visiting [Manage packet capture in the Azure portal for VM](network-watcher-packet-capture-manage-portal.md)and [Manage packet capture in the Azure portal for virtual machine scale set](network-watcher-packet-capture-manage-portal-vmss.md) or with PowerShell by visiting [Manage Packet Capture with PowerShell for VM](network-watcher-packet-capture-manage-powershell.md)and [Manage Packet Capture with PowerShell for virtual machine scale set](network-watcher-packet-capture-manage-powershell-vmss.md) 
+Learn how you can manage packet captures through the portal by visiting [Manage packet capture in the Azure portal for VM](network-watcher-packet-capture-manage-portal.md)and [Manage packet capture in the Azure portal for Virtual Machine Scale Sets](network-watcher-packet-capture-manage-portal-vmss.md) or with PowerShell by visiting [Manage Packet Capture with PowerShell for VM](network-watcher-packet-capture-manage-powershell.md)and [Manage Packet Capture with PowerShell for Virtual Machine Scale Sets](network-watcher-packet-capture-manage-powershell-vmss.md) 
 
 Learn how to create proactive packet captures based on virtual machine alerts by visiting [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 

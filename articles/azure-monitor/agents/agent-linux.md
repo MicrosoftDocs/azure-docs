@@ -73,6 +73,7 @@ The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported:
 - SELinux (Marketplace images for CentOS and RHEL with their default settings)
+- FIPS (Marketplace images for CentOS and RHEL 6/7 with their default settings)
 
 The following aren't supported:
 - CIS

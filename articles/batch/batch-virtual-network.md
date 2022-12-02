@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: How to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 11/15/2022
 ms.custom: seodec18
 ---
 
@@ -44,9 +44,9 @@ or `CloudServiceConfiguration`. `VirtualMachineConfiguration` for Batch pools is
 pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 > [!IMPORTANT]
-> Batch pools can be configured in one of two communication modes. `Classic` communication
-> mode is where the Batch service initiates communication to the compute nodes.
-> [`Simplified` communication mode](simplified-compute-node-communication.md)
+> Batch pools can be configured in one of two node communication modes. Classic node communication mode is
+> where the Batch service initiates communication to the compute nodes.
+> [Simplified](simplified-compute-node-communication.md) node communication mode
 > is where the compute nodes initiate communication to the Batch Service.
 
 ## Pools in Virtual Machine Configuration
@@ -77,9 +77,9 @@ In order to provide the necessary communication between compute nodes and the Ba
 configured such that:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the
-`BatchNodeManagement` service tag. This rule is only created in `classic` pool communication mode.
+BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
 * Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access. For certain types of multi-instance tasks on Linux (such as MPI), you'll need to also allow SSH port 22 traffic for IPs in the subnet containing the Batch compute nodes. This traffic may be blocked per subnet-level NSG rules (see below).
-* Outbound any traffic on port 443 to Batch service IP addresses that correspond to the `BatchNodeManagement` service tag.
+* Outbound any traffic on port 443 to Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag.
 * Outbound traffic on any port to the virtual network. This rule may be amended per subnet-level NSG rules (see below).
 * Outbound traffic on any port to the Internet. This rule may be amended per subnet-level NSG rules (see below).
 
@@ -92,13 +92,15 @@ If you have an NSG associated with the subnet for Batch compute nodes, you must 
 NSG with at least the inbound and outbound security rules that are shown in the following tables.
 
 > [!WARNING]
-> Batch service IP addresses can change over time. Therefore, we highly recommend that you use the `BatchNodeManagement` service tag (or a regional variant) for the NSG rules indicated in the following tables. Avoid populating NSG rules with specific Batch service IP addresses.
+> Batch service IP addresses can change over time. Therefore, we highly recommend that you use the
+> BatchNodeManagement.*region* service tag for the NSG rules indicated in the following tables. Avoid
+> populating NSG rules with specific Batch service IP addresses.
 
 #### Inbound security rules
 
 | Source Service Tag or IP Addresses | Destination Ports | Protocol | Pool Communication Mode | Required |
 |-|-|-|-|-|
-| `BatchNodeManagement.<region>` [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 29876-29877 | TCP | Classic | Yes |
+| BatchNodeManagement.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 29876-29877 | TCP | Classic | Yes |
 | Source IP addresses for remotely accessing compute nodes | 3389 (Windows), 22 (Linux) | TCP | Classic or Simplified | No |
 
 Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access
@@ -111,16 +113,16 @@ through configuring [pool endpoints](pool-endpoint-configuration.md).
 
 | Destination Service Tag | Destination Ports | Protocol | Pool Communication Mode | Required |
 |-|-|-|-|-|
-| `BatchNodeManagement.<region>` [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | * | Simplified | Yes |
-| `Storage.<region>` [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | TCP | Classic | Yes |
+| BatchNodeManagement.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | * | Simplified | Yes |
+| Storage.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | TCP | Classic | Yes |
 
-Outbound to `BatchNodeManagement.<region>` service tag is required in `classic` pool communication mode
+Outbound to BatchNodeManagement.*region* service tag is required in `classic` pool communication mode
 if using Job Manager tasks or if your tasks must communicate back to the Batch service. For outbound to
-`BatchNodeManagement.<region>` in `simplified` pool communication mode, the Batch service currently only
+BatchNodeManagement.*region* in `simplified` pool communication mode, the Batch service currently only
 uses TCP protocol, but UDP may be required for future compatibility. For
 [pools without public IP addresses](simplified-node-communication-pool-no-public-ip.md)
 using `simplified` communication mode and with a node management private endpoint, an NSG isn't needed.
-For more information about outbound security rules for the `BatchNodeManagement` service tag, see
+For more information about outbound security rules for the BatchNodeManagement.*region* service tag, see
 [Use simplified compute node communication](simplified-compute-node-communication.md).
 
 ## Pools in the Cloud Services Configuration
@@ -182,20 +184,20 @@ To ensure that the nodes in your pool work in a VNet that has forced tunneling e
 
 For classic communication mode pools:
 
-- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
+- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the BatchNodeManagement.*region* [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
 
 - Ensure that outbound TCP traffic to Azure Storage on destination port 443 (specifically, URLs of the form `*.table.core.windows.net`, `*.queue.core.windows.net`, and `*.blob.core.windows.net`) isn't blocked by your on-premises network.
 
 For [simplified communication mode](simplified-compute-node-communication.md) pools without using node management private endpoint:
 
-- Ensure that outbound TCP/UDP traffic to the Azure Batch `BatchNodeManagement.<region>` service tag on destination port 443 isn't blocked by your on-premises network. Currently only TCP protocol is used, but UDP may be required for future compatibility.
+- Ensure that outbound TCP/UDP traffic to the Azure Batch BatchNodeManagement.*region* service tag on destination port 443 isn't blocked by your on-premises network. Currently only TCP protocol is used, but UDP may be required for future compatibility.
 
 For all pools:
 
 - If you use virtual file mounts, review the [networking requirements](virtual-file-mount.md#networking-requirements), and ensure that no required traffic is blocked.
 
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent outages due to Batch service IP address changes, do not directly specify IP addresses. Instead use the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
+> Batch service IP addresses can change over time. To prevent outages due to Batch service IP address changes, do not directly specify IP addresses. Instead use the BatchNodeManagement.*region* [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
 
 ## Next steps
 
