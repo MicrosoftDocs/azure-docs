@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/01/2022
+ms.date: 12/02/2022
 ms.author: jasteppe
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you'll learn how to:
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
-## Rrerequisites
+## Prerequisites
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 

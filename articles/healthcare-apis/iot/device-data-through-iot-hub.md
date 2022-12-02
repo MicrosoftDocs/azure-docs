@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/01/2022
+ms.date: 12/02/2022
 ms.author: jasteppe
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > - Review metrics for the test message.
 
 > [!TIP]
-> Learn how to [use Azure PowerShell or the Azure CLI to deploy the MedTech service by using an ARM template](deploy-new-powershell-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
+> To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
 ## Device message flow
 
@@ -46,7 +46,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed in Visual Studio Code. Azure IoT Tools is a collection of extensions that makes it easy to connect to IoT hubs, create devices, and send messages. In this tutorial, you use the Azure IoT Hub extension in Visual Studio Code to connect to your deployed IoT hub, create a device, and send a test message from the device to your IoT hub.
 
-When you have these prerequisites, you're ready to configure the tutorial template by using the **Deploy to Azure** button.
+When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
 ## Review the ARM template
 
