@@ -222,6 +222,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld  
+  namespace: hello-web-app-routing
 spec:
   replicas: 1
   selector:
@@ -251,6 +252,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   type: ClusterIP
   ports:
@@ -327,9 +329,6 @@ spec:
     tls:
       skipClientCertValidation: false
   sources:
-  - kind: Service
-    name: nginx
-    namespace: app-routing-system
   - kind: AuthenticatedPrincipal
     name: ingress-nginx.ingress.cluster.local
 ```
