@@ -211,7 +211,7 @@ If you already have configured the Remote Desktop client to use Insider releases
 
 ### Enterprise deployment
 
-To deploy the Remote Desktop client in an enterprise, you can use `maiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
+To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
 
 - Per-device installation:
 
