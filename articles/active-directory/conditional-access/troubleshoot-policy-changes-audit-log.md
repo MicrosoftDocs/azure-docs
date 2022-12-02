@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 12/01/2022
+ms.date: 12/02/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,7 @@ Find these options in the **Azure portal** > **Azure Active Directory**, **Diagn
 1. Select the **Date** range you want to query.
 1. From the **Service** filter, select **Conditional Access** and select the **Apply** button.
 
-    The audit logs display all activities, by default. Open the **Activity** filter to narrow down the activities. For a full lit of the audit log activities for Conditional Access, see the [Audit log activities](../reports-monitoring/reference-audit-activities.md#conditional-access).
+    The audit logs display all activities, by default. Open the **Activity** filter to narrow down the activities. For a full list of the audit log activities for Conditional Access, see the [Audit log activities](../reports-monitoring/reference-audit-activities.md#conditional-access).
 
 1. Select a row to view the details. The **Modified Properties** tab lists the modified JSON values for the selected audit activity.
 

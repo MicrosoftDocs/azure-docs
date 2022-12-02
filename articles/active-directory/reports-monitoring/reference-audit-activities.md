@@ -9,19 +9,24 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/29/2022
+ms.date: 12/02/2022
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD audit activity reference
+# Azure AD audit log categories and activities
 
 Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
 Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us feedback if you think there's a missing audit category or activity.
+
+1. Sign in to the **Azure portal** using one of the [required roles](concept-audit-logs.md#how-do-i-access-it).
+1. Browse to **Azure Active Directory** > **Audit logs**.
+1. Adjust the filters accordingly.
+1. Select a row from the resulting table to view the details.
 
 ## Access reviews
 
@@ -184,9 +189,9 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |DirectoryManagement|Mark recommendation as complete|
 |DirectoryManagement|Postpone recommendation|
 
-## Azure MFA
+## Azure AD MFA (Azure MFA)
 
-The Azure MFA audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Azure AD sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
+The Azure AD MFA audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Azure AD sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
 
 |Audit Category|Activity|
 |---|---|
@@ -711,8 +716,8 @@ Logs captured in the Core Directory service cover a wide variety of scenarios. C
 |RoleManagement|Remove member from role scoped over Restricted Management Administrative Unit|
 |RoleManagement|Remove role assignment from role definition|
 |RoleManagement|Remove scoped member from role|
-|RoleManagement||Update role|
-|RoleManagement||Update role definition|
+|RoleManagement|Update role|
+|RoleManagement|Update role definition|
 |UserManagement|Add a deletion-marked app role assignment grant to group as part of link removal|
 |UserManagement|Add app role assignment to group|
 |UserManagement|Add user|
@@ -865,7 +870,7 @@ Use the Invited users logs to help you manage the status of users who were invit
 
 ## Lifecycle Workflows
 
-[Lifecycle Workflows](../governance/lifecycle-workflow-audits.md) are a great way to automate identity related processes for joiners, movers, and leavers so you don't have to.
+[Lifecycle Workflows](../governance/what-are-lifecycle-workflows.md)(preview) are a great way to automate identity related processes for joiners, movers, and leavers so you don't have to. For more information, see [Lifecycle Workflows audits](../governance/lifecycle-workflow-audits.md).
 
 |Audit Category|Activity|
 |---|---|
@@ -1107,7 +1112,7 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 
 ## Self-service group management
 
-Users in your tenant can manage many aspects of their groups and access on their own. Use these Self-service group management logs to help troubleshoot issues with these scenarios.
+Users in your tenant can manage many aspects of their group memberships on their own. Use the Self-service group management logs to help troubleshoot issues with these scenarios.
 
 |Audit Category|Activity|
 |---|---|
