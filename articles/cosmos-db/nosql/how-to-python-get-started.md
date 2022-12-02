@@ -427,8 +427,8 @@ Each type of resource is represented by one or more associated Python classes. H
 | Class | Description |
 |---|---|
 | [``CosmosClient``](/python/api/azure-cosmos/azure.cosmos.cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
-| [``Database``](/dotnet/api/microsoft.azure.cosmos.database) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
-| [``Container``](/dotnet/api/microsoft.azure.cosmos.container) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
+| [``Database``](X) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
+| [``Container``](X) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
 
 The following guides show you how to use each of these classes to build your application.
 
