@@ -3,9 +3,9 @@ title: Debug your apps remotely in Azure Spring Apps
 description: Learn how to debug your apps remotely in Azure Spring Apps.
 ms.service: spring-apps
 ms.topic: how-to
-ms.author: karler
-author: jialuogan
-ms.date: 11/18/2022
+author: KarlErickson
+ms.author: jialuogan
+ms.date: 12/01/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -27,7 +27,7 @@ This feature describes how to enable remote debugging of your applications in Az
 
 ## Enable or disable remote debugging
 
-For security reasons, Azure Spring Apps disables remote debugging by default. Based on your company policy, you can enable remote debugging for your app yourself or see an admin to enable it for you. You can enable or disable remote debugging using the Azure CLI, Azure portal, or VS Code extension.
+For security reasons, Azure Spring Apps disables remote debugging by default. Based on your company policy, you can enable remote debugging for your app yourself or see an admin to enable it for you. You can enable or disable remote debugging using Azure CLI, Azure portal, or the VS Code extension.
 
 ### [Azure portal](#tab/portal)
 
@@ -78,13 +78,13 @@ az spring app get-remote-debugging-config \
 
 You can debug an app instance remotely using the Azure Toolkit for IntelliJ or the Azure Spring Apps for VS Code extension.
 
-#### [Azure Toolkit for IntelliJ](#tab/Intellij-extension)
+### [Azure Toolkit for IntelliJ](#tab/Intellij-extension)
 
 This section describes how to debug an app instance remotely using the Azure Toolkit for IntelliJ.
 
 ### Prerequisites
 
-- [Azure Toolkit for IntelliJ](https://learn.microsoft.com/azure/developer/java/toolkit-for-intellij/install-toolkit).
+- [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Ultimate or Community edition.
 
 ### Enable or disable remote debugging
@@ -96,7 +96,7 @@ Use the following steps to enable or disable remote debugging:
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/intellij-enable-remote.png":::
 
-### Attach Debugger
+### Attach debugger
 
 Use the following steps to attach debugger.
 
@@ -109,11 +109,11 @@ Use the following steps to attach debugger.
        --assignee "<your-identity>"
    ```
 
-1. Select an app instance, and then select **Attach Debugger**. Intellij connects to the app instance and starts remote debugging.
+1. Select an app instance, and then select **Attach Debugger**. IntelliJ connects to the app instance and starts remote debugging.
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-instance.png":::
 
-1. Azure Toolkit for IntelliJ creates remote the debugging configuration. You can find it under **Remote Jvm Debug"** Configure the module class path to the source code that you use for remote debugging.
+1. Azure Toolkit for IntelliJ creates the remote debugging configuration. You can find it under **Remote Jvm Debug"** Configure the module class path to the source code that you use for remote debugging.
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png" alt-text="Screenshot of the Run/Debug Configurations page." lightbox="media/how-to-remote-debugging-app-instance/intellij-remote-debugging-configuration.png":::
 
@@ -133,7 +133,7 @@ This section provides troubleshooting information.
   - Make sure that your IDE contains the source code you want to debug.
   - Make sure that the debug configuration has the correct module class path.
 
-#### [VS Code extension](#tab/Vscode-extension)
+### [VS Code extension](#tab/Vscode-extension)
 
 This section describes how to debug an app instance remotely using the VS Code extension.
 
@@ -142,7 +142,7 @@ This section describes how to debug an app instance remotely using the VS Code e
 - [Azure Spring Apps for VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud).
 - [Visual Studio Code](https://code.visualstudio.com).
 
-### Enable or disable Remote Debugging
+### Enable or disable remote debugging
 
 Use the following steps to enable or disable remote debugging:
 
@@ -151,7 +151,7 @@ Use the following steps to enable or disable remote debugging:
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/vscode-enable-remote-debugging.png" alt-text="Screenshot showing the Enable Remote Debugging option." lightbox="media/how-to-remote-debugging-app-instance/vscode-enable-remote-debugging.png":::
 
-### Attach Debugger
+### Attach debugger
 
 Use the following steps to attach debugger.
 
@@ -189,7 +189,7 @@ This section provides troubleshooting information.
 
 Remote debugging is only supported for Java applications.
 
-| Tier                    | Deployment Type   | Supported |
+| Tier                    | Deployment type   | Supported |
 |-------------------------|-------------------|-----------|
 | Standard and basic tier | Jar               | Yes       |
 | Standard and basic tier | Source code(Java) | Yes       |
