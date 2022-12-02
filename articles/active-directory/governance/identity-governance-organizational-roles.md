@@ -29,17 +29,19 @@ In Azure AD, you can use role models in several ways to manage access at scale t
 
 This article discusses how to model organizational roles, using entitlement management access packages.
 
-## Mapping organizational role definition concepts to entitlement management
+## Mapping organizational role concepts
+
+The following table illustrates how concepts in organizational role definitions you might be familiar with in other products correspond to capabilities in entitlement management.
 
 | Concept in organizational role modeling | Representation in Entitlement Management |
 | --- | --- |
 | Delegated role management | [Delegate to catalog creators](entitlement-management-delegate-catalog.md) |
-| Collection of permissions across one or more applications | [access package with resource roles](entitlement-management-access-package-create.md) |
-| Restrict duration of access a role provides | [access package policy lifecycle settings expiration date](entitlement-management-access-package-lifecycle-policy.md) |
-| Individual assignment to a role | [direct assignment to an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) |
-| Assignment of roles to users based on properties (such as their department) | [Automatic assignment to an access package](entitlement-management-access-package-auto-assignment-policy.md) |
-| Users can request and be approved for a role | [policy settings for who can request on an access package](entitlement-management-access-package-request-policy.md) |
-| Access recertification of role members | [Access review settings in an access package assignment policy](entitlement-management-access-reviews-create.md) |
+| Collection of permissions across one or more applications | [Create an access package with resource roles](entitlement-management-access-package-create.md) |
+| Restrict duration of access a role provides | [Set an access package's policy lifecycle settings to have an expiration date](entitlement-management-access-package-lifecycle-policy.md) |
+| Individual assignment to a role | [Create a direct assignment to an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) |
+| Assignment of roles to users based on properties (such as their department) | [Establish automatic assignment to an access package](entitlement-management-access-package-auto-assignment-policy.md) |
+| Users can request and be approved for a role | [Configure policy settings for who can request an access package](entitlement-management-access-package-request-policy.md) |
+| Access recertification of role members | [Set recurring access review settings in an access package policy](entitlement-management-access-reviews-create.md) |
 | Separation of duties between roles | [Define two or more access packages as incompatible](entitlement-management-access-package-incompatible.md)|
 
 
