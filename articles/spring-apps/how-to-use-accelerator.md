@@ -140,7 +140,7 @@ To access Application Accelerator, you must configure VMware Tanzu Application P
 
 To use Application Accelerator to bootstrap your new projects, you must get permissions to manage accelerators. You can then manage predefined accelerators or your own accelerators.
 
-### Get Permissions to manage accelerators
+### Get permissions to manage accelerators
 
 Managing your accelerators requires the following permissions:
 

@@ -8597,13 +8597,13 @@ For more information about how to use these reports, see [Azure Active Directory
 
 ---
 
-### Use "Report Reader" role (non-admin role) to view Azure AD Activity Reports
+### Use "Reports Reader" role (non-admin role) to view Azure AD Activity Reports
 
 **Type:** New feature
 **Service category:** Reporting
 **Product capability:** Monitoring & Reporting
 
-As part of customers feedback to enable non-admin roles to have access to Azure AD activity logs, we've enabled the ability for users who are in the "Report Reader" role to access Sign-ins and Audit activity within the Azure portal as well as using the Microsoft Graph API.
+As part of customers feedback to enable non-admin roles to have access to Azure AD activity logs, we've enabled the ability for users who are in the "Reports Reader" role to access Sign-ins and Audit activity within the Azure portal as well as using the Microsoft Graph API.
 
 For more information, how to use these reports, see [Azure Active Directory reporting](../reports-monitoring/overview-reports.md).
 
