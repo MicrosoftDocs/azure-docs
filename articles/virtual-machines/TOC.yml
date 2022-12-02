@@ -151,7 +151,23 @@
   - name: SQL on Virtual Machines
     href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
-    href: /azure/architecture/topics/high-performance-computing/
+    items:
+    - name: HPC on Azure
+      href: /azure/architecture/topics/high-performance-computing/
+    - name: HPC for H-series and N-series VMs
+      href: ./workloads/hpc/overview.md
+    - name: How to set up HPC/AI VMs
+      href: ./workloads/hpc/set-up-hpc-vms.md
+    - name: Configuration
+      items:
+      - name: Configure and optimize VMs
+        href: ./workloads/hpc/configure.md
+      - name: Enable InfiniBand
+        href: ./workloads/hpc/enable-infiniband.md
+      - name: Set up MPI
+        href: ./workloads/hpc/setup-mpi.md 
+    - name: Scaling applications
+      href: ./workloads/hpc/compiling-scaling-applications.md  
 - name: Instances
   items:
   - name: Sizes
