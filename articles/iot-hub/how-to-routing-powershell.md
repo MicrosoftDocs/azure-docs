@@ -55,7 +55,7 @@ References used in the following commands:
 
 Let's create a new Event Hubs resource with an authorization rule.
 
-1. Create a new Event Hubs namespace. Use a unique **NamespaceName**.
+1. Create a new Event Hubs namespace. For **NamespaceName**, use a unique value.
 
    ```powershell
    New-AzEventHubNamespace -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Location MyLocation

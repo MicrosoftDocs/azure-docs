@@ -45,11 +45,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use as your endpoint must first exist in your Azure account.
 
-In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**. In the **Message routing** command bar,  select **Add**.
-
-:::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
-
-Next, decide which route type (event hubs, Service Bus queue or topic, or Azure storage) you want to create. For the service you choose to use, complete the steps to create an endpoint.
+Decide which route type (event hubs, Service Bus queue or topic, or Azure storage) you want to create. For the service you choose to use, complete the steps to create an endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
@@ -57,119 +53,166 @@ To learn how to create an Event Hubs resource, see [Quickstart: Create an event 
 
 In the Azure portal, you can create a route and endpoint at the same time. If you use the Azure CLI or PowerShell, you must create an endpoint first, and then create a route.
 
-1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-event-hubs-route**.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
-1. For **Endpoint**, select the **+ Add endpoint** dropdown and select **Event hubs**.
+1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-   :::image type="content" source="media/how-to-routing-portal/add-endpoint-event-hubs.png" alt-text="Screenshot that shows location of the Add endpoint dropdown.":::
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
 
-1. A new pane, **Add an event hub endpoint**, opens. Create an **Endpoint name** for your IoT hub. This will display in your IoT hub.
-   
-   For **Event hub namespace**, select the namespace you previously created in your Event Hubs resource from the dropdown.
+1. In **Add a route**, enter or select these values:
 
-   For **Event hub instance**, select the event hub you created in your Event Hubs resource from the dropdown.
+   * **Name**: Enter a unique name for your route. It might be helpful to include the endpoint type in the name, such as *my-event-hubs-route*.
 
-   Select **Create** at the bottom and you'll go back to the **Add a route** pane.
+   * **Endpoint**: Select **Add endpoint**, and then select **Event hubs**.
+
+      :::image type="content" source="media/how-to-routing-portal/add-endpoint-event-hubs.png" alt-text="Screenshot that shows location of the Add endpoint dropdown.":::
+
+1. In **Add an event hub endpoint**, enter or select these values:
+
+   * **Endpoint name**: Enter a unique name for your endpoint. The endpoint name displays in your IoT hub.
+
+   * **Event hub namespace**: Select the namespace you created in your Event Hubs resource.
+
+   * **Event hub instance**: Select the event hub you created in your Event Hubs resource.
+
+1. Select **Create**.
 
    :::image type="content" source="media/how-to-routing-portal/add-event-hub.png" alt-text="Screenshot that shows all options to select on the Add an event hub endpoint pane.":::
 
-1. Leave all the other values as their defaults on the **Add a route** pane.
+1. In **Add a route**, leave all default values and select **Save**.
 
-1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** pane. 
-   
+1. In **Message routing**, on the **Routes** tab, check that your new route appears.
+
    :::image type="content" source="media/how-to-routing-portal/see-new-route.png" alt-text="Screenshot that shows the new route you created on the Message routing pane." lightbox="media/how-to-routing-portal/see-new-route.png":::
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-If you need to create a Service Bus queue, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
+To learn how to create a Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
 
-1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-route**.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
-1. For **Endpoint**, select the **+ Add endpoint** dropdown and select **Service bus queue**.
+1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-1. A new pane appears called **Add a service bus endpoint**. Think of a unique name for the **Endpoint name** field.
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
 
-1. Select the dropdown for **Service bus namespace** and select your service bus.
+1. In **Add a route**, enter or select these values:
 
-1. Select the dropdown for **Service bus queue** and select your service bus queue.
+   * **Name**: Enter a unique name for your route. It might be helpful to include the endpoint type in the name, such as *my-service-bus-route*.
 
-1. Leave all other values in their default states and select **Create** at the bottom.
+   * **Endpoint**: Select **Add endpoint**, and then select **Service bus queue**.
+
+1. In **Add a service bus endpoint**, enter or select these values:
+
+   * **Endpoint name**: Enter a unique name for your endpoint.
+
+   * **Service bus namespace**: Select your Service Bus namespace.
+
+   * **Service bus queue**: Select your Service Bus queue.
+
+1. Leave all other default values and select **Create**.
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-endpoint.png" alt-text="Screenshot that shows the Add a service bus endpoint pane with correct options selected.":::
 
-1. Leave all the other values as their defaults on the **Add a route** pane.
+1. In **Add a route**, leave all default values and select **Save**.
 
-1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** pane.
+1. In **Message routing**, on the **Routes** tab, check that your new route appears.
 
    :::image type="content" source="media/how-to-routing-portal/see-new-service-bus-route.png" alt-text="Screenshot that shows the new service bus queue route you created on the Message routing pane." lightbox="media/how-to-routing-portal/see-new-service-bus-route.png":::
 
 # [Service Bus topic](#tab/servicebustopic)
 
-If you need to create a Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+To learn how to create a Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
-1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-topic-route**.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
-1. For **Endpoint**, select the **+ Add endpoint** dropdown and select **Service bus topic**.
+1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-1. A new pane appears called **Add a service bus endpoint**. Think of a unique name for the **Endpoint name** field.
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
 
-1. Select the dropdown for **Service bus namespace** and select your service bus.
+1. In **Add a route**, enter or select these values:
 
-1. Select the dropdown for **Service Bus Topic** and select your Service Bus topic.
+   * **Name**: Enter a unique name for your route. It might be helpful to include the endpoint type in the name, such as *my-service-bus-route*.
 
-1. Leave all other values in their default states and select **Create** at the bottom.
+   * **Endpoint**: Select **Add endpoint**, and then select **Service bus topic**.
+
+1. In **Add a service bus endpoint**, enter or select these values:
+
+   * **Endpoint name**: Enter a unique name for your endpoint.
+
+   * **Service bus namespace**: Select your Service Bus namespace.
+
+   * **Service Bus Topic**: Select your Service Bus topic.
+
+1. Leave all other default values and select **Create**.
 
    :::image type="content" source="media/how-to-routing-portal/add-service-bus-topic-endpoint.png" alt-text="Screenshot that shows the Add a service bus endpoint pane with correct options selected.":::
 
-1. Leave all the other values as their defaults on the **Add a route** pane.
+1. In **Add a route**, leave all default values and select **Save**.
 
-1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** pane.
+1. In **Message routing**, on the **Routes** tab, check that your new route appears.
 
    :::image type="content" source="media/how-to-routing-portal/see-new-service-bus-topic-route.png" alt-text="Screenshot that shows your new Service Bus topic route on the Message routing pane." lightbox="media/how-to-routing-portal/see-new-service-bus-topic-route.png":::
 
 # [Azure Storage](#tab/azurestorage)
 
-If you need to create an Azure storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
+To learn how to create an Azure storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
 
-1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-topic-route**.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
-1. For **Endpoint**, select **Add endpoint**, and then select **Storage**.
+1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-1. In **Add a storage endpoint**, enter a unique name for **Endpoint name**.
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
+1. In **Add a route**, enter or select these values:
 
-1. Select **Pick a container**. Select your storage account and the storage account container. You return to the  pane.
+   * **Name**: Enter a unique name for your route. It might be helpful to include the endpoint type in the name, such as *my-storage-route*.
 
-1. In **Add a storage endpoint**, leave all other default values. Select **Create**.
+   * **Endpoint**: Select **Add endpoint**, and then select **Storage**.
+
+1. In **Add a storage endpoint**, enter or select these values::
+
+   * **Endpoint name**: Enter a unique name for your endpoint.
+
+   * **Pick a container**: Select your storage account and the storage account container.
+
+1. In **Add a storage endpoint**, leave all other default values and select **Create**.
 
    :::image type="content" source="media/how-to-routing-portal/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with correct options selected.":::
 
-1. Leave all the other values as their defaults on the **Add a route** pane.
+1. In **Add a route**, leave all default values and select **Save**.
 
-1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** pane.
+1. In **Message routing**, on the **Routes** tab, check that your new route appears.
 
    :::image type="content" source="media/how-to-routing-portal/see-new-storage-route.png" alt-text="Screenshot that shows your new storage route on the Message routing pane." lightbox="media/how-to-routing-portal/see-new-storage-route.png":::
 
 # [Azure Cosmos DB](#tab/cosmosdb)
 
-If you need to create a Azure Cosmos DB resource, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account).
+To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account).
 
-1. Go to your IoT hub resource on the **Message routing** pane and select the **Custom endpoints** tab.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
-1. Select **+ Add**, then select **CosmosDB** in the dropdown menu.
+1. In **Message routing**, go to your IoT hub resource and select the **Custom endpoints** tab.
+
+1. Select **Add**, and then select **CosmosDB**.
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows location of the Add button on the Message routing pane in the Custom endpoint tab of the IoT Hub resource.":::
 
-1. Complete the fields in the form **Add a Cosmos DB endpoint**.
+1. In **Add a Cosmos DB endpoint**, enter or select this information:
 
-   * **Endpoint name**: Enter a unique name.
+   * **Endpoint name**: Enter a unique name for your endpoint.
 
-   * **Cosmos DB account**, **Database**, and **Collection** — select your Azure Cosmos DB account, database, and collection from the dropdowns.
+   * **Cosmos DB account**: Select your Azure Cosmos DB account.
 
-   * **Partition key name** and **Partition key template** — these will fill in automatically, based on the previous selections, or you can change the partition template based on your business logic. For more information on partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview).
+   * **Database**: Select your Azure Cosmos DB database.
+  
+   * **Collection**: Select your Azure Cosmos DB collection.
+
+   * **Partition key name** and **Partition key template**: These values are created automatically based on your previous selections. You can leave the auto-generated values or you can change the partition template based on your business logic. For more information about partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview).
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::  
 
-   * Select **Save** at the bottom of the form. You should now see the route on your **Message routing** pane.
+1. Select **Save**.
+  
+1. In **Message routing**, on the **Routes** tab, check that your new route appears.
 
    :::image type="content" source="media/how-to-routing-portal/cosmos-db-confirm.png" alt-text="Screenshot that shows a new Azure Cosmos DB route in the IoT Hub Message routing pane." lightbox="media/how-to-routing-portal/cosmos-db-confirm.png":::  
 
@@ -177,29 +220,29 @@ If you need to create a Azure Cosmos DB resource, see [Create an Azure Cosmos DB
 
 ## Update a route
 
-Updating a route in the Azure portal is as easy as selecting your route from the **Message routing** menu in your IoT hub and changing the properties.
+To update a route in the Azure portal, select your route in **Message routing** in your IoT hub and changing the properties.
 
 You can make changes to an existing route:
 
-* Select a different endpoint from the **Endpoint** dropdown or create a new endpoint
-* Select a new source from the **Date source** dropdown
-* Enable or disable your route in the **Enable route** section
-* Create or change queries in the **Routing query** section
+* Select a different endpoint or create a new endpoint in **Endpoint**.
+* Select a new source in **Date source**.
+* Enable or disable your route under **Enable route**.
+* Create or change queries under **Routing query**.
 
 :::image type="content" source="media/how-to-routing-portal/update-route.png" alt-text="Screenshot that shows where and how to modify an existing IoT hub route.":::
 
-Select **Save** at the bottom after making changes.
+After you make any changes, select **Save**.
 
 > [!NOTE]
-> Although you can't modify an existing endpoint, you can create new ones for your IoT hub route and change the endpoint your route uses with the **Endpoint** dropdown.
+> Although you can't modify an existing endpoint, you can create new ones for your IoT hub route and change the endpoint that your route uses by changing the value for **Endpoint**.
 
 ## Delete a route
 
 To delete a route in the Azure portal:
 
-1. Check the box next to your route located in the **Message routing** menu.
+1. In **Message routing** for your IoT hub, select the checkbox for the route you want to delete.
 
-1. Select **Delete**.
+1. In the command bar, select **Delete**.
 
 :::image type="content" source="media/how-to-routing-portal/delete-route-portal.png" alt-text="Screenshot that shows where and how to delete an existing IoT hub route." lightbox="media/how-to-routing-portal/delete-route-portal.png":::
 
@@ -207,11 +250,11 @@ To delete a route in the Azure portal:
 
 To delete a custom endpoint in the Azure portal:
 
-1. From the **Message routing** menu, select the **Custom endpoints** tab.
+1. In **Message routing** for your IoT hub, select the **Custom endpoints** tab.
 
-1. Check the box next to your Event hubs endpoint.
+1. Select the checkbox for the Event Hubs endpoint you want to delete.
 
-1. Select the **Delete** button.
+1. In the command bar, select **Delete**.
 
 :::image type="content" source="media/how-to-routing-portal/delete-endpoint-portal.png" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/how-to-routing-portal/delete-endpoint-portal.png":::
 
