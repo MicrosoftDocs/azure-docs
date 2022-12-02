@@ -89,7 +89,7 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
-Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring traffic (also called shadowing) is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 10% is mirrored to the green deployment. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. This kind of testing scenario is also known as shadow testing. Mirror traffic functionality is a __preview__ feature.
+Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring traffic (also called shadowing) is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 10% is mirrored to the green deployment. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. This kind of testing scenario is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/). Mirror traffic functionality is a __preview__ feature.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
