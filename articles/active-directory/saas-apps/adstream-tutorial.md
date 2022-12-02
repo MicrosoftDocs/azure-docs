@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 12/02/2022
 ms.author: jeedes
 
 ---
@@ -22,7 +22,7 @@ In this article, you'll learn how to integrate Adstream with Azure Active Direct
 * Enable your users to be automatically signed-in to Adstream with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Adstream in a test environment. Adstream supports both **SP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for Adstream in a test environment. Adstream supports only **SP** initiated single sign-on.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
