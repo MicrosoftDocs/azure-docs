@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 The following article describes the concepts and customer-configurable options associated with Virtual WAN User VPN point-to-site (P2S) configurations and gateways. This article is split into multiple sections, including sections about P2S VPN server configuration concepts, and sections about P2S VPN gateway concepts.
 
-## P2S VPN server configuration concepts
+## VPN server configuration concepts
 
 VPN server configurations define the authentication, encryption and user group parameters used to authenticate users, and assign IP addresses and encrypt traffic. P2S gateways are associated with P2S VPN server configurations.
 
@@ -112,3 +112,7 @@ There can be one or more connection configurations on a P2S VPN gateway. Each co
 | User Groups | User groups that correspond to a configuration | Any user group(s) referenced in the VPN Server configuration. This parameter is optional. For more information, see [about user groups](user-groups-about.md).|
 | Address Pools|Address pools are private IP addresses that connecting users are assigned.|Address pools can be specified as any CIDR block that doesn't overlap with any Virtual Hub address spaces, IP addresses used in Virtual Networks connected to Virtual WAN or addresses advertised from on-premises. Depending on the scale unit specified on the gateway, you may need more than one CIDR block. For more information, see [about address pools](about-client-address-pools.md).|
 |Routing configuration|Every connection to Virtual Hub has a routing configuration, which defines which route table the connection is associated to and which route tables the route table propagates to. |All branch connections to the same hub (ExpressRoute, VPN, NVA) must associate to the defaultRouteTable and propagate to the same set of route tables. Having different propagations for branches connections may result in unexpected routing behaviors, as Virtual WAN will choose the routing configuration for one branch and apply it to all branches and therefore routes learned from on-premises.|
+
+## Next steps
+
+Add links here to a couple of articles for next steps.
