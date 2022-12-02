@@ -46,20 +46,24 @@ In the console, set the following environment variables:
 
 # [Bash](#tab/bash)
 
+Replace \<PLACEHOLDERS\> with your values.
+
 ```bash
 RESOURCE_GROUP="my-containerapp-store"
 LOCATION="canadacentral"
-GITHUB_USERNAME="your-GitHub-username"
-SUBSCRIPTION_ID="your-subscription-id"
+GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
+SUBSCRIPTION_ID="<YOUR_SUBSCRIPTION_ID>"
 ```
 
 # [PowerShell](#tab/powershell)
 
+Replace \<Placeholders\> with your values.
+
 ```powershell
-$RESOURCE_GROUP="my-containerapp-store"
-$LOCATION="canadacentral"
-$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
-$SUBSCRIPTION_ID="<YOUR_SUBSCRIPTION_ID>"
+$ResourceGroup="my-containerapp-store"
+$Location="canadacentral"
+$GithubUsername="<GithubUsername>"
+$SubscriptionId="<SubscriptionId>"
 ```
 
 ---
@@ -74,8 +78,8 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az login
+```azurepowershell
+Connect-AzAccount
 ```
 
 ---
@@ -90,8 +94,8 @@ az upgrade
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az upgrade
+```azurepowershell
+Install-Module -Name Az.App
 ```
 
 ---
@@ -100,29 +104,29 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
 
 ## Get application code
 
-1. Navigate to the [sample GitHub repo](https://github.com/Azure-Samples/container-apps-store-api-microservice.git) and click **Fork** in the top-right corner of the page.
+1. Navigate to the [sample GitHub repo](https://github.com/Azure-Samples/container-apps-store-api-microservice.git) and select **Fork** in the top-right corner of the page.
 
 1. Use the following [git](https://git-scm.com/downloads) command with your GitHub username to clone **your fork** of the repo to your development environment:
 
-# [Bash](#tab/bash)
+    # [Bash](#tab/bash)
 
-```git
-git clone https://github.com/$GITHUB_USERNAME/container-apps-store-api-microservice.git
-```
+    ```git
+    git clone https://github.com/$GITHUB_USERNAME/container-apps-store-api-microservice.git
+    ```
 
-# [PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
-```git
-git clone https://github.com/$GITHUB_USERNAME/container-apps-store-api-microservice.git
-```
+    ```git
+    git clone https://github.com/$GithubUsername/container-apps-store-api-microservice.git
+    ```
 
----
+    ---
 
-Navigate into the cloned directory.
+1. Navigate into the cloned directory.
 
-```console
-cd container-apps-store-api-microservice
-```
+    ```console
+    cd container-apps-store-api-microservice
+    ```
 
 The repository includes the following resources:
 
@@ -166,13 +170,16 @@ az ad sp create-for-rbac \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az ad sp create-for-rbac `
-  --name <SERVICE_PRINCIPAL_NAME> `
-  --role "contributor" `
-  --scopes /subscriptions/$SUBSCRIPTION_ID `
-  --sdk-auth
+```azurepowershell
+$CmdArgs = @{
+   DisplayName = '<SERVICE_PRINCIPAL_NAME>'
+   Role = 'contributor'
+   Scope = '/subscriptions/' + $SubscriptionId 
+}
+
+New-AzAdServicePrincipal @CmdArgs
 ```
+
 ---
 
 The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to:
@@ -222,7 +229,7 @@ To build and deploy the initial solution to Azure Container Apps, run the "Build
 
 ### Verify the deployment
 
-After the workflow successfully completes, verify the application is running in Azure Container Apps. 
+After the workflow successfully completes, verify the application is running in Azure Container Apps.
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. In the search field, enter **my-containerapp-store** and select the **my-containerapp-store** resource group.
@@ -249,7 +256,7 @@ After the workflow successfully completes, verify the application is running in 
 
 1. View the item you created via the **View Order** form:
     1. Enter the item **Id**.
-    1. Select **View**. 
+    1. Select **View**.
     
        :::image type="content" source="media/dapr-github-actions/view-order.png" alt-text="Screenshot of viewing the order via the view order form.":::
 
@@ -257,7 +264,7 @@ After the workflow successfully completes, verify the application is running in 
 
 1. In the Azure portal, navigate to **Application** > **Revision Management** in the **node-app** container. 
 
-   Note that, at this point, only one revision is available for this app.
+   At this point, only one revision is available for this app.
 
    :::image type="content" source="media/dapr-github-actions/single-revision-view.png" alt-text="Screenshot of checking the number of revisions at this point of the tutorial.":::
 
@@ -273,35 +280,34 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Return to the console, and navigate into the *node-service/views* directory in the forked repository.
 
-   
-   # [Bash](#tab/bash)
-   
-   ```azurecli
-      cd node-service/views
-   ```
-   
-   # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-      cd node-service/views
-   ```
+    # [Bash](#tab/bash)
+
+    ```azurecli
+   cd node-service/views
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```azurepowershell
+   cd node-service/view
+    ```
    ---
 
 1. Open the *index.jade* file in your editor of choice.
 
-
    # [Bash](#tab/bash)
-   
-   ```azurecli
-      code index.jade .
-   ```
-   
+
+    ```azurecli
+   code index.jade .
+    ```
+
    # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-      code index.jade .
-   ```
-   ---
+
+    ```azurepowershell
+   code index.jade .
+    ```
+
+    ---
 
 1. At the bottom of the file, uncomment the following code to enable deleting an order from the Dapr state store.
 
@@ -321,7 +327,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
    # [Bash](#tab/bash)
    
-   ```azurecli
+   ```git
    git add .
    git commit -m '<commit message>'
    git push origin main
@@ -329,7 +335,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
    
    # [PowerShell](#tab/powershell)
    
-   ```azurecli
+    ```git
    git add .
    git commit -m '<commit message>'
    git push origin main
@@ -348,7 +354,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
    :::image type="content" source="media/dapr-github-actions/revision-mgmt.png" alt-text="Screenshot that shows Revision Management in the left side menu.":::
 
-   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically sets it to `active` with 100% traffic.
+   Since our container app is in **multiple revision mode**, Container Apps created a new revision, and automatically sets it to `active` with 100% traffic.
 
    :::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
 
@@ -377,14 +383,12 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
 
-
 ## Next steps
 
 Learn more about how [Dapr integrates with Azure Container Apps](./dapr-overview.md).
-

@@ -60,7 +60,7 @@ To view events for an access package, you must have access to the underlying Azu
 - Global administrator  
 - Security administrator  
 - Security reader  
-- Report reader  
+- Reports reader  
 - Application administrator  
 
 Use the following procedure to view events: 

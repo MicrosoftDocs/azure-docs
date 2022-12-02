@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## November 2022
 
-### General Availability - use Web Sign-in on Windows for password-less recovery with Temporary Access Pass
+### General Availability - Use Web Sign-in on Windows for password-less recovery with Temporary Access Pass
 
 
 
@@ -47,7 +47,7 @@ For users who don't know or use a password, the Temporary Access Pass can now be
 
 ---
 
-### Public Preview - Workload identity Federation for Managed Identities
+### Public Preview - Workload Identity Federation for Managed Identities
 
 
 
@@ -119,7 +119,7 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### Public Preview - Dynamic Group Pause Functionality 
+### Public Preview - Dynamic Group pause functionality 
 
 
 
@@ -163,12 +163,12 @@ Update the company branding functionality on the Azure AD/Microsoft 365 sign in 
 
 
 **Type:** New feature   
-**Service category:** B2B        
-**Product capability:** B2B/B2C   
+**Service category:** Directory Management           
+**Product capability:** Directory      
 
-Administrative Units now support soft deletion. Admins can now list, view properties of, perform ad hoc hard delete, or restore deleted Administrative Units using Microsoft Graph. This functionality restores all configuration for the Administrative Unit when restored from soft delete including: memberships, admin roles, processing rules, and processing rules state.
+Administrative Units now support soft deletion. Admins can now list, view properties of, or restore deleted Administrative Units using the Microsoft Graph. This functionality restores all configuration for the Administrative Unit when restored from soft delete, including memberships, admin roles, processing rules, and processing rules state.
 
-This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted, it can be restored quickly to the same state it was at time of deletion. This removes uncertainty around how things were configured, and makes restoration quick and easy. For more information, see: [Soft deletions](../fundamentals/recover-from-deletions.md#soft-deletions).
+This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted it can be restored quickly to the same state it was at time of deletion-removing uncertainty around how things were configured and making restoration quick and easy. For more information, see: [List deletedItems (directory objects)](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http).
 
 
 ---
@@ -1141,165 +1141,6 @@ You can now create or update dynamic device groups using the following propertie
 - profileType
 
 For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
- 
-
----
- 
-
-
-## May 2022
- 
-### General Availability: Tenant-based service outage notifications
-
-**Type:** Plan for change  
-**Service category:** Other  
-**Product capability:** Platform  
-
- 
-Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues soon. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
- 
----
-
-
-
-### New Federated Apps available in Azure AD Application gallery - May 2022
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration  
- 
-
-
-In May 2022 we've added the following 25 new applications in our App gallery with Federation support:
-
-[UserZoom](../saas-apps/userzoom-tutorial.md), [AMX Mobile](https://www.amxsolutions.co.uk/), [i-Sight](../saas-apps/isight-tutorial.md), [Method InSight](https://digital.methodrecycling.com/), [Chronus SAML](../saas-apps/chronus-saml-tutorial.md), [Attendant Console for Microsoft Teams](https://attendant.anywhere365.io/), [Skopenow](../saas-apps/skopenow-tutorial.md), [Fidelity PlanViewer](../saas-apps/fidelity-planviewer-tutorial.md), [Lyve Cloud](../saas-apps/lyve-cloud-tutorial.md), [Framer](../saas-apps/framer-tutorial.md), [Authomize](../saas-apps/authomize-tutorial.md), [gamba!](../saas-apps/gamba-tutorial.md), [Datto File Protection Single Sign On](../saas-apps/datto-file-protection-tutorial.md), [LONEALERT](https://portal.lonealert.co.uk/auth/azure/saml/signin), [Payfactors](https://pf.payfactors.com/client/auth/login), [deBroome Brand Portal](../saas-apps/debroome-brand-portal-tutorial.md), [TeamSlide](../saas-apps/teamslide-tutorial.md), [Sensera Systems](https://sitecloud.senserasystems.com/), [YEAP](https://prismaonline.propay.be/logon/login.aspx), [Monaca Education](https://monaca.education/ja/signup), [Personify Inc](https://personifyinc.com/login), [Phenom TXM](../saas-apps/phenom-txm-tutorial.md), [Forcepoint Cloud Security Gateway - User Authentication](../saas-apps/forcepoint-cloud-security-gateway-tutorial.md), [GoalQuest](../saas-apps/goalquest-tutorial.md), [OpenForms](https://login.openforms.com/Login).
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
-
-
- 
-
----
- 
-
-### General Availability – My Apps users can make apps from URLs (add sites)
-
-**Type:** New feature  
-**Service category:** My Apps  
-**Product capability:** End User Experiences  
- 
-
-When editing a collection using the My Apps portal, users can now add their own sites, in addition to adding apps that have been assigned to them by an admin. To add a site, users must provide a name and URL. For more information on how to use this feature, see: [Customize app collections in the My Apps portal](https://support.microsoft.com/account-billing/customize-app-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
- 
-
----
- 
-
-### Public preview - New provisioning connectors in the Azure AD Application Gallery - May 2022
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration  
- 
-
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-- [Alinto Protect](../saas-apps/alinto-protect-provisioning-tutorial.md)
-- [Blinq](../saas-apps/blinq-provisioning-tutorial.md)
-- [Cerby](../saas-apps/cerby-provisioning-tutorial.md)
-
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
- 
-
----
- 
-
-### Public Preview: Confirm safe and compromised in sign-ins API beta
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection  
- 
-
-The sign-ins Microsoft Graph API now supports confirming safe and compromised on risky sign-ins. This public preview functionality is available at the beta endpoint. For more information, please check out the Microsoft Graph documentation: [signIn: confirmSafe - Microsoft Graph beta | Microsoft Docs](/graph/api/signin-confirmsafe?view=graph-rest-beta&preserve-view=true)
- 
-
----
- 
-
-### Public Preview of Microsoft cloud settings for Azure AD B2B
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C  
-
- 
-
-Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
-
--Microsoft Azure global cloud and Microsoft Azure Government
--Microsoft Azure global cloud and Microsoft Azure China 21Vianet
-
-To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD | Microsoft Docs](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
- 
-
----
- 
-
-### General Availability of SAML and WS-Fed federation in External Identities
-
-**Type:** Changed feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C  
-
- 
-
-When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD | Microsoft Docs](../external-identities/direct-federation.md).
- 
-
----
- 
-
-### Public Preview - Create Group in Administrative Unit
-
-**Type:** Changed feature  
-**Service category:** Directory Management  
-**Product capability:** Access Control  
-
- 
-
-Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped group administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
- 
-
----
- 
-
-### Public Preview - Dynamic administrative unit support for onPremisesDistinguishedName property
-
-**Type:** Changed feature  
-**Service category:** Directory Management  
-**Product capability:** AuthZ/Access Delegation  
-
- 
-
-The public preview of dynamic administrative units now supports the **onPremisesDistinguishedName** property for users. This makes it possible to create dynamic rules that incorporate the organizational unit of the user from on-premises AD. For more information, see: [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](../roles/admin-units-members-dynamic.md).
- 
-
----
- 
-
-### General Availability - Improvements to Azure AD Smart Lockout
-
-**Type:** Changed feature  
-**Service category:** Other  
-**Product capability:** User Management  
-
- 
-
-Smart Lockout now synchronizes the lockout state across Azure AD data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
  
 
 ---

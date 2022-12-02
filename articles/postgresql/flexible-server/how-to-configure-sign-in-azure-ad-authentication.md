@@ -168,6 +168,13 @@ Here's a Linux/macOS example:
 export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 ```
 
+You can also combine step 2 and step 3 together using command substitution. The token retrieval can be encapsulated into a variable and passed directly as a value for `PGPASSWORD` environment variable:
+
+```shell
+export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query "[accessToken]" -o tsv)
+```
+
+
 Now you can initiate a connection with Azure Database for PostgreSQL as you normally would:
 
 ```shell
