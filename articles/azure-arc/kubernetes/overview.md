@@ -20,7 +20,7 @@ Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in tr
 
 Azure Arc-enabled Kubernetes supports the following scenarios for connected clusters:
 
-* Single pane of glass to view all the [Connect Kubernetes](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging, along with Azure kubernetes clusters.
+* Single pane of glass to view all [connected Kubernetes clusters](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging, along with Azure Kubernetes Service (AKS) clusters.
 
 * Deploy applications and apply configuration using [GitOps-based configuration management](tutorial-use-gitops-connected-cluster.md).
 
