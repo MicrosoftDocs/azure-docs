@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 11/28/2022
+ms.date: 12/02/2022
 ms.topic: overview
 ms.author: timwarner
 author: timwarner-msft
@@ -21,6 +21,15 @@ automatic remediation for new resources.
 Common use cases for Azure Policy include implementing governance for resource consistency,
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
 are already available in your Azure environment as built-ins to help you get started.
+
+Specifically, some useful governance actions you can enforce with Azure Policy include:
+
+- Ensuring your team deploys Azure resources only to allowed regions
+- Enforcing the consistent application of taxonomic tags
+- Requiring resources to send diagnostic logs to a Log Analytics workspace
+
+It's important to recognize that with the introduction of [Azure Arc](../../azure-arc/overview.md), you can extend your
+policy-based governance across different cloud providers and even to your local datacenters.
 
 All Azure Policy data and objects are encrypted at rest. For more information, see
 [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md).
