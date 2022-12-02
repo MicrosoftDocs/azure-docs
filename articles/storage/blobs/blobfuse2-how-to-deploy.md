@@ -17,8 +17,11 @@ ms.custom: engagement-fy23
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
 > [Install BlobFuse2](#how-to-install-blobfuse2)
+>
 > [Configure BlobFuse2](#how-to-configure-blobfuse2)
+>
 > [Mount a blob container](#how-to-mount-a-blob-container)
+>
 > [Access data](#how-to-access-data)
 
 ## How to install BlobFuse2
@@ -41,6 +44,7 @@ lsb_release -a
 To install BlobFuse2 from the repositories:
 
 > [Configure the Microsoft package repository](#configure-the-microsoft-package-repository)
+>
 > [Install BlobFuse2](#install-blobfuse2)
 
 #### Configure the Microsoft package repository
