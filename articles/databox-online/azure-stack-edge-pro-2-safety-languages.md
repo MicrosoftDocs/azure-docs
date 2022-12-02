@@ -20,26 +20,26 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 |Language              |Code link  |
 |----------------------|---------|
-|Arabic                |[ar article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|English               |[en article](https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Czech                 |[cs article](https://learn.microsoft.com/cs/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|German                |[de article](https://learn.microsoft.com/de/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Spanish               |[es article](https://learn.microsoft.com/es/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|French                |[fr article](https://learn.microsoft.com/fr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Hungarian             |[hu article](https://learn.microsoft.com/hu/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Indonesian            |[id article](https://learn.microsoft.com/id/azure/databox-online/azure-stack-edge-pro-2-safety)    |
-|Italian               |[it article](https://learn.microsoft.com/it/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Japanese              |[ja article](https://learn.microsoft.com/ja/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Korean                |[ko article](https://learn.microsoft.com/ko/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Dutch                 |[nl article](https://learn.microsoft.com/nl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Polish                |[pl article](https://learn.microsoft.com/pl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Portuguese - Brazil   |[pt - br article](https://learn.microsoft.com/pt-br/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Portuguese - Portugal |[pt - pt article](https://learn.microsoft.com/pt-pt/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Russian               |[ru article](https://learn.microsoft.com/ru/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Swedish               |[sv article](https://learn.microsoft.com/sv/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Turkish               |[tr article](https://learn.microsoft.com/tr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Chinese - simplified  |[zh - hans article](https://learn.microsoft.com/zh-hans/azure/databox-online/azure-stack-edge-pro-2-safety)     |
-|Chinese - traditional |[zh - hant article](https://learn.microsoft.com/zh-hant/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Arabic - العربية     |[ar article](https://learn.microsoft.com/ar/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|English - English     |[en article](https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Czech - Čeština       |[cs article](https://learn.microsoft.com/cs/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|German - Deutsch      |[de article](https://learn.microsoft.com/de/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Spanish - Español     |[es article](https://learn.microsoft.com/es/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|French - Français     |[fr article](https://learn.microsoft.com/fr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Hungarian - Magyar    |[hu article](https://learn.microsoft.com/hu/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Indonesian - Bahasa Indonesia  |[id article](https://learn.microsoft.com/id/azure/databox-online/azure-stack-edge-pro-2-safety)    |
+|Italian - Italiano    |[it article](https://learn.microsoft.com/it/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Japanese - 日本語      |[ja article](https://learn.microsoft.com/ja/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Korean - 한국어       |[ko article](https://learn.microsoft.com/ko/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Dutch - Nederlands    |[nl article](https://learn.microsoft.com/nl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Polish - Polski       |[pl article](https://learn.microsoft.com/pl/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Portuguese-Brazil - Português (Brasil)   |[pt - br article](https://learn.microsoft.com/pt-br/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Portuguese-Portugal - Português (Portugal) |[pt - pt article](https://learn.microsoft.com/pt-pt/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Russian - Русский     |[ru article](https://learn.microsoft.com/ru/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Swedish - Svenska     |[sv article](https://learn.microsoft.com/sv/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Turkish - Türkçe      |[tr article](https://learn.microsoft.com/tr/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Chinese-simplified - 中文 (简体) |[zh - hans article](https://learn.microsoft.com/zh-hans/azure/databox-online/azure-stack-edge-pro-2-safety)     |
+|Chinese-traditional - 中文 (繁體) |[zh - hant article](https://learn.microsoft.com/zh-hant/azure/databox-online/azure-stack-edge-pro-2-safety)     |
 
 ## Safety instructions in other languages
 
