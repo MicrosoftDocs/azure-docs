@@ -26,14 +26,14 @@ In this article, you will learn how to perform data wrangling using
 ## Prerequisites
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
-- A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
 - To enable this feature:
   1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
   :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+- (Optional): An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+- (Optional): A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 Before starting data wrangling tasks, you will need familiarity with the process of storing secrets
@@ -217,6 +217,9 @@ To start interactive data wrangling with the user identity passthrough:
     )
     ```
 
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+
 To wrangle data by access through a service principal:
 
 1. Verify that the service principal has **Contributor** and **Storage Blob Data Contributor** [role assignments](#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account.
@@ -324,6 +327,9 @@ To start interactive data wrangling:
     )
     ```
 
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+
 ### Import and wrangle data from Azure Machine Learning Datastore
 
 To access data from [Azure Machine Learning Datastore](how-to-datastore.md), define a path to data on the datastore with [URI format](how-to-create-data-assets.md?tabs=cli#supported-paths) `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>`. To wrangle data from an Azure Machine Learning Datastore in a Notebooks session interactively:
@@ -351,6 +357,9 @@ To access data from [Azure Machine Learning Datastore](how-to-datastore.md), def
         index_col="PassengerId",
     )
     ```
+
+    > [!NOTE]
+    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 The Azure Machine Learning datastores can access data using Azure storage account credentials 
 
@@ -394,6 +403,9 @@ df.dropna(inplace=True) # Drop the rows which still have any missing value
 output_path = "file://" + abspath + "/Users/<USER>/data/wrangled"
 df.to_csv(output_path, index_col="PassengerId")
 ```
+
+> [!NOTE]
+> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
 
 ## Next steps
 

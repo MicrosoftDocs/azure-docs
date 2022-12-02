@@ -22,6 +22,18 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 - Azure Machine Learning SDK
 
 ## Prerequisites
+
+### Studio UI
+Prerequisites for submitting a Spark job from Azure Machine Learning Studio UI are as follows: 
+- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
+- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
+- To enable this feature:
+  1. Navigate to Azure Machine Learning Studio UI.
+  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
+  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+- [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
+
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
@@ -39,18 +51,6 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ---
-
-### Studio UI
-Prerequisites for submitting a Spark job from Azure Machine Learning Studio UI are as follows: 
-- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
-- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning Studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
-- [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
-
 
 ## Ensuring resource access for Spark jobs
 Spark jobs can use either user identity passthrough or a managed identity to access data and other resource. Different mechanisms for accessing resources while using Azure Machine Learning Managed (Automatic) Spark compute and attached Synapse Spark pool are summarized in the following table. 
@@ -132,6 +132,10 @@ df.fillna(
 df.dropna(inplace=True)  # Drop the rows which still have any missing value
 df.to_csv(args.wrangled_data, index_col="PassengerId")
 ```
+
+> [!NOTE]
+> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively.
 
 # [Azure CLI](#tab/cli)
@@ -269,6 +273,12 @@ The YAML files shown above can be used in the `az ml job create` command, with t
 ```azurecli
 az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
+
+You can execute the above command from:
+- [terminal of an Azure Machine Learning compute instance](how-to-access-terminal.md#access-a-terminal). 
+- terminal of [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+- your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
+
 # [Python SDK](#tab/sdk)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -327,6 +337,11 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
   or
   - `azure.ai.ml.entities.ManagedIdentityConfiguration`
   for user identity and managed identity respectively. If no identity is defined, the default identity will be used.
+
+You can submit a standalone Spark job from:
+- an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
+- [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
 
 This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning Managed (Automatic) Spark compute, using user identity.
 
@@ -579,6 +594,11 @@ The above YAML specification file can be used in `az ml job create` command, usi
 az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
 
+You can execute the above command from:
+- [terminal of an Azure Machine Learning compute instance](how-to-access-terminal.md#access-a-terminal). 
+- terminal of [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+- your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
+
 # [Python SDK](#tab/sdk)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -592,6 +612,11 @@ To create an Azure Machine Learning pipeline with a Spark component, you should 
 
 > [!NOTE]
 > A Spark component created using `azure.ai.ml.spark` function does not define `identity`,  `compute` or `resources` parameters. These parameters are defined in the Azure Machine Learning pipeline.
+
+You can submit a pipeline job with a Spark component from:
+- an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
+- [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
+- your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2) installed.
 
 This Python code snippet shows use of a managed identity, together with the creation of an Azure Machine Learning pipeline job, with a Spark component, and an Azure Machine Learning Managed (Automatic) Synapse compute:
 
