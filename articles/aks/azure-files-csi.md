@@ -38,14 +38,14 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
 |shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be less than 21 characters. | No |
 |folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name does not exist in file share, mount will fail. |
-|shareAccessTier | [Access tier for file share][access-tier-file-share] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
-|accountAccessTier | [Access tier for storage account][access-tier-storage-account] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
+|shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
+|accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
 |server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
 |disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
 |requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
-|tags | [tags][azure-tags] are created in newly created storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
+|tags | [tags][tag-resources] are created in newly created storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
