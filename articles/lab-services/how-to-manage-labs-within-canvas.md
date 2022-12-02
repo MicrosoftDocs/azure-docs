@@ -120,7 +120,7 @@ This section outlines common error messages that you may see, along with the ste
 
   In Canvas, you'll see the following message if the educator hasn't published the lab yet. Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
-  :::image type="content" source="./media/how-to-manage-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
+  :::image type="content" source="./media/how-to-manage-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet.":::
 
 - Student or educator is prompted to grant access.
 

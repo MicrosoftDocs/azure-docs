@@ -116,7 +116,7 @@ If you didn't add the Azure Lab Services app at the account level, use the follo
 
 1. On the **Add App** dialog, in the **Configuration Type** dropdown, choose **By Client ID**. Enter the Azure Lab Services client ID, which is **170000000000711**, into the **Client ID** field. Select the **Submit** button.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/enable-lab-services.png" alt-text="Screenshot that shows Add by Client I D dialog in Canvas.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/enable-lab-services.png" alt-text="Screenshot that shows Add by Client ID dialog in Canvas.":::
 
 1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?*, select **Install**.
 
