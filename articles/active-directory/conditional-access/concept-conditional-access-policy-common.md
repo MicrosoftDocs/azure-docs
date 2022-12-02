@@ -66,8 +66,6 @@ Organizations can select individual policy templates and:
 - [Securing security info registration](howto-conditional-access-policy-registration.md)
 - [Use application enforced restrictions for unmanaged devices](howto-policy-app-enforced-restriction.md)
 
-
-
 ## Other common policies
 
 - [Block access by location](howto-conditional-access-policy-location.md)
