@@ -40,7 +40,7 @@ When you have these prerequisites, you're ready to deploy the Bicep file.
 
 ## Review the Bicep file - Optional
 
-The Bicep file that you use to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The Bicep file used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
 1. Save the Bicep file locally as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
 
