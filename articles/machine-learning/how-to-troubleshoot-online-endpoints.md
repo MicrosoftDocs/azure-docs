@@ -231,11 +231,11 @@ This issue happens when the memory footprint of the model is larger than the ava
 
 #### Role assignment quota
 
-Try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
+When creating managed online endpoint, role assignment is required for the identity to access workspace resources. If you have reached role assignment limit, try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription.
+Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-quotas#endpoint-quota-increases) to request endpoint quota increase.
 
 #### Kubernetes quota
 
@@ -486,6 +486,6 @@ instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance
 
 ## Next steps
 
-- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
