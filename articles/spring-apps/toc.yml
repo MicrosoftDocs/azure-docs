@@ -298,6 +298,8 @@ items:
       href: how-to-dump-jvm-options.md
     - name: Connect to an app instance for troubleshooting
       href: how-to-connect-to-app-instance-for-troubleshooting.md
+    - name: Debug your apps remotely
+      href: how-to-remote-debugging-app-instance.md
   - name: Migrate
     items:
     - name: Migrate Standard and Basic to Enterprise
