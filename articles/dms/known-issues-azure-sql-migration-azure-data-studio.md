@@ -220,6 +220,7 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 ## Azure SQL Managed Instance and SQL Server on Azure Virtual Machine known issues and limitations
 - If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
 - If migrating a single database to **Azure SQL Managed Instance**, the database backups must be placed in a flat-file structure inside a database folder, and the folders can't be nested, as it's not supported.
+- If migrating multiple databases to **SQL Server on Azure Virtual Machine**, there is a temporary limit of 80 databases per target Azure Virtual Machine. A workaround to break the limit (reset the counter) is to **Uninstall** and **Reinstall** [SQL IaaS Agent Extension](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?view=azuresql&tabs=azure-powershell) in the target Azure Virtual Machine.
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
 - The following server objects aren't supported:
