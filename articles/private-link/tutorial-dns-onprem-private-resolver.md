@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload
 
-When an Azure Private Endpoint is created it uses Azure Private DNS Zones for name resolution by default. For on-premises workloads to access the endpoint, a forwarder to a virtual machine in Azure hosting DNS or on-premises DNS records for the private endpoint were required. Azure Private Resolver alleviates the need to deploy a VM in Azure for DNS or manage the private endpoint DNS records on a on-premises DNS server.
+When an Azure Private Endpoint is created, it uses Azure Private DNS Zones for name resolution by default. For on-premises workloads to access the endpoint, a forwarder to a virtual machine in Azure hosting DNS or on-premises DNS records for the private endpoint were required. Azure Private Resolver alleviates the need to deploy a VM in Azure for DNS or manage the private endpoint DNS records on an on-premises DNS server.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > An Azure Virtual Network with peering is used to simulate an on-premises network for the purposes of this tutorial. In a production scenario, an **Express Route** or **site to site VPN** is required to connect to the Azure Virtual Network to access the private endpoint. 
 >
-> The simulated network is configured with the Azure Private Resolver as the virtual network's DNS server. In a production scenario, the on-premises resources will use a local DNS server for name resolution. A conditional forwarder to the Azure Private Resolver is used on the on-premises DNS server to resolve the private endpoint DNS records. Refer to your DNS provider for more information about configuring conditional forwarders. 
+> The simulated network is configured with the Azure Private Resolver as the virtual network's DNS server. In a production scenario, the on-premises resources will use a local DNS server for name resolution. A conditional forwarder to the Azure Private Resolver is used on the on-premises DNS server to resolve the private endpoint DNS records. For more information about the configuration of conditional forwarders for your DNS server, see your provider's documentation. 
 
 ## Prerequisites
 
@@ -224,7 +224,7 @@ You'll create a private endpoint for the web app you created previously.
     | Subscription | Select your subscription. |
     | Resource type | Select **Microsoft.Web/sites**. |
     | Resource | Select your webapp. The name **mywebapp8675** is used for the examples in this tutorial. |
-    | Target sub-resource | Select **sites**. |
+    | Target subresource | Select **sites**. |
 
 6. Select **Next: Virtual Network**.
 
@@ -290,7 +290,7 @@ When the private resolver deployment is complete, continue to the next steps.
 
 The following steps will set the private resolver as the primary DNS server for the simulated on-premises network **myVNet-onprem**. 
 
-In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. You local DNS server will have a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
+In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. Your local DNS server will have a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
 
 10. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
 
@@ -419,7 +419,7 @@ the virtual networks, private endpoint and resolver, and virtual machine with th
 
 ## Next steps
 
-In this tutorial you learned how to deploy a private resolver and private endpoint. You tested the connection to the private endpoint from a simulated on-premises network.
+In this tutorial, you learned how to deploy a private resolver and private endpoint. You tested the connection to the private endpoint from a simulated on-premises network.
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
