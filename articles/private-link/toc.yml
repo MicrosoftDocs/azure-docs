@@ -33,7 +33,7 @@
   expanded: true
 - name: Tutorials
   items: 
-  _ name: Deploy a private endpoint with a private resolver
+  - name: Deploy a private endpoint with a private resolver
     href: tutorial-dns-onprem-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
