@@ -10,16 +10,17 @@ ms.date: 10/04/2022
 
 # Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale
 
-AKS clusters that satisfy any of the below criteria should use the [Uptime SLA][Uptime SLA] feature for higher reliability and scalability of the Kubernetes control plan:
+AKS clusters that satisfy any of the below criteria should use the [Standard tier with the Uptime SLA feature][standard-tier] for higher reliability and scalability of the Kubernetes control plane:
+
 * Clusters running greater than 10 nodes on average
-* Clusters that need to scale beyond 1000 nodes 
+* Clusters that need to scale beyond 1000 nodes
 * Clusters running production workloads or availability sensitive mission critical workloads
 
-To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket via the [portal][Azure Portal] up-to a maximum of 5000 nodes per cluster. 
+To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket in the [Azure Portal][Azure Portal] up-to a maximum of 5000 nodes per cluster.
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
-- An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
-- Uptime SLA enabled on your cluster.
+
+- An existing AKS cluster in the Standard tier that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
 - Clusters should use Kubernetes version 1.23 or above
 
 > [!NOTE] 
@@ -59,7 +60,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 [Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: configure-azure-cni.md#dynamic-allocation-of-ips-and-enhanced-subnet-support
 [max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
 [Azure Portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
-[uptime SLA]: uptime-sla.md
+[standard-tier]: free-standard-pricing-tiers.md
 
 <!-- LINKS - Internal -->
 [quotas-skus-regions]: quotas-skus-regions.md
