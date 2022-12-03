@@ -58,7 +58,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
 
 5. Select **Next: IP Addresses** or the **IP Addresses tab**.
 
-6. In **IPv4 address space**, select the existing address space. Enter **10.0.0.0/16**.
+6. In **IPv4 address space**, select the existing address space. Enter **10.1.0.0/16**.
 
 7. Select **+ Add subnet**.
 
@@ -67,7 +67,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **mySubnet-cloud**. |
-    | Subnet address range | Enter **10.0.0.0/24**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 9. Select **Add**.
 
@@ -94,7 +94,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
 
 4. Select **Next: IP Addresses** or the **IP Addresses tab**.
 
-5. In **IPv4 address space**, select the existing address space. Enter **10.1.0.0/16**.
+5. In **IPv4 address space**, select the existing address space. Enter **10.2.0.0/16**.
 
 6. Select **+ Add subnet**.
 
@@ -103,7 +103,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **mySubnet-cloud**. |
-    | Subnet address range | Enter **10.0.0.0/24**. |
+    | Subnet address range | Enter **10.2.0.0/24**. |
 
 9. Select **Add**.
 
@@ -116,16 +116,18 @@ A virtual network for the Azure Web App and simulated on-premises network is use
     | Setting | Value |
     | ------- | ----- |
     | Bastion name | Enter **myBastion**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
+    | AzureBastionSubnet address space | Enter **10.2.1.0/26**. |
     | Public IP address | Select **Create new**. </br> Enter **myPublicIP-Bastion** in **Name**. </br> Select **OK**. |
 
 13. Select **Review + create**.
 
 14. Select **Create**.
 
-It will take a few minutes for the Bastion Host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when virtual network is created.
+It will take a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when virtual network is created.
 
 ### Peer virtual networks
+
+You'll peer the virtual networks together to simulate an on-premises network. In a production environment, a site to site VPN or Express Route connection is present between the on-premises network and the Azure Virtual Network.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -148,7 +150,7 @@ It will take a few minutes for the Bastion Host deployment to complete. The Bast
     | Peering link name | Enter **myPeer-cloud**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual Network | Select **myVNet-onprem**. |
+    | Virtual Network | Select **myPeer-onprem**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None (default)**. |
@@ -236,7 +238,7 @@ You'll create a private endpoint for the web app you created previously.
     | Network policy for private endpoints | Leave the default of **Disabled**. |
     | **Private IP configuration** | Select **Statically allocate IP address**. |
     | **Name** | Enter **myIPconfig**. |
-    | **Private IP** | Enter **10.0.0.10**. |
+    | **Private IP** | Enter **10.1.0.10**. |
 
 8. Select **Next: DNS**.
 
