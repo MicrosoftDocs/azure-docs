@@ -273,7 +273,9 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    The environment definition will be included in the deployment definition itself as an anonymous environment. You will see in the following lines in the deployment:
+    
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml" range="10-12":::
    
     # [Python](#tab/python)
    
