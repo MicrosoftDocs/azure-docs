@@ -101,7 +101,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet name | Enter **mySubnet-cloud**. |
+    | Subnet name | Enter **mySubnet-onprem**. |
     | Subnet address range | Enter **10.2.0.0/24**. |
 
 9. Select **Add**.
@@ -122,7 +122,7 @@ A virtual network for the Azure Web App and simulated on-premises network is use
 
 14. Select **Create**.
 
-It will take a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when virtual network is created.
+It will take a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when the virtual network is created.
 
 ### Peer virtual networks
 
@@ -420,6 +420,6 @@ the virtual networks, private endpoint and resolver, and virtual machine with th
 
 In this tutorial, you learned how to deploy a private resolver and private endpoint. You tested the connection to the private endpoint from a simulated on-premises network.
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
 > [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal.md).
