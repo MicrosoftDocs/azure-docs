@@ -423,4 +423,4 @@ In this tutorial, you learned how to deploy a private resolver and private endpo
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal).
+> [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal.md).
