@@ -185,7 +185,7 @@ The output of the app should be similar to this example:
 ```
 
 > [!NOTE]
-> The fields assigned by Azure Cosmos DB (ex. ) will vary from this sample output.
+> The fields assigned by Azure Cosmos DB will vary from this sample output.
 
 ## Clean up resources
 
