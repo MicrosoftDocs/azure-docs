@@ -104,13 +104,13 @@ A virtual network for the Azure Web App and simulated on-premises network is use
     | Subnet name | Enter **mySubnet-onprem**. |
     | Subnet address range | Enter **10.2.0.0/24**. |
 
-9. Select **Add**.
+8. Select **Add**.
 
-10. Select **Next: Security** or the **Security** tab.
+9. Select **Next: Security** or the **Security** tab.
 
-11. Select **Enable** next to **BastionHost**.
+10. Select **Enable** next to **BastionHost**.
 
-12. Enter or select the following information for **BastionHost**:
+11. Enter or select the following information for **BastionHost**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -118,9 +118,9 @@ A virtual network for the Azure Web App and simulated on-premises network is use
     | AzureBastionSubnet address space | Enter **10.2.1.0/26**. |
     | Public IP address | Select **Create new**. </br> Enter **myPublicIP-Bastion** in **Name**. </br> Select **OK**. |
 
-13. Select **Review + create**.
+12. Select **Review + create**.
 
-14. Select **Create**.
+13. Select **Create**.
 
 It will take a few minutes for the Bastion host deployment to complete. The Bastion host is used later in the tutorial to connect to the "on-premises" virtual machine to test the private endpoint. You can proceed to the next steps when the virtual network is created.
 
@@ -287,29 +287,31 @@ You'll create a private resolver in the virtual network where the private endpoi
 
 When the private resolver deployment is complete, continue to the next steps.
 
+### Setup DNS for simulated network
+
 The following steps will set the private resolver as the primary DNS server for the simulated on-premises network **myVNet-onprem**. 
 
 In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. Your local DNS server will have a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
 
-10. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
+1. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
 
-11. Select **myPrivateResolver**.
+2. Select **myPrivateResolver**.
 
-12. Select **Inbound endpoints** in **Settings**.
+3. Select **Inbound endpoints** in **Settings**.
 
-13. Make note of the **IP address** of the endpoint named **myInboundEndpoint**. In the example for this tutorial, the IP address is **10.1.1.4**.
+4. Make note of the **IP address** of the endpoint named **myInboundEndpoint**. In the example for this tutorial, the IP address is **10.1.1.4**.
 
-14. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+5. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-15. Select **myVNet-onprem**.
+6. Select **myVNet-onprem**.
 
-16. Select **DNS servers** in **Settings**.
+7. Select **DNS servers** in **Settings**.
 
-17. Select **Custom** in **DNS servers**.
+8. Select **Custom** in **DNS servers**.
 
-18. Enter the IP address you noted previously. In the example for this tutorial, the IP address is **10.1.1.4**.
+9. Enter the IP address you noted previously. In the example for this tutorial, the IP address is **10.1.1.4**.
 
-19. Select **Save**.
+10. Select **Save**.
 
 ## Create a virtual machine
 
@@ -340,9 +342,9 @@ You'll create a virtual machine that will be used to test the private endpoint f
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the **Networking** tab, enter or select the following information:
+5. In the **Networking** tab, enter or select the following information:
 
     | Setting | Value |
     |-|-|
@@ -353,9 +355,9 @@ You'll create a virtual machine that will be used to test the private endpoint f
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **None**. |
    
-5. Select **Review + create**. 
+6. Select **Review + create**. 
   
-6. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -367,15 +369,15 @@ In this section, you'll use the virtual machine you created in the previous step
 
 2. Select **myVM-onprem**.
 
-4. On the overview page for **myVM-onprem**, select **Connect** then **Bastion**.
+3. On the overview page for **myVM-onprem**, select **Connect** then **Bastion**.
 
-5. Enter the username and password that you entered during the virtual machine creation.
+4. Enter the username and password that you entered during the virtual machine creation.
 
-6. Select **Connect** button.
+5. Select **Connect** button.
 
-7. Open Windows PowerShell on the server after you connect.
+6. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
+7. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -389,19 +391,19 @@ In this section, you'll use the virtual machine you created in the previous step
 
     A private IP address of **10.1.0.10** is returned for the web app name. This address is in **mySubnet-cloud** subnet of **myVNet-cloud** virtual network you created previously.
 
-9. Open Microsoft Edge, and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
+8. Open Microsoft Edge, and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
 
-10. Verify you receive the default web app page.
+9. Verify you receive the default web app page.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
+    :::image type="content" source="./media/tutorial-dns-onprem-private-resolver/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
 
-11. Close the connection to **myVM-onprem**.
+10. Close the connection to **myVM-onprem**.
 
-12. Open a web browser on your local computer and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
+11. Open a web browser on your local computer and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
 
-13. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
+12. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
+    :::image type="content" source="./media/tutorial-dns-onprem-private-resolver/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
 
 ## Clean up resources
 
