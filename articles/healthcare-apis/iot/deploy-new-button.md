@@ -69,7 +69,7 @@ The button calls an ARM template from the [Azure Quickstart Templates](/samples/
    > [!IMPORTANT]
    > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
    >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 2. To validate your configuration, select **Review + create**.
 

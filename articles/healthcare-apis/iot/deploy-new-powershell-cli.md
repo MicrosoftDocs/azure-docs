@@ -86,6 +86,11 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName ArmTestDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
 ## Deploy the MedTech service with the Azure Resource Manager template and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -132,6 +137,11 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    ```
 
    For example: `az deployment group create --resource-group ArmTestDeployment --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=abc123 location=southcentralus`
+
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
 
 ## Review deployed resources and access permissions
 
