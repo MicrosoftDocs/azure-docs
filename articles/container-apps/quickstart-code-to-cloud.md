@@ -111,7 +111,7 @@ ENVIRONMENT="env-album-containerapps"
 API_NAME="album-api"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -203,6 +203,7 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-python.git 
 
 Build and deploy your first container app from your local git repository with the `containerapp up` command. This command will:
 
+
 - Create the resource group
 - Create an Azure Container Registry
 - Build the container image and push it to the registry
@@ -210,7 +211,6 @@ Build and deploy your first container app from your local git repository with th
 - Create and deploy the container app using a public container image
 
 The `up` command uses the Docker file in the root of the repository to build the container image.  The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
-
 
 # [Bash](#tab/bash)
 
@@ -232,7 +232,6 @@ az containerapp up `
     --location $LOCATION `
     --environment $ENVIRONMENT `
     --source code-to-cloud/src
-
 ```
 
 ---
@@ -280,7 +279,7 @@ az containerapp up `
     --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
----
+You'll need run the following command to get your registry credentials.
 
 You'll be prompted to enter the user code to log in your device to GitHub.  The URI for device activation and the user code will be displayed in the terminal.  Go to the device activation page and then copy the user code from the terminal and paste it in the browser.  The browser will prompt you to log in to GitHub and authorize the Azure CLI to access your GitHub account.  
 
@@ -289,11 +288,41 @@ You'll be prompted to enter the user code to log in your device to GitHub.  The 
 The `up` command creates a GitHub Action workflow in`.github/workflows` folder in your repository.
  The workflow will be triggered to build and deploy your container app when you push changes to the repository.  
 
-## Verify deployment
+$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
+```
+
+Get your environment ID.
 
 The `az containerapp up` command returns the fully qualified domain name (FQDN) for the container app. Copy the FQDN to a web browser.
 
-From your web browser, navigate to the `/albums` endpoint of the FQDN.
+Create the container app.
+
+```azurepowershell
+$AppArgs = @{
+    Name = $APIName
+    Location = $Location
+    ResourceGroupName = $ResourceGroup
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    ConfigurationRegistry = $RegistryObj
+    ConfigurationSecret = $SecretObj
+    IngressTargetPort = 3500
+    IngressExternal = $true
+}
+$MyApp = New-AzContainerApp @AppArgs
+
+# show the app's fully qualified domain name (FQDN).
+$MyApp.IngressFqdn
+```
+
+* By setting `IngressExternal` to `external`, your container app will be accessible from the public internet.
+* The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
+
+---
+
+## Verify deployment
+
+Copy the FQDN to a web browser.  From your web browser, navigate to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
@@ -307,10 +336,10 @@ If you're not going to continue on to the [Communication between microservices](
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group delete --name $RESOURCE_GROUP
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroup -Force
 ```
 
 ---

@@ -219,6 +219,7 @@ Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClie
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
 |`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
+|`UserAgentSuffix`|`CosmosClientBuilder.ApplicationName` can be used to achieve the same effect.|
 
 ### Indexing policy
 
