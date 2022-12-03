@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 12/07/2022
 ms.author: v-bcatherine
 ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli

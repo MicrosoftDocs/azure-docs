@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/20/2022
+ms.date: 12/07/2022
 ms.author: v-bcatherine
 zone_pivot_groups: container-apps-image-build-from-repo
 ---
@@ -111,7 +111,7 @@ ENVIRONMENT="env-album-containerapps"
 API_NAME="album-api"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -125,7 +125,6 @@ $API_NAME="album-api"
 ---
 
 ::: zone-end
-
 
 ## Prepare the GitHub repository
 
@@ -223,7 +222,7 @@ az containerapp up \
   --source code-to-cloud/src
 ```
 
-# [Azure PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -254,7 +253,6 @@ The `up` command uses the Docker file in the root of the repository to build the
 
 Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
 
-
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -267,7 +265,7 @@ az containerapp up \
   --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
-# [Azure PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -336,7 +334,7 @@ If you're not going to continue on to the [Communication between microservices](
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroup -Force
