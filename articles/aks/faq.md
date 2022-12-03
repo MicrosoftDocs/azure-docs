@@ -145,9 +145,9 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional feature with [Uptime SLA][uptime-sla]. 
+AKS provides SLA guarantees in the [Standard pricing tier with the Uptime SLA feature][pricing-tiers].
 
-The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
+The Free pricing tier doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using the Standard tier with Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -331,7 +331,7 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[uptime-sla]: ./uptime-sla.md
+[pricing-tiers]: ./free-standard-pricing-tiers.md
 [aks-keyvault-provider]: ./csi-secrets-store-driver.md
 
 <!-- LINKS - external -->
