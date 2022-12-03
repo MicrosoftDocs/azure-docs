@@ -91,21 +91,26 @@ The button calls an ARM template from [Azure Quickstart Templates](https://azure
    >
    > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
 
-1. To validate your configuration, select **Review + create**.
+2. To validate your configuration, select **Review + create**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
 
-1. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
+3. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-validation-completed.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
 
-1. After a successful validation, to begin the deployment, select **Create**.
+4. After a successful validation, to begin the deployment, select **Create**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
 
-1. In a few minutes, the Azure portal displays the message that your deployment is completed.
+5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+
+   > [!IMPORTANT]
+   > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Review deployed resources and access permissions
 
@@ -146,26 +151,26 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 1. Open Visual Studio Code with Azure IoT Tools installed.
 
-1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Select IoT Hub**.
+2. In Explorer, in **Azure IoT Hub**, select **…** and choose **Select IoT Hub**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension with the deployed IoT hub selected." lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
 
-1. Select the Azure subscription where your IoT hub was provisioned.
+3. Select the Azure subscription where your IoT hub was provisioned.
   
-1. Select your IoT hub. The name of your IoT hub is the *basename* you provided when you provisioned the resources prefixed with **ih-**. An example hub name is *ih-azuredocsdemo*.
+4. Select your IoT hub. The name of your IoT hub is the *basename* you provided when you provisioned the resources prefixed with **ih-**. An example hub name is *ih-azuredocsdemo*.
 
-1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
+5. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with Create device selected." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
-1. To send a test message from the device to your IoT hub, right-click the device and select **Send D2C Message to IoT Hub**.
+6. To send a test message from the device to your IoT hub, right-click the device and select **Send D2C Message to IoT Hub**.
 
    > [!NOTE]
    > In this device-to-cloud (D2C) example, *cloud* is the IoT hub in Azure IoT Hub that receives the device message. Azure IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, select **Send C2D Message to Device Cloud**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
 
-1. In **Send D2C Messages**, select or enter the following values:
+7. In **Send D2C Messages**, select or enter the following values:
 
    - **Device(s) to send messages from**: The name of the device you created.
 
@@ -193,7 +198,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
      }
      ```
 
-1. To begin the process of sending a test message to your IoT hub, select **Send**.
+8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension with the device message options selected." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png":::
 

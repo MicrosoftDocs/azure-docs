@@ -91,6 +91,11 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -137,6 +142,11 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    ```
 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
+
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
 
 ## Review deployed resources and access permissions
 
