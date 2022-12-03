@@ -24,11 +24,11 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 ## Prerequisites
 
 ### Studio UI
-Prerequisites for submitting a Spark job from Azure Machine Learning Studio UI are as follows: 
+Prerequisites for submitting a Spark job from Azure Machine Learning studio UI are as follows: 
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - To enable this feature:
-  1. Navigate to Azure Machine Learning Studio UI.
+  1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
   :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
