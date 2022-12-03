@@ -298,7 +298,7 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
     <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
     QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
-    <TelemetryProcessors>
+    </TelemetryProcessors>
     ````
 1. Restart the application.
 

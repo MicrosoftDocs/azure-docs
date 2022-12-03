@@ -5,24 +5,25 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/29/2022
+ms.date: 12/02/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
+
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+
+Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
 > - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+> [!TIP]
+> To learn more about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
-
-For more information about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
-
-## Deployment prerequisites
+## Prerequisites
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
@@ -37,11 +38,11 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the Bicep file.
 
-## Review the Bicep file
+## Review the Bicep file - Optional
 
-The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *main.bicep* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The Bicep file that you use to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
-Locally save the Bicep file as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
+1. Save the Bicep file locally as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
@@ -90,6 +91,11 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -136,6 +142,11 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    ```
 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
+
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
 
 ## Review deployed resources and access permissions
 
