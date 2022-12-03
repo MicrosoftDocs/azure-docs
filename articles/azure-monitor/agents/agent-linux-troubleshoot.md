@@ -78,7 +78,7 @@ A clean reinstall of the agent fixes most issues. This task might be the first s
  Extra configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  > [!NOTE]
- > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration**. For a single agent, run the following script:
+ > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configure-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration**. For a single agent, run the following script:
 >
 > `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 

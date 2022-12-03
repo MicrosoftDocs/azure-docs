@@ -4,6 +4,8 @@ description: This article describes about automatic updates for mobility agent a
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 
@@ -71,7 +73,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 2. In VM's **Overview** blade, under **Agent version**, you can view the current version of the mobility agent. If a new update is available, the status is updated as **New update available**. 
 
-3. Confirm the availability of new version, download the latest agent version’s package from [here](/azure/site-recovery/site-recovery-whats-new#supported-updates) on the source machine and update the agent version. 
+3. Confirm the availability of new version, download the latest agent version’s package from [here](./site-recovery-whats-new.md#supported-updates) on the source machine and update the agent version. 
 
 ### Update mobility agent on Windows machines
 
@@ -230,7 +232,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 #### Update Process server
 
-1.	To update the process server, download the latest version [here](/azure/site-recovery/site-recovery-whats-new#supported-updates). 
+1.	To update the process server, download the latest version [here](./site-recovery-whats-new.md#supported-updates). 
 2.	Download the update package to the Azure Site Recovery replication appliance. 
 3.	Open command prompt and navigate to the folder where the update package has been placed.
     
@@ -242,7 +244,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 #### Update Recovery Services agent
 
-To update the Recovery Service agent, download the latest version [here](/azure/site-recovery/site-recovery-whats-new#supported-updates).
+To update the Recovery Service agent, download the latest version [here](./site-recovery-whats-new.md#supported-updates).
 
 1.	Download the update package to the Azure Site Recovery replication appliance. 
 2.	Open command prompt and navigate to the folder where the update package has been placed.
@@ -255,7 +257,7 @@ To update the Recovery Service agent, download the latest version [here](/azure/
 
 #### Update remaining components of appliance
 
-1.	To update the remaining components of the Azure Site Recovery replication appliance, download the latest version  [here](/azure/site-recovery/site-recovery-whats-new#supported-updates).
+1.	To update the remaining components of the Azure Site Recovery replication appliance, download the latest version  [here](./site-recovery-whats-new.md#supported-updates).
 2.	Open the downloaded `.msi` file which triggers the update automatically.
 3.	Check the latest version in Windows settings > **Add or remove program**.
 

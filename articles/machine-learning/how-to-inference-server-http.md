@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to enable local development with Azure machine learning inference http server.
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -211,5 +211,5 @@ The Azure Machine Learning inference server runs on Windows & Linux based operat
 
 ## Next steps
 
-* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-online-endpoints.md).
 * Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)

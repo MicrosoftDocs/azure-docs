@@ -98,6 +98,8 @@
       href: estimate-storage-costs.md
     - name: Create custom built-in connectors for single-tenant workflows
       href: create-custom-built-in-connector-standard.md
+    - name: Export Consumption workflows to Standard logic app
+      href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
   - name: Azure Arc-enabled Logic Apps

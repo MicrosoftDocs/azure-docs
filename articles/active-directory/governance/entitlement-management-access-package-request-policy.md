@@ -211,7 +211,46 @@ To change the request and approval settings for an access package, you need to o
 
 ## Creating an access package assignment policy programmatically
 
-You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
+There are two ways to create an access package assignment policy programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
+
+### Creating an access package assignment policy through Graph
+
+You can create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
+
+### Creating an access package assignment policy through PowerShell
+
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  
+
+This script below illustrates using the `beta` profile, to create a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no access reviews.  See [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+
+$apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
+
+$pparams = @{
+	AccessPackageId = $apid
+	DisplayName = "direct"
+	Description = "direct assignments by administrator"
+	AccessReviewSettings = $null
+	RequestorSettings = @{
+		ScopeType = "NoSubjects"
+		AcceptRequests = $true
+		AllowedRequestors = @(
+		)
+	}
+	RequestApprovalSettings = @{
+		IsApprovalRequired = $false
+		IsApprovalRequiredForExtension = $false
+		IsRequestorJustificationRequired = $false
+		ApprovalMode = "NoApproval"
+		ApprovalStages = @(
+		)
+	}
+}
+New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
+```
 
 ## Prevent requests from users with incompatible access
 

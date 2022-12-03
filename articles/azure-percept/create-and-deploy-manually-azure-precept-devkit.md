@@ -1,16 +1,18 @@
 ---
 title: How to do a manual default container deployment to Azure Percept DK
 description: this article shows the audience how to manually create and deploy an Azure Precept Devkit
-author: nkhuyent
+author: yvonne-dq
 ms.author: keithke
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 01/25/2022
+ms.date: 10/04/2022
 ms.custom: template-how-to 
 ---
 
 
 # How to do a manual default container deployment to Azure Percept DK 
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 The following guide is to help customers manually deploy a factory fresh IoT Edge deployment to existing Azure Percept devices. We've also included the steps to manually create your Azure Percept IoT Edge device instance.
 

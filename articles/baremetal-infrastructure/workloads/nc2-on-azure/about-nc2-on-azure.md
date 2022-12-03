@@ -3,7 +3,8 @@ title: About Nutanix Cloud Clusters on Azure
 description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
 ms.subservice: baremetal-nutanix
-ms.date: 03/31/2021
+ms.custom: engagement-fy23
+ms.date: 10/13/2022
 ---
 
 # About Nutanix Cloud Clusters on Azure
@@ -47,13 +48,13 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 * Microsoft Azure Consumption Contract (MACC) credits
 
-> [!NOTE]
-> During BareMetal Infrastructure for Nutanix Cloud Clusters on Azure, RI is not supported.
-An additional discount may be available.
-
 ## Support
 
 Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
+
+## Release notes
+
+[Nutanix Cloud Clusters on Azure Release Notes](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-On-Azure-Release-Notes:Nutanix-Cloud-Clusters-On-Azure-Release-Notes)
 
 ## Next steps
 

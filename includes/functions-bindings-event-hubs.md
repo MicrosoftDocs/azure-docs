@@ -17,7 +17,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](../articles/azure-functions/dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -57,7 +57,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Version 1.x of the Functions runtime doesn't support running in an isolated process. 
+Version 1.x of the Functions runtime doesn't support running in an isolated worker process. 
 
 # [Extension v5.x+](#tab/extensionv5/csharp-script)
 

@@ -10,7 +10,7 @@ ms.author: lianwei
 
 # Upstream settings
 
-Upstream is a preview feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
+Upstream is a feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
 
 > [!NOTE]
 > Only serverless mode can configure upstream settings.
@@ -64,7 +64,12 @@ The URL of upstream is not encryption at rest. If you have any sensitive informa
    
    For example, a complete reference would look like the following:
    ```
-   @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+   {@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
+   ```
+   
+   An upstream URL to Azure Function would look like the following:
+   ```
+   https://contoso.azurewebsites.net/runtime/webhooks/signalr?code={@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)}
    ```
 
 > [!NOTE]
