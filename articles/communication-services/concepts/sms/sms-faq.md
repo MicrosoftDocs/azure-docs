@@ -98,14 +98,14 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 - **Weekly limit:** 12,000 messages
 - **Monthly limit:** 25,000 messages
 
-This would not apply to TFNs in a pending or verified status.
+This would not apply to TFNs in a [pending or verified status](#what-does-the-different-application-status-verified-pending-and-unverified-mean).
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 > 
 > The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
 
 #### SMS to Canadian phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in a [pending or verified status](#what-does-the-different-application-status-verified-pending-and-unverified-mean).
 
 ### What does the different application status (verified, pending and unverified) mean? 
 - **Verified:** Verified numbers have gone through the toll-free verification process and were approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
@@ -131,7 +131,7 @@ The higher the quality of the application the higher chances your application wi
 - All required fields completed
 - The use case is not listed on our [Ineligible Use Case](#what-are-the-ineligible-use-cases-for-toll-free-verification) list 
 - Opt-in process is documented/detailed
-- Opt-in image URL is publically accessible 
+- Opt-in image URL is publicly accessible 
 - [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms) are being followed
 
 ### What are the Ineligible Use Cases for toll-free verification? 
