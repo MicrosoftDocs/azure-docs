@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/02/2022
+ms.date: 12/03/2022
 ms.author: jasteppe
 ---
 
@@ -35,9 +35,9 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
-The ARM template that you use to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
 ## Deploy the MedTech service with the Azure Resource Manager template and Azure PowerShell
 

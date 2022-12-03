@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/02/2022
+ms.date: 12/03/2022
 ms.author: jasteppe
 ---
 
@@ -48,17 +48,15 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
-The ARM template that you use to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
+The ARM template used to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 ## Use the Deploy to Azure button
 
 To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
-
-The button calls an ARM template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) to get information from your Azure subscription environment and begin deploying the MedTech service and Azure IoT Hub by using the Azure portal.
 
 ## Configure the deployment
 
@@ -209,7 +207,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 ## Review metrics from the test message
 
-Now that you've successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, you can see that your MedTech service completed the following steps for the test message:
 
