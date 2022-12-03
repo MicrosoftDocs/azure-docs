@@ -286,45 +286,141 @@ You'll create a private resolver in the virtual network where the private endpoi
 
 9. Select **Create**.
 
+When the private resolver deployment is complete, continue to the next steps.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+The following steps will set the private resolver as the primary DNS server for the simulated on-premises network **myVNet-onprem**. 
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+In a production environment, these steps aren't needed and are only to simulate the DNS resolution for the private endpoint. You local DNS server will have a conditional forwarder to this IP address to resolve the private endpoint DNS records from the on-premises network.
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+10. In the search box at the top of the portal, enter **DNS private resolver**. Select **DNS private resolvers** in the search results.
+
+11. Select **myPrivateResolver**.
+
+12. Select **Inbound endpoints** in **Settings**.
+
+13. Make note of the **IP address** of the endpoint named **myInboundEndpoint**. In the example for this tutorial, the IP address is **10.1.1.4**.
+
+14. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+15. Select **myVNet-onprem**.
+
+16. Select **DNS servers** in **Settings**.
+
+17. Select **Custom** in **DNS servers**.
+
+18. Enter the IP address you noted previously. In the example for this tutorial, the IP address is **10.1.1.4**.
+
+19. Select **Save**.
+
+## Create a virtual machine
+
+You'll create a virtual machine that will be used to test the private endpoint from the simulated on-premises network.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+   
+2. Select **+ Create** > **Azure virtual machine**.
+
+3. In **Create a virtual machine**, enter or select the following information in the **Basics** tab.
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **TutorPEonPremDNS-rg**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVM-onprem**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability Options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2**. |
+    | Size | Choose VM size or leave the default setting. |
+    | **Administrator account** |  |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Select **None**. |
+
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the **Networking** tab, enter or select the following information:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **myVNet-onprem**. |
+    | Subnet | Select **mySubnet-onprem (10.2.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports | Select **None**. |
+   
+5. Select **Review + create**. 
+  
+6. Review the settings, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+## Test connectivity to private endpoint
+
+In this section, you'll use the virtual machine you created in the previous step to connect to the web app across the private endpoint.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM-onprem**.
+
+4. On the overview page for **myVM-onprem**, select **Connect** then **Bastion**.
+
+5. Enter the username and password that you entered during the virtual machine creation.
+
+6. Select **Connect** button.
+
+7. Open Windows PowerShell on the server after you connect.
+
+8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
+
+    ```powershell
+    Server:  UnKnown
+    Address:  168.63.129.16
+
+    Non-authoritative answer:
+    Name:    mywebapp.privatelink.azurewebsites.net
+    Address:  10.1.0.10
+    Aliases:  mywebapp.azurewebsites.net
+    ```
+
+    A private IP address of **10.1.0.10** is returned for the web app name. This address is in **mySubnet-cloud** subnet of **myVNet-cloud** virtual network you created previously.
+
+9. Open Microsoft Edge, and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
+
+10. Verify you receive the default web app page.
+
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
+
+11. Close the connection to **myVM-onprem**.
+
+12. Open a web browser on your local computer and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
+
+13. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
+
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+the virtual networks, private endpoint and resolver, and virtual machine with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+2. Select **TutorPEonPremDNS-rg**.
+
+3. Select **Delete resource group**. Enter the name of the resource group in **TYPE THE RESOURCE GROUP NAME:**.
+
+4. Select **Delete**.
 
 ## Next steps
 
+In this tutorial you learned how to deploy a private resolver and private endpoint. You tested the connection to the private endpoint from a simulated on-premises network.
+
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal).
