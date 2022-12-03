@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/02/2022
+ms.date: 12/03/2022
 ms.author: jasteppe
 ---
 
@@ -17,7 +17,8 @@ In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
 > - Open an ARM template in the Azure portal.
-> - Configure the template for your deployment.
+> - Configure the ARM template for your deployment.
+> - Deploy the ARM template. 
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
@@ -34,7 +35,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub). 
 
