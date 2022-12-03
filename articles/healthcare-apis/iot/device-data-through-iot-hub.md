@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/29/2022
+ms.date: 12/02/2022
 ms.author: jasteppe
 ---
 
@@ -23,10 +23,8 @@ In this tutorial, you learn how to:
 > - Send a test message.
 > - Review metrics for the test message.
 
-The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
-
 > [!TIP]
-> Learn how to [use Azure PowerShell or the Azure CLI to deploy the MedTech service by using an ARM template](deploy-new-powershell-cli.md). To learn more about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
+> To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
 ## Device message flow
 
@@ -48,7 +46,11 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed in Visual Studio Code. Azure IoT Tools is a collection of extensions that makes it easy to connect to IoT hubs, create devices, and send messages. In this tutorial, you use the Azure IoT Hub extension in Visual Studio Code to connect to your deployed IoT hub, create a device, and send a test message from the device to your IoT hub.
 
-When you have these prerequisites, you're ready to configure the tutorial template by using the **Deploy to Azure** button.
+When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
+
+## Review the ARM template - Optional
+
+The ARM template that you use to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 ## Use the Deploy to Azure button
 
@@ -80,8 +82,10 @@ The button calls an ARM template from [Azure Quickstart Templates](https://azure
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
 
-   Don't change the default values for **Device Mapping** and **Destination Mapping** in this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
-  
+   - **Device Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+
+   - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+ 
    > [!IMPORTANT]
    > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
    >
