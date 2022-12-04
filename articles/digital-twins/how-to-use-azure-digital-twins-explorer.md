@@ -415,17 +415,19 @@ You can use the import feature to add twins, relationships, and models to your i
 The first step in importing a graph is creating a file representing the twins and relationships you want to add.
 
 The import file can be in either of these two formats:
-* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 * The *JSON-based format* generated on [graph export](#export-graph-and-models). This format can contain twins, relationships, and/or models.
+* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 
-To create a custom graph in Excel, use the following format.
+##### Create import file in Excel
+
+To create a custom graph in Excel that can upload twins and relationships to Azure Digital Twins Explorer, use the following format.
 
 Each row represents an element to create: either a twin, a relationship, or a combination of twin and corresponding relationship.
 Use the following columns to structure the twin or relationship data. The column names can be customized, but they should remain in this order.
 
 | ModelID | ID | Relationship (source) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
-| (Optional)<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
+| (Optional)<br>The DTMI ID of the model to use for the new twin. This model definition should already exist in the instance.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
 
 Here's an example .xlsx file creating a small graph of two floors and two rooms.
 

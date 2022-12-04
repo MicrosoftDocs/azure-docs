@@ -45,7 +45,7 @@ Before you configure and enable automatic user provisioning, you should decide w
 
 Before you configure StarLeaf for automatic user provisioning with Azure AD, you will need to configure SCIM provisioning in StarLeaf:
 
-1. Sign in to your [StarLeaf Admin Console](https://portal.starleaf.com/#page=login). Navigate to **Integrations** > **Add integration**.
+1. Sign in to your StarLeaf Admin Console. Navigate to **Integrations** > **Add integration**.
 
 	![Screenshot of the StarLeaf Admin Console with the Integrations and Add integration options called out.](media/starleaf-provisioning-tutorial/image00.png)
 

@@ -9,9 +9,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
+ms.date: 02/01/2021
 ms.author: damendo 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Manage packet captures with Azure Network Watcher using PowerShell
