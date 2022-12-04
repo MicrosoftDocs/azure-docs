@@ -16,7 +16,7 @@ or Azure Active Directory.
 
 See [Configure Azure Managed Grafana](./prometheus-grafana.md) for the manual process for adding an Azure Monitor managed service for Prometheus data source to Azure Managed Grafana.
 
-### [Managed system identity authentication](#tab/managedidnetity)
+## [Managed system identity authentication](#tab/managedidnetity)
 
 ### Configure system identity
 Azure virtual machines support both system assigned and user assigned identity. The following steps configure system assigned identity.
