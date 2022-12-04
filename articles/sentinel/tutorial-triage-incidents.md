@@ -102,7 +102,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png":::
+    :::image type="content" source="media/tutorial-triage-incidents/logic-app-designer-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-triage-incidents/logic-app-designer-blank.png":::
 
 
 ## 2 - Add actions
