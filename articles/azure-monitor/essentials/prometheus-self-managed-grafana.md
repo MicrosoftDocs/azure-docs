@@ -18,7 +18,7 @@ See [Configure Azure Managed Grafana](./prometheus-grafana.md) for the manual pr
 
 ## [Managed system identity authentication](#tab/managedidnetity)
 
-### Configure system identity
+## Configure system identity
 Azure virtual machines support both system assigned and user assigned identity. The following steps configure system assigned identity.
 
 **Configure from Azure virtual machine**<br>
@@ -76,7 +76,7 @@ To set up Azure Active Directory (AAD) authentication:
 1. Configure your self-hosted Grafana with the app's credentials.
 1. Grant access for the app to you Azure Monitor workspace.
 
-### Register an app with AAD
+## Register an app with AAD
 
 1. To register an app, open the Active Directory Overview page in the Azure portal.
 1. Select **New registration**
