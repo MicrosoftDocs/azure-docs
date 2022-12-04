@@ -1,14 +1,14 @@
 ---
 title: Overview
-description: This site describes the REST API created to make the data collected by Azure Log Analytics easily available.
+description: This article describes the REST API, created to make the data collected by Azure Log Analytics easily available.
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 11/08/2022
+ms.date: 11/27/2022
 ms.topic: article
 ---
 # Azure Monitor Log Analytics API Overview
 
-The Log Analytics **Query API** is a REST API that lets you query the full set of data collected by Azure Monitor logs using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
+The Log Analytics **Query API** is a REST API that lets you query the full set of data collected by Azure Monitor logs using the same query language used throughout the service. Use this API to retrieve data, build new visualizations of your data, and extend the capabilities of Log Analytics.
 
 ## Log Analytics API Authentication
 
@@ -23,13 +23,13 @@ The Log Analytics API supports Azure AD authentication with three different [Azu
 - Implicit
 - Client credentials 
 
-The authorization code flow and implicit flow both require at least one user-interactive login to your application. If you need a completely non-interactive flow, you must use the client credentials flow.
+The authorization code flow and implicit flow both require at least one user interactive sign-in to your application. If you need a non-interactive flow, use the client credentials flow.
 
-After receiving a token, the process for calling the Log Analytics API is identical for all flows. Requests require the `Authorization: Bearer` header, populated with the token received from the OAuth2 flow.
+After receiving a token, the process for calling the Log Analytics API is the same for all flows. Requests require the `Authorization: Bearer` header, populated with the token received from the OAuth2 flow.
 
 ### API key authentication for sample data
 
-To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](authentication-authorization.md#authenticating-with-an-api-key).
+To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](./access-api.md#authenticating-with-a-demo-api-key).
 
 > [!NOTE]
 > When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
@@ -37,7 +37,7 @@ To quickly explore the API without using Azure AD authentication, we provide a d
 
 ## Log Analytics API Query Limits
 
-See [the **Query API** section of this page](../../service-limits.md#la-query-api) for information about query limits.
+See [the **Query API** section of this page](../../service-limits.md) for information about query limits.
 
 ## Trying the Log Analytics API
 

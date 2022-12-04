@@ -16,9 +16,9 @@ ms.author: patricka
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 
 <!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
+:::moniker range="=iotedge-2020-11"
 >[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.3, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use if a general availability (GA) release is available. For more information, see [EFLOW versions](./version-history.md).
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 

@@ -1,6 +1,6 @@
 ---
-title: Configure separation of duties for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to configure separation of duties enforcement for requests for an access package in Azure Active Directory entitlement management.
+title: Configure separation of duties for an access package in Microsoft Entra entitlement management
+description: Learn how to configure separation of duties enforcement for requests for an access package in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a global administrator or access package manager, I want to configure that a user cannot request an access package if they already have incompatible access.
 
 ---
-# Configure separation of duties checks for an access package in Azure AD entitlement management
+# Configure separation of duties checks for an access package in Microsoft Entra entitlement management
 
-In Azure AD entitlement management, you can configure multiple policies, with different settings for each user community that will need access through an access package.  For example, employees might only need manager approval to get access to certain apps, but guests coming in from other organizations may require both a sponsor and a resource team departmental manager to approve. In a policy for users already in the directory, you can specify a particular group of users for who can request access. However, you may have a requirement to avoid a user obtaining excessive access.  To meet this requirement, you'll want to further restrict who can request access, based on the access the requestor already has.
+In Microsoft Entra entitlement management, you can configure multiple policies, with different settings for each user community that will need access through an access package.  For example, employees might only need manager approval to get access to certain apps, but guests coming in from other organizations may require both a sponsor and a resource team departmental manager to approve. In a policy for users already in the directory, you can specify a particular group of users for who can request access. However, you may have a requirement to avoid a user obtaining excessive access.  To meet this requirement, you'll want to further restrict who can request access, based on the access the requestor already has.
 
 With the separation of duties settings on an access package, you can configure that a user who is a member of a group or who already has an assignment to one access package can't request an additional access package.
 
@@ -32,15 +32,15 @@ With the separation of duties settings on an access package, you can configure t
 
 For example, you have an access package, *Marketing Campaign*, that people across your organization and other organizations can request access to, to work with your organization's marketing department while that campaign is going on. Since employees in the marketing department should already have access to that marketing campaign material, you don't want employees in the marketing department to request access to that access package.  Or, you may already have a dynamic group, *Marketing department employees*, with all of the marketing employees in it. You could indicate that the access package is incompatible with the membership of that dynamic group. Then, if a marketing department employee is looking for an access package to request, they couldn't request access to the *Marketing campaign* access package.
 
-Similarly, you may have an application with two roles - **Western Sales** and **Eastern Sales** - and want to ensure that a user can only have one sales territory at a time.  If you have two access packages, one access package **Western Territory** giving the **Western Sales** role and the other access package **Eastern Territory** giving the **Eastern Sales** role, then you can configure
+Similarly, you may have an application with two app roles - **Western Sales** and **Eastern Sales** - representing sales territories, and you want to ensure that a user can only have one sales territory at a time.  If you have two access packages, one access package **Western Territory** giving the **Western Sales** role and the other access package **Eastern Territory** giving the **Eastern Sales** role, then you can configure
  - the **Western Territory** access package has the **Eastern Territory** package as incompatible, and
  - the **Eastern Territory** access package has the **Western Territory** package as incompatible.
 
-If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with Azure AD entitlement management as well.  If you'll be controlling access to Azure AD-integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Azure AD through Azure AD Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
+If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with Microsoft Entra entitlement management as well.  If you'll be controlling access to Azure AD-integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Azure AD through Azure AD Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
 
 ## Prerequisites
 
-To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+To use Microsoft Entra entitlement management and assign users to access packages, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
@@ -179,7 +179,7 @@ If there's an exceptional situation where separation of duties rules might need 
 
 For example, if there was a scenario that some users would need to have access to both production and deployment environments at the same time, you could create a new access package **Production and development environments**.  That access package could have as its resource roles some of the resource roles of the **Production environment** access package and some of the resource roles of the **Development environment** access package.  
 
-If the motivation of the incompatible access is one resource's roles are particularly problematic, then that resource could be omitted from the combined access package, and require explicit administrator assignment of a user to the role.  If that is a third party application or your own application, then you can ensure oversight by monitoring those role assignments using the  *Application role assignment activity* workbook described in the next section.
+If the motivation of the incompatible access is one resource's roles are particularly problematic, then that resource could be omitted from the combined access package, and require explicit administrator assignment of a user to the resource's role.  If that is a third party application or your own application, then you can ensure oversight by monitoring those role assignments using the  *Application role assignment activity* workbook described in the next section.
 
 Depending on your governance processes, that combined access package could have as its policy either:
 

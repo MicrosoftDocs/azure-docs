@@ -378,7 +378,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
-[Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [.NET standard]: /dotnet/standard/net-standard?tabs=net-standard-2-0
 [Rest API]: /rest/api/maps/
 [.NET Standard versions]: https://dotnet.microsoft.com/platform/dotnet-standard#versions
@@ -392,7 +392,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
-[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.geolocation/README.md
+[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [Azure.Maps Namespace]: /dotnet/api/azure.maps

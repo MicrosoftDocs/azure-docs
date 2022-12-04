@@ -364,6 +364,7 @@ Scans can be managed or run again on completion
 The following types of policies are supported on this data resource from Microsoft Purview:
 - [DevOps policies](concept-policies-devops.md)
 - [Data owner policies](concept-policies-data-owner.md)
+- [self-service policies](concept-self-service-data-access-policy.md)
 
 ### Access policy pre-requisites on Azure SQL Database
 [!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
@@ -386,6 +387,7 @@ To create an access policy for Azure SQL Database, follow these guides:
 * [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
 * [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
 * [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+* [self-service policy for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md) - This guide will allow data consumers to request access to data assets using self-service workflow.
 
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>
