@@ -7,27 +7,13 @@ ms.topic: how-to
 
 # Create data mining queries
 
-Running data mining queries provides dynamic, detailed information about your network devices. This includes information for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state.
+Running data mining queries provides dynamic and detailed information about your network devices. This includes information for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state.
 
 Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
 
 ## Prerequisites
 
 You must be an **Admin** or **Security Analyst** user to access predefined data mining reports.
-
-## Predefined data mining reports
-
-The following predefined reports are available in **Analyze** > **Data Mining**. These queries are generated in real time.
-
-| Report | Description |
-|---------|---------|
-| **Programming commands** | Devices that send industrial programming. |
-| **Remote access** | Devices that communicate through remote session protocols. |
-| **Internet activity** | Devices that are connected to the internet. |
-| **CVEs** | A list of devices detected with known vulnerabilities, along with CVSSv2 risk scores. |
-| **Excluded CVEs** | A list of all the CVEs that were manually excluded. It's possible to customize the CVE list manually so that the VA reports and attack vectors more accurately reflect your network by excluding or including particular CVEs and updating the CVSSv2 score accordingly. |
-| **Nonactive devices** | Devices that haven't communicated for the past seven days. |
-| **Active devices** | Active network devices within the last 24 hours. |
 
 ## Create a report
 
@@ -57,22 +43,29 @@ You can use data mining queries for:
 |---------|---------|
 | **SOC incident response** | Generate a report in real time to help deal with immediate incident response. For example, Data Mining can generate a report for a list of devices that might require patching. |
 | **Forensics** | Generate a report based on historical data for investigative reports. |
-| **Network security** | Generate a report that helps improve overall network security. For example, generate a report can be generated that lists devices with weak authentication credentials. |
+| **Network security** | Generate a report that helps improve overall network security. For example, generate a report that lists devices with weak authentication credentials. |
 | **Visibility** | Generate a report that covers all query items to view all baseline parameters of your network. |
-| **PLC security** | Improve security by detecting PLCs in unsecure states, for example,  Program and Remote states. |
+| **PLC security** | Improve security by detecting PLCs in unsecure states, such as Program and Remote states. |
+
+## Predefined data mining reports
+
+The following predefined reports are available in **Analyze** > **Data Mining**. These queries are generated in real time.
+
+| Report | Description |
+|---------|---------|
+| **Programming commands** | Devices that send industrial programming. |
+| **Remote access** | Devices that communicate through remote session protocols. |
+| **Internet activity** | Devices that are connected to the internet. |
+| **CVEs** | A list of devices detected with known vulnerabilities, along with CVSSv2 risk scores. |
+| **Excluded CVEs** | A list of all the CVEs that were manually excluded. Customize the CVE list manually if you want the VA reports and attack vectors to reflect your network more accurately by excluding or including particular CVEs and updating the CVSSv2 score accordingly. |
+| **Nonactive devices** | Devices that haven't communicated for the past seven days. |
+| **Active devices** | Active network devices within the last 24 hours. |
 
 ## View reports in on-premises management console
 
-The on-premises management console lets you generate reports for each sensor that's connected to it. Reports are based on sensor data-mining queries that are performed, and include:
+The on-premises management console lets you generate reports for each sensor that's connected to it. When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports.
 
-| Information  | Description  |
-|---------|---------|
-| **Active Devices (Last 24 Hours)** | Presents a list of devices that show network activity within a period of 24 hours. |
-| **Non-Active Devices (Last 7 Days)** | Presents a list of devices that show no network activity in the last seven days. |
-| **Programming Commands** | Presents a list of devices that sent programming commands within the last 24 hours. |
-| **Remote Access** | Presents a list of devices that remote sources accessed within the last 24 hours. |
-
-When you choose the sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. For each sensor, you can generate a default report or a custom report configured on that sensor.
+For each sensor, you can generate a default report or a custom report configured on that sensor.
 
 **To generate a report**:
 
@@ -85,6 +78,15 @@ When you choose the sensor from the on-premises management console, all the cust
 3. From the right drop-down list, select the report that you want to generate.
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
+
+Reports are based on sensor data-mining queries that are performed, and include:
+
+| Information  | Description  |
+|---------|---------|
+| **Active Devices (Last 24 Hours)** | Presents a list of devices that show network activity within a period of 24 hours. |
+| **Non-Active Devices (Last 7 Days)** | Presents a list of devices that show no network activity in the last seven days. |
+| **Programming Commands** | Presents a list of devices that sent programming commands within the last 24 hours. |
+| **Remote Access** | Presents a list of devices that remote sources accessed within the last 24 hours. |
 
 ## Next steps
 

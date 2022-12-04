@@ -48,6 +48,6 @@ You can use the report that is saved from the Attack vector page to review:
 
 ## Next steps
 
-Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities. 
+Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
 
-For more information, see [fill this in](not-sure-yet.md).
+For more information, see [fill this in](not-sure-yet).
