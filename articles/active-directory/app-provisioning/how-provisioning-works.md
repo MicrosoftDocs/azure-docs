@@ -136,7 +136,7 @@ After the initial cycle, all other cycles will:
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
 - The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
-- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This will not break the links between source and target objects. To break the links use [Restart synchronizationJob](https://learn.microsoft.com/en-us/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) with the following request: 
+- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This will not break the links between source and target objects. To break the links use [Restart synchronizationJob](https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) with the following request: 
 
 # [HTTP](#tab/http)
 <!-- {
