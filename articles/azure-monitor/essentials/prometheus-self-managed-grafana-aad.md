@@ -3,7 +3,7 @@ title: Configure self-hosted Grafana to use Azure Monitor managed service for Pr
 description: How to configure Azure Monitor managed service for Prometheus (preview) as data source for both Azure Managed Grafana and self-hosted Grafana using Azure Active Directory.
 author: EdB-MSFT 
 ms.topic: conceptual
-ms.author: edbayansh
+ms.author: edbaynash
 ms.date: 11/04/2022
 ---
 
