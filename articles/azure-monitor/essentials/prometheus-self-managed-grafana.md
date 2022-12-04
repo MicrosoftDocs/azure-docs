@@ -26,24 +26,24 @@ Use the following steps to allow access all Azure Monitor workspaces in a resour
 
 1. Open the **Identity** page for your virtual machine in the Azure portal.
 2. If **Status** is **No**, change it to **Yes**.
-3. Click **Azure role assignments** to review the existing access in your subscription.
-4. If **Monitoring Data Reader** is not listed for your subscription or resource group:
-   1. Click **+ Add role assignment**. 
+3. Select **Azure role assignments** to review the existing access in your subscription.
+4. If **Monitoring Data Reader** isn't listed for your subscription or resource group:
+   1. Select **+ Add role assignment**. 
    2. For **Scope**, select either **Subscription** or **Resource group**.
    3. For **Role**, select **Monitoring Data Reader**.
-   4. Click **Save**.
+   4. Select **Save**.
 
 **Configure from Azure Monitor workspace**<br>
 Use the following steps to allow access to only a specific Azure Monitor workspace:
 
 1. Open the **Access Control (IAM)** page for your Azure Monitor workspace in the Azure portal.
-2. Click **Add role assignment**.
-3. Select **Monitoring Data Reader** and click **Next**.
+2. Select **Add role assignment**.
+3. Select **Monitoring Data Reader** and select **Next**.
 4. For **Assign access to**, select **Managed identity**.
-5. Click **+ Select members**.
+5. Select **+ Select members**.
 6. For **Managed identity**, select **Virtual machine**.
-7. Select your Grafana workspace and then click **Select**.
-8. Click **Review + assign** to save the configuration.
+7. Select your Grafana workspace and then select **Select**.
+8. Select **Review + assign** to save the configuration.
 
 
 
