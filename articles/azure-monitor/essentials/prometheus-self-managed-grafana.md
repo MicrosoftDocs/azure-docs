@@ -64,6 +64,33 @@ Allow your app to query data from your Azure Monitor workspace.
 
 You've created your App registration and have assigned it access to query data from your Azure Monitor workspace. The next step is setting up your Grafana data source. 
 
+
+## Setup self-managed Grafana to turn on Azure Authentication.  
+
+Grafana now supports connecting to Azure-managed Prometheus using the Prometheus data source. For earlier versions, a configuration change needed to see the Azure Authentication option in Grafana. For self-hosted Grafana or other managed Grafana service, make the following changes:
+
+1. Locate the Grafana configuration file. See the [Configure Grafana](https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/) documentation for details. 
+1. Identity your Grafana version 
+1. Change the Grafana configuration file 
+
+    For Grafana 9.0: 
+
+    ```     
+        [feature_toggles] 
+        # Azure authentication for Prometheus (<=9.0) 
+        prometheus_azure_auth = true 
+    ```
+ 
+
+    For Grafana 9.1 and later versions: 
+
+    ```
+        [auth] 
+        # Azure authentication for Prometheus (>=9.1) 
+        azure_auth_enabled = true 
+    ```
+
+ For Azure Managed Grafana, these configurations are already being added and Managed Identity is also enabled by default.
 ## Configure Grafana data source
 
 1. Sign-in to your Grafana instance.
