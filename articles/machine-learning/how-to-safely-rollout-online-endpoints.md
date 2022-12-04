@@ -258,7 +258,7 @@ We'll send a sample request using a [json](https://github.com/Azure/azureml-exam
 
 # [Azure CLI](#tab/azure-cli)
 
-In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
+In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
@@ -325,6 +325,9 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 
 > [!WARNING]
 > Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
+
+> [!IMPORTANT]
+> Mirrored traffic is supported for the CLI (v2) and Python SDK (v2). If you update the endpoint using an older version of CLI/SDK or Studio UI, the setting for mirrored traffic can be removed.
 
 # [Azure CLI](#tab/azure-cli)
 
