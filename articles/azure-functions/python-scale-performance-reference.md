@@ -4,7 +4,7 @@ description: Learn how to develop Azure Functions apps using Python that are hig
 ms.topic: article
 ms.date: 10/13/2020
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 # Improve throughput performance of Python apps in Azure Functions
 

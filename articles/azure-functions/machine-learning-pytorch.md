@@ -4,7 +4,7 @@ description: Use a pre-trained ResNet 18 deep neural network from PyTorch with A
 
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-python, devx-track-azurepowershell, py-fresh-zinc
 
 ---
 
