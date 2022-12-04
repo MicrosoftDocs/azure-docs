@@ -26,7 +26,7 @@ To set up Azure Active Directory authentication, follow the steps bellow:
 1. Select **Register**
 1. On the app's overview page, select **Certificates and Secrets**
 1. Note the **Application (client) ID** and **Directory(Tenant) ID** They're used in the Grafana authentication settings.
- :::image type="content" source="./media/prometheus-selfmanaged-grafana/app-registration-overview.png" alt-text="A screenshot showing the App registraction overview page.":::
+ :::image type="content" source="./media/prometheus-selfmanaged-grafana/app-registration-overview.png" alt-text="A screenshot showing the App registration overview page.":::
 1. In the Client secrets tab, select **New client secret**
 1. Enter a **Description** 
 1. Select an **expiry** period from the dropdown and select **Add**.
