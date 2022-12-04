@@ -21,14 +21,15 @@ To set up Azure Active Directory authentication, follow the steps bellow:
 ## Register an app with Azure Active Directory
 
 1. To register an app, open the Active Directory Overview page in the Azure portal.
-1. Select **New registration**
+
+1. Select **New registration**.
 1. On the Register an application page, enter a **Name** for the application.
-1. Select **Register**
-1. On the app's overview page, select **Certificates and Secrets**
-1. Note the **Application (client) ID** and **Directory(Tenant) ID** They're used in the Grafana authentication settings.
+1. Select **Register**.
+1. Note the **Application (client) ID** and **Directory(Tenant) ID**. They're used in the Grafana authentication settings.
  :::image type="content" source="./media/prometheus-self-managed-grafana-aad/app-registration-overview.png" alt-text="A screenshot showing the App registration overview page.":::
-1. In the Client secrets tab, select **New client secret**
-1. Enter a **Description** 
+1. On the app's overview page, select **Certificates and Secrets**.
+1. In the Client secrets tab, select **New client secret**.
+1. Enter a **Description**.
 1. Select an **expiry** period from the dropdown and select **Add**.
     > [!NOTE]
     > Create a process to renew the secret and update your Grafana data source settings before the secret expires. 
@@ -48,20 +49,21 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure portal. 
 
-1. On the Overview page, take note of your **Query endpoint**. The query endpoint will be used when setting up your Grafana data source. 
-1. Select **Access control (IAM)**  
-
+1. On the Overview page, take note of your **Query endpoint**. The query endpoint is used when setting up your Grafana data source. 
+1. Select **Access control (IAM)**.
 :::image type="content" source="./media/prometheus-self-managed-grafana-aad/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
 
 1. Select **Add**, then **Add role assignment** from the **Access Control (IAM)** page.  
 
-1. On the Add role Assignment page, search for *Monitoring*
+1. On the Add role Assignment page, search for *Monitoring*.
 1. Select **Monitoring data reader**, then select the **Members** tab.
+
     :::image type="content" source="./media/prometheus-self-managed-grafana-aad/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page":::
-1. Select **Select members**
-1. Search for the app that you registered in the *Register an app with Azure Active Directory* step. and select it.
-1. Click **Select**
-1. Select **Review + assign**
+
+1. Select **Select members**.
+1. Search for the app that you registered in the [Register an app with Azure Active Directory](#register-an-app-with-azure-active-directory) section and select it.
+1. Click **Select**.
+1. Select **Review + assign**.
    :::image type="content" source="./media/prometheus-self-managed-grafana-aad/select-members.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
 
 You've created your App registration and have assigned it access to query data from your Azure Monitor workspace. The next step is setting up your Grafana data source. 
@@ -69,7 +71,7 @@ You've created your App registration and have assigned it access to query data f
 
 ## Setup self-managed Grafana to turn on Azure Authentication.  
 
-Grafana now supports connecting to Azure-managed Prometheus using the Prometheus data source. For earlier versions, a configuration change needed to see the Azure Authentication option in Grafana. For self-hosted Grafana or other non-Azure-managed Grafana service, make the following changes:
+Grafana now supports connecting to Azure-managed Prometheus using the Prometheus data source. Self-managed instances, a configuration change is needed to see the Azure Authentication option in Grafana. For self-hosted Grafana or other non-Azure-managed Grafana service, make the following changes:
 
 1. Locate the Grafana configuration file. See the [Configure Grafana](https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/) documentation for details. 
 1. Identity your Grafana version.
@@ -92,7 +94,7 @@ Grafana now supports connecting to Azure-managed Prometheus using the Prometheus
         azure_auth_enabled = true 
     ```
 
- For Azure Managed Grafana, you don't need to make any configuration changes and Managed Identity is enabled by default.
+ For Azure-managed Grafana, you don't need to make any configuration changes. Managed Identity is also enabled by default.
 ## Configure Grafana data source
 
 1. Sign-in to your Grafana instance.
@@ -101,8 +103,8 @@ Grafana now supports connecting to Azure-managed Prometheus using the Prometheus
 1. Select **Add data source**.
 1. Select **Prometheus**.
 1. Enter a **Name** for your Prometheus data source.
-1. In the **URL** field, paste the Query endpoint vale from the workspace overview page.
-1. Under **Auth** Turn on  **Azure Authentication**.
+1. In the **URL** field, paste the Query endpoint value from the Azure Monitor workspace overview page.
+1. Under **Auth**, turn on  **Azure Authentication**.
 1. In the Azure Authentication section, select **App Registration** from the **Authentication** dropdown.
 1. Enter the **Direct(tenant) ID**, **Application (client) ID**, and the **Client secret** from the [Register an app with Azure Active Directory](#register-an-app-with-azure-active-directory) section.
 1. Select **Save & test**
