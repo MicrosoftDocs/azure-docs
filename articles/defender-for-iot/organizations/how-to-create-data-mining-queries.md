@@ -79,7 +79,9 @@ The on-premises management console lets you generate reports for each sensor tha
 
 ## View reports in on-premises management console
 
-When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. Reports are based on sensor data-mining queries that are performed, and include:
+When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. 
+
+Reports are based on sensor data-mining queries that are performed, and include:
 
 | Information  | Description  |
 |---------|---------|
