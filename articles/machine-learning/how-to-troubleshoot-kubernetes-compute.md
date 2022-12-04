@@ -14,7 +14,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Troubleshoot Kubernetes Compute
 
-In this article, you will learn how to troubleshoot some common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
+In this article, you'll learn how to troubleshoot some common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
 
 ## Inference Guide
 
@@ -35,7 +35,7 @@ openssl rsa -in key.pem -noout -modulus | md5sum
 
 ### Kubernetes Compute errors
 
-Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, you can follow these guidance to mitigate the errors:
+Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guideline:
 
 
 * [ERROR: GenericComputeError](#error-genericcomputeerror)
@@ -51,15 +51,15 @@ Failed to get compute information.
 ```
 
 This error should occur when system failed to get the compute information from the Kubernetes cluster. You can check the following items to troubleshoot the issue:
-1. Check the Kubernetes cluster status. If the cluster is not running, you need to start the cluster first.
+1. Check the Kubernetes cluster status. If the cluster isn't running, you need to start the cluster first.
 1. Check if the Kubernetes cluster is health.
-    1.  You can check if the cluster health check report any issues, for example, the cluster is not reachable.
+    1. You can check if the cluster health check report any issues, for example, the cluster is not reachable.
     1. You can go to your workspace portal to check the compute status.
 1. Check if the instance types is information is correct. You can check the supported instance types in the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) documentation.
-1. Try to detach and re-attach the compute to the workspace if applicable.
+1. Try to detach and reattach the compute to the workspace if applicable.
 
 > [!NOTE]
-> To trouble shoot errors by re-attaching, please guarantee to re-attach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
+> To trouble shoot errors by reattaching, please guarantee to reattach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
 
 #### ERROR: ComputeNotFound
 
@@ -70,12 +70,12 @@ Cannot find Kubernetes compute.
 ```
 
 This error should occur when:
-1. The system cannot find the compute when create/update new online endpoint/deployment. 
+1. The system can't find the compute when create/update new online endpoint/deployment. 
 1. The compute of existing online endpoints/deployments has been removed. 
 
 You can check the following items to troubleshoot the issue:
-1. Try to re-create the endpoint and deployment. 
-1. Try to detach and re-attach the compute to the workspace. Pay attention to more notes on [re-attach](#error-genericcomputeerror).
+1. Try to recreate the endpoint and deployment. 
+1. Try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
 
 
 #### ERROR: ComputeNotAccessible
@@ -85,11 +85,11 @@ The error message is as follows:
 The Kubernetes compute is not accessible.
 ```
 
-This error should occur when the workspace MSI (managed identity) does not have access to the AKS cluster. You can check if the workspace MSI has the access to the AKS, and if not, you can follow this [document](how-to-identity-based-service-authentication.md) to manage access and identity.
+This error should occur when the workspace MSI (managed identity) doesn't have access to the AKS cluster. You can check if the workspace MSI has the access to the AKS, and if not, you can follow this [document](how-to-identity-based-service-authentication.md) to manage access and identity.
 
 ### Kubernetes Cluster Error
 
-Below is a list of error types in **cluster scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, you can follow these guidance to mitigate the errors:
+Below is a list of error types in **cluster scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guideline:
 
 * [ERROR: GenericClusterError](#error-genericclustererror)
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
@@ -105,9 +105,9 @@ Failed to connect to Kubernetes cluster: <message>
 This error should occur when the system  failed to connect to the Kubernetes cluster for unknown reason. You can check the following items to troubleshoot the issue:
 
 For AKS cluster:
-1. Check if the AKS cluster is shutdown. 
-    1. If the cluster is not running, you need to start the cluster first.
-1. Check if the AKS cluster has enabled enabled selected network by using authorized IP ranges. 
+1. Check if the AKS cluster is shut down. 
+    1. If the cluster isn't running, you need to start the cluster first.
+1. Check if the AKS cluster has enabled selected network by using authorized IP ranges. 
     1. If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
@@ -122,12 +122,12 @@ The error message is as follows:
 The Kubernetes cluster is not reachable. 
 ```
 
-This error should occur when the system cannot connect to cluster. You can check the following items to troubleshoot the issue:
+This error should occur when the system can't connect to cluster. You can check the following items to troubleshoot the issue:
 
 
 For AKS cluster:
-1. Check the if AKS cluster is shutdown. 
-    1. If the cluster is not running, you need to start the cluster first.
+1. Check if the AKS cluster is shut down. 
+    1. If the cluster isn't running, you need to start the cluster first.
 
 For both AKS cluster and Azure Arc enabled Kubernetes cluster:
 1. Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
@@ -149,9 +149,9 @@ Please check whether you have `enableTraining=True` set when doing the AzureML e
 
 #### Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 
-If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this issue should occuer when the compute is not specified with a managed identity, because the credential less machine learning workspace default storage account is not supported right now for training jobs. 
+If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this issue should occur when the compute is not specified with a managed identity, because the credential less machine learning workspace default storage account is not supported right now for training jobs. 
 
-To mitigate this issue, you can You can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it is attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
+To mitigate this issue, you can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it has been attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
 
 #### Unable to upload project files to working directory in AzureBlob because the authorization failed
 
@@ -179,7 +179,7 @@ You can follow [Private Link troubleshooting section](#private-link-issue) to ch
 
 #### Job pod get stuck in Init state
 
-When the job runs longer than you expected and you find job pods get stuck in Init state with the this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched,` it is a known issue because AzureML extension doesn't support download mode for input data currently. 
+When the job runs longer than you expected and you find job pods get stuck in Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched,` it's a known issue because AzureML extension doesn't support download mode for input data currently. 
 
 Change to mount mode for your input data to mitigate the issue.
 
@@ -197,11 +197,11 @@ Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-ran
 
 We could use the method below to check private link setup by logging into one pod in the Kubernetes cluster and then check related network settings.
 
-1. Find workspace id in Azure portal or get this id by running `az ml workspace show` in the command line.
-1. Show all scoring fe pods run by `kubectl get po -n azureml -l azuremlappname=azureml-fe`.
+1. Find workspace ID in Azure portal or get this ID by running `az ml workspace show` in the command line.
+1. Show all azureml-fe pods run by `kubectl get po -n azureml -l azuremlappname=azureml-fe`.
 1. Login into any of them run `kubectl exec -it -n azureml {scorin_fe_pod_name} bash`.
 1. If the cluster doesn't use proxy run `nslookup {workspace_id}.workspace.{region}.api.azureml.ms`.
-If they setup private link from VNet to workspace correctly, DNS lookup will response internal IP in VNet.
+If they set up private link from VNet to workspace correctly, DNS lookup will response internal IP in VNet.
 
 1. If the cluster uses proxy, you can try to `curl` workspace 
  ```bash
