@@ -7,19 +7,19 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 12/04/2022
 ms.custom: devx-track-python
 ms.devlang: python
 ---
 
 # 2 - Create and load Search Index with Python
 
-Continue to build your Search-enabled website by:
-* Create a Search resource with the VS Code extension
+Continue to build your search-enabled website by following these steps:
+* Create a search resource
 * Create a new index
 * Import data with Python using the [sample script](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/bulk-upload/bulk-upload.py) and Azure SDK [azure-search-documents](https://pypi.org/project/azure-search-documents/).
 
-## Create an Azure Cognitive Search resource 
+## Create an Azure Cognitive Search resource
 
 Create a new Search resource with the Azure Cognitive Search extension for Visual Studio Code.
 

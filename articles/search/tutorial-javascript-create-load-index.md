@@ -7,19 +7,19 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/01/2022
+ms.date: 12/04/2022
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
 
 # 2 - Create and load Search Index with JavaScript
 
-Continue to build your Search-enabled website by:
-* Create a Search resource with the VS Code extension
+Continue to build your search-enabled website by following these steps:
+* Create a search resource
 * Create a new index
 * Import data with JavaScript using the [sample script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
-## Create an Azure Search resource 
+## Create an Azure Cognitive Search resource 
 
 Create a new Search resource with the Azure Cognitive Search extension for Visual Studio Code.
 
