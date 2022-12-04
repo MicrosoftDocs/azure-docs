@@ -61,11 +61,9 @@ The following predefined reports are available in **Analyze** > **Data Mining**.
 | **Nonactive devices** | Devices that haven't communicated for the past seven days. |
 | **Active devices** | Active network devices within the last 24 hours. |
 
-## View reports in on-premises management console
+## Generate reports in on-premises management console
 
-The on-premises management console lets you generate reports for each sensor that's connected to it. When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports.
-
-For each sensor, you can generate a default report or a custom report configured on that sensor.
+The on-premises management console lets you generate reports for each sensor that's connected to it. For each sensor, you can generate a default report or a custom report configured on that sensor.
 
 **To generate a report**:
 
@@ -79,7 +77,9 @@ For each sensor, you can generate a default report or a custom report configured
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
 
-Reports are based on sensor data-mining queries that are performed, and include:
+## View reports in on-premises management console
+
+When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. Reports are based on sensor data-mining queries that are performed, and include:
 
 | Information  | Description  |
 |---------|---------|

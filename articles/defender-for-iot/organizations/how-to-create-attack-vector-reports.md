@@ -50,4 +50,10 @@ You can use the report that is saved from the Attack vector page to review:
 
 Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
 
-For more information, see [fill this in](not-sure-yet).
+For more information, see:
+
+- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+
+- [Sensor data mining queries](how-to-create-data-mining-queries.md)
+
+- [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)
