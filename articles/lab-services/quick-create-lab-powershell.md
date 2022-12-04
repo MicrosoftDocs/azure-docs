@@ -13,8 +13,8 @@ In this quickstart, you, as the educator, create a lab using PowerShell and the 
 
 ## Prerequisites
 
-- Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2&preserve-view=true).
+- Azure subscription.  If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 - [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az). Must be version 7.2 or higher.
 
     ```powershell
