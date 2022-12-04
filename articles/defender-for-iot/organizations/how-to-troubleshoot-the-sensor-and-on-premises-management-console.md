@@ -268,10 +268,14 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
 
-Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
+1. Send logs to the support team: 
+
+    - Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot.
+    
+    - Make sure to send the password to support separately from the exported logs.
 
 > [!NOTE]
-> Support ticket diagnostics are not encrypted, and can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
+> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
 
 ## Troubleshoot an on-premises management console
 
@@ -343,7 +347,11 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
 
-Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
+1. Send logs to the support team: 
+
+    - Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot.
+    
+    - Make sure to send the password to support separately from the exported logs.
 
 ## Next steps
 

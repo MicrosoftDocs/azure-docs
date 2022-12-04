@@ -59,4 +59,4 @@ To configure the admin consent workflow programmatically, use the [Update adminC
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[Reivew admin consent requests](review-admin-consent-requests.md)
+[Review admin consent requests](review-admin-consent-requests.md)
