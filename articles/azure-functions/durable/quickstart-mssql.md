@@ -209,7 +209,7 @@ To do this through the Azure portal, first go to your Function App view. Then go
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
 
-You can follow [these](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql&preserve-view=true) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [these](/azure/azure-sql/database/single-database-create-quickstart) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
 > Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
