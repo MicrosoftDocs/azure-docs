@@ -5,7 +5,7 @@ description: Learn how to use the Mariner container host on Azure Kubernetes Ser
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 09/22/2022
+ms.date: 11/17/2022
 ---
 
 # Use the Mariner container host on Azure Kubernetes Service (AKS)
@@ -52,7 +52,7 @@ Mariner currently has the following limitations:
 * Mariner does not yet have image SKUs for GPU, ARM64, SGX, or FIPS.
 * Mariner does not yet have FedRAMP, FIPS, or CIS certification.
 * Mariner cannot yet be deployed through Azure portal or Terraform.
-* Qualys and Trivy are the only vulnerability scanning tools that support Mariner today.
+* Qualys, Trivy, and Microsoft Defender for Containers are the only vulnerability scanning tools that support Mariner today.
 * The Mariner container host is a Gen 2 image. Mariner does not plan to offer a Gen 1 SKU.
 * Node configurations are not yet supported.
 * Mariner is not yet supported in GitHub actions.

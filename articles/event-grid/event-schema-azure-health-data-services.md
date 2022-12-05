@@ -2,7 +2,7 @@
 title: Azure Health Data Services as Event Grid source
 description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 12/02/2022
 ---
 
 # Azure Health Data Services as an Event Grid source
@@ -156,8 +156,7 @@ This section contains examples of what events message data would look like for e
 ---
 
 ## Next steps
-
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md). 
+See the following tutorial: [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
+ 
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

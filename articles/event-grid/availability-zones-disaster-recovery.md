@@ -16,7 +16,7 @@ Azure availability zones are physically separate locations within each Azure reg
 
 Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones ([when available](../availability-zones/az-overview.md#azure-regions-with-availability-zones)) in the region. When there's a failure in one of the availability zones, Event Grid resources **automatically failover** to another availability zone without any human intervention. Currently, it isn't possible for you to control (enable or disable) this feature. When an existing region starts supporting availability zones, existing Event Grid resources would be automatically failed over to take advantage of this feature. No customer action is required. 
 
-:::image type="content" source="../availability-zones/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
+:::image type="content" source="../reliability/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
 
 ## Geo-disaster recovery across regions
 

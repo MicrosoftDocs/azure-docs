@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance in .NET Core | Microsoft Docs
 description: Application performance monitoring for Azure App Service using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 11/15/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -153,7 +153,7 @@ What follows is our step-by-step troubleshooting guide for extension/agent-based
 
 # [Linux](#tab/linux)
 
-1. Check that the `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~2`.
+1. Check that the `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
 1. Browse to `https://your site name.scm.azurewebsites.net/ApplicationInsights`.
 1. Within this site, confirm:
    * The status source exists and looks like `Status source /var/log/applicationinsights/status_abcde1234567_89_0.json`.

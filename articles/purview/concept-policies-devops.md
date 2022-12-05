@@ -6,12 +6,10 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 11/16/2022
 ---
 
 # Concepts for Microsoft Purview DevOps policies
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article discusses concepts related to managing access to data sources in your data estate from within the Microsoft Purview governance portal. In particular, it focuses on DevOps policies.
 
@@ -19,7 +17,7 @@ This article discusses concepts related to managing access to data sources in yo
 > This capability is different from access control for Microsoft Purview itself, which is described in [Access control in Microsoft Purview](./catalog-permissions.md).
 
 ## Overview
-Access to system metadata is crucial for database administrators and other DevOps users to perform their job. That access can be granted and revoked efficiently and at-scale through Microsoft Purview DevOps policies.
+Access to system metadata is crucial for IT operations and other DevOps personnel to perform their job. That access can be granted and revoked efficiently and at-scale through Microsoft Purview DevOps policies.
 
 ### Microsoft Purview access policies vs. DevOps policies
 Microsoft Purview access policies enable customers to manage access to different data systems across their entire data estate, all from a central location in the cloud. These policies are access grants that can be created through Microsoft Purview Studio, avoiding the need for code. They dictate whether a set of Azure AD principals (users, groups, etc.) should be allowed or denied a specific type of access to a data source or asset within it. These policies get communicated to the data sources where they get natively enforced.
@@ -58,7 +56,12 @@ Bob and Alice are DevOps users at their company. Given their role, they need to 
 - Once saved, DevOps policies get automatically published.
 
 ## Next steps
-To get started with DevOps policies, consult the following guides:
-* Document: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Document: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+To get started with DevOps policies, consult the following blogs, videos and guides:
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
+* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
+* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
+* Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+* Doc: [Microsoft Purview DevOps policies on resource groups and subscriptions](./how-to-policies-devops-resource-group.md)
 * Blog: [New granular permissions for SQL Server 2022 and Azure SQL to help PoLP](https://techcommunity.microsoft.com/t5/sql-server-blog/new-granular-permissions-for-sql-server-2022-and-azure-sql-to/ba-p/3607507)
