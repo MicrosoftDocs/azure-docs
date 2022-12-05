@@ -145,7 +145,7 @@ After obtaining your connection string, add it to `local.settings.json` so it ca
 
 ### Update host.json
 
-Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one does not already exists, with coallition `Latin1_General_100_BIN2_UTF8`.
+Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one does not already exists, with collation `Latin1_General_100_BIN2_UTF8`.
 
 ```json
 {
