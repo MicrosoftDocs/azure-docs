@@ -96,6 +96,8 @@ items:
   - name: Compliance
     expanded: false
     items:
+    - name: Azure AD and data residency
+      href: azure-ad-data-residency.md
     - name: Identity data storage for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
