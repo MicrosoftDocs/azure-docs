@@ -187,7 +187,7 @@ If you're a Defender for Endpoint customer with an Enterprise IoT plan, you'll b
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-If you're on a monthly or annual commitment, you may want to edit the number of committed devices in your Enterprise IoT plan. For more information, see:
+If you're on a monthly commitment, you may want to edit the number of committed devices in your Enterprise IoT plan. For more information, see:
 
 - [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring)
 - [Defender for IoT subscription billing](billing.md)
