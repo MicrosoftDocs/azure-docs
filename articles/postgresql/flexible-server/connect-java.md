@@ -47,7 +47,6 @@ export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
-export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
