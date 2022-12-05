@@ -26,16 +26,16 @@ Application-insights|[Application Map: Triage distributed applications](app/app-
 Application-insights|[Enable Application Insights for ASP.NET Core applications](app/tutorial-asp-net-core.md)|The Azure Café sample app is now hosted and linked on Git.|
 Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](app/codeless-overview.md)|Our auto-instrumentation supported languages chart has been updated.|
 Application-insights|[Application Monitoring for Azure App Service and ASP.NET](app/azure-web-apps-net.md)|Links to check versions have been corrected.|
-Application-insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|Updated OpenTelemetry Span informatio for Java.|
+Application-insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|Updated OpenTelemetry Span information for Java.|
 Autoscale|[Understand autoscale settings](autoscale/autoscale-understanding-settings.md)|Refresh and update|
 Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Refreshed and updated.|
 Essentials|[Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-metrics-scrape-default.md)|General restructure of Prometheus content.|
 Essentials|[Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication (preview)](essentials/prometheus-remote-write.md)|New article|
 Essentials|[Azure Monitor workspace (preview)](essentials/azure-monitor-workspace-overview.md)|Added Bicep example.|
-Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](essentials/migrate-to-azure-storage-lifecycle-policy.md)|Deprection note added|
+Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](essentials/migrate-to-azure-storage-lifecycle-policy.md)|Deprecation note added|
 Essentials|[Diagnostic settings in Azure Monitor](essentials/diagnostic-settings.md)|All destination endpoints support TLS 1.2.|
-Logs|[Cost optimization and Azure Monitor](undefined.md)|Added cost information and removed preview label.|
-Logs|[Diagnostic settings in Azure Monitor](undefined.md)|Added section on controlling costs with transformations.|
+Logs|[Cost optimization and Azure Monitor](best-practices-cost.md)|Added cost information and removed preview label.|
+Logs|[Diagnostic settings in Azure Monitor](essentials/diagnostic-settings.md)|Added section on controlling costs with transformations.|
 Logs|[Analyze usage in a Log Analytics workspace](logs/analyze-usage.md)|Added KQL query that retrieves data volumes for charged data types.|
 Logs|[Access the Azure Monitor Log Analytics API](logs/api/timeouts.md)|Refresh and update|
 Logs|[Collect text logs with the Log Analytics agent in Azure Monitor](agents/data-sources-custom-logs.md)|New table management section with new articles on table configuration options, schema management, and custom table creation.|
