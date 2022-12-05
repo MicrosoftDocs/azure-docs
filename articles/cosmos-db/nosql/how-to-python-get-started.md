@@ -416,7 +416,7 @@ credential = ClientSecretCredential(
     client_secret=CLIENT_SECRET
 )
 
-client = CosmosClient(ENDPOINT, credential, additionally_allowed_tenants=['*'])
+client = CosmosClient(ENDPOINT, credential)
 ```
 <!--
 :::code language="python" source="~/cosmos-db-nosql-python-samples/104-client-secret-credential/app.py" id="credential":::
