@@ -39,7 +39,10 @@ The above tutorial provides a walkthrough for scheduling a contact with Aqua and
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
 >   - **Size:** Standard_D8s_v5 or higher
->   - **IP Address:** Ensure that the VM has at least one standard public IP address
+>   - **IP Address:** Ensure that the VM has internet access for downloading tools by having one standard public IP address
+
+> [!TIP]
+> The Public IP Address here is only for internet connectivity (see [Default outbound access in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/default-outbound-access) for more ways to achieve this) not Contact data.
 
 At the end of this step, you should have the raw direct broadcast data saved as ```.bin``` files under the ```~/aquadata``` folder on the ```receiver-vm```. 
 
