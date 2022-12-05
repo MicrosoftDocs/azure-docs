@@ -235,7 +235,7 @@ When creating managed online endpoint, role assignment is required for the ident
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-quotas#endpoint-quota-increases) to request endpoint quota increase.
+Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](how-to-manage-quotas.md#endpoint-quota-increases) to request endpoint quota increase.
 
 #### Kubernetes quota
 
