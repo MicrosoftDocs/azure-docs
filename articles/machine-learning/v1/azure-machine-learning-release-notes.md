@@ -23,16 +23,19 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2022-12-05
 
 ### Azure Machine Learning SDK for Python v1.48.0
-+ Python 3.6 support has been deprecated for AzureML SDK packages.
-  + **azureml-core**
-    + Storage accounts created as a part of workspace creation now set blob public access to disabled by default
-  + **azureml-responsibleai**
-    + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
-    + added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
-  + **azureml-train-automl-runtime**
-    + added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
-    + Fixed bug where generated code does not do train/test splits correctly.
-    + Fixed a bug that was causing forecasting generated code training jobs to fail.
+  + **Breaking changes**  
+    + Python 3.6 support has been deprecated for AzureML SDK packages.
+  
+  + **Bug fixes and improvements**
+    + **azureml-core**
+      + Storage accounts created as a part of workspace creation now set blob public access to disabled by default
+    + **azureml-responsibleai**
+      + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
+      + added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
+    + **azureml-train-automl-runtime**
+      + added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
+      + Fixed bug where generated code does not do train/test splits correctly.
+      + Fixed a bug that was causing forecasting generated code training jobs to fail.
 
 ## 2022-10-25
 
