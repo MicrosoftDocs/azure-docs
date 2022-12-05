@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/04/2022
+ms.date: 12/05/2022
 ms.author: jasteppe
 ---
 
@@ -116,7 +116,9 @@ After you've successfully deployed an instance of the MedTech service, you'll st
 
 ## Next steps
 
-In this quickstart, you learned how deploy the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. To learn more about other methods of deploying the MedTech service, see
+In this quickstart, you learned how deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
+
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
