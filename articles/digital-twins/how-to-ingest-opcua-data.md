@@ -28,7 +28,7 @@ This  solution simulates the operation of eight OPC UA-enabled production lines 
 
 Below is a diagram illustrating the data flow through this solution, followed by descriptions of each component and step.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png" alt-text="Architectural diagram of the O P C U A to Azure Digital Twins solution." lightbox="media/how-to-ingest-opcua-data/opcua-to-azure-digital-twins-diagram.png":::
+:::image type="content" source="media/how-to-ingest-opcua-data/opc-ua-to-azure-digital-twins-diagram.png" alt-text="Architectural diagram of the OPC UA to Azure Digital Twins solution." lightbox="media/how-to-ingest-opcua-data/opc-ua-to-azure-digital-twins-diagram.png":::
 
 Here are the components involved in this solution.
 
@@ -71,7 +71,7 @@ Once the deployment is complete, follow these steps to finish configuring the si
 1. Restart the VM one more time and log back in after the restart.
 1. In the VM, verify that Docker Desktop is running in the Windows System Tray. Enable Kubernetes under **Settings**, **Kubernetes**, **Enable Kubernetes**, and **Apply & restart**.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/Kubernetes.png" alt-text="Screenshot of Docker Desktop Settings." lightbox="media/how-to-ingest-opcua-data/Kubernetes.png":::
+:::image type="content" source="media/how-to-ingest-opcua-data/enable-kubernetes.png" alt-text="Screenshot of Docker Desktop Settings." lightbox="media/how-to-ingest-opcua-data/enable-kubernetes.png":::
 
 ## Run the production line simulation
 
