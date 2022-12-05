@@ -1567,17 +1567,17 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-local-container-notebook-vm.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-local.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -1587,12 +1587,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-update-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-inferencing-gpus.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -2472,7 +2472,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-functions.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -2482,7 +2482,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-and-where.md",
-        "redirect_url": "/articles/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -2507,7 +2507,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-app-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-managed-online-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-managed-online-endpoints.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
