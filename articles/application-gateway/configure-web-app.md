@@ -134,7 +134,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
-An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes will forward requests with the hostname in which traffic is received, health probes will utilize 127.0.0.1 as the hostname to the Backend Pool.  For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes will forward requests with the hostname in which traffic is received, the health probes will utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname has explicitly been defined.  For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
 We will connect to the backend using HTTPS.
 
