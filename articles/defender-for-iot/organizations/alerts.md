@@ -13,6 +13,12 @@ For example:
 
 :::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
 
+Defender for IoT provides recommended remediation steps for each alert, such as taking action on a related device or on the network process that triggered the alert.
+
+> [!TIP]
+> Use remediation steps to help your SOC teams understand OT issues and resolutions. We recommend that you review recommended remediation steps before updating an alert status or taking action on the device or network.
+>
+
 ## Alert management options
 
 Defender for IoT alerts are available in the following locations:
@@ -34,6 +40,33 @@ The Azure portal and OT network sensors also provide the following extra investi
 > Alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only. For more information, see <xref>.
 >
 
+For details about alert options per user role, see Defender for IoT user roles and permissions in [Azure](roles-azure.md) and for [OT network sensors and on-premises management consoles](roles-on-premises.md).
+
+## Learning alert traffic
+
+Some alerts might reflect valid network changes, such as an authorized device attempting to access a new resource on another device.
+
+If you don't want to see the alert again for the same traffic, instruct Defender for IoT to *Learn* the traffic for its network baseline.
+
+While you can *Learn* alerts on the Azure portal, OT network sensors, or the on-premises management console, you can only *Unlearn* alerts on the OT network sensor. <!--validate this-->
+
+After *Learning* an alert, the alert is automatically closed and the learn action is added to the alert's **Event Timeline**.
+
+> [!NOTE]
+> Devices related to the learned traffic, including source and destination devices, aren't calculated when the sensor generates reports, such as [Risk assessment](how-to-create-risk-assessment-reports.md) or [Attack vector](how-to-create-attack-vector-reports.md) reports.
+
+Other examples of traffic you might want to *Learn* include:
+
+- Firmware version changes following standard maintenance procedures.
+
+- A new device is added to the network.
+
+- A new device performed a read/write operation on a destination controller.
+
+- A new device performs a read/write operation on a destination controller and should be defined as a programming device.
+
+- New legitimate scanning is carried out and the device should be defined as a scanning device.
+
 ## Managing alerts in a hybrid deployment
 
 Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
@@ -49,6 +82,21 @@ Alert management across all interfaces functions as follows:
 - **Alert Exclusion rules**: If you're working with an on-premises management console, you may have defined alert *Exclusion rules* to determine the rules detected by relevant sensors.
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+
+## Accelerating OT alert workflows
+
+**Admin** users on an OT network sensor can use the following options to help their SOC and OT management teams triage and remediate alerts faster:
+
+- **Add alert comments**. Add custom comments to alerts generated on your sensors to improvement communication across your team during an investigation. For example, use comments to add any of the following details:
+
+    - Add custom alert mitigation steps
+    - Notify other team members that steps were taken
+    - Add custom insights or warnings about the event
+
+    Alerts comments are shown in the **Comments** area on the **Alert details** tab of an alert details page. For example:
+
+    For more information, see [Accelerate incident workflows by using alert comments](how-to-view-alerts.md#accelerate-incident-workflows-by-using-alert-comments).
+
 
 ## Alert data retention
 

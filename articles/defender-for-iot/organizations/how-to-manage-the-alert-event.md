@@ -5,45 +5,6 @@ ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# Manage alerts from the sensor console
-
-This article describes how to manage alerts from the sensor console.
-
-
-Alerts are managed from the Alerts page on the sensor.
-
-**To access the Alerts page:**
-
-1. Select **Alerts** from the sensor console, side pane.
-1. Review the alerts details and decide how to manage the alert.
-
-    :::image type="content" source="media/how-to-manage-the-alert-event/main-alerts-screen.png" alt-text="Screenshot of the main sensor alerts screen.":::
-
-See [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor) for information on:
-- the kind of alert information available  
-- customizing the alert view
-- how long alerts are saved
-
-## View remediation steps
-
-Defender for IoT provides remediation steps you can carry out for the alert. Steps may include remediating a device or network process that caused Defender for IoT to trigger the alert.
-Remediation steps help SOC teams better understand Operational Technology (OT) issues and resolutions. Review remediation information before managing the alert event or taking action on the device or the network.
-
-**To view alert remediation steps:**
-
-1. Select an alert from the Alerts page.
-1. In the side pane, select **Take action.**
-1. Review remediation steps.
-
-    :::image type="content" source="media/how-to-manage-the-alert-event/remediation-steps.png" alt-text="Screenshot of a sample set of remediation steps for alert action.":::
-
-
-Your administrator may have added instructions or comments to help you complete remediation or alert handling. If created, comments appear in the Alert Details section.
-
-:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to alert details section of Alert dialog box.":::
-
-After taking remediation steps, you may want to change the alert status to Close the alert.
-
 ## Learn and unlearn alert traffic
 
 Some alerts indicate deviations of the learned network baseline. These alerts might reflect valid network changes, such as:
@@ -99,6 +60,7 @@ The alert status is automatically updated to **New**.
 
 Under certain circumstances, you might want to instruct your sensor to ignore a specific scenario on your network. For example:
 
+<!--keep this as examples for a tutorial or learn module-->
   - The Anomaly engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
 
   - The Protocol Violation engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
@@ -106,8 +68,8 @@ Under certain circumstances, you might want to instruct your sensor to ignore a 
   - The Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure. After investigation, it's determined that the new mode is acceptable.
 
 In these situations, learning isn't available. You can mute the alert event when learning can't be carried out and you want to suppress the alert and remove the device when calculating risks and attack vectors.
+<!-->
 
-:::image type="content" source="media/how-to-manage-the-alert-event/mute-alert.png" alt-text="Screenshot of an alert with the Mute action.":::
 
 A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that is being muted.
 
@@ -127,56 +89,13 @@ A muted scenario includes the network devices and traffic detected for an event.
 
 - The sensor will recalculate devices when generating Risk Assessment, Attack Vector, and other reports. For example, if you muted an alert that detected malicious traffic on a device, that device won't be calculated in the Risk Assessment report.
 
-## Close the alert
 
- Close an alert when you finish remediating, investigating, or otherwise handling the alert. For example:
-
+<!--keep these as good examples for a learn module? or a tutorial?
 - **Mitigate a network configuration or device**: You receive an alert indicating that a new device was detected on the network. When investigating, you discover that the device is unauthorized. You handle the alert by disconnecting the device from the network.
 
 - **Update a sensor configuration**: You receive an alert indicating that a server initiated an excessive number of remote connections. This alert was triggered because the sensor anomaly thresholds were defined to trigger alerts above a certain number of sessions within one minute. You handle the alert by updating the thresholds. 
 
-After you carry out remediation or investigation, you can close  the alert.
-
-If the traffic is detected again, the alert will be retriggered.
-
-**To close a single alert:**
-
-1. Select an alert. The Alert Details section opens.
-1. Select the dropdown arrow in the Status field and select **Closed**.
-
-    :::image type="content" source="media/how-to-manage-the-alert-event/close-alert.png" alt-text="Screenshot of the option to close an alert from the Alerts page.":::
-
-**To close multiple alerts:**
-
-1. Select the alerts you want to close from the Alerts page. 
-1. Select **Change Status** from the action items on the top of the page.
-1. Select **Closed** and **Apply.**
-
-    :::image type="content" source="media/how-to-manage-the-alert-event/multiple-close.png" alt-text="Screenshot of selecting multiple alerts to close from the Alerts page.":::
-
-Change the alert status to **New** if further investigation is required.
-
-To view closed alerts on the Alerts page, verify that the **Status** filter is defined to show **Closed** alerts.
-
-:::image type="content" source="media/how-to-manage-the-alert-event/show-closed-status.png" alt-text="Screenshot of the Alerts page status filter with closed alerts selected.":::
-
-## Export alert information
-
-Export alert information to a .csv file. The following information is exported:
-
-- Source address
-- Destination address
-- Alert title
-- Alert severity
-- Alert message
-- Additional information
-- Acknowledged status
-- PCAP availability
-
-**To export:**
-
-1. Select Export to CSV on the top of the Alerts page.
-
+-->
 
 
 ## Next steps

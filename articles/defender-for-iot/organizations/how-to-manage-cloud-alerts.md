@@ -24,7 +24,8 @@ Enterprise IoT alerts on devices triggered by Microsoft Defender for Endpoint ag
 
 - To view alerts on the Azure portal, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
-- To manage alerts, including modify their statuses or severities, or *Learn* an alert, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
+- To manage alerts, including modifying their statuses or severities, *Learning* an alert, or accessing PCAP data, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
+
 
 For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
@@ -36,13 +37,13 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
     | Column | Description
     |--|--|
-    | **Severity**|  A predefined alert severity assigned by the sensor. Update the sensor severity as needed. For more information, see [Manage alert status and severity(#manage-alert-status-and-severity). |
+    | **Severity**|  A predefined alert severity assigned by the sensor that you can [modify as needed](#manage-alert-status-and-severity). |
     | **Name** |  The alert title. |
     | **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
-    | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. For more information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
+    | **Engine** |  The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform. |
     | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
     | **Status** | The alert status: *New*, *Active*, *Closed* |
-    | **Source device** | The IP address, MAC, or device name. |
+    | **Source device** |  |
     | **Tactics** | The MITRE ATT&CK stage. |
 
     1. To view more details, select the <!--add image-->**Edit columns** button.
@@ -73,7 +74,7 @@ For example, filter alerts by **Category**:
 
 ### Group alerts displayed
 
-Use the **Group by** menu at the top right to collapse the grid into subsections according to specific parameters.
+Use the **Group by** menu at the top-right to collapse the grid into subsections according to specific parameters.
 
 For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
 
@@ -82,17 +83,19 @@ Supported grouping options include *Severity*, *Name*, *Site*, and *Engine*.
 ## View details and remediate a specific alert
 <!--fix screenshots-->
 
-Select an alert in the grid to display more details in the pane on the right, including the alert description, traffic source and destination, and more.
+1. Select an alert in the grid to display more details in the pane on the right, including the alert description, traffic source and destination, and more.
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
-Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
+1. Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
 
-## Manage alert status and severity
+## Manage alert severity and status
 
-You can update alert status or severity for a single alert or for a group of alerts.
+We recommend that you update alert severity as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
+
+You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
 *Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
 
@@ -116,8 +119,6 @@ You can update alert status or severity for a single alert or for a group of ale
     - On an alert details page, in the **Take Action** tab, select **Learn**.
 
 ## Access alert PCAP data (Public preview)
-
-**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
 
 To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
 

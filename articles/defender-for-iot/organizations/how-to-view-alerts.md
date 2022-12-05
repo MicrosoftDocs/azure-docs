@@ -15,7 +15,9 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
 ## Prerequisites
 
-Sign into your sensor console as an **Admin**, **Security Analyst**, or **Viewer** user. 
+- To view alerts on an OT sensor, sign into your sensor as an **Admin**, **Security Analyst**, or **Viewer** user.
+
+- To manage alerts on an OT sensor, including modifying their statuses or severities, *Learning* an alert, or accessing PCAP data, sign into your sensor as an **Admin** or **Security Analyst** user.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -27,132 +29,140 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
     | Name | Description |
     |--|--|
-    | **Severity** | The alert severity: Critical, Major, Minor, Warning|
+    | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
     | **Name** | The alert title |
-    | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
-    | **Last detection** | The last time the alert activity was detected.   |
-    | **Status** | Indicates if the alert is new or closed. |
-    | **Source Device** | The source device IP address |
-    | **Destination Device** | The destination device IP address |
-    | **ID** | The alert ID. |
+    | **Engine** | The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform.  |
+    | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
+    | **Status** |The alert status: *New*, *Active*, *Closed* |
+    | **Source Device** | The source device IP address, MAC, or device name. |
 
-    1. To view more details, select the <!--add image-->**Edit columns** button.
+    1. To view more details, select the <!--add image-->**Edit Columns** button.
 
-        In the **Edit Columns** dialog box, select **Add Column** and any of the following extra columns to add: <!--add more details-->
+        In the **Edit Columns** dialog box, select **Add Column** and any of the following extra columns to add:
 
+        | **Destination Device** | Defines the destination device IP address |
+        | **First detection** | Defines the first time the alert activity was detected.   |
+        | **ID** | Indicates the alert ID. |
+        | **Last activity** | Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication   |
 
 ### Filter alerts displayed
 
 <!--validate this. time range?-->
-Use the **Search** box, **Grouping**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
+Use the **Search** box, **Time range**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
 
-For example, filter alerts by **Category**:
+Filtering alerts by **Group** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md).
+ pages.
 
-    :::image type="content" source="media/how-to-view-alerts/alerts-filter.png" alt-text="Screenshot of Alert filter options.":::
+For example:
 
-Grouping 
-**About the Groups type**
+<!--img tbd-->
 
-The **Groups** option refers to the Device groups you created in the Device map and inventory.
+### Group alerts displayed
 
-:::image type="content" source="media/how-to-view-alerts/alert-map-groups.png" alt-text="Screenshot of the Groups filter option.":::
+Use the **Group by** menu at the top right to collapse the grid into subsections based on *Severity*, *Name*, *Engine*, or *Status*.
 
-:::image type="content" source="media/how-to-view-alerts/view-alerts-map-groups.png" alt-text="Screenshot of the Groups filter reflected in the Device map.":::
+For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity or status.
 
-**To view alerts based on a pre-defined category:**
+### Export alerts to CSV or PDF
 
-1. Select **Group by** from the Alerts page and choose a category. The page displays the alerts according to the category selected.
+You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
 
-## View alert descriptions and details
+1. On the sensor's **Alerts** page, select one or more alerts to export.
 
-View more information about the alert, such as the alert description, details about protocols, traffic and entities associated with the alert, alert remediation steps, and more.  
+    To export all alerts currently being shown to a CSV file, don't select any alerts.
 
-**To view details:**
+1. In the toolbar above the grid, select one of the following options:
 
-1. Select an alert.
-1. The details pane opens with the alert description, source/destination information and other details.
+    - **Export to CSV**
+    - **Export to PDF**
 
-1. To view more details and review remediation steps,  select **View full details**. The Alert Details pane provides more information about the traffic and devices. Comments may also have been added by your administrator.  
+The file is generated, and you're prompted to save it locally.
 
-## Gain contextual insight
+CSV files include the following details for each alert:
 
-Gain contextual insight about alert activity by:
+- Source address
+- Destination address
+- Alert title
+- Alert severity
+- Alert message
+- Additional information
+- Acknowledged status
+- PCAP availability
 
-- Viewing source and destination devices in map view with other connected devices. Select **Map View** to see the map.
 
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Screenshot of a map view of the source and detected devices from an alert." lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
- 
-- Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed. 
- 
-    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
+## View details and remediate a specific alert
 
-### Remediate the alert incident
+1. Select an alert in the grid to display more details in the pane on the right, including the alert description, traffic source and destination, any comments added by an **Admin** user, and more.
 
-Defender for IoT provides remediation steps you can carry out for the alert. This may include remediating a device or network process that caused Defender for IoT to trigger the alert.
-Remediation steps will help SOC teams better understand OT issues and resolutions. Review this information before managing the alert event or taking action on the device or the network.
+    <!--img, validate-->
 
-**To view alert remediation steps:**
+1. Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
 
-1. Select an alert from the Alerts page.
-1. In the side pane, select **Take action.**
+    <!--img-->
 
-    :::image type="content" source="media/how-to-view-alerts/alert-remediation-rename.png" alt-text="Screenshot of the alert's Take action section.":::
+1. Gain contextual insight with the following tabs on the alert details page:
 
-Your administrator may have added guidance to help you complete the remediation or alert handling. If created comments will appear in the Alert Details section.
+    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
 
-:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to the alert details section of the Alert dialog box.":::
+    - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
+
+        :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
+
 
 After taking remediation steps, you may want to change the alert status to close the alert.
 
+## Manage alert status and severity
 
-## Create alert reports
+We recommend that you update alert severity as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
 
-You can generate the following alert reports:
+You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
-- Export information on one, all or selected alerts to a CSV file
-- Export PDF reports
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor. For more information, see [Learning alert traffic](alerts.md#learning-alert-traffic).
 
-**To export to CSV file:**
+*Mute* an alert on an OT sensor to close it and 
 
-1. Select one or several alerts from the Alerts page. To create a csv file for all alert to a csv, don't select anything.
-1. Select **Export to CSV**.
 
-**To export a PDF:**
 
-1. Select one or several alerts from the Alerts page.
-1. Select **Export to PDF**.
+<!--validate-->
+- **To manage a single alert**:
 
-### Download PCAP files
+    1. Select an alert in the grid.
+    1. Either on the details pane on the right, or in an alert details page itself, select the new status and/or severity.
 
-Download a full or filtered PCAP file for a specific alert directly from the sensor. PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
+- **To manage multiple alerts in bulk**:
 
-**To download a PCAP file:**
+    1. Select the alerts in the grid that you want to modify.
+    1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
 
-1. Select an alert
-1. Select **View full details**.
-1. Select **Download Full PCAP** or **Download Filtered PCAP**.
+- **To learn one or more alerts**, do one of the following:
 
-## Next steps
+    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - On an alert details page, in the **Take Action** tab, select **Learn**.
 
-For more information, see:
 
-- [Manage the alert event](how-to-manage-the-alert-event.md)
+    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - On an alert details page, in the **Take Action** tab, select **Learn**.
 
-- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- **To unlearn an alert, do the following:
 
-## Accelerate incident workflows by using alert comments
+    1. Locate the learned alert and open its alert details page.
+    1. Toggle off the **Alert learn** option. For example:
 
-Work with alert comments to improve communication between individuals and teams while investigating an alert event.
+        <!--img-->
 
-Use alert comments to improve:
+    After you unlearn an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
 
-- **Workflow steps**: Provide alert mitigation steps.
+## Access alert PCAP data
 
-- **Workflow follow-up**: Notify that steps were taken.
+To access raw traffic files for your alert, known as packet capture files or PCAP files, select one of the following in the top-left corner of your alert details page:
 
-- **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
+- **Download Full PCAP**
+- **Download Filtered PCAP**
 
-The list of available options appears in each alert, and users can select one or several messages. 
+
+## Add custom alert comments
+
+<!--what user? admin? security analyst? does this even belong here-->
 
 **To add alert comments:**
 
@@ -161,3 +171,11 @@ The list of available options appears in each alert, and users can select one or
 3. Enter a description and select **Submit**.
 
 
+## Next steps
+
+For more information, see:
+
+- [Microsoft Defender for IoT alerts](alerts.md)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [OT monitoring alert types and descriptions](alert-engine-messages.md)
