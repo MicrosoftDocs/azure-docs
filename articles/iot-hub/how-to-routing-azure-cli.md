@@ -1,6 +1,6 @@
 ---
-title: Message routing with IoT Hub — Azure CLI | Microsoft Docs
-description: A how-to article that creates and deletes routes and endpoints in IoT Hub, using Azure CLI.
+title: Create and delete routes and endpoints by using the Azure CLI
+description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using the Azure CLI.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -9,48 +9,67 @@ ms.date: 11/11/2022
 ms.author: kgremban
 ---
 
-# Message routing with IoT Hub — Azure CLI
+# Create and delete routes and endpoints by using the Azure CLI
 
-This article shows you how to create an endpoint and route in your IoT hub, then delete your endpoint and route. You can also update a route. We use the Azure CLI to create endpoints and routes to Event Hubs, Service Bus queue, Service Bus topic, or Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and testing on a simulated device, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
 
 ## Prerequisites
+The procedures that are described in the article Use the following prerequisites:
 
-**Azure CLI**
+* The Azure portal
+* An IoT hub
+* An endpoint service
+
+### Azure CLI
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-**IoT Hub and an endpoint service**
+### IoT hub and an endpoint service
 
-You need an IoT hub and at least one other service to serve as an endpoint to an IoT hub route. 
+You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub using the Azure CLI](iot-hub-create-using-cli.md).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps [Create an IoT hub using the Azure CLI](iot-hub-create-using-cli.md).
 
-You can choose which Azure service (Event Hubs, Service Bus queue or topic, or Azure Storage) endpoint that you'd like to connect with your IoT Hub route. You only need one service to assign the endpoint to a route.
+* (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
+
+* (Optional) A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure CLI to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-cli).
+
+* (Optional) A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli).
+
+* (Optional) An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli). When you create a storage account, you have many options, but you need only a new container in your account for this article.
+
+## Create a route
+
+In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint where the messages or events end up, and a data source where the messages or events originate. You choose these locations when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+
+You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
+
+Decide which route type (event hub, Service Bus queue or topic, or Azure storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
-You can choose an Event Hubs resource (namespace and entity). 
+You can choose an Event Hubs resource (namespace and entity).
 
-### Create an Event Hubs resource with authorization rule
+### Create an Event Hubs resource with an authorization rule
 
-1. Create the Event Hubs namespace. The `name` should be unique. The location, `l`, should be your resource group region.
+1. Create the Event Hubs namespace. For `name`, use a unique value. For `l` (location), use your resource group region.
 
    ```azurecli
    az eventhubs namespace create --name my-routing-namespace --resource-group my-resource-group -l westus3
    ```
 
-1. Create your Event hubs instance. The `name` should be unique. Use the `namespace-name` you created in the previous command.
-   
+1. Create your Event hubs instance. For `name`, use a unique value. For `namespace-name`, use the namespace you created in the preceding command.
+
    ```azurecli
    az eventhubs eventhub create --name my-event-hubs --resource-group my-resource-group --namespace-name my-routing-namespace
    ```
 
-1. Create an authorization rule for your Event hubs resource. 
+1. Create an authorization rule for your Event Hubs resource.
 
    > [!TIP]
-   > The `name` parameter's value `RootManageSharedAccessKey` is the default name that allows **Manage, Send, Listen** claims (access). If you wanted to restrict the claims, give the `name` parameter your own unique name and include the `--rights` flag followed by one of the claims. For example, `--name my-name --rights Send`.
+   > The `name` parameter's value `RootManageSharedAccessKey` is the default name that allows **Manage, Send, Listen** claims (access). If you want to restrict the claims, give the `name` parameter your own unique name and include the `--rights` flag followed by one of the claims. For example, `--name my-name --rights Send`.
 
    For more information about access, see [Authorize access to Azure Event Hubs](/azure/event-hubs/authorize-access-event-hubs).
 
@@ -58,29 +77,29 @@ You can choose an Event Hubs resource (namespace and entity).
    az eventhubs eventhub authorization-rule create --resource-group my-resource-group --namespace-name my-routing-namespace --eventhub-name my-event-hubs --name RootManageSharedAccessKey
    ```
 
-For more information, see [Quickstart: Create an event hub using Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
+For more information, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-You can choose a Service Bus queue resource (namespace and queue). 
+You can choose a Service Bus queue resource (namespace and queue).
 
 ### Create a Service Bus queue resource with authorization rule
 
-Create the namespace first, followed by the Service Bus queue entity, then the authorization rule. You need an authorization rule to access the Service Bus queue resource.
+Create the namespace first, followed by the Service Bus queue entity, and then the authorization rule. You need an authorization rule to access the Service Bus queue resource.
 
-1. Create a new Service Bus namespace. Use a unique `name` for your namespace.
+1. Create a new Service Bus namespace. For `name`, use a unique value for your namespace.
 
    ```azurecli
    az servicebus namespace create --resource-group my-resource-group --name my-namespace
    ```
 
-1. Create a new Service Bus queue. Use a unique `name` for your queue.
+1. Create a new Service Bus queue. For `name`, use a unique value for your queue.
 
    ```azurecli
    az servicebus queue create --resource-group my-resource-group --namespace-name my-namespace --name my-queue
    ```
 
-1. Create a Service Bus authorization rule. Use a unique `name` for your authorization rule.
+1. Create a Service Bus authorization rule. For `name`, use a unique value for your authorization rule.
 
    ```azurecli
    az servicebus queue authorization-rule create --resource-group my-resource-group --namespace-name my-namespace --queue-name my-queue --name my-auth-rule --rights Listen
@@ -92,31 +111,31 @@ For more information, see [Use the Azure CLI to create a Service Bus namespace a
 
 # [Service Bus topic](#tab/servicebustopic)
 
-You can choose a Service Bus topic resource (namespace, topic, and subscription). 
+You can choose a Service Bus topic resource (namespace, topic, and subscription).
 
 ### Create a Service Bus topic resource with subscription
 
-Create the namespace first, followed by the Service Bus topic entity, then the authorization rule. You need an authorization rule to access the Service Bus topic resource.
+Create the namespace first, followed by the Service Bus topic entity, and then the authorization rule. You need an authorization rule to access the Service Bus topic resource.
 
-1. Create a new Service Bus namespace. Use a unique `name` for your namespace.
+1. Create a new Service Bus namespace. For `name`, use a unique value for your namespace.
 
    ```azurecli
    az servicebus namespace create --resource-group my-resource-group --name my-namespace
    ```
 
-1. Create a new Service Bus topic. Use a unique `name` for your topic.
+1. Create a new Service Bus topic. For `name`, use a unique value for your topic.
 
    ```azurecli
    az servicebus topic create --resource-group my-resource-group --namespace-name my-namespace --name my-topic
    ```
 
-1. Create a Service Bus topic subscription.
+1. Create a Service Bus topic subscription:
 
    ```azurecli
    az servicebus topic subscription create --resource-group my-resource-group --namespace-name my-namespace --topic-name my-topic --name my-subscription
    ```
 
-1. (Optional) If you'd like to filter messages for a subscription, create a Service Bus subscription rule. Use a unique `name` for your filter. A filter can be a SQL expression, such as "StoreId IN ('Store1','Store2','Store3')".
+1. (Optional) If you'd like to filter messages for a subscription, create a Service Bus subscription rule. For `name`, use a unique value for your filter. A filter can be a SQL expression, such as `StoreId IN ('Store1','Store2','Store3')`.
 
    ```azurecli
    az servicebus topic subscription rule create --resource-group my-resource-group --namespace-name my-namespace --topic-name my-topic --subscription-name my-subscription --name my-filter --filter-sql-expression "my-sql-expression"  
@@ -132,7 +151,7 @@ You can choose an Azure Storage resource (account and container).
 
 1. Create a new storage account.
    > [!TIP]
-   > Your storage name must be between 3 and 24 characters in length and use numbers and lower-case letters only. No dashes are allowed.
+   > Your storage name must be between 3 and 24 characters in length and containly only numbers and lowercase letters. No dashes are allowed.
 
    ```azurecli
    az storage account create --name mystorageaccount --resource-group myresourcegroup
@@ -145,6 +164,7 @@ You can choose an Azure Storage resource (account and container).
    ```
 
    You see a confirmation that your container was created in your console.
+  
    ```azurecli
    {
    "created": true
