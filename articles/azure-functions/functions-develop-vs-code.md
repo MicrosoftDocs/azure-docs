@@ -91,6 +91,8 @@ These prerequisites are only required to [run and debug your functions locally](
 
 * [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+
 ---
 
 ## Create an Azure Functions project
@@ -490,6 +492,31 @@ To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
 We recommend that you monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
+
+[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
+
+### Enable emulation in Visual Studio Code
+
+Perform the following steps to have Terminal simulate the x86 environment:
+
+1.  Open Command Palette by pressing Cmd+Shift+P.
+
+    ![open-settings](./media/arm-64-python/open-settings.png)
+
+1.  Select **Preferences: Open Settings (JSON)** and add the following JSON:
+
+    ```json
+    "terminal.integrated.profiles.osx": {
+           "rosetta": {
+             "path": "arch",
+             "args": ["-x86_64", "zsh", "-l"],
+             "overrideName": true
+           }
+         }
+    ```
+1. Open a new Terminal in VS Code using Rosetta.
+
+    ![vsc-rosetta](./media/arm-64-python/vsc-rosetta.png)
 
 ## C\# script projects
 
