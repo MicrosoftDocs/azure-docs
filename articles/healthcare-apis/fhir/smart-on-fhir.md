@@ -17,10 +17,7 @@ Substitutable Medical Applications and Reusable Technologies([SMART on FHIR](htt
 - Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository.
 - Users have the ability to grant applications access to a limited set of their data by using SMART clinical scopes.
 
-<!---SMART Implementation Guide v1.0.0 is supported by Azure Health Data Services and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
-
---->
-One of the main purposes of the specification is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD). Azure Health Data Services (FHIR Service) has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+SMART Implementation Guide v1.0.0 is supported by Azure Health Data Services and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
 
 Below tutorial describes steps to enable SMART on FHIR applications with FHIR Service.
 
@@ -32,7 +29,7 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
 - [Register public client application in Azure AD](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
      
-<!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
+Tutorial : To enable SMART on FHIR using APIM, follow below steps 
 As a pre-requisite , ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
 Step 1 : Set up FHIR SMART user role 
