@@ -42,5 +42,6 @@ For next steps, read the following articles:
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
+* [Azure Service Fabric security best practices](service-fabric-best-practices-security.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

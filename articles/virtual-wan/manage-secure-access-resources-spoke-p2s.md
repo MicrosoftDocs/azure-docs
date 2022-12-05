@@ -45,7 +45,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -67,7 +67,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 

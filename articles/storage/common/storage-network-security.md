@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
+title: Configure Azure Storage firewalls and virtual networks
 description: Configure layered network security for your storage account using Azure Storage firewalls and Azure Virtual Network.
 services: storage
 author: jimmart-dev
@@ -162,7 +162,7 @@ When planning for disaster recovery during a regional outage, you should create 
 To enable access from a virtual network that is located in another region over service endpoints, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 > [!NOTE]
-> For updating the existing service endpoints to access a storage account in another region, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update&preserve-view=true) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update&preserve-view=true) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
+> For updating the existing service endpoints to access a storage account in another region, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update&preserve-view=true) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update&preserve-view=true) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
 
 
 #### [Portal](#tab/azure-portal)

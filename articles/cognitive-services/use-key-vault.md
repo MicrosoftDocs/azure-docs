@@ -259,7 +259,7 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 [!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
 
-## Create a python application
+## Create a Python application
 
 Create a new folder named `keyVaultExample`. Then use your preferred code editor to create a file named `program.py` inside the newly created folder. 
 

@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/06/2022
+ms.date: 11/20/2022
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -28,7 +28,19 @@ Here are some examples of how you might use service endpoints:
 * You want to lock down access to your key vault so that only your application, or a short list of designated hosts, can connect to your key vault.
 * You have an application running in your Azure virtual network, and this virtual network is locked down for all inbound and outbound traffic. Your application still needs to connect to Key Vault to fetch secrets or certificates, or use cryptographic keys.
 
-## Trusted services
+
+## Grant access to trusted Azure services 
+
+You can grant access to trusted Azure services to the key vault, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your key vault. 
+
+You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see the [networking configuration options](how-to-azure-key-vault-network-security.md) of this article. 
+
+When you grant access to trusted Azure services, you grant the following types of access: 
+* Trusted access for select operations to resources that are registered in your subscription. 
+* Trusted access to resources based on a managed identity. 
+* Trusted access across tenants using a Federated Identity Credential 
+
+### Trusted services
 
 Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
 
@@ -48,6 +60,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM), and Key Encryption Key, during virtual machine deployment. This enables [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 | Azure Disk Storage | When configured with a Disk Encryption Set (DES). For more information, see [Server-side encryption of Azure Disk Storage using customer-managed keys](../../virtual-machines/disk-encryption.md#customer-managed-keys).|
 | Azure Event Hubs|[Allow access to a key vault for customer-managed keys scenario](../../event-hubs/configure-customer-managed-key.md)|
+| Azure Firewall Premium| [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)|
 | Azure Front Door Classic|[Using Key Vault certificates for HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-key-vault-and-certificate)
 | Azure Front Door Standard/Premium|[Using Key Vault certificates for HTTPS](../../frontdoor/standard-premium/how-to-configure-https-custom-domain.md#prepare-your-key-vault-and-certificate)
 | Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)

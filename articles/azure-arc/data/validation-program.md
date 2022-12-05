@@ -24,6 +24,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Partners
 
+### DataON
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|-----|-----|-----|-----|-----|
+|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|)
+
 ### Dell
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
@@ -74,7 +80,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| OpenShift 4.10.32 | v1.23.5 | v1.11.0_2022-09-13 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
+| OpenShift 4.10.16 | v1.23.5 | v1.11.0_2022-09-13 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 

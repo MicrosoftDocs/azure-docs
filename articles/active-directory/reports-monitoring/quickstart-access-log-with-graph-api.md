@@ -5,9 +5,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
-ms.date: 08/26/2022
-ms.author: markvi
-author: MarkusVi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
+author: shlipsey3
 manager: amycolannino
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -59,7 +59,7 @@ This section provides you with the steps to get information about your sign-in u
 
 5. In the **Request query address bar**, type `https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=userDisplayName eq 'Isabella Simonsen'`
  
-6. Click **Run query**.
+6. Select **Run query**.
 
 Review the outcome of your query.
 

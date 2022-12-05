@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 10/26/2022
 ms.custom: engagement-fy23
 
 ---
@@ -101,7 +101,7 @@ Here's what's included in Azure SQL assessment properties:
 
 To edit assessment properties after creating an assessment, do the following:
 
-1. In the Azure Migrate project, select **Servers**.
+1. In the Azure Migrate project, select **Servers, databases and web apps**.
 2. In **Azure Migrate: Discovery and assessment**, select the assessments count.
 3. In **Assessment**, select the relevant assessment > **Edit properties**.
 5. Customize the assessment properties in accordance with the tables above.

@@ -10,7 +10,7 @@ ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
-manager: amycolannino
+manager: martinco
 
 ms.collection: M365-identity-device-management
 ---
@@ -42,7 +42,7 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
-For staged rollout, you need to be a global administrator on your tenant. 
+For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
 To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
 
@@ -402,7 +402,7 @@ To learn how to verify or turn on this feature, see [Sync userPrincipalName upda
 
 We recommend that you roll over the Kerberos decryption key at least every 30 days to align with the way that Active Directory domain members submit password changes. There is no associated device attached to the AZUREADSSO computer account object, so you must perform the rollover manually.
 
-See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso.md).
+See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso-faq.yml#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-).
 
 ### Monitoring and logging
 
