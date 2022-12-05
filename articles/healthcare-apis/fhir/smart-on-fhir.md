@@ -38,15 +38,16 @@ As a pre-requisite , ensure you have access to Azure Subscription of FHIR servic
 Step 1 : Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
-Step 2 : [Follow the steps](https://github.com/microsoft/fhir-server/tree/feature/smart-onc-g10-sample/samples/smart) for setting up the FHIR server integrated with APIM in production. 
+Step 2 : [Follow the steps](https://github.com/Azure-Samples/azure-health-data-services-samples/blob/main/samples/Patient%20and%20Population%20Services%20G10/docs/deployment.md) for setting up the FHIR server integrated with APIM in production. 
 
 This link provides sample code, which enables integration with FHIR server and other Azure Services (such as APIM, Azure functions and more).
 
 [!Note]
-Samples are released under the MIT License and are not supported by Microsoft Support. Samples are provided to demonstrate how Azure Health Data Services can be used to pass the Inferno test for ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow. 
+These samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow.  
 
----> 
-
+<h1 class="heading">
+<span onclick="ExpandCollapse(imageItem)" style="cursor:default;" onkeypress="ExpandCollapse_CheckKey(imageItem, event)" tabindex="0">SMART on FHIR Proxy</span>
+</h1>
 Lets go over individual steps to enable SMART on FHIR 
 ## Step 1 : Set admin consent for your client application
 
