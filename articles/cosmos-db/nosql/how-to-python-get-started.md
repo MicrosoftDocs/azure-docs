@@ -353,6 +353,10 @@ Import the [azure-identity](https://pypi.org/project/azure-identity/) package in
 pip install azure-identity
 ```
 
+#### Create CosmosClient with default credential implementation
+
+If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure-identity/azure.identity.defaultazurecredential) instance.
+
 Get the endpoint to connect to as show in the section above for [Connect with an endpoint and key](#connect-with-an-endpoint-and-key) and set that as the environment variable `COSMOS_ENDPOINT`, which is used in the sample code in this section.
 
 ```python
@@ -361,10 +365,6 @@ ENDPOINT = os.environ["COSMOS_ENDPOINT"]
 <!-- 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
 -->
-
-#### Create CosmosClient with default credential implementation
-
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure-identity/azure.identity.defaultazurecredential) instance.
 
 In your *app.py*, import the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and create an instance of it.
 
@@ -387,29 +387,41 @@ client = CosmosClient(ENDPOINT, credential)
 > [!IMPORTANT]
 > For details on how to add the correct role to enable `DefaultAzureCredential` to work, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac). In particular, see the section on creating roles and assigning them to a principal ID.
 
-
 #### Create CosmosClient with a custom credential implementation
 
 If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for Python](/python/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
 
 For this example, we create a [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
+Get the credential information from environment variables.
+
 ```python
-TBD
+ENDPOINT = os.environ["COSMOS_ENDPOINT"]
+TENANT_ID = os.environ["TENANT_ID"]
+CLIENT_SECRET = os.environ["CLIENT_SECRET"]
+CLIENT_ID = os.environ["CLIENT_ID"]
+```
+<!-- 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
+-->
+
+You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+
+Create a new instance of the [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) class with the ``TENANT_ID``, ``CLIENT_ID``, and ``CLIENT_SECRET`` environment variables as parameters.
+
+```python
+credential = ClientSecretCredential(
+    tenant_id=TENANT_ID,
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET
+)
+
+client = CosmosClient(ENDPOINT, credential, additionally_allowed_tenants=['*'])
 ```
 <!--
 :::code language="python" source="~/cosmos-db-nosql-python-samples/104-client-secret-credential/app.py" id="credential":::
 -->
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
-Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-```python
-TBD
-```
-<!--
-:::code language="python" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/app.py" id="secret_credential":::
--->
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
