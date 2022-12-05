@@ -26,10 +26,7 @@ The status of your dedicated SQL pool  (formerly SQL DW) will be shown here. If 
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-If your Resource health shows that your dedicated SQL pool (formerly SQL DW) instance is paused or scaling, follow the guidance to resume your instance.
-
-![Screenshot shows an instance of dedicated SQL pool that is paused or scaling.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
-Additional information about Resource Health can be found here.
+Additional information about Resource Health can be found [here](/articles/service-health/resource-health-overview.md).
 
 ## Check for paused or scaling operation
 

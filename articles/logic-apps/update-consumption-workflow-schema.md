@@ -10,6 +10,8 @@ ms.date: 08/15/2022
 
 # Update Consumption logic app workflows to latest Workflow Definition Language schema version in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 If you have a Consumption logic app workflow that uses an older Workflow Definition Language schema, you can update your workflow to use the newest schema. This capability applies only to Consumption logic app workflows.
 
 ## Best practices

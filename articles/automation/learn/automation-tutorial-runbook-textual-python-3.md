@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: tutorial
-ms.custom: has-adal-ref, devx-track-python
+ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Create a Python 3 runbook (preview)

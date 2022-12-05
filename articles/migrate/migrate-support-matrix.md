@@ -5,7 +5,8 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 09/26/2022
+ms.custom: engagement-fy23
 ---
 
 # Azure Migrate support matrix
@@ -77,13 +78,13 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 You can create a project in many geographies in the public cloud.
 
 - Although you can only create projects in these geographies, you can assess or migrate servers for other target locations.
-- The project geography is only used to store the discovered metadata.
-- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service.
+- The project geography is only used to store the discovered metadata. 
+- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate does not move or store customer data outside of the region allocated.
 
 **Geography** | **Metadata storage location**
 --- | ---
 Africa | South Africa or North Africa
-Asia Pacific | East Asia or Southeast Asia
+Asia Pacific | East Asia
 Australia | Australia East or Australia Southeast
 Brazil | Brazil South
 Canada | Canada Central or Canada East

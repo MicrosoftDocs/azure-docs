@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/12/2021
+ms.date: 10/27/2022
 ms.reviewer: casocha
 ---
 # Application Insights for ASP.NET Core applications
@@ -167,7 +167,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-The default configuration collects `ILogger` `Warning` logs and more severe logs. Review the FAQ to [customize this configuration](../faq.yml).
+The default configuration collects `ILogger` `Warning` logs and more severe logs. Review [How do I customize ILogger logs collection?](#how-do-i-customize-ilogger-logs-collection) for more information.
 
 ### Dependencies
 
@@ -737,6 +737,10 @@ This limitation isn't applicable from version [2.15.0](https://www.nuget.org/pac
 ### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
 
 This SDK requires `HttpContext`. Therefore, it doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

@@ -102,7 +102,24 @@ Defender for Cloud's MFA recommendations refer to [Azure RBAC](../role-based-acc
 Defender for Cloud's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
 
 ### Can I exempt or dismiss some of the accounts?
-The capability to exempt some accounts that don’t use MFA isn't currently supported. There are plans to add this capability, and the information can be viewed in our [Important upcoming changes](/azure/defender-for-cloud/upcoming-changes#multiple-changes-to-identity-recommendations) page.
+
+The capability to exempt some accounts that don’t use MFA is available on the new recommendations in preview:
+
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
+
+To exempt account(s), follow these steps:
+
+1. Select an MFA recommendation associated with an unhealthy account.
+1. In the Accounts tab, select an account to exempt.
+1. Select the three dots button, then select **Exempt account**.
+1. Select a scope and exemption reason. 
+
+If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
+
+> [!TIP]
+> When you exempt an account, it won't be shown as unhealthy and won't cause a subscription to appear unhealthy.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
 There are some limitations to Defender for Cloud's identity and access protections:
@@ -110,6 +127,7 @@ There are some limitations to Defender for Cloud's identity and access protectio
 - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
 - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
 
 
 ## Next steps

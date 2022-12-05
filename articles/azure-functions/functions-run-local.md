@@ -224,7 +224,7 @@ Certain languages may have additional considerations:
 
 # [C\#](#tab/csharp)
 
-+ By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
++ Core Tools lets you create function app projects for the .NET runtime as both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
 
 + Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These are the same files you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
@@ -279,13 +279,13 @@ The function app settings values can also be read in your code as environment va
 * [PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
-When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
+When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
-Even when using the Microsoft Azure Storage Emulator for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
+Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
 
 # [Portal](#tab/portal)
 

@@ -1,12 +1,12 @@
 ---
 title: Create an experiment that uses a service-direct fault using Azure Chaos Studio with the Azure CLI
 description: Create an experiment that uses a service-direct fault with the Azure CLI
-author: johnkemnetz
-ms.author: johnkem
+author: prasha-microsoft 
+ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -126,7 +126,7 @@ With your Azure Cosmos DB account now onboarded, you can create your experiment.
 ## Give experiment permission to your Azure Cosmos DB account
 When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully.
 
-Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource (in this case, the Cosmos DB instance resource ID). Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
+Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource (in this case, the Azure Cosmos DB instance resource ID). Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
 
 ```azurecli-interactive
 az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID

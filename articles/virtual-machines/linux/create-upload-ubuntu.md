@@ -14,20 +14,20 @@ ms.reviewer: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it is recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
+Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it's recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
-* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.tar.gz)
+* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.tar.gz)
 
 ## Prerequisites
-This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+This article assumes that you've already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **Ubuntu installation notes**
 
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
-* The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet.
-* When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
-* Do not configure a swap partition or swapfile on the OS disk. The cloud-init provisioning agent can be configured to create a swap file or a swap partition on the temporary resource disk. More information about this can be found in the steps below.
+* The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet.
+* When installing the Linux system it's recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
+* Don't configure a swap partition or swapfile on the OS disk. The cloud-init provisioning agent can be configured to create a swap file or a swap partition on the temporary resource disk. More information about this can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Manual steps
@@ -42,7 +42,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 3. Replace the current repositories in the image to use Ubuntu's Azure repository.
 
-    Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
+    Before editing `/etc/apt/sources.list`, it's recommended to make a backup:
 
     ```console
     # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -174,7 +174,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 13. Click **Action -> Shut Down** in Hyper-V Manager.
 
-14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
+14. Azure only accepts fixed-size VHDs. If the VM's OS disk isn't a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
 15. To bring a Generation 2 VM on Azure, follow these steps:
 

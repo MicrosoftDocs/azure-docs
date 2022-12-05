@@ -10,15 +10,16 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
+ms.date: 09/15/2022
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Perform network intrusion detection with Network Watcher and open source tools
 
 Packet captures are a key component for implementing network intrusion detection systems (IDS) and performing Network Security Monitoring (NSM). There are several open source IDS tools that process packet captures and look for signatures of possible network intrusions and malicious activity. Using the packet captures provided by Network Watcher, you can analyze your network for any harmful intrusions or vulnerabilities.
 
-One such open source tool is Suricata, an IDS engine that uses rulesets to monitor network traffic and triggers alerts whenever suspicious events occur. Suricata offers a multi-threaded engine, meaning it can perform network traffic analysis with increased speed and efficiency. For more details about Suricata and its capabilities, visit their website at https://suricata-ids.org/.
+One such open source tool is Suricata, an IDS engine that uses rulesets to monitor network traffic and triggers alerts whenever suspicious events occur. Suricata offers a multi-threaded engine, meaning it can perform network traffic analysis with increased speed and efficiency. For more details about Suricata and its capabilities, visit their website at https://suricata.io/.
 
 ## Scenario
 

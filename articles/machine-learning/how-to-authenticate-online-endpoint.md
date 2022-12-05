@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
-ms.date: 05/10/2022
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022
+ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Key and token-based authentication for online endpoints
@@ -21,9 +21,9 @@ When consuming an online endpoint from a client, you can use either a _key_ or a
 
 You can set the authentication type when you create an online endpoint. Set the `auth_mode` to `key` or `aml_token` depending on which one you want to use. The default value is `key`.
 
-When deploying using CLI v2, set this value in the [online endpoint YAML file](reference-yaml-endpoint-online.md). For more information, see [How to deploy an online endpoint](how-to-deploy-managed-online-endpoints.md).
+When deploying using CLI v2, set this value in the [online endpoint YAML file](reference-yaml-endpoint-online.md). For more information, see [How to deploy an online endpoint](how-to-deploy-online-endpoints.md).
 
-When deploying using the Python SDK v2 (preview), use the [OnlineEndpoint](/python/api/azure-ai-ml/azure.ai.ml.entities.onlineendpoint) class.
+When deploying using the Python SDK v2, use the [OnlineEndpoint](/python/api/azure-ai-ml/azure.ai.ml.entities.onlineendpoint) class.
 
 ## Get the key or token
 
@@ -47,5 +47,5 @@ When calling the online endpoint for scoring, pass the key or token in the autho
 
 ## Next steps
 
-* [Deploy a machine learning model using an online endpoint](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a machine learning model using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md)

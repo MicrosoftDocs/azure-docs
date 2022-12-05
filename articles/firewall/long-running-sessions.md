@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 10/03/2022
 ms.author: victorh 
 ---
 
@@ -13,17 +13,17 @@ ms.author: victorh
 
 Azure Firewall is designed to be available and redundant. Every effort is made to avoid service disruptions. However, there are few scenarios where Azure Firewall can potentially drop long running TCP sessions. 
 
-## Scenarios impacting long running connections
+## Scenarios that impact long running TCP sessions
 
 The following scenarios can potentially drop long running TCP sessions:
-- Scale down
+- Scale in
 - Firewall maintenance
 - Idle timeout
 - Auto-recovery
 
-### Scale down
+### Scale in
 
-Azure Firewall scales up\down based on throughput and CPU usage. Scale down is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
+Azure Firewall scales in/out based on throughput and CPU usage. Scale in is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
 
 ### Firewall maintenance
 
@@ -39,7 +39,7 @@ Azure Firewall constantly monitors VM instances and recovers them automatically 
 
 ## Applications sensitive to TCP session resets
 
-Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. Secure such sensitive applications with Network Security Groups (NSGs).
+Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are a few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. Secure sensitive applications with Network Security Groups (NSGs).
 
 ## Network security groups
 

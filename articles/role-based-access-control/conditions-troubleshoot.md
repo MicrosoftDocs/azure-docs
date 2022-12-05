@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure role assignment conditions (preview)
-description: Troubleshoot Azure role assignment conditions (preview)
+title: Troubleshoot Azure role assignment conditions - Azure ABAC
+description: Troubleshoot Azure role assignment conditions
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,18 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# Troubleshoot Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Troubleshoot Azure role assignment conditions
 
 ## General issues
 
@@ -43,7 +38,7 @@ If your role assignment has multiple actions that grant a permission, ensure tha
 
 **Cause 3**
 
-When you add a condition to a role assignment, it can take up to 5 minutes for the condition to be enforced. When you add a condition, resource providers (such as Microsoft.Storage) are notified of the update. Resource providers make updates to their local caches immediately to ensure that they have the latest role assignments. This process completes in 1 or 2 minutes, but can take up to 5 minutes.
+When you add a condition to a role assignment, it can take up to 5 minutes for the condition to be enforced. When you add a condition, resource providers (such as Microsoft Storage) are notified of the update. Resource providers make updates to their local caches immediately to ensure that they have the latest role assignments. This process completes in 1 or 2 minutes, but can take up to 5 minutes.
 
 **Solution 3**
 
@@ -156,11 +151,11 @@ The previously selected attribute no longer applies to the currently selected ac
 
 **Solution 1**
 
-In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md).
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
 
 **Solution 2**
 
-In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md).
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
 
 ### Symptom - Attribute does not apply in this context warning
 
@@ -303,6 +298,6 @@ Disable history expansion with the command `set +H`. To re-enable history expans
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [FAQ for Azure role assignment conditions](conditions-faq.md)
 - [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

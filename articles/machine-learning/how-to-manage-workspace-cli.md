@@ -15,7 +15,6 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 # Manage Azure Machine Learning workspaces using Azure CLI
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
@@ -274,7 +273,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.

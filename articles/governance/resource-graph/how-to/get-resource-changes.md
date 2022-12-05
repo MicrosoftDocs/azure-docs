@@ -33,6 +33,9 @@ deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
+> [!WARNING]
+> There has been a temporary reduction in lookback retention to 7 days.
+
 > [!NOTE]
 > Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
@@ -298,10 +301,10 @@ resourcechanges  
 ```kusto
 resourcechanges 
 |extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
-| where createTime > ago(7d) and changeType == "Create" 
+| where createTime > ago(7d) and changeType == "Create" or changeType == "Update" or changeType == "Delete"
 | project  targetResourceId, changeType, createTime 
-| join ( resources | extend targetResourceId=id) on targetResourceId 
-| where tags[“Environment”] =~ “prod” 
+| join ( resources | extend targetResourceId=id) on targetResourceId
+| where tags ['Environment'] =~ 'prod' 
 | order by createTime desc 
 | project createTime, id, resourceGroup, type
 ```

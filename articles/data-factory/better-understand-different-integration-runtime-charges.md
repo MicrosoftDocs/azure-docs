@@ -18,7 +18,7 @@ In this article, we'll illustrate the pricing model using different integration 
 The integration runtime, which is serverless in Azure and self-hosted in hybrid scenarios, provides the compute resources used to execute the activities in a pipeline. Integration runtime charges are prorated by the minute and rounded up.
 
 > [!NOTE] 
-> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+> The prices used in this example below are hypothetical and are not intended to imply actual pricing.
 
 ## Azure integration runtime
 

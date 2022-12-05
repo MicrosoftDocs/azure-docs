@@ -1,12 +1,12 @@
 ---
 title: Get started with Azure Health Data Services
 description: This document describes how to get started with Azure Health Data Services.
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/06/2022
-ms.author: ranku
+ms.author: mikaelw
 ---
 
 # Get started with Azure Health Data Services

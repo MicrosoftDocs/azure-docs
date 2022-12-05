@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 09/29/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -28,71 +28,7 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 ## Use a user-assigned managed identity to authorize access to the key vault
 
-When you enable customer-managed keys for a new storage account, you must specify a user-assigned managed identity. The user-assigned managed identity will be used to authorize access to the key vault that contains the key. The user-assigned managed identity must have permissions to access the key in the key vault.
-
-A user-assigned is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-Both new and existing storage accounts can use a user-assigned identity to authorize access to the key vault. You must create the user-assigned identity before you configure customer-managed keys.
-
-### [Azure portal](#tab/azure-portal)
-
-When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account).
-
-### [PowerShell](#tab/azure-powershell)
-
-To authorize access to the key vault with a user-assigned managed identity, you'll need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity and assign it to a variable that you'll reference in subsequent steps:
-
-```azurepowershell
-$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-To authorize access to the key vault with a user-assigned managed identity, you'll need the resource ID and principal ID of the user-assigned managed identity. Call [az identity show](/cli/azure/identity#az-identity-show) command to get the user-assigned managed identity, then save the resource ID and principal ID to variables. You'll need these values in subsequent steps:
-
-```azurecli
-userIdentityId=$(az identity show --name sample-user-assigned-identity --resource-group storagesamples-rg --query id)
-principalId=$(az identity show --name sample-user-assigned-identity --resource-group storagesamples-rg --query principalId)
-```
-
----
-
-## Configure the key vault access policy
-
-The next step is to configure the key vault access policy. The key vault access policy grants permissions to the user-assigned managed identity that will be used to authorize access to the key vault. To learn more about key vault access policies, see [Azure Key Vault Overview](../../key-vault/general/overview.md#securely-store-secrets-and-keys) and [Azure Key Vault security overview](../../key-vault/general/security-features.md#key-vault-authentication-options).
-
-### [Azure portal](#tab/azure-portal)
-
-To learn how to configure the key vault access policy with the Azure portal, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
-
-### [PowerShell](#tab/azure-powershell)
-
-To configure the key vault access policy with PowerShell, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), providing the variable for the principal ID that you previously retrieved for the user-assigned managed identity.
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVault.VaultName `
-    -ObjectId $userIdentity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get
-```
-
-To learn more about assigning the key vault access policy with PowerShell, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
-
-### [Azure CLI](#tab/azure-cli)
-
-To configure the key vault access policy with PowerShell, call [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy), providing the variable for the principal ID that you previously retrieved for the user-assigned managed identity.
-
-```azurecli
-az keyvault set-policy \
-    --name <key-vault> \
-    --resource-group <resource_group>
-    --object-id $principalId \
-    --key-permissions get unwrapKey wrapKey
-```
-
-To learn more about assigning the key vault access policy with Azure CLI, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
-
----
+[!INCLUDE [storage-customer-managed-keys-key-vault-user-assigned-identity-include](../../../includes/storage-customer-managed-keys-key-vault-user-assigned-identity-include.md)]
 
 ## Configure customer-managed keys for a new storage account
 
@@ -129,8 +65,10 @@ You can also configure customer-managed keys with manual updating of the key ver
 To configure customer-managed keys for a new storage account with automatic updating of the key version, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You'll also need the key vault URI and key name:
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
+$accountName = "<storage-account>"
+
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
@@ -146,18 +84,20 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
 To configure customer-managed keys for a new storage account with automatic updating of the key version, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You'll also need the key vault URI and key name:
 
 ```azurecli
+accountName="<storage-account>"
+
 az storage account create \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --location <location> \
+    --name $accountName \
+    --resource-group $rgName \
+    --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
     --identity-type SystemAssigned,UserAssigned \
-    --user-identity-id <user-assigned-managed-identity> \
+    --user-identity-id $identityResourceId \
     --encryption-key-vault <key-vault-uri> \
-    --encryption-key-name <key-name> \
+    --encryption-key-name $keyName \
     --encryption-key-source Microsoft.Keyvault \
-    --key-vault-user-identity-id <user-assigned-managed-identity>
+    --key-vault-user-identity-id $identityResourceId
 ```
 
 ---
@@ -196,8 +136,10 @@ To configure customer-managed keys with manual updating of the key version, expl
 Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
+$accountName = "<storage-account>"
+
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
@@ -209,7 +151,6 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
     -KeyVaultUserAssignedIdentityId $userIdentity.Id
 ```
 
-
 When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
 
 # [Azure CLI](#tab/azure-cli)
@@ -219,29 +160,33 @@ To configure customer-managed keys with manual updating of the key version, expl
 Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
+accountName="<storage-account>"
+
 key_vault_uri=$(az keyvault show \
     --name <key-vault> \
     --resource-group <resource_group> \
     --query properties.vaultUri \
     --output tsv)
+
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
+
 az storage account create \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --location <location> \
+    --name $accountName \
+    --resource-group $rgName \
+    --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
     --identity-type SystemAssigned,UserAssigned \
-    --user-identity-id <user-assigned-managed-identity> \
-    --encryption-key-vault $key_vault_uri \
-    --encryption-key-name <key-name> \
+    --user-identity-id $identityResourceId \
+    --encryption-key-vault $keyVaultUri \
+    --encryption-key-name $keyName \
     --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-version $key_version \
-    --key-vault-user-identity-id <user-assigned-managed-identity>
+    --encryption-key-version $keyVersion \
+    --key-vault-user-identity-id $identityResourceId
 ```
 
 When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.

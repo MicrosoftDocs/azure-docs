@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 11/15/2022
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 
 Sampling is a feature in [Azure Application Insights](./app-insights-overview.md). It's the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you're doing diagnostic investigations.
 
-When metric counts are presented in the portal, they're re-normalized to take into account sampling. Doing so minimizes any effect on the statistics.
+When metric counts are presented in the portal, they're renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
 
 ## Brief summary
 
@@ -38,6 +38,26 @@ The following table summarizes the sampling types available for each SDK and typ
 
 > [!NOTE]
 > The information on most of this page applies to the current versions of the Application Insights SDKs. For information on older versions of the SDKs, [see the section below](#older-sdk-versions).
+
+## When to use sampling
+
+In general, for most small and medium size applications you don't need sampling. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
+
+The main advantages of sampling are:
+
+* Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your application will see throttling occur.
+* To keep within the [quota](../logs/daily-cap.md) of data points for your pricing tier. 
+* To reduce network traffic from the collection of telemetry.
+
+## How sampling works
+
+The sampling algorithm decides which telemetry items to drop, and which ones to keep. This is true whether sampling is done by the SDK or in the Application Insights service. The sampling decision is based on several rules that aim to preserve all interrelated data points intact, maintaining a diagnostic experience in Application Insights that is actionable and reliable even with a reduced data set. For example, if your app has a failed request included in a sample, the additional telemetry items (such as exception and traces logged for this request) will be retained. Sampling either keeps or drops them all together. As a result, when you look at the request details in Application Insights, you can always see the request along with its associated telemetry items.
+
+The sampling decision is based on the operation ID of the request, which means that all telemetry items belonging to a particular operation is either preserved or dropped. For the telemetry items that do not have an operation ID set (such as telemetry items reported from asynchronous threads with no HTTP context) sampling simply captures a percentage of telemetry items of each type.
+
+When presenting telemetry back to you, the Application Insights service adjusts the metrics by the same sampling percentage that was used at the time of collection, to compensate for the missing data points. Hence, when looking at the telemetry in Application Insights, the users are seeing statistically correct approximations that are very close to the real numbers.
+
+The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
 
 ## Types of sampling
 
@@ -69,8 +89,6 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 
 > [!NOTE]
 > This section applies to ASP.NET applications, not to ASP.NET Core applications. [Learn about configuring adaptive sampling for ASP.NET Core applications later in this document.](#configuring-adaptive-sampling-for-aspnet-core-applications)
-
-> With ASP.NET Core and with Microsoft.ApplicationInsights.AspNetCore >= 2.15.0 you can configure AppInsights options via appsettings.json
 
 In [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -155,7 +173,8 @@ builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Depend
 
 ### Configuring adaptive sampling for ASP.NET Core applications
 
-There's no `ApplicationInsights.config` for ASP.NET Core applications, so all configuration is done via code.
+ASP.NET Core applications may be configured in code or through the `appsettings.json` file. For more information, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration).
+
 Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
 
 #### Turning off adaptive sampling
@@ -396,7 +415,7 @@ Use this type of sampling if your app often goes over its monthly quota and you 
 
 Set the sampling rate in the Usage and estimated costs page:
 
-![From the application's Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/data-sampling.png)
+![From the application's Overview pane, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/data-sampling.png)
 
 Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
 
@@ -406,16 +425,6 @@ Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in o
 
 > [!WARNING]
 > The value shown on the portal tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if any sort of SDK sampling (adaptive or fixed-rate sampling) is in operation.
-
-## When to use sampling
-
-In general, for most small and medium size applications you don't need sampling. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
-
-The main advantages of sampling are:
-
-* Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your application will see throttling occur.
-* To keep within the [quota](../logs/daily-cap.md) of data points for your pricing tier. 
-* To reduce network traffic from the collection of telemetry. 
 
 ### Which type of sampling should I use?
 
@@ -449,16 +458,6 @@ If you see that `RetainedPercentage` for any type is less than 100, then that ty
 > [!IMPORTANT]
 > Application Insights does not sample session, metrics (including custom metrics), or performance counter telemetry types in any of the sampling techniques. These types are always excluded from sampling as a reduction in precision can be highly undesirable for these telemetry types.
 
-## How sampling works
-
-The sampling algorithm decides which telemetry items to drop, and which ones to keep. This is true whether sampling is done by the SDK or in the Application Insights service. The sampling decision is based on several rules that aim to preserve all interrelated data points intact, maintaining a diagnostic experience in Application Insights that is actionable and reliable even with a reduced data set. For example, if your app has a failed request included in a sample, the additional telemetry items (such as exception and traces logged for this request) will be retained. Sampling either keeps or drops them all together. As a result, when you look at the request details in Application Insights, you can always see the request along with its associated telemetry items.
-
-The sampling decision is based on the operation ID of the request, which means that all telemetry items belonging to a particular operation is either preserved or dropped. For the telemetry items that do not have an operation ID set (such as telemetry items reported from asynchronous threads with no HTTP context) sampling simply captures a percentage of telemetry items of each type.
-
-When presenting telemetry back to you, the Application Insights service adjusts the metrics by the same sampling percentage that was used at the time of collection, to compensate for the missing data points. Hence, when looking at the telemetry in Application Insights, the users are seeing statistically correct approximations that are very close to the real numbers.
-
-The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
-
 ## Log query accuracy and high sample rates
 
 As the application is scaled up, it may be processing dozens, hundreds, or thousands of work items per second. Logging an event for each of them is not resource nor cost effective. Application Insights uses sampling to adapt to growing telemetry volume in a flexible manner and to control resource usage and cost.
@@ -467,7 +466,7 @@ As the application is scaled up, it may be processing dozens, hundreds, or thous
 
 As sampling rates increase log based queries accuracy decrease and are usually inflated. This only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation as well as other factors.
 
-To address the problems introduced by sampling pre-aggregated metrics are used in the SDKs. Additional details about these metrics, log-based and pre-aggregated, can be referenced in [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). Relevant properties of the logged data are identified and statistics extracted before sampling occurs. To avoid resource and cost issues, metrics are aggregated. The resulting aggregate data is represented by only a few metric telemetry items per minute, instead of potentially thousands of event telemetry items. These metrics calculate the 25 requests from the example and send a metric to the MDM account reporting “this web app processed 25 requests”, but the sent request telemetry record will have an `itemCount` of 100. These pre-aggregated metrics report the correct numbers and can be relied upon when sampling affects the log-based queries results. They can be viewed on the Metrics blade of the Application Insights portal.
+To address the problems introduced by sampling pre-aggregated metrics are used in the SDKs. Additional details about these metrics, log-based and pre-aggregated, can be referenced in [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). Relevant properties of the logged data are identified and statistics extracted before sampling occurs. To avoid resource and cost issues, metrics are aggregated. The resulting aggregate data is represented by only a few metric telemetry items per minute, instead of potentially thousands of event telemetry items. These metrics calculate the 25 requests from the example and send a metric to the MDM account reporting “this web app processed 25 requests”, but the sent request telemetry record will have an `itemCount` of 100. These pre-aggregated metrics report the correct numbers and can be relied upon when sampling affects the log-based queries results. They can be viewed on the Metrics pane of the Application Insights portal.
 
 ## Frequently asked questions
 

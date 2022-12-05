@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 10/13/2022
 ms.author: mbullwin
 recommendations: false
 ---
@@ -23,10 +23,9 @@ Use the Anomaly Detector client library for Python to:
 
 ## Prerequisites
 
-* [Python 3.x](https://www.python.org/)
+* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * <a href="https://www.python.org/" target="_blank">Python 3.x</a>
 * <a href="https://pandas.pydata.org/" target="_blank">Pandas data analysis library</a>
-* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Set up
@@ -56,11 +55,11 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -95,7 +94,7 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
 curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 ```
 
-## Create a new Python application
+## Detect anomalies
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
@@ -106,10 +105,10 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
     from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
     from azure.core.credentials import AzureKeyCredential
     import pandas as pd
-    import os  
+    import os
 
-    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY'] 
-    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT'] 
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
@@ -234,7 +233,7 @@ In this code example, we've added the `matplotlib` library to allow us to visual
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

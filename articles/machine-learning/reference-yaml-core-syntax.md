@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: blackmist
-ms.author: larryfr
-ms.date: 03/31/2022
-ms.reviewer: nibaccam
+author: balapv
+ms.author: balapv
+ms.date: 11/16/2022
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) core YAML syntax
@@ -229,5 +229,5 @@ python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0
 ## Next steps
 
 * [Install and use the CLI (v2)](how-to-configure-cli.md)
-* [Train models with the CLI (v2)](how-to-train-cli.md)
+* [Train models with the CLI (v2)](how-to-train-model.md)
 * [CLI (v2) YAML schemas](reference-yaml-overview.md)

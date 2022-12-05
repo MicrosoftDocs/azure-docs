@@ -34,9 +34,8 @@ The IoT Hub service makes this data available for you to monitor in the Azure po
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab.
-1. Inspect the deployment list. For each deployment, you can view the following details:
+1. Select **Configurations + Deployments** under the **Device management** menu.
+1. Inspect the deployment list. For each deployment, you can view the following details:
 
     | Column | Description |
     | --- | --- |
@@ -47,9 +46,9 @@ To view the details of a deployment and monitor the devices running it, use the 
     | System metrics | The number of device twins in IoT Hub that match the targeting condition. **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. |
     | Device Metrics | The number of IoT Edge devices reporting success or errors from the IoT Edge client runtime. |
     | Custom Metrics | The number of IoT Edge devices reporting data for any metrics that you defined for the deployment. |
-    | Creation Time | The timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. |
+    | Created | The timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. |
 
-1. Select the deployment that you want to monitor.  
+1. Select the deployment that you want to monitor.
 1. On the **Deployment Details** page, scroll down to the bottom section and select the **Target Condition** tab. Select **View** to list the devices that match the target condition. You can change the condition and also the **Priority**. Select **Save** if you made changes.
 
    ![View targeted devices for a deployment](./media/how-to-monitor-iot-edge-deployments/target-devices.png)

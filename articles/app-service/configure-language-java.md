@@ -2,11 +2,9 @@
 title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
-author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
@@ -440,7 +438,7 @@ By default, any public or private certificates [uploaded to App Service Linux](c
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
-- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
@@ -610,7 +608,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
@@ -920,7 +918,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
@@ -950,10 +948,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```

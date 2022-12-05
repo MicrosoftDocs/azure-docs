@@ -5,6 +5,7 @@ author: ankitscribbles
 ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/07/2022
 ---
@@ -129,7 +130,7 @@ For more information on how to set up scans on various assets in the Microsoft P
 |Source  |Reference  |
 |---------|---------|
 |**Files within Storage** | [Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md) </br> [Register and scan Azure Files](register-scan-azure-files-storage-source.md) [Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)</br>[Register and scan Amazon S3](register-scan-amazon-s3.md) |
-|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
+|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos DB for NoSQL database](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
 | | |
 
 ## View labels on assets in the catalog

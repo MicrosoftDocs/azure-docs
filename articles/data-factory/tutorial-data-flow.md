@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 09/26/2022
 ---
 
 # Transform data using mapping data flows

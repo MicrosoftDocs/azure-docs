@@ -5,9 +5,10 @@ author: timlt
 ms.author: timlt
 ms.date: 3/02/2020
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: iot-hub
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
+ms.subservice: azure-iot-hub-device-provisioning-service
 ---
 # Security practices for Azure IoT device manufacturers
 As more manufacturers release IoT devices, it's helpful to identify guidance around common practices. This article summarizes recommended security practices to consider when you manufacture devices for use with Azure IoT Device Provisioning Service (DPS).  

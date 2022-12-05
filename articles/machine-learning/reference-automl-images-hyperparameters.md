@@ -5,6 +5,7 @@ description: Learn which hyperparameters are available for computer vision tasks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: reference
 ms.reviewer: nibaccam
 author: swatig007
@@ -36,6 +37,9 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
 | `box_score_threshold` | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
 | `nms_iou_threshold` | IOU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' | No Default |
+| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
+| `tile_predictions_nms_threshold` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
 
@@ -80,13 +84,13 @@ The following table describes the hyperparameters that are model agnostic.
 ## Image classification (multi-class and multi-label) specific hyperparameters
 
 The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
-  
+
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `weighted_loss` | <li> 0 for no weighted loss. <li> 1 for weighted loss with sqrt.(class_weights) <li> 2 for weighted loss with class_weights. <li> Must be 0 or 1 or 2. | 0 |
 | `validation_resize_size` | <li> Image size to which to resize before cropping for validation dataset. <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
 | `validation_crop_size` | <li> Image crop size that's input to your neural network for validation dataset.  <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-| `training_crop_size` | <li> Image crop size that's input to your neural network for train dataset.  <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 | 
+| `training_crop_size` | <li> Image crop size that's input to your neural network for train dataset.  <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
 
 ## Object detection and instance segmentation task specific hyperparameters
 
@@ -104,12 +108,12 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_threshold` | During inference, only return proposals with a classification score greater than `box_score_threshold`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `nms_iou_threshold` | IOU (intersection over union) threshold used in non-maximum suppression (NMS) for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_image` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
 | `tile_predictions_nms_threshold` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 ## Next steps
 
-* Learn how to [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* Learn how to [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

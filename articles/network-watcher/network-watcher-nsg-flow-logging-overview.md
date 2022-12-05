@@ -4,13 +4,14 @@ titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: harshacs
+author: harsha-cs
 
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/04/2021
+ms.date: 10/06/2022
+ms.custom: engagement-fy23
 ms.author: harshacs
 
 ---
@@ -386,9 +387,10 @@ $virtualNetwork |  Set-AzVirtualNetwork
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Azure Functions](https://azure.microsoft.com/services/functions/)
 
 > [!NOTE]
-> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) for additional details.
+> App services deployed under the App Service Plan do not support NSG Flow Logs. [Learn more](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
 ## Best practices
 
