@@ -617,7 +617,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Cisco_Umbrella |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-ciscoumbrella-function |
-| **Application settings** | <li>WorkspaceID<li>WorkspaceKey<li>S3Bucket<li>AWSAccessKeyId<li>AWSSecretAccessKey<li>logAnalyticsUri (optional) |
+| **Application settings** | <li>WorkspaceID<li>WorkspaceKey<li>S3Bucket<br>*Note: When configuring use the value Cisco calls the _S3 Bucket Data Path_  and add a "/" to the end of this value<li>AWSAccessKeyId<li>AWSSecretAccessKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 
 
