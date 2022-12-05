@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 12/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -17,7 +17,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 ---
 # Azure Active Directory B2B collaboration API and customization
 
-We've had many customers tell us that they want to customize the invitation process. [With our API](https://learn.microsoft.com/en-us/graph/api/resources/invitation?view=graph-rest), you can customize the invitation process in a way that works best for your organization.
+We've had many customers tell us that they want to customize the invitation process. [With our API](/graph/api/resources/invitation), you can customize the invitation process in a way that works best for your organization.
 
 ## Capabilities of the invitation API
 

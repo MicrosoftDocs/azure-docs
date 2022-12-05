@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: sample
-ms.date: 30/11/2022
+ms.date: 11/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -43,6 +43,6 @@ The following tables provide links to code samples for applying web APIs in your
 
 ## Next steps
 
-- [Code and Azure PowerShell samples](external-identities/code-samples.md)
-- [External Identities pricing][external-identities-pricing.md]
+- [Code and Azure PowerShell samples](code-samples.md)
+- [External Identities pricing](external-identities-pricing.md)
 
