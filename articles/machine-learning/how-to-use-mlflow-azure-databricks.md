@@ -31,6 +31,9 @@ In this article, you will learn:
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
+### Example notebooks
+
+The [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure ML. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure ML for deployment.
 
 ## Install libraries
 
@@ -306,10 +309,6 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 1. Select **Delete resource group**.
 
 1. Enter the resource group name. Then select **Delete**.
-
-## Example notebooks
-
-The [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure ML. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure ML for deployment.
 
 ## Next steps
 * [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
