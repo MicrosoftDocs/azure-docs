@@ -56,13 +56,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ## Vulnerability assessment
 
-### Scanning images in container registries
-
-Defender for Containers scans the containers in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to notify you if there are known vulnerabilities in your images.
-
-When you push an image to a container registry and while the image is stored in the container registry, Defender for Containers automatically scans it. Defender for Containers checks for known vulnerabilities in packages or dependencies defined in the image file.
-
-When the scan completes, Defender for Containers provides details for each vulnerability detected, a security classification for each vulnerability detected, and guidance on how to remediate issues and protect vulnerable attack surfaces.
+Defender for Containers scans the containers in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to notify you if there are known vulnerabilities in your images. When the scan completes, Defender for Containers provides details for each vulnerability detected, a security classification for each vulnerability detected, and guidance on how to remediate issues and protect vulnerable attack surfaces.
 
 Learn more about:
 - [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-vulnerability-assessment-azure.md)
