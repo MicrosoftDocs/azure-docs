@@ -112,6 +112,6 @@ The following table provides a list of control IDs and associated customer respo
 
 * [Conditional Access require managed device - Require device to be marked as compliant](../conditional-access/require-managed-devices.md)
 
-* [What is Microsoft Intune?](../mem/intune/fundamentals/what-is-intune.md)
+* [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
 
 * [Co-management for Windows 10 devices](/mem/configmgr/comanage/overview)
