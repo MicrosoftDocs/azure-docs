@@ -210,7 +210,7 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/microchip-xpro-board.png" alt-text="The Microchip E54 development kit board.":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/microchip-xpro-board.png" alt-text="Picture of the Microchip E54 development kit board.":::
 
 1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
 
@@ -225,7 +225,7 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/sam-e54-sensor.png" alt-text="Photo of the Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4.":::
 
 1. Reopen the configuration file you edited previously:
 
@@ -285,7 +285,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
     * **Flow control**: DTR/DSR
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app.":::
 
 1. Select **OK**.
 
