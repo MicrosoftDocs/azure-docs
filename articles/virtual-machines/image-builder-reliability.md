@@ -23,9 +23,8 @@ Azure availability zones are at least three physically separate groups of datace
 
 Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
-Azure Image Builder has availability zones (AZ) for resources supporting AZ, which provides recovery in case of local failures in a region. For more information, see [availability zones](/azure/availability-zones/az-overview#availability-zones)
-
-The Image Builder service also supports many base operating system images. For more information, see [Azure Marketplace images](/azure/virtual-machines/image-builder-overview#os-support).
+> [!NOTE]
+> Azure Image Builder doesn't currently support availability zones at this time. Customers are responsible for configuring availability zones for their Image Builder solution.
 
 
 
@@ -39,34 +38,6 @@ Since Azure Image Builder (AIB) is a regional service with a cluster serving in 
 Azure Image Builder doesn't have an official SLA at this time.
 
 
-#### Create a resource with availability zone enabled
-
-Get started by creating an Azure Image Builder [Linux](/azure/virtual-machines/linux/image-builder) or [Windows](/azure/virtual-machines/windows/image-builder) image and be sure to specify the appropriate geographic `location` variable to a region close to your users.
-
-> [!NOTE]
-> You will also need to replicate your linked resources (VNet, scripts, source image, etc) into your target regions as well.
-
-
-### Zonal failover support
-
-At this time, Azure Image Builder doesn't have zone selection when creating an image builder template. However, you can refer to the general documentation for [Azure VM failover](/azure/site-recovery/azure-to-azure-tutorial-failover-failback) between availability zones.
-
-
-### Fault tolerance
-To prepare for availability zone failure, you can create image builder templates in multiple regions. Two regions are the recommended minimum. Refer to the current list of [available regions](/azure/virtual-machines/image-builder-overview#regions) in Azure Image Builder when creating your templates.
-
-
-### Zone down experience
-
-During a zone-wide outage scenario for Azure Image Builder(AIB), customers will see their AIB build failed. Expect to see the usual [provisioning failure](/azure/virtual-machines/linux/image-builder-troubleshoot#the-resource-operation-finished-with-a-terminal-provisioning-state-of-failed) error when an AIB outage occurs.
-
-
-#### Zone outage preparation and recovery
-
-Customers should expect to be notified on the Azure Image Builder service status within a 6 hour window.
-Once Azure Image Builder is back online, the service will pick up all previous builds and rerun them. As the service reruns, it also creates a new resource group *IT_RG* for AIB specifically.
-
-Image template submission errors currently don't have an error log, so it's recommended to follow the [troubleshooting](/azure/virtual-machines/linux/image-builder-troubleshoot#troubleshoot-image-template-submission-errors) steps if submission errors are present during a zone outage.
 
 ### Low-latency design
 
@@ -83,9 +54,6 @@ For safe deployment techniques using Azure Image Builder (AIB), you can use Virt
 Before proceeding with upgrading your image builder templates, ensure you follow the troubleshooting [prerequisites](/azure/virtual-machines/linux/image-builder-troubleshoot#prerequisites) when creating a new build.
 
 
-### Availability zone redeployment and migration
-
-For availability zone redeployment and migration for Azure Image Builder, the general recommendation would be to create prior image templates in different regions. Refer to [template creation](/azure/virtual-machines/linux/image-builder-json) and for more information, see the supported template [locations](/azure/virtual-machines/linux/image-builder-json#location).
 
 
 ## Disaster recovery: cross-region failover
@@ -119,11 +87,11 @@ Below are instructions on how to get an image template resource using Resource G
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
-    ![Screenshot of Azure Resource Graph Explorer in the portal](./media/image-builder-reliability/resource-graph-explorer-portal.png)
+    ![Screenshot of Azure Resource Graph Explorer in the portal](./media/image-builder-reliability/resource-graph-explorer-portal.png#lightbox)
 
 1. Use the search bar on the far left to search resource by type and name to see how the details will give you properties of the image template. The *See details* option on the bottom right will show the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
-    ![Screenshot of using Azure Resource Graph Explorer search](./media/image-builder-reliability/resource-graph-explorer-search.png)
+    ![Screenshot of using Azure Resource Graph Explorer search](./media/image-builder-reliability/resource-graph-explorer-search.png#lightbox)
 
 
 ### Capacity and proactive disaster recovery resiliency
