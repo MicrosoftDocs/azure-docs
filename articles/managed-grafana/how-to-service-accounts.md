@@ -56,8 +56,8 @@ Follow the steps below to create a new Grafana service account and list existing
 1. Select **Add service account**, and enter a **Display name** and a **Role** for your new Grafana service account: *Viewer*, *Editor* or *Admin* and select **Create**.
 
    :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
-1. The page displays the notification *Service account successfully created* and a list of existing service accounts.
-1. Select the Grafana service account created to access more information about the service account.
+1. The page displays the notification *Service account successfully created* and some information about your new service account.
+1. Select the back arrow sign to view a list of all the service accounts of your Grafana instance.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -87,7 +87,7 @@ az grafana service-account list --name <azure-managed-grafana-name> --service-ac
 
 ---
 
-## Add a service account token review tokens
+## Add a service account token and review tokens
 
 Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate to the Grafana API.
 
@@ -99,6 +99,7 @@ Once you've created a service account, add one or more access tokens. Access tok
    :::image type="content" source="media/service-accounts/add-service-account-token.png" alt-text="Screenshot of the Azure platform. Add service account token page.":::
 
 1. Select **Generate token**, and take note of the token generated. This token will only be shown once, so make sure you save it, as loosing a token requires creating a new one.
+1. Select the service account to access information about your service account, including a list of all associated tokens.
 
 ### [Azure CLI](#tab/azure-cli)
 
