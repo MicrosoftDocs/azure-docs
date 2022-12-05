@@ -12,9 +12,9 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # CSV parser ingestion concepts
 A CSV (comma-separated values) file is a comma delimited text file that is used to save data in a table structured format. 
 
-A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) is a pre-defined and configured Airflow DAG that allows a customer to load data into Microsoft Energy Data Services Preview instance based on a custom schema i.e., a schema that does not match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers must create and register the custom schema using the Schema service before loading the data. 
+A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Energy Data Services Preview instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers must create and register the custom schema using the Schema service before loading the data. 
 
-A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, i.e., data is first extracted from the source system in a CSV format, and it is loaded into the Microsoft Energy Data Service Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) canonical schema using a mapping service.
+A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Microsoft Energy Data Service Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) canonical schema using a mapping service.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -26,9 +26,9 @@ A CSV Parser DAG allows the customers to load the CSV data into the Microsoft En
 The CSV Parser DAG workflow is made up of the following services:
 * **File service** facilitates the management of files in the Microsoft Energy Data Services instance. It allows the user to securely upload, discovery and download files from the data platform.
 * **Schema service** facilitates the management of schemas in the Microsoft Energy Data Services instance. It allows the user to create, fetch and search for schemas in the data platform.
-* **Storage Service** facilitates the storage of metadata information for domain entities ingested into the data platform. It also raises storage record change events that allows downstream services to perform operations on ingested metadata records.
+* **Storage Service** facilitates the storage of metadata information for domain entities ingested into the data platform. It also raises storage record change events that allow downstream services to perform operations on ingested metadata records.
 * **Unit Service** facilitates the management and conversion of units
-* **Workflow service** facilitates the management of workflows in the Microsoft Energy Data Services instance. It is a wrapper service on top of the Airflow orchestration engine.
+* **Workflow service** facilitates the management of workflows in the Microsoft Energy Data Services instance. It's a wrapper service on top of the Airflow orchestration engine.
 
 ### CSV ingestion components diagram
 
@@ -41,7 +41,7 @@ To execute the CSV Parser DAG workflow, the user must have a valid authorization
 The below workflow diagram illustrates the CSV Parser DAG workflow:
     :::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram.png" alt-text="Screenshot of the CSV ingestion sequence diagram." lightbox="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram-expanded.png":::
 
-To execute the CSV Parser DAG workflow, the user must first create and register the schema using the workflow service. Once the schema is created, the user then uses the File service to upload the CSV file to the Microsoft Energy Data Services Preview instances and also creates the storage record of file generic kind. The file service then provides a file id to the user, which is used while triggering the CSV Parser workflow using the Workflow service. The Workflow service provides a run id, which the user could use to track the status of the CSV Parser workflow run.
+To execute the CSV Parser DAG workflow, the user must first create and register the schema using the workflow service. Once the schema is created, the user then uses the File service to upload the CSV file to the Microsoft Energy Data Services Preview instances, and also creates the storage record of file generic kind. The file service then provides a file ID to the user, which is used while triggering the CSV Parser workflow using the Workflow service. The Workflow service provides a run ID, which the user could use to track the status of the CSV Parser workflow run.
 
 OSDU&trade; is a trademark of The Open Group.
 
