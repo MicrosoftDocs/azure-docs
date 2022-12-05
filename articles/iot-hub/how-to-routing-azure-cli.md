@@ -16,7 +16,8 @@ This article shows you how to create a route and endpoint in your hub in Azure I
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
 
 ## Prerequisites
-The procedures that are described in the article Use the following prerequisites:
+
+The procedures that are described in the article use the following prerequisites:
 
 * The Azure portal
 * An IoT hub
@@ -30,7 +31,7 @@ The procedures that are described in the article Use the following prerequisites
 
 You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps [Create an IoT hub using the Azure CLI](iot-hub-create-using-cli.md).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps [Create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
 
 * (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
 
@@ -40,9 +41,7 @@ You need an IoT hub created with Azure IoT Hub and at least one other service to
 
 * (Optional) An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli). When you create a storage account, you have many options, but you need only a new container in your account for this article.
 
-## Create a route
-
-In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint where the messages or events end up, and a data source where the messages or events originate. You choose these locations when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+## Create services in Azure
 
 You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
 
@@ -52,7 +51,7 @@ Decide which route type (event hub, Service Bus queue or topic, or Azure storage
 
 You can choose an Event Hubs resource (namespace and entity).
 
-### Create an Event Hubs resource with an authorization rule
+### Create an Event Hubs resource with authorization rule
 
 1. Create the Event Hubs namespace. For `name`, use a unique value. For `l` (location), use your resource group region.
 
@@ -85,7 +84,15 @@ You can choose a Service Bus queue resource (namespace and queue).
 
 ### Create a Service Bus queue resource with authorization rule
 
-Create the namespace first, followed by the Service Bus queue entity, and then the authorization rule. You need an authorization rule to access the Service Bus queue resource.
+To create a Service bus queue resource with a subscription, you need an authorization rule to access the Service Bus queue.
+
+Create your Service Bus queue resources in this order:
+
+1. Create the namespace.
+1. Create the Service Bus queue entity.
+1. Create the authorization rule.
+
+To create Service Bus queue resources:
 
 1. Create a new Service Bus namespace. For `name`, use a unique value for your namespace.
 
@@ -115,7 +122,15 @@ You can choose a Service Bus topic resource (namespace, topic, and subscription)
 
 ### Create a Service Bus topic resource with subscription
 
-Create the namespace first, followed by the Service Bus topic entity, and then the authorization rule. You need an authorization rule to access the Service Bus topic resource.
+To create a Service Bus topic resource with a subscription, you need an authorization rule to access the Service Bus topic.
+
+Create your Service Bus topic resources in this order:
+
+1. Create the namespace.
+1. Create the Service Bus topic entity.
+1. Create the authorization rule.
+
+To create Service Bus topic resources:
 
 1. Create a new Service Bus namespace. For `name`, use a unique value for your namespace.
 
@@ -129,7 +144,7 @@ Create the namespace first, followed by the Service Bus topic entity, and then t
    az servicebus topic create --resource-group my-resource-group --namespace-name my-namespace --name my-topic
    ```
 
-1. Create a Service Bus topic subscription:
+1. Create a Service Bus topic subscription.
 
    ```azurecli
    az servicebus topic subscription create --resource-group my-resource-group --namespace-name my-namespace --topic-name my-topic --name my-subscription
@@ -150,8 +165,9 @@ You can choose an Azure Storage resource (account and container).
 ### Create an Azure Storage resource with container
 
 1. Create a new storage account.
+
    > [!TIP]
-   > Your storage name must be between 3 and 24 characters in length and containly only numbers and lowercase letters. No dashes are allowed.
+   > Your storage name must be between 3 and 24 characters in length and contain only numbers and lowercase letters. Dashes aren't allowed.
 
    ```azurecli
    az storage account create --name mystorageaccount --resource-group myresourcegroup
@@ -163,7 +179,7 @@ You can choose an Azure Storage resource (account and container).
    az storage container create --name my-storage-container --account-name mystorageaccount
    ```
 
-   You see a confirmation that your container was created in your console.
+   You should see a response in the Azure CLI that's similar to this example:
   
    ```azurecli
    {
@@ -177,41 +193,43 @@ For more information, see [Create a storage account](/azure/storage/common/stora
 
 ## Create an endpoint
 
-Endpoints can be used in an IoT Hub route. An endpoint can be standalone, for example you can create one for later use. However, a route needs an endpoint, so we create the endpoint first and then the route later in this article.
+You can use endpoints in an IoT Hub route. An endpoint can be standalone. For example, you can create one to use in the future. However, a route needs an endpoint. In this article, you create the endpoint first, and then create the route later.
 
-You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be the endpoint for your IoT hub route. The Azure resource must first exist in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or an Azure storage account as the endpoint for your IoT hub route. An instance of the service that you use for your endpoint must first exist in your Azure account.
 
 # [Event Hubs](#tab/eventhubs)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [az eventhubs](/cli/azure/eventhubs)
 * [az iot hub](/cli/azure/iot/hub)
 
 ### Create an Event Hubs endpoint
 
-1. List your authorization rule to get your Event Hubs connection string. Copy your connection string for later use.
+1. List your authorization rule to get your Event Hubs connection string. Copy your connection string to use later.
 
    ```azurecli
    az eventhubs eventhub authorization-rule keys list --resource-group my-resource-group --namespace-name my-routing-namespace --eventhub-name my-event-hubs --name RootManageSharedAccessKey
    ```
 
-1. Create your custom endpoint. Use the connection string in this command that you copied in the last step. The `endpoint-type` must be `eventhub`, otherwise all other values should be your own.
+1. Create your custom endpoint. Use the connection string in this command that you copied in the preceding step. The value for `endpoint-type` must be `eventhub`. For all other parameters, use values for your scenario.
 
    ```azurecli
    az iot hub routing-endpoint create --endpoint-name my-event-hub-endpoint --endpoint-type eventhub --endpoint-resource-group my-resource-group --endpoint-subscription-id xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --hub-name my-iot-hub --connection-string "my connection string"
    ```
 
-   To see all routing endpoint options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
+   For a list of all routing endpoint options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [az servicebus](/cli/azure/servicebus)
 * [az iot hub](/cli/azure/iot/hub)
 
 ### Create a Service Bus queue endpoint
 
-1. List your authorization rule keys to get your Service Bus queue connection string. Copy your connection string for later use.
+1. List your authorization rule keys to get your Service Bus queue connection string. Copy your connection string to use later.
 
    ```azurecli
    az servicebus queue authorization-rule keys list --resource-group my-resource-group --namespace-name my-namespace --queue-name my-queue --name my-auth-rule
@@ -225,19 +243,22 @@ References used in the following commands:
 
 # [Service Bus topic](#tab/servicebustopic)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [az servicebus](/cli/azure/servicebus)
 * [az iot hub](/cli/azure/iot/hub)
 
 ### Create a Service Bus topic endpoint
 
-1. List your authorization rule keys to get your Service Bus topic connection string. Copy your connection string for later use. The default name of your authorization rule that comes with a new namespace is **RootManageSharedAccessKey**.
+1. List your authorization rule keys to get your Service Bus topic connection string. Copy your connection string to use later. The default name of your authorization rule that comes with a new namespace is `RootManageSharedAccessKey`.
 
    ```azurecli
    az servicebus topic authorization-rule keys list --resource-group my-resource-group --namespace-name my-namespace --topic-name my-topic --name RootManageSharedAccessKey
    ```
 
-1. Create a new Service Bus topic endpoint. The `endpoint-type` must be `servicebustopic`, otherwise all parameters should have your own values. Replace `Endpoint=<my connection string>` with the connection string you copied from the previous step. Add `;EntityPath=my-service-bus-topic` to the end of your connection string. Since we didn't create a custom authorization rule, the namespace connection string doesn't include the entity path information, but the entity path is required to make a Service Bus topic endpoint. Replace the `my-service-bus-topic` part of the entity path string with the name of your Service Bus topic.
+1. Create a new Service Bus topic endpoint. The `endpoint-type` must be `servicebustopic`. For all other parameters, use values for your scenario. Replace `Endpoint=<my connection string>` with the connection string you copied in the preceding step. Add `;EntityPath=my-service-bus-topic` to the end of your connection string.
+
+   Because you don't create a custom authorization rule in this article, the namespace connection string doesn't include the entity path information. But, the entity path is required to make a Service Bus topic endpoint. In the entity path string, replace `my-service-bus-topic` with the name of your Service Bus topic.
 
    ```azurecli
    az iot hub routing-endpoint create --endpoint-name my-service-bus-topic-endpoint --endpoint-type servicebustopic --endpoint-resource-group my-resource-group --endpoint-subscription-id xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx --hub-name my-iot-hub --connection-string "Endpoint=<my connection string>;EntityPath=my-service-bus-topic"
@@ -245,19 +266,20 @@ References used in the following commands:
 
 # [Azure Storage](#tab/azurestorage)
 
-References used in the following commands:
+The commands in the following procedures use these references:
+
 * [az storage](/cli/azure/storage)
 * [az iot hub](/cli/azure/iot/hub)
 
 ### Create an Azure Storage endpoint
 
-1. You need the connection string from your Azure Storage resource to create an endpoint. Get the string using the `show-connection-string` command and copy it for the next step.
+1. You need the connection string from your Azure Storage resource to create an endpoint. To get the string, run the `show-connection-string` command. Copy the connection string to use it in the next step.
 
    ```azurecli
    az storage account show-connection-string --resource-group my-resource-group --name my-storage-account 
    ```
 
-1. Create a new Azure Storage endpoint. The `endpoint-type` must be `azurestoragecontainer`, otherwise all parameters should have your own values. Use the connection string you copied from the previous step.
+1. Create a new Azure Storage endpoint. The value for `endpoint-type` must be `azurestoragecontainer`. For all other parameters, use values for your scenario. Use the connection string you copied in the preceding step.
 
    ```azurecli
    az iot hub routing-endpoint create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-storage-endpoint --endpoint-type azurestoragecontainer --container my-storage-container --endpoint-resource-group my-resource-group --endpoint-subscription-id xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx --connection-string "DefaultEndpointsProtocol=<my connection string>"
@@ -269,25 +291,25 @@ References used in the following commands:
 
 ## Create an IoT Hub route
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint, where the messages or events end up, and a data source, where the messages or events originate. You choose these locations when creating a new route in the IoT Hub. Optionally, you can [Add queries to message routes](iot-hub-devguide-routing-query-syntax.md) to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Optionally, you can [Add queries to message routes](iot-hub-devguide-routing-query-syntax.md) to filter messages or events before they go to the endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
-1. With your existing Event Hubs endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+1. With your existing Event Hubs endpoint, create a new IoT Hub route by using that endpoint. For `endpoint`, use the endpoint name. For `route-name`, use a unique value.
 
-   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`. Choose a different option for your custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
    ```azurecli
    az iot hub route create --endpoint my-event-hub-endpoint --hub-name my-iot-hub --route-name my-event-hub-route --source deviceconnectionstateevents
    ```
 
-1. A new route should show in your IoT hub. Run this command to confirm the route is there.
+1. To verify that the new route is in your IoT hub, run this command:
 
    ```azurecli
    az iot hub route list -g my-resource-group --hub-name my-iot-hub
    ```
-   
-   You should see a similar response in your console.
+
+   You should see a response in the Azure CLI that's similar to this example:
 
    ```json
    [
@@ -305,21 +327,21 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-1. With your existing Service Bus queue endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+1. With your existing Service Bus queue endpoint, create a new IoT Hub route by using that endpoint. For `endpoint`, use the endpoint name. For `route-name`, use a unique value.
 
-   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`. Choose a different option for your custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
    ```azurecli
    az iot hub route create --endpoint my-service-bus-queue-endpoint --hub-name my-iot-hub --route-name my-route --source deviceconnectionstateevents
    ```
 
-1. List your IoT hub routes to confirm your new Service Bus queue route.
+1. To verify that your new Service Bus queue route was created, list your IoT hub routes:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
    ```
 
-   You should see something similar in your Azure CLI.
+   You should see a response in the Azure CLI that's similar to this example:
 
    ```json
      {
@@ -335,21 +357,21 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 # [Service Bus topic](#tab/servicebustopic)
 
-1. With your existing Service Bus topic endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+1. With your existing Service Bus topic endpoint, create a new IoT Hub route by using that endpoint. For `endpoint`, use the endpoint name. For `route-name`, use a unique value.
 
-   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`. Choose a different option for your custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
    ```azurecli
    az iot hub route create --endpoint my-service-bus-topic-endpoint --hub-name my-iot-hub --route-name my-route --source deviceconnectionstateevents
    ```
 
-1. List your IoT hub routes to confirm your new Service Bus topic route.
+1. To verify that your new Service Bus topic route was created, list your IoT hub routes:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
    ```
 
-   You should see something similar in your Azure CLI.
+   You should see a response in the Azure CLI that's similar to this example:
 
    ```json
      {
@@ -365,21 +387,21 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 # [Azure Storage](#tab/azurestorage)
 
-1. With your existing Azure storage endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+1. With your existing Azure storage endpoint, create a new IoT Hub route by using that endpoint. For `endpoint`, use the endpoint name. For `route-name`, use a unique value.
 
-   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`. Choose a different option for your custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
    ```azurecli
    az iot hub route create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-storage-endpoint --source deviceconnectionstateevents --route-name my-route
    ```
 
-1. Confirm that your new route is in your IoT hub.
+1. To verify that your new route is in your IoT hub, run this command:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
    ```
 
-   You should see something similar in your Azure CLI.
+   You should see a response in the Azure CLI that's similar to this example:
 
    ```json
      {
@@ -397,7 +419,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 ### Update an IoT Hub route
 
-With an IoT Hub route, no matter the type of endpoint, you can update some properties of the route.
+With an IoT Hub route, no matter what type of endpoint you create, you can update some properties of the route.
 
 1. To change a parameter, use the [az iot hub route update](/cli/azure/iot/hub/route#az-iot-hub-route-update) command. For example, you can change `source` from `deviceconnectionstateevents` to `devicejoblifecycleevents`.
 
@@ -413,22 +435,25 @@ With an IoT Hub route, no matter the type of endpoint, you can update some prope
 
 ### Delete an endpoint
 
+To delete an endpoint:
+
 ```azurecli
 az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-endpoint 
 ```
 
 ### Delete an IoT Hub route
 
+To delete an IoT Hub route:
+
 ```azurecli
 az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
 ```
 
 > [!TIP]
-> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
+> Deleting a route doesn't delete any endpoints in your Azure account. You must delete an endpoint separately from deleting a route.
 
+## Next steps
 
-## Next Steps
+In this how-to article, you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage.
 
-In this how-to article you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage. 
-
-To further your exploration into message routing, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In this tutorial, you'll create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.
