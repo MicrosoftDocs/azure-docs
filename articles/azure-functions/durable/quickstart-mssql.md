@@ -44,7 +44,7 @@ You will need to install the latest version of the `Microsoft.DurableTask.SqlSer
 
 There are many ways to achieve this, especially for C# users who may leverage [Visual Studio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions).
 
-However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
+However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
 
 ```cmd
 func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
