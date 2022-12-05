@@ -6,7 +6,7 @@ documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 12/05/2022
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -33,6 +33,55 @@ After you enable an origin for Private Link and approve the private endpoint con
 Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin will communicate using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
 :::image type="content" source="./media/concept-private-link/enable-private-endpoint.png" alt-text="Screenshot of enable Private Link service checkbox from origin configuration page.":::
+
+## Association of a private endpoint with an Azure Front Door profile
+
+### Private endpoint creation
+
+Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of Private Link, resource ID and group ID, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, group ID, you won't need to approve anymore private endpoints.
+
+#### Single private endpoint
+
+For example, a single private endpoint gets created for all the different origins across different origin groups but in the same Azure Front Door profile as shown in the below table:
+
+| Profile name | Origin group | Origin | Private Link location (region) | Host name (Resource ID) | Target subscription resource (Group ID) | Private endpoint |
+|--|--|--|--|--|--|--|
+| AFD-Profile-1 | OriginGroup1 | Origin1a | Japan East | sta1.blob.core.windows.net | Blob | *PE1* |
+| AFD-Profile-1 | OriginGroup1 | Origin1b | Japan East | sta1.blob.core.windows.net | Blob | *PE1* |
+| AFD-Profile-1 | OriginGroup2 | Origin2 | Japan East | sta1.blob.core.windows.net | Blob | *PE1* |
+| AFD-Profile-1 | OriginGroup3 | Origin3 | Japan East | sta1.blob.core.windows.net | Blob | *PE1* |
+
+#### Multiple private endpoints
+
+A new private endpoint gets created in the following scenario:
+
+1. If the region, resource ID or group ID changes:
+
+    | Profile name | Origin group | Origin | Private Link location (region) | Host name (Resource ID) | Target subscription resource (Group ID) | Private endpoint |
+    |--|--|--|--|--|--|--|
+    | AFD-Profile-1 | OriginGroup1 | Origin1a | **US East** | **sta1.blob.core.windows.net** | Blob | *PE1* |
+    | AFD-Profile-1 | OriginGroup1 | Origin1b | Japan East | **sta2.blob.core.windows.net** | Blob | *PE2* |
+    | AFD-Profile-1 | OriginGroup2 | Origin2 | **UK South** | **sta3.blob.core.windows.net** | Blob | *PE3* |
+    | AFD-Profile-1 | OriginGroup3 | Origin3 | Japan East | **sta3.blob.core.windows.net** | Blob | *PE4* |
+
+    > [!NOTE]
+    > The Private Link location and the hostname has changed which will create extra private endpoints and requires approval for each one.
+
+2. When the Azure Front Door profile changes:
+
+    | Profile name | Origin group | Origin | Private Link location (region) | Host name (Resource ID) | Target subscription resource (Group ID) | Private endpoint |
+    |--|--|--|--|--|--|--|
+    | **AFD-Profile-2** | OriginGroup1 | Origin1a | Japan East | sta.blob.core.windows.net | Blob | *PE5* |
+    | **AFD-Profile-3** | OriginGroup1 | Origin1b | Japan East | sta.blob.core.windows.net | Blob | *PE6* |
+    | **AFD-Profile-4** | OriginGroup2 | Origin2 | Japan East | sta.blob.core.windows.net | Blob | *PE7* |
+    | **AFD-Profile-5** | OriginGroup3 | Origin3 | Japan East | sta.blob.core.windows.net | Blob | *PE8* |
+
+    > [!NOTE]
+    > Enabling Private Link for origins in different Front Door profiles will create extra private endpoints and requires approval for each one.
+
+### Private endpoint removal
+
+When an Azure Front Door profile get deleted, private endpoints associated with the profile will also get deleted. The deletion of the private endpoint will happen regardless of the number of private endpoints associated to a single Front Door profile. Deleting a Front Door profile won't affect private endpoints created for a different Front Door profile.
 
 ## Region availability
 
