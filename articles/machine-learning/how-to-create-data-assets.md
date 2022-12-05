@@ -49,12 +49,12 @@ To create and work with data assets, you need:
 When you create a data asset in Azure Machine Learning, you'll need to specify a `path` parameter that points to its location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
 
-|Location  | Examples  |
-|---------|---------|
-|A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`<br> `https://<account_name>.blob.core.windows.net/<container_name>/path`  |
+|Location  | Examples  | Notes
+|---------|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         ||
+|A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      | |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other paths instead for folder type of data.|
+|A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`  ||
 
 
 > [!NOTE]
@@ -62,6 +62,9 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 > [!IMPORTANT]
 > The studio only supports browsing of credential-less ADLS Gen 2 datastores.
+
+> [!IMPORTANT]
+> Authentication to access data will use user's identity or compute MSI by default.
 
 
 ## Data asset types
@@ -114,7 +117,7 @@ from azure.ai.ml.constants import AssetTypes
 
 # Supported paths include:
 # local: './<path>'
-# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
+# blob:  'wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
 # Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
 
@@ -162,7 +165,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 
 # Supported paths include:
 # local: ./<path>/<file>
-# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
+# blob:  wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/<file>
 # ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>/<file>
 
@@ -183,7 +186,7 @@ from azure.ai.ml.constants import AssetTypes
 
 # Supported paths include:
 # local: './<path>/<file>'
-# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>'
+# blob:  'wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/<file>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>'
 # Datastore: 'azureml://datastores/<data_store_name>/paths/<path>/<file>'
 my_path = '<path>'
@@ -323,7 +326,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 # path must point to **folder** containing MLTable artifact (MLTable file + data
 # Supported paths include:
 # local: ./<path>
-# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>
+# blob:  wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/
 # ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>
 
@@ -353,7 +356,7 @@ from azure.ai.ml.constants import AssetTypes
 # my_path must point to folder containing MLTable artifact (MLTable file + data
 # Supported paths include:
 # local: './<path>'
-# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
+# blob:  'wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
 # Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
 
