@@ -46,7 +46,7 @@ You can build new applications with these APIs or migrate your existing data. To
 Based on your workload, you must choose the API that fits your requirement. The following image shows a flow chart on how to choose the right API when building new apps or migrating existing apps to Azure Cosmos DB:
 
 :::image type="complex" source="media/choose-api/decision-tree.svg" alt-text="Diagram of the decision tree to choose an API in Azure Cosmos DB.":::
-    Diagram of the decision tree to choose an API in Azure Cosmos DB. Half of the diagram illustrates how many existing open-source database workloads can use the corresponding APIs for Azure Cosmos DB. The other half of the diagram illustrates how new applications can either use the API for NoSQL, or leverage your existing skills with APIs for open-source databases.
+    Diagram of the decision tree to choose an API in Azure Cosmos DB. Half of the diagram illustrates how many existing open-source database workloads can use the corresponding APIs for Azure Cosmos DB. The other half of the diagram illustrates how new applications can either use the API for NoSQL, or use your existing skills with APIs for open-source databases.
 :::image-end:::
 
 ## <a id="coresql-api"></a> API for NoSQL
