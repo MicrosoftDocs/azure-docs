@@ -20,13 +20,13 @@ Migration of [Task Hub data](durable-functions-task-hubs.md) across storage prov
 
 ## Prerequisites
 
-The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it. 
+The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it.
 
 In particular, we expect that you have already:
 1. Created a Functions project on your local machine.
-1. Added Durable Functions to your project.
-1. Configured the project for local debugging.
-1. Deployed the local project to a Function app that runs in the cloud.
+2. Added Durable Functions to your project.
+3. Configured the project for local debugging.
+4. Deployed the local project to a Function app that runs in the cloud.
 
 If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
@@ -204,7 +204,7 @@ To do this through the Azure portal, first go to your Function App view. Then go
 
 > [!NOTE]
 > Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
-mss
+
 ### Creating an Azure SQL database
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
@@ -215,6 +215,10 @@ You can follow [these](/azure/azure-sql/database/single-database-create-quicksta
 > Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
 
 You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provide your password in the template provided.
+
+Below is an example of the portal view for obtaining the Azure SQL connection string.
+
+![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
 ### Deploy and enjoy
 
