@@ -8,6 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
+ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
@@ -87,4 +88,4 @@ If a child jobs failed, select the name of that child job to enter detail page o
 ## Next steps
 
 - [Track an experiment](how-to-log-view-metrics.md)
-- [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a trained model](how-to-deploy-online-endpoints.md)

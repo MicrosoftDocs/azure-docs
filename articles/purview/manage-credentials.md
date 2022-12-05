@@ -1,8 +1,8 @@
 ---
 title: Create and manage credentials for scans
 description: Learn about the steps to create and manage credentials in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

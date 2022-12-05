@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 
 > [!NOTE]
-> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-group-writeback-v2#understand-limitations-of-public-preview) before you enable this functionality.
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality.
 
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
@@ -55,7 +55,7 @@ To view the existing writeback settings on Microsoft 365 groups in the portal, g
 
 [![Screenshot of Microsoft 365 group properties.](media/how-to-connect-group-writeback/group-2.png)](media/how-to-connect-group-writeback/group-2.png#lightbox)
 
-You can also view the writeback state via Microsoft Graph. For more information, see [Get group](/graph/api/group-get?tabs=http&view=graph-rest-beta).  
+You can also view the writeback state via Microsoft Graph. For more information, see [Get group](/graph/api/group-get?tabs=http&view=graph-rest-beta&preserve-view=true).  
 
 > Example: `GET https://graph.microsoft.com/beta/groups?$filter=groupTypes/any(c:c eq 'Unified')&$select=id,displayName,writebackConfiguration`  
 
@@ -71,7 +71,7 @@ Finally, you can view the writeback state via PowerShell by using the  [Microsof
 
 For groups that haven't been created yet, you can view whether or not they'll be written back automatically.
 
-To see the default behavior in your environment for newly created groups, use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) resource type in Microsoft Graph. 
+To see the default behavior in your environment for newly created groups, use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type in Microsoft Graph. 
 
 > Example: `GET https://graph.microsoft.com/beta/Settings` 
 
@@ -88,7 +88,7 @@ You can also use the PowerShell cmdlet [AzureADDirectorySetting](../enterprise-u
 > If `directorySetting` is returned with a `NewUnifiedGroupWritebackDefault` value of `false`, Microsoft 365 groups *won't automatically* be enabled for writeback when they're created. If the value is not specified or is set to `true`, newly created Microsoft 365 groups *will automatically* be written back. 
 
 ## Discover if Active Directory has been prepared for Exchange 
-To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked).
+To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019&preserve-view=true#how-do-you-know-this-worked).
 
 ## Meet prerequisites for public preview 
 The following are prerequisites for group writeback:
@@ -96,7 +96,7 @@ The following are prerequisites for group writeback:
 - An Azure AD Premium 1 license 
 - Azure AD Connect version 2.0.89.0 or later
 
-An optional prerequisite is Exchange Server 2016 CU15 or later. You need it only for configuring cloud groups with an Exchange hybrid. For more information, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites). If you haven't [prepared Active Directory for Exchange](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019), mail-related attributes of groups won't be written back. 
+An optional prerequisite is Exchange Server 2016 CU15 or later. You need it only for configuring cloud groups with an Exchange hybrid. For more information, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites). If you haven't [prepared Active Directory for Exchange](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019&preserve-view=true), mail-related attributes of groups won't be written back. 
 
 ## Choose the right approach 
 The right deployment approach for your organization depends on the current state of group writeback in your environment and the desired writeback behavior. 

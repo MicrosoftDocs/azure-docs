@@ -2,7 +2,7 @@
 title: Permissions to view and manage Azure reservations
 description: Learn how to view and manage Azure reservations in the Azure portal.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to

@@ -6,8 +6,8 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/27/2022
-ms.custom: template-how-to 
+ms.date: 10/28/2022
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Create a virtual machine with a static private IP address using the Azure portal

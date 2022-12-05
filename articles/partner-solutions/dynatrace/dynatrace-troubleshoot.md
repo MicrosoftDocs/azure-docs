@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Dynatrace for Azure - Azure partner solutions
+title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
 ms.topic: conceptual
 ms.collection: na
@@ -9,13 +9,13 @@ ms.date: 10/12/2022
 
 ---
 
-# Troubleshoot Dynatrace for Azure
+# Troubleshoot Azure Native Dynatrace Service
 
-This article describes how to contact support when working with a Dynatrace for Azure resource. Before contacting support, see [Fix common errors](#fix-common-errors).
+This article describes how to contact support when working with an Azure Native Dynatrace Service resource. Before contacting support, see [Fix common errors](#fix-common-errors).
 
 ## Contact support
 
-To contact support about the Azure Dynatrace integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
+To contact support about the Azure Native Dynatrace Service, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
 
 :::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
 
@@ -34,7 +34,7 @@ This document contains information about troubleshooting your solutions that use
 
 ### Unable to create Dynatrace resource
 
-- To set up the Azure Dynatrace integration, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
+- To set up the Azure Native Dynatrace Service, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
 - Create fails because Last Name is empty. This happens when the user info in Azure AD is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify this and try again.
 

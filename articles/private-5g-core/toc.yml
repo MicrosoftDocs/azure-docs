@@ -8,7 +8,9 @@ items:
     href: private-5g-core-overview.md
 - name: Release notes
   items:
-  - name: 2209 - Current
+  - name: 2210 - Current
+    href: azure-private-5g-core-release-notes-2210.md
+  - name: 2209
     href: azure-private-5g-core-release-notes-2209.md
   - name: 2208 
     href: azure-private-5g-core-release-notes-2208.md
@@ -60,6 +62,10 @@ items:
       href: create-a-site.md
     - name: Create a site - ARM template
       href: create-site-arm-template.md
+  - name: Packet core
+    items:
+    - name: Modify a packet core instance
+      href: modify-packet-core.md
     - name: Upgrade a packet core instance - Azure portal
       href: upgrade-packet-core-azure-portal.md
     - name: Upgrade a packet core instance - ARM template

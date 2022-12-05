@@ -5,7 +5,7 @@ description: This article helps you determine how to choose an Azure saving plan
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022
