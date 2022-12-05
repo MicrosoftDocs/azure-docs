@@ -55,7 +55,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your PostgreSQL server, which should be unique across Azure.
 - `<YOUR_DATABASE_NAME>`: The database name of the PostgreSQL server, which should be unique within Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
-- `<YOUR_USER_ASSIGNED_MANAGED_IDENTITY_NAME>`: The name of your user assigned managed identity server, which should be unique across Azure.
+- `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`: The username of your PostgreSQL database server. Make ensure the username is a valid user in your Azure AD tenant.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 > [!IMPORTANT]
@@ -125,7 +125,7 @@ az postgres flexible-server create \
 Follow the steps in this [article](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users#create-or-delete-azure-ad-administrators-using-azure-portal-or-azure-resource-manager-arm-api) to set up an Azure AD administrator after creating the server.
 
 > [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
+> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. Multiple Azure AD administrators can be created per PostgreSQL Flexible Server.
 
 #### [Password](#tab/password)
 
@@ -143,8 +143,6 @@ az postgres flexible-server create \
 This command creates a small PostgreSQL server.
 
 ---
-
-The PostgreSQL server that you created has an empty database called `flexibleserverdb`.
 
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
