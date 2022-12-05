@@ -135,11 +135,13 @@
 - name: Tutorials
   expanded: true
   items: 
+  - name: Deploy an app - CLI
+    href: tutorial-deploy-first-app-cli.md
   - name: Deploy backend API microservice from code
     expanded: true
     items:
     - name: Command line
-      href: quickstart-code-to-cloud.md
+      href: tutorial-code-to-cloud.md
     - name: Visual Studio
       href: deploy-visual-studio.md
     - name: Visual Studio Code
