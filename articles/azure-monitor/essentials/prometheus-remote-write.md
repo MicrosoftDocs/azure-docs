@@ -25,7 +25,8 @@ The process for configuring remote write depends on your cluster configuration a
 - **Managed identity** is recommended for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster. See [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md)
 - **Azure Active Directory** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md)
 
-
+> [!NOTE]
+> Whether you use Managed Identity or Azure Active Directory to enable permissions for ingesting data, these settings take some time to take effect. When following the steps below to verify that the setup is working please allow up to 10-15 minutes for the authorization settings needed to ingest data to complete.
 
 ## Verify remote write is working correctly
 
