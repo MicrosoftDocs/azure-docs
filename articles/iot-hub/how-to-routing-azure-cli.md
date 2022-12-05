@@ -19,7 +19,7 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 The procedures that are described in the article use the following prerequisites:
 
-* The Azure portal
+* The Azure CLI
 * An IoT hub
 * An endpoint service
 

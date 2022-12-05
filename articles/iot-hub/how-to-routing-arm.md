@@ -1,6 +1,6 @@
 ---
-title: Message routing with IoT Hub — Azure Resource Manager | Microsoft Docs
-description: A how-to article that creates and deletes routes and endpoints in IoT Hub, using Azure Resource Manager.
+title: Create and delete routes and endpoints by using Azure Resource Manager
+description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using Azure Resource Manager.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -9,9 +9,9 @@ ms.date: 11/11/2022
 ms.author: kgremban
 ---
 
-# Message routing with IoT Hub — Azure Resource Manager
+# Create and delete routes and endpoints by using Azure Resource Manager
 
-This article shows you how to export your IoT hub template, add a route to it, then deploy the template back to your IoT hub using Azure CLI or PowerShell. We use a Resource Manager template to create routes and endpoints to Event Hubs, Service Bus queue, Service Bus topic, and Azure Storage.
+This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using Azure CLI or PowerShell. We use a Resource Manager template to create routes and endpoints to Event Hubs, Service Bus queue, Service Bus topic, and Azure Storage.
 
 [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are useful when you need to define resources in a JSON file. Each resource in Azure has a template to export that defines the components used in that resource.
 
@@ -24,7 +24,13 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 ## Prerequisites
 
-**Azure Resource Manager**
+The procedures that are described in the article use the following prerequisites:
+
+* Azure Resource Manager
+* An IoT hub
+* An endpoint service
+
+## Azure Resource Manager
 
 This article uses a template from Resource Manager. To understand more about Resource Manager, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
 
@@ -44,16 +50,16 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 ## Create a route
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint, where the messages or events end up, and a data source, where the messages or events originate. You choose these locations when creating a new route in the IoT Hub. Routing queries are then used to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
-You can use Events Hubs, a Service Bus queue or topic, or an Azure storage as an endpoint in your IoT hub route. A resource for the service must first be created in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
 
 ### Export the Resource Manager template from your IoT hub
 
-Let's export a Resource Manager template from your IoT hub, then we'll add a route to it.
+First, export a Resource Manager template from your IoT hub, and then add a route to it.
 
-1. Go to your IoT hub in the Azure portal and select **Export template** at the bottom of the menu under **Automation**.
- 
+1. In the Azure portal, go to your IoT hub. Select **Export template** at the bottom of the menu under **Automation**.
+
    :::image type="content" source="media/how-to-routing-arm/export-menu-option.jpg" alt-text="Screenshot that shows location of the export template option in the menu of the IoT Hub.":::
 
 1. You see a JSON file generated for your IoT hub. Uncheck the **Include parameters** box. 
