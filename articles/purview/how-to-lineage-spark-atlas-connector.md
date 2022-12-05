@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 12/05/2022
 ---
 # How to use Apache Atlas connector to collect Spark lineage
 
