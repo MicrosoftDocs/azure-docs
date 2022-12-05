@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory for CMMC compliance
 
-Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes.
+Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete other configurations or processes.
 
 In CMMC Level 1, there are three domains that have one or more practices related to identity. The three domains are:
 
@@ -40,7 +40,7 @@ In CMMC Level 2, there are 13 domains that have one or more practices related to
 * System and Communications Protection (SC)
 * System and Information Integrity (SI)
 
-The remainder of the articles in this series provide guidance and links to resources, organized by level and domain. For each domain, there's a table with the relevant controls listed and links to content that provides step-by-step guidance to accomplish the practice.
+The remaining articles in this series provide guidance and links to resources, organized by level and domain. For each domain, there's a table with the relevant controls listed and links to content that provides step-by-step guidance to accomplish the practice.
 
 Learn more:
 
