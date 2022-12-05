@@ -264,15 +264,17 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     1. Select **Export**.
 
-    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
-
-1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
-
-1. Send logs to the support team: 
-
-    - Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot.
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog.
     
-    - Make sure to send the password to support separately from the exported logs.
+    For example:
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png":::
+
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+
+1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
+
+    To keep your logs secure, make sure to forward the password separately from the downloaded log.
 
 > [!NOTE]
 > Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
@@ -343,15 +345,17 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     1. Select **Export**.
 
-    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog.
 
-1. Exported logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password.
+    For example:
 
-1. Send logs to the support team: 
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-CM.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the in-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-CM.png":::
 
-    - Exported logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot.
-    
-    - Make sure to send the password to support separately from the exported logs.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+
+1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
+
+    To keep your logs secure, make sure to forward the password separately from the downloaded log.
 
 ## Next steps
 
