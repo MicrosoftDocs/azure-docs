@@ -65,8 +65,8 @@ Special notes for configuring a secure AKS inferencing environment:
 >[!Note]
 >
 > If your AKS behind of vnet has been stopped and **restarted**, you need to:
->* Follow this [document](../aks/start-stop-cluster.md) to delete and recreat private endpoint linked to this cluster. 
->* And then reattach the Kubernetes computes attached from this AKS in your workspace. 
+> * Follow this [document](../aks/start-stop-cluster.md) to delete and recreat private endpoint linked to this cluster. 
+> * And then reattach the Kubernetes computes attached from this AKS in your workspace. 
 >
 > Otherwise, the creation, update and deletion of endpoints/deployments to this AKS cluster will fail.
 
