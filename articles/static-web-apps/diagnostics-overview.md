@@ -34,13 +34,13 @@ You have access to diagnostic data in these categories:
 
 From the diagnostics window you can search for a symptom, or select a diagnostic category.
 
-## Search
-
-You can search diagnostic data to locate data on a specific issue.
+You can use the search bar at the top to filter the diagnostic categories.
 
 ## Reports
 
 Selecting an issue reveals a series of visualization for the diagnostic data.
+
+:::image type="content" source="media/diagnotics-overview/azure-static-web-apps-diagnostics-chart.png" alt-text="Screenshot of Azure Static Web Apps diagnostics chart.":::
 
 ## Next steps
 
