@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2 
+ms.custom: contperf-fy22q2, engagement-fy23
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
