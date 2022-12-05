@@ -113,8 +113,6 @@ msdb
 
 DurableDB
 
-
-(5 rows affected)
 ```
 
 In this instance, you're looking for a result named `DurableDB`, which we can see as the last item above.
@@ -207,7 +205,7 @@ To do this through the Azure portal, first go to your Function App view. Then go
 > [!NOTE]
 > Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
 mss
-### (optional) Creating an Azure SQL database
+### Creating an Azure SQL database
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
 
