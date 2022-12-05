@@ -5,6 +5,7 @@ author: lauradolan
 ms.topic: reference
 ms.author: ladolan
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-monitor
 ms.custom: subject-monitoring
 ms.date: 10/27/2022
 ---

@@ -5,6 +5,7 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-monitor
 ms.date: 10/27/2022
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---
