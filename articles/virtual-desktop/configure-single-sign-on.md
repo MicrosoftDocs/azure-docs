@@ -26,28 +26,28 @@ For additional passwordless functionality within the session, see the **Next Ste
 
 ## Prerequisites
 
-Single sign-on is available on session hosts using the following operating systems:
+**Single sign-on is available on session hosts using the following operating systems:**
 
   - Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11 Preview (KB5017383)](https://support.microsoft.com/kb/KB5017383) or later installed.
   - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10 Preview (KB5017380)](https://support.microsoft.com/kb/KB5017380) or later installed.
   - Windows Server 2022 with the [2022-09 Cumulative Update for Microsoft server operating system preview (KB5017381)](https://support.microsoft.com/kb/KB5017381) or later installed.
 
-Session Hosts must be Azure AD or Hybrid Joined:  
-  - You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. If session hosts need access to SMB shares for FSLogix profiles, you will also need to enable [Kerberos for Azure AD.](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md)  
-  - You can also use SSO to access Hybrid Azure AD-joined VMs, but only after [creating a Kerberos Server object within your Active Directory.](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object)    
-> [!NOTE]
-> Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
+**Session Hosts must be Azure AD or Hybrid Joined**
 
-Connections currently supported:  
+**You must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) when your session host is:**
+
+- Hybrid Azure AD-joined. Azure AD Kerberos is needed to complete the authentication to the domain controller.
+- Azure AD-joined and your environment contains Active Directory Domain Controllers. Azure AD Kerberos is required in this case for users to access on-premises resources, like SMB shares, and Windows-integrated authentication to websites. For information on Azure AD joined Sessions Hosts using FSLogix, see [Create a profile container with Azure Files and Azure Active Directory](create-profile-container-azure-ad.md)
+  
+**Connections currently supported:**  
+
   - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. 
   - [Web client](users/connect-web.md).
 
-> [!IMPORTANT]
-> SSO is currently only supported in the Azure Public cloud.
+> [!NOTE]
+> Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services or Active Directory only joined Session Hosts.
 
 ## Enable single sign-on
-
-If your host pool contains Hybrid Azure AD-joined session hosts, you must first enable Azure AD Kerberos in your environment by creating a Kerberos Server object. Azure AD Kerberos enables the authentication needed with the domain controller. We recommended you also enable Azure AD Kerberos for Azure AD-joined session hosts if you have a Domain Controller (DC). Azure AD Kerberos provides a single sign-on experience when accessing legacy Kerberos-based applications or network shares. To enable Azure AD Kerberos in your environment, follow the steps to [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) on your DC.
 
 To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure portal or set the **enablerdsaadauth** property to **1** using PowerShell.
 
