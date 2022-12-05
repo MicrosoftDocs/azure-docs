@@ -93,9 +93,9 @@ After running these commands, you should have a local SQL Server running on Dock
 
 To validate your database installation, you can query for your new SQL database using the following Docker command:
 
-``powershell
+```powershell
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "SELECT name FROM sys.databases"
-``
+```
 
 If the database setup completed successfully, you should see the name of your created database (for example, "DurableDB") in the command-line output.
 
@@ -123,13 +123,7 @@ In this instance, you're looking for a result named `DurableDB`, which we can se
 
 The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Please review the documentation of your specific provider for information on how to obtain a connection string.
 
-Generally, a minimal connection string looks as follows:
-
-```
-"Server=<server hosting your SQL DB>;Database=<DB name>;User Id=<DB login username>;Password=<DB login password>;"
-```
-
-Depending on your setup, your DB's connection string may have more properties those shown above. However, these suffice for the Docker-based local DB that we instantiated in the previous section. For example, if you used our commands above without changing any parameters, your connection string should be:
+For example, if you used our commands above without changing any parameters, your connection string should be:
 
 ```
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
@@ -149,7 +143,6 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
       "storageProvider": {
@@ -206,7 +199,7 @@ You can follow [these](/azure/azure-sql/database/single-database-create-quicksta
 
 You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provide your password in the template provided.
 
-## Deploy and enjoy
+### Deploy and enjoy
 
 You can now deploy your code to the cloud, and then run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
 
@@ -219,7 +212,5 @@ SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Insta
 After running a simple orchestrator, you should see at least one result, as shown below:
 
 ![Azure SQL Query editor results for the SQL query provided.](./media/quickstart-mssql/mssql-azure-db-check.png)
-
-And that's it for this walkthrough!
 
 For more information about the MSSQL architecture, configuration, and workload behavior, please see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
