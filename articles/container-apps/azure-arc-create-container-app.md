@@ -68,6 +68,16 @@ customLocationId=$(az customlocation show \
     --output tsv)
 ```
 
+## Retrieve connected environment ID
+
+Now that you have the custom location ID, you can query for the connected environment.
+
+A connected environment is largely the same as a standard Container Apps environment, but network restrictions are controlled by the underlying Arc-enabled Kubernetes cluster.
+
+```azure-interactive
+myConnectedEnvironment = az containerapp connected-env list --custom-location customLocationId -o tsv --query '[].id'
+```
+
 ## Create an app
 
 The following example creates a Node.js app.
