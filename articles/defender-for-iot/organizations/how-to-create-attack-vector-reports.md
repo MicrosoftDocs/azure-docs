@@ -9,14 +9,13 @@ ms.topic: how-to
 
 Attack vector reports show a chain of vulnerable devices in a specified attack path. Simulate an attack on a specific target in your network to discover vulnerable devices and analyze attack vectors in real time.
 
-Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a system upgrade would disrupt the attacker's path, or if an alternate attack path still remains. 
+Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a system upgrade would disrupt the attacker's path, or if an alternate attack path still remains.
 
 ## Prerequisites
 
-You must be an **Admin** or **Security Analyst** user to create an attack vector report.
+You must be an **Admin** or **Security Analyst** [user](roles-on-premises.md) to create an attack vector report.
 
 ## Generate an attack vector simulation
-
 
 Generate an attack vector simulation so that you can view the resulting report.
 
@@ -31,27 +30,26 @@ Generate an attack vector simulation so that you can view the resulting report.
     | **Maximum Vectors** | The maximum number of attack vectors you want to include in the simulation. |
     | **Show in Device Map** | Select to show the attack vector as a group in the **Device map**. |
     | **Show All Source Devices** | Select to consider all devices as a possible attack source. |
-    | **Attack Source** | Shown only, and required, if the **Show All Source Devices** option is toggled off. Select one or more devices to consider as the attack source.|
+    | **Attack Source** | Appears only, and required, if the **Show All Source Devices** option is toggled off. Select one or more devices to consider as the attack source.|
     | **Show All Target Devices** | Select to consider all devices as possible attack targets.|
-    | **Attack Target** | Shown only, and required, if the **Show All Target Devices** option is toggled off. Select one or more devices to consider as the attack target.|
+    | **Attack Target** | Appears only, and required, if the **Show All Target Devices** option is toggled off. Select one or more devices to consider as the attack target.|
     | **Exclude Devices** | Select one or more devices to exclude from the attack vector simulation.|
     | **Exclude Subnets** | Select one or more subnets to exclude from the attack vector simulation.|
 
-1. Select **Save**.
+1. Select **Save**. Your simulation is added to the list, with the number of attack paths indicated in parenthesis.
+1. Expand your simulation to view the list of possible attack vector, and select one to view more details on the right. For example:
+    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report." lightbox="media/how-to-generate-reports/sample-attack-vectors.png":::
 
-## Attack vector report contents
+## View an attack vector in the Device Map
 
-You can use the report that is saved from the Attack vector page to review:
+The Device map provides, among [other things](how-to-work-with-the-sensor-device-map.md), a graphical representation of vulnerable devices detected in attack vector reports. To view an attack vector in the Device map:
 
-- network attack paths and insights
-- a risk score
-- source and target devices
-- a graphical representation of attack vectors
-
-:::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
+1. In the **Attack vector** page, make sure your simulation has **Show in Device map** toggled on.
+1. Select **Device map** from the side menu.
+1. Select your simulation and then select an attack vector to visualize the devices in your map. For example:
+    :::image type="content" source="media/how-to-generate-reports/sample-device-map.png" alt-text="Screen shot of Device map." lightbox="media/how-to-generate-reports/sample-device-map.png":::
 
 ## Next steps
-
 
 Continue creating other reports for more security data from your OT sensor. For more information, see:
 

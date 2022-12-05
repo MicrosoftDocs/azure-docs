@@ -13,7 +13,7 @@ Each Defender for IoT network sensor can generate a risk assessment report, whil
 
 ## Prerequisites
 
-- You must be an **Admin** user to import firewall rules to an OT sensor or add backup and anti-virus server addresses.
+- You must be an **Admin** [user](roles-on-premises.md) to import firewall rules to an OT sensor or add backup and anti-virus server addresses.
 
 - You must be an **Admin** or **Security Analyst** user to create or view risk assessment reports on the OT sensor or on-premises management console.
 

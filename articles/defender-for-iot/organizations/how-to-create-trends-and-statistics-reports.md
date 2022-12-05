@@ -1,7 +1,7 @@
 ---
 title: Create trends and statistics reports in Defender for IoT
 description: Gain insight into network activity, statistics, and trends by using Defender for IoT Trends and Statistics widgets.
-ms.date: 02/01/2022
+ms.date: 12/05/2022
 ms.topic: how-to
 ---
 
@@ -11,7 +11,7 @@ On your sensor console, create reports that provide insight into network trends 
 
 ## Prerequisites
 
-You must be an **Administrator** or **Security Analyst** user to create dashboards.
+You must be an **Administrator** or **Security Analyst** [user](roles-on-premises.md) to create dashboards.
 
 ## Create dashboards
 
@@ -27,13 +27,13 @@ You can create many different types of dashboards, based on traffic, device stat
     |---------|---------|
     | **Dashboard name** | Enter a meaningful name for your dashboard. |
     | **Dashboard widget type** (Optional) | Filter the widgets displayed by selecting a category or protocol from the  menu. |
-    | **Widget** | Scroll down as needed and select the widget you want to add. Each widget has a short description and indicates whether it focuses on operations, security, or traffic. |
+    | **Widget** | Scroll down as needed and select the widget you want to add. Each widget has a short description and indicates what it focuses on. |
 
 1. Select **Save** to start your new dashboard.
 
 1. Your widget is added to the new dashboard. Use the toolbar at the top of page to continue modifying your dashboard.
 
-By default, results display detections for over the last seven days. Select the **Filter** button at the top left of each widget to change this range.
+By default, results display detections for the current day. Select the **Filter** icon at the top left of each widget to change this range.
 
 > [!NOTE]
 > The time shown in the widget is set according to the sensor machine's time.
@@ -59,7 +59,7 @@ The following table summarizes common use cases for dashboard widgets.
 
 ## Next steps
 
-For more information, see:
+Continue creating other reports for more security data from your OT sensor. For more information, see:
 
 - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
 

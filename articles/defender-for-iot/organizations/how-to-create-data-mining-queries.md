@@ -1,7 +1,7 @@
 ---
 title: Create data mining queries and reports in Defender for IoT
 description: Learn how to create granular reports about network devices.
-ms.date: 02/02/2022
+ms.date: 12/05/2022
 ms.topic: how-to
 ---
 
@@ -13,11 +13,11 @@ Data mining information is saved and stored continuously, except for when a devi
 
 ## Prerequisites
 
-You must be an **Admin** or **Security Analyst** user to access predefined data mining reports.
+You must be an **Admin** or **Security Analyst** [user](roles-on-premises.md) to access predefined data mining reports.
 
 ## Create a report
 
-Reports are dynamically updated each time you open them, meaning that the report will show information that's accurate for the date of viewing the report, rather than the date of creating the report.
+Reports are dynamically updated each time you open them. The report shows information that's accurate for the date of viewing the report, rather than the date of creating the report.
 
 **To generate a report**:
 
@@ -35,11 +35,11 @@ Reports are dynamically updated each time you open them, meaning that the report
 
 1. Select **Save** to save your report and display results on the **Data Mining** page.
 
-## Data mining report contents
+## Custom data mining reports
 
-You can use data mining queries for:
+Customize your data mining queries, using the different parameters in the **Create new report** pane, to:
 
-| Information | Description |
+| Purpose | Description |
 |---------|---------|
 | **SOC incident response** | Generate a report in real time to help deal with immediate incident response. For example, Data Mining can generate a report for a list of devices that might require patching. |
 | **Forensics** | Generate a report based on historical data for investigative reports. |
@@ -49,7 +49,7 @@ You can use data mining queries for:
 
 ## Predefined data mining reports
 
-The following predefined reports are available in **Analyze** > **Data Mining**. These queries are generated in real time.
+The following predefined reports are available in the **Data Mining** page. These queries are generated in real time.
 
 | Report | Description |
 |---------|---------|
@@ -57,29 +57,25 @@ The following predefined reports are available in **Analyze** > **Data Mining**.
 | **Remote access** | Devices that communicate through remote session protocols. |
 | **Internet activity** | Devices that are connected to the internet. |
 | **CVEs** | A list of devices detected with known vulnerabilities, along with CVSSv2 risk scores. |
-| **Excluded CVEs** | A list of all the CVEs that were manually excluded. Customize the CVE list manually if you want the VA reports and attack vectors to reflect your network more accurately by excluding or including particular CVEs and updating the CVSSv2 score accordingly. |
+| **Excluded CVEs** | A list of all the CVEs that were manually excluded. Customize the CVE list manually if you want the VA reports and attack vectors to reflect your network more accurately. Customization includes excluding or including particular CVEs and updating the CVSSv2 score accordingly. |
 | **Nonactive devices** | Devices that haven't communicated for the past seven days. |
 | **Active devices** | Active network devices within the last 24 hours. |
 
 ## Generate reports in on-premises management console
 
-The on-premises management console lets you generate reports for each sensor that's connected to it. For each sensor, you can generate a default report or a custom report configured on that sensor.
+The on-premises management console lets you generate reports for each sensor that's connected to it. For each sensor, you can generate a default report or a custom report configured on that sensor. When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports.
 
 **To generate a report**:
 
-1. On the left pane, select **Reports**. The **Reports** window appears.
+1. Select **Reports** from the side menu.
 
 2. From the **Sensors** drop-down list, select the sensor for which you want to generate the report.
 
-   :::image type="content" source="media/how-to-generate-reports/sensor-drop-down-list.png" alt-text="Screenshot of sensors view.":::
-
-3. From the right drop-down list, select the report that you want to generate.
+3. From the **Select Report** drop-down list, select the report that you want to generate.
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
 
-## View reports in on-premises management console
-
-When you choose a sensor from the on-premises management console, all the custom reports configured on that sensor appear in the list of reports. 
+## Default reports in on-premises management console
 
 Reports are based on sensor data-mining queries that are performed, and include:
 
@@ -92,9 +88,7 @@ Reports are based on sensor data-mining queries that are performed, and include:
 
 ## Next steps
 
-Reports can be viewed in the **Data Mining** page. You can refresh a report, edit report parameters, and export to a CSV file or PDF. You can also take a snapshot of a report.
-
-For more information, see:
+Continue creating other reports for more security data from your OT sensor. For more information, see:
 
 - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
 
