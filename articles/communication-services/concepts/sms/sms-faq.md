@@ -98,24 +98,24 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 - **Weekly limit:** 12,000 messages
 - **Monthly limit:** 25,000 messages
 
-This would not apply to TFNs in a [pending or verified status](#what-does-the-different-application-status-verified-pending-and-unverified-mean).
+This would not apply to TFNs in a [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 > 
 > The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
 
 #### SMS to Canadian phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in a [pending or verified status](#what-does-the-different-application-status-verified-pending-and-unverified-mean).
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and be in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
 
-### What does the different application status (verified, pending and unverified) mean? 
-- **Verified:** Verified numbers have gone through the toll-free verification process and were approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
-- **Pending**: Pending numbers have submitted a toll-free verification application, and are currently awaiting a response from the aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers will remain in this pending state until a decision has been made on verification status.
+### What do the different application statuses (verified, pending and unverified) mean? 
+- **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
+- **Pending**: Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers will remain in this pending state until a decision has been made on verification status.
 - **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state will automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
-After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messagining aggregator. While we are reviewing your application, we may reach out to you for more information.
+After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-2 weeks** 
-- From Pending to Verdict(Verfied/Rejected/More info needed) = **4-5 weeks**
+- From Pending to Verdict (Verfied/Rejected/More info needed) = **4-5 weeks**
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application.
 
@@ -125,13 +125,14 @@ Updates for changes and the status of your applications will be communicated via
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### What is considered a high quality toll-free verification application? 
-The higher the quality of the application the higher chances your application will enter [pending state](#what-does-the-different-application-status-verified-pending-and-unverified-mean) faster.  
+The higher the quality of the application the higher chances your application will enter [pending state](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean) faster.  
 
+Pointers to ensure you are submitting a high quality application:
 - Phone number(s) listed is/are Toll-free number(s)
 - All required fields completed
 - The use case is not listed on our [Ineligible Use Case](#what-are-the-ineligible-use-cases-for-toll-free-verification) list 
 - Opt-in process is documented/detailed
-- Opt-in image URL is publicly accessible 
+- Opt-in image URL is provided and publicly accessible 
 - [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms) are being followed
 
 ### What are the Ineligible Use Cases for toll-free verification? 
