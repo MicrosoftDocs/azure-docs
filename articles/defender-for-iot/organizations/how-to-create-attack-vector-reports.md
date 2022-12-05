@@ -7,7 +7,9 @@ ms.topic: how-to
 
 # Create attack vector reports
 
-Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target.
+Attack vector reports show a chain of vulnerable devices in a specified attack path. Simulate an attack on a specific target in your network to discover vulnerable devices and analyze attack vectors in real time.
+
+Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a system upgrade would disrupt the attacker's path, or if an alternate attack path still remains. 
 
 ## Prerequisites
 
@@ -15,23 +17,25 @@ You must be an **Admin** or **Security Analyst** user to create an attack vector
 
 ## Generate an attack vector simulation
 
+
+Generate an attack vector simulation so that you can view the resulting report.
+
 **To generate an attack vector simulation:**
 
-1. Select **Attack vector** from the sensor side menu.
-1. Select **Add simulation**.
-1. Enter simulation properties:
+1. Sign into the sensor console and select **Attack vector** on the left.
+1. Select **Add simulation** and enter the following values:
 
     | Property  | Description  |
     |---------|---------|
     | **Name** | Simulation name |
-    | **Maximum vectors** | The maximum number of vectors in a single simulation. |
-    | **Show in Device map** | Show the attack vector as a group in the Device map. |
-    | **All Source devices** | The attack vector will consider all devices as an attack source. |
-    | **Attack Source** | The attack vector will consider only the specified devices as an attack source. |
-    | **All Target devices** | The attack vector will consider all devices as an attack target. |
-    | **Attack Target** | The attack vector will consider only the specified devices as an attack target. |
-    | **Exclude devices** | Specified devices will be excluded from the attack vector simulation. |
-    | **Exclude Subnets** | Specified subnets will be excluded from the attack vector simulation. |
+    | **Maximum Vectors** | The maximum number of attack vectors you want to include in the simulation. |
+    | **Show in Device Map** | Select to show the attack vector as a group in the **Device map**. |
+    | **Show All Source Devices** | Select to consider all devices as a possible attack source. |
+    | **Attack Source** | Shown only, and required, if the **Show All Source Devices** option is toggled off. Select one or more devices to consider as the attack source.|
+    | **Show All Target Devices** | Select to consider all devices as possible attack targets.|
+    | **Attack Target** | Shown only, and required, if the **Show All Target Devices** option is toggled off. Select one or more devices to consider as the attack target.|
+    | **Exclude Devices** | Select one or more devices to exclude from the attack vector simulation.|
+    | **Exclude Subnets** | Select one or more subnets to exclude from the attack vector simulation.|
 
 1. Select **Save**.
 
@@ -48,9 +52,8 @@ You can use the report that is saved from the Attack vector page to review:
 
 ## Next steps
 
-Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can now determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
 
-For more information, see:
+Continue creating other reports for more security data from your OT sensor. For more information, see:
 
 - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
 
