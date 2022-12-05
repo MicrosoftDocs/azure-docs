@@ -5,7 +5,6 @@
   items:
   - name: Identity standards overview
     href: standards-overview.md
- 
 - name: Achieving NIST AALs
   expanded: true
   items:
@@ -34,7 +33,6 @@
     href: fedramp-identification-and-authentication-controls.md
   - name: Configure additional controls
     href: fedramp-other-controls.md
-- Name: Meeting Memorandum 22-09 identity requirements
 - name: Achieving CMMC compliance
   expanded: true
   items:
@@ -48,6 +46,7 @@
     href: configure-cmmc-level-2-identification-and-authentication.md
   - name: Configure CMMC Level 2 additional controls
     href: configure-cmmc-level-2-additional-controls.md
+- name: Meeting Memorandum 22-09 identity requirements
   expanded: true
   items:
   - name: Overview
