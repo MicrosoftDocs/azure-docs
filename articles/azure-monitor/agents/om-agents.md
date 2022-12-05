@@ -45,6 +45,7 @@ Before starting, review the following requirements.
 * Supported Regions - The following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US
     - Australia South East
+    - West Europe
     - East US
     - South East Asia
     - Japan East
