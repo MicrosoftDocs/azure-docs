@@ -122,18 +122,10 @@ az postgres flexible-server create \
     --output tsv
 ```
 
-Follow the steps below to set up an Azure AD administrator after server creation:
-
-1. In the Azure portal, select the Azure Database for PostgreSQL flexible server instance created and enable Azure AD.
-1. Under Security, select Authentication and choose either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
-set azure ad administrator
-
-1. Select `Add Azure AD Admins` and select a valid Azure AD user / group /service principal/Managed Identity in the customer tenant to be Azure AD administrator.
-1. Select Save,
+Follow the steps in this [article](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users#create-or-delete-azure-ad-administrators-using-azure-portal-or-azure-resource-manager-arm-api) to set up an Azure AD administrator after creating the server.
 
 > [!IMPORTANT]
 > When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
-This command creates a small PostgreSQL server and sets the Active Directory admin to the signed-in user.
 
 #### [Password](#tab/password)
 
@@ -223,15 +215,14 @@ Create a SQL script called *create_ad_user.sql* for creating a non-admin user. A
 
 ```bash
 cat << EOF > create_ad_user.sql
-CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
-GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
+select * from pgaadauth_create_principal('$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME', false, false);
 EOF
 ```
 
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=$AZ_DATABASE_NAME port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME dbname=postgres port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
