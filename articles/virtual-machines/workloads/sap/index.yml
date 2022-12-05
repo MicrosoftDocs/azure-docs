@@ -34,7 +34,7 @@ landingContent:
           - text: Storage types for SAP workloads
             url: planning-guide-storage.md
           - text: Deployment checklist
-            url: sap-deployment-checklist
+            url: sap-deployment-checklist.md
       - linkListType: how-to-guide
         links:
           - text: Plan for SAP NetWeaver deployments
