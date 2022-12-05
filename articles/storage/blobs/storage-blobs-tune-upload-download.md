@@ -20,20 +20,22 @@ This article walks through several considerations and best practices to tune dat
 
 ## Performance tuning with StorageTransferOptions
 
-Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in this struct. The following properties of `StorageTransferOptions` can be tuned based on the needs of your app:
+Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in this struct. The maximum supported transfer size varies by REST API and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
-- [InitialTransferSize](#initialtransfersize) specifies the size of the first request in bytes.
-- [MaximumConcurrency](#maximumconcurrency) specifies the maximum number of workers, or subtransfers, that may be used in a parallel transfer.
-- [MaximumTransferSize](#maximumtransfersize) specifies the maximum length of a transfer in bytes.
+The following properties of `StorageTransferOptions` can be tuned based on the needs of your app:
+
+- [InitialTransferSize](#initialtransfersize) - the size of the first request in bytes
+- [MaximumConcurrency](#maximumconcurrency) - the maximum number of workers, or subtransfers, that may be used in a parallel transfer
+- [MaximumTransferSize](#maximumtransfersize) - the maximum length of a transfer in bytes
 
 > [!NOTE]
 > While the `StorageTransferOptions` struct contains nullable values, the client libraries will use defaults for each individual value, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned `StorageTransferOptions` can result in excessively long operations and even request timeouts. It's best to be proactive in testing the values in `StorageTransferOptions`, and tuning them based on the needs of your application and environment.
 
 #### InitialTransferSize
 
-[InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. The first range request is the initial service request to transfer the number of bytes specified by the value in `InitialTransferSize`. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
+[InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. This initial service request attempts to transfer the number of bytes specified by the value in `InitialTransferSize`. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
-It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. In fact, it's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once with no subtransfers. Depending on the size of the data transfer, this approach can be preferable, as the transfer is completed with a single request and avoids the overhead of multiple requests. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
