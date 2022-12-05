@@ -126,25 +126,25 @@ Install these packages:
 
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
-- [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
 - [@azure/monitor-opentelemetry-exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
+- [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
 
 ```sh
 npm install @opentelemetry/sdk-trace-base
 npm install @opentelemetry/sdk-trace-node
-npm install @opentelemetry/sdk-metrics
 npm install @azure/monitor-opentelemetry-exporter
+npm install @opentelemetry/api
 ```
 
 The following packages are also used for some specific scenarios described later in this article:
 
-- [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
+- [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
 - [@opentelemetry/resources](https://www.npmjs.com/package/@opentelemetry/resources)
 - [@opentelemetry/semantic-conventions](https://www.npmjs.com/package/@opentelemetry/semantic-conventions)
 - [@opentelemetry/instrumentation-http](https://www.npmjs.com/package/@opentelemetry/instrumentation-http)
 
 ```sh
-npm install @opentelemetry/api
+npm install @opentelemetry/sdk-metrics
 npm install @opentelemetry/resources
 npm install @opentelemetry/semantic-conventions
 npm install @opentelemetry/instrumentation-http
