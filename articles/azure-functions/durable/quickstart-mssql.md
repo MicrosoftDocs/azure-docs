@@ -119,7 +119,7 @@ DurableDB
 
 In this instance, you're looking for a result named `DurableDB`, which we can see as the last item above.
 
-## Add your DB connection string to local.settings.json
+### Add your SQL connection string to local.settings.json
 
 The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Please review the documentation of your specific provider for information on how to obtain a connection string.
 
