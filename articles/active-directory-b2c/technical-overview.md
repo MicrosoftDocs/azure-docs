@@ -48,7 +48,7 @@ Azure AD B2C defines several types of user accounts. Azure Active Directory, Azu
 * **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
 * **Consumer account** - Accounts that are managed by Azure AD B2C user flows and custom policies.
 
-:::image type="content" source="media/technical-overview/portal-01-users.png" alt-text="Screenshot of the Azure AD B2C user management page in the Azure portal":::<br/>*Figure: User directory within an Azure AD B2C tenant in the Azure portal*
+:::image type="content" source="media/technical-overview/portal-01-users.png" alt-text="Screenshot of the Azure AD B2C user management page in the Azure portal":::<br/>*Figure: User directory within an Azure AD B2C tenant in the Azure portal.*
 
 ### Consumer accounts
 
@@ -84,13 +84,13 @@ You can also extend the Azure AD schema to store additional information about yo
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from social and enterprise identity providers. Azure AD B2C can federate with identity providers that support OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols. For example, Facebook, Microsoft account, Google, Twitter, and AD-FS.
 
-:::image type="content" source="media/technical-overview/external-idps.png" alt-text="Company logos for a sample of external identity providers.":::
+:::image type="content" source="media/technical-overview/external-idps.png" alt-text="Diagram showing company logos for a sample of external identity providers.":::
 
 With external identity providers, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
 On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're redirected to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
 
-:::image type="content" source="media/technical-overview/external-idp.png" alt-text="Mobile sign-in example with a social account (Facebook).":::
+:::image type="content" source="media/technical-overview/external-idp.png" alt-text="Diagram showing a mobile sign-in example with a social account (Facebook).":::
 
 To see how to add identity providers in Azure AD B2C, see [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md).
 
