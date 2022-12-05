@@ -446,7 +446,7 @@ To resolve this, the proxy's root certificate needs to be trusted by both the op
 
 1. Configure proxy certificate in the trusted root certificate store of your host operating system. For more information about how to install a root certificate, see [Install root CA to OS certificate store](how-to-manage-device-certificates.md#install-root-ca-to-os-certificate-store).
 
-2. You'll need to configure your IoT Edge device to communicate through a proxy server by referencing the certificate in the trust bundle. For more information on how to configure the trust bundle, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle). If you already have certificates in that file, append the proxy's certificate to the end of that file. The *edgeAgent* and *edgeHub* containers automatically trust any certificate in that file.
+2. You will need to configure your IoT Edge device to communicate through a proxy server by referencing the certificate in the trust bundle. For more information on how to configure the trust bundle, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle). If you already have certificates in that file, append the proxy's certificate to the end of that file. The IoT Edge modules (including *edgeAgent* and *edgeHub*) automatically trust any certificate in that file.
 
 To configure traffic inspection proxy support for containers not managed by IoT Edge, contact your proxy provider. 
 
