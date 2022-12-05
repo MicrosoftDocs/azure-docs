@@ -1,6 +1,6 @@
 ---
 title: Create and manage a catalog of resources in entitlement management - Azure AD
-description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
+description: Learn how to create a new container of resources and access packages in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available for creating and managing a catalog so that I can most effectively use catalogs in my organization.
 
 ---
-# Create and manage a catalog of resources in Azure AD entitlement management
+# Create and manage a catalog of resources in Microsoft Entra entitlement management
 
-This article shows you how to create and manage a catalog of resources and access packages in Azure Active Directory (Azure AD) entitlement management.
+This article shows you how to create and manage a catalog of resources and access packages in Microsoft Entra entitlement management.
 
 ## Create a catalog
 

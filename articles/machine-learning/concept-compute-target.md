@@ -39,7 +39,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 
 ## Azure Machine Learning compute (managed)
 
@@ -170,4 +170,4 @@ For more information, see [Manage compute resources](how-to-create-attach-comput
 ## Next steps
 
 Learn how to:
-* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)
+* [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)
