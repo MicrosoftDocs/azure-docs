@@ -126,7 +126,7 @@ Code: EnvironmentNotFound
 Message: The environment resource was not found.
 ```
 
-To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team)
+To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team).
 
 ## Access an environment
 
