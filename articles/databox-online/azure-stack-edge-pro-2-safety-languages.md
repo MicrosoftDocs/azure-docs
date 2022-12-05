@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 12/05/2022
 ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
@@ -21,7 +21,7 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 Use a locale code in the table below to create a URL for the article in a specific language.
 
 Examples:
- - English-language article using the *es* locale code: 
+ - English-language article using the *en* locale code: 
    ```http
    https://learn.microsoft.com/en/azure/databox-online/azure-stack-edge-pro-2-safety
    ```
