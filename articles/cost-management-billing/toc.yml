@@ -342,7 +342,7 @@
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
-        href: manage/ea-portal-rest-apis.md
+        href: manage/enterprise-rest-apis.md
       - name: Azure EA VM reserved instances
         href: manage/ea-portal-vm-reservations.md
       - name: Azure Marketplace
