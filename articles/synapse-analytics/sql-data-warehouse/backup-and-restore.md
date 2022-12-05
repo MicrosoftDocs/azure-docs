@@ -6,7 +6,7 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 07/19/2022
+ms.date: 11/30/2022
 ms.author: stevehow
 ms.reviewer: joanpo
 ms.custom: seo-lt-2019"
@@ -111,7 +111,7 @@ To restore a deleted data warehouse, see [Restore a deleted database (formerly S
 >  - ETL tools activities such as [Copy Activity](../../data-factory/copy-activity-overview.md)
 >  - Export and Import
 >     - Export the data from the restored backup into your Data Lake by using CETAS [CETAS Example](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-linux-ver16&preserve-view=true#d-use-create-external-table-as-select-exporting-data-as-parquet)
->     - Import the data by using [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) or [Polybase](../sql/load-data-overview.md#options-for-loading-with-polybase)
+>     - Import the data by using [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) or [Polybase](../sql/load-data-overview.md#options-for-loading-with-polybase)
 
 ## Cross subscription restore
 

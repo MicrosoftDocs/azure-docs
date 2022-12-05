@@ -669,3 +669,8 @@ SOURCE=https://<account_name>.blob.core.windows.net/<container>/<path>
 DEST=/home/azureuser/data
 azcopy cp $SOURCE $DEST
 ```
+
+## Next steps
+
+- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Access data in a job](how-to-read-write-data-v2.md)

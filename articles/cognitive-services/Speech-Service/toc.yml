@@ -121,10 +121,18 @@ items:
     - name: Batch synthesis API
       href: batch-synthesis.md
     - name: Improve synthesis with SSML
-      href: speech-synthesis-markup.md
-    - name: SSML phonetic sets
-      href: speech-ssml-phonetic-sets.md
-      displayName: ipa, phoneme, phonetic, prosody
+      items:
+      - name: SSML overview
+        href: speech-synthesis-markup.md
+      - name: SSML document structure and events
+        href: speech-synthesis-markup-structure.md
+      - name: Voice and sound with SSML
+        href: speech-synthesis-markup-voice.md
+      - name: Pronunciation with SSML
+        href: speech-synthesis-markup-pronunciation.md
+      - name: SSML phonetic sets
+        href: speech-ssml-phonetic-sets.md
+        displayName: ipa, phoneme, phonetic, prosody
     - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
     - name: Get facial position with viseme

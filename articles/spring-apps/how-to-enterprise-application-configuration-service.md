@@ -36,7 +36,7 @@ Application Configuration Service for Tanzu supports Azure DevOps, GitHub, GitLa
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of where to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 The following table describes properties for each entry.
 

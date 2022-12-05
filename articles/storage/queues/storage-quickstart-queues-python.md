@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, py-fresh-zinc
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for Python

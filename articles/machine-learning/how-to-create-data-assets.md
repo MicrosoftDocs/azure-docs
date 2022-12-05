@@ -60,11 +60,14 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
+> [!IMPORTANT]
+> The studio only supports browsing of credential-less ADLS Gen 2 datastores.
+
 
 ## Data asset types
  - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
 
- - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+ - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in Python you could use `uri_file`, `uri_folder`.
 
  The ideal scenarios to use `mltable` are:
  - The schema of your data is complex and/or changes frequently.
