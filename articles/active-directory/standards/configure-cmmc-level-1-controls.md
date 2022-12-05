@@ -16,19 +16,16 @@ ms.collection: M365-identity-device-management
 
 # Configure CMMC Level 1 controls
 
-Azure Active Directory provides the capability to meet all identity related practice requirements within each of the Cybersecurity Maturity Model Certification (CMMC) levels. It's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes to be compliant with requirements in CMMC.
-Within CMMC Level 1, there are three domains that have one or more practices related to identity. The three domains are:
+Azure Active Directory meets identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete other configurations or processes.
+In CMMC Level 1, there are three domains that have one or more practices related to identity. The three domains are:
 
 * Access Control (AC)
-
 * Identification and Authentication (IA)
-
 * System and Information integrity (SI)
 
-Additional reference content:
+Learn more:
 
 * DoD CMMC website - [Office of the Under Secretary of Defense for Acquisition & Sustainment Cybersecurity Maturity Model Certification](https://www.acq.osd.mil/cmmc/index.html)
-
 * Microsoft Download Center - [Microsoft Product Placemat for CMMC Level 3 (preview)](https://www.microsoft.com/download/details.aspx?id=102536)
 
 The remainder of this content is organized by domain and associated practices. For each domain, there's a table with links to content that provides step-by-step guidance to accomplish the practice.
@@ -59,7 +56,7 @@ The following table provides a list of control IDs and associated responsibiliti
 
 | *Control* | *Guidance* |
 | - | - |
-| SI.L1-3.14.1<br><br>SI.L1-3.14.2<br><br>SI.L1-3.14.4<br><br>SI.L1-3.14.5 | **Consolidated Guidance for legacy managed devices**<br>Configure conditional access to require Hybrid Azure AD joined device. For devices that are joined to an on-premises AD, it's assumed that the control over these devices is enforced using management solutions such as Configuration Manager or group policy (GP). Because there's no method for Azure AD to determine whether any of these methods has been applied to a device, requiring a hybrid Azure AD joined device is a relatively weak mechanism to require a managed device. It's up to you as an administrator to judge whether the methods that are applied to your on-premises domain-joined devices are strong enough to constitute a managed device, if such a device is also a Hybrid Azure AD joined device.<br><br>**Consolidated guidance for cloud-managed (or co-management) devices**<br>Configure conditional access to require a device to be marked as compliant; this is the strongest form to request a managed device. This option requires a device to be registered with Azure AD, and to be marked as compliant by Intune or third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration.
+| SI.L1-3.14.1<br><br>SI.L1-3.14.2<br><br>SI.L1-3.14.4<br><br>SI.L1-3.14.5 | **Consolidated Guidance for legacy managed devices**<br>Configure conditional access to require Hybrid Azure AD joined device. For devices that are joined to an on-premises AD, it's assumed that the control over these devices is enforced using management solutions such as Configuration Manager or group policy (GP). Because there's no method for Azure AD to determine whether any of these methods has been applied to a device, requiring a hybrid Azure AD joined device is a relatively weak mechanism to require a managed device. The administrator judges whether the methods applied to your on-premises domain-joined devices are strong enough to constitute a managed device, if the device is also a Hybrid Azure AD joined device.<br><br>**Consolidated guidance for cloud-managed (or co-management) devices**<br>Configure conditional access to require a device to be marked as compliant, the strongest form to request a managed device. This option requires a device to be registered with Azure AD, and to be marked as compliant by Intune or third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration.
 
 ### Next steps
 
