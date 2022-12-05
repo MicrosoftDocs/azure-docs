@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
-ms.date: 11/03/2022
+ms.date: 12/04/2022
 ms.topic: quickstart
 ms.custom: ignite-2022
 ---
@@ -22,6 +22,7 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- To use all advanced security capabilities provided by GitHub Connector in Defender for DevOps, you need to have GitHub Enterprise with GitHub Advanced Security (GHAS) enabled.
 
 ## Availability
 
@@ -77,7 +78,11 @@ When the process completes, the GitHub connector appears on your Environment set
 
 :::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected." lightbox="media/quickstart-onboard-github/github-connector.png":::
 
-The Defender for DevOps service automatically discovers the repositories you selected and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository. This can take up to an average of 3 hours.
+The Defender for DevOps service automatically discovers the repositories you selected and analyzes them for any security issues. Initial repository discovery can take up to 10 minutes during the onboarding process. 
+
+When auto-discovery is selected during the onboarding process, it can take up to 4 hours for repositories to appear after onboarding is completed. The auto-discovery process detects any new repositories and connects them to Defender for Cloud.
+
+The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository. This can take up to 3 hours or more.
 
 ## Learn more
 
