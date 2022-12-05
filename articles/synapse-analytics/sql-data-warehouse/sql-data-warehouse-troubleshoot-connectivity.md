@@ -26,7 +26,7 @@ The status of your dedicated SQL pool  (formerly SQL DW) will be shown here. If 
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Additional information about Resource Health can be found [here](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+Additional information about Resource Health can be found [here](https://learn.microsoft.com/azure/service-health/resource-health-overview).
 
 ## Check for paused or scaling operation
 
