@@ -493,17 +493,15 @@ We recommend that you monitor the execution of your functions by integrating you
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
 
+## x86 emulation on ARM64
+
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 ### Enable emulation in Visual Studio Code
 
-Now that you've configured the Terminal with Rosetta to run x86 emulation, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
+Now that you've configured the Terminal with Rosetta to run x86 emulation for Python development, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
 
-1.  Open Command Palette by pressing Cmd+Shift+P.
-
-    ![open-settings](./media/arm-64-python/open-settings.png)
-
-1.  Select **Preferences: Open Settings (JSON)** and add the following JSON to your configuration:
+1.  Open Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
 
     ```json
     "terminal.integrated.profiles.osx": {
@@ -514,9 +512,9 @@ Now that you've configured the Terminal with Rosetta to run x86 emulation, you c
            }
          }
     ```
-1. Open a new Terminal and verify that it's using Rosetta.
+1. Open a new Terminal and choose **rosetta**.
 
-    ![vsc-rosetta](./media/arm-64-python/vsc-rosetta.png)
+    ![vsc-rosetta](./media/functions-develop-vs-code/vsc-rosetta.png)
 
 ## C\# script projects
 

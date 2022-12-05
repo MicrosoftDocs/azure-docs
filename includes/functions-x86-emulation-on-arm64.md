@@ -6,8 +6,6 @@ ms.date: 12/05/2022
 ms.author: glenga
 ---
 
-## x86 emulation on ARM64
-
 Functions doesn't currently support Python function development on ARM64 devices. Use the following steps to develop Python functions on a Mac with an M1 chip by running in an emulated x86 environment. 
 
 ### Enable Rosetta in Terminal
@@ -16,11 +14,11 @@ Functions doesn't currently support Python function development on ARM64 devices
 
 1. Control-click **Terminal** and select **Get Info**. You can also create a separate parallel environment by duplicating the Terminal and renaming it.
 
-    ![Select Get Info by control-clicking Terminal](./media/arm-64-python/arm-64-python-1.png)
+    ![Select Get Info by control-clicking Terminal](./media/functions-x86-emulation-on-arm64/arm64-python-1.png)
 
 1. Select **Open using Rosetta**.
 
-    ![Rosetta](./media/arm-64-python/arm-64-python-2.png)
+    ![Configure Terminal to open using Rosetta](./media/functions-x86-emulation-on-arm64/arm64-python-2.png)
 
 1. Open Terminal, which now has Rosetta enabled, and make sure your shell is zsh.
 
@@ -65,7 +63,7 @@ Run the following command to apply the aliases:
 $ source .zshrc
 ```
 
-Validate you're referencing the correct versions by using the 'which' command, as shown in the following examples:
+Validate you're referencing the correct versions by using the `which` command, as shown in the following examples:
 
 | Command | Example response |
 | --- | --- |
