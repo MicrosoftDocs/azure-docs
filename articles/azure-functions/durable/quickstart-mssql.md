@@ -42,7 +42,7 @@ If this is not the case, we suggest you start with one of the following articles
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
-There are many ways to achieve this, especially for C# users who may leverage [Visual Studio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions).
+There are many ways to achieve this, especially for C# users who may leverage [Visual Studio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md#install-binding-extensions).
 
 However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
 
@@ -50,7 +50,7 @@ However, all languages should be able to utilize the [Azure Functions Core Tools
 func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
 ```
 
-For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run-local.md#install-extensions).
 
 ## Set up your Database
 
