@@ -76,9 +76,15 @@ If you have many resources, you can use a PowerShell script to [add each resourc
 
 ### Create access packages corresponding to organizational role definitions
 
+Each organizational role definition can be represented with an access package.  You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#creating-an-access-package-with-microsoft-powershell).
+
 Once you've created an access package, then you'll link the one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
 
-### Add policies in those access packages for auto assignment
+In addition, you'll create a policy for direct assignment, that can be used to track the users who already have individual organizational role assignments.
+
+### Create access package assignments for existing individual organizational role assignments
+
+### Add policies to those access packages for auto assignment
 
 ### Set access packages as incompatible for separation of duties
 
