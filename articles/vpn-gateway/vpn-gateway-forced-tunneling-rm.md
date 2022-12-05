@@ -24,7 +24,7 @@ The following diagram illustrates how forced tunneling works.
 
 In this example, the Frontend subnet is not force tunneled (split tunneling). The workloads in the Frontend subnet can continue to accept and respond to customer requests from the Internet directly. The Mid-tier and Backend subnets are forced tunneled. Any outbound connections from these two subnets to the Internet will be forced or redirected back to an on-premises site via one of the Site-to-site (S2S) VPN tunnels.
 
-With a splitted tunneling type you can redirect all the traffic for specific subnets directly to on-premise, instead of other subnet that continue to fave direct internet access without redirection.
+With a splitted tunneling type you can redirect all the traffic for specific subnets directly to on-premises, instead of other subnet that continue to have direct internet access without redirection.
 
 This allows you to restrict and inspect Internet access from your virtual machines or cloud services in Azure, while continuing to enable your multi-tier service architecture required. If there are no Internet-facing workloads in your virtual networks, you also can apply forced tunneling to the entire virtual networks.
 
