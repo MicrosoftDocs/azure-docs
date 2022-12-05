@@ -45,6 +45,7 @@ These samples are open-source code, and you should review the information and li
 <h1 class="heading">
 <span onclick="ExpandCollapse(imageItem)" style="cursor:default;" onkeypress="ExpandCollapse_CheckKey(imageItem, event)" tabindex="0">SMART on FHIR Proxy</span>
 </h1>
+<span>
 Lets go over individual steps to enable SMART on FHIR 
 ## Step 1 : Set admin consent for your client application
 
@@ -160,6 +161,6 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 ![Screenshot showing SMART on FHIR app.](media/smart-on-fhir/smart-on-fhir-app.png)
 
 Inspect the token response to see how the launch context fields are passed on to the app.
-
+</span>
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
