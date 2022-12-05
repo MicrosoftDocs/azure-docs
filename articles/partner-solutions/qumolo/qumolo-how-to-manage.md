@@ -1,72 +1,71 @@
-# How to 
+---
+title: Manage your Azure Native Qumulo Service integration
+description: This article describes how to manage Qumulo on the Azure portal. 
 
-## Manage the Azure Native Qumulo Scalable Service 
+ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.date: 12/31/2022
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
+
+---
+
+# How to Manage the Azure Native Qumulo Service
 
 This article describes how to manage Azure Native Qumulo Scalable File Service.
 
 ## Resource Overview
 
-Screenshot text
+  Screenshot
 
-The Overview page shows the details of your Qumulo file system. These details include
+To see the details of you of your Qumulo resource, select **Overview** in the left pane.
 
-1.  Resource group
+These details include the following:
 
-2.  Qumulo Core Web UI Login URL
+- Resource group
+- Qumulo Core Web UI Login URL
+- Location of the filesystem
+- Virtual network and subnet details
+- Subscription
+- Marketplace Status of the service
+- Pricing plan
+- Storage type
 
-3.  Location of the filesystem
+Selecting _IP addresses_ at the bottom displays the IP addresses associated with the filesystem that can be used to mount the file system to your workload machine.
 
-4.  Virtual network and subnet details
-
-5.  Subscription
-
-6.  Marketplace Status of the service
-
-7.  Pricing plan
-
-8.  Storage type
-
-Selecting the "Ip addresses" button at the bottom displays the Ip addresses associated with the filesystem which can be used to mount the file system to your workload machine.
-
- Screenshot text
+  Screenshot
 
 ## Accessing the Qumulo FileSystem
 
-1.  Create a new virtual machine in the same virtual network or use an existing virtual machine in the same virtual network and login to the machine. You can use a Bastion host to login to the virtual machine based on your network policy.
+1. Create a new virtual machine in the same virtual network or use an existing virtual machine in the same virtual network. Then, login to the machine. You can use a bastion host to login to the virtual machine based on your network policy.
 
-Screenshot text
+  Screenshot
 
-2.  Accessing the Admin Page
+1. To access the admin page, Open the Edge browser on the virtual machine and enter the Qumulo Core Web UI Login URL which is present in the resource overview into the address bar of the browser. Use username as "admin" and enter the password to login.
 
-Open the Edge browser on the virtual machine and enter the Qumulo Core Web UI Login URL which is present in the resource overview into the address bar of the browser. Use username as "admin" and enter the password to login.
-
-screenshot 
+  Screenshot
 
 ## Mounting the Qumulo File System
 
-1.  Open the File Explorer on the virtual machine, right click on the Network drive icon and select "Map network drive"
+1. Open File Explorer on the virtual machine. Right-click on the Network drive icon and select **Map network drive...**.
 
-Screenshot 
+  Screenshot
 
-2.  From the Ip address tab of the resource overview page, select any one of the Ip addresses to enter the folder path value and append it with "\\files" and select finish.
+1. From the IP address tab of the Resource overview page, select any one of the Ip addresses to enter the folder path value and append it with `\files` and select **Finish**.
+<!-- This does not match the image in the document. -->
 
+1. Enter the **Username** and **Password** to complete adding the network drive to your virtual machine.
 
-3.  Enter the file system username and password to complete adding the network drive to your virtual machine.
-
-Screenshot 
+  Screenshot
 
 ## Delete the Qumulo FileSystem --
 
 To delete a deployment of Qumulo File System.
 
-1.  From the resource menu, select your Qumulo File System
+1. From the Resource menu, select your Qumulo File System
+1. Select the Overview on the left
+1. Select **Delete**.
+1. Confirm that you want to delete the Qumulo File System along with associated data and other resources attached to the service.
+5. Select **Delete**.
 
-2.  Select the Overview on the left
+  Screenshot
 
-3.  Select Delete.
-
-4.  Confirm that you want to delete the Qumulo File System along with associated data and other resources attached to the service.
-
-5.  Select Delete.
-
-Screenshot 
+## Next Steps
