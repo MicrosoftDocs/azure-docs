@@ -16,34 +16,22 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory to meet CMMC Level 2
 
-Azure Active Directory provides the capability to meet all identity related practice requirements within each of the Cybersecurity Maturity Model Certification (CMMC) levels. It's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes to be compliant with requirements in [CMMC V2.0 level 2](https://cmmc-coe.org/maturity-level-two/).
+Azure Active Directory helps meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in [CMMC V2.0 level 2](https://cmmc-coe.org/maturity-level-two/), it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete other configurations or processes.
 
-Within CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
+In CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
 
 * Access Control (AC)
-
 * Audit & Accountability (AU)
-
 * Configuration Management (CM)
-
 * Identification & Authentication (IA)
-
 * Incident Response (IR)
-
 * Maintenance (MA)
-
 * Media Protection (MP)
-
 * Personnel Security (PS)
-
 * Physical Protection (PE)
-
 * Risk Assessment (RA)
-
 * Security Assessment (CA)
-
 * System and Communications Protection (SC)
-
 * System and Information Integrity (SI)
 
 The remainder of this article provides guidance for all of the domains except Access Control (AC) and Identification and Authentication (IA) which are covered in other articles. For each domain, there's a table with links to content that provides step-by-step guidance to accomplish the practice.
@@ -85,8 +73,8 @@ The following table provides a list of control IDs and associated customer respo
 
 | *Control* | *Guidance* |
 | - | - |
-| MA.L2-3.7.5 | Accounts assigned administrative rights are targeted by attackers; this includes accounts used to establish non-local maintenance sessions. Requiring multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.<br>[Conditional Access - Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md) |
-| MP.L2-3.8.7 | Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM) or group policy objects (GPO) to control the use of removable media on systems. Deploy and manage Removable Storage Access Control using Intune or Group Policy. Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant)<br>[Require hybrid Azure AD joined device](../conditional-access/concept-conditional-access-grant#require-hybrid-azure-ad-joined-device.md)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started)<br><br>**Removable storage access control**<br>[Deploy and manage Removable Storage Access Control using InTune](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deploy-manage-removable-storage-intune?view=o365-worldwide)<br>[Deploy and manage Removable Storage Access Control using group policy](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deploy-manage-removable-storage-group-policy?view=o365-worldwide) |
+| MA.L2-3.7.5 | Accounts assigned administrative rights are targeted by attackers, including accounts used to establish non-local maintenance sessions. Requiring multifactor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.<br>[Conditional Access - Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md) |
+| MP.L2-3.8.7 | Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM) or group policy objects (GPO) to control the use of removable media on systems. Deploy and manage Removable Storage Access Control using Intune or Group Policy. Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant)<br>[Require hybrid Azure AD joined device](../conditional-access/concept-conditional-access-grant#require-hybrid-azure-ad-joined-device.md)<br><br>**Intune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started)<br><br>**Removable storage access control**<br>[Deploy and manage Removable Storage Access Control using Intune](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deploy-manage-removable-storage-intune?view=o365-worldwide)<br>[Deploy and manage Removable Storage Access Control using group policy](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deploy-manage-removable-storage-group-policy?view=o365-worldwide) |
 
 ## Personnel Security (PS)
 
@@ -103,7 +91,7 @@ The following table provides a list of control IDs and associated customer respo
 | *Control* | *Guidance* |
 | - | - |
 | SC.L2-3.13.3 | Maintain separate user accounts in Azure Active Directory for everyday productivity use and administrative or system/privileged management. Privileged accounts should be cloud-only or managed accounts and not synchronized from on-premises to protect the cloud environment from on-premises compromise. System/privileged access should only be permitted from a security hardened privileged access workstation (PAW). Configure Conditional Access device filters to restrict access to administrative applications from PAWs that are enabled using Azure Virtual Desktops.<br>[Why are privileged access devices important](https://docs.microsoft.com/security/compass/privileged-access-devices)<br>[Device Roles and Profiles](https://docs.microsoft.com/security/compass/privileged-access-devices)<br>[Filter for devices as a condition in Conditional Access policy](../conditional-access/concept-condition-filters-for-devices.md)<br>[Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) |
-| SC.L2-3.13.4 | Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM) or group policy objects (GPO) to ensure devices are compliant with system hardening procedures. This includes compliance with company policy regarding software patches to prevent attackers from exploiting flaws.<br><br>Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br>[Require hybrid Azure AD joined device](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started)<br><br>9-20 check split tunneling language. |
+| SC.L2-3.13.4 | Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM) or group policy objects (GPO) to ensure devices are compliant with system hardening procedures. Include compliance with company policy regarding software patches to prevent attackers from exploiting flaws.<br><br>Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br>[Require hybrid Azure AD joined device](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started)<br><br>9-20 check split tunneling language. |
 | SC.L2-3.13.13 | Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM) or group policy objects (GPO) to disable the use of mobile code. Where use of mobile code is required monitor the use with endpoint security such as Microsoft Defender for Endpoint.<br><br>Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br>[Require hybrid Azure AD joined device](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started)<br><br>**Defender for Endpoint**<br>[Microsoft Defender for Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) |
 
 ## System and Information Integrity (SI)
@@ -112,7 +100,7 @@ The following table provides a list of control IDs and associated customer respo
 
 | *Control* | *Guidance* |
 | - | - |
-| SI.L2-3.14.7 | Consolidate telemetry, including Azure AD logs to stream to SIEM such as Azure Sentinel Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM), or group policy objects (GPO) to require Intrusion Detection/Protection (IDS/IPS) such as Microsoft Defender for Endpoint is installed and in use. Use telemetry provided by the IDS/IPS to identify unusual activities or conditions related to inbound and outbound communications traffic or unauthorized use.<br><br>Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br>[Require hybrid Azure AD joined device](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started)<br><br>**Defender for Endpoint**<br>[Microsoft Defender for Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) |
+| SI.L2-3.14.7 | Consolidate telemetry: Azure AD logs to stream to SIEM, such as Azure Sentinel Configure device management policies via MDM (such as Microsoft Intune), Microsoft Endpoint Manager (MEM), or group policy objects (GPO) to require Intrusion Detection/Protection (IDS/IPS) such as Microsoft Defender for Endpoint is installed and in use. Use telemetry provided by the IDS/IPS to identify unusual activities or conditions related to inbound and outbound communications traffic or unauthorized use.<br><br>Configure Conditional Access policies to enforce device compliance.<br><br>**Conditional Access**<br>[Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br>[Require hybrid Azure AD joined device](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant)<br><br>**InTune**<br>[Device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started)<br><br>**Defender for Endpoint**<br>[Microsoft Defender for Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) |
 
 ### Next steps
 
