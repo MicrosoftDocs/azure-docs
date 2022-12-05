@@ -2,7 +2,7 @@
  title: include file
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 05/25/2022
+ ms.date: 12/02/2022
  ms.author: cherylmc
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
@@ -17,28 +17,27 @@ You can only specify ***one*** policy combination for a given connection.
 
 No, you must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
 
-### What are the algorithms and key strengths supported in the custom policy?
+### <a name="ipsecikeparams"></a>What are the algorithms and key strengths supported in the custom policy?
 
 The following table lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
 
-| **IPsec/IKEv2**  | **Options**                                                                   |
-| ---              | ---                                                                           |
-| IKEv2 Encryption | GCMAES256, GCMAES128, AES256, AES192, AES128, DES3, DES                                             |
-| IKEv2 Integrity  | GCMAES256, GCMAES128, SHA384, SHA256, SHA1, MD5                                                     |
-| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
-| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
-| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
-| QM SA Lifetime   | Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)           |
-| Traffic Selector | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                  |                                                                               |
+| **IPsec/IKE**    | **Options**                                                                                                       |
+|-------------------|--------------------------------------------------------------------------------------------------------------------|
+| IKE Encryption   | GCMAES256, GCMAES128, AES256, AES192, AES128, DES3, DES                                                           |
+| IKE Integrity    | GCMAES256, GCMAES128, SHA384, SHA256, SHA1, MD5                                                                   |
+| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None                                      |
+| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None                                          |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                                                                |
+| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                                                                  |
+| QM SA Lifetime   | Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes) |
+| Traffic Selector | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                                                     |
 
 > [!IMPORTANT]
 > * DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
 > * For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
-> * IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
+> * IKE Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 > * QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
-> * UsePolicyBasedTrafficSelector is an option parameter on the connection. See the next FAQ item for "UsePolicyBasedTrafficSelectors".
+> * UsePolicyBasedTrafficSelector is an optional parameter on the connection. See the next item for more details.
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 
@@ -52,7 +51,7 @@ Your on-premises VPN device configuration must match or contain the following al
 * PFS Group
 * Traffic Selector (*)
 
-The SA lifetimes are local specifications only, don't need to match.
+The SA lifetimes are local specifications only. They don't need to match.
 
 If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
 * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -74,7 +73,6 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
 | 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
-|                           |                          |              |                |
 
 For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 
@@ -84,7 +82,7 @@ Yes, once a custom policy is specified on a connection, Azure VPN gateway will o
 
 ### If I remove a custom IPsec/IKE policy, does the connection become unprotected?
 
-No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway reverts back to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) and restart the IKE handshake again with your on-premises VPN device.
+No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway reverts back to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#RouteBasedOffers) and restart the IKE handshake again with your on-premises VPN device.
 
 ### Would adding or updating an IPsec/IKE policy disrupt my VPN connection?
 
@@ -104,7 +102,10 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 
 ### What is the default DPD timeout value? Can I specify a different DPD timeout?
 
-The default DPD timeout is 45 seconds. You can specify a different DPD timeout value on each IPsec or VNet-to-VNet connection between 9 seconds to 3600 seconds.
+The default DPD timeout is 45 seconds. You can specify a different DPD timeout value on each IPsec or VNet-to-VNet connection, from 9 seconds to 3600 seconds.
+
+> [!IMPORTANT]
+> The default value is 45 seconds on Azure VPN gateways. Setting the timeout to shorter periods will cause IKE to rekey more aggressively, causing the connection to appear to be disconnected in some instances. This may not be desirable if your on-premises locations are farther away from the Azure region where the VPN gateway resides, or when the physical link condition could incur packet loss. The general recommendation is to set the timeout between **30 and 45** seconds.
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 
@@ -130,7 +131,3 @@ No. Once the connection is created, IKEv1/IKEv2 protocols can't be changed. You 
 If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it's likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
 
 If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md).
-
-### Where can I find more configuration information for IPsec?
-
-See [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
