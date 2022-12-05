@@ -2,7 +2,7 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 ms.topic: conceptual
-ms.date: 11/18/2022
+ms.date: 12/01/2022
 ms.custom: fasttrack-edit
 
 ---
@@ -18,7 +18,7 @@ In a container-based, microservices approach to application development, applica
 
 This article introduces the core concepts that provide networking to your applications in AKS:
 
-* [Services](#services)
+* [Services and ServiceTypes](#services)
 * [Azure virtual networks](#azure-virtual-networks)
 * [Ingress controllers](#ingress-controllers)
 * [Network policies](#network-policies)
@@ -30,6 +30,7 @@ To allow access to your applications or between application components, Kubernet
 In Kubernetes:
 
 * *Services* logically group pods to allow for direct access on a specific port via an IP address or DNS name.
+* *ServiceTypes* allow you to specify what kind of Service you want.
 * You can distribute traffic using a *load balancer*.
 * More complex routing of application traffic can also be achieved with *ingress controllers*.
 * You can *control outbound (egress) traffic* for cluster nodes.
@@ -39,11 +40,13 @@ The Azure platform also simplifies virtual networking for AKS clusters. When you
 
 ## Services
 
-To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. The following Service types are available:
+To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. You can specify a Kubernetes *ServiceType* to specify what kind of Service you want, for example if you want to expose a Service onto an external IP address that's outside of your cluster. For more information, see the Kubernetes documentation for [Publishing Services (ServiceTypes)][service-types].
+
+The following ServiceTypes are available:
 
 * **ClusterIP**
   
-  ClusterIP creates an internal IP address for use within the AKS cluster. This Service is good for *internal-only applications* that support other workloads within the cluster.
+  ClusterIP creates an internal IP address for use within the AKS cluster. This Service is good for *internal-only applications* that support other workloads within the cluster. This is the default that's used if you don't explicitly specify a type for a Service.
 
     ![Diagram showing ClusterIP traffic flow in an AKS cluster][aks-clusterip]
 
@@ -55,7 +58,7 @@ To simplify the network configuration for application workloads, Kubernetes uses
 
 * **LoadBalancer**
 
-  Creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports.
+  LoadBalancer creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports.
 
     ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
 
@@ -242,6 +245,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 [k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+[service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md

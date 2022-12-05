@@ -574,7 +574,6 @@
         "articles/active-directory/**/*.md": "Standard",
         "articles/active-directory/user-help/*.md": "None",
         "articles/active-directory-b2c/*.md": "Standard",
-        "articles/azure-monitor/**/*.md": "Standard",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
         "articles/cognitive-services/custom-decision-service/**/*.md": "None",
         "articles/cognitive-services/Emotion/**/*.md": "None",
