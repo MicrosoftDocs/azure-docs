@@ -23,17 +23,52 @@ To help you stay up to date with the latest developments, this article covers:
 This page is updated regularly with the latest developments in Azure Private 5G Core. <!-- TODO: maybe update with agreed update frequency -->
 <!-- In future: If you're looking for items older than six months, you can find them in Archive for What's new in Azure Private 5G Core. -->
 
+
 ## November 2022
+
+### Packet core 2211
+
+**Type:** New release
+
+**Date available:** December 5, 2022
+
+The 2211 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2211 release notes](azure-private-5g-core-release-notes-2211.md).
+
+### Multiple data networks
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+You can now configure up to three data networks per site instead of one. To use this feature, you must upgrade to the 2211 packet core release.
+
+To add additional data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
+
+### Easier site deletion
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+Previously, you had to delete all the ARM resources associated with a site before deleting the site resource. You can now delete a site and its associated resources in one step. See [Delete a site](delete-a-site.md).
+
+### Azure Stack Edge (ASE) version validation
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. Note that this only applies when using the Azure portal.
 
 ### 2022-11-01 API
 
 **Type:** New release
 
-**Date available:** November 1, 2022
+**Date available:** December 12, 2022
 
-The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From November 15, 2022-11-01 will become the default API version for Azure Private 5G Core deployments.
+The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From December 12, 2022-11-01 will become the default API version for Azure Private 5G Core deployments.
 
-If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, your deployment will be automatically upgraded to the 2022-11-01 API on November 15.
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, your deployment will be automatically upgraded to the 2022-11-01 API on December 12.
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
@@ -155,6 +190,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 
 ---
 
+
 ## October 2022
 
 ### Packet core 2210
@@ -173,7 +209,7 @@ The 2210 release for the Azure Private 5G Core packet core is now available. For
 
 When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you'll only need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
 
-See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. If your site is already deployed, you can link it to your ASE device by following the steps in [Modify the packet core instance in a site](modify-packet-core.md).
+See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. If your site is already deployed, you can link it to your ASE device by following [Modify the packet core instance in a site](modify-packet-core.md).
 
 ### Customer Managed Keys (CMK) and managed identity
 
