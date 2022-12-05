@@ -57,6 +57,17 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 >[!TIP]
 >If you've already signed in to the web browser with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
 
+## Preview features
+
+If you want to help us test new builds before they're released, you should enable preview features. A new user interface is available in preview, which has the following new functionality:
+
+- An updated design.
+- Dark mode.
+- List view.
+- Able to reset user settings.
+
+For more information and how to try the new user interface, see [Preview user interface](client-features-web.md#preview-user-interface-preview).
+
 ## Next steps
 
 To learn more about the features of the Remote Desktop Web client, check out [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](client-features-web.md).

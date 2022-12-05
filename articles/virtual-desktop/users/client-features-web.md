@@ -35,6 +35,34 @@ Native resolution is set to off by default. To turn on native resolution:
 
 You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
 
+### Preview user interface (preview)
+
+A new user interface is available in preview for you to try. To enable the new user interface:
+
+1. Sign in to the Remote Desktop Web client.
+
+1. Toggle **Try the new client (Preview)** to **On**. To revert to the original user interface, toggle this to **Off**.
+
+### List view (preview)
+
+You can change the view of remote resources assigned to you from grid view (default) to list view. To enable list view:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**.
+
+1. In the top-right hand corner, select the **List View** icon. The change will take effect immediately.
+
+### Dark mode (preview)
+
+You can enable dark mode to reduce the amount of light. To enable dark mode:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+
+1. Toggle **Dark Mode** to **On**. The change will take effect immediately.
+
+## Input methods
+
+You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps. Touch gestures are not supported with the Remote Desktop Web client
+
 ### Keyboard
 
 There are several keyboard shortcuts you can use to help use some of the features. Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
@@ -135,6 +163,14 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 1. Select the resource you want to open (for example, Excel). Your browser will download the RDP in its normal way.
 
 1. Open the downloaded RDP file in your Remote Desktop client to launch a remote session.
+
+## Reset user settings (preview)
+
+If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+
+1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 
 ## Provide feedback
 
