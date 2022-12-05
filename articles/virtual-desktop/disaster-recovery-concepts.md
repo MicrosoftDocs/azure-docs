@@ -97,7 +97,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - Having multiple session hosts online across many regions can impact user experience. The managed network load balancer doesn't account for geographic proximity, instead treating all hosts in a host pool equally.
 
-- During a disaster, the users will be creating *new* profiles in the secondary region and assumes business or mission-critical data is stored in OneDrive ([using Well-known folder redirection](/sharepoint/redirect-known-folders)) or Sharepoint. This provides users with quick access to their applications with minor disruption to the user experience.
+- During a disaster, users will be creating new profiles in the secondary region. You should store any business- or mission-critical data in OneDrive ([using Well-known folder redirection](/sharepoint/redirect-known-folders)) or Sharepoint. Storing data here will give users quick access to their applications with minor disruption to the user experience.
 
 - Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer will distribute user connections evenly across all available VMs. The smaller VMs may become resource-constrained earlier than expected compared to larger VMs, resulting in a negative user experience.
 
