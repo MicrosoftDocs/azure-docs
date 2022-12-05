@@ -279,7 +279,7 @@ It is generally hard to predict the best model architecture and hyperparameters 
 
 ### Triggering automatic sweeps
 
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. Please see the example below.
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. A number of runs between 10 and 20 will likely work well on many datasets. Please see the example below.
 
 # [Azure CLI](#tab/cli)
 
@@ -304,7 +304,7 @@ image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, ti
 The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
 
 > [!Warning]
-> Automatic sweeps for computer vision tasks are currently not supported in the UI.
+> Launching automatic sweeps via the UI is not supported at this time.
 
 
 ## Individual runs
