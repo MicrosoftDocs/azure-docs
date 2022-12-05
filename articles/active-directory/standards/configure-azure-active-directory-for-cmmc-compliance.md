@@ -26,19 +26,19 @@ In CMMC Level 1, there are three domains that have one or more practices related
 
 In CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
 
-* Access Control (AC)
-* Audit & Accountability (AU)
-* Configuration Management (CM)
-* Identification & Authentication (IA)
-* Incident Response (IR)
-* Maintenance (MA)
-* Media Protection (MP)
-* Personnel Security (PS)
-* Physical Protection (PE)
-* Risk Assessment (RA)
-* Security Assessment (CA)
-* System and Communications Protection (SC)
-* System and Information Integrity (SI)
+* Access Control 
+* Audit & Accountability 
+* Configuration Management 
+* Identification & Authentication 
+* Incident Response 
+* Maintenance 
+* Media Protection 
+* Personnel Security 
+* Physical Protection 
+* Risk Assessment 
+* Security Assessment 
+* System and Communications Protection 
+* System and Information Integrity 
 
 The remaining articles in this series provide guidance and links to resources, organized by level and domain. For each domain, there's a table with the relevant controls listed and links to content that provides step-by-step guidance to accomplish the practice.
 
