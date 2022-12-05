@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-automation
 ---
 
 # Supportability matrix for the SAP Automation Framework
