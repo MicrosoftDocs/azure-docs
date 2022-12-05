@@ -1,7 +1,7 @@
 ---
 title: Respond to an alert in the Azure portal - Microsoft Defender for IoT
 description: Learn about how to fully respond to OT network alerts in Microsoft Defender for IoT.
-ms.date: 11/27/2022
+ms.date: 12/05/2022
 ms.topic: how-to
 ---
 
@@ -48,13 +48,13 @@ Then, check the alert details page for the following details to aid in your inve
 
 ## Investigate related alerts on the Azure portal
 
-Other alerts triggered by the same source or destination device might have details that help you investigate the current alert.
+Look for other alerts triggered by the same source or destination device. Correlations between multiple alerts may indicate that the device is at risk and can be exploited.
 
-For example, if you're investigating an alert that indicates a device is attempting to connect to a malicious IP address, you might want to investigate other alerts that indicate the same device is attempting to connect to other malicious IP addresses.
+For example, a device that attempted to connect to a malicious IP, together with another alert about unauthorized PLC programming changes on the device, might indicate that an attacker has already gained control of the device.
 
 **To find related alerts in Defender for IoT**:
 
-1. On an alert details page, use the device links in the **Entities** area > **Name** column to open the related device details pages, for both a source and destination device.
+1. On the **Alerts** page, select an alert to view details on the right, including device links in the **Entities** area. Select an entity link to open the related device details page, for both a source and destination device.
 
 1. On the device details page, select the **Alerts** tab to view all alerts for that device.
 
@@ -107,14 +107,21 @@ Triage alerts on a regular basis to prevent alert fatigue in your network and en
 
 1. In Defender for IoT in the Azure portal, go to the **Alerts** page.
 
-1. Sort the grid by the **Last detection** column to find the latest alerts in your network. Use other filters, such as **Sensor** or **Severity** to find specific alerts.
+    By default, alerts are sorted by the **Last detection** column, from most recent to oldest alert, so that you can first see the latest alerts in your network.
+
+1. Use other filters, such as **Sensor** or **Severity** to find specific alerts.
 
 1. Check the alert details and investigate as needed before you take any alert action.
 
 1. When you're ready, take action on an alert details page for a specific alert, or on the **Alerts** page for bulk actions.
 
-    For example, update alert status or severity, or *learn* an alert to authorize the detected traffic. *Learned* alerts are not triggered again if the same exact traffic is detected again.
+    For example, update alert status or severity, or [learn](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic) an alert to authorize the detected traffic. *Learned* alerts are not triggered again if the same exact traffic is detected again.
 
     :::image type="content" source="media/iot-solution/learn-alert.png" alt-text="Screenshot of a Learn button on the alert details page.":::
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Enhance security posture with security recommendations](recommendations.md)
+
+
