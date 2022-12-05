@@ -6,7 +6,7 @@ ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 12/05/2022
 ms.custom: kr2b-contr-experiment
 ---
 
