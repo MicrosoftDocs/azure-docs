@@ -71,7 +71,7 @@ The preceding code imports modules that you'll use in the rest of the article.
 
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
-To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [CosmosClient](/python/api/azure-cosmos/azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to an API for NoSQL account using the **CosmosClient** class:
+To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [CosmosClient](/python/api/azure-cosmos/azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three ways to connect to an API for NoSQL account using the **CosmosClient** class:
 
 - [Connect with an API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
 - [Connect with an API for NoSQL connection string](#connect-with-a-connection-string)
@@ -83,8 +83,8 @@ The most common constructor for **CosmosClient** has two parameters:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| `url` | `COSMOS_ENDPOINT` environment variable | API for NoSQL endpoint to use for all requests |
-| `credential` | `COSMOS_KEY` environment variable | Account key or resource token to use when authenticating |
+| `url` | `COSMOS_ENDPOINT` environment variable | API for NoSQL endpoint to use for all requests. |
+| `credential` | `COSMOS_KEY` environment variable | Account key or resource token to use when authenticating. |
 
 #### Retrieve your account endpoint and key
 
@@ -172,7 +172,7 @@ The most common constructor for **CosmosClient** has two parameters:
         Type = "Keys"
     }    
     Get-AzCosmosDBAccountKey @parameters |
-        Select-Object -Property "PrimaryMasterKey"    
+        Select-Object -Property "PrimaryMasterKey"
     ```
 
 1. Record the *URI* and *PRIMARY KEY* values. You'll use these credentials later.
@@ -188,11 +188,11 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. From the Azure Cosmos DB for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource" lightbox="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys resource is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL API account.":::
+   :::image type="content" source="media/get-credentials-portal/azure-portal-cosmos-db-account-primary-key.png" lightbox="media/get-credentials-portal/azure-portal-cosmos-db-account-primary-key.png" alt-text="Screenshot of the Keys resource showing credentials for an Azure Cosmos DB NoSQL API account.":::
 
 ---
 
