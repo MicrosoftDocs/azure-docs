@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: subject-monitoring, FY 23 content-maintenance
-ms.date: 11/16/2022 
+ms.custom: subject-monitoring, FY23 content-maintenance
+ms.date: 12/05/2022
 ms.devlang: azurecli
 ---
 
