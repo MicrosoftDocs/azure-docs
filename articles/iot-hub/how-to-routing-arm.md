@@ -68,21 +68,21 @@ First, export a Resource Manager template from your IoT hub, and then add a rout
 
    :::image type="content" source="media/how-to-routing-arm/download-template.jpg" alt-text="Screenshot that shows location of the download button on the Export template page.":::
 
-   There are several placeholders for information in this template in case you want to add features or services to your IoT hub in the future. But for this article, we only need to add something to the `routes` property.
+   The template has several placeholders for information in case you want to add features or services to your IoT hub in the future. But for this article, we only need to add something to the `routes` property.
 
 ### Add a new endpoint to your Resource Manager template
 
-In the JSON file, find the `"endpoints": []` property, nested under `"routing"`, and add the following new endpoint, according to the endpoint service (Event Hubs, Service Bus queue or topic, or Azure Storage) you choose. 
+In the JSON file, find the `"endpoints": []` property that's nested under `"routing"`. Follow the steps to add a new endpoint based on the endpoint service you choose: Event Hubs, Service Bus queue or topic, or Azure Storage.
 
-* The **id** will be added for you, so leave it as a blank string for now.
+The Azure service will add a value for `id`, so leave the `id` property as a blank string for now.
 
 # [Event Hubs](#tab/eventhubs)
 
-If you need to create an Event Hubs resource (with container), see [Quickstart: Create an event hub by using an ARM template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md). 
+To learn how to create an Event Hubs resource (with container), see [Quickstart: Create an event hub by using an ARM template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md).
 
-Grab your primary connection string from your Event Hubs resource in the [Azure portal](https://portal.azure.com/#home) from its **Shared access policies** page. Select one of your policies to see the key and connection string information. Add your Event Hubs name to the entity path at the end of the connection string, for example `;EntityPath=my-event-hubs`. This name is your event hub name, not your namespace name.
+In the [Azure portal](https://portal.azure.com/#home), get your primary connection string from your Event Hubs resource. On the resource **Shared access policies** pane, select one of your policies to see the key and connection string information. Add your event hub name to the entity path at the end of the connection string. For example, use `;EntityPath=my-event-hubs`. This name is your event hub name, not your namespace name.
 
-Use a unique name for your endpoint `name`. Leave the `id` parameter as an empty string. Azure will provide an `id` when you deploy this endpoint.
+For `name`, use a unique value for your Event Hubs endpoint. Leave the `id` parameter as an empty string. The Azure service provides an `id` value when you deploy the endpoint.
 
 ```json
 "routing": {
@@ -106,11 +106,11 @@ Use a unique name for your endpoint `name`. Leave the `id` parameter as an empty
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-If you need to create a Service Bus queue resource (a namespace and queue), see [Quickstart: Create a Service Bus namespace and a queue using an ARM template](../service-bus-messaging/service-bus-resource-manager-namespace-queue.md). 
+To learn how to create a Service Bus queue resource (a namespace and queue), see [Quickstart: Create a Service Bus namespace and a queue by using an ARM template](../service-bus-messaging/service-bus-resource-manager-namespace-queue.md).
 
-Grab your primary connection string from your Service Bus resource in the [Azure portal](https://portal.azure.com/#home) from its **Shared access policies** page. Select one of your policies to see the key and connection string information. Add your Service Bus queue name to the entity path at the end of the connection string, for example `;EntityPath=my-service-bus-queue`. This name is your queue name, not your namespace name.
+In the [Azure portal](https://portal.azure.com/#home), get your primary connection string from your Service Bus resource. On the resource **Shared access policies** pane, select one of your policies to see the key and connection string information. Add your event hub name to the entity path at the end of the connection string. For example, use `;EntityPath=my-service-bus-queue`. This name is your queue name, not your namespace name.
 
-Use a unique name for your endpoint `name`. Leave the `id` parameter as an empty string. Azure will provide an `id` when you deploy this endpoint.
+For `name`, use a unique value for your Service Bus queue endpoint. Leave the `id` parameter as an empty string. The Azure service provides an `id` value when you deploy the endpoint.
 
 ```json
 "routing": {
@@ -307,7 +307,7 @@ New-AzResourceGroupDeployment `
 
 ### Azure Cloud Shell deployment
 
-Since [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) is run from a browser, you can [upload](/azure/cloud-shell/using-the-shell-window#upload-and-download-files) the template file before running the deployment command. With the file uploaded, you only need the template file name (instead of the entire filepath) for the `template-file` parameter.
+Because [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) is run from a browser, you can [upload](/azure/cloud-shell/using-the-shell-window#upload-and-download-files) the template file before running the deployment command. With the file uploaded, you only need the template file name (instead of the entire filepath) for the `template-file` parameter.
 
 :::image type="content" source="media/how-to-routing-arm/upload-cloud-shell.jpg" alt-text="Screenshot that shows location of the button in the Azure Cloud Shell that uploads a file.":::
 
@@ -331,10 +331,10 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-To view your new route in the [Azure portal](https://portal.azure.com/), go to your IoT Hub resource and look on the **Message routing** page to see your route listed under the **Routes** tab.
+To view your new route in the [Azure portal](https://portal.azure.com/), go to your IoT Hub resource. On the **Message routing** pane, go to the **Routes** tab and check to see your route listed.
 
 > [!NOTE]
-> If the deployment fails, use the verbose switch to get information about the resources you're creating. Use the debug switch to get more information for debugging.
+> If the deployment fails, use the `-verbose` switch to get information about the resources you're creating. Use the `-debug` switch to get more information for debugging.
 
 ## Confirm deployment
 
@@ -344,6 +344,6 @@ To confirm your template deployed successfully to Azure, check in your resource 
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue or topic, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.

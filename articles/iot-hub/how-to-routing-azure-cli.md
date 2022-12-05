@@ -454,6 +454,6 @@ az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue or topic, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.
