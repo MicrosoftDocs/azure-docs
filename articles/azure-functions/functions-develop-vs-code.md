@@ -497,13 +497,13 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 ### Enable emulation in Visual Studio Code
 
-Perform the following steps to have Terminal simulate the x86 environment:
+Now that you have configured the Terminal with Rosetta to run x86 emulation, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
 
 1.  Open Command Palette by pressing Cmd+Shift+P.
 
     ![open-settings](./media/arm-64-python/open-settings.png)
 
-1.  Select **Preferences: Open Settings (JSON)** and add the following JSON:
+1.  Select **Preferences: Open Settings (JSON)** and add the following JSON to your configuration:
 
     ```json
     "terminal.integrated.profiles.osx": {
@@ -514,7 +514,7 @@ Perform the following steps to have Terminal simulate the x86 environment:
            }
          }
     ```
-1. Open a new Terminal in VS Code using Rosetta.
+1. Open a new Terminal and verify that it's using Rosetta.
 
     ![vsc-rosetta](./media/arm-64-python/vsc-rosetta.png)
 
