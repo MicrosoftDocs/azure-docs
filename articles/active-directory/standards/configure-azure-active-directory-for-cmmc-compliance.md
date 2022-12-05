@@ -16,46 +16,33 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory for CMMC compliance
 
-Azure Active Directory provides the capability to meet all identity related practice requirements within each of the Cybersecurity Maturity Model Certification (CMMC) levels. It's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes to be compliant with requirements in CMMC.
-Within CMMC Level 1, there are three domains that have one or more practices related to identity. The three domains are:
+Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes.
+
+In CMMC Level 1, there are three domains that have one or more practices related to identity. The three domains are:
 
 * Access Control (AC)
-
 * Identification and Authentication (IA)
-
 * System and Information integrity (SI)
 
-Within CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
+In CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
 
 * Access Control (AC)
-
 * Audit & Accountability (AU)
-
 * Configuration Management (CM)
-
 * Identification & Authentication (IA)
-
 * Incident Response (IR)
-
 * Maintenance (MA)
-
 * Media Protection (MP)
-
 * Personnel Security (PS)
-
 * Physical Protection (PE)
-
 * Risk Assessment (RA)
-
 * Security Assessment (CA)
-
 * System and Communications Protection (SC)
-
 * System and Information Integrity (SI)
 
-The remainder of the articles in this series provide guidance and links to additional resources organized by level and domain. For each domain, there's a table with the relevant controls listed and links to content that provides step-by-step guidance to accomplish the practice.
+The remainder of the articles in this series provide guidance and links to resources, organized by level and domain. For each domain, there's a table with the relevant controls listed and links to content that provides step-by-step guidance to accomplish the practice.
 
-Additional reference content:
+Learn more:
 
 * DoD CMMC website - [Office of the Under Secretary of Defense for Acquisition & Sustainment Cybersecurity Maturity Model Certification](https://www.acq.osd.mil/cmmc/index.html)
 
