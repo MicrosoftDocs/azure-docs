@@ -3,7 +3,7 @@ title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 09/24/2022
+ms.date: 12/05/2022
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -76,7 +76,7 @@ The subnets:
 | ------ | ----------- | :------: | :---:| ------------ | 
 | Private Cloud DNS server | On-Premises DNS Server | UDP | 53 | DNS Client - Forward requests from Private Cloud vCenter Server for any on-premises DNS queries (check DNS section below) |  
 | On-premises DNS Server   | Private Cloud DNS server | UDP | 53 | DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below) |  
-| On-premises network  | Private Cloud vCenter server  | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
+| On-premises network  | Private Cloud vCenter Server  | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
 | Private Cloud management network | On-premises Active Directory  | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
 | Private Cloud management network | On-premises Active Directory Global Catalog  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter Server. Port 3269 is recommended for security purposes. |  
 | On-premises network  | Private Cloud vCenter Server  | TCP(HTTPS)  | 443 | This port allows you to access vCenter Server from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
