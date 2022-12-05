@@ -174,7 +174,7 @@ While the MSSQL backend is running, it will write to its backing DB. You can tes
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM DurableDB.dt.Instances"
 ```
 
-After a single orchestrator run, that query should return something like this:
+After running an orchestration, the previous query should return something like this:
 
 ```
 InstanceID                           RuntimeStatus        CreatedTime                   CompletedTime
