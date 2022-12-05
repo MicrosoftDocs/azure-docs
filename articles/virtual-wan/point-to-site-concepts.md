@@ -5,7 +5,7 @@ description: Learn about Virtual WAN  User VPN P2S VPN concepts.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 12/05/2022
 ms.author: cherylmc
 
 ---
@@ -21,7 +21,7 @@ VPN server configurations define the authentication, encryption and user group p
 
 | Concept | Description | Notes|
 |--| --|--|
-| Tunnel Type | Protocol(s) used between the P2S VPN gateway and connecting users.| Available parameters: IKEv2, OpenVPN or both. For IKEv2 server configurations, only RADIUS and certificate-based authentication is available. Additionally, multiple authentication methods on the same server configuration (for example, certificate and RADIUS on the same configuration) are only supported for OpenVPN. IKEv2 also has a protocol-level limit of 255 routes, while OpenVPN has a limit of 1000 routes. |
+| Tunnel Type | Protocol(s) used between the P2S VPN gateway and connecting users.| Available parameters: IKEv2, OpenVPN or both. For IKEv2 server configurations, only RADIUS and certificate-based authentication is available. For Open VPN server configurations, RADIUS, certificate-based and Azure Active Directory based authentication are available. Additionally, multiple authentication methods on the same server configuration (for example, certificate and RADIUS on the same configuration) are only supported for OpenVPN. IKEv2 also has a protocol-level limit of 255 routes, while OpenVPN has a limit of 1000 routes. |
 | Custom IPsec Parameters| Encryption parameters used by the P2S VPN gateway for gateways that use IKEv2.| For available parameters, see [Custom IPsec parameters for point-to-site VPN](point-to-site-ipsec.md). This parameter doesn't apply for gateways using OpenVPN authentication.|
 
 ### Azure Certificate Authentication concepts
@@ -44,7 +44,7 @@ If a P2S VPN gateway is configured to use RADIUS-based authentication, the P2S V
  Primary server secret|Server secret configured on customer's primary RADIUS server that is used for encryption by RADIUS protocol.| Any shared secret string.|
 | Primary server IP address|Private IP address of RADIUS server| This IP must be a private IP reachable by the Virtual Hub. Make sure the connection hosting the RADIUS server is propagating to the defaultRouteTable of the hub with the gateway.|
 | Secondary server secret| Server secret configured on the second RADIUS server that is used for encryption by RADIUS protocol.| Any provided shared secret string.|
-| Secondary server IP address|The private IP address of the RADIUS server| This IP must be a private IP reachable by the Virtual Hub. Make sure the connection hosting the RADIUS server is propagating to.|
+| Secondary server IP address|The private IP address of the RADIUS server| This IP must be a private IP reachable by the virtual hub. Make sure the connection hosting the RADIUS server is propagating to the defaultRouteTable of the hub with the gateway.|
 |RADIUS server root certificate | RADIUS server root certificate public data.| This field is optional. Input the string(s) corresponding to the RADIUS root certificate public data. You may input multiple root certificates. All client certificates presented for authentication must be issued from the specified root certificates. For an example for how to get certificate public data, see the step 8 in the following document about [generating certificates](certificates-point-to-site.md).|
 |Revoked client certificates |Thumbprint(s) of revoked RADIUS client certificates. Clients presenting revoked certificates won't be able to connect. |This field is optional. Every user certificate must be revoked individually. Revoking an intermediate certificate or a root certificate won't automatically revoke all children certificates.|
 
@@ -64,9 +64,9 @@ The following table describes the format of the Azure Active Directory URL based
 
 | Cloud | Parameter Format|
 |--|--|
-| Azure Public Cloud | ```https://login.microsoftonline.com/{AzureAD TenantID}``` |
-| Azure Government Cloud | ```https://login.microsoftonline.us/{AzureAD TenantID``` |
-| China 21Vianet Cloud | ```https://login.chinacloudapi.cn/{AzureAD TenantID``` |
+| Azure Public Cloud | `https://login.microsoftonline.com/{AzureAD TenantID}` |
+| Azure Government Cloud | `https://login.microsoftonline.us/{AzureAD TenantID}` |
+| China 21Vianet Cloud | `https://login.chinacloudapi.cn/{AzureAD TenantID}` |
 
 ### User group (multi-pool) concepts
 
@@ -77,7 +77,7 @@ The server configuration contains the definitions of groups and the groups are t
 | Concept | Description | Notes|
 |--| --|--|
 |User group / policy group|A user Group or policy group is a logical representation of a group of users that should be assigned IP addresses from the same address pool.| For more information, see [about user groups.](user-groups-about.md)|
-|Default group|When users try to connect to a gateway using the user group feature, users who don't match any group assigned to the gateway are automatically considered to be part of the default group and assigned an IP address associated to that group. |Each group in a server configuration can be specified as a default group or non-default group and this setting **cannot** be changed after the group has been n created. Exactly one default group can be assigned to each P2S VPN gateway, even if the assigned server configuration has multiple default groups.|
+|Default group|When users try to connect to a gateway using the user group feature, users who don't match any group assigned to the gateway are automatically considered to be part of the default group and assigned an IP address associated to that group. |Each group in a server configuration can be specified as a default group or non-default group and this setting **cannot** be changed after the group has been created. Exactly one default group can be assigned to each P2S VPN gateway, even if the assigned server configuration has multiple default groups.|
 |Group priority|When multiple groups are assigned to a gateway a connecting user may present credentials that match multiple groups. Virtual WAN processes groups assigned to a gateway in increasing order of priority.|Priorities are positive integers and groups with lower numerical priorities are processed first. Every group must have a distinct priority.|
 |Group settings/members| User groups consist of members. Members don't correspond to individual users but rather define the criteria/match condition(s) used to determine which group a connecting user is a part of. Once a group is assigned to a gateway, a connecting user whose credentials match the criteria specified for one of the group's members, is considered to be part of that group and can be assigned an appropriate IP address. |For a full list of available criteria, see [available group settings](user-groups-about.md).|
 
@@ -90,10 +90,10 @@ The following sections describe concepts associated with the P2S VPN gateway. Ev
 | Concept | Description |Notes |
 |--| --|--|
  Gateway Scale Unit| A gateway scale unit defines how much aggregate throughput and concurrent users a P2S VPN gateway can support. |Gateway scale units can range from 1-200, supporting 500 to 100,000 users per gateway.|
-|P2S server configuration|Defines the authentication parameters the P2S VPN gateway uses to authenticate incoming users.|Any P2S server configuration associated to the Virtual WAN. Server configuration must be created successfully for a gateway to reference it.|
+|P2S server configuration|Defines the authentication parameters the P2S VPN gateway uses to authenticate incoming users.|Any P2S server configuration associated to the Virtual WAN gateway. Server configuration must be created successfully for a gateway to reference it.|
 |Routing preference| Allows you to choose how traffic routes between Azure and the Internet.|You can choose to route traffic either via the Microsoft network or via the ISP network (public network). For more information on this setting, see [What is routing preference?](../virtual-network/ip-services/routing-preference-overview.md) This setting can't be modified after gateway creation.|
 |Custom DNS Servers|IP addresses of the DNS server(s) connecting users should forward DNS requests to.|Any routable IP address.|
-| Propagate default route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route (static route in default route table or 0.0.0.0/0 advertised from on-premises, this setting controls whether or not the 0.0.0.0/0 route is advertised to connecting users| This field can be set to true or false.|
+| Propagate default route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route (static route in default route table or 0.0.0.0/0 advertised from on-premises, this setting controls whether or not the 0.0.0.0/0 route is advertised to connecting users.| This field can be set to true or false.|
 
 ### RADIUS-specific concepts
 
