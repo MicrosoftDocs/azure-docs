@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for contro
 description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for control plane management
 services: container-service
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 12/05/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -20,8 +20,7 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 
 You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
 
-> [!IMPORTANT]
-> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
+For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## Uptime SLA
 
@@ -46,9 +45,9 @@ The Uptime SLA feature is included in the Standard tier and is enabled per clust
 
 ## Creating a new cluster in the Free tier or Standard tier
 
-Use the Azure CLI to create a new cluster in the Free tier or Standard tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
+Use the Azure CLI to create a new cluster in the *Free tier* or *Standard tier*. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
-Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group - one in the Free tier and one in the Standard tier.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group - one in the *Free tier* and one in the *Standard tier*.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard --node-count 1
@@ -57,9 +56,10 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --tier free
 
 > [!NOTE]
 >
-> The `--tier standard` parameter corresponds to the existing `--uptime-sla` parameter. The `--tier free` parameter corresponds to the existing `--no-uptime-sla` parameter.
+> * `--tier standard` corresponds to the existing `--uptime-sla` parameter.
+> * `--tier free` corresponds to the existing `--no-uptime-sla` parameter.
 
-Once the deployment completes, it returns JSON-formatted information about your cluster. The following example output of the JSON snippet shows the Standard tier for the SKU, indicating your cluster is in the Standard tier and enabled with Uptime SLA:
+Once the deployment completes, it returns JSON-formatted information about your cluster. The following example output of the JSON snippet shows the *Standard tier* for the SKU, indicating your cluster is in the *Standard tier* and enabled with Uptime SLA.
 
 ```output
   },
@@ -76,14 +76,14 @@ You can update your existing clusters to use Uptime SLA.
 > [!NOTE]
 > Updating your cluster to enable the Uptime SLA does not disrupt its normal operation or impact its availability.
 
-The following example uses the [`az aks update`][az-aks-update] command to update the existing cluster:
+The following example uses the [`az aks update`][az-aks-update] command to update the existing cluster.
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
 az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
 
-This process takes several minutes to complete. When finished, the following example JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
+This process takes several minutes to complete. When finished, the following example JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
 
 ```output
   },
