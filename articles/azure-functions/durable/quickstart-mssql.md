@@ -171,7 +171,7 @@ Your app is now ready for local development: You can start the Function app to t
 While the MSSQL backend is running, it will write to its backing DB. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server, you may view the state of 5 of your orchestrator instanceIDs through the following command:
 
 ```bash
-docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM DurableDB.dt.Instances"
+docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -d $dbname -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances"
 ```
 
 After running an orchestration, the previous query should return something like this:
