@@ -285,7 +285,7 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
       <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0</version>
       </dependency>
     </dependencies>
 </project>
@@ -334,7 +334,7 @@ Create a *src/main/resources/application.properties* file, then add the followin
 
 ```bash
 cat << EOF > src/main/resources/application.properties
-url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require&authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin
+url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
 user=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}
 EOF
 ```
