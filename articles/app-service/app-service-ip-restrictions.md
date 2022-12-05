@@ -189,28 +189,73 @@ PowerShell example:
     -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
   ```
 
-## Manage access restriction rules programmatically
+## Manage access restriction programmatically
 
-You can add access restrictions programmatically by doing either of the following: 
+You can manage access restriction programmatically, below you can find examples of how to add rules to access restrictions and how to change *Unmatched rule action* for both *Main site* and *Advanced tool site*.
 
-* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction). For example:
-   
+### Add access restrictions rules programmatically
+
+You can add access restrictions rules programmatically by doing one of the following options:
+
+### [Azure CLI](#tab/azurecli)
+
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/webapp/config/access-restriction). For example:
+
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
+### [PowerShell](#tab/powershell)
 
+To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
   ```azurepowershell-interactive
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
 
-You can also set values manually by doing either of the following:
+### [ARM](#tab/arm)
 
-* Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
+For ARM templates, modify the property `ipSecurityRestrictions`. A sample ARM template snippet is provided for you:
+
+```ARM
+        {
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('name')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "dependsOn": [],
+            "properties": {
+                "name": "[parameters('name')]",
+                "siteConfig": {
+                    "appSettings": [],
+                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
+                    "alwaysOn": "[parameters('alwaysOn')]",
+                    "ftpsState": "[parameters('ftpsState')]",
+                    "ipSecurityRestrictions": [
+                        {
+                            "ipAddress": "122.133.144.0/24",
+                            "action": "Allow",
+                            "priority": 100,
+                            "name": "IP example rule"
+                        }
+                    ]
+                },
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "clientAffinityEnabled": false,
+                "virtualNetworkSubnetId": null,
+                "httpsOnly": true
+            }
+        }
+```
+
+---
+
+You can also set values manually by doing one of the following options:
+
+Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
 
   management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-06-01
 
@@ -250,6 +295,186 @@ You can also set values manually by doing either of the following:
           }
         }
       ]
+    }
+  }
+  ```
+
+### Change *Unmatched rule action* for *Main site* programmatically
+
+You can change *Unmatched rule action* for *Main site* programmatically by doing one of the following options:
+
+### [Azure CLI](#tab/azurecli)
+
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+
+  ```azurecli-interactive
+  az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
+    --set properties.siteConfig.ipSecurityRestrictionsDefaultAction=Allow
+  ```
+
+### [PowerShell](#tab/powershell)
+
+To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+
+  ```azurepowershell-interactive
+  $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
+  $Resource.Properties.siteConfig.ipSecurityRestrictionsDefaultAction = "Allow"
+  $Resource | Set-AzResource -Force
+  ```
+
+### [ARM](#tab/arm)
+
+For ARM templates, modify the property `ipSecurityRestrictionsDefaultAction`. Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you:
+
+```ARM
+        {
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('name')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "dependsOn": [],
+            "properties": {
+                "name": "[parameters('name')]",
+                "siteConfig": {
+                    "appSettings": [],
+                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
+                    "alwaysOn": "[parameters('alwaysOn')]",
+                    "ftpsState": "[parameters('ftpsState')]",
+                    "ipSecurityRestrictionsDefaultAction": "[parameters('ipSecurityRestrictionsDefaultAction')]"
+                },
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "clientAffinityEnabled": false,
+                "virtualNetworkSubnetId": null,
+                "httpsOnly": true
+            }
+        }
+```
+
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+      ipSecurityRestrictionsDefaultAction: ipSecurityRestrictionsDefaultAction
+      scmIpSecurityRestrictionsDefaultAction: scmIpSecurityRestrictionsDefaultAction
+    }
+  }
+}
+```
+
+You can also set values manually by doing one of the following options:
+
+* Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
+
+  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-12-01
+
+* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the `ipSecurityRestrictionsDefaultAction` property to change the required value in JSON.
+
+  The JSON syntax for the earlier example is:
+
+  ```json
+  {
+    "properties": {
+      "ipSecurityRestrictionsDefaultAction": "Allow"
+    }
+  }
+  ```
+
+
+### Change *Unmatched rule action* for *Advanced tool site*
+
+You can change *Unmatched rule action* for *Advanced tool site* programmatically by doing one of the following options:
+
+### [Azure CLI](#tab/azurecli)
+
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+
+  ```azurecli-interactive
+  az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
+    --set properties.siteConfig.scmIpSecurityRestrictionsDefaultAction=Allow
+  ```
+
+### [PowerShell](#tab/powershell)
+
+To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+
+  ```azurepowershell-interactive
+  $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
+  $Resource.Properties.siteConfig.scmIpSecurityRestrictionsDefaultAction = "Allow"
+  $Resource | Set-AzResource -Force
+  ```
+
+### [ARM](#tab/arm)
+
+For ARM templates, modify the property `scmIpSecurityRestrictionsDefaultAction`. Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you:
+
+```ARM
+        {
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('name')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "dependsOn": [],
+            "properties": {
+                "name": "[parameters('name')]",
+                "siteConfig": {
+                    "appSettings": [],
+                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
+                    "alwaysOn": "[parameters('alwaysOn')]",
+                    "ftpsState": "[parameters('ftpsState')]",
+                    "scmIpSecurityRestrictionsDefaultAction": "[parameters('scmIpSecurityRestrictionsDefaultAction')]"
+                },
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "clientAffinityEnabled": false,
+                "virtualNetworkSubnetId": null,
+                "httpsOnly": true
+            }
+        }
+```
+
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the property `scmIpSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+      scmIpSecurityRestrictionsDefaultAction: scmIpSecurityRestrictionsDefaultAction
+    }
+  }
+}
+```
+
+---
+
+You can also set values manually by doing one of the following options:
+
+* Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
+
+  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-12-01
+
+* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the `scmIpSecurityRestrictionsDefaultAction` property to change the required value in JSON.
+
+  The JSON syntax for the earlier example is:
+
+  ```json
+  {
+    "properties": {
+      "scmIpSecurityRestrictionsDefaultAction": "Deny"
     }
   }
   ```
