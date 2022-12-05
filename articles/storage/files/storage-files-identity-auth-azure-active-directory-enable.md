@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2022
+ms.date: 12/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -147,14 +147,18 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
    :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png":::
 
-4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+4. Select the application with the name matching **[Storage Account] <your-storage-account-name>.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
 6. Select **Grant admin consent for "DirectoryName"**.
 7. Select **Yes** to confirm.
 
 ## Disable multi-factor authentication on the storage account
 
-Azure AD Kerberos doesn't support using MFA to access Azure file shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps. The storage account app should have the same name as the storage account in the conditional access exclusion list, for example **[Storage Account] $storageAccountName.file.core.windows.net**.
+Azure AD Kerberos doesn't support using MFA to access Azure file shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps.
+
+The storage account app should have the same name as the storage account in the conditional access exclusion list. When searching for the storage account app in the conditional access exclusion list, search for: **[Storage Account] <your-storage-account-name>.file.core.windows.net**
+
+Remember to replace <your-storage-account-name> with the proper value.
 
   > [!IMPORTANT]
   > If you don't exclude MFA policies from the storage account app, you won't be able to access the file share. Trying to map the file share using `net use` will result in an error message that says "System error 1327: Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, sign-in times are limited, or a policy restriction has been enforced."
