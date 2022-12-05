@@ -21,7 +21,7 @@ ms.date: 12/01/2022
 
 - [09:50](/shows/mdc-in-the-field/defender-easm#time=09m50s) - Integration with Defender for Cloud
 
-- [12:00](/shows/mdc-in-the-field/security-explorer#time=13m49s) - Demonstration
+- [11:51](/shows/mdc-in-the-field/security-explorer#time=11m51s) - Demonstration
 
 
 ## Recommended resources
