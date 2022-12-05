@@ -143,7 +143,7 @@ Currently, service principals can be listed, viewed, hard deleted, or restored v
 
 ### Administrative units
 
-AUs can be listed, viewed, hard deleted, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http).
+AUs can be listed, viewed, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http). Once an AU is deleted it remains in a soft deleted state and can be restored for 30 days, but cannot be hard deleted during that time. Soft deleted AUs are hard deleted automatically after 30 days.
 
 ## Hard deletions
 
@@ -152,6 +152,8 @@ A hard deletion is the permanent removal of an object from your Azure AD tenant.
 * Users
 * Microsoft 365 Groups
 * Application registration
+* Service principal
+* Administrative unit
 
 > [!IMPORTANT]
 > All other item types are hard deleted. When an item is hard deleted, it can't be restored. It must be re-created. Neither administrators nor Microsoft can restore hard-deleted items. Prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.

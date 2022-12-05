@@ -107,7 +107,7 @@ Now we decide we're going to be a little more picky. We want to add more conditi
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-a-compound-condition.png" alt-text="Screenshot of adding a compound condition to an automation rule.":::
 
-    You'll see a new row added where the **+ Add** link was, separated by an `AND` operator. 
+    You'll see a new row added under the existing condition (in the same blue-shaded area), linked to it by an `AND` operator. 
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/empty-new-condition.png" alt-text="Screenshot of empty new condition row in automation rules.":::
 
@@ -115,7 +115,7 @@ Now we decide we're going to be a little more picky. We want to add more conditi
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/fill-in-new-condition.png" alt-text="Screenshot of new condition fields to fill in to add to automation rules.":::
 
-1. Repeat the previous two steps to add an AND condition to the other side of the OR condition group.
+1. Repeat the previous two steps to add an AND condition to either side of the OR condition group.
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-compound-conditions.png" alt-text="Screenshot of adding multiple compound conditions to an automation rule.":::
 

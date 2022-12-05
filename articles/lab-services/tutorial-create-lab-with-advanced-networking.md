@@ -308,6 +308,10 @@ If you're not going to continue to use this application, delete the virtual netw
 1. Select **Delete resource group**.
 1. To confirm the deletion, type the name of the resource group
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 >[!div class="nextstepaction"]

@@ -1,5 +1,5 @@
 ---
-title: Lifecycle Workflows tasks and definitions - Azure Active Directory
+title: Lifecycle Workflows tasks and definitions
 description: This article guides a user on Workflow task definitions and task parameters.
 author: OWinfreyATL
 ms.author: owinfrey
