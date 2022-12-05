@@ -105,7 +105,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - We recommend you update your session hosts at least once every month. This recommendation applies to session hosts you keep turned off for extended periods of time.
 
-- Test your deployment by running a controlled failover at least once every six months. Part of the controlled failover could mean your secondary location becomes primary until the next controlled failover. This would allow users to have nearly identical profiles during a real disaster.
+- Test your deployment by running a controlled failover at least once every six months. Part of the controlled failover could mean your secondary location becomes primary until the next controlled failover. Changing your secondary location to primary allows users to have nearly identical profiles during a real disaster.
 
 The following table lists deployment recommendations for host pool disaster recovery strategies:
 
