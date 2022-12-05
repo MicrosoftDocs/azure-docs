@@ -111,6 +111,8 @@
   items:
   - name: Common questions about Site Recovery
     href: site-recovery-faq.yml
+  - name: About Backup center
+    href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
