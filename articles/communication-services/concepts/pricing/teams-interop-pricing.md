@@ -61,11 +61,11 @@ Teams users participating in Teams meetings and calls generate usage on Azure Co
 
 | Action | Tool | Price|
 |--------|------| -----|
-| Send message | Graph API | $0|
-| Receive message | Graph API | $0 |
+| Send message | [Graph API](/graph/teams-licenses) | $0 or $0.00075|
+| Receive message | [Graph API](/graph/teams-licenses) | $0 or $0.00075|
 | Teams guest participates in Teams meeting with audio, video, screen sharing, and TURN services | Azure Communication Services | $0.004 per minute |
 
-Teams user in the lobby or on hold generates consumption on the Azure Communication Services resource. 
+Teams user in the lobby or on hold generates consumption on the Azure Communication Services resource. Graph API has 3 modes for pricing: evaluation ($0), model A  ($0.00075) and model B ($0.00075). More details can be found in [Graph API](/graph/teams-licenses) documentation.
 
 ## Pricing scenarios
 
@@ -93,7 +93,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
 - User joining on Teams Desktop Application: $0 (covered by Teams license)
 
-## Inbound phone call to the Teams user using Azure Communication Services SDK elevated to group call with another Teams user on Teams desktop client
+### Inbound phone call to the Teams user using Azure Communication Services SDK elevated to group call with another Teams user on Teams desktop client
 
 Alice has ordered a product from Contoso and struggles to set it up. Alice calls from her phone (Android) 800-CONTOSO to ask for help with the received product. Bob is a customer support agent in Contoso and sees an incoming call from Alice on the customer support website (Windows, Chrome browser). Bob accepts the incoming call via Communication Services JavaScript SDK initialized with Teams identity. Teams calling plan enables Bob to receive PSTN calls. Bob sees on the website the product ordered by Alice. Bob decides to invite product expert Charlie to the call. Charlie sees an incoming group call from Bob in the Teams Desktop client and accepts the call.
 
