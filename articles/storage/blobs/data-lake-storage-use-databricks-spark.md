@@ -36,9 +36,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json)
 
 - Follow Step 1 to Step 3 from 
-[Connect to Azure Data Lake Storage Gen2 using OAuth 2.0 with an Azure service principal](https://learn.microsoft.com/azure/databricks/getting-started/connect-to-azure-storage) to connect to ADL Stroage Gen 2 using Secret directly or  Step 1  to Step 5 to connect to ADL Gen2 Storage using Keyvault back Secrets.
+[Connect to Azure Data Lake Storage Gen2 using OAuth 2.0 with an Azure service principal](../../databricks/getting-started/connect-to-azure-storage) to connect to ADL Stroage Gen 2 using Secret directly or  Step 1  to Step 5 to connect to ADL Gen2 Storage using Keyvault back Secrets.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://learn.microsoft.com/en-us/azure/databricks/getting-started/connect-to-azure-storage#--step-2-create-a-client-secret-for-your-service-principal) section of the article, paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../databricks/getting-started/connect-to-azure-storage#--step-2-create-a-client-secret-for-your-service-principal) section of the article, paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
 
 ### Download the flight data
 
