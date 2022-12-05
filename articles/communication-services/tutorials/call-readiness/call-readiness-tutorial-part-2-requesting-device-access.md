@@ -203,7 +203,7 @@ export const PreCallChecksComponent = (props: {
 
 The app will now present the user with prompts to guide them through device access:
 
-![Gif showing user being prompted for camera and microphone access](./media/call-readiness/prompt-device-permissions.gif)
+![Gif showing user being prompted for camera and microphone access](../media/call-readiness/prompt-device-permissions.gif)
 
 ## Next steps
 

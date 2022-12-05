@@ -162,7 +162,7 @@ npm start
 To ensure the user gets the best experience we want to first make sure they are on a [supported browser](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser).
 In this section we will create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
 
-![Gif showing browser check being performed](./media/call-readiness/checking-browser-support.gif)
+![Gif showing browser check being performed](../media/call-readiness/checking-browser-support.gif)
 
 ### Preparing Your Session Page
 
@@ -377,7 +377,7 @@ You can now run the app, if you are in an unsupported browser you will see the p
 
 Gif:
 
-![Gif showing browser check failing](./media/call-readiness/browser-support-check-failed.gif)
+![Gif showing browser check failing](../media/call-readiness/browser-support-check-failed.gif)
 
 ## Next steps
 

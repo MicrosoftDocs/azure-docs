@@ -30,7 +30,7 @@ Now the user is on a supported browser, and they have given us permission to acc
 we can make sure they have chosen which device they want to use for their call.
 We want to present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
 
-![Image of the device setup page](./media/call-readiness/device-setup-page.png)
+![Image of the device setup page](../media/call-readiness/device-setup-page.png)
 
 ### Creating a Configuration Screen
 
@@ -441,7 +441,7 @@ const localPreviewContainerMergedStyles = (theme: ITheme): string =>
 
 Now you have created the device configuration screen, you can run the app and see the experience:
 
-![Gif showing the end to end experience of the call readiness checks and device setup](./media/call-readiness/call-readiness-user-flow.gif)
+![Gif showing the end to end experience of the call readiness checks and device setup](../media/call-readiness/call-readiness-user-flow.gif)
 
 ## Next steps
 
