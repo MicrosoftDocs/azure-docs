@@ -67,7 +67,7 @@ To view a usage summary, price sheet, and download reports, see [Review usage ch
 
 ## View and download invoice
 
-You view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of an enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
+As a direct EA customer, you can view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of a direct EA enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
 
 ## View Microsoft Azure Consumption Commitment (MACC)
 
