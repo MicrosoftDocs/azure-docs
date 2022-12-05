@@ -87,13 +87,13 @@ Alert management across all interfaces functions as follows:
 
 **Admin** users on an OT network sensor can use the following options to help their SOC and OT management teams triage and remediate alerts faster:
 
-- **Add alert comments**. Add custom comments to alerts generated on your sensors to improvement communication across your team during an investigation. For example, use comments to add any of the following details:
+- **Create custom alert rules**.
 
-    - Add custom alert mitigation steps
-    - Notify other team members that steps were taken
-    - Add custom insights or warnings about the event
+- **Create custom alert comments**. Create a set of custom alert comments that other users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or additional insights or warnings about the event.
 
-    Alerts comments are shown in the **Comments** area on the **Alert details** tab of an alert details page. For example:
+    As team members triage alerts, they can reuse any of these custom comments. Alert comments are shown in a comments area on an alert details page. For example:
+
+    :::image type="content" source="media/alerts/alert-comments.png" alt-text="Screenshot of the alert comments area.":::
 
     For more information, see [Accelerate incident workflows by using alert comments](how-to-view-alerts.md#accelerate-incident-workflows-by-using-alert-comments).
 

@@ -22,10 +22,11 @@ Enterprise IoT alerts on devices triggered by Microsoft Defender for Endpoint ag
 
 ## Prerequisites
 
-- To view alerts on the Azure portal, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
+- **To have alerts in Defender for IoT**, you must have an OT or Enterprise IoT sensor on-boarded, and network data streaming into Defender for IoT. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md) and [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
-- To manage alerts, including modifying their statuses or severities, *Learning* an alert, or accessing PCAP data, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
+- **To view alerts on the Azure portal**, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
+- **To manage alerts on the Azure portal**, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). Alert management activities include modifying their statuses or severities, *Learning* an alert, or accessing PCAP data.
 
 For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
@@ -46,9 +47,9 @@ For more information, see [Azure user roles and permissions for Defender for IoT
     | **Source device** |  |
     | **Tactics** | The MITRE ATT&CK stage. |
 
-    1. To view more details, select the <!--add image-->**Edit columns** button.
+    1. To view more details, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: **Edit columns** button.
 
-        In the **Edit Columns** dialog box, select **Add Column** and any of the following extra columns to add:
+        In the **Edit columns** pane on the right, select **Add Column** and any of the following extra columns:
 
         | Column | Description
         |--|--|
@@ -83,7 +84,7 @@ Supported grouping options include *Severity*, *Name*, *Site*, and *Engine*.
 ## View details and remediate a specific alert
 <!--fix screenshots-->
 
-1. Select an alert in the grid to display more details in the pane on the right, including the alert description, traffic source and destination, and more.
+1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more.
 
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
