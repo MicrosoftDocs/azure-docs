@@ -30,6 +30,7 @@ Below tutorials provide steps to enable SMART on FHIR applications with FHIR Ser
      - After registering the application, make note of the applicationId for client application.
      
 ## Tutorial : SMART on FHIR using samples (Recommended approach)
+
 As a pre-requisite , ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
 Step 1 : Set up FHIR SMART user role 
