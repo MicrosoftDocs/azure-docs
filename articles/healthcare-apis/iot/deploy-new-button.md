@@ -116,7 +116,7 @@ After you've successfully deployed an instance of the MedTech service, you'll st
 
 ## Next steps
 
-In this quickstart, you learned how deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
+In this quickstart, you learned how to deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
 
 To learn more about other methods of deploying the MedTech service, see
 
