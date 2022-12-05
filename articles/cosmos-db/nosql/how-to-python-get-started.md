@@ -79,7 +79,7 @@ To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [C
 
 ### Connect with an endpoint and key
 
-The most common constructor for **CosmosClient** has two parameters:
+The constructor for **CosmosClient** has two required parameters:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
@@ -188,7 +188,7 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. From the Azure Cosmos DB for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource" lightbox="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys resource is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource.png" lightbox="media/get-credentials-portal/azure-portal-cosmos-db-account-keys-resource.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys resource is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
@@ -230,12 +230,12 @@ client = CosmosClient(url=ENDPOINT, credential=KEY)
 
 ### Connect with a connection string
 
-The  **CosmosClient** class has a [from_connection_string](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-from-connection-string) method that you can use to connect:
+The  **CosmosClient** class has a [from_connection_string](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-from-connection-string) method that you can use to connect with one required parameter:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| `conn_str` | `COSMOS_CONNECTION_STRING` environment variable | Connection string to the API for NoSQL account |
-| `credential` | `COSMOS_KEY` environment variable | Optional alternative account key or resource token to use instead of the one in the connection string. |
+| `conn_str` | `COSMOS_CONNECTION_STRING` environment variable | The connection string to the API for NoSQL account. |
+| `credential` | `COSMOS_KEY` environment variable | An optional alternative account key or resource token to use instead of the one in the connection string. |
 
 
 #### Retrieve your account connection string
@@ -347,34 +347,35 @@ To connect to your API for NoSQL account using the Microsoft Identity Platform a
 
 The **azure-identity** package contains core authentication functionality that is shared among all Azure SDK libraries.
 
-Import the [azure-identity](https://pypi.org/project/azure-identity/) package into your environment package using `pip`.
+Import the [azure-identity](https://pypi.org/project/azure-identity/) package into your environment.
 
 ```bash
 pip install azure-identity
 ```
 
-In your *app.py*, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
+Get the endpoint to connect to as show in the section above for [Connect with an endpoint and key](#connect-with-an-endpoint-and-key) and set that as the environment variable `COSMOS_ENDPOINT`, which is used in the sample code in this section.
 
-```Python
-from azure.identity import DefaultAzureCredential
+```python
+ENDPOINT = os.environ["COSMOS_ENDPOINT"]
 ```
-<!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="using_identity_directives":::
+<!-- 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
 -->
 
 #### Create CosmosClient with default credential implementation
 
 If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure-identity/azure.identity.defaultazurecredential) instance.
 
-For this example, we saved the instance in a variable of type [``TokenCredential``](/python/api/azure-core/azure.core.credentials.tokencredential) as that's a more generic type that's reusable across SDKs.
+In your *app.py*, import the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and create an instance of it.
 
 ```python
+from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 ```
 <!-- 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
 -->
-Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
+Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
 ```python
 client = CosmosClient(ENDPOINT, credential, ConsistencyLevel.Session)
