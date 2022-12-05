@@ -465,15 +465,14 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .Build();
 ```
 
+### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
-### [Node.js](#tab/nodejs)
-
-```typescript
+```javascript
 ...
-import { NodeTracerProvider, NodeTracerConfig } from "@opentelemetry/sdk-trace-node";
-import { MeterProvider, MeterProviderOptions } from "@opentelemetry/sdk-metrics";
-import { Resource } from "@opentelemetry/resources";
-import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
+const { Resource } = require("@opentelemetry/resources");
+const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+const { MeterProvider } = require("@opentelemetry/sdk-metrics")
 
 // ----------------------------------------
 // Setting role name and role instance
@@ -483,6 +482,36 @@ const testResource = new Resource({
     [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
     [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
 });
+
+// ----------------------------------------
+// Done setting role name and role instance
+// ----------------------------------------
+const tracerProvider = new NodeTracerProvider({
+	resource: testResource
+});
+
+const meterProvider = new MeterProvider({
+	resource: testResource
+});
+```
+
+### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+```typescript
+import { Resource } from "@opentelemetry/resources";
+import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
+import { NodeTracerConfig, NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+import { MeterProvider, MeterProviderOptions } from "@opentelemetry/sdk-metrics";
+
+// ----------------------------------------
+// Setting role name and role instance
+// ----------------------------------------
+const testResource = new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
+    [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
+    [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
+});
+
 const tracerProviderConfig: NodeTracerConfig = {
     resource: testResource
 };
