@@ -41,7 +41,7 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers with IPV6 frontend IP configurations
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member configured with 'Flexible' orchestration mode
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
-- Basic Load Balancers with a Public IP Configuration in the associated VMSS's Network Profile (where a Basic SKU Public IP Address is assigned to each instance)
+- Basic Load Balancers with a Public IP Configuration in the associated Virtual Machine Scale Sets' Network Profile (where a Basic SKU Public IP Address is assigned to each instance)
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
 ### Prerequisites
