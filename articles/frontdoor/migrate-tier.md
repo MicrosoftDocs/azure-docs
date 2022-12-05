@@ -23,8 +23,8 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 * Ensure your Front Door (classic) profile can be migrated:
     * HTTPS is required for all custom domains. Azure Front Door Standard and Premium enforce HTTPS on all domains. If you don't have your own certificate, you can use an Azure Front Door managed certificate. The certificate is free and managed for you.
     * If you use BYOC (Bring your own certificate) for Azure Front Door (classic), you'll need to grant Key Vault access to your Azure Front Door Standard or Premium profile by completing the following steps:
-        * Register the service principal for **Microsoft.AzureFrontDoor-Cdn** as an app in your Azure Active Directory using Azure PowerShell.
-        * Grant **Microsoft.AzureFrontDoor-Cdn** access to your Key Vault.
+        * Register the service principal for **Microsoft.Azure.Cdn** as an app in your Azure Active Directory using Azure PowerShell.
+        * Grant **Microsoft.Azure.Cdn** access to your Key Vault.
     * Session affinity gets enabled from the origin group settings in the Azure Front Door Standard or Premium profile. In Azure Front Door (classic), session affinity is managed at the domain level. As part of the migration, session affinity is based on the Classic profile's configuration. If you have two domains in the Classic profile that shares the same backend pool (origin group), session affinity has to be consistent across both domains in order for migration to be compatible.
     
 ## Validate compatibility

@@ -121,7 +121,7 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 
      `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor`
     > [!NOTE]
-    > **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
+    > **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.Azure.Cdn**.
 
     ```bash
     New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor
@@ -131,7 +131,7 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
                                 https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
     ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
     ObjectType            : ServicePrincipal
-    DisplayName           : Microsoft.AzureFrontDoor-Cdn
+    DisplayName           : Microsoft.Azure.Cdn
     Id                    : c87be08f-686a-4d9f-8ef8-64707dbd413e
     Type                  :
     ```
@@ -143,9 +143,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Create keyvault access policy for CDN" border="true":::
 
-2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**.  Choose **Select**:
+2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.Azure.Cdn**.  Choose **Select**:
 
-3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
+3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.Azure.Cdn**. Choose **Select**.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
 
