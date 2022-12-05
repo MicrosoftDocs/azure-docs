@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to enable diagnostic settings for the MedTech service
 
-In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs to different destinations (for example: to [Azure storage](/azure/storage/) or an [Azure event hub](/azure/event-hubs/)) for audit, analysis, or backup.
+In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs to different destinations (for example: to [Azure storage](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, or backup.
 
 ## Create a diagnostic setting for the MedTech service
 1. To enable metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
@@ -79,7 +79,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    :::image type="content" source="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options." lightbox="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png"::: 
  
    > [!TIP]
-   > For more information about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+   > For more information about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
    > 
    > For more information about how to work with diagnostic logs, see the [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
 

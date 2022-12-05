@@ -2,14 +2,11 @@
 title: Application Insights Agent overview | Microsoft Docs
 description: Learn how to use Application Insights Agent to monitor website performance without redeploying the website. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/15/2022
 ms.reviewer: abinetabate
 ---
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
-
-> [!IMPORTANT]
-> This guidance is recommended for on-premises and non-Azure cloud deployments of Application Insights Agent. We recommend a [different deployment approach for Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md).
 
 Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces Status Monitor.

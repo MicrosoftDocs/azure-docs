@@ -11,7 +11,10 @@ services: iot-edge
 
 In this section, you prepare your Linux VM or physical device for IoT Edge. Then, you install IoT Edge.
 
-First, run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
+Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
+
+> [!IMPORTANT]
+> On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -47,20 +50,6 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 > [!TIP]
 > If you gave the "root" account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
-# [Raspberry Pi OS](#tab/rpios)
-
-> [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
-
-Installing can be done with a few commands.  Open a terminal and run the following commands:
-
-* **Latest**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
-    sudo apt install ./packages-microsoft-prod.deb
-    ```
-
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 Installing can be done with a few commands. Open a terminal and run the following commands:
@@ -92,18 +81,6 @@ Install the Moby engine.
    ```
 
 # [Debian](#tab/debian)
-
-Install the Moby engine.
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install moby-engine
-   ```
-
-# [Raspberry Pi OS](#tab/rpios)
-
-> [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
 
 Install the Moby engine.
 
@@ -173,16 +150,6 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
      sudo apt-get install iotedge
    ```
 
-# [Raspberry Pi OS](#tab/rpios)
-
-> [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install iotedge
-   ```
-
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
@@ -218,7 +185,7 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
 
-The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
 # [Debian](#tab/debian)
 
@@ -229,20 +196,7 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
 
-The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
-
-
-# [Raspberry Pi OS](#tab/rpios)
-
-> [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
-
-Install the latest version of IoT Edge and the IoT identity service package:
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install aziot-edge
-   ```
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 

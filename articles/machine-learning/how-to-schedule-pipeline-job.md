@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022
 ---
 
-# Schedule machine learning pipeline jobs (preview)
+# Schedule machine learning pipeline jobs
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -178,7 +178,7 @@ When define schedule, we support following expression that will be resolved to r
 
 | Expression | Description |Supported properties|
 |----------------|----------------|-------------|
-|`${{create_context.trigger_time}}`|The time when the schedule is triggered.|String type inputs of pipeline job|
+|`${{creation_context.trigger_time}}`|The time when the schedule is triggered.|String type inputs of pipeline job|
 |`${{name}}`|The name of job.|outputs.path of pipeline job|
 
 ## Manage schedule

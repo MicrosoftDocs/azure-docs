@@ -96,17 +96,17 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 
 The following rules are disabled by default for DRS 2.1:
 
-|Rule ID  |Rule Group|Description  |Why disabled|
+|Rule ID  |Rule Group|Description  |Details|
 |---------|---------|---------|---------|
 |942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
 |942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
 |942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
 |942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
 |942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
-|99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Replaced by Microsoft threat intelligence rule.|
-|99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Replaced by Microsoft threat intelligence rule.|
-|99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Replaced by Microsoft threat intelligence rule.|
-|99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Replaced by Microsoft threat intelligence rule.|
+|99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Enable rule to prevent against SpringShell vulnerability|
+|99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Enable rule to prevent against SpringShell vulnerability|
+|99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Enable rule to prevent against SpringShell vulnerability|
+|99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Enable rule to prevent against SpringShell vulnerability|
 
 ### DRS 2.0
 
