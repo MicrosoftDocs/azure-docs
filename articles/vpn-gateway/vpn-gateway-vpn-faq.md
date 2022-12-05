@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 12/02/2022
 ms.author: cherylmc
 ---
 
@@ -247,6 +247,12 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and si
 ## <a name="ipsecike"></a>IPsec/IKE policy
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
+
+### Where can I find more configuration guidance for IPsec policies?
+
+See the following articles:
+* [Azure portal](ipsec-ike-policy-howto.md)
+* [Azure PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
 ## <a name="bgp"></a>BGP and routing
 
