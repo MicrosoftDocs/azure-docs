@@ -63,7 +63,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 #### Create a service account
 
-Run the `az grafana service-account create` command to create a service account Azure Managed Grafana. Replace the placeholders`<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
+Run the `az grafana service-account create` command to create a service account. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
 
 ```azurecli-interactive
 az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role>
@@ -87,7 +87,7 @@ az grafana service-account list --name <azure-managed-grafana-name> --service-ac
 
 ---
 
-## Add a service account token
+## Add a service account token review tokens
 
 Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate to the Grafana API.
 
@@ -106,11 +106,11 @@ Once you've created a service account, add one or more access tokens. Access tok
 
 Create a Grafana service account token with `az grafana service-account token create`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>`,`<token-name>`, and `<role>` with your own information.
 
-Consider using the options below:
+Consider using the option below:
 
 | Parameter     | Description                                                                                                    | Example           |
 |---------------|----------------------------------------------------------------------------------------------------------------|-------------------|
-| `expiry-date` | Tokens have an unlimited expiry date by default. Enter an expiry date to disable the token at a specific date. | `12/01/2023`      |
+| `expiry-date` | Tokens have an unlimited expiry date by default. Enter an expiry date to disable the token at a specific date. | `25/01/2023`      |
 
 ```azurecli-interactive
 az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name> --expiry <expiry-date>  --role <role>
@@ -130,10 +130,12 @@ az grafana service-account token list --name <azure-managed-grafana-name> --serv
 
 ### [Portal](#tab/azure-portal)
 
-To update a service account, select it and update it in the following way:
+To update a service account:
 
-- under **Information**, edit the service account name by selecting **Edit**
-- under **Information**, edit the role by selecting the role name and selecting another role
+- To edit the name of the service account, select a service account and under **Information**, select **Edit**.
+- To edit the role of a service account, select a service account and under **Information**,  select the role and choose another role name.
+
+   :::image type="content" source="media/service-accounts/edit-service-account.png" alt-text="Screenshot of the Azure platform. Edit service account page.":::
 
 The notification *Service account updated* is displayed as soon as you update a parameter.
 
@@ -157,9 +159,11 @@ az grafana service-account update --name <azure-managed-grafana-name> --service-
 
 ### [Portal](#tab/azure-portal)
 
-- at the top of the page, select **Delete service account** to delete the Grafana service account, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
-- at the top of the page, select **Disable service account** to disable the Grafana service account, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
-- under **Tokens**, delete a token by selecting **Delete (x)**
+To delete a Grafana service account select a service account and at the top of the page select **Delete service account**, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
+
+To disable a Grafana service account select a service account and at the top of the page select **Disable service account**, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
+
+   :::image type="content" source="media/service-accounts/disable-delete.png" alt-text="Screenshot of the Azure platform. Disabling or deleting service account page.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -176,6 +180,8 @@ az grafana service-account delete --name <azure-managed-grafana-name> --service-
 ### [Portal](#tab/azure-portal)
 
 To delete a service account token, select a service account and under **Tokens**, select **Delete (x)**. Select **Delete** to confirm.
+
+:::image type="content" source="media/service-accounts/delete-token.png" alt-text="Screenshot of the Azure platform. Deleting service account token page.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
