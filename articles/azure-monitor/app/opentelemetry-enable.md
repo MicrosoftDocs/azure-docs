@@ -582,10 +582,32 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .Build();
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+```javascript
+const { BasicTracerProvider, SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+const { ApplicationInsightsSampler, AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
+
+// Sampler expects a sample rate of between 0 and 1 inclusive
+// A rate of 0.1 means approximately 10% of your traces are sent
+const aiSampler = new ApplicationInsightsSampler(0.75);
+
+const provider = new BasicTracerProvider({
+  sampler: aiSampler
+});
+
+const exporter = new AzureMonitorTraceExporter({
+  connectionString:
+    process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+});
+
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
+provider.register();
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 ```typescript
-...
 import { BasicTracerProvider, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import { ApplicationInsightsSampler, AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
 
