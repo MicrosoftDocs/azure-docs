@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/21/2022
-ms.custom: engagement-fy23
+ms.date: 12/5/2022
+
 #- id: iot-develop-toolset
 ## Owner: timlt
 #  title: IoT Devices
