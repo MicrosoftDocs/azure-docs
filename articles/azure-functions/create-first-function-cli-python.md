@@ -136,7 +136,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configuration files named *[local.settings.json]*(functions-develop-local.md#local-settings-file) and *[host.json]*(functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -165,7 +165,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configuration files named *[local.settings.json]*(functions-develop-local.md#local-settings-file) and *[host.json]*(functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. The file `function_app.py` can include all functions within your project. To start with, there's already an HTTP function stored in the file.
 
@@ -177,7 +177,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    return func.HttpResponse("HttpTrigger1 function processed a request!")%
+    return func.HttpResponse("HttpTrigger1 function processed a request!")
 ```
 ::: zone-end
 
@@ -211,7 +211,7 @@ For more information, see [Azure Functions HTTP triggers and bindings](./functio
 
 ## Start the storage emulator
 
-Before running the function locally, you must start the local Azurite storage emulator. You can skip this step if the `AzureWebJobsStorage` setting in the local.settings.json file is set to the connection string for an Azure Storage account.   
+You can skip this step if the `AzureWebJobsStorage` setting in the *local.settings.json* file is set to the connection string for an Azure Storage account. Before running the function locally, you must start the local Azurite storage emulator. Make sure to add `"AzureWebJobsStorage": "UseDevelopmentStorage=true"` to your *local.settings.json* in order to use the storage emulator.
 
 Use the following command to start the Azurite storage emulator:
 
