@@ -192,22 +192,14 @@ InstanceID                           RuntimeStatus        CreatedTime           
 9fe1ea9d109341ff923621c0e58f215c     Completed            2022-11-16 21:42:39.1787277   2022-11-16 21:42:42.3993899
 ```
 
+## Run your app on Azure
 
-## Configure the app in Azure
+To run your app in the cloud, you will need a publicly accessible SQL Server. You can obtain one by creating an Azure SQL database.
 
-Assuming that you already have target app in Azure for deployment, we'll need to create a setting for it containing your connection string.
-
-To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
-
-![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-envvar-1.png)
-![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-envvar-2.png)
+### Create an Azure SQL database
 
 > [!NOTE]
-> Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
-
-### Creating an Azure SQL database
-
-If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
+> If you already have an Azure SQL database, or some other publicly accessible SQL Server you would like to use, you may skip to the next section.
 
 You can follow [these](/azure/azure-sql/database/single-database-create-quickstart) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
@@ -220,7 +212,17 @@ Below is an example of the portal view for obtaining the Azure SQL connection st
 
 ![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
-### Deploy and enjoy
+### Add connection string as an application setting
+
+You need to add your database's connection string as an application setting. To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
+
+![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-envvar-1.png)
+![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-envvar-2.png)
+
+> [!NOTE]
+> Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
+
+### Deploy
 
 You can now deploy your code to the cloud, and then run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
 
