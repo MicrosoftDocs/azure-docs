@@ -870,7 +870,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",
         "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
-      "ms.reviewer": {qumulo
+      "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova"
       },
       "ms.subservice": {
