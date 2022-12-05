@@ -515,7 +515,10 @@ identity:
     - resource_id: identity_resource_id
 ```
 
-Once the managed identity is created, enable [identity-based data access enabled](how-to-datastore.md) to your storage accounts for that identity. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against data stores.
+Once the managed identity is created, grant the managed identity at least Storage Blob Data Reader role on the storage account of the datastore, see [Accessing storage services](how-to-identity-based-service-authentication.md?tabs=cli#accessing-storage-services). Then, when you work on the compute instance, the managed identity is used automatically to authenticate against datastores.
+
+> [!NOTE]
+> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Azure Active Directory. 
 
 You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
 
@@ -775,4 +778,4 @@ Administrators can use [Azure Policy](./../governance/policy/overview.md) defini
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training job](v1/how-to-set-up-training-targets.md)
+

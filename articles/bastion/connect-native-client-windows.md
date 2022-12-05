@@ -53,6 +53,12 @@ Before you begin, verify that you have the following prerequisites:
   * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
   * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
 
+
+## <a name="secure "></a>Secure your native client connection
+You can limit port access by only providing access to port 22/3389. To restrict port access, you must deploy the following NSG rules on your AzureBastionSubnet to allow access to select ports and deny access from any other ports.
+![image](https://user-images.githubusercontent.com/91911522/205508594-a2ef2ae3-256e-44f8-84ed-4aba0eb3af1c.png)
+
+
 ## <a name="configure"></a>Configure the native client support feature
 
 You can configure this feature by either modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified.

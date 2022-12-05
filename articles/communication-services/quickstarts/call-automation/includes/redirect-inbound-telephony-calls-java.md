@@ -18,6 +18,7 @@ ms.author: askaur
 - [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
+- An Azure Event Grid subscription to receive the `IncomingCall` event.
 
 ## Create a new Java Spring application
 
@@ -111,12 +112,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 public class ActionController {
-    @Autowired
     private CallAutomationAsyncClient client;
- 
-    private String connectionString = "<resource_connection_string>"); //noted from pre-requisite step
+    private String connectionString = "<resource_connection_string>"; //noted from pre-requisite step    
     
-    private CallAutomationAsyncClient getCallAutomationAsyncClient() {
+private CallAutomationAsyncClient getCallAutomationAsyncClient() {
         if (client == null) {
             client = new CallAutomationClientBuilder()
                 .connectionString(connectionString)
@@ -124,13 +123,11 @@ public class ActionController {
         }
         return client;
     }
-
     @RequestMapping(value = "/api/incomingCall", method = POST)
     public ResponseEntity<?> handleIncomingCall(@RequestBody(required = false) String requestBody) {
         List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(requestBody);
-
         for (EventGridEvent eventGridEvent : eventGridEvents) {
-            // Handle the subscription validation event
+            // Handle the subscription validation event            
             if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
                 SubscriptionValidationEventData subscriptionValidationEventData = eventGridEvent.getData().toObject(SubscriptionValidationEventData.class);
                 SubscriptionValidationResponse subscriptionValidationResponse = new SubscriptionValidationResponse()
@@ -138,17 +135,15 @@ public class ActionController {
                 ResponseEntity<SubscriptionValidationResponse> ret = new ResponseEntity<>(subscriptionValidationResponse, HttpStatus.OK);
                 return ret;
             }
-                
           JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-                
           String incomingCallContext = data.get("incomingCallContext").getAsString();
           CommunicationIdentifier target = new PhoneNumberIdentifier("<phone_number_to_redirect_to>");
           RedirectCallOptions redirectCallOptions = new RedirectCallOptions(incomingCallContext, target); 
-          Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).block();                               
+          Response<Void> response = getCallAutomationAsyncClient().redirectCallWithResponse(redirectCallOptions).block();                               
         }
-
+        
         return new ResponseEntity<>(HttpStatus.OK);
-      }
+    }
 }
 ```
 Update the placeholders in the code above for connection string and phone number to redirect to. 

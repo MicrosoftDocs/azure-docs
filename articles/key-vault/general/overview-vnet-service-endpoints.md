@@ -28,7 +28,19 @@ Here are some examples of how you might use service endpoints:
 * You want to lock down access to your key vault so that only your application, or a short list of designated hosts, can connect to your key vault.
 * You have an application running in your Azure virtual network, and this virtual network is locked down for all inbound and outbound traffic. Your application still needs to connect to Key Vault to fetch secrets or certificates, or use cryptographic keys.
 
-## Trusted services
+
+## Grant access to trusted Azure services 
+
+You can grant access to trusted Azure services to the key vault, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your key vault. 
+
+You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see the [networking configuration options](how-to-azure-key-vault-network-security.md) of this article. 
+
+When you grant access to trusted Azure services, you grant the following types of access: 
+* Trusted access for select operations to resources that are registered in your subscription. 
+* Trusted access to resources based on a managed identity. 
+* Trusted access across tenants using a Federated Identity Credential 
+
+### Trusted services
 
 Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
 
