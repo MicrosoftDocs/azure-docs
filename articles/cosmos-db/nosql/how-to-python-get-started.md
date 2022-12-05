@@ -378,14 +378,19 @@ credential = DefaultAzureCredential()
 Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
 ```python
-client = CosmosClient(ENDPOINT, credential, ConsistencyLevel.Session)
+client = CosmosClient(ENDPOINT, credential)
 ```
 <!--
 :::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="default_credential":::
 -->
+
+> [!IMPORTANT]
+> For details on how to add the correct role to enable `DefaultAzureCredential` to work, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac). In particular, see the section on creating roles and assigning them to a principal ID.
+
+
 #### Create CosmosClient with a custom credential implementation
 
-If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
+If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for Python](/python/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
 
 For this example, we create a [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
