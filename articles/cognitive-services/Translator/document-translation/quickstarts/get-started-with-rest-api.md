@@ -1,13 +1,13 @@
 ---
 title: Get started with Document Translation
-description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms"
+description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and the REST API"
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/20/2022
+ms.date: 12/05/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -16,7 +16,37 @@ ms.custom: mode-other
 
 # Get started with Document Translation
 
- In this article, you'll learn to use Document Translation with HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
+ In this article, you'll learn to use Document Translation with HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# programming](includes/csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java programming](includes/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [NodeJS programming](includes/javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python programming](includes/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [Go programming](includes/go.md)]
+::: zone-end
+
+:: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API](includes/rest-api.md)]
+::: zone-end
 
 ## Prerequisites
 
@@ -75,7 +105,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
 
-:::image type="content" source="../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
+:::image type="content" source="../../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
 
 ### Get your key
 
@@ -86,11 +116,11 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. Copy and paste your key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
-:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
+:::image type="content" source="../../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
-You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You'll need to  [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files will be stored (required).
@@ -110,7 +140,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 >
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
-> * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](managed-identity.md) for authentication.
+> * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
 
 ## HTTP requests
 
@@ -161,7 +191,7 @@ The following headers are included with each Document Translation API request:
 ### Translate a specific document in a container
 
 * Specify `"storageType": "File"`
-* If you aren't using a [**system-assigned managed identity**](managed-identity.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
+* If you aren't using a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
 * Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
 * Sample request below shows a single document getting translated into two target languages
 
@@ -334,7 +364,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
 >
 
- ## Translate documents
+## Translate documents
 
 ### [C#](#tab/csharp)
 
