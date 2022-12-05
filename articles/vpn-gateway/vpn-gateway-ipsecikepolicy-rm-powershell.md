@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 12/02/2022
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -29,13 +29,14 @@ This article provides instructions to create and configure an IPsec/IKE policy a
 * [Part 4 - Create a new VNet-to-VNet connection with IPsec/IKE policy](#vnet2vnet)
 * [Part 5 - Manage (create, add, remove) IPsec/IKE policy for a connection](#managepolicy)
 
-> [!IMPORTANT]
-> 1. Note that IPsec/IKE policy only works on the following gateway SKUs:
->    * ***VpnGw1~5 and VpnGw1AZ~5AZ*** (route-based)
->    * ***Standard*** and ***HighPerformance*** (route-based)
-> 2. You can only specify ***one*** policy combination for a given connection.
-> 3. You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
-> 4. Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections cannot establish if the policies are incompatible.
+### Considerations
+
+* Note that IPsec/IKE policy only works on the following gateway SKUs:
+  * **VpnGw1~5**
+  * **VpnGw1AZ~5AZ**
+* You can only specify ***one*** policy combination for a given connection.
+* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
+* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections cannot establish if the policies are incompatible.
 
 ## <a name ="workflow"></a>Part 1 - Workflow to create and set IPsec/IKE policy
 This section outlines the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
@@ -51,58 +52,7 @@ The instructions in this article helps you set up and configure IPsec/IKE polici
 
 ## <a name ="params"></a>Part 2 - Supported cryptographic algorithms & key strengths
 
-The following table lists the supported cryptographic algorithms and key strengths configurable by the customers:
-
-| **IPsec/IKEv2**  | **Options**    |
-| ---  | --- 
-| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES  
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
-| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
-| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
-| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
-| QM SA Lifetime   | (**Optional**: default values are used if not specified)<br>Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)   |
-| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, default $False if not specified)    |
-|  |  |
-
-> [!IMPORTANT]
-> 1. **Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:**
->    * IKE encryption algorithm (Main Mode / Phase 1)
->    * IKE integrity algorithm (Main Mode / Phase 1)
->    * DH Group (Main Mode / Phase 1)
->    * IPsec encryption algorithm (Quick Mode / Phase 2)
->    * IPsec integrity algorithm (Quick Mode / Phase 2)
->    * PFS Group (Quick Mode / Phase 2)
->    * Traffic Selector (if UsePolicyBasedTrafficSelectors is used)
->    * The SA lifetimes are local specifications only, do not need to match.
->
-> 2. **If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec Integrity; for example, using GCMAES128 for both**
-> 3. In the table above:
->    * IKEv2 corresponds to Main Mode or Phase 1
->    * IPsec corresponds to Quick Mode or Phase 2
->    * DH Group specifies the Diffie-Hellman Group used in Main Mode or Phase 1
->    * PFS Group specified the Diffie-Hellman Group used in Quick Mode or Phase 2
-> 4. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-> 5. Setting "UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
->    * 10.1.0.0/16 <====> 192.168.0.0/16
->    * 10.1.0.0/16 <====> 172.16.0.0/16
->    * 10.2.0.0/16 <====> 192.168.0.0/16
->    * 10.2.0.0/16 <====> 172.16.0.0/16
-
-For more information regarding policy-based traffic selectors, see [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md).
-
-The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
-
-| **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
-| --- | --- | --- | --- |
-| 1                         | DHGroup1                 | PFS1         | 768-bit MODP   |
-| 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
-| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
-| 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
-| 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
-
-Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
+Refer to the [IPsec/IKE parameters table](#ipsecikeparams) later in this guide for the list of encryption algorithms, authentication algorithms, and key strengths available for use in a custom policy.
 
 ## <a name ="crossprem"></a>Part 3 - Create a new S2S VPN connection with IPsec/IKE policy
 
@@ -266,7 +216,7 @@ $vnet2      = Get-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
 $subnet2    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $subnet2 -PublicIpAddress $gw2pip1
 
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -VpnGatewayGeneration Generation2 -GatewaySku VpnGw2
 ```
 
 ### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
@@ -317,9 +267,6 @@ The last section shows you how to manage IPsec/IKE policy for an existing S2S or
 
 The same steps apply to both S2S and VNet-to-VNet connections.
 
-> [!IMPORTANT]
-> IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
-
 #### 1. Show the IPsec/IKE policy of a connection
 
 The following example shows how to get the IPsec/IKE policy configured on a connection. The scripts also continue from the exercises above.
@@ -364,6 +311,18 @@ To enable "UsePolicyBasedTrafficSelectors" when connecting to an on-premises pol
 
 ```powershell
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
+```
+
+Similar to "UsePolicyBasedTrafficSelectors", configuring DPD timeout can be performed outside of the Ipsec policy being applied:
+
+```powershell
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -DpdTimeoutInSeconds 30
+```
+
+Either/both **Policy-based traffic selector** and **DPD timeout** options can be specified with **Default** policy, without a custom IPsec/IKE policy, if desired.
+
+```powershell
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True -DpdTimeoutInSeconds 30 
 ```
 
 You can get the connection again to check if the policy is updated.
