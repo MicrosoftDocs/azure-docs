@@ -1213,6 +1213,9 @@ items:
       - name: Hive
         href: connector-troubleshoot-hive.md  
         displayName: troubleshooting
+      - name: MongoDB
+        href: connector-troubleshoot-mongodb.md  
+        displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md
         displayName: troubleshooting
