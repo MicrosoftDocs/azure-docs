@@ -18,9 +18,7 @@ For more information, see [What is a Defender for IoT committed device?](archite
 
 ## View the device inventory
 
-To view detected devices in the **Device inventory** page in the Azure portal:
-
- In the Azure portal, go to Defender for IoT and select **Device inventory**.
+To view detected devices in the **Device inventory** page in the Azure portal, go to **Defender for IoT** > **Device inventory**.
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
 
