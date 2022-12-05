@@ -48,38 +48,148 @@ az grafana update --name <azure-managed-grafana-name> --api-keys Enabled
 
 ## Create a service account
 
+Follow the steps below to create a new Grafana service account and list existing service accounts:
+
+### [Portal](#tab/azure-portal)
+
 1. Go to your Grafana instance endpoint, and under **Configuration**, select **Service accounts**.
 1. Select **Add service account**, and enter a **Display name** and a **Role** for your new Grafana service account: *Viewer*, *Editor* or *Admin* and select **Create**.
 
    :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
-1. A notification *Service account successfully created* appears and a list of existing service accounts is displayed.
+1. The page displays the notification *Service account successfully created* and a list of existing service accounts.
+1. Select the Grafana service account created to access more information about the service account.
+
+### [Azure CLI](#tab/azure-cli)
+
+#### Create a service account
+
+Run the `az grafana service-account create` command to create a service account Azure Managed Grafana. Replace the placeholders`<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
+
+```azurecli-interactive
+az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role>
+```
+
+#### List service accounts
+
+Run the `az grafana service-account list` command to get a list of all service accounts that belong to a given Azure Managed Grafana instance. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana workspace.
+
+```azurecli-interactive
+az grafana service-account list --name <azure-managed-grafana-name> --output table
+```
+
+#### Display service account details
+
+Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+
+```azurecli-interactive
+az grafana service-account list --name <azure-managed-grafana-name> --service-account <service-account-name>
+```
+
+---
 
 ## Add a service account token
 
 Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate to the Grafana API.
+
+### [Portal](#tab/azure-portal)
 
 1. To create a service account token, select **Add token**.
 1. Use the automatically generated **Display name** or enter a name of your choice, and optionally select an **Expiration date** or keep the default option to set no expiry date.
 
    :::image type="content" source="media/service-accounts/add-service-account-token.png" alt-text="Screenshot of the Azure platform. Add service account token page.":::
 
-1. Select **Generate token**, and take note of the token generated. This token will only be shown once, so make sure you save it, at loosing a token requires creating a new one.
+1. Select **Generate token**, and take note of the token generated. This token will only be shown once, so make sure you save it, as loosing a token requires creating a new one.
 
-## Update or delete a service account
+### [Azure CLI](#tab/azure-cli)
 
-Optionally select your service account and update it in the following way:
+#### Create a new token
+
+Create a Grafana service account token with `az grafana service-account token create`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>`,`<token-name>`, and `<role>` with your own information.
+
+Consider using the options below:
+
+| Parameter     | Description                                                                                                    | Example           |
+|---------------|----------------------------------------------------------------------------------------------------------------|-------------------|
+| `expiry-date` | Tokens have an unlimited expiry date by default. Enter an expiry date to disable the token at a specific date. | `12/01/2023`      |
+
+```azurecli-interactive
+az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name> --expiry <expiry-date>  --role <role>
+```
+
+#### List service account tokens
+
+Run the `az grafana service-account token list` command to get a list of all tokens that belong to a given service account. Replace the placeholders `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+
+```azurecli-interactive
+az grafana service-account token list --name <azure-managed-grafana-name> --service-account <service-account-name> --output table
+```
+
+---
+
+## Update a service account
+
+### [Portal](#tab/azure-portal)
+
+To update a service account, select it and update it in the following way:
 
 - under **Information**, edit the service account name by selecting **Edit**
 - under **Information**, edit the role by selecting the role name and selecting another role
-- under **Tokens**, delete a token by selecting **Delete (x)**
+
+The notification *Service account updated* is displayed as soon as you update a parameter.
+
+### [Azure CLI](#tab/azure-cli)
+
+Update a service account with `az grafana service-account update`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
+
+Consider using the options below:
+
+| Parameter   | Description                                                                           | Example           |
+|-------------|---------------------------------------------------------------------------------------|-------------------|
+| `--enabled` | Enter `--enabled false` or `--enabled true` to disable or enable the service account. | `--enabled false` |
+
+```azurecli-interactive
+az grafana service-account update --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role> --enabled false
+```
+
+---
+
+## Delete or disable a service account
+
+### [Portal](#tab/azure-portal)
+
 - at the top of the page, select **Delete service account** to delete the Grafana service account, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
 - at the top of the page, select **Disable service account** to disable the Grafana service account, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
+- under **Tokens**, delete a token by selecting **Delete (x)**
 
-The notification *Service account updated* is automatically displayed as soon as you update a parameter.
+### [Azure CLI](#tab/azure-cli)
+
+Delete a service account with `az grafana service-account delete`. Replace the placeholders `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+
+```azurecli-interactive
+az grafana service-account delete --name <azure-managed-grafana-name> --service-account <service-account-name>
+```
+
+---
+
+## Delete a service account token
+
+### [Portal](#tab/azure-portal)
+
+To delete a service account token, select a service account and under **Tokens**, select **Delete (x)**. Select **Delete** to confirm.
+
+### [Azure CLI](#tab/azure-cli)
+
+To delete a service account, run the `az grafana service-account token delete` command. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` with your own information.
+
+```azurecli-interactive
+az grafana service-account token delete --name <azure-managed-grafana-name> --service-account <service-account-name> --toke <token-name>
+```
+
+---
 
 ## Next steps
 
-In this how-to guide, you learned how to create an API key for Azure Managed Grafana. When you're ready, start using service accounts as the new way to authenticate applications that interact with Grafana:
+In this how-to guide, you learned how to create and manage service accounts and tokens to run automated operations in Azure Managed Grafana. When you're ready, explore more articles:
 
 > [!div class="nextstepaction"]
 > [Enable zone redundancy](how-to-enable-zone-redundancy.md)
