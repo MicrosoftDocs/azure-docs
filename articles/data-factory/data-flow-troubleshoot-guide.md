@@ -514,8 +514,8 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Executor-UserError 
 
 - **Message**: Job Failed due to reason: GetjobStatus, Job Failed - com.microsoft.dataflow.issues: DF-MICROSOFT365-CONSENTPENDING 
-- **Cause**: Prviliged Access approval needed for data access to copy. It is an user configuraiton issue.
-- **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privliged access management(PAM)
+- **Cause**: Privileged access approval is needed to copy data. It is an user configuration issue.
+- **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privileged access management(PAM) module.
 
 ### Error code: DF-File-InvalidSparkFolder
 
