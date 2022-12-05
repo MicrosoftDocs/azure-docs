@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: subject-rbac-steps, contperf-fy21q4, devx-track-azurecli
+ms.custom: subject-rbac-steps, contperf-fy21q4, devx-track-azurecli, engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
