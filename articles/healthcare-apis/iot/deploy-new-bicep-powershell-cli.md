@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/02/2022
+ms.date: 12/04/2022
 ms.author: jasteppe
 ---
 
@@ -29,7 +29,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -38,11 +38,13 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the Bicep file.
 
-## Review the Bicep file - Optional
+## Review the Bicep file
 
-The Bicep file that you use to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The Bicep file used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
-1. Save the Bicep file locally as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
+## Save the Bicep file locally
+
+Save the Bicep file locally as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
@@ -91,6 +93,11 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -137,6 +144,11 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    ```
 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
+
+   > [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
 
 ## Review deployed resources and access permissions
 
