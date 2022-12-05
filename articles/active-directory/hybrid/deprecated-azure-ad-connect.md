@@ -24,6 +24,9 @@ Using a deprecated and unsupported version of Azure AD Connect isn't recommended
 
 We regularly update Azure AD Connect with [newer versions](reference-connect-version-history.md). The new versions have bug fixes, performance improvements, new functionality, and security fixes, so it's important to stay up to date.
 
+## How to replace your deprecated version
+
+
 If you're still using a deprecated and unsupported version of Azure AD Connect, here's what you should do:
 
  1.	Verify which version you should install. Most customers no longer need Azure AD Connect and can now use [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md). Cloud sync is the next generation of sync tools to provision users and groups from AD into Azure AD. It features a lightweight agent and is fully managed from the cloud – and it upgrades to newer versions automatically, so you never have to worry about upgrading again! 
