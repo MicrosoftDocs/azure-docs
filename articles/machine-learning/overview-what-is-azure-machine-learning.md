@@ -174,7 +174,7 @@ To bring a model into production, it's deployed. Azure Machine Learning's manage
 *Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
 
 See:
- * [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
+ * [Deploy a model with a real-time managed endpoint](how-to-deploy-online-endpoints.md)
  * [Use batch endpoints for scoring](batch-inference/how-to-use-batch-endpoint.md) 
 
 

@@ -290,7 +290,7 @@ When prompted, enter the password you used when creating the VM.
 1. To create a managed online endpoint that is secured using a private endpoint for inbound and outbound communication, use the following commands:
 
     > [!TIP]
-    > You can test or debug the Docker image locally by using the `--local` flag when creating the deployment. For more information, see the [Deploy and debug locally](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints) article.
+    > You can test or debug the Docker image locally by using the `--local` flag when creating the deployment. For more information, see the [Deploy and debug locally](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints) article.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/create_moe.sh" id="create_vnet_deployment":::
 
