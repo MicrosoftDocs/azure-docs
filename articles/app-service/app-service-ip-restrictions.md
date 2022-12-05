@@ -305,7 +305,7 @@ You can change *Unmatched rule action* for *Main site* programmatically by doing
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -314,7 +314,7 @@ Run the following command in the [Cloud Shell](https://shell.azure.com). Use [th
 
 ### [PowerShell](#tab/powershell)
 
-To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -370,6 +370,8 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 }
 ```
 
+---
+
 You can also set values manually by doing one of the following options:
 
 * Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
@@ -395,7 +397,7 @@ You can change *Unmatched rule action* for *Advanced tool site* programmatically
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -404,7 +406,7 @@ Run the following command in the [Cloud Shell](https://shell.azure.com). Use [th
 
 ### [PowerShell](#tab/powershell)
 
-To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
