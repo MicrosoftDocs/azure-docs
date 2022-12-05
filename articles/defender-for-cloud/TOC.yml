@@ -134,8 +134,6 @@
       - name: Automate connector deployment
         displayName: rest api
         href: plan-multicloud-security-automate-connector-deployment.md
-      - name: Other resources
-        href: plan-multicloud-security-other-resources.md
   - name: Improve your cloud security posture
     items:
       - name: Policies, initiatives, and recommendations
