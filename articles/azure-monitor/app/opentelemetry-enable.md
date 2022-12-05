@@ -3,7 +3,7 @@ title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applicat
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
 
@@ -39,25 +39,43 @@ Consider whether this preview is right for you. It *enables distributed tracing,
 
 If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md), or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
-### [Node.js](#tab/nodejs)
+### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
-Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
+consider whether this preview is right for you. it *enables distributed tracing, metrics* and _excludes_:
 
- - [Live Metrics](live-stream.md)
- - Logging API (like console logs and logging libraries)
- - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
- - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
- - Autopopulation of User IP (to determine location attributes)
- - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
- - Ability to manually set User ID or Authenticated User ID
- - Propagating Operation Name to Dependency Telemetry
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
+ - [live metrics](live-stream.md)
+ - logging api (like console logs and logging libraries)
+ - autopopulation of cloud role name and cloud role instance in azure environments
+ - autopopulation of user id and authenticated user id when you use the [application insights javascript sdk](javascript.md)
+ - autopopulation of user ip (to determine location attributes)
+ - ability to override [operation name](correlation.md#data-model-for-telemetry-correlation)
+ - ability to manually set user id or authenticated user id
+ - propagating operation name to dependency telemetry
+ - [status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "status description" is ignored by azure monitor exporters.
 
-If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
+if you require a full-feature experience, use the existing [application insights node.js sdk](nodejs.md) until the opentelemetry-based offering matures.
 
-> [!WARNING]
-> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web and browser scenarios.
+> [!warning]
+> at present, this exporter only works for node.js environments. use the [application insights javascript sdk](javascript.md) for web and browser scenarios.
 
+### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+consider whether this preview is right for you. it *enables distributed tracing, metrics* and _excludes_:
+
+ - [live metrics](live-stream.md)
+ - logging api (like console logs and logging libraries)
+ - autopopulation of cloud role name and cloud role instance in azure environments
+ - autopopulation of user id and authenticated user id when you use the [application insights javascript sdk](javascript.md)
+ - autopopulation of user ip (to determine location attributes)
+ - ability to override [operation name](correlation.md#data-model-for-telemetry-correlation)
+ - ability to manually set user id or authenticated user id
+ - propagating operation name to dependency telemetry
+ - [status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "status description" is ignored by azure monitor exporters.
+
+if you require a full-feature experience, use the existing [application insights node.js sdk](nodejs.md) until the opentelemetry-based offering matures.
+
+> [!warning]
+> at present, this exporter only works for node.js environments. use the [application insights javascript sdk](javascript.md) for web and browser scenarios.
 ### [Python](#tab/python)
 
 Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
@@ -91,7 +109,13 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
-### [Node.js](#tab/nodejs)
+### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+- Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
+  - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
+  - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
+
+### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 - Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
@@ -120,7 +144,37 @@ If you get an error like "There are no versions available for the package Azure.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Install these packages:
+
+- [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
+- [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
+- [@azure/monitor-opentelemetry-exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
+- [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
+
+```sh
+npm install @opentelemetry/sdk-trace-base
+npm install @opentelemetry/sdk-trace-node
+npm install @azure/monitor-opentelemetry-exporter
+npm install @opentelemetry/api
+```
+
+The following packages are also used for some specific scenarios described later in this article:
+
+- [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
+- [@opentelemetry/resources](https://www.npmjs.com/package/@opentelemetry/resources)
+- [@opentelemetry/semantic-conventions](https://www.npmjs.com/package/@opentelemetry/semantic-conventions)
+- [@opentelemetry/instrumentation-http](https://www.npmjs.com/package/@opentelemetry/instrumentation-http)
+
+```sh
+npm install @opentelemetry/sdk-metrics
+npm install @opentelemetry/resources
+npm install @opentelemetry/semantic-conventions
+npm install @opentelemetry/instrumentation-http
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Install these packages:
 
@@ -207,13 +261,13 @@ public class Program
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
-##### [Node.js](#tab/nodejs)
+##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
-The following code demonstrates how to enable OpenTelemetry in a simple Node.js application:
+The following code demonstrates how to enable OpenTelemetry in a simple JavaScript application:
 
-```typescript
+```javascript
 const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-const { BatchSpanProcessor, Span } = require("@opentelemetry/sdk-trace-base");
+const { BatchSpanProcessor } = require("@opentelemetry/sdk-trace-base");
 const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
 const { context, trace } = require("@opentelemetry/api")
 
@@ -227,10 +281,7 @@ const exporter = new AzureMonitorTraceExporter({
 
 // Add the exporter to the provider.
 provider.addSpanProcessor(
-  new BatchSpanProcessor(exporter, {
-    bufferTimeout: 15000,
-    bufferSize: 1000
-  })
+  new BatchSpanProcessor(exporter)
 );
 
 // Create a tracer.
@@ -238,26 +289,103 @@ const tracer = trace.getTracer("example-basic-tracer-node");
 
 // Create a span. A span must be closed.
 const parentSpan = tracer.startSpan("main");
+
 for (let i = 0; i < 10; i += 1) {
    doWork(parentSpan);
 }
 // Be sure to end the span.
 parentSpan.end();
 
-function doWork(parent: Span) {
+function doWork(parent) {
   // Start another span. In this example, the main method already started a
   // span, so that will be the parent span, and this will be a child span.
   const ctx = trace.setSpan(context.active(), parent);
-  const span = tracer.startSpan("doWork", undefined, ctx);
+
+  // Set attributes to the span.
+  // Check the SpanOptions interface for more options that can be set into the span creation
+  const spanOptions = {
+      attributes: {
+        "key": "value"
+      }
+  };
+
+  const span = tracer.startSpan("doWork", spanOptions, ctx);
 
   // Simulate some random work.
   for (let i = 0; i <= Math.floor(Math.random() * 40000000); i += 1) {
     // empty
   }
-  // Set attributes to the span.
-  span.setAttribute("key", "value");
+
   // Annotate our span to capture metadata about our operation.
   span.addEvent("invoking doWork");
+
+  // Mark the end of span execution.
+  span.end();
+}
+
+```
+
+##### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+The following code demonstrates how to enable OpenTelemetry in a simple TypeScript application:
+
+```typescript
+import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+import { BatchSpanProcessor} from "@opentelemetry/sdk-trace-base";
+import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
+import { Context, context, Span, SpanOptions, trace, Tracer } from "@opentelemetry/api";
+
+const provider = new NodeTracerProvider();
+provider.register();
+
+// Create an exporter instance.
+const exporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>"
+});
+
+// Add the exporter to the provider.
+provider.addSpanProcessor(
+  new BatchSpanProcessor(exporter)
+);
+
+// Create a tracer.
+const tracer: Tracer = trace.getTracer("example-basic-tracer-node");
+
+// Create a span. A span must be closed.
+const parentSpan: Span = tracer.startSpan("main");
+
+for (let i = 0; i < 10; i += 1) {
+   doWork(parentSpan);
+}
+
+// Be sure to end the span.
+parentSpan.end();
+
+function doWork(parent: Span) {
+  // Start another span. In this example, the main method already started a
+  // span, so that will be the parent span, and this will be a child span.
+  const ctx: Context = trace.setSpan(context.active(), parent);
+
+  // Set attributes to the span.
+  // Check the SpanOptions interface for more options that can be set into the span creation
+  const options: SpanOptions = {
+      attributes: {
+        "key": "value"
+      }
+  };
+
+  // Create a span and attach the span options and parent span context.
+  const span: Span = tracer.startSpan("doWork", options, ctx);
+
+  // Simulate some random work.
+  for (let i = 0; i <= Math.floor(Math.random() * 40000000); i += 1) {
+    // empty
+  }
+
+  // Annotate our span to capture metadata about our operation.
+  span.addEvent("invoking doWork");
+
+  // Mark the end of span execution.
   span.end();
 }
 ```
