@@ -27,7 +27,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
-   - NSX-T Data Center or VDS on-premises for HCX Network Extension (no standard switch)
+   - NSX-T Data Center or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported)
 
    - One or more active stretched network segment
 
