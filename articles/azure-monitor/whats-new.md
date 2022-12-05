@@ -38,7 +38,7 @@ Logs|[Diagnostic settings in Azure Monitor](app/asp-net-core.md)|Added section o
 Logs|[Analyze usage in a Log Analytics workspace](app/asp-net-exceptions.md)|Added KQL query that retrieves data volumes for charged data types.|
 Logs|[Access the Azure Monitor Log Analytics API](app/java-standalone-profiler.md)|Refresh and update|
 Logs|[Collect text logs with the Log Analytics agent in Azure Monitor](app/monitor-web-app-availability.md)|New table management section with new articles on table configuration options, schema management, and custom table creation.|
-Logs|[Azure Monitor Metrics overview](undefined.md)| Added a new Azure SDK client library for Go.|
+Logs|[Azure Monitor Metrics overview](essentials/data-platform-metrics.md)| Added a new Azure SDK client library for Go.|
 Logs|[Azure Monitor Log Analytics API Overview](essentials/prometheus-metrics-overview.md)| Added a new Azure SDK client library for Go.|
 Logs|[Azure Monitor Logs overview](logs/cost-logs.md)| Added a new Azure SDK client library for Go.|
 Logs|[Log queries in Azure Monitor](essentials/data-platform-metrics.md)| Added a new Azure SDK client library for Go.|
