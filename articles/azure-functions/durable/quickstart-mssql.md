@@ -123,19 +123,30 @@ In this instance, you're looking for a result named `DurableDB`, which we can se
 
 The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Please review the documentation of your specific provider for information on how to obtain a connection string.
 
-For example, if you used our commands above without changing any parameters, your connection string should be:
+If you used Docker commands above without changing any parameters, your connection string should be:
 
 ```
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
 ```
 
-After obtaining your connection string, add it to `local.settings.json` so it can be used during local development. We'll assign it to the variable `SQLDB_Connection`, as shown below:
+After obtaining your connection string, add it to a variable in `local.settings.json` so it can be used during local development. 
+
+Below is an example `local.settings.json` assigning the default Docker-based SQL Server's connection string to the variable `SQLDB_Connection`. 
+
 
 ```json
-// ...
-"SQLDB_Connection": "Server=<server hosting your SQL DB>;Database=<DB name>; ...", // use your own connection string
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "SQLDB_Connection": "Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;",
+    "FUNCTIONS_WORKER_RUNTIME": "<dependent on your programming language>"
+  }
 }
 ```
+
+> [!NOTE]
+> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).
 
 ### Update host.json
 
@@ -151,11 +162,19 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
         "createDatabaseIfNotExists": true, 
         }
     }
+  },
+  { // optional logging configuration
+  "logging": {
+    "logLevel": {
+      "DurableTask.SqlServer": "Information",
+      "DurableTask.Core": "Warning"
+    }
   }
+}
 }    
 ```
 
-The snippet above is a *minimal* configuration. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a fairly *minimal* configuration. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
