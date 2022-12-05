@@ -1,6 +1,6 @@
 ---
 title: Connect a Microchip ATSAME54-XPro to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect a Microchip ATSAME54-XPro device to Azure IoT and send telemetry.
+description: Use Azure RTOS embedded software to connect a Microchip ATSAME54-XPro device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -8,7 +8,6 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 10/21/2022
 ms.custom: engagement-fy23
-zone_pivot_groups: iot-develop-toolset
 #- id: iot-develop-toolset
 ## Owner: timlt
 #  title: IoT Devices
