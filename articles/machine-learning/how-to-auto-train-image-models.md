@@ -270,16 +270,16 @@ For computer vision tasks, you can launch either [individual runs](#individual-r
 
 Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
-## Automatically sweeping model hyperparameters
+## Automatically sweeping model hyperparameters (AutoMode)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of runs and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
 
-### Triggering automatic sweeps
+### Triggering AutoMode
 
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. A number of runs between 10 and 20 will likely work well on many datasets. Please see the example below.
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an  example below.
 
 # [Azure CLI](#tab/cli)
 
@@ -301,7 +301,7 @@ image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, ti
 ```
 ---
 
-The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
+A number of runs between 10 and 20 will likely work well on many datasets. The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
 
 > [!Warning]
 > Launching automatic sweeps via the UI is not supported at this time.
