@@ -40,7 +40,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-slice).
+The template used in this how-to guide is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/mobilenetwork-create-new-slice).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-new-slice/azuredeploy.json":::
 
