@@ -18,7 +18,7 @@ When you use [Rule set match conditions](rules-match-conditions.md), server vari
 When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form is posted.
 
 > [!NOTE]
-> Server variable is only available with Azure Front Door Standard and Premium tiers. 
+> Server variables are available with Azure Front Door Standard and Premium tiers.
 
 ## Supported variables
 
