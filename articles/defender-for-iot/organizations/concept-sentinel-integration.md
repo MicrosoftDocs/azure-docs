@@ -40,6 +40,12 @@ The following table shows how both the OT team, on the Defender for IoT side, an
 |SOC teams respond with OT playbooks and notebooks     |  **OT incident response**       |  OT teams either suppress the alert or learn it for next time, as needed       |
 |After the threat is mitigated, SOC teams close the incident     |  **OT incident closure**       | After the threat is mitigated, OT teams close the alert        |
 
+### Alert and incident management
+
+Alert status changes are synchronized from Microsoft Sentinel to Defender for IoT only, and not from Defender for IoT to Microsoft Sentinel.
+
+If you integrate Defender for IoT with Microsoft Sentinel, we recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel.
+
 ## Microsoft Sentinel incidents for Defender for IoT
 
 After you've configured the Defender for IoT data connector and have IoT/OT alert data streaming to Microsoft Sentinel, use one of the following methods to create incidents based on those alerts:
@@ -80,8 +86,7 @@ This section clarifies the differences between Defender for IoT events, alerts, 
 
 You'll typically see more Defender for IoT *events* in Microsoft Sentinel than *alerts*, and more Defender for IoT *alerts* than *incidents*.
 
-
-- **Events**: Each alert log that streams to Microsoft Sentinel from Defender for IoT is an *event*. If the alert log reflects a new or updated alert in Defender for IoT, a new record is added to the **SecurityAlert** table. 
+- **Events**: Each alert log that streams to Microsoft Sentinel from Defender for IoT is an *event*. If the alert log reflects a new or updated alert in Defender for IoT, a new record is added to the **SecurityAlert** table.
 
     To view all Defender for IoT events in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
 

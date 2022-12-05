@@ -97,7 +97,10 @@ For lower severity alerts, or for operational alerts, you might want to investig
 
 Defender for IoT vulnerability data and security recommendations can provide simple actions you can take to mitigate the risks, such as updating firmware or applying a patch. Other actions may take more planning.
 
-When you've finished with mitigation activities and are ready to close the alert, make sure to update the alert status to **Closed**. Alert statuses are synchronized across your sensor, Defender for IoT, and Microsoft Sentinel. Closing an alert in Defender for IoT does *not* automatically close any related incident in Microsoft Sentinel.
+When you've finished with mitigation activities and are ready to close the alert, make sure to update the alert status to **Closed** or notify your SOC team for further incident management.
+
+> [!NOTE]
+> If you integrate Defender for IoT with Microsoft Sentinel, alert status changes you make in Defender for IoT are *not* updated in Microsoft Sentinel. Make sure to manage your alerts in Microsoft Sentinel together with the related incident.
 
 ## Triage alerts regularly
 
