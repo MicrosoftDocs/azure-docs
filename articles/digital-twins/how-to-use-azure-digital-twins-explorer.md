@@ -386,9 +386,10 @@ In the file selector box that appears, navigate on your machine to a folder cont
 
 The limitations in this section apply to models that are contained within a single JSON file, therefore being uploaded at the same time.
 
-While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, you should:
-* Place any models that inherit from other models being defined in the same file near the end of the list.
-* Verify that if a model inherits from another model defined in the same file, the base definition comes first in the list and the model that inherits from it comes after.
+While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
+* If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.
+* If there are any models that reference other models defined in the same file as components, place them near the end of the list.
+* Verify that wherever a model references another model that's defined in the same file (either through inheritance or as a component), the model that contains the reference comes later in the list than the referenced model definition.
 
 This will help make sure that model dependencies are resolved correctly during the upload process.
 
