@@ -13,13 +13,13 @@ ms.date: 12/01/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id= 5a3e2eab-52ce-4527-94e0-baae1b9cc81d" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:11](/shows/mdc-in-the-field/update-regulatory#time=01m11s) - What is Defender EASM?
+- [01:11](/shows/mdc-in-the-field/defender-easm#time=01m11s) - What is Defender EASM?
 
-- [02:59](/shows/mdc-in-the-field/update-regulatory#time=02m59s) - How does Defender EASM work?
+- [02:59](/shows/mdc-in-the-field/defender-easm#time=02m59s) - How does Defender EASM work?
 
-- [05:55](/shows/mdc-in-the-field/update-regulatory#time=05m55s) - What type of information is discovered?
+- [05:55](/shows/mdc-in-the-field/defender-easm#time=05m55s) - What type of information is discovered?
 
-- [09:50](/shows/mdc-in-the-field/update-regulatory#time=09m50s) - Integration with Defender for Cloud
+- [09:50](/shows/mdc-in-the-field/defender-easm#time=09m50s) - Integration with Defender for Cloud
 
 - [12:00](/shows/mdc-in-the-field/security-explorer#time=13m49s) - Demonstration
 
