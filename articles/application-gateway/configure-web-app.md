@@ -45,7 +45,7 @@ In this article you'll learn how to:
 - Configure DNS
 - Add App Service as backend pool to the Application Gateway
 - Configure HTTP Settings for the connection to App Service
-- Configure a HTTP Listener
+- Configure an HTTP Listener
 - Configure a Request Routing Rule
 
 ## Prerequisites
@@ -134,7 +134,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
-A HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes will forward requests with the hostname in which traffic is received, the health probes will utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname has explicitly been defined.  For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes will forward requests with the hostname in which traffic is received, the health probes will utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname has explicitly been defined.  For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
 We will connect to the backend using HTTPS.
 
@@ -149,7 +149,7 @@ We will connect to the backend using HTTPS.
 
 ### [Azure portal](#tab/azure-portal/defaultdomain)
 
-A HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **default ("azurewebsites.net") domain name**.  To do so, the HTTP Setting will explicitly override the host name.
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **default ("azurewebsites.net") domain name**.  To do so, the HTTP Setting will explicitly override the host name.
 
 1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
 2. When creating a new HTTP Setting, give it a name
@@ -204,7 +204,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
-## Configure a HTTP listener
+## Configure an HTTP listener
 
 To accept traffic we need to configure a Listener.  For more info on this see [Application Gateway listener configuration](configuration-listeners.md).
 
@@ -302,13 +302,13 @@ if ($listener -eq $null){
 ---
 ## Configure request routing rule
 
-Using the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have a HTTP or HTTPS listener available that is not already bound to an existing routing rule.
+Using the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have an HTTP or HTTPS listener available that is not already bound to an existing routing rule.
 
 ### [Azure portal](#tab/azure-portal)
 
 1. Under "Rules", click to add a new "Request routing rule"
 1. Provide the rule with a name
-1. Select a HTTP or HTTPS listener that is not bound yet to an existing routing rule
+1. Select an HTTP or HTTPS listener that is not bound yet to an existing routing rule
 1. Under "Backend targets", choose the Backend Pool in which App Service has been configured
 1. Configure the HTTP settings with which Application Gateway should connect to the App Service backend
 1. Select "Add" to save this configuration
