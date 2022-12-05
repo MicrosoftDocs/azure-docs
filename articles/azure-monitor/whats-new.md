@@ -16,36 +16,37 @@ This article lists significant changes to Azure Monitor documentation.
   
 |Subservice| Article | Description |
 |---|---|---|
-General|[Cost optimization and Azure Monitor](app/tutorial-app-dashboards.md)|Complete rewrite to align with Well Architected Framework. Detailed content moved to other articles and linked from here.|
-Agents|[Collect SNMP trap data with Azure Monitor Agent](essentials/data-collection-transformations-structure.md)|New tutorial that explains how to collect Simple Network Management Protocol (SNMP) traps using Azure Monitor Agent.|
-Alerts|[Manage your alert rules](logs/logs-ingestion-api-overview.md)|Recommended alert rules are enabled for AKS and Log Analytics workspace resources in addition to VMs.|
-Alerts|[Create a new alert rule](logs/private-link-configure.md)|Resource Health alerts and Service Health alerts are created using the same simplified workflow as all other alert types.|
-Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](agents/data-collection-text-log.md)|Our auto-instrumentation supported languages chart has been updated.|
-Application-insights|[Enable Application Insights logs\|for ASP.NET Core applications](app/api-custom-events-metrics.md)|The Azure Café sample app is now hosted and linked on Git.|
-Application-insights|[Application Map: Triage distributed applications](app/javascript.md)|App Map Filters, an exciting new feature, has been documented.|
-Application-insights|[How many Application Insights resources should I deploy?](insights/ad-assessment.md)|Clarification has been added on setting iKey dynamically in code.|
-Application-insights|[Sampling in Application Insights](insights/capacity-performance.md)|ASP.NET Core applications may be configured in code or through the `appsettings.json` file. Conflicting information was removed.|
-Application-insights|[Application Monitoring for Azure App Service and ASP.NET ](insights/dns-analytics.md)|Links to check versions have been corrected.|
-Application-insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](insights/scom-assessment.md)|Updated OpenTelemetry Span information for Java.|
-Autoscale|[Overview of common autoscale patterns](essentials/metrics-supported.md)|Refreshed and updated.|
-Essentials|[Azure Monitor workspace (preview)](logs/query-packs.md)|Added Bicep example.|
-Essentials|[Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication (preview)](change/tutorial-outages.md)|New article|
-Essentials|[Azure Monitor managed service for Prometheus (preview)](insights/ad-assessment.md)|General restructure of Prometheus content.|
-Essentials|[Diagnostic settings in Azure Monitor](essentials/prometheus-metrics-enable.md)|All destination endpoints support TLS 1.2.|
-Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](app/nodejs.md)|Deprecation note added|
-Logs|[Cost optimization and Azure Monitor](app/api-custom-events-metrics.md)|Added cost information and removed preview label.|
-Logs|[Diagnostic settings in Azure Monitor](app/asp-net-core.md)|Added section on controlling costs with transformations.|
-Logs|[Analyze usage in a Log Analytics workspace](app/asp-net-exceptions.md)|Added KQL query that retrieves data volumes for charged data types.|
-Logs|[Access the Azure Monitor Log Analytics API](app/java-standalone-profiler.md)|Refresh and update|
-Logs|[Collect text logs with the Log Analytics agent in Azure Monitor](app/monitor-web-app-availability.md)|New table management section with new articles on table configuration options, schema management, and custom table creation.|
+General|[Cost optimization and Azure Monitor](best-practices-cost.md)|Complete rewrite to align with Well Architected Framework. Detailed content moved to other articles and linked from here.|
+Agents|[Collect SNMP trap data with Azure Monitor Agent](agents/data-collection-snmp-data.md)|New tutorial that explains how to collect Simple Network Management Protocol (SNMP) traps using Azure Monitor Agent.|
+Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Resource Health alerts and Service Health alerts are created using the same simplified workflow as all other alert types.|
+Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Recommended alert rules are enabled for AKS and Log Analytics workspace resources in addition to VMs.|
+Application-insights|[Sampling in Application Insights](app/sampling.md)|ASP.NET Core applications may be configured in code or through the `appsettings.json` file. Conflicting information was removed.|
+Application-insights|[How many Application Insights resources should I deploy?](app/separate-resources.md)|Clarification has been added on setting iKey dynamically in code.|
+Application-insights|[Application Map: Triage distributed applications](app/app-map.md)|App Map Filters, an exciting new feature, has been documented.|
+Application-insights|[Enable Application Insights for ASP.NET Core applications](app/tutorial-asp-net-core.md)|The Azure Café sample app is now hosted and linked on Git.|
+Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](app/codeless-overview.md)|Our auto-instrumentation supported languages chart has been updated.|
+Application-insights|[Application Monitoring for Azure App Service and ASP.NET](app/azure-web-apps-net.md)|Links to check versions have been corrected.|
+Application-insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|Updated OpenTelemetry Span informatio for Java.|
+Autoscale|[Understand autoscale settings](autoscale/autoscale-understanding-settings.md)|Refresh and update|
+Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Refreshed and updated.|
+Essentials|[Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-metrics-scrape-default.md)|General restructure of Prometheus content.|
+Essentials|[Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication (preview)](essentials/prometheus-remote-write.md)|New article|
+Essentials|[Azure Monitor workspace (preview)](essentials/azure-monitor-workspace-overview.md)|Added Bicep example.|
+Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](essentials/migrate-to-azure-storage-lifecycle-policy.md)|Deprection note added|
+Essentials|[Diagnostic settings in Azure Monitor](essentials/diagnostic-settings.md)|All destination endpoints support TLS 1.2.|
+Logs|[Cost optimization and Azure Monitor](undefined.md)|Added cost information and removed preview label.|
+Logs|[Diagnostic settings in Azure Monitor](undefined.md)|Added section on controlling costs with transformations.|
+Logs|[Analyze usage in a Log Analytics workspace](logs/analyze-usage.md)|Added KQL query that retrieves data volumes for charged data types.|
+Logs|[Access the Azure Monitor Log Analytics API](logs/api/timeouts.md)|Refresh and update|
+Logs|[Collect text logs with the Log Analytics agent in Azure Monitor](agents/data-sources-custom-logs.md)|New table management section with new articles on table configuration options, schema management, and custom table creation.|
 Logs|[Azure Monitor Metrics overview](essentials/data-platform-metrics.md)| Added a new Azure SDK client library for Go.|
-Logs|[Azure Monitor Log Analytics API Overview](essentials/prometheus-metrics-overview.md)| Added a new Azure SDK client library for Go.|
-Logs|[Azure Monitor Logs overview](logs/cost-logs.md)| Added a new Azure SDK client library for Go.|
-Logs|[Log queries in Azure Monitor](essentials/data-platform-metrics.md)| Added a new Azure SDK client library for Go.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/api/overview.md)|Added new tables to the list of tables that support the Basic log data plan.|
-Visualizations|[Get started with Azure Workbooks](alerts/itsmc-connector-deletion.md)|Added instructions for how to share Workbooks.|
-Visualizations|[Monitor your Azure services in Grafana](alerts/alerts-create-new-alert-rule.md)|The Grafana integration is GA, and is no longer in preview.|  
-  
+Logs|[Azure Monitor Log Analytics API Overview](logs/api/overview.md)| Added a new Azure SDK client library for Go.|
+Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)| Added a new Azure SDK client library for Go.|
+Logs|[Log queries in Azure Monitor](logs/log-query-overview.md)| Added a new Azure SDK client library for Go.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new tables to the list of tables that support the Basic log data plan.|
+Visualizations|[Monitor your Azure services in Grafana](visualize/grafana-plugin.md)|The Grafana integration is GA, and is no longer in preview.|
+Visualizations|[Get started with Azure Workbooks](visualize/workbooks-getting-started.md)|Added instructions for how to share Workbooks.|
+
   
 
 ## October 2022  
