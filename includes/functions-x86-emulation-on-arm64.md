@@ -14,7 +14,7 @@ Functions doesn't currently support Python function development on ARM64 devices
 
 1. In your Mac, open Finder, choose **Applications**, and locate **Terminal**.
 
-1. Control-click **Terminal** and select **Get Info**. You can also create a separate parallel environment by duplicating the Terminal and re-naming it.
+1. Control-click **Terminal** and select **Get Info**. You can also create a separate parallel environment by duplicating the Terminal and renaming it.
 
     ![Select Get Info by control-clicking Terminal](./media/arm-64-python/arm-64-python-1.png)
 
@@ -34,7 +34,7 @@ Functions doesn't currently support Python function development on ARM64 devices
 
 ### Install required packages 
  
-Reinstall all dependencies required by Functions in this environment, which includes the following: 
+Reinstall all dependencies required by Functions in this environment, which includes the following packages: 
 
 * [homebrew](https://brew.sh/), installed to the path `/usr/local/bin/brew`.
 * Python 
@@ -65,7 +65,7 @@ Run the following command to apply the aliases:
 $ source .zshrc
 ```
 
-Validate you are referencing the correct versions by using the 'which' command, as shown in the following examples:
+Validate you're referencing the correct versions by using the 'which' command, as shown in the following examples:
 
 | Command | Example response |
 | --- | --- |

@@ -497,7 +497,7 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 ### Enable emulation in Visual Studio Code
 
-Now that you have configured the Terminal with Rosetta to run x86 emulation, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
+Now that you've configured the Terminal with Rosetta to run x86 emulation, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
 
 1.  Open Command Palette by pressing Cmd+Shift+P.
 
