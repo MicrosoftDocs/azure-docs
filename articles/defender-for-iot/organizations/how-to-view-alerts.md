@@ -69,11 +69,14 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 ## View details and remediate a specific alert
 
-1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details paine includes the alert description, traffic source and destination, and more.
+1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more.
 
-1. Select **View full details** to learn more.
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
-    <!--img-->
+1. Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
+
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
+
 
 1. Gain contextual insight with the following tabs on the alert details page:
 
