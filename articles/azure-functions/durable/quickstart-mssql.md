@@ -222,4 +222,4 @@ After running a simple orchestrator, you should see at least one result, as show
 
 And that's it for this walkthrough!
 
-For more information about the MSSQL architecture, configuration, and workload behavior, we recommend you take a look at the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/#/).
+For more information about the MSSQL architecture, configuration, and workload behavior, please see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
