@@ -42,6 +42,45 @@ The purpose of the Extension-based approach is to simplify the installation and 
 >[!NOTE]
 > The Extension-based Hybrid Runbook Worker only supports the User Hybrid Runbook Worker type, and doesn't include the System Hybrid Runbook Worker required for the Update Management feature.
 
+## Prerequisites
+
+### Machine minimum requirements
+
+- Two cores
+- 4 GB of RAM
+- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+- The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
+ 
+### Supported operating systems
+
+| Windows | Linux (x64)|
+|---|---|
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+
+### Other Requirements
+
+| Windows | Linux (x64)|
+|---|---|
+| Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core isn't supported.| Linux Hardening must not be enabled.  |
+| .NET Framework 4.6.2 or later. |            |
+
+### Package requirements for Linux
+
+| Required package | Description | Minimum version |
+|--------------------- | --------------------- | ------------------- |
+| Glibc |GNU C Library | 2.5-12 |
+| Openssl | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
+| Curl | cURL web client | 7.15.5 |
+| Python-ctypes | Foreign function library for Python | Python 2.x or Python 3.x are required |
+| PAM | Pluggable Authentication Modules |       |
+
+| Optional package | Description | Minimum version |
+| --------------------- | --------------------- | ------------------- |
+| PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
+
+> [!NOTE]
+> Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+
 ## Migrate an existing Agent based to Extension based Hybrid Workers
 
 To utilize the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
