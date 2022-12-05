@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/03/2022
+ms.date: 12/04/2022
 ms.author: jasteppe
 ---
 
@@ -38,7 +38,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - An active Azure subscription account. If you don't have an Azure subscription, see the [subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 - The Microsoft.HealthcareApis, Microsoft.EventHub, and Microsoft.Devices resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -135,7 +135,7 @@ When deployment is completed, the following resources and access roles are creat
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!TIP]
-> Get detailed instructions to [manually deploy the MedTech service by using the Azure portal](deploy-03-new-manual.md).
+> Get detailed instructions to [manually deploy the MedTech service by using the Azure portal](deploy-new-manual.md).
 
 ## Create a device and send a test message
 

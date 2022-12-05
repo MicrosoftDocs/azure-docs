@@ -240,9 +240,8 @@ Install IoT Edge for Linux on Windows on your target device.
    >For example, the command below creates a virtual machine with 1 vCPU core, 1 GB of RAM (represented in MB), and 2 GB of disk space:
    >
    >   ```powershell
-   >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDiskSize 2
+   >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDataSize 2
    >   ```
-   >Note: `vmDataSize` is a new parameter intriduced in the EFLOW CR version.
    >
    >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
