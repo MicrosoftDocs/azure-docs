@@ -46,27 +46,27 @@ Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
 
-| Network usage             | Subnet | Example          |
-| ------------------------- | ------ | ---------------- |
-| Private cloud management  | `/26`  | `10.10.0.0/26`   |
-| HCX Mgmt Migrations       | `/26`  | `10.10.0.64/26`  |
-| Global Reach Reserved     | `/26`  | `10.10.0.128/26` |
-| NSX-T DNS Service         | `/32`  | `10.10.0.192/32` |
-| Reserved                  | `/32`  | `10.10.0.193/32` |
-| Reserved                  | `/32`  | `10.10.0.194/32` |
-| Reserved                  | `/32`  | `10.10.0.195/32` |
-| Reserved                  | `/30`  | `10.10.0.196/30` |
-| Reserved                  | `/29`  | `10.10.0.200/29` |
-| Reserved                  | `/28`  | `10.10.0.208/28` |
-| ExpressRoute peering      | `/27`  | `10.10.0.224/27` |
-| ESXi Management           | `/25`  | `10.10.1.0/25`   |
-| vMotion Network           | `/25`  | `10.10.1.128/25` |
-| Replication Network       | `/25`  | `10.10.2.0/25`   |
-| vSAN                      | `/25`  | `10.10.2.128/25` |
-| HCX Uplink                | `/26`  | `10.10.3.0/26`   |
-| Reserved                  | `/26`  | `10.10.3.64/26`  |
-| Reserved                  | `/26`  | `10.10.3.128/26` |
-| Reserved                  | `/26`  | `10.10.3.192/26` |
+| Network usage                 | Subnet | Example          |
+| ----------------------------- | ------ | ---------------- |
+| Private cloud management      | `/26`  | `10.10.0.0/26`   |
+| HCX Mgmt Migrations           | `/26`  | `10.10.0.64/26`  |
+| Global Reach Reserved         | `/26`  | `10.10.0.128/26` |
+| NSX-T Data Center DNS Service | `/32`  | `10.10.0.192/32` |
+| Reserved                      | `/32`  | `10.10.0.193/32` |
+| Reserved                      | `/32`  | `10.10.0.194/32` |
+| Reserved                      | `/32`  | `10.10.0.195/32` |
+| Reserved                      | `/30`  | `10.10.0.196/30` |
+| Reserved                      | `/29`  | `10.10.0.200/29` |
+| Reserved                      | `/28`  | `10.10.0.208/28` |
+| ExpressRoute peering          | `/27`  | `10.10.0.224/27` |
+| ESXi Management               | `/25`  | `10.10.1.0/25`   |
+| vMotion Network               | `/25`  | `10.10.1.128/25` |
+| Replication Network           | `/25`  | `10.10.2.0/25`   |
+| vSAN                          | `/25`  | `10.10.2.128/25` |
+| HCX Uplink                    | `/26`  | `10.10.3.0/26`   |
+| Reserved                      | `/26`  | `10.10.3.64/26`  |
+| Reserved                      | `/26`  | `10.10.3.128/26` |
+| Reserved                      | `/26`  | `10.10.3.192/26` |
 
 
 
