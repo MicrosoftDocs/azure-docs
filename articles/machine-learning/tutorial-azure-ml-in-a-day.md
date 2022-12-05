@@ -47,7 +47,11 @@ The steps you'll take are:
 
 ## Run your notebook
 
-On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+
+2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
 
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
@@ -244,5 +248,5 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 ## Next steps
 
 + Convert this tutorial into a production ready [pipeline with reusable components](tutorial-pipeline-python-sdk.md).
-+ Learn about all of the [deployment options](how-to-deploy-managed-online-endpoints.md) for Azure Machine Learning.
++ Learn about all of the [deployment options](how-to-deploy-online-endpoints.md) for Azure Machine Learning.
 + Learn how to [authenticate to the deployed model](how-to-authenticate-online-endpoint.md).
