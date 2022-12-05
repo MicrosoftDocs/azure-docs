@@ -40,7 +40,7 @@ The following table shows how both the OT team, on the Defender for IoT side, an
 |SOC teams respond with OT playbooks and notebooks     |  **OT incident response**       |  OT teams either suppress the alert or learn it for next time, as needed       |
 |After the threat is mitigated, SOC teams close the incident     |  **OT incident closure**       | After the threat is mitigated, OT teams close the alert        |
 
-### Alert and incident management
+### Alert status synchronizations
 
 Alert status changes are synchronized from Microsoft Sentinel to Defender for IoT only, and not from Defender for IoT to Microsoft Sentinel.
 
