@@ -30,10 +30,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + **azureml-core**
       + Storage accounts created as a part of workspace creation now set blob public access to disabled by default
     + **azureml-responsibleai**
-      + updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
-      + added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
+      + Updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
+      + Added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
     + **azureml-train-automl-runtime**
-      + added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
+      + Added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
       + Fixed bug where generated code does not do train/test splits correctly.
       + Fixed a bug that was causing forecasting generated code training jobs to fail.
 
