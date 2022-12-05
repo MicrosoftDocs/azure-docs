@@ -1,15 +1,18 @@
 ---
 title: Update Azure Percept DK over-the-air
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
-author: nkhuyent
+author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Update Azure Percept DK over-the-air
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 
 >[!CAUTION]
 >**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**

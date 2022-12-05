@@ -185,8 +185,10 @@
       items:
       - name: Plan the offer
         href: marketplace-containers.md
-      - name: Prepare technical assets
+      - name: Prepare technical assets for a container image
         href: azure-container-technical-assets.md
+      - name: Prepare technical assets for a Kubernetes application
+        href: azure-container-technical-assets-kubernetes.md
     - name: Create the offer
       items:
       - name: Create the offer
@@ -205,10 +207,12 @@
           href: azure-container-plan-setup.md
         - name: Plan listing
           href: azure-container-plan-listing.md
-        - name: Plan availability
+        - name: Plan pricing and availability
           href: azure-container-plan-availability.md
-        - name: Plan technical configuration
+        - name: Plan technical configuration for container images
           href: azure-container-plan-technical-configuration.md
+        - name: Plan technical configuration for Kubernetes applications
+          href: azure-container-plan-technical-configuration-kubernetes.md
         - name: Container certification troubleshooting
           href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer
@@ -709,6 +713,8 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
+  - name: GitHub commercial marketplace project template 
+    href: https://aka.ms/marketplace-template
   - name: Marketplace Office Hours
     href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
@@ -724,7 +730,7 @@
   - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
-    href: sell-from-countries.md  
+    href: supported-countries-regions.md  
   - name: Co-sell country, region, state, and province codes
     href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories

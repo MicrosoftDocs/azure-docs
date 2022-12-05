@@ -44,7 +44,7 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
 Access is limited to customers that meet the following requirements:
 
-* Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.
+* Your organization should be identified as strategic customer or partner with Microsoft.
 * Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
   * Environment or device(s) with zero connectivity to internet.
   * Remote location that occasionally has internet access.

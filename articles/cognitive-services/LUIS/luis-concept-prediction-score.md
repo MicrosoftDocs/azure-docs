@@ -9,6 +9,9 @@ ms.date: 04/14/2020
 
 # Prediction scores indicate prediction accuracy for intent and entities
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A prediction score indicates the degree of confidence LUIS has for prediction results of a user utterance.
 
 A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01.

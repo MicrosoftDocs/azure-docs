@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send entity linking requests using the REST API. In the following example, you will use cURL to identify and disambiguate entities found in text.
 
@@ -156,4 +156,4 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 * [Entity linking language support](../../language-support.md)
 * [How to call the entity linking API](../../how-to/call-api.md)  
-* [Reference documentation](/rest/api/language/text-analysis-runtime)
+* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)

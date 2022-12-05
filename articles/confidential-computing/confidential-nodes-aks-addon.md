@@ -106,7 +106,7 @@ RUN apt-get update && apt-get install -y \
     libsgx-quote-ex \
     az-dcap-client \
     open-enclave
-WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
+WORKDIR /opt/openenclave/share/openenclave/samples/attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
 # this sets the flag for out of proc attestation mode, alternatively you can set this flag on the deployment files

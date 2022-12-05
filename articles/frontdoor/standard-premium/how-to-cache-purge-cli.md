@@ -21,7 +21,7 @@ Best practice is to make sure your users always obtain the latest copy of your a
 [!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
 * Review [Caching with Azure Front Door](../front-door-caching.md) to understand how caching works.
-* Have a functioning Azure Front Door profile. Refer [Create a Front Door - CLI](../create-front-door-cli.md)to learn how to create one.
+* Have a functioning Azure Front Door profile. Refer to [Create a Front Door - CLI](../create-front-door-cli.md) to learn how to create one.
 
 ## Configure cache purge
 

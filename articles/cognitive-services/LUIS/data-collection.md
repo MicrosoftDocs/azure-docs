@@ -9,6 +9,9 @@ ms.date: 05/06/2020
 
 # Data collection for your app
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS

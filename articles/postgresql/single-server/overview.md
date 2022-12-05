@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ms.date: 06/24/2022
 adobe-target: true
 ---
@@ -14,6 +14,9 @@ adobe-target: true
 # What is Azure Database for PostgreSQL?
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Hyperscale (Citus) is now [Azure Cosmos DB for PostgreSQL](../../cosmos-db/postgresql/introduction.md). To learn more about this change, see [Where is Hyperscale (Citus)?](../hyperscale/moved.md).
 
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL open source relational database](https://www.postgresql.org/). Azure Database for PostgreSQL delivers:
 
@@ -36,7 +39,6 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 
 - Single Server
 - Flexible Server
-- Hyperscale (Citus)
 
 ### Azure Database for PostgreSQL - Single Server
 
@@ -50,7 +52,7 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for PostgreSQL - Flexible Server
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13, with plans to add newer versions soon. The service is generally available today in wide variety of Azure regions.
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible Server provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, 13 and 14, with plans to add newer versions soon. The service is generally available today in wide variety of Azure regions.
 
 Flexible servers are best suited for
 
@@ -61,22 +63,9 @@ Flexible servers are best suited for
 
 For a detailed overview of flexible server deployment mode, see [flexible server overview](../flexible-server/overview.md).
 
-### Azure Database for PostgreSQL – Hyperscale (Citus)
-
-The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching--or already exceed--100 GB of data.
-
-The Hyperscale (Citus) deployment option delivers:
-
-- Horizontal scaling across multiple machines using sharding
-- Query parallelization across these servers for faster responses on large datasets
-- Excellent support for multi-tenant applications, real-time operational analytics, and high-throughput transactional workloads
-
-Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
-
 ## Next steps
 
 Learn more about the three deployment modes for Azure Database for PostgreSQL and choose the right options based on your needs.
 
 - [Single Server](./overview-single-server.md)
 - [Flexible Server](../flexible-server/overview.md)
-- [Hyperscale (Citus)](../hyperscale/overview.md)

@@ -37,8 +37,8 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
-         - Clone the **v1 (`<version>`) > how-to-use-azureml** folder instead of **tutorials**
+     - Learn how to clone sample notebooks in [Quickstart: Run Jupyter notebooks in studio](../quickstart-run-notebooks.md).
+         - Clone the **SDK v1 > how-to-use-azureml** folder instead of **SDK v2 > tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  

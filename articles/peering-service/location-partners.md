@@ -7,7 +7,7 @@ ms.service: peering-service
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 07/31/2022
+ms.date: 10/03/2022
 ms.author: halkazwini
 ---
 
@@ -32,6 +32,7 @@ The table in this article provides information on the Peering Service connectivi
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)|Africa |
 | [DE-CIX](https://www.de-cix.net/)|Europe, North America |
+| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
 | [IIJ](https://www.iij.ad.jp/en/) |Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |

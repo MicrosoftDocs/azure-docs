@@ -4,6 +4,7 @@ description: This article describes an overview of FHIR search that is implement
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 06/03/2022
 ms.author: kesheth
@@ -57,7 +58,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | _type                       | Yes                  | Yes                       |
 | _security                   | Yes                  | Yes                       |
 | _profile                    | Yes                  | Yes                       |
-| _has                        | Partial              | Yes                       | Support for _has is in MVP in the Azure API for FHIR and the OSS version backed by Cosmos DB. More details are included under the chaining section below. |
+| _has                        | Partial              | Yes                       | Support for _has is in MVP in the Azure API for FHIR and the OSS version backed by Azure Cosmos DB. More details are included under the chaining section below. |
 | _query                      | No                   | No                        |
 | _filter                     | No                   | No                        |
 | _list                       | No                   | No                        |
@@ -128,11 +129,11 @@ To help manage the returned resources, there are search result parameters that y
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _elements                     | Yes                  | Yes                       |
 | _count                        | Yes                  | Yes                       | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
-| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
-| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There's also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
+| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Azure Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
+| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Azure Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There's also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate                               |
-| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date.       |
+| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date.       |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |
@@ -151,7 +152,7 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
 > [!NOTE]
-> In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 1000 items. If there are more than 1000 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 1000 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
+> In the Azure API for FHIR and the open source backed by Azure Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 1000 items. If there are more than 1000 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 1000 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
 
 ## Pagination
 

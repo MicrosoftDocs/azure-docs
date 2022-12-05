@@ -42,7 +42,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
- Repositories content needs to be stored as [ARM templates](/azure/azure-resource-manager/templates/overview). The repositories deployment pipeline doesn't validate the content except to confirm it's in the correct JSON format.
+ Repositories content needs to be stored as [ARM templates](../azure-resource-manager/templates/overview.md). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
 
 The first step to validate your content is to test it within Microsoft Sentinel. You can also apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 
@@ -64,7 +64,7 @@ A sample repository is available with ARM templates for each of the content type
 
 The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 
-Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, you can modify your workflow to disable smart deployments. For more information, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow). 
+Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, you can modify your workflow to disable smart deployments. For more information, see [Customize the workflow or pipeline](ci-cd-custom-deploy.md#customize-the-workflow-or-pipeline). 
 
    > [!NOTE]
    > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
@@ -73,23 +73,33 @@ Smart deployments are enabled by default on newly created connections. If you pr
 
 ## Consider deployment customization options
 
-Even with smart deployments enabled, the default behavior is to push all the updated content from the connected repository branch. If the default configuration for your content deployment from GitHub or Azure DevOps doesn't meet all your requirements, you can modify the experience to fit your needs.
+A number of customization options are available to consider when deploying content with Microsoft Sentinel repositories.
 
-For example, you may want to:
-- turn off smart deployments
+#### Customize the workflow or pipeline
+
+You may want to customize the workflow or pipeline in one of the following ways:
 - configure different deployment triggers
 - deploy content only from a specific root folder for a given workspace
 - schedule the workflow to run periodically
 - combine different workflow events together
-- prioritize content to be evaluated before the entire repo is enumerated for valid ARM templates
+- turn off smart deployments
 
-For more details on how to implement these customizations, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow).
+These customizations are defined in a .yml file specific to your workflow or pipeline. For more details on how to implement, see [Customize repository deployments](ci-cd-custom-deploy.md#customize-the-workflow-or-pipeline)
+
+#### Customize the deployment
+
+Once the workflow or pipeline is triggered, the deployment supports the following scenarios:
+- prioritize content to be deployed before the rest of the repo content
+- exclude content from deployment
+- specify ARM template parameter files 
+
+These options are available through a feature of the PowerShell deployment script called from the workflow or pipeline. For more details on how to implement these customizations, see [Customize repository deployments](ci-cd-custom-deploy.md#customize-your-connection-configuration).
 
 
 ## Next steps
 
 Get more examples and step by step instructions on deploying Microsoft Sentinel repositories.
 
-- [Sentinel CICD sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent)
 - [Deploy custom content from your repository](ci-cd.md)
+- [Sentinel CICD sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent)
 - [Automate Sentinel integration with DevOps](/azure/architecture/example-scenario/devops/automate-sentinel-integration#microsoft-sentinel-repositories)

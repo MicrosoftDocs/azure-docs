@@ -17,7 +17,7 @@ ms.devlang: csharp
 
 ## Run post-call transcription analysis with C#
 
-Follow these steps to run post-call transcription analysis from an audio file.
+Follow these steps to build and run the post-call transcription analysis quickstart code example.
 
 1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnetcore/call-center/"  title="Copy the samples"  target="_blank">scenarios/csharp/dotnetcore/call-center/</a> sample files from GitHub. If you have [Git installed](https://git-scm.com/downloads), open a command prompt and run the `git clone` command to download the Speech SDK samples repository.
     ```dotnetcli

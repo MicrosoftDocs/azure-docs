@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2022
+ms.date: 12/05/2022
 ms.author: jodowns
 ---
 
@@ -25,6 +25,10 @@ For most solutions, you should use *either* Front Door *or* [Azure Traffic Manag
 If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 However, as part of a complex architecture, you might choose to use Traffic Manager in front of Front Door. In the unlikely event that Front Door is unavailable, Traffic Manager can route traffic to an alternative destination, such as Application Gateway or a partner content delivery network (CDN). These architectures are difficult to implement and most customers don't need them.
+
+### Restrict traffic to your origins
+
+Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
 ### Use the latest API version and SDK version
 

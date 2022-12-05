@@ -9,7 +9,8 @@ metadata:
   services: active-directory
   author: jenniferf-skc
   manager: amycolannino
-  ms.service: ciem
+  ms.service: active-directory 
+  ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 03/09/2022

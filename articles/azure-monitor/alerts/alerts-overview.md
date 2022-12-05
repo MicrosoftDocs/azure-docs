@@ -42,34 +42,44 @@ Once an alert is triggered, the alert is made up of:
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
+
 ## Types of alerts
 
-There are four types of alerts. This table provides a brief description of each alert type. 
+This table provides a brief description of each alert type. 
 See [this article](alerts-types.md) for detailed information about each alert type and how to choose which alert type best suits your needs.
 
 |Alert type|Description|
 |:---------|:---------|
 |[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features, such as the ability to apply multiple conditions and dynamic thresholds.|
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
-|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
+|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. **Resource Health** alerts and **Service Health** alerts are activity log alerts that report on your service and resource health.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
+|[Prometheus alerts (preview)](alerts-types.md#prometheus-alerts-preview)|Prometheus alerts are used for alerting on performance and health of Kubernetes clusters (including AKS). The alert rules are based on PromQL, which is an open source query language.|
+
 ## Out-of-the-box alert rules (preview)
 
 If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
+> The alert rule recommendations feature is currently in preview and is only enabled for unmonitored:
+> - Virtual machines
+> - AKS resources
+> - Log Analytics workspaces
 
 ## Azure role-based access control (Azure RBAC) for alerts
 
 You can only access, create, or manage alerts for resources for which you have permissions.
-To create an alert rule, you need to have the following permissions:
+
+To create an alert rule, you need to have:
  - Read permission on the target resource of the alert rule
  - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
- - Read permission on any action group associated to the alert rule (if applicable)
+ - Read permission on any action group associated with the alert rule (if applicable)
+
 These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and access alerts information and create alert rules:
- - monitoring contributor
- - monitoring reader 
+ - **Monitoring contributor**: can create alerts and use resources within their scope 
+ - **Monitoring reader**: can view alerts and read resources within their scope
+
+If the target action group or rule location is in a different scope than the two built-in roles, you need to create a user with the appropriate permissions. 
 
 ## Alerts and State
 

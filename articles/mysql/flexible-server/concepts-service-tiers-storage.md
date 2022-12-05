@@ -6,7 +6,8 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: Bashar-MSFT
 ms.author: bahusse
-ms.custom: event-tier1-build-2022
+ms.reviewer: maghan
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 05/24/2022
 ---
 
@@ -18,13 +19,13 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
-| VM series| [B-series](/azure/virtual-machines/sizes-b-series-burstable) | [Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | [Edsv4](/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)*|
+| VM series| [B-series](../../virtual-machines/sizes-b-series-burstable.md) | [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)*/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)|
 | vCores | 1, 2, 4, 8, 12, 16, 20 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64, 80, 96 |
-| Memory per vCore | Variable | 4 GiB | 8 GiB * |
+| Memory per vCore | Variable | 4 GiB | 8 GiB ** |
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
-\* With the exception of E64ds_v4 (Business Critical) SKU, which has 504 GB of memory
+\** With the exception of 64,80, and 96 vCores, which has 504, 504 and 672 GiB of memory respectively.
 
 \* Ev5 compute provides best performance among other VM series in terms of QPS and latency. learn more about performance and region availability of Ev5 compute from [here](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
@@ -57,21 +58,35 @@ The detailed specifications of the available server types are as follows:
 |Standard_B16ms	|	16	|	64	|	4300	|	10923
 |Standard_B20ms	|	20	|	80	|	5000	|	13653
 |**General Purpose**|				
+|Standard_D2ads_v5	|2  |8  |3200   |1365
 |Standard_D2ds_v4	|2	|8	|3200	|1365
+|Standard_D4ads_v5	|4	|16	|6400	|2731
 |Standard_D4ds_v4	|4	|16	|6400	|2731
+|Standard_D8ads_v5	|8	|32	|12800	|5461
 |Standard_D8ds_v4	|8	|32	|12800	|5461
+|Standard_D16ads_v5	|16	|64	|20000	|10923
 |Standard_D16ds_v4	|16	|64	|20000	|10923
+|Standard_D32ads_v5	|32	|128	|20000	|21845
 |Standard_D32ds_v4	|32	|128	|20000	|21845
+|Standard_D48ads_v5	|48	|192	|20000	|32768
 |Standard_D48ds_v4	|48	|192	|20000	|32768
+|Standard_D64ads_v5	|64	|256	|20000	|43691
 |Standard_D64ds_v4	|64	|256	|20000	|43691
 |**Business Critical** |	
 |Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
+|Standard_E2ads_v5	|	2	|	16	|	5000	|	2731
 |Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
+|Standard_E4ads_v5	|	4	|	32	|	10000	|	5461
 |Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
+|Standard_E8ads_v5	|	8	|	64	|	18000	|	10923
 |Standard_E16ds_v4	|	16	|	128	|	28000	|	21845
+|Standard_E16ads_v5	|	16	|	128	|	28000	|	21845
 |Standard_E32ds_v4	|	32	|	256	|	38000	|	43691
+|Standard_E32ads_v5	|	32	|	256	|	38000	|	43691
 |Standard_E48ds_v4	|	48	|	384	|	48000	|	65536
+|Standard_E48ads_v5	|	48	|	384	|	48000	|	65536
 |Standard_E64ds_v4	|	64	|	504	|	48000	|	86016
+|Standard_E64ads_v5	|	64	|	504	|	48000	|	86016
 |Standard_E80ids_v4	|	80	|	504	|	48000	|	86016
 |Standard_E2ds_v5	|	2	|	16	|	5000	|	2731
 |Standard_E4ds_v5	|	4	|	32	|	10000	|	5461
@@ -82,7 +97,8 @@ The detailed specifications of the available server types are as follows:
 |Standard_E64ds_v5	|	64	|	512	|	48000	|	87383
 |Standard_E96ds_v5	|	96	|	672	|	48000	|	100000
 
-To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and Business Critical [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)]
+To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), General Purpose [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), and Business Critical [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)
+
 
 >[!NOTE]
 >For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
@@ -130,6 +146,11 @@ The maximum IOPS is dependent on the maximum available IOPS per compute size. Re
 > **Maximum IOPS** is determined by the selected compute size. 
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
+
+## Autoscale IOPS
+The cornerstone of the Azure Database for MySQL - Flexible Server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature which enable users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs.  
+
+With Autoscale IOPS, you pay only for the IO the server use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. 
 
 ## Backup
 

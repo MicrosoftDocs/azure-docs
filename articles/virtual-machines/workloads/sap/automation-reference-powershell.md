@@ -1,6 +1,6 @@
 ---
-title: SAP deployment automation framework PowerShell reference | Microsoft Docs
-description: SAP deployment automation framework on Azure PowerShell reference
+title: SAP on Azure Deployment Automation Framework PowerShell reference | Microsoft Docs
+description: SAP on Azure Deployment Automation Framework PowerShell reference
 services: virtual-machines-windows
 author: kimforss
 manager: kimforss
@@ -12,9 +12,9 @@ ms.date: 11/17/2021
 ms.author: kimforss
 ---
 
-# Using PowerShell in SAP deployment automation framework
+# Using PowerShell in SAP on Azure Deployment Automation Framework
 
-You can deploy all [SAP deployment automation framework on Azure](automation-deployment-framework.md) components using Microsoft PowerShell.
+You can deploy all [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) components using Microsoft PowerShell.
 
 ## Control Plane operations
 

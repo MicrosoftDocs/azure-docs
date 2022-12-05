@@ -140,7 +140,9 @@ This table shows the maximum number of characters that can be sent per SMS segme
 
 ### Can I send/receive long messages (>2048 chars)?
 
-Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages.
+Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
+
+*Limitation of US short code - There is a known limit of ~4 segments when sending/receiving a message with Non-ASCII characters. Beyond 4 segments, the message may not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 

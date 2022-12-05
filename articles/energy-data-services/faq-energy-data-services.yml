@@ -16,7 +16,7 @@ sections:
       questions:
         - question: What is Microsoft Energy Data Services Preview?
           answer: >
-            Microsoft Energy Data Services is an open, secure, reliable, and fully managed cloud based data platform solution for the energy industry. It is an enterprise-grade offering that is based on OSDU&trade; Data Platform and brings together Microsoft's secure and trusted Azure cloud platform and Schlumberger's extensive domain expertise. The offering is currently in preview for evaluation and deployment by customers.
+            Microsoft Energy Data Services is an open, secure, reliable, and fully managed cloud based data platform solution for the energy industry. It is an enterprise-grade offering that is based on OSDU&trade; Data Platform and brings together Microsoft's secure and trusted Azure cloud platform and SLB's extensive domain expertise. The offering is currently in preview for evaluation and deployment by customers.
 
     - name: Access
       questions:
@@ -28,7 +28,7 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Microsoft Energy Data Services?
           answer: >
-            Pricing for Microsoft Energy Data Services will be made available by November 1st, 2022. 
+            Pricing for Microsoft Energy Data Services will be made available by February 2023. 
 
         - question: When will billing begin for Microsoft Energy Data Services Preview?
           answer: >

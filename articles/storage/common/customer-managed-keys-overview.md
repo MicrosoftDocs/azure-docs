@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/30/2022
+ms.date: 10/31/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -70,8 +70,8 @@ You can configure customer-managed keys with the key vault and storage account i
 
 To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in different Azure AD tenants, see one of the following articles:
 
-- [Configure cross-tenant customer-managed keys for a new storage account (preview)](customer-managed-keys-configure-cross-tenant-new-account.md)
-- [Configure cross-tenant customer-managed keys for an existing storage account (preview)](customer-managed-keys-configure-cross-tenant-existing-account.md)
+- [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md)
+- [Configure cross-tenant customer-managed keys for an existing storage account](customer-managed-keys-configure-cross-tenant-existing-account.md)
 
 When you enable or disable customer-managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account doesn't need to be re-encrypted.
 
