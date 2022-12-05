@@ -57,7 +57,6 @@ For more information on the specifications of each VM type, see the following do
 \* = VM Sizes for Spark Enterprise Security Package (ESP) clusters
 
 > [!NOTE]
-
 > - Worker is known as *Region* for the HBase cluster type.
 
 ## Next steps
