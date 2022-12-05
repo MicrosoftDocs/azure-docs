@@ -279,7 +279,7 @@ It is generally hard to predict the best model architecture and hyperparameters 
 
 ### Triggering AutoMode
 
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an  example below.
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an example below.
 
 # [Azure CLI](#tab/cli)
 
