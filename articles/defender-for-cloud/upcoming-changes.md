@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/24/2022
+ms.date: 11/29/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,16 +18,9 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-preview-is-set-to-be-deprecated) | November 2022 |
 | [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
-
-### The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated
-
-**Estimated date for change: November 2022**
-
-The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md#create-a-new-custom-assessment-for-your-aws-account-preview) and [GCP projects](how-to-manage-gcp-assessments-standards.md#create-a-new-custom-assessment-for-your-gcp-project-preview) (Preview) is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan, which will be released in the future. 
 
 ### Recommendation to configure dead-letter queues for Lambda functions to be deprecated
 
@@ -57,7 +50,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
 
-The Defender for SQL vulnerability assessment e-mail report will still be available and existing e-email configurations won't change after the policy is deprecated.
+The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
 
 ## Next steps
 
