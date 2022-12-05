@@ -342,7 +342,7 @@ To let your application users reset their passwords, create a password reset use
 To test the user flow:
 
 1. Select the user flow you created. On the user flow overview page, select **Run user flow**.
-1. For **Application**, select the web application you wish to test, such as the the one named *webapp1* if you registered that earlier. The **Reply URL** should be `https://jwt.ms`.
+1. For **Application**, select the web application you wish to test, such as the one named *webapp1* if you registered that earlier. The **Reply URL** should be `https://jwt.ms`.
 1. Select **Run user flow**, verify the email address of the account that you want to reset the password for, and then select **Continue**.
 1. Change the password, and then select **Continue**. The token is returned to `https://jwt.ms` and the browser displays it.
 
