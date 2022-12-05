@@ -210,7 +210,7 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
 
-    ![Locate key components on the Microchip E54 evaluation kit board](media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/microchip-xpro-board.png)
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro-iot-hub/microchip-xpro-board.png" alt-text="The Microchip E54 development kit board.":::
 
 1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
 
