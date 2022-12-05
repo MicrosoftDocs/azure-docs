@@ -72,7 +72,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-ot-plan.png" alt-text="Screenshot of adding a plan for OT networks to your subscription." lightbox="media/how-to-manage-subscriptions/onboard-ot-plan.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-pricing-temp.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-pricing-temp.png":::
 
 1. Select **Next**.
 
