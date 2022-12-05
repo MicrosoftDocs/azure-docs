@@ -16,37 +16,25 @@ ms.collection: M365-identity-device-management
 
 # Configure CMMC Level 2 Identification and Authentication (IA) controls
 
-Azure Active Directory provides the capability to meet all identity related practice requirements within each of the Cybersecurity Maturity Model Certification (CMMC) levels. It's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete additional configurations or processes to be compliant with requirements in [CMMC V2.0 level 2](https://cmmc-coe.org/maturity-level-two/).
+Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To complete other configurations or processes to be compliant with requirements in [CMMC V2.0 level 2](https://cmmc-coe.org/maturity-level-two/), it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD).
 
-Within CMMC Level 2, there are 13 domains that have one or more practices related to identity. The domains are:
+CMMC Level 2 has 13 domains that have one or more practices related to identity. The domains are:
 
 * Access Control (AC)
-
 * Audit & Accountability (AU)
-
 * Configuration Management (CM)
-
 * Identification & Authentication (IA)
-
 * Incident Response (IR)
-
 * Maintenance (MA)
-
 * Media Protection (MP)
-
 * Personnel Security (PS)
-
 * Physical Protection (PE)
-
 * Risk Assessment (RA)
-
 * Security Assessment (CA)
-
 * System and Communications Protection (SC)
-
 * System and Information Integrity (SI)
 
-he remainder of this article provides guidance for the Identification and Authorization (IA) domain. There's a table with links to content that provides step-by-step guidance to accomplish the practice..
+The remainder of this article provides guidance for the Identification and Authorization (IA) domain. There's a table with links to content that provides step-by-step guidance to accomplish the practice..
 
 ## Identification & Authentication
 
