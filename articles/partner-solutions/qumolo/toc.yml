@@ -1,0 +1,35 @@
+- name: Azure Native Qumolo Documentation 
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Qumolo?
+    href: dynatrace-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Qumolo resource
+    href: qumolo-create.md
+  # - name: Link to existing Qumolo resource
+    # href: qumolo-link-to-existing.md
+- name: How to
+  items:
+  - name: Configure prerequisites
+    href: qumolo-how-to-configure-prereqs.md
+  - name: Manage Qumolo
+    href: qumolo-how-to-manage.md
+  - name: Troubleshoot
+    href: qumolo-troubleshoot.md
+#- name: Reference
+#  items:
+#  - name: Python
+#    href: /python/api/overview/azure/qumolo
+#  - name: JavaScript
+#    href: /javascript/api/overview/azure/qumolo
+#  - name: .NET
+#    href: /dotnet/api/overview/azure/qumolo
+#  - name: Java
+#    href: /java/api/overview/azure/qumolo
+#  - name: REST API
+#    href: /rest/api/qumolo
+##  - name: Azure PowerShell
+##    href: 
