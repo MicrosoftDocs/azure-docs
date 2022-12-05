@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 12/02/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -28,6 +28,12 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 | Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
 |:--:|:--:|:--:|:--:|:--:|
 | Supported| Supported | Supported | Supported| Supported |
+
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document. For more information, *see* [Custom model build mode](concept-custom.md#build-mode)
 
 ## Tabular fields
 
