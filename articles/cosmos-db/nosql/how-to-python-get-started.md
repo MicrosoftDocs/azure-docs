@@ -453,9 +453,8 @@ The following guides show you how to use each of these classes to build your app
 | Guide | Description |
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
-|  | Create containers |
-|  | Point read a specific item |
-|  | Query multiple items |
+| [Create container](/azure/cosmos-db/nosql/samples-python#container-examples) | Create containers |
+| [Item examples](/azure/cosmos-db/nosql/samples-python#item-examples) | Point read a specific item |
 
 ## See also
 
