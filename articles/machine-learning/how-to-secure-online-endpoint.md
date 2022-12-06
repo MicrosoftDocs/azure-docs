@@ -122,14 +122,6 @@ To restrict communication between a deployment and external resources, including
 > [!WARNING]
 > You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
 
-The following are the resources that the deployment communicates with over the private endpoint:
-
-* The Azure Machine Learning workspace.
-* The Azure Storage blob that is the default storage for the workspace.
-* The Azure Container Registry for the workspace.
-
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
-
 # [Azure CLI](#tab/cli)
 
 ```azurecli
