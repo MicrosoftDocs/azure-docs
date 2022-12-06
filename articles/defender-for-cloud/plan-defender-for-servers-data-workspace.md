@@ -6,12 +6,12 @@ ms.date: 11/06/2022
 ---
 # Review data residency and workspace design
 
-This article helps you to understand how your data is stored, and how Log Analytics workspaces are used in Defender for Servers. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
+This article helps you to understand how your data is stored in Defender for Servers, and how Log Analytics workspaces are used. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 
 ## Before you start
 
-This article is the second in the Defender for Servers planning guide series. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md)
+This article is the second in the Defender for Servers planning guide series. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md).
 
 
 

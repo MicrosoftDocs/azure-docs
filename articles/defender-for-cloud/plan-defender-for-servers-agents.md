@@ -26,25 +26,20 @@ Defender for Servers plans use a number of agents/extensions.
 Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is used by Defender for Cloud to protect non-Azure machines. 
 
 - **Foundational CSPM**:
-    - For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.<br/><br/> You do need Azure Arc onboarding for on-premises machines.
-- **Defender for Server plan**:
+    - For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.
+    - You do need Azure Arc onboarding for on-premises machines.
+- **Defender for Servers plan**:
     - To use the Defender for Servers, all AWS/GCP and on-premises machines should be Azure Arc-enabled.
     - After setting up AWS/GCP connectors, Defender for Cloud can automatically deploy agents to AWS/GCP servers. This includes automatic deployment of the Azure Arc agent.
 
 ### Plan for Azure Arc deployment
 
 1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
-1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
-    - Review the [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
-    - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
-    - Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
+1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure. Review the following:
+    - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
+    - [Network and internet access requirements(../azure-arc/servers/network-requirements.md) for the agent.
+    - [Connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
-### Azure Arc agent
-
-Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
-- Review the [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
-- [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements for the agent.
-- Review [connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
 ## Log Analytics agent/Azure Monitor agent
 

@@ -32,7 +32,7 @@ Defender for Servers extends protection to your Windows and Linux machines runni
 
 Here's a quick overview of the deployment process.
 
-:::image type="content" source="media/defender-for-servers-introduction/deployment-overview.png" alt-text="Summary overview of the deployment steps for Defender for Servers.":::
+:::image type="content" source="media/plan-defender-for-servers/deployment-overview.png" alt-text="Summary overview of the deployment steps for Defender for Servers.":::
 
 - Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.

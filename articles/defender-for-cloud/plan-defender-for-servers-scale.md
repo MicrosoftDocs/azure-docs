@@ -8,7 +8,7 @@ ms.date: 11/06/2022
 
 This article helps you to scale your Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
-## Before you start 
+## Before you start
 
 This article is the fifth in the Defender for Servers planning guide series. Before you begin, review the earlier articles:
 

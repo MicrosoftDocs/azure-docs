@@ -4,7 +4,7 @@ description: Review roles and permissions for Defender for Servers
 ms.topic: conceptual
 ms.date: 11/06/2022
 ---
-# Review roles and permissions in Defender for Servers
+# Review Defender for Servers roles and permissions
 
 This article helps you to understand how to control access to Defender for Servers. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
