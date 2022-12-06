@@ -10,9 +10,6 @@ ms.date: 04/07/2022
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel Solution for SAP.
 
-> [!NOTE]
-> For everything related to SAP’s licenses, terms and conditions, please contact your SAP representative. 
-
 ## Deployment milestones
 
 Track your SAP solution deployment journey through this series of articles:
