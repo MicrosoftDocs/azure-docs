@@ -331,7 +331,6 @@ In your AutoML job, you can perform an automatic hyperparameter sweep in order t
 limits:
   max_trials: 10
   max_concurrent_trials: 2
-  timeout_minutes: 60
 ```
 
 # [Python SDK](#tab/python)
@@ -339,8 +338,8 @@ limits:
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-# Trigger automatic sweeping
-image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
+# Trigger AutoMode
+image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2)
 ```
 ---
 
