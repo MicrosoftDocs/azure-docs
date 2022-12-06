@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/17/2022
+ms.date: 12/06/2022
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -23,7 +23,7 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
+Some Microsoft services aren't available in all locations. For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
 1. Go to **Azure AD** > **Users** and select a user.
@@ -31,36 +31,14 @@ Some Microsoft services aren't available in all locations. Before a license can 
 1. Select the **Settings** tab and enter a location for the user.
 1. Select the **Save** button.
 
-For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
-
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via AAD Connect configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
-You can use group-based licensing with any security group, which means it can be combined with Azure AD dynamic groups. Dynamic groups run rules against user resource attributes to automatically add and remove users from groups.
+You can use group-based licensing with any security group, including dynamic groups. Dynamic groups run rules against user resource attributes, such as department, to automatically add and remove members. Each group is assigned the licenses that you want members to receive. If an attribute changes, the member leaves the group, and the licenses are removed.
 
-For example, you can create a dynamic group for some set of products you want to assign to users. Each group is populated by a rule adding users by their attributes, and each group is assigned the licenses that you want them to receive. You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud.
-
-Licenses are assigned to the user shortly after they're added to the group. When the attribute is changed, the user leaves the groups, and the licenses are removed.
-
-### Example
-
-Consider the example of an on-premises identity management solution that decides which users should have access to Microsoft web services. It uses `extensionAttribute1` to store a string value representing the licenses the user should have. Azure AD Connect syncs it with Azure AD.
-
-Users might need one license but not another, or might need both. In this example, you're distributing Microsoft 365 E5 and Enterprise Mobility + Security (EMS) licenses to users in groups. 
-
-Users that need the Microsoft 365 E5 license will be added to the *Microsoft365_E5* group. User that need the Enterprise Mobility + Security license will be added to the *EMS* group. A third group is created for users that need both licenses. 
-
-![Screenshot of Microsoft 365 E5 attribute in dynamic membership rules.](./media/licensing-group-advanced/dynamic-groups-rules-E5.png)
-
-#### Enterprise Mobility + Security: licensed users
-
-![Screenshot of EMS and Microsoft 365 E5 dynamic membership rules.](./media/licensing-group-advanced/dynamic-groups-rules-EMS.png)
-
-For this example, modify one user and set their extensionAttribute1 to the value of `EMS;SPE_E5;` if you want the user to have both licenses. You can make this modification on-premises. After the change syncs with the cloud, the user is automatically added to both groups, and licenses are assigned.
-
-![Screenshot of Enterprise Mobility + Security licensed user.](./media/licensing-group-advanced/user-license-dynamic.png)
+You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud. 
 
 > [!WARNING]
 > Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
@@ -71,13 +49,13 @@ For this example, modify one user and set their extensionAttribute1 to the value
 
 A user can be a member of multiple groups with licenses. Here are some things to consider:
 
-- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *E3 base services* contains the foundation services to deploy first, to all users, and *E3 extended services* contains other services (Sway and Planner) to deploy only to some users. You can add the user to both groups. As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
+- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *M365-P1* contains the foundational services to deploy to all users, and *M365-P2* contains the P2 services to deploy only to some users. You can add a user to one or both groups and only use one license for the product.
 
-- Selecting the *E3* license shows more details, including information about which services are enabled for the user by the group license assignment.
+- Select a license to view more details, including information about which services are enabled for the user by the group license assignment.
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign other features to a user that has their license from a group license assignment, you must create another group to assign the other features to the user. 
+When a user inherits a license from a group, you can't directly remove or modify that license in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all group members. If you need to assign other features to a user that has their license from a group license assignment, you must create another group to assign the other features to the user. 
 
 When you use group-based licensing, consider the following scenarios:
 
