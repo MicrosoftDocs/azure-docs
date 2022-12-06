@@ -68,7 +68,7 @@ Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP t
 1. Sign in to the Azure AD portal with application admin rights.
 2. From the left navigation pane, select the **Azure Active Directory service**.
 3. Go to **Enterprise Applications** and from the top ribbon select **New application**.
-4. In the gallery search for F5 and select **F5 BIG-IP APM Azure AD integration**.
+4. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.
 5. Enter a name for the application.
 6. Select **Add** then **Create**. 
 7. The name, as an icon, appears in the Azure portal and Office 365 portal. 
@@ -114,7 +114,7 @@ By default, Azure AD issues tokens to users with granted access to a service.
 
 1. In the application configuration view, select **Users and groups**.
 2. Select **+ Add user**.
-3. In the **Add Assignment** menu select **Users and groups**.
+3. In the **Add Assignment** menu, select **Users and groups**.
 4. In the **Users and groups** dialog, add the user groups authorized to access the VPN
 5. Select **Select** > **Assign**.
 
@@ -133,32 +133,32 @@ To complete federating the VPN service with Azure AD, create the BIG-IP SAML ser
 
 ![Image shows BIG-IP SAML configuration](media/f5-sso-vpn/bigip-saml-configuration.png)
 
-2. Enter a **Name** and the **Entity ID** defined in Azure AD.
-3. Enter the Host FQDN to connect to the application.
+3. Enter a **Name** and the **Entity ID** defined in Azure AD.
+4. Enter the Host FQDN to connect to the application.
 
 ![Image shows creating new SAML SP service](media/f5-sso-vpn/create-new-saml-sp.png)
 
 >[!NOTE]
 >If the entity ID isn't an exact match of the hostname of the published URL, configure SP **Name** settings, or perform this action if it isn’t in hostname URL format. If entity ID is `urn:ssl-vpn:contosoonline`, provide the external scheme and hostname of the application being published.
 
-4. Scroll down to select the new **SAML SP object**.
-5. Select **Bind/UnBind IDP Connectors**.
+5. Scroll down to select the new **SAML SP object**.
+6. Select **Bind/UnBind IDP Connectors**.
 
 ![Image shows creating federation with local SP service](media/f5-sso-vpn/federation-local-sp-service.png)
 
-6. Select **Create New IDP Connector**.
-7. From the drop-down menu select **From Metadata**
+7. Select **Create New IDP Connector**.
+8. From the drop-down menu, select **From Metadata**
 
 ![Image shows create new IDP connector](media/f5-sso-vpn/create-new-idp-connector.png)
 
-8. Browse to the federation metadata XML file you downloaded. 
-9. For the APM object,provide an **Identity Provider Name** that represents the external SAML IdP.
-10. To select the new Azure AD external IdP connector, select **Add New Row**.
+9. Browse to the federation metadata XML file you downloaded. 
+10. For the APM object,provide an **Identity Provider Name** that represents the external SAML IdP.
+11. To select the new Azure AD external IdP connector, select **Add New Row**.
 
 ![Image shows external IDP connector](media/f5-sso-vpn/external-idp-connector.png)
 
-11. Select **Update**.
-12. Select **OK**.
+12. Select **Update**.
+13. Select **OK**.
 
 ![Image shows SAML IDP using SP](media/f5-sso-vpn/saml-idp-using-sp.png)
 
@@ -254,7 +254,7 @@ An access policy enables the service for SAML authentication.
 
 ![Image shows saml authentication](media/f5-sso-vpn/saml-authentication.png)
 
-14. For the Successful branch of SAML aut, shelect **+** .
+14. For the Successful branch of SAML auth, select **+** .
 15. From the Assignment tab, select **Advanced Resource Assign**.
 16. Select **Add Item**.
 
@@ -314,7 +314,9 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
 
 ## Next steps
 
-Open a browser on a remote Windows client. Browse to the **BIG-IP VPN service** URL. After authenticating to Azure AD, the BIG-IP webtop portal and VPN launcher appear.
+1. Open a browser on a remote Windows client. 
+2. Browse to the **BIG-IP VPN service** URL. 
+3. The BIG-IP webtop portal and VPN launcher appear.
 
 ![Image shows vpn launcher](media/f5-sso-vpn/vpn-launcher.png)
 
