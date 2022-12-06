@@ -289,7 +289,6 @@ You can run automatic sweeps by setting `max_trials` to a value greater than 1 i
 limits:
   max_trials: 10
   max_concurrent_trials: 2
-  timeout_minutes: 60
 ```
 
 # [Python SDK](#tab/python)
@@ -297,7 +296,7 @@ limits:
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
+image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2)
 ```
 ---
 
