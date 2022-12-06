@@ -28,8 +28,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create a scale set.
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, you can see the [PowerShell quickstart](quick-create-powershell.md) to create a VM to use for this tutorial. When working through the tutorial, replace the resource names where needed.
-
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
@@ -53,9 +51,9 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-## Get the VM
+## Store the VM variable
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets a VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets a VM named *myVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -146,7 +144,7 @@ $vmssConfig = New-AzVmssConfig `
     -Location $location `
     -SkuCapacity 2 `
     -OrchestrationMode Flexible `
-    -SkuName "Standard_D2s_v3
+    -SkuName "Standard_D2s_v3"
 
 # Reference the image version
 Set-AzVmssStorageProfile $vmssConfig `
