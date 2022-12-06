@@ -175,6 +175,10 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
 
+### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
+
+Yes, existing sessions on the target Bastion resource will disconnect during maintenance on the Bastion resource. 
+
 ## <a name="peering"></a>VNet peering FAQs
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
