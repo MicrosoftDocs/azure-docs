@@ -28,7 +28,19 @@ Here are some examples of how you might use service endpoints:
 * You want to lock down access to your key vault so that only your application, or a short list of designated hosts, can connect to your key vault.
 * You have an application running in your Azure virtual network, and this virtual network is locked down for all inbound and outbound traffic. Your application still needs to connect to Key Vault to fetch secrets or certificates, or use cryptographic keys.
 
-## Trusted services
+
+## Grant access to trusted Azure services 
+
+You can grant access to trusted Azure services to the key vault, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your key vault. 
+
+You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see the [networking configuration options](how-to-azure-key-vault-network-security.md) of this article. 
+
+When you grant access to trusted Azure services, you grant the following types of access: 
+* Trusted access for select operations to resources that are registered in your subscription. 
+* Trusted access to resources based on a managed identity. 
+* Trusted access across tenants using a Federated Identity Credential 
+
+### Trusted services
 
 Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
 
@@ -38,6 +50,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure App Service|App Service is trusted only for [Deploying Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html), for individual app itself, the outbound IPs can be added in Key Vault's IP-based rules|
 | Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](../../application-gateway/key-vault-certs.md)
 | Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../../backup/backup-overview.md).|
+| Azure Batch | [Configure customer-managed keys for Batch accounts](../../batch/batch-customer-managed-key.md) and [Key Vault for User Subscription Batch accounts](../../batch/batch-account-create-portal.md) |
 | Azure CDN | [Configure HTTPS on an Azure CDN custom domain: Grant Azure CDN access to your key vault](../../cdn/cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#grant-azure-cdn-access-to-your-key-vault)|
 | Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/tutorial-enable-customer-managed-keys.md)
 | Azure Data Factory|[Fetch data store credentials in Key Vault from Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

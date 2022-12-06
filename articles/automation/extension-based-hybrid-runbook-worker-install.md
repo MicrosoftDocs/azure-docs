@@ -15,7 +15,7 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](../azure-arc/servers/overview.md) and [Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](../azure-arc/servers/overview.md) and [Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 
@@ -170,7 +170,7 @@ To create a hybrid worker group in the Azure portal, follow these steps:
    - If you select **Default**, the hybrid extension will be installed using the local system account.
    - If you select **Custom**, then from the drop-down list, select the credential asset.
 
-1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines, Azure Arc-enabled servers or Azure Arc enabled VMware vSphere to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
+1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines, Azure Arc-enabled servers or Azure Arc-enabled VMware vSphere (preview) to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to enter name and credentials in basics tab.":::
 
@@ -1027,5 +1027,5 @@ Using [VM insights](../azure-monitor/vm/vminsights-overview.md), you can monitor
 - To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
 
 - To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](../azure-arc/servers/manage-vm-extensions.md).
-- To learn about VM extensions for Arc-enabled VMware vSphere VMs, see [Manage VMware VMs in Azure through Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md).
+- To learn about VM extensions for Arc-enabled VMware vSphere VMs, see [Manage VMware VMs in Azure through Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md).
 
