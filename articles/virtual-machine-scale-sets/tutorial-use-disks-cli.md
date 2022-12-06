@@ -13,7 +13,7 @@ ms.custom: mimckitt, devx-track-azurecli
 ---
 # Tutorial: Create and use disks with Virtual Machine Scale Set with the Azure CLI
 
-Virtual Machine Scale Sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn how to:
+Virtual Machine Scale Sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn about:
 
 > [!div class="checklist"]
 > * OS disks and temporary disks
@@ -87,7 +87,7 @@ az vmss disk attach \
 
 Alternatively, if you want to add a data disk to an individual instance in a scale set, use [az vm disk attach](/cli).
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm disk attach \
   --vm-name myScaleSet_Instance1 \
   --resource-group myResourceGroup \
