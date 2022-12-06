@@ -16,11 +16,12 @@ ms.subservice: B2C
 
 # Configure TheAccessHub Admin Tool with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure Active Directory (Azure AD) business-to-consumer (B2C) with [TheAccessHub Admin Tool](https://n8id.com/products/theaccesshub-admintool/) from N8 Identity (N8ID). The solution addresses customer account migration and customer service request (CSR) administration.  
+In this tutorial, learn how to integrate Azure Active Directory (Azure AD) business-to-consumer (B2C) with [TheAccessHub Admin Tool](https://n8id.com/products/theaccesshub-admintool/) from N8 Identity [N8ID](https://n8id.com/). The solution addresses customer account migration and customer service request (CSR) administration.  
 
 Use this solution for the following scenarios:
 
-- You have a site and want to migrate to Azure AD B2C. However, customer-account migration is challenging, including passwords.
+- You have a site and want to migrate to Azure AD B2C. 
+  - However, customer-account migration is challenging, including passwords.
 - You need a CSR tool to administer Azure AD B2C accounts.
 - Delegated CSR administration is a requirement.
 - You want to synchronize and merge data from repositories into Azure AD B2C.
@@ -32,7 +33,8 @@ To get started, you'll need:
 - An Azure AD subscription
   - If you don't have a one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
-- A TheAccessHub Admin Tool environment: Contact [N8 Identity](https://n8id.com/contact/) for a new environment
+- TheAccessHub Admin Tool environment
+  - See, [N8 Identity/contact](https://n8id.com/contact/) for a new environment
 - Optional: 
   - Connection and credential information for databases or Lightweight Directory Access Protocols (LDAPs), from which you want to migrate customer data
   - A configured Azure AD B2C environment for [custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) to integrate TheAccessHub Admin Tool into your sign-up policy flow
@@ -61,12 +63,14 @@ To create a Global Administrator:
 2. Go to **Azure Active Directory** > **Users**.
 3. Select **New User**.
 4. Choose **Create User** to create a regular directory user and not a customer.
-5. On the identity information form, enter the **username**, such as theaccesshub and the **account name**, such as TheAccessHub Service Account.
-6. Select **Show Password** 
-7. Copy and save the initial password.
-8. To assign the Global Administrator role, for **User**, select the user's current role.
-9. Select the **Global Administrator** record.
-10. Select **Create**.
+5. On the identity information form:
+* Enter the **username**, such as theaccesshub.
+* Enter the **account name**, such as TheAccessHub Service Account.
+7. Select **Show Password**.
+8. Copy and save the initial password.
+9. To assign the Global Administrator role, for **User**, select the user's current role.
+10. Select the **Global Administrator** record.
+11. Select **Create**.
 
 ## Connect TheAccessHub Admin Tool to your Azure AD B2C tenant
 
@@ -102,9 +106,9 @@ To configure a CSR or Helpdesk user with single sign-on (SSO):
 
 Create a CSR or Helpdesk user to access TheAccessHub Admin Tool with a new local credential. This user is for organizations that don't use Azure AD.
 
-[The AccessHub Admin Tool: Add Colleague Administrator](https://youtu.be/iOpOI2OpnLI) without SSO:
+See, [The AccessHub Admin Tool: Add Colleague Administrator](https://youtu.be/iOpOI2OpnLI) without SSO.
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **Manager Tools** > **Manage Colleagues**.
 3. Select **Add Colleague**.
 4. For **Colleague Type**, select **Local Administrator**.
@@ -124,7 +128,7 @@ Organization owners can manage and change colleagues and customers in organizati
 
 ### Create a new group
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **Organization > Manage Groups**.
 3. Select **Add Group**.
 4. Enter values for **Group name**, **Group description**, and **Group owner**.
@@ -135,7 +139,7 @@ Organization owners can manage and change colleagues and customers in organizati
 
 ### Create a new organization
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **Organization** > **Manage Organizations**.'
 3. Select **Add Organization**.
 4. Enter values for **Organization name**, **Organization owner**, and **Parent organization**
@@ -148,7 +152,7 @@ Organization owners can manage and change colleagues and customers in organizati
 
 Use this function to visualize colleague and group management.
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **Manager Tools** > **Tree View**.
 3. To modify the hierarchy, drag organizations into parent organizations.
 4. Select **Save**.
@@ -159,7 +163,7 @@ If you're using TheAccessHub Admin Tool to migrate users from one solution into 
 
 To customize the notification:
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Notifications**.
 3. Select the **Create Colleague** template.
 4. Select **Edit**.
@@ -175,7 +179,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 
 ### Configure a data source
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Data Sources**.
 3. Select **Add Data Source**.
 4. Supply **Name** and **Type** values for this data source.
@@ -210,7 +214,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 
 ### Synchronize data from your data source into Azure AD B2C
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Data Synchronization**.
 3. Select **New Load**.
 4. **Colleague Type**: **Azure AD B2C User**.
@@ -241,7 +245,7 @@ TheAccessHub Admin Tool can synchronize customer information from Azure AD B2C i
 
 To synchronize data from Azure AD B2C into TheAccessHub Admin Tool:
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Data Synchronization**.
 3. Select **New Load**.
 4. **Colleague Type**: **Azure AD B2C User**.
@@ -267,7 +271,7 @@ If you occasionally sync TheAccessHub Admin Tool, it might not be up to date wit
 
 For your sign-up custom policies, the following steps enable a secure certificate to notify TheAccessHub Admin Tool of new accounts.
 
-1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
+1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Admin Tools** > **API Security**.
 3. Select **Generate**.
 4. Copy the **Certificate Password**.
