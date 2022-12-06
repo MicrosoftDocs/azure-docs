@@ -12,7 +12,7 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 This article describes how to configure private endpoints for custom topics or domains.
 
 > [!NOTE]
-> Currently, private endpoints aren't supported for system topics, only for custom topics and domains.
+> Currently, private endpoints aren't supported for system topics.
 
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
