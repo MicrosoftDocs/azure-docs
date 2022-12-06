@@ -1668,6 +1668,8 @@ items:
             href: logs/oms-portal-transition.md
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
+    - name: Application Insights for Java 2.x
+      href: ./app/deprecated-java-2x.md    
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics

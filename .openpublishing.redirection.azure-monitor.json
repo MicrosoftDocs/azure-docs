@@ -5541,6 +5541,36 @@
             "source_path_from_root": "/articles/azure-monitor/logs/api/authentication-authorization.md",
             "redirect_url": "/azure/azure-monitor/logs/api/access-api",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-get-started.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-trace-logs.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-filter-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-collectd.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-micrometer.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
         }
     ]
 }
