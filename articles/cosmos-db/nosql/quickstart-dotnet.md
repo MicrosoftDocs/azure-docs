@@ -113,6 +113,8 @@ For this sample code, the container will use the category as a logical partition
 
 ### Authenticate the client
 
+## [Passwordless](#tab/passwordless)
+
 From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``Microsoft.Azure.Cosmos``.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
@@ -122,6 +124,11 @@ Define a new instance of the ``CosmosClient`` class using the constructor, and [
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="client_credentials" highlight="3-4":::
 
 For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
+
+## [Passwordless](#tab/connection-string)
+
+
+---
 
 ### Create a database
 
