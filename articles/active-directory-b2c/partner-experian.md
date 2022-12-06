@@ -109,10 +109,10 @@ Provide the following application settings to the REST API:
 
 ### Create API policy keys
 
-Refer to [Custom policy starter pack](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) to create two policy keys:
+Refer to [Custom policy starter pack](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) to create two policy keys, one each for:
 
-* One for the API username
-* One for the API password you defined for HTTP basic authentication
+* API username
+* API password you defined for HTTP basic authentication
 
 >[!NOTE]
 >Later, you will need the keys for configuring the policies.
