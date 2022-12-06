@@ -74,7 +74,7 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **RPC programming models** | |x |
 
 ## Architecture: Processing of incoming relay requests
-The following diagram shows you how incoming relay requests are handled by the Azure Relay service:
+The following diagram shows you how incoming relay requests are handled by the Azure Relay service when both sending and receiving clients are outside a corporate network.
 
 ![Processing of Incoming WCF Relay Requests](./media/relay-what-is-it/ic690645.png)
 
