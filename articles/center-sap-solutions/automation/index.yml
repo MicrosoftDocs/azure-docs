@@ -6,6 +6,7 @@ metadata:
   title: SAP on Azure Deployment Automation Framework
   description: Learn about the SAP on Azure Deployment Automation Framework. This framework is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
   ms.service: azure-center-sap-solutions
+  ms.subservice: sap-automation
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan

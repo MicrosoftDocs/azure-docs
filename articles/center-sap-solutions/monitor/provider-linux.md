@@ -3,6 +3,7 @@ title: Configure Linux provider for Azure Monitor for SAP solutions (preview)
 description: This article explains how to configure a Linux OS provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: sujaj

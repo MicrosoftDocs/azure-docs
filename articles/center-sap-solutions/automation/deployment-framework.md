@@ -6,6 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 05/29/2022
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-automation
 ms.topic: conceptual
 ---
 # SAP on Azure Deployment Automation Framework

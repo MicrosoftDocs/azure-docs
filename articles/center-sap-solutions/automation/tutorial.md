@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 12/14/2021
 ms.topic: tutorial
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-automation
 ---
 
 

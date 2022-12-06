@@ -5,6 +5,7 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-monitor
 ms.date: 10/27/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api

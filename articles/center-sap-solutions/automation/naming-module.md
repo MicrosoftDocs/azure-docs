@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-automation
 ---
 
 # Overview

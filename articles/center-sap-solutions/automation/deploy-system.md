@@ -6,7 +6,8 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-automation
 ---
 
 # SAP system deployment for the automation framework
