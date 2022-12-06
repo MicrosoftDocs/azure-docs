@@ -96,7 +96,7 @@ az role assignment create --assignee $PI --role "Azure Event Hubs Data Sender" -
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $EHNS.servicebus.windows.net"
-echo "Event Hub: $CN"
+echo "Event Hub: $EH"
 ```
 
 To further secure your event hub and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
@@ -124,6 +124,8 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 [!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
 
 For Event Hubs, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 

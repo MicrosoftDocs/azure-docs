@@ -79,7 +79,7 @@ If the Dependency agent fails to start, check the logs for detailed error inform
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
 >[!NOTE]
-> Dependency agent is not supported for Azure Virtual Machines with Ampere Altra ARM–based processors.
+> With Dependency agent 9.10.15 and above, installation is not blocked for unsupported kernel versions, but the agent will run in degraded mode. In this mode, connection and port data stored in VMConnection and VMBoundport tables is not collected. The VMProcess table may have some data, but it will be minimal.
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
@@ -120,6 +120,9 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 | SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
 |                                 | 15     | 4.12.14-150.\*-default |
 | Debian                          | 9      | 4.9  | 
+
+>[!NOTE]
+> Dependency agent is not supported for Azure Virtual Machines with Ampere Altra ARM–based processors.
 
 ## Next steps
 

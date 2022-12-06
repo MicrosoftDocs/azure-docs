@@ -440,4 +440,4 @@ For more examples on how to do include AutoML in your pipelines, please check ou
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).

@@ -6,28 +6,25 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
-ms.topic: how-to
+ms.topic: sample
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Examples for Azure Cosmos DB for NoSQL SDK for .NET
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](samples-dotnet.md)
->
+[!INCLUDE[Samples selector](includes/samples-selector.md)]
 
 The [cosmos-db-nosql-dotnet-samples](https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
-* Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
+- Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ## Samples
 
