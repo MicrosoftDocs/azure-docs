@@ -41,41 +41,42 @@ If you require a full-feature experience, use the existing Application Insights 
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
-consider whether this preview is right for you. it *enables distributed tracing, metrics* and _excludes_:
+Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
- - [live metrics](live-stream.md)
- - logging api (like console logs and logging libraries)
- - autopopulation of cloud role name and cloud role instance in azure environments
- - autopopulation of user id and authenticated user id when you use the [application insights javascript sdk](javascript.md)
- - autopopulation of user ip (to determine location attributes)
- - ability to override [operation name](correlation.md#data-model-for-telemetry-correlation)
- - ability to manually set user id or authenticated user id
- - propagating operation name to dependency telemetry
- - [status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "status description" is ignored by azure monitor exporters.
+- [Live Metrics](live-stream.md)
+ - Logging API (like console logs and logging libraries)
+ - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
+ - Autopopulation of User IP (to determine location attributes)
+ - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Ability to manually set User ID or Authenticated User ID
+ - Propagating Operation Name to Dependency Telemetry
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
-if you require a full-feature experience, use the existing [application insights node.js sdk](nodejs.md) until the opentelemetry-based offering matures.
+If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
-> [!warning]
-> at present, this exporter only works for node.js environments. use the [application insights javascript sdk](javascript.md) for web and browser scenarios.
+> [!WARNING]
+> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web and browser scenarios.
 
 ### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
-consider whether this preview is right for you. it *enables distributed tracing, metrics* and _excludes_:
+Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
- - [live metrics](live-stream.md)
- - logging api (like console logs and logging libraries)
- - autopopulation of cloud role name and cloud role instance in azure environments
- - autopopulation of user id and authenticated user id when you use the [application insights javascript sdk](javascript.md)
- - autopopulation of user ip (to determine location attributes)
- - ability to override [operation name](correlation.md#data-model-for-telemetry-correlation)
- - ability to manually set user id or authenticated user id
- - propagating operation name to dependency telemetry
- - [status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "status description" is ignored by azure monitor exporters.
+- [Live Metrics](live-stream.md)
+ - Logging API (like console logs and logging libraries)
+ - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
+ - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
+ - Autopopulation of User IP (to determine location attributes)
+ - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
+ - Ability to manually set User ID or Authenticated User ID
+ - Propagating Operation Name to Dependency Telemetry
+ - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
 
-if you require a full-feature experience, use the existing [application insights node.js sdk](nodejs.md) until the opentelemetry-based offering matures.
+If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
-> [!warning]
-> at present, this exporter only works for node.js environments. use the [application insights javascript sdk](javascript.md) for web and browser scenarios.
+> [!WARNING]
+> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web and browser scenarios.
+
 ### [Python](#tab/python)
 
 Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
