@@ -24,17 +24,17 @@ Virtual Network NAT is a fully managed and highly resilient Network Address Tran
 
 ### Security
 
-With a NAT gateway, individual VMs or other compute resources, don't need public IP addresses and can remain private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
+With a NAT gateway, individual VMs or other compute resources, don't need public IP addresses and can remain private. Resources without a public IP address can still reach external sources outside the virtual network with NAT gateway's static public IP addresses or prefixes. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
 
 ### Resiliency 
 
-Virtual Network NAT is a fully managed and distributed service. It doesn't depend on individual compute instances such as VMs or a single physical gateway device. Software defined networking makes a NAT gateway highly resilient. 
+Virtual Network NAT is a fully managed and distributed service. It doesn't depend on individual compute instances such as VMs or a single physical gateway device. A NAT gateway always has multiple fault domains and can sustain multiple failures without service outage. Software defined networking makes a NAT gateway highly resilient. 
 
 ### Scalability
 
-Virtual Network NAT is scaled out from creation. There isn't a ramp up or scale-out operation required. Azure manages the operation of Virtual Network NAT for you. A NAT gateway always has multiple fault domains and can sustain multiple failures without service outage.
+Virtual Network NAT is scaled out from creation. There isn't a ramp up or scale-out operation required. Azure manages the operation of Virtual Network NAT for you. 
 
-A NAT gateway resource can be associated to a subnet and can be used by all compute resources in that subnet. All subnets in a virtual network can use the same resource. When a NAT gateway is associated to a public IP prefix, it automatically scales to the number of IP addresses needed for outbound.
+A NAT gateway resource can be associated to a subnet and can be used by all compute resources in that subnet. All subnets in a virtual network can use the same NAT gateway resource.  Outbound connectivity can be scaled out by assigning up to 16 IP addresses to NAT gateway. When a NAT gateway is associated to a public IP prefix, it automatically scales to the number of IP addresses needed for outbound.
 
 ### Performance
 
