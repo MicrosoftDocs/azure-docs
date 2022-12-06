@@ -106,21 +106,21 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 | Placeholder | Replace with | Notes |
 | --- | ---| ---|
-|{Settings:Production} | Whether to deploy the policies in production mode | `true` or `false`  |
-|{Settings:Tenant} | Your tenant short name |  `your-tenant` - from your-tenant.onmicrosoft.com  |
-| {Settings:DeploymentMode}    |  Application Insights deployment mode to use   |  `Production` or `Development`  |
-|  {Settings:DeveloperMode}    | Whether to deploy the policies in Application Insights developer mode      |   `true` or `false`    |
-|  {Settings:AppInsightsInstrumentationKey}  |  Instrumentation key of your Application Insights instance*   |  `01234567-89ab-cdef-0123-456789abcdef` |
-|  {Settings:IdentityExperienceFrameworkAppId}  | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant  | `01234567-89ab-cdef-0123-456789abcdef`|
-|  {Settings:ProxyIdentityExperienceFrameworkAppId}  |   App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant |   `01234567-89ab-cdef-0123-456789abcdef`|
-| {Settings:FacebookClientId}  | App ID of the Facebook app you configured for federation with B2C    | `000000000000000`   |
-|   {Settings:FacebookClientSecretKeyContainer}  | Name of the policy key-in which you saved Facebook's app secret    |  `B2C_1A_FacebookAppSecret` |
-|   {Settings:ContentDefinitionBaseUri} |  Endpoint in where you deployed the UI files   | `https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`   |
-|  {Settings:DfpApiBaseUrl}   |  The base path for your DFP API instance - found in the DFP portal   | `https://tenantname-01234567-89ab-cdef-0123-456789abcdef.api.dfp.dynamics.com/v1.0/`   |
-| {Settings:DfpApiAuthScope} | The client_credentials scope for the DFP API service | `https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default` |
-| {Settings:DfpTenantId} | The ID of the Azure AD tenant (not B2C) where DFP is licensed and installed | `01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
-| {Settings:DfpAppClientIdKeyContainer} | Name of the policy key-in which you save the DFP client ID | `B2C_1A_DFPClientId` |
-| {Settings:DfpAppClientSecretKeyContainer} | Name of the policy key-in which you save the DFP client secret | `B2C_1A_DFPClientSecret` |
+|{Settings:Production}|Whether to deploy the policies in production mode | `true` or `false`|
+|{Settings:Tenant}|Your tenant short name |`your-tenant` - from your-tenant.onmicrosoft.com|
+|{Settings:DeploymentMode}|Application Insights deployment mode to use|`Production` or `Development`|
+|{Settings:DeveloperMode}|Whether to deploy the policies in Application Insights developer mode|`true` or `false`|
+|{Settings:AppInsightsInstrumentationKey}|Instrumentation key of your Application Insights instance*|`01234567-89ab-cdef-0123-456789abcdef`|
+|{Settings:IdentityExperienceFrameworkAppId}App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
+|{Settings:ProxyIdentityExperienceFrameworkAppId}|App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
+|{Settings:FacebookClientId}|App ID of the Facebook app you configured for federation with B2C| `000000000000000`|
+|{Settings:FacebookClientSecretKeyContainer}| Name of the policy key, in which you saved Facebook's app secret |`B2C_1A_FacebookAppSecret`|
+|{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
+|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-01234567-89ab-cdef-0123-456789abcdef.api.dfp.dynamics.com/v1.0/`|
+|{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
+|{Settings:DfpTenantId}|The ID of the Azure AD tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
+|{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
+|{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
 
 *You can set up application insights in an Azure AD tenant or subscription. This value is optional but [recommended to assist with debugging](./troubleshoot-with-application-insights.md).
 
