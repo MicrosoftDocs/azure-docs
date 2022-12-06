@@ -186,6 +186,8 @@
       href: https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/
     - name: Federate your data from Azure Data Explorer to SAP Data Warehouse Cloud
       href: https://discovery-center.cloud.sap/missiondetail/3433/3473/
+    - name: Integrate globally available SAP BTP apps with Azure CosmosDB via OData
+      href: https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/
     - name: Explore your Azure data sources with SAP Data Warehouse Cloud
       href: https://discovery-center.cloud.sap/missiondetail/3656/3699/
     - name: OpenSAP course Building Applications on SAP BTP with Microsoft Services
