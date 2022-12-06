@@ -29,14 +29,20 @@ You can have multiple Azure AD admin users with Azure Database for PostgreSQL - 
 - One of the following roles: Global Administrator, Privileged Role Administrator, Tenant Administrator.
 - Installation of the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Install the Azure AD PowerShell module
+## Install the Microsoft Graph PowerShell module
 
 The following steps are mandatory to use Azure AD authentication with Azure Database for PostgreSQL - Flexible Server.
+
+### Install the module
+
+```powershell
+Install-Module Microsoft.Graph
+```
 
 ### Connect to the user's tenant
 
 ```powershell
-Connect-AzureAD -TenantId <customer tenant id>
+Connect-MgGraph -Scopes "Application.ReadWrite.All"
 ```
 
 ### Grant read access
@@ -44,7 +50,7 @@ Connect-AzureAD -TenantId <customer tenant id>
 Grant Azure Database for PostgreSQL - Flexible Server Service Principal read access to a customer tenant, to request Graph API tokens for Azure AD validation tasks:
 
 ```powershell
-New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
+New-MgServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 ```
 
 In the preceding command, `5657e26c-cc92-45d9-bc47-9da6cfdb4ed9` is the app ID for Azure Database for PostgreSQL - Flexible Server.
