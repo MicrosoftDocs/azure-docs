@@ -26,7 +26,7 @@ Data residency refers to the physical or geographic location of your organizatio
 
 **Data** | **Location** 
 --- | ---  
-**Security alerts and recommendations** | Stored in the Defender for Cloud backend, and accessible via the Azure portal, Azure Resource Graph, and REST APIs.<br/><br/> Export to a Log Analytics workspace using [continuous export](continuous-export.md).
+**Security alerts and recommendations** | These are stored in the Defender for Cloud backend, and accessible via the Azure portal, Azure Resource Graph, and the REST APIs.<br/><br/> Export to a Log Analytics workspace using [continuous export](continuous-export.md).
 **Machine information** | Stored in a Log Analytics workspace.<br/><br/> Either in the Defender for Cloud default workspace, or a custom workspace that you specify. Data is stored in accordance with the workspace location.
 
 ## Understand workspace considerations

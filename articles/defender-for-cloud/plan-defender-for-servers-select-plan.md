@@ -26,7 +26,7 @@ Defender for Servers provides two plans you can choose from.
     -  [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), which is provided for free by Defender for Cloud.
         - For Azure VMs, and AWS/GCP machines, you don't need a Defender for Cloud plan enabled to use foundational CSPM features.
         - For on-premises server, to receive configuration recommendations machines must be onboarded to Azure with Azure Arc, and Defender for Servers must be enabled.
-    - Endpoint detection and response (EDR) features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2).
+    - Endpoint detection and response (EDR) features that are provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2).
 - **Defender for Servers Plan 2** provides all features. It must be enabled at the subscription level and at the workspace level to get full feature coverage. Features include:
     - All the functionality provided by Defender for Servers Plan 1.
     - Additional extended detection and response (XDR) capabilities.
@@ -56,7 +56,7 @@ There are a couple of vulnerability assessment options available in Defender for
 
 - [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities): Integrated with Defender for Endpoint.
     - Available in both Defender for Servers Plan 1 and Plan 2.
-    - Enabled by default on machines onboarded to Defender for Endpoint, if [Defender for Endpoint has Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/get-defender-vulnerability-management) enabled.
+    - It's enabled by default on machines onboarded to Defender for Endpoint, if [Defender for Endpoint has Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/get-defender-vulnerability-management) enabled.
     - Has the same [Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints#prerequisites), [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#prerequisites), and [network](/microsoft-365/security/defender-endpoint/configure-proxy-internet#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server) prerequisites as Defender for Endpoint.
     - No additional software installation is needed.
 - [Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md): Provided by Defender for Cloud's Qualys integration.
