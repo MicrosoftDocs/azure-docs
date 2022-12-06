@@ -1686,7 +1686,30 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 }
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+```javascript
+const { trace } = require("@opentelemetry/api");
+const { BasicTracerProvider, SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
+
+const provider = new BasicTracerProvider();
+const exporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>",
+});
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
+provider.register();
+const tracer = trace.getTracer("example-basic-tracer-node");
+let span = tracer.startSpan("hello");
+try{
+    throw new Error("Test Error");
+}
+catch(error){
+    span.recordException(error);
+}
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 ```typescript
 import * as opentelemetry from "@opentelemetry/api";
@@ -1695,8 +1718,7 @@ import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter
 
 const provider = new BasicTracerProvider();
 const exporter = new AzureMonitorTraceExporter({
-    connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+  connectionString: "<Your Connection String>",
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter as any));
 provider.register();
