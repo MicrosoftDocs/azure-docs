@@ -1,7 +1,7 @@
 ---
 title: Virtual network for Azure services
 titlesuffix: Azure Virtual Network
-description: Learn the how to deploy dedicated Azure services into a virtual network and learn about the capabilities those deployments provide.
+description: Learn how to deploy dedicated Azure services into a virtual network and learn about the capabilities those deployments provide.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -28,7 +28,7 @@ Deploying services within a virtual network provides the following capabilities:
 - Virtual networks can be [peered](virtual-network-peering-overview.md) to enable resources in the virtual networks to communicate with each other, using private IP addresses.
 - Service instances in a virtual network are typically fully managed by the Azure service. This includes monitoring the health of the resources  and scaling with load.
 - Service instances are deployed into a subnet in a virtual network. Inbound and outbound network access for the subnet must be opened through [network security groups](./network-security-groups-overview.md#network-security-groups), per guidance provided by the service.
-- Certain services also impose restrictions on the subnet they are deployed in, limiting the application of policies, routes or combining VMs and service resources within the same subnet. Check with each service on the specific restrictions as they may change over time. Examples of such services are Azure NetApp Files, Dedicated HSM, Azure Container Instances, App Service. 
+- Certain services also impose restrictions on the subnet they're deployed in, limiting the application of policies, routes or combining VMs and service resources within the same subnet. Check with each service on the specific restrictions as they may change over time. Examples of such services are Azure NetApp Files, Dedicated HSM, Azure Container Instances, App Service. 
 - Optionally, services might require a [delegated subnet](virtual-network-manage-subnet.md#add-a-subnet) as an explicit identifier that a subnet can host a particular service. By delegating, services get explicit permissions to create service-specific resources in the delegated subnet.
 - See an example of a REST API response on a [virtual network with a delegated subnet](/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). A comprehensive list of services that are using the delegated subnet model can be obtained via the [Available Delegations](/rest/api/virtualnetwork/availabledelegations/list) API.
 
@@ -47,5 +47,5 @@ Deploying services within a virtual network provides the following capabilities:
 | Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
 | Virtual desktop infrastructure| [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/>| Yes <br/>
 
-<sup>1</sup> 'Dedicated' implies that only service specific resources can be deployed in this subnet and cannot be combined with customer VM/VMSSs <br/> 
-<sup>2</sup> It is recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.
+<sup>1</sup> 'Dedicated' implies that only service specific resources can be deployed in this subnet and can't be combined with customer VM/VMSSs <br/> 
+<sup>2</sup> It's recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.
