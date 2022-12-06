@@ -20,6 +20,8 @@
   items:
     - name: Govern access to applications
       items:
+      - name: Migrate organizational role model
+        href: identity-governance-organizational-roles.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
@@ -61,10 +63,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Identity Governance
-    items:
-    - name: Organizational roles
-      href: identity-governance-organizational-roles.md
   - name: Entitlement management
     items:
     - name: Delegation and roles
