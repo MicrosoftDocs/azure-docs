@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Azure Container Apps on Azure Arc (Preview)
 
-You can run Container Apps on an Azure Arc-enabled Kubernetes cluster on-premises or hosted in a third-party cloud.
+You can run Container Apps on an Azure Arc-enabled AKS or AKS-HCI cluster.
 
 Running in an Azure Arc-enabled Kubernetes cluster allows:
 
@@ -117,9 +117,9 @@ ARM64 based clusters aren't supported at this time.
 
 ## Extension Release Notes
 
-### Container Apps extension vx.x.x (November 2022)
+### Container Apps extension v1.0.46 (December 2022)
 
-TODO
+- Initial public preview release of Container apps extension
 
 ## Next steps
 
