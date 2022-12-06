@@ -11,10 +11,23 @@ zone_pivot_groups: programming-languages-set-functions
 
 Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
+> [!IMPORTANT]
+> Beginning on December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. 
+> 
+> After the deadline, function apps can be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll get related service support once you upgraded them to version 4.x.
+> 
+>End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all Azure Functions runtime languages (e.g .NET, Python, node.js, PowerShell etc). 
+>
+>We highly recommend you migrating your function apps to version 4.x of the Functions runtime by following this article.
+>    
+>Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
+
+
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp" 
 ## Choose your target .NET
+
 
 On version 3.x of the Functions runtime, your C# function app targets .NET Core 3.1. When you migrate your function app to version 4.x, you have the opportunity to choose the target version of .NET. You can upgrade your C# project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
 
@@ -24,7 +37,14 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 | .NET 6 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
 | .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
 
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md). 
+<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Standard Terms Support (STS) releases and .NET Framework are supported .NET Azure functions [isolated worker process](./dotnet-isolated-process-guide.md). 
+
+> [!Recommendation]
+> On version 3.x of the Functions runtime, if you're on .NET 5, we recommend you upgrade to .NET 7. If you're on .NET Core 3.1, we recommend you upgrade to .NET 6 (in-process) for a quick upgrade path. 
+>
+> If you're looking for moving to a Long Term Support (LTS) .NET release, we recommend you upgrade to .NET 6 .
+> 
+> Migrating to .NET Isolated worker model to get benefits of .NET isolated worker process, For more information about .NET isolated worker process advantaqges see [](). For more information about .NET version support, see [Supported versions](./dotnet-isolated-process-guide.md#supported-versions).
 
 Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
