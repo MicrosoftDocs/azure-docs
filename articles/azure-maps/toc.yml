@@ -467,6 +467,10 @@ items:
       href: /javascript/api/azure-maps-spatial-io/
     - name: Indoor module
       href: /javascript/api/azure-maps-indoor/
+    - name: Release notes
+      items:
+      - name: Map control
+        href: release-notes-map-control.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
