@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 12/01/2022
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -47,18 +47,18 @@ If you haven't already, you need to install the following libraries:
 pip install openai, num2words, matplotlib, plotly, scipy, scikit-learn, transformers
 ```
 
-Alternatively, you can use our requirements.txt file. `TODO:(mbullwin): Create publicly accessible sample repo with requirements.txt file for this tutorial`
+Alternatively, you can use our [requirements.txt file](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/requirements.txt).
 
 ### Download the BillSum dataset
 
 BillSum is a dataset of United States Congressional and California state bills. For illustration purposes, we'll look only at the US bills. The corpus consists of bills from the 103rd-115th (1993-2018) sessions of Congress. The data was split into 18,949 train bills and 3,269 test bills. The BillSum corpus focuses on mid-length legislation from 5,000 to 20,000 characters in length. More information on the project and the original academic paper where this dataset is derived from can be found on the [BillSum project's GitHub repository](https://github.com/FiscalNote/BillSum)
 
-This tutorial uses the `bill_sum_data.csv` file that can be downloaded from our [GitHub sample data](TODO-mbullwin-add-link-to-sample-file).
+This tutorial uses the `bill_sum_data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv).
 
 You can also download the sample data by running the following on your local machine:
 
 ```cmd
-curl "https://raw.githubusercontent.com/Azure/TODO-mbullwin-create-publiclly-accessible-repo-with-sample-dataset-available/bill_sum_data.csv" --output bill_sum_data.csv
+curl "https://raw.githubusercontent.com/Azure-Samples/Azure-OpenAI-Docs-Samples/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv" --output bill_sum_data.csv
 ```
 
 ### Retrieve key and endpoint
@@ -200,9 +200,7 @@ print(r.text)
 The output of this command will vary based on the number and type of models you've deployed. In this case, we need to confirm that we have entries for both **text-search-curie-doc-001** and  **text-search-curie-query-001**. If you find that you're missing one of these models, you'll need to [deploy the models](../how-to/create-resource.md#deploy-a-model) to your resource before proceeding.
 
 > [!IMPORTANT]
-> You will likely receive warnings even when successfully running the code above and retrieving the expected output. The warning messages can be ignored.
-
-**TODO(mbullwin): Confirm with Noa if the below warning is expected behavior** *`TqdmWarning: IProgress not found. Please update jupyter and ipywidgets.None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.`*
+> You may receive warnings even when successfully running the code above and retrieving the expected output. This warning messages can be ignored:`TqdmWarning: IProgress not found. Please update jupyter and ipywidgets.None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.`
 
 ```python
 df = pd.read_csv("INSERT LOCAL PATH TO BILL_SUM_DATA.CSV")
@@ -315,10 +313,7 @@ df_bills['text'] = df_bills["text"].apply(lambda x : normalize_text(x))
 ```
 
 > [!Note]
-> If you receive a warning stating *"A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead"* you can safely ignore this message.
-
-**TODO(mbullwin): Confirm with Noa if the above warning is expected behavior**
+> If you receive a warning stating *`A value is trying to be set on a copy of a slice from a DataFrame.Try using .loc[row_indexer,col_indexer] = value instead` you can safely ignore this message.
 
 Let's once again print `df_bills` so we can visualize the cleanup we just completed:
 
@@ -411,7 +406,8 @@ len(df_bills)
 12
 ```
 
-**TODO(mbullwin): Confirm with Noa if the following warning is expected behavior and customers should be ignoring it or if the code requires further modification.** *Token indices sequence length is longer than the specified maximum sequence length for this model (1480 > 1024). Running this sequence through the model will result in indexing errors. A value is trying to be set on a copy of a slice from a DataFrame.Try using .loc[row_indexer,col_indexer] = value instead.*
+ > [!Note]
+> You can ignore the message:`Token indices sequence length is longer than the specified maximum sequence length for this model (1480 > 1024). Running this sequence through the model will result in indexing errors. A value is trying to be set on a copy of a slice from a DataFrame.Try using .loc[row_indexer,col_indexer] = value instead.`
 
 We'll once again print **df_bills**. Note that as expected, now only 12 results are returned though they retain their original index in the first column.
 
