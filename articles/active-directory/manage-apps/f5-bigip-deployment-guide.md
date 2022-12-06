@@ -93,7 +93,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 13. For **Administrator account**:
  
 * **Authentication type**: Select a password for now, and switch to a key pair later
-* **Username**: The identity to be created as a BIG-IP local account to access its management interfaces. Username is CASE sensitive
+* **Username**: The identity to be created as a BIG-IP local account to access its management interfaces. Username is CASE sensitive.
 * **Password**: Secure admin access with a strong password
  
 14. **Inbound port rules**: Public inbound ports, None.
