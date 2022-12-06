@@ -7,9 +7,7 @@ metadata:
   title: Azure Native Qumolo Service documentation
   description: Azure Native Qumolo Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
   ms.topic: landing-page
-  author: flang-msft
-  ms.author: franlanglois
-  ms.date: 08/24/2022
+  ms.date: 12/31/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,8 +21,8 @@ landingContent:
             url: qumolo-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Complete the prerequisites for Dynatrace
-            url: qumolo-how-to-configure-prereqs.md
+          # - text: Complete the prerequisites for Qumolo
+            # url: qumolo-how-to-configure-prereqs.md
           - text: Manage the Qumolo  resource with the portal
             url: qumolo-how-to-manage.md
 
@@ -34,13 +32,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a new Qumolo resource
-            url: qumolo -create.md
+            url: qumolo-create.md
           # - text: Link to an existing Qumolo environment
             # url: qumolo-link-to-existing.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting Azure Native Qumolo Service
-            url: dynatrace-troubleshoot.md
+            url: qumolo-troubleshoot.md
 
   # Card
 #  - title: Explore reference content

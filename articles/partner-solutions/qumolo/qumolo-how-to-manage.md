@@ -64,8 +64,9 @@ To delete a deployment of Qumulo File System.
 1. Select the Overview on the left
 1. Select **Delete**.
 1. Confirm that you want to delete the Qumulo File System along with associated data and other resources attached to the service.
-5. Select **Delete**.
+1. Select **Delete**.
 
   Screenshot
 
 ## Next Steps
+
