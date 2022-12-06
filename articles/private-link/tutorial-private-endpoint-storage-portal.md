@@ -51,14 +51,20 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Name             | Enter **myVNet**.                                 |
     | Region           | Select **East US**. |
 
-4. Select the **IP Addresses** tab or select **Next: IP Addresses**.
+4. Select the **Security** tab or select **Next: Security**.
+5. Under **Azure Bastion**, select **Enable Azure Bastion**. Enter this information:
+
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Bastion name | Enter **myBastionHost**. |
+6. Select the **IP Addresses** tab or select **Next: IP Addresses**.
 
 5. In the **IP Addresses** tab, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16**. |
-
+    
 6. Under **Subnet name**, select the word **default**. If a subnet isn't listed, select **+ Add subnet**.
 
 7. In **Edit subnet**, enter this information:
@@ -66,24 +72,25 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **mySubnet**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | Starting address | Enter **10.1.0.0**. |
+    | Subnet size | Select **/24**. |
 
 8. Select **Save**.
 
-9. Select the **Security** tab.
+9. Select **+ Add subnet** again to create the Azure Bastion subnet.
 
-10. Under **BastionHost**, select **Enable**. Enter this information:
-
+10. Under **Subnet details** select **Azure Bastion** as Subnet template.  
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
+    | Starting address | Enter **10.1.1.0**. |
+    | Subnet size | Select **/26**. |
 
+11. Select **Save**.
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
 
 It will take a few minutes for the virtual network and Azure Bastion host to deploy. Proceed to the next steps when the virtual network is created.
 
