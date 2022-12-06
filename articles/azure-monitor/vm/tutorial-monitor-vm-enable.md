@@ -9,7 +9,7 @@ ms.reviewer: Xema Pathak
 ---
 
 # Enable monitoring with VM insights for Azure virtual machine
-To monitor the performance of the guest operating system and workloads in an Azure virtual machine, you need to install the Azure Monitor agent to collect data from its guest operating system. One option is to use VM insights, which installs the Azure Monitor agent and starts collecting a predefined set of performance counters. You can optionally enable the collection detailed process and telemetry to enable the Map feature of VM insights which gives you a visual representation of your VM environment.
+To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. One option is to use VM insights, which installs the agent and starts collecting a predefined set of performance counters. You can optionally enable the collection detailed process and telemetry to enable the Map feature of VM insights which gives you a visual representation of your VM environment.
 
 
 > [!NOTE]
@@ -33,26 +33,23 @@ To complete this tutorial, you need the following:
 - An Azure virtual machine to monitor.
 
 > [NOTE!]
-> If you selected the option to **Enable virtual machine insights when you created your virtual machine, then VM insights will already be enabled. 
+> If you selected the option to **Enable virtual machine insights** when you created your virtual machine, then VM insights will already be enabled. If the machine was previously enabled for VM insights using Log Analytics agent, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md) for upgrading to Azure Monitor agent.
 
 
 
-## Create a Log Analytics workspace
-[!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
+## Enable VM insights
+Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't been enabled, you should see a short description of it and an option to enable it. Click **Enable** to open the **Monitoring configuration** pane. Leave the default option of **Azure Monitor agent**. VM insights will create a default data collection rule that doesn't include collection of processes and dependencies. Click **Create new** to create a new data collection rule.
 
+:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Enable VM insights with workspace":::
 
-## Enable monitoring
-Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't been enabled, you should see a screen similar to the following allowing you to enable monitoring. Click **Enable**.
+Provide a **Data collection rule name** and then select **Enable processes and dependencies (Map)**. Keep the default Log Analytics workspace for the subscription unless you have another workspace that you want to use. Click **Create** to create the new data collection rule. and then **Configure** to start VM insights configuration.
 
-> [!NOTE]
-> If you selected the option to **Enable detailed monitoring** when you created your virtual machine, VM insights may already be enabled. Select your workspace and click **Enable** again. This is the workspace where data collected by VM insights will be sent.
+:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" alt-text="Enable VM insights with workspace":::
 
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-02.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-02.png" alt-text="Enable VM insights with workspace":::
 
 You'll see a message saying that monitoring is being enabled. It may take several minutes for the agent to be installed and for data collection to begin. 
 
-> [!NOTE]
-> You may receive a message about an upgrade being available for VM insights. If so, select the option to perform the upgrade before proceeding.
+
 
 ## View performance
 When the deployment is complete, you'll see views in the **Performance** tab in VM insights with performance data for the machine. This shows you the values of key guest metrics over time. 

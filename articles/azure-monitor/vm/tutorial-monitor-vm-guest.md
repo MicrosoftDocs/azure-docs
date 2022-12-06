@@ -9,17 +9,20 @@ ms.reviewer: Xema Pathak
 ---
 
 # Collect guest logs and metrics from Azure virtual machine
-When you [enable monitoring with VM insights](tutorial-monitor-vm-enable.md), it collects performance data using the Log Analytics agent. To collect logs from the guest operating system and to send performance data to Azure Monitor Metrics, install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../essentials/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
+To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. 
 
 > [!NOTE]
-> Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
+> If you're completely new to Azure Monitor, you should start with [Tutorial: Monitor Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md). Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics and Activity log. This tutorial describes how to enable additional monitoring unique to virtual machines.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a data collection rule that send guest performance data to Azure Monitor metrics and log events to Azure Monitor Logs. 
+> * Create a data collection rule that send guest performance data to Azure Monitor Metrics and log events to Azure Monitor Logs. 
 > * View guest metrics in metrics explorer.
 > * View guest logs in Log Analytics.
+
+> [!TIP]
+> An alternative to the method described in this tutorial is to enable VM insights for the VM as described in [Enable monitoring with VM insights for Azure virtual machine](tutorial-monitor-vm-enable.md). This will also install the Azure Monitor agent on the VM and enable a predefined set of performance data to be collected. 
 
 ## Prerequisites
 To complete this tutorial you need the following: 
