@@ -55,7 +55,7 @@ New-AzDdosProtectionPlan @ddosplan
 
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location with the DDoS Protection plan enabled:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location with the DDoS Protection Standard enabled:
 
 ```azurepowershell-interactive
 $vnet = @{

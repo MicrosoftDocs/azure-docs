@@ -33,7 +33,7 @@ az group create \
     --location eastus
 ```
 
-## Create a virtual network with DDoS Protect plan enabled
+## Create a virtual network with DDoS Protection Standard enabled
 
 Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
 
