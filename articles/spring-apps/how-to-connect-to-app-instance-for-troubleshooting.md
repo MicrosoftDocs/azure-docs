@@ -1,15 +1,20 @@
 ---
 title:  Connect to an app instance for troubleshooting
 description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
-author: karlerickson
+author: KarlErickson
 ms.author: xiangy
 ms.service: spring-apps
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 12/06/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Connect to an app instance for troubleshooting
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
 
@@ -46,7 +51,7 @@ Use the following steps to assign an Azure role using the Azure portal.
 1. Open your existing Azure Spring Apps service instance.
 1. Select **Access Control (IAM)** from the left menu.
 1. Select **Add** in the command bar, and then select **Add role assignment**.
-   
+
    :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) page showing the Add role assignment command." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/add-role-assignment.png":::
 
 1. Search for **Azure Spring Apps Connect Role** in the list, and then select **Next**.
@@ -54,8 +59,6 @@ Use the following steps to assign an Azure role using the Azure portal.
    :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png" alt-text="Screenshot of the Add role assignment page showing the Azure Spring Apps Connect Role." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/connect-role.png":::
 
 1. Select **Select members**, and then search for your username.
-
-   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/select-members.png" alt-text="Screenshot of the Add role assignment page showing the Select members pane." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/select-members.png":::
 
 1. Select **Review + assign**.
 
@@ -188,7 +191,7 @@ You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 The available tools depend on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
 
 | Tier                  | Deployment type         | Common tools                                 | JDK tools                   | Notes                                    |
-|------------------------|--------------------------|-----------------------------------------------|------------------------------|-------------------------------------------|
+|-----------------------|-------------------------|----------------------------------------------|-----------------------------|------------------------------------------|
 | Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
 | Basic / Standard tier | Custom image            | N                                            | N                           | Up to your installed tool set.           |
 | Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
