@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 11/23/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ---
 
@@ -78,9 +78,9 @@ To resolve this issue, reboot the resource bridge (preview) VM, and it should re
 
 ### SSL proxy configuration issues
 
-Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. This configuration is handled automatically. However, proxy configuration of the client machine isn't configured by the Azure Arc resource bridge.
+Be sure that the proxy server on your client machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers.
 
-There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
+For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
 
 ### KVA timeout error
 

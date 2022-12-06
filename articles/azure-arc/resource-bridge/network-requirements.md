@@ -2,14 +2,14 @@
 title: Azure Arc resource bridge (preview) network requirements
 description: Learn about network requirements for Azure Arc resource bridge (preview) including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 12/06/2022
 ---
 
 # Azure Arc resource bridge (preview) network requirements
 
 This article describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
 
-## Outbound connectivity 
+## Outbound connectivity
 
 The firewall and proxy URLs below must be allowlisted in order to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 
@@ -38,6 +38,12 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |--|--|
 |Azure Resource Manager| `https://management.azure.com`|
 |Azure Active Directory| `https://login.microsoftonline.com`|
+
+## SSL proxy configuration
+
+Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. This configuration is handled automatically. However, proxy configuration of the client machine isn't configured by the Azure Arc resource bridge.
+
+There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
 ## Next steps
 
