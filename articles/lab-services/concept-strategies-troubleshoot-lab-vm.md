@@ -1,7 +1,7 @@
 ---
 title: Labs concepts
 titleSuffix: Azure Lab Services
-description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
+description: Learn the different strategies and tools for troubleshooting lab VMs in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
