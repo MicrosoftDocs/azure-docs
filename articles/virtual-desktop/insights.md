@@ -3,7 +3,7 @@ title: Use Monitor Azure Virtual Desktop Monitor - Azure
 description: How to use Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 12/06/2022
 ms.author: helohr
 manager: femila
 ---
@@ -43,7 +43,7 @@ You can open Azure Virtual Desktop Insights with one of the following methods:
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 >[!NOTE]
->Azure Virtual Desktop Insights currently only supports monitoring one subscription, resource group, and host pool at a time. However, the public preview for Azure Virtual Desktop Insights at Scale (preview) lets you select multiple subscriptions, resource groups, and host pools at a time. You can use this preview feature by selecting **Insights (Preview)**. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-insights.md) for known feature requests and issues.
+>Azure Virtual Desktop Insights currently only supports monitoring one subscription, resource group, and host pool at a time. However, the public preview for Azure Virtual Desktop Insights at Scale (preview) lets you select multiple subscriptions, resource groups, and host pools at a time. You can use this preview feature by selecting **Insights (Preview)**. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-insights.md).
 
 ## Log Analytics settings
 
