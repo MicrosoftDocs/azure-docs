@@ -28,7 +28,7 @@ Below tutorials describe steps to enable SMART on FHIR applications with FHIR Se
      - After registering the application, make note of the applicationId for client application.
 
 ## SMART on FHIR using samples (preferred approach)
-As a prerequisite , ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
+As a prerequisite, ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
 ### Step 1: Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token, which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
