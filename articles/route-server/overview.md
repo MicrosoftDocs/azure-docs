@@ -44,11 +44,11 @@ Azure Route Server has the following limits (per deployment).
 
 ## Pricing
 
-For pricing details, see [Azure Route Server pricing](https://azure.microsoft.com/en-us/pricing/details/route-server/).
+For pricing details, see [Azure Route Server pricing](https://azure.microsoft.com/pricing/details/route-server/).
 
 ## Service Level Agreement
 
-For SLA, see [SLA for Azure Route Server](https://azure.microsoft.com/en-us/support/legal/sla/route-server/v1_0/).
+For SLA, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
 
 ## FAQs
 
