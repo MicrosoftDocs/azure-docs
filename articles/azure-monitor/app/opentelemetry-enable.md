@@ -1458,22 +1458,19 @@ public class Program
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 ```javascript
-    import {
+    const {
         MeterProvider,
         PeriodicExportingMetricReader,
-        PeriodicExportingMetricReaderOptions
-    } from "@opentelemetry/sdk-metrics";
-    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
+    } = require("@opentelemetry/sdk-metrics");
+    const { AzureMonitorMetricExporter } = require("@azure/monitor-opentelemetry-exporter");
 
     const provider = new MeterProvider();
     const exporter = new AzureMonitorMetricExporter({
-    connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        connectionString: "<Your Connection String>",
     });
-    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
+    const metricReader = new PeriodicExportingMetricReader({
         exporter: exporter,
-    };
-    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+    });
     provider.addMetricReader(metricReader);
     const meter = provider.getMeter("OTel.AzureMonitor.Demo");
     let counter = meter.createCounter("counter");
@@ -1495,7 +1492,7 @@ public class Program
     const provider = new MeterProvider();
     const exporter = new AzureMonitorMetricExporter({
     connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        connectionString: "<Your Connection String>",
     });
     const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
         exporter: exporter,
