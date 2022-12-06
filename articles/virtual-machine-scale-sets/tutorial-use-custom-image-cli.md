@@ -156,6 +156,7 @@ az group create --name myResourceGroup --location eastus
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
+   --orchestration-mode flexible \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --specialized
 ```
@@ -164,20 +165,6 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Test your scale set
-To allow traffic to reach your scale set and that verify that the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
-
-```azurecli-interactive
-az network lb rule create \
-  --resource-group myResourceGroup \
-  --name myLoadBalancerRuleWeb \
-  --lb-name myScaleSetLB \
-  --backend-pool-name myScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
-```
-
 To see your scale set in action, get the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example gets the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
