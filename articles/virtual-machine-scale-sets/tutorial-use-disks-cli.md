@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and use disks for scale sets with Azure CLI
-description: Learn how to use the Azure CLI to create and use Managed Disks with Virtual Machine Scale Set, including how to add, prepare, list, and detach disks.
+description: Learn how to use the Azure CLI to create and use Managed Disks with Virtual Machine Scale Set. Including how to add, prepare, list, and detach disks.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -160,7 +160,7 @@ az vmss disk detach \
   --lun 2
 ```
 
-You can also use [az vm disk detach](/cli/) to detach a disk from a from an individual instance. 
+You can also use [az vm disk detach](/cli/) to detach a disk from an individual instance. 
 
 ```azurepowershell-interactive
 az vm disk detach \
