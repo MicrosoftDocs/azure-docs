@@ -33,7 +33,7 @@ To add an access restriction rule to your app, do the following:
 
 1. Sign in to the Azure portal.
 
-1. Select the app that you wan't to add access restrictions to.
+1. Select the app that you want to add access restrictions to.
 
 1. On the left pane, select **Networking**.
 
@@ -193,26 +193,35 @@ PowerShell example:
 
 You can manage access restriction programmatically, below you can find examples of how to add rules to access restrictions and how to change *Unmatched rule action* for both *Main site* and *Advanced tool site*.
 
-### Add access restrictions rules programmatically
+### Add access restrictions rules for main site
 
-You can add access restrictions rules programmatically by doing one of the following options:
+You can add access restrictions rules for *Main site* programmatically by choosing one of the following options:
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az webapp config access-restriction command, visit [this page](/cli/azure/webapp/config/access-restriction).
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `az webapp config access-restriction` command, visit [this page](/cli/azure/webapp/config/access-restriction).
+
 
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+
+  az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name "Azure Front Door example" --action Allow --priority 200 --service-tag AzureFrontDoor.Backend \
+    --http-header x-azure-fdid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   ```
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about Add-AzWebAppAccessRestrictionRule command, visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `Add-AzWebAppAccessRestrictionRule` command, visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
   ```azurepowershell-interactive
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+      -Name "Azure Front Door example" -Priority 200 -Action Allow -ServiceTag AzureFrontDoor.Backend 
+      -HttpHeader @{'x-azure-fdid'='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}
   ```
 
 ### [ARM](#tab/arm)
@@ -220,35 +229,41 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 For ARM templates, modify the `ipSecurityRestrictions` block. A sample ARM template snippet is provided for you.
 
 ```ARM
-        {
-            "apiVersion": "2020-06-01",
-            "name": "[parameters('name')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[parameters('location')]",
-            "tags": {},
-            "dependsOn": [],
-            "properties": {
-                "name": "[parameters('name')]",
-                "siteConfig": {
-                    "appSettings": [],
-                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
-                    "alwaysOn": "[parameters('alwaysOn')]",
-                    "ftpsState": "[parameters('ftpsState')]",
-                    "ipSecurityRestrictions": [
-                        {
-                            "ipAddress": "122.133.144.0/24",
-                            "action": "Allow",
-                            "priority": 100,
-                            "name": "IP example rule"
-                        }
-                    ]
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]",
+            "ipSecurityRestrictions": [
+                {
+                    "ipAddress": "122.133.144.0/24",
+                    "action": "Allow",
+                    "priority": 100,
+                    "name": "IP example rule"
                 },
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "clientAffinityEnabled": false,
-                "virtualNetworkSubnetId": null,
-                "httpsOnly": true
-            }
+                {
+                    "ipAddress": "AzureFrontDoor.Backend",
+                    "tag": "ServiceTag",
+                    "action": "Allow",
+                    "priority": 200,
+                    "name": "Azure Front Door example",
+                    "headers": {
+                        "x-azure-fdid": [
+                        "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                        ]
+                    }
+                }
+            ]
         }
+    }
+}
 ```
 
 ### [Bicep](#tab/bicep)
@@ -272,6 +287,18 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
           priority: 100
           name: 'IP example rule'
         }
+        {
+          ipAddress: 'AzureFrontDoor.Backend'
+          tag: 'ServiceTag'
+          action: 'Allow'
+          priority: 100
+          name: 'Azure Front Door example'
+          headers: {
+            'x-azure-fdid': [
+              'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+            ]
+          }
+        }
       ]
     }
   }
@@ -280,59 +307,95 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ---
 
-You can also set values manually by doing one of the following options:
+### Add access restrictions rules for advanced tool site
 
-Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
-
-  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-06-01
-
-* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
-
-  The JSON syntax for the earlier example is:
-
-  ```json
-  {
-    "properties": {
-      "ipSecurityRestrictions": [
-        {
-          "ipAddress": "122.133.144.0/24",
-          "action": "Allow",
-          "priority": 100,
-          "name": "IP example rule"
-        }
-      ]
-    }
-  }
-  ```
-  The JSON syntax for an advanced example using service tag and http header restriction is:
-  ```json
-  {
-    "properties": {
-      "ipSecurityRestrictions": [
-        {
-          "ipAddress": "AzureFrontDoor.Backend",
-          "tag": "ServiceTag",
-          "action": "Allow",
-          "priority": 100,
-          "name": "Azure Front Door example",
-          "headers": {
-            "x-azure-fdid": [
-              "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-            ]
-          }
-        }
-      ]
-    }
-  }
-  ```
-
-### Change *Unmatched rule action* for *Main site* programmatically
-
-You can change *Unmatched rule action* for *Main site* programmatically by doing one of the following options:
+You can add access restrictions rules for *Advanced tool site* programmatically by choosing one of the following options:
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az resource command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `az webapp config access-restriction` command, visit [this page](/cli/azure/webapp/config/access-restriction).
+
+
+  ```azurecli-interactive
+  az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100 --scm-site true
+  ```
+
+### [PowerShell](#tab/powershell)
+
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `Add-AzWebAppAccessRestrictionRule` command, visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+      -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24 -TargetScmSite
+  ```
+
+### [ARM](#tab/arm)
+
+For ARM templates, modify the `scmIpSecurityRestrictions` block. A sample ARM template snippet is provided for you.
+
+```ARM
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]",
+            "scmIpSecurityRestrictions": [
+                {
+                    "ipAddress": "122.133.144.0/24",
+                    "action": "Allow",
+                    "priority": 100,
+                    "name": "IP example rule"
+                }
+            ]
+        }
+    }
+}
+```
+
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the `scmIpSecurityRestrictions` block. A sample Bicep snippet is provided for you.
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      ftpsState: ftpsState
+      alwaysOn: alwaysOn
+      linuxFxVersion: linuxFxVersion
+      scmIpSecurityRestrictions: [
+        {
+          ipAddress: '122.133.144.0/24'
+          action: 'Allow'
+          priority: 100
+          name: 'IP example rule'
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+### Change unmatched rule action for main site
+
+You can change *Unmatched rule action* for *Main site* programmatically by choosing one of the following options:
+
+### [Azure CLI](#tab/azurecli)
+
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `az resource` command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -341,7 +404,7 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Set-AzResource* command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `Set-AzResource` command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -354,43 +417,36 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 For ARM templates, modify the property `ipSecurityRestrictionsDefaultAction`. Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you.
 
 ```ARM
-        {
-            "apiVersion": "2020-06-01",
-            "name": "[parameters('name')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[parameters('location')]",
-            "tags": {},
-            "dependsOn": [],
-            "properties": {
-                "name": "[parameters('name')]",
-                "siteConfig": {
-                    "appSettings": [],
-                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
-                    "alwaysOn": "[parameters('alwaysOn')]",
-                    "ftpsState": "[parameters('ftpsState')]",
-                    "ipSecurityRestrictionsDefaultAction": "[parameters('ipSecurityRestrictionsDefaultAction')]"
-                },
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "clientAffinityEnabled": false,
-                "virtualNetworkSubnetId": null,
-                "httpsOnly": true
-            }
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]",
+            "ipSecurityRestrictionsDefaultAction": "[parameters('ipSecurityRestrictionsDefaultAction')]"
         }
+    }
+}
 ```
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you.
+For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample Bicep snippet is provided for you.
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
   name: webSiteName
   location: location
+  kind: 'app'
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      ftpsState: ftpsState
-      alwaysOn: alwaysOn
       linuxFxVersion: linuxFxVersion
       ipSecurityRestrictionsDefaultAction: ipSecurityRestrictionsDefaultAction
     }
@@ -400,32 +456,13 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ---
 
-You can also set values manually by doing one of the following options:
+### Change unmatched rule action for advanced tool site
 
-* Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
-
-  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-12-01
-
-* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the `ipSecurityRestrictionsDefaultAction` property to change the required value in JSON.
-
-  The JSON syntax for the earlier example is:
-
-  ```json
-  {
-    "properties": {
-      "ipSecurityRestrictionsDefaultAction": "Allow"
-    }
-  }
-  ```
-
-
-### Change *Unmatched rule action* for *Advanced tool site*
-
-You can change *Unmatched rule action* for *Advanced tool site* programmatically by doing one of the following options:
+You can change *Unmatched rule action* for *Advanced tool site* programmatically by choosing one of the following options:
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az resource command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `az resource` command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -434,7 +471,7 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about Set-AzResource command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about `Set-AzResource` command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -447,43 +484,36 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 For ARM templates, modify the property `scmIpSecurityRestrictionsDefaultAction`. Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you.
 
 ```ARM
-        {
-            "apiVersion": "2020-06-01",
-            "name": "[parameters('name')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[parameters('location')]",
-            "tags": {},
-            "dependsOn": [],
-            "properties": {
-                "name": "[parameters('name')]",
-                "siteConfig": {
-                    "appSettings": [],
-                    "linuxFxVersion": "[parameters('linuxFxVersion')]",
-                    "alwaysOn": "[parameters('alwaysOn')]",
-                    "ftpsState": "[parameters('ftpsState')]",
-                    "scmIpSecurityRestrictionsDefaultAction": "[parameters('scmIpSecurityRestrictionsDefaultAction')]"
-                },
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "clientAffinityEnabled": false,
-                "virtualNetworkSubnetId": null,
-                "httpsOnly": true
-            }
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]",
+            "scmIpSecurityRestrictionsDefaultAction": "[parameters('scmIpSecurityRestrictionsDefaultAction')]"
         }
+    }
+}
 ```
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the property `scmIpSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you.
+For Bicep, modify the property `scmIpSecurityRestrictionsDefaultAction`. Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample Bicep snippet is provided for you.
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
   name: webSiteName
   location: location
+  kind: 'app'
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      ftpsState: ftpsState
-      alwaysOn: alwaysOn
       linuxFxVersion: linuxFxVersion
       scmIpSecurityRestrictionsDefaultAction: scmIpSecurityRestrictionsDefaultAction
     }
@@ -493,23 +523,6 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ---
 
-You can also set values manually by doing one of the following options:
-
-* Use an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Azure Resource Manager. The location for this information in Azure Resource Manager is:
-
-  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-12-01
-
-* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the `scmIpSecurityRestrictionsDefaultAction` property to change the required value in JSON.
-
-  The JSON syntax for the earlier example is:
-
-  ```json
-  {
-    "properties": {
-      "scmIpSecurityRestrictionsDefaultAction": "Deny"
-    }
-  }
-  ```
 ## Set up Azure Functions access restrictions
 
 Access restrictions are also available for function apps with the same functionality as App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
@@ -517,6 +530,7 @@ Access restrictions are also available for function apps with the same functiona
 ## Next steps
 [Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
+[Advanced access restriction scenarios in Azure App Service - blog post](https://azure.github.io/AppService/2022/11/24/Advanced-access-restriction-scenarios-in-Azure-App-Service.html)
 
 <!--Links-->
 [serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
