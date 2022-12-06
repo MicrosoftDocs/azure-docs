@@ -15,7 +15,7 @@ In this article you'll, follow these key steps:
 - Consume events from a compacted event hub. 
 
 > [!NOTE] 
-> Log compation feature is available only in **premium** and **dedicated** tiers. 
+> Log compaction feature is available only in **premium** and **dedicated** tiers. 
 
 ## Create a compacted event hub/Kafka topic
 This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template. 
@@ -28,7 +28,7 @@ You can create a compacted event hub using the Azure portal by following these s
 1. At the top of the window, select + Event Hubs.
     :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of event hub creation UI.":::
 1. Type a *name* for your event hub, and specify the *partition count*. Since we're creating a compacted event hub, select *compaction policy* as *compaction* and provide the desired value for *tombstone retention time*. 
-    :::image type="content" source="./media/event-hubs-log-compaction/enabling-compaction.png" alt-text="Screenshot of the event hubs creation UI with compation related attributes.":::
+    :::image type="content" source="./media/event-hubs-log-compaction/enabling-compaction.png" alt-text="Screenshot of the event hubs creation UI with compaction related attributes.":::
 1. Select *create* and create the compacted event hub. 
 
 ### [ARM template](#tab/arm)
