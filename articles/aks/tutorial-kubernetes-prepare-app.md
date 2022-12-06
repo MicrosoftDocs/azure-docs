@@ -50,7 +50,7 @@ Change into the cloned directory.
 cd azure-voting-app-redis
 ```
 
-Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. The contents and structure of the directory are as follows:
+The directory contains the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. The contents and structure of the directory are as follows:
 
 ```output
 azure-voting-app-redis
