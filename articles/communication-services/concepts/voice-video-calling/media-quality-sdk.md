@@ -7,20 +7,21 @@ ms.author: micahvivion
 manager: nmurav
 
 services: azure-communication-services
-ms.date: 11/30/2021
+ms.date: 11/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Media quality statistics 
-Do help understand media quality in VoIP and Video calls using Azure Communication Services, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
+To help understand media quality in VoIP and Video calls using Azure Communication Services, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
 
 ## Media quality statistics for ongoing call
-> **NOTE**
+> [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive. Do not use this API in a production environment.
->
-> There is an API breaking change on MediaStats in the SDK beginning since version 1.8.0-beta.1
+
+> [!IMPORTANT]
+> There is also an API breaking change on MediaStats in the SDK beginning since version 1.8.0-beta.1
 
 Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the MediaStats feature API object:
 
@@ -145,7 +146,7 @@ The bandwidth metrics have changes to `availableBitrate` in Audio Send / Video S
 | packetsPerSecond | packet rate (packets/sec) | |
 | packetsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
 | pairRttInMs | round-trip time (milliseconds) | Lower is better. A round trip time of 200 ms or less is recommended. |
-| jitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is the how long the packets of the frame stay in the jitter buffer. |
+| jitterBufferInMs | jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the frame stay in the jitter buffer. |
 | streamId | stream id | The streamId value corresponds to id in VideoStreamCommon. It can be used to match the sender. |
 | frameRateOutput | frame rate output (frames/sec) | |
 | frameRateDecoded | frame rate correctly decoded for the RTP stream (frames/sec) | |
@@ -165,7 +166,7 @@ Currently stats fields are the same as *Video Send metrics*
 ### ScreenShare Receive metrics
 Currently stats fields are the same as *Video Receive metrics*
 
-### Using Media Quality Statics on SDK Version `< 1.8.0` or older
+### Using Media Quality Statistics on SDK Version `< 1.8.0` or older
 If you are using an ACS SDK version of 1.8.0 or older, please see below for documentation on how to use this functionality. 
 
 As a developer you can invoke the `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
@@ -204,14 +205,14 @@ mediaStatsFeature.disposeAllCollectors();
 | audioSendBitrate          | Sent bitrate                 | Send bitrate of audio (bits per second)                                                                                                                                               | General values are in the 24 kbps range (36-128 kbps typical) |
 | audioRecvBitrate          | Received audio bitrate             | Received bitrate of audio received (bits per second)                                                                                                                                  |                                                              |
 | audioSendPackets          | Sent packets                 | The number of audio packets sent in last second (packets per second)                                                                                                                  |                                                              |
-| audioRecvJitterBufferMs   | Jitter buffer delay          | The jitter buffer is used for smooth playout. This value is the how long the packets of the samples stay in the jitter buffer. (in milliseconds (ms))                                                                                                             | Lower is better. |
+| audioRecvJitterBufferMs   | Jitter buffer delay          | The jitter buffer is used for smooth playout. This value is how long the packets of the samples stay in the jitter buffer. (in milliseconds (ms))                                                                                                             | Lower is better. |
 | audioRecvPacketsLost      | Received packet loss         | The number of audio packets that were to be received but were lost. Results are packets per second (over the last second).                                                            | Lower is better.                                             |
 | audioSendPacketsLost      | Sent packet loss             | The number of audio packets sent that were lost (not received) in the last second.  Results are packets per second (over the last second).                                            | Lower is better.                                             |
 | audioRecvPackets          | Received packets             | The number of audio packets received in the last second. Results are packets per second (over the last second).                                                                       | Information only.                                            |
 | audioSendCodecName        | Sent codec                   | Audio codec used.                                                                                                                                                                     | Information only.                                            |
 | audioSendRtt              | Send Round-Trip Time         | Round trip time between your system and Azure Communication Services server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
 | audioSendPairRtt          | Send Pair Round-Trip Time    | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
-| audioRecvPairRtt          | Receive Pair Round-Trip Time | Round trip time for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
+| audioRecvPairRtt          | Receive Pair Round-Trip Time | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
 | audioSendAudioInputLevel  | Input level for microphone   | Sent audio playout level. If source data is between 0-1,  media stack multiplies it with 0xFFFF. Depends on microphone. Used to confirm if microphone is silent (no incoming energy). | Microphone input level.                                      |
 | audioRecvAudioOutputLevel | Speaker output level.        | Received audio playout level.  If source data is between 0-1,  media stack multiplies it with 0xFFFF.                                                                                 | Speaker output level.                                        |
 
@@ -225,7 +226,7 @@ mediaStatsFeature.disposeAllCollectors();
 | videoSendBitrate               | Sent bitrate                     | Amount of video bitrate being sent. Results are bps (bits per second)                                                                    |                                                                                                  |
 | videoSendPackets               | Sent packets                     | The number of video packets sent. Results are packets per second (over the last second).                                                 | Information only                                                                                 |
 | VideoSendCodecName             | Sent codec                       | Video codec used for encoding video                                                                                                      | VP8 (1:1 calls) and H264                                                                         |
-| videoRecvJitterBufferMs        | Received Jitter                  | The jitter buffer is used for smooth playout. This value is the how long the packets of the frame stay in the jitter buffer. (in milliseconds (ms))                                                                | Lower is better.                                                                                 |
+| videoRecvJitterBufferMs        | Received Jitter                  | The jitter buffer is used for smooth playout. This value is how long the packets of the frame stay in the jitter buffer. (in milliseconds (ms))                                                                | Lower is better.                                                                                 |
 | videoSendRtt                   | Send Round-Trip Time             | Response time between your system and Azure Communication Services server. Lower is better                                                                        | A round trip time of 200 ms or less is recommended.                                              |
 | videoSendPairRtt               | Send Pair Round-Trip Time        | Response time between your system and Azure Communication Services server. Results are in milliseconds (ms).                                                      | A round trip time of 200 ms or less is recommended.                                              |
 | videoRecvPairRtt               | Receive Pair Round-Trip Time     | Round trip time for entire transport. Results are in milliseconds (ms).                                                                              | A round trip time of 200 ms or less is recommended.                                              |
