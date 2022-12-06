@@ -53,7 +53,7 @@ Alternatively, if you have permissions across multiple labs, you can reset mulit
 
     :::image type="content" source="./media/how-to-reset-and-redeploy-vm/reset-vms-dialog.png" alt-text="Screenshot that shows the reset virtual machine confirmation dialog in the Lab Services web portal.":::
 
-### Redeploy VMs
+## Redeploy VMs
 
 When you use lab plans, introduced in the [April 2022 Update](lab-services-whats-new.md), you can now also redeploy a lab VM. This operation is labelled  **Troubleshoot** in the Azure Lab Services web portal and is available in the student's view of their VMs.
 
