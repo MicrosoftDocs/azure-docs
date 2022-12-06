@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 11/02/2022
+ms.date: 12/06/2022
 ---
 
 # Configure your Bicep environment
@@ -29,12 +29,12 @@ You can configure the credential precedence for authenticating to the registry. 
 
 ```json
 {
-    "cloud": {
-      "credentialPrecedence": [
-        "AzureCLI",
-        "AzurePowerShell"
-      ]
-    }
+  "cloud": {
+    "credentialPrecedence": [
+      "AzureCLI",
+      "AzurePowerShell"
+    ]
+  }
 }
 ```
 
@@ -47,6 +47,8 @@ The available credential types are:
 - VisualStudio
 - VisualStudioCode
 
+[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
+
 ## Intellisense
 
 The Bicep extension for Visual Studio Code supports intellisense for your `bicepconfig.json` file. Use the intellisense to discover available properties and values.
@@ -55,6 +57,6 @@ The Bicep extension for Visual Studio Code supports intellisense for your `bicep
 
 ## Next steps
 
-* [Add module settings in Bicep config](bicep-config-modules.md)
-* [Add linter settings to Bicep config](bicep-config-linter.md)
-* Learn about the [Bicep linter](linter.md)
+- [Add module settings in Bicep config](bicep-config-modules.md)
+- [Add linter settings to Bicep config](bicep-config-linter.md)
+- Learn about the [Bicep linter](linter.md)
