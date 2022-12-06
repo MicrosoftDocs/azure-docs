@@ -13,7 +13,7 @@ ms.date: 09/27/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
-# How to use parallel job in pipeline (V2) (preview)
+# How to use parallel job in pipeline (V2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -113,7 +113,7 @@ Sample code to set two attributes:
 
 ### Implement predefined functions in entry script
 
-Entry script is a single python file where user needs to implement three predefined functions with custom code. Azure ML parallel job follows the diagram below to execute them in each processor.
+Entry script is a single Python file where user needs to implement three predefined functions with custom code. Azure ML parallel job follows the diagram below to execute them in each processor.
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png" alt-text="Diagram showing how entry script works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png":::
 
@@ -133,7 +133,7 @@ Once you have entry script ready, you can set following two attributes to use it
 | Attribute name | Type | Description | Default value |
 |: ------------- | ---- |: ---------- | ------------- |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. | |
-| `entry_script` | string | The python file that contains the implementation of pre-defined parallel functions. | |
+| `entry_script` | string | The Python file that contains the implementation of pre-defined parallel functions. | |
 
 Sample code to set two attributes:
 

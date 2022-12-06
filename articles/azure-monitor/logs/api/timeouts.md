@@ -27,7 +27,7 @@ If a query takes longer than the specified timeout (or default timeout, if unspe
 For example, the following request allows a maximum server timeout age of 30 seconds
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     Authorization: Bearer <access token>
     Prefer: wait=30
     

@@ -8,7 +8,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Azure Storage samples using v12 Python client libraries
