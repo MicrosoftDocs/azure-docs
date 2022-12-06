@@ -16,6 +16,12 @@ ms.author: mbullwin
 
 Welcome! This page covers what's new in the Metrics Advisor docs. Check back every month for information on service changes, doc additions and updates this month.
 
+## December 2022
+
+**Metrics Advisor new portal experience** has been released for preview! The new portal experience is designed to align the look and feel with other Cognitive Services' studio experience with better usability and significant improvement on accessability. Both the classic portal and the new portal will be available for a period of time, until we officially retire the classic one. 
+
+We **strongly encourage** you to try out the new experience and share us your feedback through the smiley face on the top banner! Have a great journey!
+
 ## May 2022
 
  **Detection configuration auto-tuning** has been released. This feature enables you to customize the service to better surface and personalize anomalies. Instead of the traditional way of setting configurations for each time series or a group of time series. A guided experience is provided to capture your detection preferences, such as the level of sensitivity, and the types of anomaly patterns, which allows you to tailor the model to your own needs on the back end. Those preferences can then be applied to all the time series you're monitoring. This allows you to reduce configuration costs while achieving better detection results.
