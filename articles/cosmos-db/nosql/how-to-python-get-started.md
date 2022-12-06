@@ -66,8 +66,11 @@ from azure.core.exceptions import AzureError
 from azure.cosmos import CosmosClient, PartitionKey
 ```
 
-The preceding code imports modules that you'll use in the rest of the article.
+<!-- 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-how-to/app.py" id="imports":::
+-->
 
+The preceding code imports modules that you'll use in the rest of the article.
 
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
@@ -225,7 +228,7 @@ KEY = os.environ["COSMOS_KEY"]
 client = CosmosClient(url=ENDPOINT, credential=KEY)
 ```
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="endpoint_key":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/200-how-to/app.py" id="client":::
 -->
 
 ### Connect with a connection string
@@ -327,10 +330,13 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION
 
 ```Python
 CONN_STR = os.environ["COSMOS_CONNECTION_STRING"]
+DATABASE_ID = "cosmicworks"
+CONTAINER_ID = "products"
+
 client = CosmosClient.from_connection_string(conn_str=CONN_STR)
 ```
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="connection_string":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_connection_string.py" id="connection_string":::
 -->
 
 ### Connect using the Microsoft Identity Platform
@@ -357,31 +363,25 @@ pip install azure-identity
 
 If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/python/api/azure-identity/azure.identity.defaultazurecredential) instance.
 
-Get the endpoint to connect to as show in the section above for [Connect with an endpoint and key](#connect-with-an-endpoint-and-key) and set that as the environment variable `COSMOS_ENDPOINT`, which is used in the sample code in this section.
+In your *app.py*:
 
-```python
-ENDPOINT = os.environ["COSMOS_ENDPOINT"]
-```
-<!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
--->
+* Get the endpoint to connect to as show in the section above for [Connect with an endpoint and key](#connect-with-an-endpoint-and-key) and set that as the environment variable `COSMOS_ENDPOINT`.
 
-In your *app.py*, import the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and create an instance of it.
+* Import the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and create an instance of it.
+
+* Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
 ```python
 from azure.identity import DefaultAzureCredential
-credential = DefaultAzureCredential()
-```
-<!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
--->
-Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
-```python
+ENDPOINT = os.environ["COSMOS_ENDPOINT"]
+
+credential = DefaultAzureCredential()
+
 client = CosmosClient(ENDPOINT, credential)
 ```
-<!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="default_credential":::
+<!-- 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_aad_default.py" id="credential":::
 -->
 
 > [!IMPORTANT]
@@ -393,23 +393,22 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
-Get the credential information from environment variables.
+In your *app.py*:
+
+* Get the credential information from environment variables for a service principal. You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+
+* Import the [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) and create an instance with the ``TENANT_ID``, ``CLIENT_ID``, and ``CLIENT_SECRET`` environment variables as parameters.
+
+* Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
 ```python
+from azure.identity import ClientSecretCredential
+
 ENDPOINT = os.environ["COSMOS_ENDPOINT"]
 TENANT_ID = os.environ["TENANT_ID"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
 CLIENT_ID = os.environ["CLIENT_ID"]
-```
-<!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-get-started/app.py" id="credential":::
--->
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
-
-Create a new instance of the [``ClientSecretCredential``](/python/api/azure-identity/azure.identity.clientsecretcredential) class with the ``TENANT_ID``, ``CLIENT_ID``, and ``CLIENT_SECRET`` environment variables as parameters.
-
-```python
 credential = ClientSecretCredential(
     tenant_id=TENANT_ID,
     client_id=CLIENT_ID,
@@ -419,7 +418,7 @@ credential = ClientSecretCredential(
 client = CosmosClient(ENDPOINT, credential)
 ```
 <!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/104-client-secret-credential/app.py" id="credential":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_add_principal.py" id="credential":::
 -->
 
 ## Build your application
