@@ -41,33 +41,39 @@ To create a database, call one of the following methods:
 
 ### Create a database
 
-The following example creates a database asynchronously:
+The following example creates a database with the [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database) method. This method throws an exception if a database with the same name exists.
 
 ```python
-TBD
+try:
+    database = client.create_database(id=DATABASE_ID)
+    print(f'Database created: {database.id}')
+
+except CosmosResourceExistsError:
+    print("Database already exists.")
 ```
 <!--
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database":::
 -->
 
-The [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database) method will throw an exception if a database with the same name already exists.
-
 ### Create a database if it doesn't already exist
 
-The following example creates a database asynchronously only if it doesn't already exist on the account:
+The following example creates a database with the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database-if-not-exists) method. If the database exists, this method returns the database settings. Compared to the previous create method, this method does not throw an exception if the database already exists. This method is useful for avoiding errors if you run the same code multiple times.
 
 ```python
-TBD
+try:
+    database = client.create_database_if_not_exists(id=DATABASE_ID)
+    print(f'Database created and/or returned: {database.id}')
+
+except CosmosHttpResponseError:
+    print("Request to the Azure Cosmos database service failed.")
 ```
 <!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database_check":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app_exists.py" id="create_database":::
 -->
-
-The [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database-if-not-exists) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
 
 ### Create a database asynchronously
 
-You can also create a database asynchronously using similar object and methods in the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, use the [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database) method to create a database asynchronously and the the ['CosmoClient.create_database_if_not_exists](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database-if-not-exists) method to create a database asynchronously only if it doesn't already exist on the account.
+You can also create a database asynchronously using similar object and methods in the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, use the [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database) method or the ['CosmoClient.create_database_if_not_exists](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database-if-not-exists) method.
 
 Working asynchronously is useful when you want to perform multiple operations in parallel. For more information, see [Using the asynchronous client](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos#using-the-asynchronous-client).
 
@@ -78,10 +84,12 @@ In the examples above, the response from the requests is a  [``DatabaseProxy``](
 The following example shows the **create_database_if_not_exists** method returning a **database** object.
 
 ```python
-TBD
+database = client.create_database_if_not_exists(id=DATABASE_ID)
+for container in database.list_containers():
+    print(f'Container name: {container["id"]}')
 ```
 <!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database_response":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="parse_response":::
 -->
 
 ## Next steps
