@@ -432,6 +432,10 @@
           items:
             - name: Get started
               href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
