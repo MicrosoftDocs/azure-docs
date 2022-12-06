@@ -85,7 +85,7 @@ To configure single sign-on on **Adstream** side, you need to send the downloade
 
 ### Create Adstream test user
 
-In this section, you create a user called Britta Simon in Seculio. Work with [Adstream support team](mailto:support@adstream.com) to add the users in the Seculio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Adstream. Work with [Adstream support team](mailto:support@adstream.com) to add the users in the Adstream platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
