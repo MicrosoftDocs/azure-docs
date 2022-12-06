@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/18/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 
 ---
@@ -127,7 +127,7 @@ This article assumes that you've already deployed an [Azure virtual network](../
       1. Select **OK**.
    1. Create front-end IP address 10.27.0.10 for the ERS instance:  
       * Repeat the preceding steps to create an IP address for ERS (for example, **10.27.0.10** and **frontend.NW1.ERS**).
-      1. Create a single back-end pool: 
+   1. Create a single back-end pool: 
       1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **backend.NW1**).
       2. Select **NIC** for Backend Pool Configuration. 
@@ -146,6 +146,7 @@ This article assumes that you've already deployed an [Azure virtual network](../
       1. Open the load balancer, select **Load-balancing rules**, and then select **Add**.
       1. Enter the name of the new load-balancing rule (for example, **lb.NW1.ASCS**).
       1. Select the front-end IP address for ASCS, back-end pool, and health probe that you created earlier (for example, **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**).
+      2. Increase idle timeout to 30 minutes
       1. Select **HA ports**.
       1. Enable Floating IP.
       1. Select **OK**.
