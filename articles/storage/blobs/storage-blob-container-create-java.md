@@ -44,9 +44,9 @@ You can also create a container using one of the following methods from the `Blo
 - [BlobContainerClient.create](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-create())
 - [BlobContainerClient.createIfNotExists](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-createifnotexists())
 
-Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
+Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. For the `create` and `createBlobContainer` methods, an exception is thrown if a container with the same name already exists. 
 
-This following example creates a container from a `BlobServiceClient` object:
+The following example creates a container from a `BlobServiceClient` object:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java" id="Snippet_CreateContainer":::
 

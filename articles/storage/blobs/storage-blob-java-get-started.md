@@ -70,11 +70,13 @@ Then open your code file and add the necessary `import` directives. In this exam
 import com.azure.core.credential.*;
 import com.azure.identity.*;
 import com.azure.storage.blob.*;
+import com.azure.storage.blob.models.*;
 import com.azure.storage.blob.specialized.*;
 import com.azure.storage.common.*;
 ```
 Blob client library information:
 - [com.azure.storage.blob](/java/api/com.azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
+- [com.azure.storage.blob.models](/java/api/com.azure.storage.blob.models): Contains utility classes, structures, and enumeration types.
 - [com.azure.storage.blob.specialized](/java/api/com.azure.storage.blob.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
 
 ## Authorize access and connect to Blob Storage
@@ -83,9 +85,9 @@ To connect to Blob Storage, create an instance of the [BlobServiceClient](/java/
 
 To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
-## [Azure AD](#tab/azure-ad)
+## [Azure AD (Recommended)](#tab/azure-ad)
 
-To authorize with Azure AD, you'll need to use a security principal. Which type of security principal you need depends on where your application runs. Use this table as a guide.
+To authorize with Azure AD, you'll need to use a [security principal](/azure/active-directory/develop/app-objects-and-service-principals). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 |---|---|---|
@@ -96,6 +98,14 @@ To authorize with Azure AD, you'll need to use a security principal. Which type 
 The easiest way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/App.java" id="Snippet_GetServiceClientAzureAD":::
+
+## [SAS token](#tab/sas-token)
+
+Use [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder) to build a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object using a SAS token:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/App.java" id="Snippet_GetServiceClientSAS":::
+
+To generate and manage SAS tokens, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json).
 
 ## [Account key](#tab/account-key)
 
@@ -109,13 +119,8 @@ You can also create a `BlobServiceClient` object using a connection string.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-## [SAS token](#tab/sas-token)
-
-Use [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder) to build a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object using a SAS token:
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/App.java" id="Snippet_GetServiceClientSAS":::
-
-To generate and manage SAS tokens, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json).
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
