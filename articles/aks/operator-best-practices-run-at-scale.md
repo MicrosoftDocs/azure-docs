@@ -17,7 +17,7 @@ If your AKS clusters satisfy any of the following criteria, we recommend using t
 * Clusters running production workloads
 * Cluster running availability-sensitive, mission-critical workloads
 
-To scale AKS clusters beyond 1000 nodes, ***with a hard limit of 5000 nodes per cluster***, you need to request a node limit quota increase by raising a support ticket in the [Azure Portal][Azure Portal]. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more details, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
+To scale AKS clusters beyond 1000 nodes, ***with a hard limit of 5000 nodes per cluster***, you need to request a node limit quota increase by raising a support ticket in the [Azure portal][Azure portal]. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 
@@ -42,23 +42,23 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * For system node pools, use the *Standard_D16ds_v5* SKU or equivalent core/memory VM SKUs with ephemeral OS disks to provide sufficient compute resources for *kube-system* pods.
 * Since there's a limit of 1000 nodes per node pool, we recommend creating at least five user node pools to scale up to 5000 nodes.
 * When running at-scale AKS clusters, use the cluster autoscaler whenever possible to ensure dynamic scaling of node pools based on the demand for compute resources. For more information, see [Automatically scale an AKS cluster to meet application demands][cluster-autoscaler].
-* If you're scaling beyond 1000 nodes without using the cluster autoscaler, we recommend scaling in batches of a maximum 500 to 700 nodes at a time. These scaling operations should also have a two to five minute wait time between consecutive scale-ups to prevent Azure API throttling. For more information, see [API Management: Caching and throttling policies][throttling-policies].
+* If you're scaling beyond 1000 nodes without using the cluster autoscaler, we recommend scaling in batches of a maximum 500 to 700 nodes at a time. These scaling operations should also have a two-minute to five-minute wait time between consecutive scale-ups to prevent Azure API throttling. For more information, see [API Management: Caching and throttling policies][throttling-policies].
 
 > [!NOTE]
 > You can't use the [Stop and Start feature][Stop and Start feature] with clusters enabled with the greater than 1000 node limit.
 
 ## Cluster upgrade considerations and best practices
 
-* The hard limit of 5000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This is because there's no more capacity to perform rolling updates with the max surge property. If you have a cluster at this limit, we recommend scaling the cluster down below 3000 nodes before doing cluster upgrades to provide extra capacity for node churn and to minimize the control plane load.
-* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When upgrading clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. This is because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max surge settings, the upgrade process completes faster, but it may experience disruptions during the process.
-* We don't recommend upgrading a cluster with greater than 500 nodes with the default max surge configuration of one node. Instead, we recommend increasing the max surge settings to somewhere between 10 to 20 percent, with up to a maximum max surge of 500 nodes based on your workload disruption tolerance. For more information, see [Customize node surge upgrade][max surge].
-* For additional upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
+* The hard limit of 5000 nodes per AKS cluster prevents clusters at this limit from performing upgrades, and this happens because there's no more capacity to perform rolling updates with the max surge property. If you have a cluster at this limit, we recommend scaling the cluster down below 3000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
+* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When you upgrade clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. This is because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the the max surge settings, the upgrade process completes faster, but you may experience disruptions during the upgrade process.
+* We don't recommend upgrading a cluster with greater than 500 nodes with the default max surge configuration of one node. Instead, we recommend increasing the max surge settings to somewhere between 10 to 20 percent, with up to a maximum max surge of 500 nodes. Base these settings on your workload disruption tolerance. For more information, see [Customize node surge upgrade][max surge].
+* For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
 <!-- Links - External -->
 [Managed NAT Gateway - Azure Kubernetes Service]: nat-gateway.md
 [Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: configure-azure-cni.md#dynamic-allocation-of-ips-and-enhanced-subnet-support
 [max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
-[Azure Portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
+[Azure portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 [uptime SLA]: uptime-sla.md
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
 
