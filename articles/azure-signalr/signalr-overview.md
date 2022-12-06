@@ -64,7 +64,7 @@ SignalR Service works with a broad range of clients, such as:
 
 SignalR Service offers SDKs in different languages:
 
-* Client side: [Any client libraries supporting SignalR protocol](/aspnet/core/signalr/client-features?view=aspnetcore-7.0) are compatible with SignalR service.
+* Client side: [Any client libraries supporting SignalR protocol](/aspnet/core/signalr/client-features) are compatible with SignalR service.
 * Server side: ASP.NET Core or ASP.NET web applications
 * Serverless support through REST APIs, Azure Functions triggers and bindings, and Event Grid integrations.
 
