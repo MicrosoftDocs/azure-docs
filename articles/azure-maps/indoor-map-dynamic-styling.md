@@ -69,7 +69,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 5. Select the **Headers** tab.
@@ -102,7 +102,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 10. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 11. Copy the following JSON style, and then paste it in the **Body** window:

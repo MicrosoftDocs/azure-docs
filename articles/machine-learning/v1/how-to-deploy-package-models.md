@@ -8,7 +8,7 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: bozhlin
 ms.reviewer: larryfr
 ms.custom: deploy, event-tier1-build-2022
 ---

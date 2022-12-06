@@ -3,7 +3,7 @@ title: 'Lifecycle workflows FAQs - Azure AD (preview)'
 description: Frequently asked questions about Lifecycle workflows (preview).
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -28,6 +28,8 @@ Yes, custom workflows can be configured for members or guests in your tenant. Wo
 Yes, key user properties like employeeHireDate and employeeType are supported for user provisioning from HR apps like WorkDay. To use these properties in Lifecycle workflows, you will need to map them in the provisioning process to ensure the values are set. The following is an example of the mapping: 
 
 ![Screenshot showing an example of how mapping is done in a Lifecycle Workflow.](./media/workflows-faqs/workflows-mapping.png)
+
+For more information on syncing employee attributes in Lifecycle Workflows, see: [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ### How do I see more details and parameters of tasks and the attributes that are being updated? 
 

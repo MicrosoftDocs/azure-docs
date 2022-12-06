@@ -26,7 +26,8 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
+- An Azure account with an active subscription.
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Python 3.7 or later](https://www.python.org/downloads/)
   - Ensure the `python` executable is in your `PATH`.
 - [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
@@ -43,7 +44,7 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 ### Create an Azure Cosmos DB account
 
 > [!TIP]
-> Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit. If you create an account using the free trial, you can safely skip this section.
+> No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required. If you create an account using the free trial, you can safely skip ahead to the [Create a new Python app](#create-a-new-python-app) section.
 
 [!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 
@@ -131,7 +132,7 @@ Create an item in the container by using the [`ContainerProxy.create_item`](/pyt
 
 ### Get an item
 
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
+In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="read_item":::
 
@@ -184,7 +185,7 @@ The output of the app should be similar to this example:
 ```
 
 > [!NOTE]
-> The fields assigned by Azure Cosmos DB (ex. ) will vary from this sample output.
+> The fields assigned by Azure Cosmos DB will vary from this sample output.
 
 ## Clean up resources
 
@@ -193,6 +194,3 @@ The output of the app should be similar to this example:
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the Python SDK. You can now dive deeper into guidance on how to import your data into the API for NoSQL.
-
-> [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)

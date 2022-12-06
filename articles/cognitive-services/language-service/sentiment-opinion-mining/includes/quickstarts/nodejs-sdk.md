@@ -67,7 +67,7 @@ npm install @azure/ai-text-analytics@5.1.0
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Open the file and copy the below code.
 
 ```javascript
 "use strict";
