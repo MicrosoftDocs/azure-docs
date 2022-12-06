@@ -39,7 +39,7 @@ Role owners can perform the following steps in the Azure portal to enable API da
 3. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
 4. In the left navigation menu, select **Usage + Charges**.
 5. Select **Manage API Access Keys** to open the Manage API Access Keys window.  
-    :::image type="content" source="./media/ea-portal-rest-apis/manage-api-access-keys.png" alt-text="Screenshot showing the Manage API Access Keys option." lightbox="./media/ea-portal-rest-apis/manage-api-access-keys.png" :::
+    :::image type="content" source="./media/enterprise-rest-apis/manage-api-access-keys.png" alt-text="Screenshot showing the Manage API Access Keys option." lightbox="./media/enterprise-rest-apis/manage-api-access-keys.png" :::
 
 In the Manage API Access Keys window, you can perform the following tasks:
 
@@ -55,9 +55,9 @@ In the Manage API Access Keys window, you can perform the following tasks:
 4. In the navigation menu, select **Usage + Charges**.
 5. Select **Manage API Access Keys**.
 6. Select **Generate** to generate the key.  
-    :::image type="content" source="./media/ea-portal-rest-apis/manage-api-access-keys-window.png" alt-text="Screenshot showing the Manage API Access Keys window." lightbox="./media/ea-portal-rest-apis/manage-api-access-keys-window.png" :::
+    :::image type="content" source="./media/enterprise-rest-apis/manage-api-access-keys-window.png" alt-text="Screenshot showing the Manage API Access Keys window." lightbox="./media/enterprise-rest-apis/manage-api-access-keys-window.png" :::
 7. Select the **expand symbol** or select **Copy** to get the API access key for immediate use.  
-    :::image type="content" source="./media/ea-portal-rest-apis/expand-symbol-copy.png" alt-text="Screenshot showing the expand symbol and Copy option." lightbox="./media/ea-portal-rest-apis/expand-symbol-copy.png" :::
+    :::image type="content" source="./media/enterprise-rest-apis/expand-symbol-copy.png" alt-text="Screenshot showing the expand symbol and Copy option." lightbox="./media/enterprise-rest-apis/expand-symbol-copy.png" :::
 
 ### Regenerate the primary or secondary API key
 
@@ -86,7 +86,7 @@ The steps give API access to key holders so they can view cost and pricing infor
 1. In the left navigation window, select **Policies**.
 2. Select **On** under the DEPARTMENT ADMINS CAN VIEW CHARGES section and then select **Save**.
 3. Select **On** under the ACCOUNT OWNERS CAN VIEW CHARGES section and then select **Save**.  
-    :::image type="content" source="./media/ea-portal-rest-apis/policies-view-charges.png" alt-text="Screenshot showing the Polices window where you change view charges options." lightbox="./media/ea-portal-rest-apis/policies-view-charges.png" :::
+    :::image type="content" source="./media/enterprise-rest-apis/policies-view-charges.png" alt-text="Screenshot showing the Polices window where you change view charges options." lightbox="./media/enterprise-rest-apis/policies-view-charges.png" :::
 
 ## Pass keys in the API
 
