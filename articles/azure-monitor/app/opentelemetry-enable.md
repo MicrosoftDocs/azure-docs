@@ -1801,7 +1801,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
             .Build();
     ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
 
@@ -1810,15 +1810,42 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
         npm install @azure/monitor-opentelemetry-exporter
     ```
 
-1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
+2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
-    ```typescript
+    ```javascript
     const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
+    const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
     
     const provider = new BasicTracerProvider();
     const azureMonitorExporter = new AzureMonitorTraceExporter({
-      instrumentationKey: os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+      connectionString: "<Your Connection String>",
+    });
+    const otlpExporter = new OTLPTraceExporter();
+    provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
+    provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
+    provider.register();
+    ```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
+
+    ```sh
+        npm install @opentelemetry/exporter-otlp-http
+        npm install @azure/monitor-opentelemetry-exporter
+    ```
+
+2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
+
+    ```typescript
+    import { BasicTracerProvider, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
+    import { OTLPTraceExporter } from '@opentelemetry/exporter-otlp-http';
+    import { AzureMonitorTraceExporter } from '@azure/monitor-opentelemetry-exporter';
+
+    const provider = new BasicTracerProvider();
+    const azureMonitorExporter = new AzureMonitorTraceExporter({
+        connectionString: "<Your Connection String>",
     });
     const otlpExporter = new OTLPTraceExporter();
     provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
