@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/6/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -33,11 +33,11 @@ To get started, you'll need:
 
 Cloudflare WAF integration includes the following components:
 
-- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant. It's known as the identity provider.
+- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant. It's known as the identity provider
 
 - [**Azure Front Door**](../frontdoor/front-door-overview.md) – Enables custom domains for Azure B2C tenant. Traffic from Cloudflare WAF is routed to Azure Front Door before arriving at Azure AD B2C tenant.
 
-- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server.
+- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server
 
 ## Integrate with Azure AD B2C
 
@@ -57,13 +57,13 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 
 2. Under the DNS pane, toggle the **Proxy status** option to **Proxied**. It turns orange.
 
-The final setting appears in the following image.
+The settings appear in the following image.
 
 ![Image shows how to select proxied](./media/partner-cloudflare/select-proxied.png)
 
-### Configure WAF
+### Configure the Web Application Firewall
 
-In your Cloudflare settings, [Configure WAF](https://www.cloudflare.com/waf/).
+Go to your Cloudflare settings, and use the Cloudflare content to [configure the WAF](https://www.cloudflare.com/waf/) and learn about other security tools. 
 
 ### Configure firewall rule
 
@@ -71,7 +71,7 @@ In the top pane of the console, use the firewall option to add, update, or remov
 
 ![Image shows how to enforce captcha](./media/partner-cloudflare/configure-firewall-rule.png)
 
-Learn more: [About Cloudflare Firewall Rules](https://support.cloudflare.com/hc/articles/360016473712-Cloudflare-Firewall-Rules)
+Learn more: [Cloudflare Firewall Rules](https://support.cloudflare.com/hc/articles/360016473712-Cloudflare-Firewall-Rules)
 
 ### Test the settings
 
@@ -82,7 +82,7 @@ Learn more: [About Cloudflare Firewall Rules](https://support.cloudflare.com/hc/
 > [!NOTE]
 > Cloudflare has functionality to customize block pages. See, [Configuring Custom Pages (Error and Challenge)](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-).  
 
-2. The Azure AD B2C policy appears.
+2. The Azure AD B2C policy sign-in dialog appears.
 
    ![Image shows Azure AD B2C policy log in](./media/partner-cloudflare/azure-ad-b2c-policy.png)
 
@@ -93,5 +93,5 @@ Learn more: [About Cloudflare Firewall Rules](https://support.cloudflare.com/hc/
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 ## Next steps 
- 
-- [Configure a custom domain in Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow)
+
+[Configure a custom domain in Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow)
