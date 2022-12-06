@@ -1,5 +1,5 @@
 ---
-title: Enable security audits for Azure AD Domain Services | Microsoft Docs
+title: Enable security and DNS audits for Azure AD Domain Services | Microsoft Docs
 description: Learn how to enable security audits to centralize the logging of events for analysis and alerts in Azure AD Domain Services
 services: active-directory-ds
 author: justinha
@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 12/06/2022
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Enable security audits for Azure Active Directory Domain Services
+# Enable security and DNS audits for Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
+Azure Active Directory Domain Services (Azure AD DS) security and DNS audits let Azure stream events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
 
 You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
