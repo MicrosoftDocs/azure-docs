@@ -1950,7 +1950,7 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 To override the default directory, you should set `storageDirectory`.
 
 For example:
-```typescript
+```javascript
 const exporter = new AzureMonitorTraceExporter({
     connectionString: "<Your Connection String>",
     storageDirectory: "C:\\SomeDirectory",
@@ -1998,13 +1998,26 @@ This section provides help with troubleshooting.
 
 The Azure Monitor Exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named OpenTelemetry-AzureMonitor-Exporter. For troubleshooting steps, see [OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting).
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
+
+```javascript
+const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+
+const provider = new NodeTracerProvider();
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
+provider.register();
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
 
 ```typescript
-const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+import { diag, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
+import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 
 const provider = new NodeTracerProvider();
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
