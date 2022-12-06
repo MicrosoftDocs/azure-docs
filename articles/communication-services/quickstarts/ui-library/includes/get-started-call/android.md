@@ -373,6 +373,7 @@ The following `errorCode` values might be sent to the error handler:
 - `CallCompositeErrorCode.CALL_JOIN_FAILED`
 - `CallCompositeErrorCode.CALL_END_FAILED`
 - `CallCompositeErrorCode.TOKEN_EXPIRED`
+- `CallCompositeErrorCode.CAMERA_FAILURE`
 
 #### [Kotlin](#tab/kotlin)
 

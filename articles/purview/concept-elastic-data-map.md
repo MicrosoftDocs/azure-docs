@@ -1,8 +1,8 @@
 ---
 title: Elastic data map
 description: This article explains the concepts of the Elastic Data Map in Microsoft Purview
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual

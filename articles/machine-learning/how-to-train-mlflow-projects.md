@@ -8,7 +8,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/16/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---

@@ -118,6 +118,16 @@ This issue usually is caused by audio data. You might see this error because:
 
 * The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
 
+## Connection closed or timeout
+
+There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. These connections might have handshake failures. For developers, the affected connections are likely to send multiple frames followed by a partial frame with a size of less than 5 bytes within a single input buffer. If the connection fails, your app will receive the error such as, "USP error", "Connection closed", "ServiceTimeout", or "SEC_E_ILLEGAL_MESSAGE".
+
+There is an out of band update available for Windows 11 that fixes these issues. The update may be manually installed by following the instructions here:
+- [Windows 11 21H2](https://support.microsoft.com/topic/october-17-2022-kb5020387-os-build-22000-1100-out-of-band-5e723873-2769-4e3d-8882-5cb044455a92)
+- [Windows 11 22H2](https://support.microsoft.com/topic/october-25-2022-kb5018496-os-build-22621-755-preview-64040bea-1e02-4b6d-bad1-b036200c2cb3)
+
+The issue started October 12th, 2022 and should be resolved via Windows update in November, 2022.
+
 ## Next steps
 
 * [Review the release notes](releasenotes.md)

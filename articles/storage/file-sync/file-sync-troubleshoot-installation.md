@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure File Sync agent installation and server registration | Microsoft Docs
+title: Troubleshoot Azure File Sync agent installation and server registration
 description: Troubleshoot common issues with installing the Azure File Sync agent and registering Windows Server with the Storage Sync Service. 
 author: khdownie
 ms.service: storage

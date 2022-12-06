@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 09/05/2022
+ms.date: 11/30/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Refer to the following table of supported authentication types and configuration
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
-| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 | [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
+| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 <br/><br/> User-assigned managed identity| [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with internet-facing deployment (IFD) <br/><br/> Dynamics CRM 2016 on-premises with IFD <br/><br/> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics on-premises with IFD and IFD authentication](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 >[!NOTE]

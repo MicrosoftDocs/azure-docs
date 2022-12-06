@@ -5,6 +5,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Architecture for VMware/physical server replication to a secondary on-premises site

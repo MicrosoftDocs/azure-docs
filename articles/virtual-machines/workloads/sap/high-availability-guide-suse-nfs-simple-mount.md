@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/01/2022
+ms.date: 11/18/2022
 ms.author: radeltch
 
 ---
@@ -54,6 +54,8 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 
 -  [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) 
 -  [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)        
+
+The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
 
 ## Prerequisites  
 
@@ -524,10 +526,11 @@ The instructions in this section are applicable only if you're using Azure NetAp
       params ip=10.27.0.9 \
       op monitor interval=10 timeout=20
     
-    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000
+    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ASCS nc_NW1_ASCS vip_NW1_ASCS \
-       meta resource-stickiness=3000
+      meta resource-stickiness=3000
     ```
 
    Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
@@ -573,7 +576,8 @@ The instructions in this section are applicable only if you're using Azure NetAp
       params ip=10.27.0.10 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101
+    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ERS nc_NW1_ERS vip_NW1_ERS
     ```
