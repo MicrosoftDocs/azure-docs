@@ -31,6 +31,9 @@ GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Micros
 
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](#migrate-from-flux-v1) as soon as possible.
+
 ### Controllers
 
 The `microsoft.flux` extension installs by default the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can control which of these controllers is installed and can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
@@ -605,6 +608,22 @@ az k8s-extension create --extension-type microsoft.flux --configuration-settings
 ```azurecli
 az k8s-extension update --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
 ```
+
+## Migrate from Flux v1
+
+If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in the cluster.
+
+Use these Azure CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
+
+```azurecli
+az k8s-configuration list --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
+az k8s-configuration delete --name <configuration name> --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
+```
+
+You can also use the Azure portal to view and delete existing GitOps configurations in Azure Arc-enabled Kubernetes or AKS clusters.
+
+More information about migration from Flux v1 to Flux v2 is available in the fluxcd project: [Migrate from Flux v1 to v2](https://fluxcd.io/docs/migration/).
+
 
 ## Next steps
 

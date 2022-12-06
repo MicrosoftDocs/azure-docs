@@ -50,7 +50,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
 
-The Defender for SQL vulnerability assessment e-mail report will still be available and existing e-email configurations won't change after the policy is deprecated.
+The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
 
 ## Next steps
 

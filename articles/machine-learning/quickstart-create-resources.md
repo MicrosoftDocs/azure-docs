@@ -53,6 +53,9 @@ Create a *compute instance* to use this development environment for the rest of 
 
 1. If you didn't just create a workspace in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace.
 1. On the left side, select **Compute**.
+
+    :::image type="content" source="media/quickstart-create-resources/compute-section.png" alt-text="Screenshot: shows Compute section on left hand side of screen.":::
+
 1. Select **+New** to create a new compute instance.
 1. Supply a name, Keep all the defaults on the first page.
 1. Select **Create**.
@@ -61,7 +64,7 @@ In about two minutes, you'll see the **State** of the compute instance change fr
 
 ## Create compute clusters
 
-Next you'll create a compute cluster.  Clusters allow you to distribute a training or batch inference process across a cluster of CPU or GPU compute nodes in the cloud.
+Next you'll create a compute cluster.  You'll submit code to this cluster to distribute your training or batch inference processes across a cluster of CPU or GPU compute nodes in the cloud.  
 
 Create a compute cluster that will autoscale between zero and four nodes:
 
