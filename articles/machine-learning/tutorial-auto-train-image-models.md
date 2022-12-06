@@ -372,7 +372,7 @@ In this example, we will train an object detection model with `yolov5` and `fast
 
 You can perform a hyperparameter sweep over a defined search space to find the optimal model.
 
-#### Job Limits
+#### Job limits
 
 You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings. Please refer to [detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
 # [Azure CLI](#tab/cli)
