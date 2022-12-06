@@ -211,7 +211,9 @@ For more information, see [Azure Functions HTTP triggers and bindings](./functio
 
 ## Start the storage emulator
 
-By default, local development uses Azurite, which is indicated by the `AzureWebJobsStorage` setting in the *local.settings.json* set to `UseDevelopmentStorage=true`. Before running the function locally, you must start the local Azurite storage emulator. You can skip this step if the `AzureWebJobsStorage` setting in the *local.settings.json* file is set to the connection string for an Azure Storage account. 
+By default, local development uses the Azurite storage emulator. This emulator is used when the `AzureWebJobsStorage` setting in the *local.settings.json* is set to `UseDevelopmentStorage=true`. Before running the function locally, you must start the local Azurite storage emulator. 
+
+You can skip this step if the `AzureWebJobsStorage` setting in the *local.settings.json* file is set to the connection string for an Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
 Use the following command to start the Azurite storage emulator:
 
