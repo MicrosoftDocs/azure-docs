@@ -24,7 +24,7 @@ ms.custom: include file
  6. Once the **Azure AD Connect Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
 
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-splash-screen.png" alt-text="Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen" lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-splash-screen.png" alt-text="Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package splash screen" lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::
  
 
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
