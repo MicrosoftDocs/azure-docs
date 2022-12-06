@@ -61,11 +61,11 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     1. Clear the **Select all** checkbox, then mark the **Enrichment** checkbox. Select **OK**.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/filter-playbook-template-list.png" alt-text="Screenshot of list of playbook templates to be filtered by tags." lightbox="media/tutorial-enrich-ip-info/filter-playbook-template-list.png":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/1-filter-playbook-template-list.png" alt-text="Screenshot of list of playbook templates to be filtered by tags." lightbox="media/tutorial-enrich-ip-info/1-filter-playbook-template-list.png":::
 
 1. Select the **IP Enrichment - Virus Total report** template, and select **Create playbook** from the details pane.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/select-playbook-template.png" alt-text="Screenshot of selecting a playbook template from which to create a playbook." lightbox="media/tutorial-enrich-ip-info/select-playbook-template.png":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/2-select-playbook-template.png" alt-text="Screenshot of selecting a playbook template from which to create a playbook." lightbox="media/tutorial-enrich-ip-info/2-select-playbook-template.png":::
 
 1. The **Create playbook** wizard will open. In the **Basics** tab:
     1. Select your **Subscription**, **Resource group**, and **Region** from their respective drop-down lists.
@@ -76,7 +76,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
         - Enable diagnostics logs in Log Analytics
         - Associate with integration service environment
 
-        :::image type="content" source="media/tutorial-enrich-ip-info/playbook-basics-tab.png" alt-text="Screenshot of the Basics tab from the playbook creation wizard.":::
+        :::image type="content" source="media/tutorial-enrich-ip-info/3-playbook-basics-tab.png" alt-text="Screenshot of the Basics tab from the playbook creation wizard.":::
 
     1. Select **Next : Connections >**.
 
@@ -86,33 +86,53 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     2. If any connections say "*New connection will be configured*," you will be prompted to do this at the next stage of the tutorial. Or, if you already have connections to these resources, select the expander arrow to the left of the connection and choose an existing connection from the expanded list. For this exercise we'll leave it as is.
 
-        :::image type="content" source="media/tutorial-enrich-ip-info/playbook-connections-tab-alt1.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
-
-        :::image type="content" source="media/tutorial-enrich-ip-info/playbook-connections-tab-alt2.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
+        :::image type="content" source="media/tutorial-enrich-ip-info/4b-playbook-connections-tab.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
 
     1. Select **Next : Review and create >**.
 
 1. In the **Review and create** tab, review all the information you've entered as it's displayed here, and select **Create and continue to designer**.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/playbook-review-tab.png" alt-text="Screenshot of the Review and create tab from the playbook creation wizard.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/5-playbook-review-tab.png" alt-text="Screenshot of the Review and create tab from the playbook creation wizard.":::
 
 ## 2 - Modify and approve the playbook for your environment
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+
+As the playbook is deployed, you'll see a quick series of notifications of its progress. Then the **Logic app designer** will open with your playbook displayed. We'll go through each of the actions in the playbook to make sure it's suitable for our environment, making changes as necessary.
+
+:::image type="content" source="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png" alt-text="Screenshot of playbook open in logic app designer window." lightbox="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png":::
+
+1. The first step is the incident trigger which sets the incident as the input schema for the playbook.
+
+1. The second step is the extraction of the list of IP address entities in the incident, to be used by the next step.
+
+1. The third step introduces a computation: For each IP address discovered in the incident, the playbook will take the actions defined inside the **For each** frame. Select the **For each** action to open it.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/7a-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
+
+    1. If you don't already have an existing connection to Virus Total, you should see an orange warning triangle on an action labeled **Connections** instead of the **Get an IP report (Preview)** action. Select it to open it and set the connection parameters (as you were shown above).
+
+        :::image type="content" source="media/tutorial-enrich-ip-info/8-virus-total-connection.png" alt-text="Screenshot shows how to enter API key and other connection details for Virus Total.":::
+
+    1. Now you'll see the **Get an IP report (Preview)** action properly.
+
+        :::image type="content" source="media/tutorial-enrich-ip-info/9-get-ip-report-action.png" alt-text="Screenshot shows the action to submit an IP address to Virus Total to receive a report about it.":::
+
+1. The next action is a **Condition** that determines the rest of the playbook's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates harmless; a score lower than 0 indicates malicious.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/10-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
+
+    Whether the condition is true or false, we want to send the data in the report to a table in Log Analytics so it can be queried and analyzed, and add a comment to the incident.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/condition-true-false-actions.png":::
+
+## 3 - Create an automation rule
+
+Now, to actually run this playbook, you'll need to create an automation rule that will run when incidents are created and invoke the playbook.
+
 1. Step 1 of the procedure
 1. Step 2 of the procedure
 1. Step 3 of the procedure
 
-## 3 - [Doing the next thing]
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-
-## [N - Doing the last thing]
+## 4 - Invoke the playbook from your automation rule
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -159,7 +179,7 @@ Clean up resources (H2) should come just before Next steps (H2)
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-\<resources\> with the following steps:
+the playbook and automation rule you created with the following steps:
 
 1. From the left-hand menu...
 2. ...click Delete, type...and then click Delete
