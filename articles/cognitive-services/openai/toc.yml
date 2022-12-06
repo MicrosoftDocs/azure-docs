@@ -19,7 +19,7 @@ items:
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
-      href: ./concepts/embeddings.md
+      href: ./concepts/understand-embeddings.md
 - name: How-to 
   items:
     - name: Create a resource
