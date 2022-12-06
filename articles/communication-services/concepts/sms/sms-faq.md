@@ -113,7 +113,7 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 - **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state will automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
-:::image type="content" source="./media/TFV-timeline.png" alt-text="A picture of the toll-free application timeline and the different application statuses.":::
+:::image type="content" source="./media/TFV-status-timeline.png" alt-text="A picture of the toll-free application timeline and the different application statuses.":::
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
