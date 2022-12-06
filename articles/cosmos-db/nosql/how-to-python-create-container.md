@@ -29,16 +29,17 @@ Here are some quick rules when naming a container:
 
 Once created, the URI for a container is in this format:
 
-``https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>/colls/<container-name>``
+`https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>/colls/<container-name>`
 
 ## Create a container
 
 To create a container, call one of the following methods:
 
-- [``CreateContainerAsync``](#create-a-container-asynchronously)
-- [``CreateContainerIfNotExistsAsync``](#create-a-container-asynchronously-if-it-doesnt-already-exist)
+- [CreateContainerAsync](#create-a-container)
+- [CreateContainerIfNotExistsAsync](#create-a-container-if-it-doesnt-already-exist)
+- [Create a container asynchronously](#create-a-container-asynchronously)
 
-### Create a container asynchronously
+### Create a container
 
 The following example creates a container asynchronously:
 
@@ -48,9 +49,9 @@ TBD
 <!--
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app.py" id="create_container":::
 -->
-The [``DatabaseProxy.create_container``](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container) method will throw an exception if a database with the same name already exists.
+The [``DatabaseProxy.create_container``](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container) method will throw an exception if a database with the same name already exists.
 
-### Create a container asynchronously if it doesn't already exist
+### Create a container if it doesn't already exist
 
 The following example creates a container asynchronously only if it doesn't already exist on the account:
 
@@ -61,11 +62,14 @@ TBD
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app.py" id="create_container_check":::
 -->
 
-The [``DatabaseProxy.create_container_if_not_exists``](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container-if-not-exists) method will only create a new container if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
+The [``DatabaseProxy.create_container_if_not_exists``](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exists) method will only create a new container if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
+
+### Create a container asynchronously
+
 
 ## Parsing the response
 
-In tje examples above, the response from the asynchronous request is a [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.aio.containerproxy), which is an interface to interact with a DB Container. From the proxy you can use the methods to perform operations on the container.
+In the examples above, the response from the requests is a [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.containerproxy), which is an interface to interact with a DB Container. From the proxy you can use the methods to perform operations on the container.
 
 The following example shows the **create_container_if_not_exists** method returning a **container** object.
 

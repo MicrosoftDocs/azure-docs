@@ -29,16 +29,17 @@ Here are some quick rules when naming a database:
 
 Once created, the URI for a database is in this format:
 
-``https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>``
+`https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>`
 
 ## Create a database
 
 To create a database, call one of the following methods:
 
-- [``CreateDatabaseAsync``](#create-a-database-asynchronously)
-- [``CreateDatabaseIfNotExistsAsync``](#create-a-database-asynchronously-if-it-doesnt-already-exist)
+- [CreateDatabaseAsync](#create-a-database)
+- [CreateDatabaseIfNotExistsAsync](#create-a-database-if-it-doesnt-already-exist)
+- [Create a database asynchronously](#create-a-database-asynchronously)
 
-### Create a database asynchronously
+### Create a database
 
 The following example creates a database asynchronously:
 
@@ -49,9 +50,9 @@ TBD
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database":::
 -->
 
-The [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database) method will throw an exception if a database with the same name already exists.
+The [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database) method will throw an exception if a database with the same name already exists.
 
-### Create a database asynchronously if it doesn't already exist
+### Create a database if it doesn't already exist
 
 The following example creates a database asynchronously only if it doesn't already exist on the account:
 
@@ -62,13 +63,19 @@ TBD
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database_check":::
 -->
 
-The [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database-if-not-exists) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
+The [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database-if-not-exists) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
+
+### Create a database asynchronously
+
+You can also create a database asynchronously using similar object and methods in the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, use the [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database) method to create a database asynchronously and the the ['CosmoClient.create_database_if_not_exists](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database-if-not-exists) method to create a database asynchronously only if it doesn't already exist on the account.
+
+Working asynchronously is useful when you want to perform multiple operations in parallel. For more information, see [Using the asynchronous client](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos#using-the-asynchronous-client).
 
 ## Parsing the response
 
-In the examples above, the response from the asynchronous request is a  [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy), which is an interface to interact with a specific database. From the proxy you can use the methods to perform operations on the database.
+In the examples above, the response from the requests is a  [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy), which is an interface to interact with a specific database. From the proxy you can use the methods to perform operations on the database.
 
-The following example shows the **create_database_if_not_exsits** method returning a **database** object.
+The following example shows the **create_database_if_not_exists** method returning a **database** object.
 
 ```python
 TBD
