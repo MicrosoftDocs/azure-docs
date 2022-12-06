@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 ---
 # Web browser cookies used in Azure Active Directory authentication
 
-When authenticating against Azure Active Directory (Azure AD) through a web browser, multiple cookies are involved in the process. Some of the cookies are common on all requests, other cookies are specific to some particular scenarios, i.e., specific authentication flows and/or specific client-side conditions.  
+During authentication against Azure Active Directory (Azure AD) through a web browser, multiple cookies are involved in the process. Some of the cookies are common on all requests. Other cookies are used for specific authentication flows or specific client-side conditions.  
 
-Persistent session tokens are stored as persistent cookies on the web browser's cookie jar, and non-persistent session tokens are stored as session cookies on the web browser and are destroyed when the browser session is closed. 
+Persistent session tokens are stored as persistent cookies on the web browser's cookie jar. Non-persistent session tokens are stored as session cookies on the web browser, and are destroyed when the browser session is closed. 
 
 |  Cookie Name | Type | Comments |
 |--|--|--|
