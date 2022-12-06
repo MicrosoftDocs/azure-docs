@@ -4,7 +4,7 @@ description: Learn how to use terraform provider for App Service to deploy two w
 author: ericgre
 ms.assetid: 3e5d1bbd-5581-40cc-8f65-bc74f1802156
 ms.topic: sample
-ms.date: 11/31/2022
+ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
