@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/1/2022
+ms.date: 12/6/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -34,18 +34,18 @@ When Azure AD pre-authenticates access to BIG-IP published services, there are m
 
 Other benefits include:
 
-- The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/)
-  - One control plane to govern identity and access
+- One control plane to govern identity and access
+  - The [Azure AD portal](https://azure.microsoft.com/features/azure-portal/)
 - Preemptive [Conditional Access](../conditional-access/overview.md)
 - [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
-- [Identity Protection](../identity-protection/overview-identity-protection.md)
-  - Adaptive protection through user and session risk profiling
+- Adaptive protection through user and session risk profiling
+  - [Identity Protection](../identity-protection/overview-identity-protection.md)
 - [Leaked credential detection](../identity-protection/concept-identity-protection-risks.md)
 - [Self-service password reset (SSPR)](../authentication/tutorial-enable-sspr.md)
-- [Partner collaboration](../governance/entitlement-management-external-users.md)
-  - Entitlement management for governed guest access
-- [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security)
-  - App discovery and control
+- Entitlement management for governed guest access
+  - [Partner collaboration](../governance/entitlement-management-external-users.md)
+- App discovery and control
+  - [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security)
 - Threat monitoring and analytics with [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
 ## Scenario description
@@ -58,7 +58,7 @@ As an Application Delivery Controller (ADC) and secure socket layer virtual priv
 
 BIG-IP Local Traffic Manager (LTM) is for secure service publishing, while an Access Policy Manager (APM) extends BIG-IP functions that enable identity federation and single sign-on (SSO).
 
-With integration, you achieve the protocol transition to secure legacy, or non-Azure AD-integrated services, with controls such as 
+With integration, you achieve the protocol transition to secure legacy, or non-Azure AD-integrated services, with controls such as: 
 
 * [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless)
 * [Conditional Access](../conditional-access/overview.md)
@@ -153,27 +153,27 @@ The BIG-IP version 13.1 Guided Configuration wizard, minimizes time and effort t
 
 Guided Configuration version 16.x has the Easy Button feature: admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration between BIG-IP APM and Azure AD ensures applications support identity federation, SSO, and Azure AD Conditional Access, without the management overhead of doing so for each app. 
 
-Tutorials for using Easy Button templates:
+Tutorials for using Easy Button templates, *F5 BIG-IP Easy Button for SSO to*:
 
-- [F5 BIG-IP Easy Button for SSO to Kerberos applications](f5-big-ip-kerberos-easy-button.md)
+- [Kerberos applications](f5-big-ip-kerberos-easy-button.md)
 
-- [F5 BIG-IP Easy Button for SSO to header-based applications](f5-big-ip-headers-easy-button.md)
+- [Header-based applications](f5-big-ip-headers-easy-button.md)
 
-- [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
+- [Header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
-- [F5-BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
+- [Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
 
-- [F5-BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
+- [Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
-- [F5-BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
+- [Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
 
-- [F5-BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
+- [SAP ERP](f5-big-ip-sap-erp-easy-button.md)
 
 ## Azure AD B2B guest access
 
 Azure AD B2B guest access to SHA-protected applications is possible, but might require steps not in the tutorials. One example is Kerberos SSO, when a BIG-IP performs kerberos constrained delegation (KCD) to obtain a service ticket from domain controllers. Without a local representation of a local guest user, a domain controller won't honor the request because there's no user. To support this scenario, ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. 
 
-Learn more: [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
+Learn more: [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md)
 
 ## Next steps
 
@@ -188,7 +188,7 @@ Our recommendation is to start with an application that isn’t published via a 
 
 The following interactive guide illustrates implementing SHA with a template, and the end-user experience.
 
-[![The image shows interactive guide cover](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
+[![The image shows the guide's title page](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
 
 ## Resources
 
