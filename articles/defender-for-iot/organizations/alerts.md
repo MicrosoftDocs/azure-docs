@@ -48,7 +48,7 @@ Some alerts might reflect valid network changes, such as an authorized device at
 
 If you don't want to see the alert again for the same traffic, instruct Defender for IoT to *Learn* the traffic for its network baseline.
 
-While you can *Learn* alerts on the Azure portal, OT network sensors, or the on-premises management console, you can only *Unlearn* alerts on the OT network sensor. <!--validate this-->
+While you can *Learn* alerts on the Azure portal or on OT network sensors, you can only *Unlearn* alerts on the OT network sensor.
 
 After *Learning* an alert, the alert is automatically closed and the learn action is added to the alert's **Event Timeline**.
 
@@ -114,8 +114,7 @@ Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact ho
 
 Review alert types and messages to help you understand and plan remediation actions and playbook integrations. For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
 
-<!--turn these into xrefs-->
 - Investigate OT alerts
-- Manage alerts on the Azure portal
-- Manage alerts on an OT sensor
-- Manage alerts on an on-premises management console
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [View and manage alerts on your OT sensor](how-to-view-alerts.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)

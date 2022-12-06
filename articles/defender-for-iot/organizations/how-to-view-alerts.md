@@ -69,14 +69,13 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 ## View details and remediate a specific alert
 
-1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more.
+1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
 
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
-1. Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
+1. Select **View full details** to learn more on the alert details page. For example:
 
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
-
 
 1. Gain contextual insight with the following tabs on the alert details page:
 
@@ -85,6 +84,8 @@ For example, while the total number of alerts appears above the grid, you may wa
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 
         :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
+
+1. If you haven't yet taken any remediation steps, do so now by following the instructions on the **Take action** tab.
 
 
 After taking remediation steps, you may want to change the alert status to close the alert.
