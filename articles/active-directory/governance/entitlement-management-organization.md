@@ -142,7 +142,7 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization) objects and set sponsors for them.
 
-### Managing connected organizations through Microsoft PowerShell
+### Manage connected organizations through Microsoft PowerShell
 
 You can also manage connected organizations in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
 
