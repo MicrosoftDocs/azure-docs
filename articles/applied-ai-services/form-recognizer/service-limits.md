@@ -27,7 +27,27 @@ recommendations: false
 
 * This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-* For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/):
+## Model usage (not custom)
+
+> [!div class="checklist"]
+>
+> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+
+monikerRange: 'form-recog-3.0.0'
+> [!div class="checklist"]
+>
+> * [**Form Recognizer Studio**](quickstarts/try-v3-form-recognizer-studio.md)
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+> [!div class="checklist"]
+>
+> * [**Sample Labeling Tool**](https://fott-2-1.azurewebsites.net/)
+
+::: moniker-end
 
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
@@ -63,7 +83,7 @@ recommendations: false
 | **Max number of pages (Training) - Neural** | 50,000 | 50,000 (default value) |
 | Adjustable | No | No |
 | **Custom neural model train** | 10 per month | 10 per month |
-| Adjustable | No |Yes<sup>3</sup>|
+| Adjustable | No |Yes <sup>3</sup>|
 
 ::: moniker-end
 
@@ -84,18 +104,21 @@ recommendations: false
 
 ::: moniker range=">=form-recog-2.1.0"
 
-<sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
-<sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).
-<sup>3</sup> Open a support request to increase the monthly training limit.
+>> <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
+>> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions]</br>(#create-and-submit-support-request).
+>> <sup>3</sup> Open a support request to increase the monthly training limit.</br>
+
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
-<sup>4</sup>This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
+>> <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
 ::: moniker-end
 
 ## Detailed description, Quota adjustment, and best practices
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Form Recognizer service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity. If your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits, the most likely explanation is that the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits))
+Before requesting a quota increase (where applicable), ensure that it's necessary. Form Recognizer service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
+
+If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits))
 
 ### General best practices to mitigate throttling during autoscaling
 
