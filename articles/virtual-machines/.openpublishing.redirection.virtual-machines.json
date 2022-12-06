@@ -3258,11 +3258,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-sap-hana-installation.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/hana-installation",
             "redirect_document_id": false
