@@ -23,9 +23,9 @@ This article is the fifth in the Defender for Servers planning guide series. Bef
 
 When you enable Defender for Cloud subscription, the following occurs:
 
-1. The *microsoft.security* resource provider is automatically registered on the subscription.
-1. At the same time, the Cloud Security Benchmark initiative that's responsible for creating security recommendations and calculating secure score is assigned to the subscription.
-1. After enabling Defender for Cloud on the subscription, you turn on  Defender for Servers Plan 1 or 2, and enable auto-provisioning.
+- The *microsoft.security* resource provider is automatically registered on the subscription.
+- At the same time, the Cloud Security Benchmark initiative that's responsible for creating security recommendations and calculating secure score is assigned to the subscription.
+- After enabling Defender for Cloud on the subscription, you turn on  Defender for Servers Plan 1 or 2, and enable auto-provisioning.
 
 
 There are some considerations around these steps as you scale your deployment.
@@ -34,9 +34,9 @@ There are some considerations around these steps as you scale your deployment.
 
 - In a scaled deployment you might want the Cloud Security Benchmark (formerly the Azure Security Benchmark) to be automatically assigned.
     - You can do this manually assigning the policy initiative to your (root) management group, instead of each subscription individually.
-    - You can find the **Azure Security Benchmark** policy definition in [github](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json).
+    - You can find the **Azure Security Benchmark** policy definition in [git hub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json).
     - The assignment is inherited for every existing and future subscription underneath the management group.
-    - [Learn more](onboard-management-group.md) about using a built-in policy definition to register register a resource provider.
+    - [Learn more](onboard-management-group.md) about using a built-in policy definition to register a resource provider.
 
 
 ## Scaling Defender for Server plans
@@ -58,8 +58,8 @@ Agent | Policy
 ---  | ---
 Log Analytics agent (default workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with default workspaces**.
 Log Analytics agent (custom workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with custom workspaces**.
-Azure Monitor agent (default data collection rule) | [Preview]: Configure Arc machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent<br/><br/> [Preview]: Configure virtual machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent
-Azure Monitor agent (custom data collection rule) | [Preview]: Configure Arc machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent<br/><br/> [Preview]: Configure machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent
+Azure Monitor agent (default data collection rule) | **[Preview]: Configure Arc machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure virtual machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent
+Azure Monitor agent (custom data collection rule)** | **[Preview]: Configure Arc machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**
 Qualys vulnerability assessment | **Configure machines to receive a vulnerability assessment provider** 
 Guest configuration extension | [Overview and prerequisites](../virtual-machines/extensions/guest-configuration.md)
 

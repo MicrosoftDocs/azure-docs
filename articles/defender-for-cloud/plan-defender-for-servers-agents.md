@@ -13,7 +13,7 @@ This article helps you to scale your Microsoft Defender for Servers deployment. 
 This article is the fifth part of the Defender for Servers planning guide. Before you begin, review:
 
 1. [Start planning your deployment](plan-defender-for-servers.md)
-1. [Understand where you data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
+1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
 1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md)
 1. [Select a Defender for Servers plan](plan-defender-for-servers-select-plan.md)
 
@@ -37,7 +37,7 @@ Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is
 1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
 1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure. Review the following:
     - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
-    - [Network and internet access requirements(../azure-arc/servers/network-requirements.md) for the agent.
+    - [Network and internet access ](../azure-arc/servers/network-requirements.md) for the agent.
     - [Connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
 
@@ -48,24 +48,24 @@ Defender for Cloud uses the Log Analytics agent/Azure Monitor agent to collect i
 
 Feature | Log Analytics agent | Azure Monitor agent
 --- | --- | --- 
-Fundamental CSPM recommendations (free) that depend on agent: [OS baseline recommendation](apply-security-baseline.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::<br/><br/> When using Azure Monitor agent, the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md) is used.
-Fundamental CSPM: [System updates recommendations](recommendations-reference.md#compute-recommendations) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png"::: | Not yet available
-Fundamental CSPM: [Antimalware/Endpoint protection recommendations](endpoint-protection-recommendations-technical.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::
-Attack detection at the OS level and network layer (including fileless attack detection).<br/><br/> Plan 1 relies on Defender fro Endpoint capabilities | :::image type="icon" source="./media/icons/yes-icon.png":::<br/><br/> Plan 2| :::image type="icon" source="./media/icons/yes-icon.png":::<br/><br/> Plan 2
-File integrity monitoring (Plan 2)  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: 
-[Adaptive application controls](adaptive-application-controls.md) (Plan 2) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::
-</p>
+Fundamental CSPM recommendations (free) that depend on agent: [OS baseline recommendation](apply-security-baseline.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent.":::| :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::<br/><br/> When using the Azure Monitor agent, the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md) is used.
+Fundamental CSPM: [System updates recommendations](recommendations-reference.md#compute-recommendations) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent"::: | Not yet available.
+Fundamental CSPM: [Antimalware/Endpoint protection recommendations](endpoint-protection-recommendations-technical.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::
+Attack detection at the OS level and network layer, including fileless attack detection).<br/><br/> Plan 1 relies on Defender for Endpoint capabilities for attack detection. | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent. Plan 1 relies on Defender for Endpoint.":::<br/><br/> Plan 2| :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent. Plan 1 relies on Defender for Endpoint.":::<br/><br/> Plan 2
+File integrity monitoring (Plan 2 only)  | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the LAzure Monitor agent."::: 
+[Adaptive application controls](adaptive-application-controls.md) (Plan 2 only) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the LAzure Monitor agent.":::
+
 
 ## Qualys extension
 
 The Qualys extension is available in Defender for Servers Plan 2, and is deployed if you want to use Qualys for vulnerability assessment.
 
 - The Qualys extension sends metadata for analysis to one of two Qualys datacenter regions, depending on your Azure region.
-    - If you're in an European Azure geography data is processed in Qualys' European data center. 
+    - If you're in a European Azure geography data is processed in Qualys' European data center. 
     - For other regions data is processed in the US data center.
 - To use Qualys on a machine, the extension must be installed, and the machine must be able to communicate with the relevant network endpoint:
-    - Europe datacenter: https://qagpublic.qg3.apps.qualys.com
-    - US datacenter: https://qagpublic.qg3.apps.qualys.com
+    - Europe datacenter: <https://qagpublic.qg3.apps.qualys.com>
+    - US datacenter: <https://qagpublic.qg3.apps.qualys.com>
 
 
 ## Guest configuration extension
@@ -115,8 +115,8 @@ Defender for Endpoint sensor |  If machines are running Microsoft Antimalware, a
 AWS/GCP machines | For these machines, you configure automatic provisioning when you set up the AWS or GCP connector.
 Manual installation | If you don't want Defender for Cloud to provision the Log Analytics agent/Azure Monitor agent, you can install agents manually.<br/><br/> You can connect the agent to the default Defender for Cloud workspace, or to a custom workspace.<br/><br/> The workspace must have the *SecurityCenterFree* (providing free foundational CSPM) or *Security* solution enabled (Defender for Servers Plan 2).
 [Log Analytics agent running directly](faq-data-collection-agents.yml#what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension--direct-agent--) | If a Windows VM has the Log Analytics agent running, but not as a VM extension, Defender for Cloud will install the extension. The agent will report to the Defender for Cloud workspace in addition to the existing agent workspace. <br/><br/> On Linux VMs, multi-homing isn't supported, and if an existing agent is detected then the agent won't be automatically provisioned.
-[Operations Manager agent](faq-data-collection-agents.yml#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-) | The Log Analytics agent can work side-by-side with the Operations manager agent. The agents share common runtime libraries which will be updated when the Log Analytics agent is deployed.
-Removing the Log Analytics extension | If you remove the Log Analytics extension, Defender for Cloud won't be able to collect security data and recommendations/alerts will be missing. Within 24 hours, Defender for Cloud will determine that the extension is missing and reinstall it.
+[Operations Manager agent](faq-data-collection-agents.yml#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-) | The Log Analytics agent can work side-by-side with the Operations Manager agent. The agents share common runtime libraries which will be updated when the Log Analytics agent is deployed.
+Removing the Log Analytics extension | If you remove the Log Analytics extension, Defender for Cloud won't be able to collect security data and recommendations/alerts will be missing. Within 24 hours, Defender for Cloud will determine that the extension is missing and reinstalls it.
 
 
 ## When shouldn't I use auto provisioning?
