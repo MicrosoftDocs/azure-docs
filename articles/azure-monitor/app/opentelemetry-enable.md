@@ -597,8 +597,7 @@ const provider = new BasicTracerProvider({
 });
 
 const exporter = new AzureMonitorTraceExporter({
-  connectionString:
-    process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+  connectionString: "<Your Connection String>"
 });
 
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
@@ -618,8 +617,7 @@ const provider = new BasicTracerProvider({
   sampler: aiSampler
 });
 const exporter = new AzureMonitorTraceExporter({
-  connectionString:
-    process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+  connectionString: "<Your Connection String>"
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 provider.register();
@@ -684,7 +682,17 @@ Dependencies
   client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) (1) version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Requests/Dependencies
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
+  
+Dependencies
+- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
+  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Requests/Dependencies
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
@@ -727,7 +735,12 @@ Dependencies
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
 - [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
   [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
@@ -808,7 +821,42 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 }
 ```
 
-##### [Node.js](#tab/nodejs)
+##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```javascript
+const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+const { SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
+
+class SpanEnrichingProcessor {
+    forceFlush() {
+        return Promise.resolve();
+    }
+    shutdown() {
+        return Promise.resolve();
+    }
+    onStart(_span){}
+    onEnd(span){
+        span.attributes["CustomDimension1"] = "value1";
+        span.attributes["CustomDimension2"] = "value2";
+    }
+}
+
+const provider = new NodeTracerProvider();
+const azureExporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>"
+});
+
+provider.addSpanProcessor(new SpanEnrichingProcessor());
+provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
+```
+
+##### [Node.js (TypeScript)](#tab/nodejs-script)
 
 Use a custom processor:
 
@@ -820,7 +868,7 @@ import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 import { ReadableSpan, SimpleSpanProcessor, Span, SpanProcessor } from "@opentelemetry/sdk-trace-base";
 
-class SpanEnrichingProcessor implements SpanProcessor{
+class SpanEnrichingProcessor implements SpanProcessor {
     forceFlush(): Promise<void>{
         return Promise.resolve();
     }
@@ -835,7 +883,10 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 
 const provider = new NodeTracerProvider();
-const azureExporter = new AzureMonitorTraceExporter();
+const azureExporter = new AzureMonitorTraceExporter({
+  connectionString: "<Your Connection String>"
+});
+
 provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 ```
