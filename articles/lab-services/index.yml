@@ -75,6 +75,8 @@ landingContent:
             url: connect-virtual-machine.md
           - text: Set or reset passwords
             url: how-to-set-virtual-machine-passwords-student.md
+          - text: Strategies for troubleshooting lab VMs
+            url: concept-strategies-troubleshoot-lab-vm.md
   - title: Explore reference content
     linkLists:
       - linkListType: reference
