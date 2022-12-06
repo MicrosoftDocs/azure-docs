@@ -276,6 +276,9 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --configuration-settings "hooks.applyCrds=false"
 ```
 
+> [!NOTE]
+> CRDs are only applied in case of upgrades and are skipped during downgrades.
+
 ## Configure the Dapr release namespace
 
 You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
