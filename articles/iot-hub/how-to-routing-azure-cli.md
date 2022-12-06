@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using the Azure CLI
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
 
@@ -20,7 +20,7 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 The procedures that are described in the article use the following resources:
 
 * The Azure CLI
-* A hub in Azure IoT Hub
+* An IoT hub
 * An endpoint service in Azure
 
 ### Azure CLI
@@ -31,17 +31,17 @@ This article uses the Azure CLI to work with IoT Hub and other Azure services. Y
 
 ### IoT hub
 
-To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages and event logs originate in your IoT hub.
 
-Be sure to have the following hub resource to use in your IoT hub route:
+Be sure to have the following hub resource to use when you create your IoT hub route:
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
 
 ### Endpoint service
 
-To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage. The service that you use for your endpoint must first exist in your Azure account.
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages and event logs. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queues or topics, or Azure Storage. The service that you use to create your endpoint must first exist in your Azure account.
 
-Decide which route type (event hub, Service Bus queue or topic, or Storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint service.
+Decide which route type you want to create: an event hub, a Service queue or topic, or a storage account. For the service you choose to use, complete the steps to create an endpoint service.
 
 # [Event Hubs](#tab/eventhubs)
 
@@ -299,7 +299,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
    az iot hub route create --endpoint my-event-hub-endpoint --hub-name my-iot-hub --route-name my-event-hub-route --source deviceconnectionstateevents
    ```
 
-1. To verify that the new route is in your IoT hub, run this command:
+1. To confirm that the new route is in your IoT hub, run this command:
 
    ```azurecli
    az iot hub route list -g my-resource-group --hub-name my-iot-hub
@@ -331,7 +331,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
    az iot hub route create --endpoint my-service-bus-queue-endpoint --hub-name my-iot-hub --route-name my-route --source deviceconnectionstateevents
    ```
 
-1. To verify that your new Service Bus queue route was created, list your IoT hub routes:
+1. To confirm that your new Service Bus queue route was created, list your IoT hub routes:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
@@ -361,7 +361,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
    az iot hub route create --endpoint my-service-bus-topic-endpoint --hub-name my-iot-hub --route-name my-route --source deviceconnectionstateevents
    ```
 
-1. To verify that your new Service Bus topic route was created, list your IoT hub routes:
+1. To confirm that your new Service Bus topic route was created, list your IoT hub routes:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
@@ -391,7 +391,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
    az iot hub route create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-storage-endpoint --source deviceconnectionstateevents --route-name my-route
    ```
 
-1. To verify that your new route is in your IoT hub, run this command:
+1. To confirm that your new route is in your IoT hub, run this command:
 
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
@@ -450,6 +450,6 @@ az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue and topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.

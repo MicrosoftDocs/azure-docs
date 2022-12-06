@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure Resource Manager
 
-This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using the Azure CLI or Azure PowerShell. Use an Azure Resource Manager template to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
+This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then redeploy the template to your IoT hub by using the Azure CLI or Azure PowerShell. Use an Azure Resource Manager template to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
 [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are useful when you want to define resources by using a JSON file. Every Azure resource has a template that defines the components that are used in that resource. You can export all Azure resource templates.
 
@@ -20,7 +20,7 @@ This article shows you how to export your Azure IoT Hub template, add a route to
 >
 > When you create a new IoT hub, overwriting an existing deployed resource isn't a concern. To create a new IoT hub, you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) that has the required properties instead of exporting an existing template from an IoT hub that's already deployed.
 >
-> However, if you add a route to an existing IoT hub Resource Manager template, use a template that you export from your IoT hub to ensure that all existing resources and properties remain connected after you deploy the updated template. Resources that are already deployed won't be replaced. For example, an exported Resource Manager template that you previously deployed might contain storage information for your IoT hub, if you've connected it to storage.
+> However, if you add a route to an existing IoT hub Resource Manager template, use a template that you export from your IoT hub to ensure that all existing resources and properties remain connected after you deploy the updated template. Resources that are already deployed won't be replaced. For example, an exported Resource Manager template that you previously deployed might contain storage information for your IoT hub if you've connected it to storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through the steps to set up a route that sends messages to storage and then test on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
@@ -29,7 +29,7 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 The procedures that are described in the article use the following resources:
 
 * An Azure Resource Manager template
-* A hub in Azure IoT Hub
+* An IoT hub
 * An endpoint service in Azure
 
 ### Azure Resource Manager template
@@ -38,17 +38,17 @@ This article uses an Azure Resource Manager template in the Azure portal to work
 
 ### IoT hub
 
-To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages and event logs originate in your IoT hub.
 
-Be sure to have the following hub resource to use in your IoT hub route:
+Be sure to have the following hub resource to use when you create your IoT hub route:
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using an Azure Resource Manager template (PowerShell)](iot-hub-rm-template-powershell.md).
 
 ### Endpoint service
 
-To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage.
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages and event logs. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queues or topics, or Azure Storage.
 
-Be sure to have one of the following endpoint resources to use in your IoT hub route:
+Be sure to have *one* of the following resources to use when you create an endpoint your IoT hub route:
 
 * An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using a Resource Manager template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -62,13 +62,13 @@ Be sure to have one of the following endpoint resources to use in your IoT hub r
 
 In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
-You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use to create your endpoint must first exist in your Azure account.
 
 ### Export the Resource Manager template from your IoT hub
 
 First, export a Resource Manager template from your IoT hub, and then add a route to it.
 
-1. In the Azure portal, go to your IoT hub. In the left menu under **Automation**, select **Export template**.
+1. In the Azure portal, go to your IoT hub. In the resource menu under **Automation**, select **Export template**.
 
    :::image type="content" source="media/how-to-routing-arm/export-menu-option.png" alt-text="Screenshot that shows the location of the Export template option in the menu of an IoT Hub resource.":::
 
@@ -78,7 +78,7 @@ First, export a Resource Manager template from your IoT hub, and then add a rout
 
    1. Clear the **Include parameters** checkbox.
 
-   1. In the command bar, select **Download** to download a local copy of the JSON file.
+   1. Select **Download** to download a local copy of the JSON file.
 
    :::image type="content" source="media/how-to-routing-arm/download-template.png" alt-text="Screenshot that shows the location of the Download button on the Export template pane.":::
 
@@ -86,7 +86,7 @@ First, export a Resource Manager template from your IoT hub, and then add a rout
 
 ### Add a new endpoint to your Resource Manager template
 
-In the JSON file, find the `"endpoints": []` property that's nested under `"routing"`. Complete the steps to add a new endpoint based on the Azure service you choose for the endpoint: Event Hubs, Service Bus queue, Service Bus topic, or Azure Storage.
+In the JSON file, find the `"endpoints": []` property that's nested under `"routing"`. Complete the steps to add a new endpoint based on the Azure service you choose for the endpoint: Event Hubs, Service Bus queues or topics, or Azure Storage.
 
 The Azure service adds a value for `id`, so leave the `id` property as a blank string for now.
 
@@ -210,12 +210,12 @@ For `name`, enter a unique name for your endpoint. Leave the `id` parameter as a
 
 ### Add a new route to your Resource Manager template
 
-In the JSON file, find the `"routes": []` property, nested under `"routing"`, and add the following new route, according to the endpoint service (Event Hubs, Service Bus queue or topic, or Azure Storage) you choose.
+In the JSON file, find the `"routes": []` property, nested under `"routing"`, and add the following new route, according to the endpoint service you choose: Event Hubs, Service Bus queues or topics, or Azure Storage.
   
 The default fallback route collects messages from `DeviceMessages`. Choose a different option, like `DeviceConnectionStateEvents`. For more information about source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
 > [!CAUTION]
-> If you replace your existing value for `"routes"` with the following route, the existing routes are removed when you deploy. To preserve existing routes, *add* the route object to the `"routes"` list.
+> If you replace any existing values for `"routes"` with the route values that are used in the following code examples, the existing routes are removed when you deploy. To preserve existing routes, *add* the route object to the `"routes"` list.
 
 For more information about the template, see [Azure Resource Manager template resource definition](/azure/templates/microsoft.devices/iothubs?pivots=deployment-language-arm-template#routeproperties-1).
 
@@ -345,19 +345,19 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-To view your new route in the [Azure portal](https://portal.azure.com/), go to your IoT Hub resource. On the **Message routing** pane, go to the **Routes** tab and check to see your route listed.
+To view your new route in the [Azure portal](https://portal.azure.com/), go to your IoT Hub resource. On the **Message routing** pane, on the **Routes** tab, confirm that your route is listed.
 
 > [!NOTE]
 > If the deployment fails, use the `-verbose` switch to get information about the resources you're creating. Use the `-debug` switch to get more information for debugging.
 
 ## Confirm deployment
 
-To confirm that your template deployed successfully to Azure, in the Azure portal, go to your resource group resource. In the left menu under **Settings**, select **Deployments** to see the template in a list of your deployments.
+To confirm that your template deployed successfully to Azure, in the Azure portal, go to your resource group resource. In the resource menu under **Settings**, select **Deployments** to see the template in a list of your deployments.
 
 :::image type="content" source="media/how-to-routing-arm/confirm-template-deployment.png" alt-text="Screenshot that shows a list of deployments for a resource in the Azure portal, with a test template highlighted.":::
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue and topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
