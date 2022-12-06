@@ -51,7 +51,7 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. On the Overview page, take note of your **Query endpoint**. The query endpoint is used when setting up your Grafana data source. 
 1. Select **Access control (IAM)**.
-:::image type="content" source="./media/prometheus-self-managed-grafana-aad/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
+:::image type="content" source="./media/prometheus-self-managed-grafana-aad/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page.":::
 
 1. Select **Add**, then **Add role assignment** from the **Access Control (IAM)** page.  
 
