@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 12/06/2022
 
 ms.author: justinha
 author: justinha
@@ -30,6 +30,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Single sign-on (SSO) unlimited | &#x2705; | 
 || Multifactor authentication (MFA) <sup>1</sup>| &#x2705; | 
 || Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
+|| Certificate-based authentication | &#x2705; | 
 || Service-level agreement | &#x2705; | 
 |**Applications access**|SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
 || Group assignment to applications | &#x2705; | 
@@ -42,6 +43,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Session lifetime management | &#x2705; | 
 || Identity Protection (vulnerabilities and risky accounts) | See [Identity protection](#identity-protection) below. | 
 || Identity Protection (risk events investigation, SIEM connectivity) | See [Identity protection](#identity-protection) below. | 
+|| Entra permissions management | &#10060; | 
 |**Administration and hybrid identity**|User and group management | &#x2705; | 
 || Advanced group management (Dynamic groups, naming policies, expiration, default classification) | &#x2705; | 
 || Directory synchronization—Azure AD Connect (sync and cloud sync) | &#x2705; | 
@@ -50,6 +52,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Global password protection and management – cloud-only users | &#x2705; | 
 || Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | &#x2705; | 
 || Microsoft Identity Manager user client access license (CAL) | &#x2705; | 
+|| Entra workload identities | &#10060; | 
 |**End-user self-service**|Application launch portal (My Apps) | &#x2705; | 
 || User application collections in My Apps | &#x2705; |
 || Self-service account management portal (My Account) | &#x2705; |
@@ -65,13 +68,14 @@ This following tables list Azure AD feature availability in Azure Government.
 || Access certifications and reviews | &#x2705; |
 || Entitlement management | &#x2705; |
 || Privileged Identity Management (PIM), just-in-time access |  &#x2705; |
+|| Entra governance | &#10060; |
 |**Event logging and reporting**|Basic security and usage reports | &#x2705; |
 || Advanced security and usage reports | &#x2705; |
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
-|**Frontline workers**|SMS sign-in | Feature not available. |
+|**Frontline workers**|SMS sign-in | &#10060; |
 || Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
-|| Delegated user management portal (My Staff) | Feature not available. |
+|| Delegated user management portal (My Staff) | &#10060; |
 
 <sup>1</sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
 
@@ -80,11 +84,11 @@ This following tables list Azure AD feature availability in Azure Government.
 | Risk Detection | Availability |
 |----------------|:--------------------:|
 |Leaked credentials (MACE) | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
+|Azure AD threat intelligence | &#10060; |
 |Anonymous IP address | &#x2705; | 
 |Atypical travel | &#x2705; |
-|Anomalous Token | Feature not available. |
-|Token Issuer Anomaly| Feature not available. |
+|Anomalous Token | &#10060; |
+|Token Issuer Anomaly| &#10060; |
 |Malware linked IP address | &#x2705; |
 |Suspicious browser | &#x2705; |
 |Unfamiliar sign-in properties | &#x2705; |
@@ -96,7 +100,7 @@ This following tables list Azure AD feature availability in Azure Government.
 |New country | &#x2705; |
 |Activity from anonymous IP address | &#x2705; |
 |Suspicious inbox forwarding | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
+|Azure AD threat intelligence | &#10060; |
 |Additional risk detected | &#x2705; |
 
 
