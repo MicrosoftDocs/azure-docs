@@ -87,6 +87,7 @@ Use the following steps to allow access all Azure Monitor workspaces in a resour
 1. Open the **Identity** page for your virtual machine in the Azure portal.
 
 1. If **Status** is **No**, change it to **Yes**.
+1. Select **Save**.
 1. Select **Azure role assignments** to review the existing access in your subscription.
 1. If **Monitoring Data Reader** isn't listed for your subscription or resource group:
    1. Select **+ Add role assignment**. 
@@ -119,16 +120,17 @@ Versions 9.x and greater of Grafana support Azure Authentication, but it's not e
 1. Locate and open the *Grafana.ini* file on your virtual machine.  
 
 2. Under the `[auth]` section of the configuration file, change the `azure_auth_enabled` setting to `true`.
-3. Open the **Overview** page for your Azure Monitor workspace in the Azure portal.
-4. Copy the **Query endpoint**, which you'll need in a step below.
-5. Open your Azure Managed Grafana workspace in the Azure portal.
-6. Select on the **Endpoint** to view the Grafana workspace.
-7. Select **Configuration** and then **Data source**.
-8. Select **Add data source** and then **Prometheus**.
-9. For **URL**,  paste in the query endpoint for your Azure Monitor workspace.
-10. Select **Azure Authentication** to turn it on.
-11. For **Authentication** under **Azure Authentication**, select **Managed Identity**.
-12. Scroll to the bottom of the page and select **Save & test**.
+3. Under the `[azure]` section of the configuration file, change the `managed_identity_enabled` setting to `true`
+4. Open the **Overview** page for your Azure Monitor workspace in the Azure portal.
+5. Copy the **Query endpoint**, which you'll need in a step below.
+6. Open your Azure Managed Grafana workspace in the Azure portal.
+7. Click on the **Endpoint** to view the Grafana workspace.
+8. Select **Configuration** and then **Data source**.
+9. Click **Add data source** and then **Prometheus**.
+10. For **URL**,  paste in the query endpoint for your Azure Monitor workspace.
+11. Select **Azure Authentication** to turn it on.
+12. For **Authentication** under **Azure Authentication**, select **Managed Identity**.
+13. Scroll to the bottom of the page and click **Save & test**.
 
 :::image type="content" source="media/prometheus-grafana/prometheus-data-source.png" alt-text="Screenshot of configuration for Prometheus data source." lightbox="media/prometheus-grafana/prometheus-data-source.png":::
 
