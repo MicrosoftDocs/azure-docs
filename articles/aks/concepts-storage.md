@@ -133,7 +133,7 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
 
 > [!IMPORTANT]
-> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. Internally, Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers, so the migration is completely transparent to you.
+> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. 
 >
 > The `default` class will be the same as `managed-csi`.
 
