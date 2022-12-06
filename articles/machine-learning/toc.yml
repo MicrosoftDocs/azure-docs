@@ -268,6 +268,9 @@
         - name: Secure training environment
           displayName: vnet, No public IP
           href: how-to-secure-training-vnet.md
+        - name: Secure inference environment
+          displayName: vnet, Managed Endpoint, AKS
+          href: how-to-secure-inferencing-vnet.md
         - name: Use studio in a virtual network
           displayName: vnet
           href: how-to-enable-studio-virtual-network.md
@@ -543,7 +546,7 @@
         - name: Online endpoints (real-time)
           items:
             - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
+              href: how-to-deploy-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
@@ -794,6 +797,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+    - name: PowerShell
+      href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md
     - name: Image data schemas for AutoML
