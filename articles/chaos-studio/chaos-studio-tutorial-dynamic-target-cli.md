@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses dynamic targeting to select hosts
 
-You can use dynamic targeting in a chaos experiment to choose the targets to run an experiment against. In this guide, you will show you how to dynamically target a VMSS to shut down. Running this experiment can help you test failover to a VMSS instance in a different region in the case of an outage.
+You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this guide, we'll show you how to dynamically target a VMSS based on availability to shut down. Running this experiment can help you test failover to a VMSS instance in a different region in the case of an outage.
 
 These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. At this time, only VMSS shutdown supports dynamic targeting. 
 
@@ -72,9 +72,9 @@ You have now successfully onboarded your Azure Cosmos DB account to Chaos Studio
 
 ## Create an experiment
 
-With your VMSS now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel.
+With your VMSS now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel. 
 
-1. Formulate your experiment JSON starting with the [VMSS shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md).
+1. Formulate your experiment JSON starting with the [VMSS shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md). Note that at this time dynamic targeting is only available with the VMSS Shutdown 2.0 fault, and can only filter on availability zones.
 
     - Use the `filter` element to configure the list of Azure availability zones to filter targets by. If you don't provide a `filter`, the fault will shut down all instances in the VMSS.
     - The experiment will target all VMSS instances in the specified zones.
