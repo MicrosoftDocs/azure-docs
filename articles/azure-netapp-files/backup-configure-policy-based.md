@@ -12,14 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 11/30/2022
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
 
 Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you will enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
-This article shows you how to configure policy-based backups.  For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
+This article shows you how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
 > [!IMPORTANT]
 > The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.

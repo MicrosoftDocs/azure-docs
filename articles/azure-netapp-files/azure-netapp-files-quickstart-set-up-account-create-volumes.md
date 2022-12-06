@@ -408,6 +408,9 @@ When you are done and if you want to, you can delete the resource group. The act
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
+    >[!IMPORTANT]
+    >You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md). If you delete the resource group without disabling backups, backups will continue to impact your billing. You will need to [manually delete the backups](backup-delete.md).
+
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 
     ![Confirm deleting resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png )
