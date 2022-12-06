@@ -1,5 +1,5 @@
 ---
-title: 'Manage reference data in GA environments using C# - Azure Time Series Insights | Microsoft Docs'
+title: 'Manage reference data in GA environments using C# - Azure Time Series Insights'
 description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
 ms.service: time-series-insights
 services: time-series-insights
@@ -116,7 +116,7 @@ namespace CsharpTsiMsalGaSample
         /**
          * Review the product documentation for detailed configuration steps or skip ahead and configure your environment settings.
          *
-         * https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
+         * https://learn.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
          */
 
         // Azure Time Series Insights environment configuration
@@ -134,7 +134,7 @@ namespace CsharpTsiMsalGaSample
         {
             if (AadClientApplicationId == "#PLACEHOLDER#" || AadScopes.Length == 0 || AadRedirectUri == "#PLACEHOLDER#" || AadTenantName.StartsWith("#PLACEHOLDER#"))
             {
-                throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started"} to update the values of 'AadClientApplicationId', 'AadScopes', 'AadRedirectUri', and 'AadAuthenticationAuthority'.");
+                throw new Exception($"Use the link {"https://learn.microsoft.com/azure/time-series-insights/time-series-insights-get-started"} to update the values of 'AadClientApplicationId', 'AadScopes', 'AadRedirectUri', and 'AadAuthenticationAuthority'.");
             }
 
             /**
@@ -163,7 +163,7 @@ namespace CsharpTsiMsalGaSample
         {
              if (EnvironmentFqdn.StartsWith("#PLACEHOLDER#") || EnvironmentReferenceDataSetName == "#PLACEHOLDER#")
              {
-                throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'EnvironmentFqdn' and 'EnvironmentReferenceDataSetName'.");
+                throw new Exception($"Use the link {"https://learn.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'EnvironmentFqdn' and 'EnvironmentReferenceDataSetName'.");
              }
 
              Console.WriteLine("HTTP JSON Request Body: {0}", input);

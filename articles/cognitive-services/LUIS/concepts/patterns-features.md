@@ -9,11 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 07/19/2022
 
 ---
 
 # Patterns in LUIS apps
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 
 Patterns are designed to improve accuracy when multiple utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing several more utterances.
 

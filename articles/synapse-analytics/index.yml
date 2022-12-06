@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/01/2020 #Required; mm/dd/yyyy format.
+  ms.date: 08/09/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -45,7 +45,10 @@ landingContent:
             url: quickstart-sql-on-demand.md
           - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
-
+      - linkListType: deploy
+        links:
+          - text: Migration guides
+            url: migration-guides/index.yml
 
   - title: Get started with Azure Synapse Analytics
     linkLists:
@@ -115,11 +118,18 @@ landingContent:
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
             url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+          - text: Azure Synapse Link for SQL
+            url: ./synapse-link/sql-synapse-link-overview.md
+                        
       - linkListType: quickstart
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
             url: quickstart-connect-synapse-link-cosmos-db.md
-
+          - text: Connect to Azure Synapse Link for Azure SQL DB
+            url: ./synapse-link/connect-synapse-link-sql-database.md
+          - text: Connect to Azure Synapse Link for SQL Server 2022
+            url: ./synapse-link/connect-synapse-link-sql-server-2022.md
+            
   # Card
   - title: Machine Learning
     linkLists:

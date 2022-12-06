@@ -1,22 +1,16 @@
 ---
 title: SAP workload configurations with Azure Availability Zones  | Microsoft Docs
 description: High-availability architecture and scenarios for SAP NetWeaver using Azure Availability Zones
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/02/2021
+ms.date: 10/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP workload configurations with Azure Availability Zones
@@ -40,7 +34,8 @@ Your motivation for a deployment across Azure Availability Zones should be that 
 
 Consider the following when you use Availability Zones:
 
-- There are no guarantees regarding the distances between various Availability Zones within an Azure region.
+- The maximum network roundtrip latency between Azure Availability Zones is stated in the document [Regions and availability zones](../../../availability-zones/az-overview.md).
+- Be aware that the experienced network roundtrip latency is not necessarily indicative to the real geographical distance of the datacenters that form the different zones. The network roundtrip latency is also influenced by the cable connectivities and the routing of the cables between these different datacenters.
 - Availability Zones are not an ideal DR solution. Natural disasters can cause widespread damage in world regions, including heavy damage to power infrastructures. The distances between various zones might not be large enough to constitute a proper DR solution.
 - The network latency across Availability Zones is not the same in all Azure regions. In some cases, you can deploy and run the SAP application layer across different zones because the network latency from one zone to the active DBMS VM is acceptable. But in some Azure regions, the latency between the active DBMS VM and the SAP application instance, when deployed in different zones, might not be acceptable for SAP business processes. In these cases, the deployment architecture needs to be different, with an active/active architecture for the application, or an active/passive architecture where cross-zone network latency is too high.
 - When deciding where to use Availability Zones, base your decision on the network latency between the zones. Network latency plays an important role in two areas:
@@ -137,7 +132,7 @@ The following considerations apply for this configuration:
   - For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
     Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
 - To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
 
@@ -176,7 +171,7 @@ The following considerations apply for this configuration:
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
 - You should deploy dormant VMs in the passive zone (from a DBMS point of view) so you can start application resources for the case of a zone failure.
 	- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) is currently unable to replicate active VMs to dormant VMs between zones. 
 - You should invest in automation that allows you to automatically start the SAP application layer in the second zone if a zonal outage occurs.
@@ -206,7 +201,7 @@ The following considerations apply for this configuration:
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. 
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. 
 
 
 

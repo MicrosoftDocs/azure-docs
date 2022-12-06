@@ -10,7 +10,7 @@ ms.date: 07/20/2020
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
 > [!NOTE]
 > Hash tracking functionality isn't available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
 
-Federated deployments that use AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
 Smart lockout is always on, for all Azure AD customers, with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users.
 
@@ -42,7 +42,7 @@ Smart lockout can be integrated with hybrid deployments that use password hash s
 When using [pass-through authentication](../hybrid/how-to-connect-pta.md), the following considerations apply:
 
 * The Azure AD lockout threshold is **less** than the AD DS account lockout threshold. Set the values so that the AD DS account lockout threshold is at least two or three times greater than the Azure AD lockout threshold.
-* The Azure AD lockout duration must be set longer than the AD DS reset account lockout counter after duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
+* The Azure AD lockout duration must be set longer than the AD DS account lockout duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
 
 For example, if you want your Azure AD smart lockout duration to be higher than AD DS, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds). If you want your Azure AD lockout threshold to be 5, then you want your on-premises AD lockout threshold to be 10.  This configuration would ensure smart lockout prevents your on-premises AD accounts from being locked out by brute force attacks on your Azure AD accounts.
 

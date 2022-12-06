@@ -89,9 +89,9 @@ Azure Application Gateway shouldn't exhibit 500 response codes. Please open a su
 
 HTTP 502 errors can have several root causes, for example:
 - NSG, UDR, or custom DNS is blocking access to backend pool members.
-- Back-end VMs or instances of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) aren't responding to the default health probe.
+- Backend VMs or instances of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
-- Azure Application Gateway's [back-end pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
+- Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).
 - [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests.
 
@@ -99,7 +99,7 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 #### 504 – Request timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
+HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response time exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
 
 ## Next steps
 

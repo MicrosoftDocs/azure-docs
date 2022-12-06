@@ -49,7 +49,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](../../media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`
 
 # [Tomcat](#tab/tomcat)
 
@@ -69,7 +69,7 @@ To complete this quickstart you need:
 
 # [JBoss EAP](#tab/jbosseap)
 
-1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncall-application-petstore-ee7).
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncal-application-petstore-ee7).
 
 1. In the upper right corner, select **Fork**.
 
@@ -80,7 +80,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of agoncal/agoncal-application-petstore-ee7.](../../media/quickstart-java/fork-details-jboss-eap-sample-repo-agoncal-application-petstore-ee7.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/agoncal-application-petstore-ee7
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/agoncal-application-petstore-ee7`
 
 ---
 
@@ -228,9 +228,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.
@@ -267,9 +267,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.

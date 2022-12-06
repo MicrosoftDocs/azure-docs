@@ -50,6 +50,7 @@ This article provides a reference for API Management policies used to transform 
     consider-accept-header="true | false" 
     parse-date="true | false" 
     namespace-separator="separator character"
+    namespace-prefix="namepsace prefix"
     attribute-block-name="name" />
 ```
 
@@ -64,7 +65,7 @@ Consider the following policy:
     </inbound>
     <outbound>
         <base />
-        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" attribute-block-name="#attrs" />
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" namespace-prefix="xmlns" attribute-block-name="#attrs" />
     </outbound>
 </policies>
 ```
@@ -118,6 +119,7 @@ The XML response to the client will be:
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 |namespace-separator|The character to use as a namespace separator|No|Underscore|
+|namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations.|No|N/A|
 |attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
 ### Usage
@@ -258,11 +260,11 @@ The XML response to the client will be:
 or
 
 ```xml
-<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+<set-backend-service backend-id="name of the backend entity specifying base URL of the backend service" />
 ```
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can be only overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
 
 ### Example
 
@@ -317,7 +319,7 @@ In this example the policy routes the request to a service fabric backend, using
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier of the backend to route to. (Backend entities are managed via [Azure portal](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier (name) of the backend to route to. (Backend entities are managed via [Azure portal](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -351,7 +353,9 @@ In this example the policy routes the request to a service fabric backend, using
 ### Policy statement
 
 ```xml
-<set-body>new body value as text</set-body>
+<set-body template="liquid" xsi-nil="blank | null">
+    new body value as text
+</set-body>
 ```
 
 ### Examples
@@ -509,7 +513,8 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No||
+|template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- liquid - the `set-body` policy will use the liquid templating engine |No| N/A|
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values.<br /><br />- blank - `nil` is represented with an empty string.<br />- null - `nil` is represented with a null value.|No | blank |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.

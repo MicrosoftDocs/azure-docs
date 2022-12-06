@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 11/28/2022
 ms.author: anfdocs
 ---
 
@@ -34,10 +34,11 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Allow local NFS users with LDAP | If enabled, this option will manage access for local users and LDAP users. | Yes | This option will allow access to local users. It is not recommended and, if enabled, should only be used for a limited time and later disabled. | If enabled, this option will allow access to local users and LDAP users. If access is needed for only LDAP users, this option must be disabled. |
 | LDAP over TLS | If enabled, LDAP over TLS will be configured to support secure LDAP communication to active directory. | Yes | None | If LDAP over TLS is enabled and if the server root CA certificate is already present in the database, then LDAP traffic is secured using the CA certificate. If a new certificate is passed in, that certificate will be installed. |
 | Server root CA Certificate | When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64-encoded Active Directory Certificate Service's self-signed root CA certificate. | Yes | None* | LDAP traffic secured with new certificate only if LDAP over TLS is enabled |
+| Encrypted SMB connections to Domain Controller | This specifies whether encryption should be used for communication between SMB server and domain controller. See [Create Active Directory connections](create-active-directory-connections.md#encrypted-smb-dc) for more details on using this feature. | Yes | SMB, Kerberos, and LDAP enabled volume creation cannot be used if the domain controller does not support SMB3 | Only SMB3 will be used for encrypted domain controller connections. |
 | Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
 | Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges |
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
-| Password | Password of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
+| Password | Password of the Active Directory domain administrator | Yes | None* <br></br> Password cannot exceed 64 characters. | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
 | Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used |
 | Region | The region where the Active Directory credentials are associated | No | None | N/A |
@@ -49,7 +50,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 **\*There is no impact on a modified entry only if the modifications are entered correctly. If you enter data incorrectly, users and applications will lose access.**
 
 ## Next Steps
-
+* [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
 * [Configure ADDS LDAP with extended groups for NFS](configure-ldap-extended-groups.md)
 * [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)

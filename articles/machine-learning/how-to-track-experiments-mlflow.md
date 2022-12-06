@@ -1,27 +1,28 @@
 ---
-title: Manage experiments and runs with MLflow
+title: Query & compare experiments and runs with MLflow
 titleSuffix: Azure Machine Learning
 description: Explains how to use MLflow for managing experiments and runs in Azure ML
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, ignite-2022
 ---
 
-# Manage experiments and runs with MLflow
+# Query & compare experiments and runs with MLflow
 
-Experiments and runs in Azure Machine Learning can be queried using MLflow client. This removes the need of any Azure ML specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
+Experiments and runs in Azure Machine Learning can be queried using MLflow. This removes the need of any Azure Machine Learning specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
 
 > [!NOTE]
-> The Azure Machine Learning Python SDK v2 (preview) does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
+> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
 
-MLflow client allows you to:
+MLflow allows you to:
 
-* Create, delete and search for experiments in a workspace
+* Create, delete and search for experiments in a workspace.
 * Start, stop, cancel and query runs for experiments.
 * Track and retrieve metrics, parameters, artifacts and models from runs.
 
@@ -29,40 +30,12 @@ In this article, you'll learn how to manage experiments and runs in your workspa
 
 ## Using MLflow SDK in Azure ML
 
-Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning.
+Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning. See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.
 
 ### Prerequisites
 
 * Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML MLtracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md)
-
-### Support matrix for querying runs and experiments
-
-The MLflow client exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
-
-| Feature | Supported by MLflow | Supported by Azure ML |
-| :- | :-: | :-: |
-| Ordering runs by run fields (like `start_time`, `end_time`, etc) | **&check;** | **&check;** |
-| Ordering runs by attributes | **&check;** | <sup>1</sup> |
-| Ordering runs by metrics | **&check;** | <sup>1</sup> |
-| Ordering runs by parameters | **&check;** | <sup>1</sup> |
-| Ordering runs by tags | **&check;** | <sup>1</sup> |
-| Filtering runs by run fields (like `start_time`, `end_time`, etc) |  | <sup>1</sup> |
-| Filtering runs by attributes | **&check;** | <sup>1</sup> |
-| Filtering runs by metrics | **&check;** | **&check;** |
-| Filtering runs by metrics with special characters (escaped) | **&check;** |  |
-| Filtering runs by parameters | **&check;** | **&check;** |
-| Filtering runs by tags | **&check;** | **&check;** |
-| Filtering runs with numeric comparators (metrics) including `=`, `!=`, `>`, `>=`, `<`, and `<=`  | **&check;** | **&check;** |
-| Filtering runs with string comparators (params, tags, and attributes): `=` and `!=` | **&check;** | **&check;**<sup>2</sup> |
-| Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
-| Filtering runs with comparators `AND` | **&check;** | **&check;** |
-| Filtering runs with comparators `OR` | **&check;** |  |
-| Renaming experiments | **&check;** |  |
-
-> [!NOTE]
-> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
-> - <sup>2</sup> `!=` for tags not supported
+* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML tracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md).
 
 ## Getting all the experiments
 
@@ -144,13 +117,13 @@ You can also order by metrics to know which run generated the best results:
   
 ### Filtering runs
 
-You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run:
+You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run. MLflow supports expressions joined by the AND keyword (the syntax does not support OR):
 
   ```python
   mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
                      filter_string="params.num_boost_round='100'")
   ```
-  
+
 ### Filter runs by status
 
 You can also filter experiment by status. It becomes useful to find runs that are running, completed, canceled or failed. In MLflow, `status` is an `attribute`, so we can access this value using the expression `attributes.status`. The following table shows the possible values:
@@ -265,12 +238,46 @@ child_runs = mlflow.search_runs(
 )
 ```
 
-## Example notebooks
+## Compare jobs and models in AzureML Studio (preview)
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/master/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
+To compare and evaluate the quality of your jobs and models in AzureML Studio, use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can compare the parameters, metrics, and tags between the jobs and/or models you selected.
 
-  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
-  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
+:::image type="content" source="media/how-to-track-experiments-mlflow/compare.gif" alt-text="Screenshot of the preview panel showing how to compare jobs and models in AzureML studio.":::
+
+
+The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
+
+  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
+  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
+
+
+## Support matrix for querying runs and experiments
+
+The MLflow SDK exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
+
+| Feature | Supported by MLflow | Supported by Azure ML |
+| :- | :-: | :-: |
+| Ordering runs by run fields (like `start_time`, `end_time`, etc) | **&check;** | **&check;** |
+| Ordering runs by attributes | **&check;** | <sup>1</sup> |
+| Ordering runs by metrics | **&check;** | <sup>1</sup> |
+| Ordering runs by parameters | **&check;** | <sup>1</sup> |
+| Ordering runs by tags | **&check;** | <sup>1</sup> |
+| Filtering runs by run fields (like `start_time`, `end_time`, etc) |  | <sup>1</sup> |
+| Filtering runs by attributes | **&check;** | <sup>1</sup> |
+| Filtering runs by metrics | **&check;** | **&check;** |
+| Filtering runs by metrics with special characters (escaped) | **&check;** |  |
+| Filtering runs by parameters | **&check;** | **&check;** |
+| Filtering runs by tags | **&check;** | **&check;** |
+| Filtering runs with numeric comparators (metrics) including `=`, `!=`, `>`, `>=`, `<`, and `<=`  | **&check;** | **&check;** |
+| Filtering runs with string comparators (params, tags, and attributes): `=` and `!=` | **&check;** | **&check;**<sup>2</sup> |
+| Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
+| Filtering runs with comparators `AND` | **&check;** | **&check;** |
+| Filtering runs with comparators `OR` |  |  |
+| Renaming experiments | **&check;** |  |
+
+> [!NOTE]
+> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
+> - <sup>2</sup> `!=` for tags not supported.
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.author: fcabrera
 
 # Update IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
 
@@ -116,9 +116,9 @@ Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2
 <!-- end 1.1 -->
 :::moniker-end
 
-## Migrations between EFLOW 1.1 LTS and EFLOW CR
+## Migrations between EFLOW LTS and EFLOW CR trains
 
-IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
+IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, check [EFLOW LTS migration](https://aka.ms/AzEFLOW-LTS-Migration). 
 
 
 ## Next steps

@@ -3,14 +3,14 @@ title: Admin takeover of an unmanaged directory - Azure AD | Microsoft Docs
 description: How to take over a DNS domain name in an unmanaged Azure AD organization (shadow tenant). 
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
 
@@ -36,7 +36,7 @@ Some products that include SharePoint and OneDrive, such as Microsoft 365, do no
 
 1. Create a user context in the unmanaged organization through signing up for Power BI. For convenience of example, these steps assume that path.
 
-2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
+2. Open the [Power BI site](https://powerbi.microsoft.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 

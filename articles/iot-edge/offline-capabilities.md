@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any child devices can continue to function with intermittent or no internet connection.
 
@@ -96,7 +96,7 @@ One way to create this trust relationship is described in detail in the followin
 
 ## Specify DNS servers
 
-To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. To set your DNS server for IoT Edge, see the resolution for [Edge Agent module continually reports 'empty config file' and no modules start on device](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) in the troubleshooting article.
+To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. To set your DNS server for IoT Edge, see the resolution for [Edge Agent module reports 'empty config file' and no modules start on the device](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) in the troubleshooting article.
 
 ## Optional offline settings
 

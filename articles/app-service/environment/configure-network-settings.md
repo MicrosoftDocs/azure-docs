@@ -96,8 +96,11 @@ az resource update --name $ASE_NAME/configurations/networking --set properties.f
 
 az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.ftpEnabled
 ```
+The setting is also available for configuration through Azure portal at the App Service Environment configuration:
 
-In addition to enabling access, you need to ensure that you have [configured DNS if you are using ILB App Service Environment](./networking.md#dns-configuration-for-ftp-access).
+:::image type="content" source="./media/configure-network-settings/configure-allow-incoming-ftp-connections.png" alt-text="Screenshot from Azure portal of how to configure your App Service Environment to allow incoming ftp connections.":::
+
+In addition to enabling access, you need to ensure that you have [configured DNS if you are using ILB App Service Environment](./networking.md#dns-configuration-for-ftp-access) and that the [necessary ports](./networking.md#ports-and-network-restrictions) are unblocked.
 
 ## Remote debugging access
 
@@ -112,6 +115,10 @@ az resource update --name $ASE_NAME/configurations/networking --set properties.R
 
 az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.remoteDebugEnabled
 ```
+
+The setting is also available for configuration through Azure portal at the App Service Environment configuration:
+
+:::image type="content" source="./media/configure-network-settings/configure-allow-remote-debugging.png" alt-text="Screenshot from Azure portal of how to configure your App Service Environment to allow remote debugging.":::
 
 ## Next steps
 

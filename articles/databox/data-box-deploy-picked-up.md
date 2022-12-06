@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 06/16/2022
+ms.date: 07/20/2022
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 

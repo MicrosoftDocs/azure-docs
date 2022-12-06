@@ -28,13 +28,19 @@ landingContent:
             url: /azure/cloud-adoption-framework/scenarios/hybrid/
           - text: Why protect multicloud resources with Microsoft Defender for Cloud
             url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360
+          - text: Get started planning multicloud security
+            url: plan-multicloud-security-get-started.md
       - linkListType: how-to-guide
         links:
           - text: Connect your non-Azure machines to Defender for Cloud
             url: quickstart-onboard-machines.md?pivots=azure-arc
           - text: Enable enhanced security for your multicloud resources
             url: enable-enhanced-security.md
-
+      - linkListType: reference
+        links:
+          - text: Troubleshooting multicloud connectors
+            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+            
   # Card
   - title: Defend Amazon AWS resources
     linkLists:
@@ -55,7 +61,7 @@ landingContent:
           - text: Enable Defender for Containers for your AWS EKS containers
             url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks
           - text: Enable Defender for SQL servers for your AWS SQL databases
-            url: defender-for-sql-introduction.md
+            url: defender-for-sql-usage.md
       - linkListType: how-to-guide
         links:
           - text: Secure your AWS management ports with just-in-time access
@@ -68,8 +74,6 @@ landingContent:
             url: file-integrity-monitoring-overview.md
           - text: Scan your AWS virtual machines for vulnerabilities
             url: deploy-vulnerability-assessment-vm.md
-          - text: Create custom assessments and standards for AWS workloads
-            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575
       - linkListType: video
         links:
           - text: How to connect AWS to Microsoft Defender for Cloud
@@ -99,11 +103,7 @@ landingContent:
           - text: Enable Defender for Containers for your GCP GKE containers
             url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
           - text: Enable Defender for SQL servers for your GCP SQL databases
-            url: defender-for-sql-introduction.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create custom assessments and standards for GCP workloads
-            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3251252
+            url: defender-for-sql-usage.md
       - linkListType: video
         links:
           - text: How to connect GCP to Microsoft Defender for Cloud

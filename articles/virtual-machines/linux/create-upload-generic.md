@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 05/13/2022
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Information for community supported and non-endorsed distributions
 
@@ -54,7 +54,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
     sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
 
-2. Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
+2. Rebuild the `initrd` with the `hv_vmbus` and `hv_storvsc` kernel modules:
 
     ```
     sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
@@ -101,13 +101,13 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 4. Now, convert the RAW disk back to a fixed-size VHD.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
-   Or, with qemu version 2.6+, include the `force_size` option.
+   Or, with qemu versions before 2.6, remove the `force_size` option.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
 ## Linux Kernel Requirements

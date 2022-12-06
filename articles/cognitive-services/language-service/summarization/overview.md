@@ -3,17 +3,19 @@ title: What is document and conversation summarization (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/03/2022
-ms.author: aahi
-ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
+ms.date: 09/26/2022
+ms.author: jboback
+ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # What is document and conversation summarization (preview)?
+
+[!INCLUDE [availability](includes/regional-availability.md)]
 
 Summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications.
 
@@ -21,44 +23,65 @@ Summarization is one of the features offered by [Azure Cognitive Service for Lan
 
 This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=document-summarization) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/document-summarization.md) contain instructions for using the service in more specific or customized ways.
+* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
+Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, both of which are supported by the API: extractive and abstractive. 
 
-As an example, consider the following paragraph of text:
-
-*"We’re delighted to announce that Cognitive Service for Language service now supports extractive summarization! In general, there are two approaches for automatic document summarization: extractive and abstractive. This feature provides extractive summarization. Document summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
-
-The document summarization feature would simplify the text into the following key sentences:
-
-:::image type="content" source="media/document-summary-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/document-summary-example.png":::
+Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content. Abstractive summarization generates a summary with concise, coherent sentences or words which are not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read.
 
 ## Key features
 
-Document summarization supports the following features:
+There are two types of document summarization this API provides:
 
-* **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
-* **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
-* **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Document summarization will return the three highest scored sentences.
-* **Positional information**: The start position and length of extracted sentences.
+* **Extractive summarization**: Produces a summary by extracting salient sentences within the document.
+    * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
+    * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+    * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization will return the three highest scored sentences.
+    * Positional information: The start position and length of extracted sentences.
+* **Abstractive summarization**: Generates a summary that may not use the same words as those in the document, but captures the main idea.
+    * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document may be segmented so multiple groups of summary texts may be returned with their contextual input range. 
+    * Contextual input range: The range within the input document that was used to generate the summary text.
+
+As an example, consider the following paragraph of text:
+
+*"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
+
+The document summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/multilingual-emoji-support.md) for more information.
+
+Using the above example, the API might return the following summarized sentences:
+
+**Extractive summarization**:
+- "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding."
+- "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages."
+- "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today."
+
+**Abstractive summarization**:
+- "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+> [!IMPORTANT]
+> Conversation summarization is only available in English.
+
 This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=conversation-summarization) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/conversation-summarization.md) contain instructions for using the service in more specific or customized ways.
+* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to/conversation-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
+## Key features
 
-:::image type="content" source="media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
+Conversation summarization supports the following features:
 
-## When to use conversation summarization
+* **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
+* **Chapter title summarization**: Gives suggested chapter titles of the input conversation.
+* **Narrative summarization**: Gives call notes, meeting notes or chat summaries of the input conversation.
 
-* When there are predefined aspects of an “issue” and “resolution”, such as:
-    * The reason for a service chat/call (the issue).
-    * That resolution for the issue. 
+## When to use issue and resolution summarization
+
+* When there are aspects of an “issue” and “resolution”, such as:
+   * The reason for a service chat/call (the issue).
+   * That resolution for the issue. 
 * You only want a summary that focuses on related information about issues and resolutions.
 * When there are two participants in the conversation, and you want to summarize what each had said.
 
@@ -86,7 +109,7 @@ Conversation summarization feature would simplify the text into the following:
 
 |Example summary  | Format | Conversation aspect |
 |---------|----|----|
-|  Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
+| Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
 ---
@@ -97,21 +120,18 @@ Conversation summarization feature would simplify the text into the following:
 
 To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
 
-
-|Development option  |Description  | Links | 
+|Development option  |Description  | Links |
 |---------|---------|---------|
 | Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
 | REST API or Client library (Azure SDK)     | Integrate document summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use document summarization](quickstart.md) |
-
 
 # [Conversation summarization](#tab/conversation-summarization)
 
 To use this feature, you submit raw text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
 
-
-|Development option  |Description  | Links | 
+|Development option  |Description  | Links |
 |---------|---------|---------|
-| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md) |
+| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
 
 ---
 
@@ -121,7 +141,6 @@ To use this feature, you submit raw text for analysis and handle the API output 
 
 * Summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
 * Summarization works with a variety of written languages. See [language support](language-support.md?tabs=document-summarization) for more information.
-
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -136,13 +155,13 @@ As you use document summarization in your applications, see the following refere
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
-|REST API     | [REST API documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze)        |         |
+|REST API     | [REST API documentation](https://go.microsoft.com/fwlink/?linkid=2211684)        |         |
 |C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
 | Java     | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
 |JavaScript     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
 |Python | [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
 
-## Responsible AI 
+## Responsible AI
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 

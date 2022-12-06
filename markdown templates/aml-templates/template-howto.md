@@ -12,7 +12,7 @@ ms.date: 04/10/2018
 ---
 # This H1 is the title of the article. It appears in search, appears at the top of article, second greatest impact on search, 100 chars or less
 
-Guidance here: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
+Guidance [here](https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=main)
 
 
 1st paragraph	provides the primary intent of the article in 1 or 2 short sentences. 

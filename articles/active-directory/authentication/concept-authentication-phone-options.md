@@ -10,7 +10,7 @@ ms.date: 06/23/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
@@ -52,7 +52,7 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
+With office phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 

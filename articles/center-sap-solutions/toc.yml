@@ -1,0 +1,57 @@
+items:
+- name: Azure Center for SAP solutions documentation
+  href: index.yml
+
+
+- name: Overview
+  items:
+  - name: What is Azure Center for SAP solutions?
+    href: overview.md
+  - name: Frequently asked questions (FAQ)
+    href: faq.yml
+
+
+- name: How-to guides
+  items:
+
+  - name: Deployment
+    items:
+    - name: Prepare network for deployment
+      href: prepare-network.md
+    - name: Deploy S/4HANA infrastructure
+      href: deploy-s4hana.md
+    - name: Install SAP software
+      href: install-software.md
+    - name: Register existing SAP system
+      href: register-existing-system.md
+
+  - name: Management
+    items:
+    - name: Manage Virtual Instance for SAP solutions
+      href: manage-virtual-instance.md
+    - name: Start and stop SAP systems
+      href: start-stop-sap-systems.md
+    - name: Get quality checks and insights
+      href: get-quality-checks-insights.md
+    - name: View cost analysis for SAP system
+      href: view-cost-analysis.md
+
+  - name: Monitoring
+    items:
+    - name: Monitor SAP system in Azure portal
+      href: monitor-portal.md
+
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/workloads/
+  - name: Azure CLI guide
+    href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+   
+
+- name: Resources
+  items:
+  - name: SAP on Azure Deployment Automation Framework
+    href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
+  - name: Azure Monitor for SAP solutions
+    href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md

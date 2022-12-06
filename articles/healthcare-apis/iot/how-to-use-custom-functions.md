@@ -1,29 +1,24 @@
 ---
-title: Custom Functions in the MedTech service - Azure Health Data Services
-description: This article describes how to use Custom Functions with MedTech service Device mappings templates.
+title: How to use custom functions with the MedTech service device mappings - Azure Health Data Services
+description: This article describes how to use custom functions with MedTech service device mappings.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
-# How to use Custom Functions
+# How to use custom functions with device mappings
+
+Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
-
-This article describes how to use the MedTech service Customer Functions.
-
-Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many custom functions may also be used. This article describes MedTech service-specific custom functions for use with the Device mappings template during the normalization process.
-
-> [!TIP]
-> For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
+> For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
 
 ## Function signature
 
-Each function has a signature that follows the JmesPath specification. This signature can be represented as:
+Each function has a signature that follows the JMESPath specification. This signature can be represented as:
 
 ```jmespath
 return_type function_name(type $argname)
@@ -32,7 +27,7 @@ return_type function_name(type $argname)
 The signature indicates the valid types for the arguments. If an invalid type is passed in for an argument, an error will occur.
 
 > [!NOTE]
-> When math-related functions are done, the end result **must** be able to fit within a C# [long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result in unable to fit within a C# long value, then a mathematical error will occur.
+> When math-related functions are done, the end result **must** be able to fit within a [C# long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
 
 ## Exception handling
 
@@ -40,8 +35,8 @@ Exceptions may occur at various points within the event processing lifecycle. He
 
 |Action|When|Exceptions that may occur during template parsing|Outcome|
 |------|----|-------------------------------------------------|-------|
-|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
-|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
+|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
+|**Template parsing**|Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
 |**Function Execution**|Each time a function is executed against data within a message.|Input data doesn't match that of the function signature.|System stops processing that message. The message isn't retried.|
 |**Function execution**|Each time a function is executed against data within a message.|Any other exceptions listed in the description of the function.|System stops processing that message. The message isn't retried.|
 
@@ -187,13 +182,13 @@ Examples:
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service Custom Functions. To learn how to use Custom Functions with Device mappings, see
+In this article, you learned how to use the MedTech service custom functions. To learn how to use custom functions with the MedTech service device mapping, see
 
->[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use device mappings](how-to-use-device-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

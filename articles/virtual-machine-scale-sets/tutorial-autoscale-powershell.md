@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 03/27/2018
-ms.reviewer: avverma
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.custom: avverma, devx-track-azurepowershell
 
 ---
-# Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
+# Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -41,7 +41,7 @@ $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+Now create a Virtual Machine Scale Set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

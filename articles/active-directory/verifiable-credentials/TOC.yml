@@ -1,4 +1,4 @@
-- name: Azure AD Verifiable Credentials documentation
+- name: Microsoft Entra Verified ID documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -10,11 +10,11 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Set up the Verifiable Credentials service
+  - name: Set up the Verified ID service
     href: verifiable-credentials-configure-tenant.md
   - name: Issue a verifiable credential
     href: verifiable-credentials-configure-issuer.md
-  - name: Verify a Verifiable Credential
+  - name: Verify a verifiable credential
     href: verifiable-credentials-configure-verifier.md
 - name: Concepts
   expanded: true
@@ -32,28 +32,42 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: How to customize your credentials
+    href: credential-design.md
   - name: Create credentials using Quickstart
     items:
     - name: Directory based - Employee
       href: how-to-use-quickstart-verifiedemployee.md
-    - name: ID Token Hint credentials
+    - name: Id token hint attestation
       href: how-to-use-quickstart.md
-    - name: ID Token credentials
+    - name: Id token attestation
       href: how-to-use-quickstart-idtoken.md      
-    - name: Self Issued credentials
+    - name: Presentation attestation
+      href: how-to-use-quickstart-presentation.md
+    - name: Self issued attestation
       href: how-to-use-quickstart-selfissued.md
+  - name: Use the Verified ID Network
+    href: how-use-vcnetwork.md
   - name: Using the Request Service REST API
     href: get-started-request-api.md
-  - name: How to customize your credentials
-    href: credential-design.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
   - name: Register your website ID
     href: how-to-register-didwebsite.md
-  - name: Revoke a Verifiable Credential
+  - name: Revoke a verifiable credential
     href: how-to-issuer-revoke.md
-  - name: Opt out of verifiable credentials
+  - name: Opt out of Verified ID service
     href: how-to-opt-out.md
+  - name: Partner integration
+    items:
+    - name: Partner gallery
+      href: partner-gallery.md
+    - name: Au10tix
+      href: howto-verifiable-credentials-partner-au10tix.md
+    - name: LexisNexis
+      href: howto-verifiable-credentials-partner-lexisnexis.md
+    - name: Vu
+      href: partner-vu.md
 - name: Samples
   expanded: true
   items:
@@ -72,6 +86,10 @@
     href: presentation-request-api.md
   - name: Rules and Display definition model
     href: rules-and-display-definitions-model.md
+  - name: Admin API specification
+    href: admin-api.md
+  - name: Verified ID Network API specification
+    href: vc-network-api.md
   - name: Supported standards
     href: verifiable-credentials-standards.md
 - name: Resources

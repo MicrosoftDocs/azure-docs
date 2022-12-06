@@ -74,7 +74,7 @@ For more information, see the [DNS server name resolution](../virtual-network/vi
 
 At present, for Azure-SSIS IR to use your own DNS server, you need to configure it with a standard custom setup following these steps:
 
-1. Download a custom setup script ([main.cmd](https://expressvnet.blob.core.windows.net/customsetup/main.cmd)) + its associated file ([setupdnsserver.ps1](https://expressvnet.blob.core.windows.net/customsetup/setupdnsserver.ps1)).
+1. Download a custom setup script ([main.cmd](https://expressvnet.blob.core.windows.net/customsetup/main.cmd?sp=r&st=2022-10-24T07:34:04Z&se=2042-10-24T15:34:04Z&spr=https&sv=2021-06-08&sr=b&sig=dfU16IBua6T%2FB2splQS6rZIXmgkSABaFUZd6%2BWF7fnc%3D)) + its associated file ([setupdnsserver.ps1](https://expressvnet.blob.core.windows.net/customsetup/setupdnsserver.ps1?sp=r&st=2022-10-24T07:36:00Z&se=2042-10-24T15:36:00Z&spr=https&sv=2021-06-08&sr=b&sig=TbspnXbFQv3NPnsRkNe7Q84EdLQT2f1KL%2FxqczFtaw0%3D)).
 
 1. Replace “your-dns-server-ip” in main.cmd with the IP address of your own DNS server.
 

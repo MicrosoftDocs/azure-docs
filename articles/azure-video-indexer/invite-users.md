@@ -8,11 +8,11 @@ ms.custom: mode-other
 
 # Quickstart: Invite users to Azure Video Indexer
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 To collaborate with your colleagues, you can invite them to your Azure Video Indexer account. 
 
-> [!NOTE]
-> Only the account’s admin can add or remove users.</br>
-> When using paid accounts, you are only able to invite Azure AD users.
+Only the account’s admin can add or remove users. When using paid accounts, you are only able to invite Azure AD users.
 
 ## Invite new users
 
@@ -20,13 +20,13 @@ To collaborate with your colleagues, you can invite them to your Azure Video Ind
 1. If you are the admin, you see the **Share account** button in the top-right corner. Click on the button and you can invite users. 
 
     :::image type="content" source="./media/invite-users/share-account.png" alt-text="Share your account":::
-1. In the **Share this account with others** dialog, enter an email addresses of a person you want to invite to your Azure Video Indexer account:
+1. In the **Share this account with others** dialog, enter an email address of a person you want to invite to your Azure Video Indexer account:
 
     :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invite users to this account":::  
 1. After you press **Invite**, the person will be added to the list of pending invites. <br/>You can choose from two options for each invitee who didn't yet join the account: **remove invitation** or **copy invitation URL**.
 
     :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Pending invites":::  
-1. Once the invitee joins the account, you will see three options to choose from. Two options for roles: **contributor** (default) or **owner**. Of, you can choose to remove the invitee by pressing **Remove**.
+1. Once the invitee joins the account, you will see two role options to choose from: **contributor** (default) or **owner**. You are also able to remove the user from your account.
 
     :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Joined invitee":::  
 
@@ -49,7 +49,7 @@ In addition to bringing up the **Share this account with others** dialog by clic
 
 ## Next steps
 
-You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
+You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video.
 
 ## See also
 

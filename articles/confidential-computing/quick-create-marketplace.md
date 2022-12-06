@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Marketplace
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM with Marketplace.
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021, mode-other
 ---
 
@@ -57,7 +57,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    
 1. Fill in the following information in the Basics tab:
 
-   * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
+   * **Authentication type**: Select **SSH public key** if you're creating a Linux VM.
 
         > [!NOTE]
         > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -94,7 +94,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 ## Connect to the Linux VM
 
-If you already use a BASH shell, connect to the Azure VM using the **ssh** command. In the following command, replace the VM user name and IP address to connect to your Linux VM.
+Open your SSH client of choice, like Bash on Linux or PowerShell on Windows. The `ssh` command is typically included in Linux, macOS, and Windows. If you are using Windows 7 or older, where Win32 OpenSSH is not included by default, consider installing [WSL](/windows/wsl/about) or using [Azure Cloud Shell](../cloud-shell/overview.md) from the browser. In the following command, replace the VM user name and IP address to connect to your Linux VM.
 
 ```bash
 ssh azureadmin@40.55.55.555
@@ -103,21 +103,6 @@ ssh azureadmin@40.55.55.555
 You can find the Public IP address of your VM in the Azure portal, under the Overview section of your virtual machine.
 
 :::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="IP address in Azure portal":::
-
-If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
-
-1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-1. Run PuTTY.
-
-1. On the PuTTY configuration screen, enter your VM's public IP address.
-
-1. Select **Open** and enter your username and password at the prompts.
-
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../virtual-machines/linux/quick-create-portal.md).
-
-> [!NOTE]
-> If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
 
 ## Intel SGX Drivers
 

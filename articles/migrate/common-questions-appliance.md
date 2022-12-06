@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.custom: ignite-2022, engagement-fy23
+ms.date: 11/22/2022
 ---
 
 # Azure Migrate appliance: Common questions
@@ -25,7 +26,7 @@ Here's more information about the Azure Migrate appliance:
 
 - The appliance is deployed on-premises as a physical server or a virtualized server.
 - The appliance discovers on-premises servers and continually sends server metadata and performance data to Azure Migrate.
-- Appliance discovery is agentless. Nothing is installed on discovered servers.
+- Appliance discovery is agentless. Nothing is installed on the discovered servers.
 
 [Learn more](migrate-appliance.md) about the appliance.
 
@@ -40,11 +41,10 @@ The appliance can be deployed using a couple of methods:
 
 ## How does the appliance connect to Azure?
 
-The appliance can connect via the internet or by using Azure ExpressRoute. 
+The appliance can connect to Azure using public or private networks or using Azure ExpressRoute.
 
 - Make sure the appliance can connect to these [Azure URLs](./migrate-appliance.md#url-access). 
 - You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
-- Private peering only isn't supported.
 
 ## Does appliance analysis affect performance?
 
@@ -72,7 +72,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 
 Here's more information about how data is stored:
 
-- The collected data is securely stored in CosmosDB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
+- The collected data is securely stored in Azure Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
 - If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded during continuous profiling?
@@ -84,7 +84,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -128,7 +128,7 @@ However, deleting the resource group also deletes other registered appliances, t
 
 ## Can I use the appliance with a different subscription or project?
 
-To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the PowerShell installer script for the specific scenario (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
+To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the [PowerShell installer script](deploy-appliance-script.md) for the specific scenario (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
 
 Also, you cannot reuse an existing project key on a reconfigured appliance. Make sure you generate a new key from the desired subscription/project to complete the appliance registration.
 
@@ -150,11 +150,11 @@ Only the appliance and the appliance agents are updated by these automatic updat
 
 Yes. In the portal, go the **Agent health** page for the Azure Migrate: Discovery and assessment or Azure Migrate: Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
-## Can I add multiple server credentials on VMware appliance?
+## Can I add multiple server credentials on appliance?
 
-Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](tutorial-discover-vmware.md#provide-server-credentials) on how to provide credentials on the appliance configuration manager.
+Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](add-server-credentials.md) on how to provide credentials on the appliance configuration manager.
 
-## What type of server credentials can I add on the VMware appliance?
+## What type of server credentials can I add on the appliance?
 
 You can provide domain/ Windows(non-domain)/ Linux(non-domain)/ SQL Server authentication credentials on the appliance configuration manager. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 

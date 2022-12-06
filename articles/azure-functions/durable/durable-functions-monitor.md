@@ -21,7 +21,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 # [JavaScript](#tab/javascript)
 
 * [Complete the quickstart article](quickstart-js-vscode.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/main/samples)
 
 ---
 
@@ -74,11 +74,11 @@ The orchestrator requires a location to monitor and a phone number to send a mes
 
 The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/function.json":::
 
 Here is the code that implements the function:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/index.js":::
 
 ---
 
@@ -104,11 +104,11 @@ As with other samples, the helper activity functions are regular functions that 
 
 The *function.json* is defined as follows:
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/function.json":::
 
 And here is the implementation.
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/index.js":::
 
 ---
 
@@ -127,11 +127,11 @@ The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS 
 
 Its *function.json* is simple:
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/function.json":::
 
 And here is the code that sends the SMS message:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/index.js":::
 
 ---
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 09/13/2022
 ms.author: abnarain
 ---
 
@@ -1000,7 +1000,7 @@ The following table applies to Azure Batch.
 
 ### SSL error when linked service using HDInsight ESP cluster
 
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.'`
 
 - **Cause**: The issue is most likely related with System Trust Store.
 
@@ -1022,15 +1022,55 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ## Web Activity  
 
-### Error code: 2128
+### Error Code: 2001
 
-- **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Message**: `The length of execution output is over limit (around 4MB currently).`
 
-- **Cause**: This issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
+- **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
 
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman/Netmon/Wireshark**.
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+
+### Error Code: 2002
+
+- **Message**: `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+- **Cause**: The payload you are attempting to send is too large.
+
+- **Recommendation**: Refer to [Payload is too large](data-factory-troubleshoot-guide.md#payload-is-too-large).
+
+### Error Code: 2003
+
+- **Message**: `There are substantial concurrent external activity executions which is causing failures due to throttling under subscription <subscription id>, region <region code> and limitation <current limit>. Please reduce the concurrent executions. For limits, refer https://aka.ms/adflimits.`
+
+- **Cause**: Too many activities are running concurrently. This can happen when too many pipelines are triggered at once.
+
+- **Recommendation**: Reduce pipeline concurrency. You might have to distribute the trigger time of your pipelines.  
+
+### Error Code: 2010
+
+- **Message**: `The Self-hosted Integration Runtime ‘<SHIR name>’ is offline`
+
+- **Cause**: The self-hosted integration runtime is offline or the Azure integration runtime is expired or not registered.
+
+- **Recommendation**: Make sure your self-hosted integration runtime is up and running. Refer to [Troubleshoot self-hosted integration runtime](self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
+
+### Error Code: 2105
+
+- **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
+
+- **Cause**: Data generated in the dynamic content expression doesn't match with the key and causes JSON parsing failure.
+
+- **Recommendation**: Look at the key field and fix the dynamic content definition.
 
 ### Error code: 2108
+
+- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url: <URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime'`
+
+- **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
+
+- **Recommendation**: Verify that the provided URL is accessible.
+
+<br/> 
 
 - **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
@@ -1038,40 +1078,58 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
-#### More details
-To use **Fiddler** to create an HTTP session of the monitored web application:
+    **Using Fiddler**
+    
+    To use **Fiddler** to create an HTTP session of the monitored web application:
+    
+    1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+    
+    1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+    
+       1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+    
+          :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+    
+    1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+    
+       Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+    
+    1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+    
+    1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+    
+    1. Create a request:
+    
+    1. Select the **Composer** tab.
+    
+       1. Set the HTTP method and URL.
+     
+       1. If needed, add headers and a request body.
+    
+       1. Select **Execute**.
+    
+    1. Turn on traffic capturing again, and complete the problematic transaction on your page.
+    
+    1. Go to: **File** > **Save** > **All Sessions**.
+    
+    For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
-1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+### Error Code: 2113
 
-1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+- **Message**: `ExtractAuthorizationCertificate: Unable to generate a certificate from a Base64 string/password combination`
 
-   1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+- **Cause**: Unable to generate certificate from Base64 string/password combination.
 
-      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+- **Recommendation**: Verify that the Base64 encoded PFX certificate and password combination you are using are correctly entered.
 
-1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+### Error Code: 2403
 
-   Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+- **Message**: `Get access token from MSI failed for Datafactory <DF mname>, region <region code>. Please verify resource url is valid and retry.`
 
-1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+- **Cause**: Unable to acquire an access token from the resource URL provided.
 
-1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+- **Recommendation**: Verify that you have provided the correct resource URL for your managed identity.
 
-1. Create a request:
-
-1. Select the **Composer** tab.
-
-   1. Set the HTTP method and URL.
- 
-   1. If needed, add headers and a request body.
-
-   1. Select **Execute**.
-
-1. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-1. Go to: **File** > **Save** > **All Sessions**.
-
-For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## General
 

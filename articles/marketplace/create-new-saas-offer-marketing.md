@@ -3,7 +3,6 @@ title: Sell a SaaS offer in Azure Marketplace
 description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for your software as a service (SaaS) offer in Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

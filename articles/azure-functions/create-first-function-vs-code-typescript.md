@@ -4,7 +4,7 @@ description: Learn how to create a TypeScript function, then publish the local N
 ms.topic: quickstart
 ms.date: 06/18/2022
 ms.devlang: typescript
-ms.custom: mode-ui
+ms.custom: mode-ui, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code
@@ -23,7 +23,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js 14.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/) (preview). Use the `node --version` command to check your version.  
++ [Node.js 16.x](https://nodejs.org/en/download/releases/) or [Node.js 18.x](https://nodejs.org/en/download/releases/) (preview). Use the `node --version` command to check your version.  
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 

@@ -9,7 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/02/2022
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
  
 <a name="HOLTop"></a>
@@ -28,6 +28,10 @@ Use the OCR client library to read printed and handwritten text from a remote im
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Read printed and handwritten text
 
@@ -86,7 +90,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. As an optional step, see [How to specify the model version](../../how-to/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `ReadAsync` call as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
@@ -110,6 +114,9 @@ Use the OCR client library to read printed and handwritten text from a remote im
    ```
 
    ---
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
 
 ## Output
 
@@ -137,6 +144,8 @@ nt Daily Values are based on Vitamin A 50%
 calorie diet.
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

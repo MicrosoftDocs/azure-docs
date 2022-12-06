@@ -16,7 +16,7 @@ This article outlines some of the frequently asked questions and OS concepts for
 
 ## Which Windows operating systems are supported?
 
-AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
+AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
 
 ## Is Kubernetes different on Windows and Linux?
 
@@ -71,6 +71,10 @@ To fix this error:
 1. Create new Windows agent pools.
 1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
 1. Delete old Windows agent pools.
+
+## Why is there an unexpected user named "sshd" on my VM node?
+
+AKS adds a user named "sshd" when installing the OpenSSH service. This user is not malicious. We recommend that customers update their alerts to ignore this unexpected user account.
 
 ## How do I rotate the service principal for my Windows node pool?
 
@@ -135,7 +139,7 @@ Yes, an ingress controller that supports Windows Server containers can run on Wi
 
 ## Can my Windows Server containers use gMSA?
 
-Group-managed service account (gMSA) support is currently available in preview. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)](use-group-managed-service-accounts.md)
+Group-managed service account (gMSA) support is generally available for Windows on AKS. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](use-group-managed-service-accounts.md)
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 

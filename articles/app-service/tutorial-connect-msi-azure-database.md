@@ -6,7 +6,7 @@ keywords: azure app service, web app, security, msi, managed service identity, m
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: "mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli, ignite-2022
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -17,7 +17,7 @@ ms.custom: "mvc, devx-track-azurecli"
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -237,7 +237,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
 
     ```sql
     SET aad_validate_oids_in_tenant = off;
-    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user;
+    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-user-assigned-identity>' IN ROLE azure_ad_user;
     ```
 
     Whatever name you choose for *\<postgresql-user-name>*, it's the PostgreSQL user you'll use to connect to the database later from your code in App Service.

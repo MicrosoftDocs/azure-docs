@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 09/28/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
@@ -49,4 +49,3 @@ When you start to create your own custom text classification projects, use the h
 * [Tag data](how-to/tag-data.md)
 * [Train a model](how-to/train-model.md)
 * [View model evaluation](how-to/view-model-evaluation.md)
-* [Improve a model](how-to/improve-model.md)

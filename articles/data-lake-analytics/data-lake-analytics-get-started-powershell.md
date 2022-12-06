@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts and then submit and run U-SQL jobs. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 ## Prerequisites
