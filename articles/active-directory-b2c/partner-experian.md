@@ -69,7 +69,7 @@ The following architecture diagram shows the implementation.
 
 ### Deploy the API
 
-1. Deploy the partner-integration to an Azure service: Go to [samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln). 
+1. Deploy the partner-integration to an Azure service: Go to [/CrossCoreIntegrationApi.sln](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln). 
 2. Publish the code from Visual Studio. 
 
 >[!NOTE]
