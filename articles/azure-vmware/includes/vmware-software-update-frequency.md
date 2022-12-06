@@ -10,9 +10,12 @@ ms.author: v-szuber
 
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-One benefit of Azure VMware Solution private clouds is the platform is maintained for you.  Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN). Microsoft is also responsible for the lifecycle management of the NSX-T Data Center appliances, bootstrapping the network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for the NSX-T Data Center SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers. 
+One benefit of Azure VMware Solution private clouds is that the platform is maintained for you. Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN). Microsoft is also responsible for the lifecycle management of the NSX-T Data Center appliances and bootstrapping the network configuration, like creating the Tier-0 gateway and enabling North-South routing. You’re responsible for the NSX-T Data Center SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
-Microsoft is responsible for applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX-T Data Center in your private cloud. The impact of patches, updates, and upgrades on ESXi, vCenter Server, and NSX-T Data Center is different. 
+> [!NOTE]
+> A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
+
+Microsoft is responsible for applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX-T Data Center in your private cloud. The impact of patches, updates, and upgrades on ESXi, vCenter Server, and NSX-T Data Center is different.
 
 - **ESXi** - There's no impact to workloads running in your private cloud. Access to vCenter Server and NSX-T Data Center isn't blocked during this time.  It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, scheduling or initiating active HCX migrations, making HCX configuration changes and so on, in your private cloud.
 

@@ -116,7 +116,7 @@ sections:
         answer: Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter Server [vMotion requirements](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) are met.
           
       - question: Is a specific version of vSphere required in on-premises environments?
-        answer: The on-premises environment must be running vSphere 6.0 or later if VMware HCX will be used to migrate VMs.
+        answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
 
       - question: Is VMware HCX supported on VPNs?
         answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
