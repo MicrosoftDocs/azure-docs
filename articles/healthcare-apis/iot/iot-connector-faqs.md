@@ -40,7 +40,7 @@ The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R
 
 ### Does the MedTech service perform backups of device messages?
 
-No. The MedTech service does not back up the device messages that come into the customer's event hub. The customer controls the device message retention period within their event hub which can be from 1-7 days. If the device message data is successfully processed the the MedTech service, it's persisted in the FHIR service and the backup policy applies. To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-).  
+No. The MedTech service doesn't back up the device messages that come into the customer's event hub. The customer controls the device message retention period within their event hub, which can be from 1-7 days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the backup policy applies. To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-).  
 
 ### Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 
