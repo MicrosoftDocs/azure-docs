@@ -288,7 +288,7 @@ Next, let's examine Figure 2, which plots the the original series in first diffe
 
 :::image type="content" source="media/non-stationary-retail-sales.png" alt-text="Diagram showing  retail sales for a non-stationary time series detection model.":::
 
-:::image type="content" source="media/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly-stationary time series detection model.":::
+:::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly-stationary time series detection model.":::
 
 In addition to well known problems associated with non stationary time series, machine learning models can not inherently deal with stochastic trends. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
