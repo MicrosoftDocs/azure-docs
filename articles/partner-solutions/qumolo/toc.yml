@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Qumolo?
-    href: dynatrace-overview.md
+    href: qumolo-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -13,8 +13,8 @@
     # href: qumolo-link-to-existing.md
 - name: How to
   items:
-  - name: Configure prerequisites
-    href: qumolo-how-to-configure-prereqs.md
+  # - name: Configure prerequisites
+  #   href: qumolo-how-to-configure-prereqs.md
   - name: Manage Qumolo
     href: qumolo-how-to-manage.md
   - name: Troubleshoot

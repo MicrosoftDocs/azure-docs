@@ -15,7 +15,7 @@ This article describes how to contact support when working with Azure Native Qum
 
 To contact support about the Azure Native Qumulo Scalable File Service, select [**New Support request**](https://aka.ms/partners/Qumulo/Support) in the left pane. Select the link to the Qumulo support website.
 
-    Screenshot
+  Screenshot
 
 ## Fix common errors
 
