@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/6/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -39,7 +39,7 @@ Datawiza integration includes the following components:
 - **Azure AD B2C**: The authorization server to verify user credentials
   - Authenticated users access on-premises applications using a local account stored in the Azure AD B2C directory
 - **Datawiza Access Broker (DAB)**: The service that passes identity to applications through HTTP headers
-- **Datawiza Cloud Management Console (DCMC)**: A management console for DAB. DCMC UI and RESTful APIs help manage DAB configurations and access control policies.
+- **Datawiza Cloud Management Console (DCMC)**: A management console for DAB. DCMC UI and RESTful APIs help manage DAB configurations and access control policies
 
 The following architecture diagram shows the implementation.
 
@@ -59,7 +59,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 Go to docs.datawiza.com to: 
 
-1. Learn how to register your web application in an Azure AD B2C tenant. See, [Microsoft Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+1. Learn how to register your web application in an Azure AD B2C tenant, and configure a sign up-and sign-in user flow . See, [Microsoft Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
 2. [Configure a user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in the Azure portal.
 
 >[!NOTE]
@@ -68,7 +68,7 @@ Go to docs.datawiza.com to:
 ## Create an application in DCMC
 
 1. In DCMC, create an application and generate a key pair of `PROVISIONING_KEY` and `PROVISIONING_SECRET` for this application. See, [Datawiza Cloud Management Console](https://docs.datawiza.com/step-by-step/step2.html).
-2. Configure Azure AD B2C as the IdP. See, [Part I: Azure AD B2C Configuration](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration).
+2. Configure IdP with Azure AD B2C. See, [Part I: Azure AD B2C Configuration](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration).
 
 ![Values to configure IdP](./media/partner-datawiza/configure-idp.png)
 
@@ -112,18 +112,18 @@ A sample docker image `docker-compose.yml file` is provided. Sign in to the cont
 
 ## Pass user attributes to the header-based application
 
-DAB gets user attributes from IdP and passes user attributes to the application with header or cookie. After you configure user attributes, the green check sign appears for user attributes.
-
-Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. 
+DAB gets user attributes from IdP and passes them to the application with header or cookie. After you configure user attributes, the green check sign appears for user attributes.
 
  ![Image shows passed user attributes](./media/partner-datawiza/pass-user-attributes.png)
+ 
+ Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. 
 
 ## Test the flow
 
 1. Navigate to the on-premises application URL.
 2. The DAB redirects to the page you configured in your user flow.
 3. From the list, select the IdP.
-4. At the prompt, enter your credentials, including an Azure AD Multi-Factor Authentication (MFA) token, if necessary.
+4. At the prompt, enter your credentials. If necessary, include an Azure AD Multi-Factor Authentication (MFA) token.
 5. You're redirected to Azure AD B2C, which forwards the application request to the DAB redirect URI.
 6. The DAB evaluates policies, calculates headers, and sends the user to the upstream application. 
 7. The requested application appears.
