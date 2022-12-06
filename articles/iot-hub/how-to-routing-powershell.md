@@ -17,29 +17,37 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 ## Prerequisites
 
-The procedures that are described in the article use the following prerequisites:
+The procedures that are described in the article use the following resources:
 
 * Azure PowerShell
-* An IoT hub
-* An endpoint service
+* A hub in Azure IoT Hub
+* An endpoint service in Azure
 
 ### Azure PowerShell
 
-To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
+This article uses Azure PowerShell to work with IoT Hub and other Azure services. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-### An IoT Hub and an endpoint service
+### IoT hub
 
-You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  If you don't have a hub yet, complete the steps to [create an IoT hub by using the New-AzIotHub PowerShell cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
+Be sure to have the following hub resource to use in your IoT hub route:
 
-* (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the New-AzIotHub PowerShell cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
 
-* (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
+### Endpoint service
 
-* (Optional) A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus messaging](/azure/service-bus-messaging/) documentation.
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage.
 
-* (Optional) An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
+Be sure to have one of the following endpoint resources to use in your IoT hub route:
+
+* An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+
+* A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
+
+* A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus messaging](/azure/service-bus-messaging/) documentation.
+
+* An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
 
 ## Create, update, and remove endpoints and routes
 

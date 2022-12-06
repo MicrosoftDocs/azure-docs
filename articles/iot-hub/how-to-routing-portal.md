@@ -17,35 +17,43 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 ## Prerequisites
 
-The procedures that are described in the article use the following prerequisites:
+The procedures that are described in the article use the following resources:
 
 * The Azure portal
-* An IoT hub
-* An endpoint service
+* A hub in Azure IoT Hub
+* An endpoint service in Azure
 
 ### Azure portal
 
 This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview)
 
-### An IoT hub and an endpoint service
+### IoT hub
 
-You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, Service Bus queue, Service Bus topic, Azure Storage, Azure Cosmos DB) you use for an endpoint to connect with your IoT hub route.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
+Be sure to have the following hub resource to use in your IoT hub route:
 
-* (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
 
-* (Optional) A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
+### Endpoint service
 
-* (Optional) A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage.
 
-* (Optional) An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). When you create a storage account, you have many options, but you need only a new container in your account for this article.
+Be sure to have one of the following endpoint resources to use in your IoT hub route:
 
-* (Optional) An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
+* An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
+
+* A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
+
+* A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+
+* An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). When you create a storage account, you have many options, but you need only a new container in your account for this article.
+
+* An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
 
 ## Create a route
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint where the messages or events end up, and a data source where the messages or events originate. You choose these locations when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
 You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. An instance of the service that you use for your endpoint must first exist in your Azure account.
 

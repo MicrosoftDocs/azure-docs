@@ -17,41 +17,37 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 ## Prerequisites
 
-The procedures that are described in the article use the following prerequisites:
+The procedures that are described in the article use the following resources:
 
 * The Azure CLI
-* An IoT hub
-* An endpoint service
+* A hub in Azure IoT Hub
+* An endpoint service in Azure
 
 ### Azure CLI
 
+This article uses the Azure CLI to work with IoT Hub and other Azure services. You can choose how you access the Azure CLI:
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-### An IoT hub and an endpoint service
+### IoT hub
 
-You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
+Be sure to have the following hub resource to use in your IoT hub route:
 
-* (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
 
-* (Optional) A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure CLI to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-cli).
+### Endpoint service
 
-* (Optional) A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli).
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage. The service that you use for your endpoint must first exist in your Azure account.
 
-* (Optional) An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli). When you create a storage account, you have many options, but you need only a new container in your account for this article.
-
-## Create services in Azure
-
-You can use an event hub, a Service Bus queue or topic, or a Storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
-
-Decide which route type (event hub, Service Bus queue or topic, or a Storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
+Decide which route type (event hub, Service Bus queue or topic, or Storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint service.
 
 # [Event Hubs](#tab/eventhubs)
 
 You can choose an Event Hubs resource (namespace and entity).
 
-### Create an Event Hubs resource with authorization rule
+#### Create an Event Hubs resource with authorization rule
 
 1. Create the Event Hubs namespace. For `name`, use a unique value. For `l` (location), use your resource group region.
 
@@ -82,7 +78,7 @@ For more information, see [Quickstart: Create an event hub by using the Azure CL
 
 You can choose a Service Bus queue resource (namespace and queue).
 
-### Create a Service Bus queue resource with authorization rule
+#### Create a Service Bus queue resource with authorization rule
 
 To create a Service bus queue resource with a subscription, you need an authorization rule to access the Service Bus queue.
 
@@ -120,7 +116,7 @@ For more information, see [Use the Azure CLI to create a Service Bus namespace a
 
 You can choose a Service Bus topic resource (namespace, topic, and subscription).
 
-### Create a Service Bus topic resource with subscription
+#### Create a Service Bus topic resource with subscription
 
 To create a Service Bus topic resource with a subscription, you need an authorization rule to access the Service Bus topic.
 
@@ -162,7 +158,7 @@ For more information, see [Use Azure CLI to create a Service Bus topic and subsc
 
 You can choose an Azure Storage resource (account and container).
 
-### Create an Azure Storage resource with container
+#### Create an Azure Storage resource with container
 
 1. Create a new storage account.
 

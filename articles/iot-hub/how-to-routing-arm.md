@@ -1,6 +1,6 @@
 ---
 title: Create and delete routes and endpoints by using Azure Resource Manager
-description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using Azure Resource Manager.
+description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using an Azure Resource Manager template in the Azure portal.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -11,42 +11,52 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure Resource Manager
 
-This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using the Azure CLI or Azure PowerShell. We use an Azure Resource Manager template to create routes and endpoints to Event Hubs, an Azure Service Bus queue, a Service Bus topic, and Azure Storage.
+This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using the Azure CLI or Azure PowerShell. Use an Azure Resource Manager template to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
-[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are useful when you need to define resources in a JSON file. Each resource in Azure has a template to export that defines the components used in that resource.
+[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are useful when you want to define resources by using a JSON file. Every Azure resource has a template that defines the components that are used in that resource. You can export all Azure resource templates.
 
 > [!IMPORTANT]
-> The Resource Manager template will replace the existing resource, if there is one, when deployed. If you're creating a new IoT hub, this is not a concern and you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) with the required properties instead of exporting an existing template from your IoT hub.
+> When you use a Resource Manager template to deploy a resource, the template replaces any existing resource of the type you're deploying.
 >
-> However, adding a route to an existing IoT hub Resource Manager template, exported from your IoT hub, ensures all other resources and properties connected will remain after deployment (they won't be replaced). For example, an exported Resource Manager template might contain storage information for your IoT hub, if you've connected it to storage.
+> When you create a new IoT hub, overwriting an existing deployed resource isn't a concern. To create a new IoT hub, you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) that has the required properties instead of exporting an existing template from an IoT hub that's already deployed.
+>
+> However, if you add a route to an existing IoT hub Resource Manager template, use a template that you export from your IoT hub to ensure that all existing resources and properties remain connected after you deploy the updated template. Resources that are already deployed won't be replaced. For example, an exported Resource Manager template that you previously deployed might contain storage information for your IoT hub, if you've connected it to storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage, testing on a simulated device, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through the steps to set up a route that sends messages to storage and then test on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
 ## Prerequisites
 
-The procedures that are described in the article use the following prerequisites:
+The procedures that are described in the article use the following resources:
 
-* Azure Resource Manager
-* An IoT hub
-* An endpoint service
+* An Azure Resource Manager template
+* A hub in Azure IoT Hub
+* An endpoint service in Azure
 
-## Azure Resource Manager
+### Azure Resource Manager template
 
-This article uses a template from Resource Manager. To understand more about Resource Manager, see [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
+This article uses an Azure Resource Manager template in the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use Resource Manager templates, see [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
 
-## An IoT hub and an endpoint service**
+### IoT hub
 
-You need an IoT hub and at least one other service to serve as an endpoint to an IoT hub route. You can choose which Azure service (Event Hubs, Service Bus queue or topic, or Azure Storage) endpoint that you'd like to connect with your IoT Hub route.
+To create an IoT hub route, you need an IoT hub that you created by using Azure IoT Hub. Device messages originate in your IoT hub.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub by using an Azure Resource Manager template (PowerShell)](iot-hub-rm-template-powershell.md).
+Be sure to have the following hub resource to use in your IoT hub route:
 
-* (Optional) An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using a Resource Manager template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using an Azure Resource Manager template (PowerShell)](iot-hub-rm-template-powershell.md).
 
-* (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Quickstart: Create a Service Bus namespace and a queue by using a Resource Manager template](../service-bus-messaging/service-bus-resource-manager-namespace-queue.md).
+### Endpoint service
 
-* (Optional) A Service Bus topic resource. If you need to create a new Service Bus topic, see [Quickstart: Create a Service Bus namespace with topic and subscription by using a Resource Manager template](../service-bus-messaging/service-bus-resource-manager-namespace-topic.md).
+To create an IoT hub route, you need at least one other Azure service to use as an endpoint to the route. The endpoint receives device messages. You can choose which Azure service you use for an endpoint to connect with your IoT hub route: Event Hubs, Service Bus queue or topic, or Azure Storage.
 
-* (Optional) An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=template).
+Be sure to have one of the following endpoint resources to use in your IoT hub route:
+
+* An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using a Resource Manager template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md).
+
+* A Service Bus queue resource. If you need to create a new Service Bus queue, see [Quickstart: Create a Service Bus namespace and a queue by using a Resource Manager template](../service-bus-messaging/service-bus-resource-manager-namespace-queue.md).
+
+* A Service Bus topic resource. If you need to create a new Service Bus topic, see [Quickstart: Create a Service Bus namespace with topic and subscription by using a Resource Manager template](../service-bus-messaging/service-bus-resource-manager-namespace-topic.md).
+
+* An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=template).
 
 ## Create a route
 
