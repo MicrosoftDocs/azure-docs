@@ -16,7 +16,7 @@ Currently, depending on how you delete an API Management instance, the instance 
 
 * When you use the Azure portal or REST API version `2020-06-01-preview` or later to delete an API Management instance, it's **soft-deleted**.
 * An API Management instance deleted using a REST API version before `2020-06-01-preview` is **permanently deleted**.
-* An API Management instance deleted using API Management commands in Azure PowerShell or Azure CLI is **permanently deleted**.
+* An API Management instance deleted using API Management commands in Azure PowerShell or Azure CLI is **soft-deleted**.
 
 ## Supporting interfaces
 

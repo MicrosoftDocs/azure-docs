@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 12/2/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -365,7 +365,7 @@ For information about the viewing experience for models, see [Explore models and
 
 ### Upload models
 
-You can upload models from your machine by selecting them individually, or by uploading an entire folder of models at once.
+You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
@@ -380,7 +380,18 @@ To upload a folder of models, including everything that's inside it, select the 
 In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
 >[!IMPORTANT]
->If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
+>If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them all in the same import and Azure Digital Twins will infer the order to upload them in. However, if you're uploading more than 50 models in the same file, see the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
+#### Limitations of bulk model upload
+
+The limitations in this section apply to models that are contained within a single JSON file, therefore being uploaded at the same time.
+
+While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
+* If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.
+* If there are any models that reference other models defined in the same file as components, place them near the end of the list.
+* Verify that wherever a model references another model that's defined in the same file (either through inheritance or as a component), the model that contains the reference comes later in the list than the referenced model definition.
+
+This will help make sure that model dependencies are resolved correctly during the upload process.
 
 ### Delete models
 
@@ -409,6 +420,9 @@ From the **Twin Graph** panel, you have the options to [import](#import-graph) a
 ### Import graph
 
 You can use the import feature to add twins, relationships, and models to your instance. This feature can be useful for creating many twins, relationships, and/or models at once.
+
+>[!NOTE]
+> If your graph import file includes models, they'll be subject to the [bulk model upload limitations](#limitations-of-bulk-model-upload).
 
 #### Create import file
 
