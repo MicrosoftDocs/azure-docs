@@ -170,7 +170,7 @@ By default, private and public IPs issued to Azure VMs are dynamic, so can chang
 13. For the new public IP address, provide a name, for example, BIG-IP-VM_ipconfig2_Public.
 14. If prompted, set the **SKU** to **Standard**.
 15. If prompted, set the **Tier** to **Global**.
-16. Set the **Assignment** option to **Static**
+16. Set the **Assignment** option to **Static**.
 17. Select **OK** twice.
 
 Your BIG-IP-VM is ready for:
