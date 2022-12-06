@@ -166,6 +166,24 @@
       - name: Reference list of attack paths and cloud security graph components
         displayName: attack, paths, security, graph, components
         href: attack-path-reference.md
+  - name: Protect servers
+    items:
+    - name: Plan Defender for Servers deployment
+      items:
+      - name: Get started
+        href: plan-defender-for-servers.md
+      - name: Review data residency, workspace design 
+        href: plan-defender-for-servers-data-workspace.md
+      - name: Determine roles and access
+        href: plan-defender-for-servers-roles.md
+      - name: Select a plan
+        href: plan-defender-for-servers-select-plan.md
+      - name: Review agents and extensions
+        href: plan-defender-for-servers-agents.md
+      - name: Scale Defender for Servers deployment
+        href: plan-defender-for-servers-scale.md
+      - name: Common questions
+        href: faq-defender-for-servers.yml
   - name: Protect cloud workloads
     items:
     - name: Agentless scanning
@@ -336,7 +354,7 @@
       - name: Find vulnerabilities and software inventory with agentless scanning
         displayName: vulnerability, software inventory, agentless scanning
         href: enable-vulnerability-assessment-agentless.md
-      - name: Find vulnerabilities with threat and vulnerability management
+      - name: Find vulnerabilities with Microsoft Defender Vulnerability Management
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
       - name: Find vulnerabilities with the integrated Qualys scanner
