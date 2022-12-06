@@ -199,7 +199,7 @@ To resolve your published SHA services to your BIG-IP-VM public IP(s), configure
 2. With the **Resource Groups** option, navigate to your BIG-IP-VM.
 3. From the BIG-IP VM menu, go to **Settings** > **Networking**.
 4. In the BIG-IP-VMs networking view, from the drop-down IP configuration list, select the first secondary IP.
-5. Select the link for its **NIC Public IP**.
+5. Select the **NIC Public IP** link.
 
 ![The NIC public IP](./media/f5ve-deployment-plan/networking.png)
 
@@ -267,9 +267,10 @@ A BIG-IP system is administered with its web config UI. Access the UI from:
 Confirm you can connect to the BIG-IP VM web config and sign in with the credentials specified during VM deployment:
 
 - If connecting from a VM on its internal network or via VPN, connect to the BIG-IP primary IP and web config port. For example, `https://<BIG-IP-VM_Primary_IP:8443`. Your browser prompt might state the connection is insecure. Ignore the prompt until the BIG-IP is configured. If the browser blocks access, clear its cache, and try again.
-- If you published the web config via Application Proxy, use the URL defined to access the web config externally. Don't append the port, for example, `https://big-ip-vm.contoso.com`. Define the internal URL by using the web config port, for example, `https://big-ip-vm.contoso.com:8443`
+- If you published the web config via Application Proxy, use the URL defined to access the web config externally. Don't append the port, for example, `https://big-ip-vm.contoso.com`. Define the internal URL by using the web config port, for example, `https://big-ip-vm.contoso.com:8443`.
 
-You can manage a BIG-IP system with its SSH environment, typically used for command-line (CLI) tasks and root-level access. 
+>[!NOTE]
+>You can manage a BIG-IP system with its SSH environment, typically used for command-line (CLI) tasks and root-level access. 
 
 To connect to the CLI:
 
@@ -292,7 +293,7 @@ Before it can be configured for publishing services and SHA, activate and provis
 8. Select **Continue**.
 9. At the bottom of the License summary page, sign in.
 10. Select **Next**. 
-11. A list of modules required for SHA appear. 
+11. A list of modules, required for SHA, appears. 
 
 >[!NOTE]
 >If the list does not appear, in the main tab, go to **System** > **Resource Provisioning**. Check the provisioning column for Access Policy (APM)
@@ -318,15 +319,15 @@ It's important to secure management traffic to and from BIG-IP web config. To he
 4. Provide the certificate password.
 5. Select **Import**.
 6. From the left-navigation bar, go to **System** > **Platform**.
-7. Configure the BIG-IP-VM with a fully qualified hostname and environment time zone.
-8. Select **Update**.
+7. Under General Properties, enter a qualified **Host Name** and environment **Time Zone**.
 
 ![The image shows general properties](./media/f5ve-deployment-plan/general-properties.png)
 
-9. From the left-navigation bar, go to **System** > **Configuration** > **Device** > **NTP**.
-10. Specify an NTP source.
-11. Select **Add**.
-12. Select **Update**. For example, `time.windows.com`
+9. Select **Update**.
+10. From the left-navigation bar, go to **System** > **Configuration** > **Device** > **NTP**.
+11. Specify an NTP source.
+12. Select **Add**.
+13. Select **Update**. For example, `time.windows.com`
 
 You need a DNS record to resolve the BIG-IPs FQDN to its primary private IP, which you specified in previous steps. Add a record to your environment internal DNS, or to a PC localhost file to connect to the BIG-IP web config. When you connect to the web config, the browser warning no longer appears, not with Application Proxy or any other reverse proxy.
 
@@ -338,7 +339,7 @@ When you publish SSL-based services, BIG-IP SSL profiles handing decrypting and 
 
 There are two profile types:
 
-- **Client SSL**: Creating this profile the most common way to set up a BIG-IP system to publish internal services with SSL. With a Client SSL profile, a BIG-IP system decrypts inbound client requests, before sending them to a down-stream service. It encrypts outbound back-end responses, then sends them to clients.
+- **Client SSL**: Creating this profile is the most common way to set up a BIG-IP system to publish internal services with SSL. With a Client SSL profile, a BIG-IP system decrypts inbound client requests, before sending them to a down-stream service. It encrypts outbound back-end responses, then sends them to clients.
 - **Server SSL**: For back-end services configured for HTTPS, you can configure BIG-IP to use a Server SSL profile. With this profile, the BIG-IP re-encrypts the client request, then sends it to the destination back-end service. When the server returns an encrypted response, the BIG-IP system decrypts and re-encrypts the response, then sends it to the client, through the configured Client SSL profile.
 
 For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client and Server SSL profiles.
@@ -352,14 +353,14 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 7. Select **Import**.
 8. From the left-navigation, go to **Local Traffic** > **Profiles** > **SSL** > **Client**.
 9. Select **Create**.
-10. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile.
+10. In the **New Client SSL Profile** page, enter a unique, friendly **Name**.
 11. Ensure the Parent profile is set to **clientssl**.
 
 ![The image shows update big-ip](./media/f5ve-deployment-plan/client-ssl.png)
 
 8. In the **Certificate Key Chain** row, select the far-right check box.
 9. Select **Add**.
-10. From the three drop-down lists, select the wildcard certificate you imported without a passphrase.
+10. From the **Certificate**, **Key**, and **Chain** drop-down lists, select the wildcard certificate you imported without a passphrase.
 11. Select **Add**.
 12. Select **Finished**.
 
@@ -367,9 +368,11 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 
 13.	Repeat steps to create an **SSL server certificate profile**. 
 14.	From the top ribbon, select **SSL** > **Server** > **Create**.
-15.	In the **New Server SSL Profile** page, enter a unique friendly name for the new server SSL profile.
+15.	In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
 16.	Ensure the Parent profile is set to **serverssl**.
-17.	Select the far-right check box for the Certificate and Key rows and from the drop-down list select your imported certificate, followed by **Finished**.
+17.	Select the far-right check box for the **Certificate** and **Key** rows
+18.	From the **Certificate** and **Key** drop-down lists, select your imported certificate.
+19.	Select **Finished**.
 
 ![The image shows update big-ip server all profile](./media/f5ve-deployment-plan/server-ssl-profile.png)
 
@@ -472,7 +475,7 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 ```
 
 >[!NOTE]
->Currently, the AzVmSnapshot cmdlet can restore the most recent snapshot, based on date. Snapshots are stored in the VM resource-group root. Restoring snapshots restarts an Azure VM, so ensure the timing for the task is optimal.
+>Currently, the AzVmSnapshot cmdlet can restore the most recent snapshot, based on date. Snapshots are stored in the VM resource-group root. Restoring snapshots restarts an Azure VM, therefore ensure optimal timing for the task.
 
 ## Resources
 
