@@ -7,4 +7,4 @@ ms.author: jgao
 ---
 
 > [!NOTE]
-> The Bicep deploy command from within vscode uses the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) for authentication. It doesn't use cloud profiles from [bicepconfig.json](./bicep-config.md#credential-precedence).
+> The Bicep deploy command from within vscode uses the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) for authentication. It doesn't use cloud profiles from [bicepconfig.json](../articles/azure-resource-manager/bicep/bicep-config.md#credential-precedence).
