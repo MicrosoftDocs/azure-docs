@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins data history (with Azure Data Explorer)
 
-**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph lifecycle and property updates are automatically historized to Azure Data Explorer.
 
 Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
@@ -50,7 +50,7 @@ If you'd like, you can have multiple Azure Digital Twins instances historize twi
 
 Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
 * **different tables** in the Azure Data Explorer cluster.
-* **the same table** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table name while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schema](#data-schema), the `ServiceId` column will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record.
+* **the same table** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table name while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schemas](#data-schemas), the `ServiceId` column will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record.
 
 ## Required permissions
 
@@ -69,7 +69,9 @@ Once all the [resources](#resources-and-data-flow) and [permissions](#required-p
 
 For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
-## Data schema
+## Data schemas
+
+### Twin property updates
 
 Time series data for twin property updates is stored in Azure Data Explorer with the following schema:
 
@@ -94,7 +96,7 @@ Below is an example table of twin property updates stored to Azure Data Explorer
 | 2021-06-30T20:23:47.078367Z | 2021-06-30T20:22:34.9375957Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
 | 2021-06-30T20:23:57.3794198Z | 2021-06-30T20:22:50.1028562Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 123 |  |  |
 
-### Representing properties with multiple fields 
+#### Representing properties with multiple fields 
 
 You may need to store a property with multiple fields. These properties are represented with a JSON object in the `Value` attribute of the schema.
 
