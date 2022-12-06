@@ -16,17 +16,17 @@ See below for information about new features and other changes to the Map Contro
 
 ## 3.0.0-preview.2
 
-- Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This addresses an accessibility issue where traffic levels could not be distinguished if colors are not taken into account.
+- Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
-- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This improves the perceived loading time of the map. See [2.2.1 release notes](#221) for more details.
+- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221).
 
-- Fix an issue that the ordering of user layers was not preserved after calling `map.layers.move()`.
+- Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
 
-- Add `.atlas-map` to all css selectors to scope the stylesheet within the map container. This prevents the stylesheet from accidentally adding unwanted styles to other elements on the page.
+- Add `.atlas-map` to all css selectors to scope the stylesheet within the map container. The fix prevents the stylesheet from accidentally adding unwanted styles to other elements on the page.
 
 ## 3.0.0-preview.1
 
-- This is the first preview of the upcoming 3.0.0 release. There is no breaking change except that the underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from 1.14 to 3.0.0-pre.1 which offers improvements in stability and performance.
+- This update is the first preview of the upcoming 3.0.0 release. There's no breaking change except that the underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from 1.14 to 3.0.0-pre.1, which offers improvements in stability and performance.
 
 - Fix a regression issue that prevents IndoorManager from removing a tileset by using
     ```js
@@ -37,7 +37,7 @@ See below for information about new features and other changes to the Map Contro
 
 ## 2.2.1
 
-- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This improves the perceived loading time of the map.
+- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map.
   - `progressiveLoading`
     - Enables progressive loading of map layers.
     - Defaults to false.
@@ -47,7 +47,7 @@ See below for information about new features and other changes to the Map Contro
     - Possible values are `base`, `transit`, `labels`, `buildings`, and `labels_places`.
     - Other layer groups are deferred such that the initial layer groups can be loaded first.
 
-- Fix an issue that the ordering of user layers was not preserved after calling `map.layers.move()`.
+- Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
 
 ## Next steps
 
