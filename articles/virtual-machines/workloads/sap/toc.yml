@@ -6,7 +6,9 @@
     href: sap-certifications.md
 - name: Integration with Microsoft Services
   items:
-  - name: Integrating Azure with SAP RISE managed workloads
+  - name: Extend your SAP applications and data to innovate on Azure | Azure Friday
+    href: https://www.youtube.com/watch?v=72kbjv0GJAY
+  - name: Integration with SAP RISE managed workloads
     href: sap-rise-integration.md#sap-btp-connectivity
   - name: Microsoft Office
     items:
@@ -24,10 +26,18 @@
     items:
     - name: Native SAP apps on the Teams marketplace
       href: https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1
+    - name: SAP SuccessFactors Learning
+      href: https://help.sap.com/docs/SAP_SUCCESSFACTORS_LEARNING/b5f34f583e874dd58c40525e4504b99e/e7c54e3fc9a24ee2b114a78761d3ff90.html
+    - name: SAP Build Work Zone, advanced edition
+      href: https://help.sap.com/docs/WZ/b03c84105ff74f809631e494bd612e83/bfa596db8219450ba9c65b809300b55d.html
     - name: Embedding SAP Cloud Portal and SAP Build Work Zone into Microsoft Teams
       href: https://blogs.sap.com/2022/01/26/integrate-sap-cloud-portal-and-launchpad-service-into-microsoft-teams-including-sso/
     - name: Embed self-hosted SAP Fiori Launchpad into Microsoft Teams
       href: https://blogs.sap.com/2022/08/02/embed-self-hosted-sap-fiori-launchpad-into-microsoft-teams/
+    - name: Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba and Microsoft Teams
+      href: https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/
+    - name: A hitchhiker's guide to Microsoft Teams and SAP Integration
+      href: https://www.youtube.com/watch?list=PLvqyDwoCkBXZ85LoFrNWv9Mj88TiDAc4g&v=AuCbL4SFKSc
   - name: Microsoft Power Platform
     items:
     - name: Overview of SAP integration
@@ -42,6 +52,8 @@
       href: https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/
     - name: RPA Playbook for SAP GUI Automation with Power Automate
       href: https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/
+    - name: Use SAP Business Rules Service (part of SAP Workflow) to expose SAP business logic to Power Apps
+      href: https://blogs.sap.com/2020/07/31/scp-business-rules-put-to-the-test-with-microsoft-power-platform/
   - name: SAP Fiori
     items:
     - name: Azure CDN for SAPUI5 libraries
@@ -102,12 +114,22 @@
       href: expose-sap-process-orchestration-on-azure.md
     - name: New SAP events on Azure Event Grid with SAP Event Mesh
       href: https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372
+    - name: Event-driven architectures for SAP ERP with Azure
+      href: https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/
+    - name: Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure
+      href: https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/
     - name: Connect to SAP from workflows in Azure Logic Apps
       href: /azure/logic-apps/logic-apps-using-sap-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Automate SAP invoice processing using Azure Logic Apps and Cognitive Services
       href: https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/
     - name: Import SAP OData metadata as an API into Azure API Management
       href: /azure/api-management/sap-api?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+  - name: App Development and DevOps
+    items:
+    - name: dotNET speaks OData too, how to implement Azure App Service with SAP Gateway
+      href: https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/
+    - name: Apply cloud native deployment practice blue-green to SAP BTP apps with Azure DevOps
+      href: https://blogs.sap.com/2019/12/20/go-blue-green-for-your-cloud-foundry-app-from-webide-with-azure-devops/
   - name: Azure Data Services
     items:
     - name: SAP knowledge center for Azure Data Factory and Synapse
@@ -128,6 +150,8 @@
       href: expose-sap-odata-to-power-query.md
     - name: SAP HANA Connector for Power Query
       href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
+    - name: Extend SAP Integrated Business Planning forecasting algorithms with Azure Machine Learning
+      href: https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/
   - name: Azure Networking
     items:
     - name: Getting Started with SAP Private Link Service for Azure
@@ -146,6 +170,26 @@
         href: /azure/sentinel/sap/sap-solution-log-reference?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: SAP security content reference
         href: /azure/sentinel/sap/sap-solution-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+  - name: SAP Business Technology Platform
+    items:
+    - name: SAP Discovery Center for Azure Services and Missions
+      href: https://discovery-center.cloud.sap/search/Azure
+    - name: SAP Private Link service use cases for SAP Cloud Integration and SAP Launchpad
+      href: https://blogs.sap.com/2022/08/22/sap-private-link-service-use-cases-for-sap-cloud-integration-and-sap-launchpad/
+    - name: Automate SAP Cloud Integration flow recovery
+      href: https://blogs.sap.com/2022/03/04/how-to-notice-and-handle-faulty-cpi-iflow-states-automatically/
+    - name: Monitor multiple SAP Cloud Integration tenants with Azure Monitor
+      href: https://blogs.sap.com/2020/11/11/broadcast-cpi-errors-to-azure-monitor-via-scp-alert-notifications/
+    - name: Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager
+      href: https://discovery-center.cloud.sap/missiondetail/3603/
+    - name: Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager
+      href: https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/
+    - name: Federate your data from Azure Data Explorer to SAP Data Warehouse Cloud
+      href: https://discovery-center.cloud.sap/missiondetail/3433/3473/
+    - name: Explore your Azure data sources with SAP Data Warehouse Cloud
+      href: https://discovery-center.cloud.sap/missiondetail/3656/3699/
+    - name: OpenSAP course Building Applications on SAP BTP with Microsoft Services
+      href: https://open.sap.com/courses/btpma1
 - name: Plan and Deploy (Azure VMs)
   items:
   - name: Supported scenarios
