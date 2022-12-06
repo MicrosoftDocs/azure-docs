@@ -5,104 +5,120 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/29/2022
+ms.date: 12/05/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template
 
-In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure Resource Manager template (ARM template). This ARM template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically create the infrastructure and configuration of your deployment. 
+To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
-For more information about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
+In this quickstart, you'll learn how to:
 
-The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *azuredeploy.json* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
+> [!div class="checklist"]
+> - Open an ARM template in the Azure portal.
+> - Configure the ARM template for your deployment.
+> - Deploy the ARM template. 
 
-If you need to see a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-new-choose.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
-
-There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button. They are:
+> [!TIP]
+> To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
 
 ## Prerequisites
 
-In order to begin deployment, you need to have the following prerequisites:
+To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Two resource providers registered with your Azure subscription: **Microsoft.HealthcareApis** and **Microsoft.EventHub**. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
-When you've fulfilled these two prerequisites, you're ready to begin the second task.
+- The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-## Deploy to Azure button
+When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-Next, you need to select the ARM template **Deploy to Azure** button here:
+## Review the ARM template
+
+The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub). 
+
+## Use the Deploy to Azure button
+
+To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json).
 
-This button will call an ARM template from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service.
+## Configure the deployment
 
-After you select the **Deploy to Azure** button, it may take a few minutes to implement the following resources and roles:
+1. In the Azure portal, on the Basics tab of the Azure Quickstart Template, select or enter the following information for your deployment:
 
-- An Azure Event Hubs Namespace and device message Azure event hub. In this example, the event hub is named **devicedata**.
+   - **Subscription** - The Azure subscription to use for the deployment.
 
-- An Azure event hub consumer group. In this example, the consumer group is named **$Default**.
+   - **Resource group** - An existing resource group, or you can create a new resource group.
 
-- An Azure event hub sender role. In this example, the sender role is named **devicedatasender**.
+   - **Region** - The Azure region of the resource group that's used for the deployment. Region auto-fills by using the resource group region.
 
-- An Azure Health Data Services workspace.
+   - **Basename** - A value that's appended to the name of the Azure resources and services that are deployed.
 
-- An Azure Health Data Services FHIR service.
+   - **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group).
 
-- An Azure Health Data Services MedTech service instance, including the necessary [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles to the device message event hub (named **Azure Events Hubs Receiver**) and FHIR service (named **FHIR Data Writer**).
+   - **Device Mapping** - Don't change the default values for this quickstart.
+  
+   - **Destination Mapping** - Don't change the default values for this quickstart.
 
-After these resources and roles have completed their implementation, the Azure portal will be launched.
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png":::
 
-## Provide configuration details
+2. To validate your configuration, select **Review + create**.
 
-When the Azure portal screen appears, your next task is to fill out five fields that provide specific details of your deployment configuration.
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
 
-:::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png":::
+3. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
 
-### Use these values to fill out the five fields
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-validation-completed.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
 
-- **Subscription** - Choose the Azure subscription you want to use for the deployment.
+4. After a successful validation, to begin the deployment, select **Create**.
 
-- **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
 
-- **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill, based on the Resource Group region.
+5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
-- **Basename** - This value will be appended to the name of the Azure resources and services to be deployed.
+   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
-- **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your Resource Group).
+## Review deployed resources and access permissions
 
-### When completed, do the following
+When deployment is completed, the following resources and access roles are created in the ARM template deployment:
 
-Don't change the **Device Mapping** and **Destination Mapping** default values at this time.
+- Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
 
-Select the **Review + create** button after all the fields are filled out. This selection will review your input and check to see if all your values are valid.
+- An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-When the validation is successful, select the **Create** button to begin the deployment. After a brief wait, a message will appear telling you that your deployment is complete.
+- The Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender*.
 
-## Required post-deployment tasks
+- A Health Data Services workspace.
 
-Now that the MedTech service is successfully deployed, there are three post-deployment tasks that need to be completed before MedTech is fully functional and ready for use:
+- A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
-1. First, you must provide a working device mapping. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
+- An instance of the MedTech service for Health Data Services, with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
-2. Second, you need to ensure that you have a working FHIR destination mapping. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+  - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
-3. Third, you must use a Shared access policies (SAS) key (named **devicedatasender**) to connect your device or application to the MedTech service device message event hub (named **devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
+  - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!IMPORTANT]
+> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
 >
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
->
-> **Examples:**
->
-> - Two MedTech services accessing the same device message event hub.
-> - A MedTech service and a storage writer application accessing the same device message event hub.
+> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
+## Post-deployment mappings
+
+After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
+
+ - To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+
+ - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Next steps
 
-In this article, you learned how to deploy the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. To learn more about other methods of deployment, see
+In this quickstart, you learned how to deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
+
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
