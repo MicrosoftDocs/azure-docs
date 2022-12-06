@@ -32,9 +32,7 @@ You have access to diagnostic data in these categories:
 
 1. Select **Diagnose and solve problems**.
 
-From the diagnostics window you can search for a symptom, or select a diagnostic category.
-
-You can use the search bar at the top to filter the diagnostic categories.
+From the diagnostics window you can filter diagnostic categories, or select one from the list.
 
 ## Reports
 
