@@ -37,7 +37,8 @@ Set the MTU of all desired endpoints to at least 3650.
 ## Setting up the contact profile
 
 Prerequisites:
-- The subnet/vnet is in the same region as the contact profile
+- The subnet is empty to enable Orbital to fetch the SALtoken
+- THe subnet/vnet in the same region as the contact profile
 
 Make sure the contact profile properties are set as follows:
 
