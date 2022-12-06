@@ -42,7 +42,7 @@ The change doesn't require any customer action unless you're running the agent o
     - Windows Server 2008 R2 SP1
 
 1. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 code signing support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
-1. Update to the latest version of the Windows agent (version 10.20.18029).
+1. Update to the latest version of the Windows agent (version 10.20.18067).
 1. We recommend that you configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12).
 
 ### Network requirements
