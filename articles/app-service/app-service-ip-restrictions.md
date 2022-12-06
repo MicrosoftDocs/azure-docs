@@ -199,7 +199,7 @@ You can add access restrictions rules programmatically by doing one of the follo
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/webapp/config/access-restriction). For example:
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az webapp config access-restriction* command visit [this page](/cli/azure/webapp/config/access-restriction).
 
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -208,7 +208,7 @@ Run the following command in the [Cloud Shell](https://shell.azure.com). Use [th
 
 ### [PowerShell](#tab/powershell)
 
-To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Add-AzWebAppAccessRestrictionRule* command visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
   ```azurepowershell-interactive
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
@@ -217,7 +217,7 @@ To do the same with PowerShell, run the following command in the [Cloud Shell](h
 
 ### [ARM](#tab/arm)
 
-For ARM templates, modify the property `ipSecurityRestrictions`. A sample ARM template snippet is provided for you:
+For ARM templates, modify the `ipSecurityRestrictions` block. A sample ARM template snippet is provided for you.
 
 ```ARM
         {
@@ -253,7 +253,7 @@ For ARM templates, modify the property `ipSecurityRestrictions`. A sample ARM te
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+For Bicep, modify the `ipSecurityRestrictions` block. A sample Bicep snippet is provided for you.
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -262,6 +262,8 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
+      ftpsState: ftpsState
+      alwaysOn: alwaysOn
       linuxFxVersion: linuxFxVersion
       ipSecurityRestrictions: [
         {
@@ -330,7 +332,7 @@ You can change *Unmatched rule action* for *Main site* programmatically by doing
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az resource* command visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -339,7 +341,7 @@ Run the following command in the [Cloud Shell](https://shell.azure.com). Use [th
 
 ### [PowerShell](#tab/powershell)
 
-To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com) For more information about *Set-AzResource* command visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -349,7 +351,7 @@ To do the same with PowerShell, run the following command in the [Cloud Shell](h
 
 ### [ARM](#tab/arm)
 
-For ARM templates, modify the property `ipSecurityRestrictionsDefaultAction`. Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you:
+For ARM templates, modify the property `ipSecurityRestrictionsDefaultAction`. Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you.
 
 ```ARM
         {
@@ -378,7 +380,7 @@ For ARM templates, modify the property `ipSecurityRestrictionsDefaultAction`. Ac
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you.
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -387,9 +389,10 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
+      ftpsState: ftpsState
+      alwaysOn: alwaysOn
       linuxFxVersion: linuxFxVersion
       ipSecurityRestrictionsDefaultAction: ipSecurityRestrictionsDefaultAction
-      scmIpSecurityRestrictionsDefaultAction: scmIpSecurityRestrictionsDefaultAction
     }
   }
 }
@@ -422,7 +425,7 @@ You can change *Unmatched rule action* for *Advanced tool site* programmatically
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az resource* command visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -431,7 +434,7 @@ Run the following command in the [Cloud Shell](https://shell.azure.com). Use [th
 
 ### [PowerShell](#tab/powershell)
 
-To do the same with PowerShell, run the following command in the [Cloud Shell](https://shell.azure.com). Use [Azure PowerShell](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Set-AzResource* command visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -441,7 +444,7 @@ To do the same with PowerShell, run the following command in the [Cloud Shell](h
 
 ### [ARM](#tab/arm)
 
-For ARM templates, modify the property `scmIpSecurityRestrictionsDefaultAction`. Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you:
+For ARM templates, modify the property `scmIpSecurityRestrictionsDefaultAction`. Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`. A sample ARM template snippet is provided for you.
 
 ```ARM
         {
@@ -470,7 +473,7 @@ For ARM templates, modify the property `scmIpSecurityRestrictionsDefaultAction`.
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the property `scmIpSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+For Bicep, modify the property `scmIpSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you.
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -479,6 +482,8 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
+      ftpsState: ftpsState
+      alwaysOn: alwaysOn
       linuxFxVersion: linuxFxVersion
       scmIpSecurityRestrictionsDefaultAction: scmIpSecurityRestrictionsDefaultAction
     }
