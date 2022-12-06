@@ -1914,7 +1914,30 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+By default, the AzureMonitorExporter uses one of the following locations for offline storage.
+
+- Windows
+  - %TEMP%\Microsoft\AzureMonitor
+- Non-Windows
+  - %TMPDIR%/Microsoft/AzureMonitor
+  - /var/tmp/Microsoft/AzureMonitor
+
+To override the default directory, you should set `storageDirectory`.
+
+For example:
+```javascript
+const exporter = new AzureMonitorTraceExporter({
+    connectionString: "<Your Connection String>",
+    storageDirectory: "C:\\SomeDirectory",
+    disableOfflineStorage: false
+});
+```
+
+To disable this feature, you should set `disableOfflineStorage = true`.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage.
 
@@ -1929,8 +1952,7 @@ To override the default directory, you should set `storageDirectory`.
 For example:
 ```typescript
 const exporter = new AzureMonitorTraceExporter({
-    connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    connectionString: "<Your Connection String>",
     storageDirectory: "C:\\SomeDirectory",
     disableOfflineStorage: false
 });
