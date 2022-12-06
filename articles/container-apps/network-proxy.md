@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 7/19/2022
+ms.date: 12/06/2022
 ms.author: cshoe
 ---
 
@@ -36,7 +36,7 @@ Requests that come in to ports `80` and `443` are internally routed to the appro
 - Envoy terminates TLS after crossing its boundary
     - Envoy sends requests to apps over HTTP in plain text
 - mTLS is only available when using Dapr
-    - When using the Dapr service invocation APIs, mTLS is enabled. However, because Envoy terminates mTLS, inbound calls from Envoy to Dapr-enabled container apps is not encrypted.
+    - When you use Dapr service invocation APIs, mTLS is enabled. However, because Envoy terminates mTLS, inbound calls from Envoy to Dapr-enabled container apps isn't encrypted.
 
 HTTPs, GRPC, and HTTP/2 all follow the same architectural model.
 
@@ -44,3 +44,5 @@ HTTPs, GRPC, and HTTP/2 all follow the same architectural model.
 
 Network requests timeout after four minutes
 
+> [!div class="nextstepaction"]
+> [Networking](networking.md)
