@@ -336,7 +336,7 @@
       - name: Find vulnerabilities and software inventory with agentless scanning
         displayName: vulnerability, software inventory, agentless scanning
         href: enable-vulnerability-assessment-agentless.md
-      - name: Find vulnerabilities with threat and vulnerability management
+      - name: Find vulnerabilities with Microsoft Defender Vulnerability Management
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
       - name: Find vulnerabilities with the integrated Qualys scanner
