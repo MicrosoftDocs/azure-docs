@@ -10,8 +10,8 @@ ms.date: 12/06/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: mattsmith
 ms.collection: M365-identity-device-management
 ---
 
@@ -28,7 +28,7 @@ This following tables list Azure AD feature availability in Azure Government.
 |**Authentication, single sign-on, and MFA**|Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
 || Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
 || Single sign-on (SSO) unlimited | &#x2705; | 
-|| Multifactor authentication (MFA) <sup>1</sup>| &#x2705; | 
+|| Multifactor authentication (MFA) | &#x2705; | 
 || Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
 || Certificate-based authentication | &#x2705; | 
 || Service-level agreement | &#x2705; | 
@@ -73,11 +73,10 @@ This following tables list Azure AD feature availability in Azure Government.
 || Advanced security and usage reports | &#x2705; |
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
-|**Frontline workers**|SMS sign-in | &#10060; |
+|**Frontline workers**|SMS sign-in | &#x2705; |
 || Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
 || Delegated user management portal (My Staff) | &#10060; |
 
-<sup>1</sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
 
 ## Identity protection
 
@@ -87,8 +86,8 @@ This following tables list Azure AD feature availability in Azure Government.
 |Azure AD threat intelligence | &#10060; |
 |Anonymous IP address | &#x2705; | 
 |Atypical travel | &#x2705; |
-|Anomalous Token | &#10060; |
-|Token Issuer Anomaly| &#10060; |
+|Anomalous Token | &#x2705; |
+|Token Issuer Anomaly| &#x2705; |
 |Malware linked IP address | &#x2705; |
 |Suspicious browser | &#x2705; |
 |Unfamiliar sign-in properties | &#x2705; |
@@ -100,7 +99,6 @@ This following tables list Azure AD feature availability in Azure Government.
 |New country | &#x2705; |
 |Activity from anonymous IP address | &#x2705; |
 |Suspicious inbox forwarding | &#x2705; |
-|Azure AD threat intelligence | &#10060; |
 |Additional risk detected | &#x2705; |
 
 
