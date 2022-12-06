@@ -44,7 +44,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 >
 > If you're looking for moving to a Long Term Support (LTS) .NET release, we recommend you upgrade to .NET 6 .
 > 
-> Migrating to .NET Isolated worker model to get benefits of .NET isolated worker process, For more information about .NET isolated worker process advantaqges see [](). For more information about .NET version support, see [Supported versions](./dotnet-isolated-process-guide.md#supported-versions).
+> Migrating to .NET Isolated worker model to get all benefits provided by Azure Functions .NET isolated worker process. For more information about .NET isolated worker process advantages see [.NET isolated worker process enhancement](./dotnet-isolated-in-process-differences.md). For more information about .NET version support, see [Supported versions](./dotnet-isolated-process-guide.md#supported-versions).
 
 Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
@@ -55,6 +55,7 @@ Before you upgrade your app to version 4.x of the Functions runtime, you should 
 
 * Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
 * [Run the pre-upgrade validator](#run-the-pre-upgrade-validator).
+* Identify the list of v2&v3 Function Apps in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-using-azure-powershell).
 * When possible, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
 * Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 * Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
@@ -70,6 +71,33 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 1. In **Function App Diagnostics**, start typing `Functions 4.x Pre-Upgrade Validator` and then choose it from the list. 
 
 1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#upgrade-your-local-project) or by [using a staging slot](#upgrade-using-slots). 
+
+
+## Identify Function Apps using Azure Powershell
+
+To identify the list of v2&v3 Function Apps in your current Azure Subscription by using the Azure PowerShell script below:
+
+```powershell
+$Subscription = '<YOUR SUBSCRIPTION ID>' 
+ 
+Set-AzContext -Subscription $Subscription | Out-Null 
+ 
+$FunctionApps = Get-AzFunctionApp  
+ 
+$AppInfo = @{} 
+foreach ($App in $FunctionApps) 
+{ 
+    $AppSettings = Get-AzFunctionAppSetting -ResourceGroupName $App.ResourceGroupName -Name $App.Name 
+    if ($AppSettings['FUNCTIONS_EXTENSION_VERSION'] -eq '~3' -or $AppSettings['FUNCTIONS_EXTENSION_VERSION'] -like '3.*') 
+    { 
+        $AppInfo.Add($App.Name,$AppSettings['FUNCTIONS_EXTENSION_VERSION']) 
+    } 
+} 
+ 
+$AppInfo 
+
+```
+
 
 ## Upgrade your local project
 
