@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSO integration with Parkable'
+title: Azure Active Directory SSO integration with Parkable
 description: Learn how to configure single sign-on between Azure Active Directory and Parkable.
 services: active-directory
 author: jeevansd
