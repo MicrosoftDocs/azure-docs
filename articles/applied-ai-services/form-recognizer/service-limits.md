@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 12/06/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -17,7 +17,13 @@ recommendations: false
 # Form Recognizer service quotas and limits
 <!-- markdownlint-disable MD033 -->
 
-**Applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v3.0**. ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
 
 * This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
@@ -42,13 +48,15 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
+## Custom model limits v3.0
+
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
 | **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Template** | 50 MB | 50 MB (default value) |
+| **Training dataset size - Template** | 50 MB<sup>4</sup> | 50 MB (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Neural** | 1 GB | 1 GB (default value) |
+| **Training dataset size - Neural** | 1 GB<sup>3</sup> | 1 GB (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) - Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
@@ -57,11 +65,11 @@ recommendations: false
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No |Yes<sup>3</sup>|
 
-<sup>3</sup> Open a support request to increase the monthly training limit.
-
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
+
+## Custom model limits v2.1
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -74,8 +82,16 @@ recommendations: false
 
 ::: moniker-end
 
+::: moniker range=">=form-recog-2.1.0"
+
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).
+<sup>3</sup> Open a support request to increase the monthly training limit.
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
+<sup>4</sup>This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
+::: moniker-end
 
 ## Detailed description, Quota adjustment, and best practices
 
