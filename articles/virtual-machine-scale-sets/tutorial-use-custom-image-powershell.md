@@ -62,18 +62,6 @@ $sourceVM = Get-AzVM `
    -Name myVM `
    -ResourceGroupName myResourceGroup
 ```
-## Create a resource group
-
-Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
-
-An Azure resource group is a logical container into which Azure resources are deployed and managed. In the following example, a resource group named *myGalleryRG* is created in the *EastUS* region:
-
-```azurepowershell-interactive
-$resourceGroup = New-AzResourceGroup `
-   -Name 'myGalleryRG' `
-   -Location 'EastUS'
-```
-
 ## Create an image gallery 
 
 An image gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
@@ -81,6 +69,10 @@ An image gallery is the primary resource used for enabling image sharing. Allowe
 Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
+$resourceGroup = New-AzResourceGroup `
+   -Name 'myGalleryRG' `
+   -Location 'EastUS'
+
 $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
