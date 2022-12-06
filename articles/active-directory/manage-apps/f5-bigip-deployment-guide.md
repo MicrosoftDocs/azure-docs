@@ -118,8 +118,8 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 * **System assigned managed identity**: Off
 * **Azure Active Directory**: BIG-IP doesn’t support this option
  
-21. For **Autoshutdown**: Enable, or if testing, you can set the BIG-IP-VM to shut down daily.
-22. Select **Next: Advanced**. Leave the defaults.
+21. For **Autoshutdown**: Enable, or if testing, you can set the BIG-IP-VM to shut down daily
+22. Select **Next: Advanced**; leave the defaults.
 23. Select **Next: Tags**.
 24. To review your BIG-IP-VM configuration, select **Next: Review + create**.
 25. Select **Create**. Time to deploy a BIG-IP VM typically is 5 minutes.
