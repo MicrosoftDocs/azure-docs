@@ -440,22 +440,22 @@ The following diagram shows the relationship between these resources.
     Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
-Each type of resource is represented by one or more associated Python classes. Here's a list of the most common classes:
+Each type of resource is represented by one or more associated Python classes. Here's a list of the most common classes for synchronous programming. (There are similar classes for asynchronous programming under the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace.)
 
 | Class | Description |
 |---|---|
 | [``CosmosClient``](/python/api/azure-cosmos/azure.cosmos.cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
-| [``Database``](X) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
-| [``Container``](X) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
+| [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy) | An interface to a database that may, or may not, exist in the service yet. This class should not be instantiated directly. Instead you should use the CosmosClient [get_database_client](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-get-database-client) method. |
+| [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.containerproxy) | An interface to interact with a specific Cosmos DB container. This class should not be instantiated directly. Instead, use the DatabaseProxy [get_container_client](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy#azure-cosmos-database-databaseproxy-get-container-client) method to get an existing container, or the [create_container](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy#azure-cosmos-database-databaseproxy-create-container) method to create a new container. |
 
 The following guides show you how to use each of these classes to build your application.
 
 | Guide | Description |
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
-| [Create a container](how-to-dotnet-create-container.md) | Create containers |
-| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
-| [Query items](how-to-dotnet-query-items.md) | Query multiple items |
+|  | Create containers |
+|  | Point read a specific item |
+|  | Query multiple items |
 
 ## See also
 
