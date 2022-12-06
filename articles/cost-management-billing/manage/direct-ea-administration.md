@@ -1,6 +1,6 @@
 ---
-title: Azure portal administration for direct Enterprise Agreements
-description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
+title: EA Billing administration on the Azure portal
+description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
 ms.date: 11/11/2022
@@ -10,11 +10,9 @@ ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ---
 
-# Azure portal administration for direct Enterprise Agreements
+# EA Billing administration on the Azure portal
 
-This article explains the common tasks that a direct Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer.
-
-Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. Indirect EAs are managed using the [Azure Enterprise portal](https://ea.azure.com/). For more information about managing indirect EAs, see [Azure EA portal administration](ea-portal-administration.md).
+This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
 > [!NOTE]
 > We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
@@ -31,7 +29,7 @@ If you've been set up as the enterprise administrator, then go to the Azure po
 
 If you have more than one billing account, select a billing account from billing scope menu. You can view your billing account properties and policy from the left menu.
 
-Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
 
@@ -176,7 +174,7 @@ The structure of accounts and subscriptions affect how they're administered and 
 
 After a new account is added to the enrollment, the account owner is sent an account ownership email that's used to confirm ownership.
 
-Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
@@ -386,7 +384,7 @@ When you create different subscriptions for each application environment, you he
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
-Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
 

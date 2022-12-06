@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/25/2022
+ms.date: 12/02/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -82,8 +82,8 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | `ModelId` | String | The DTDL model ID (DTMI) |
 | `Key` | String | The name of the updated property |
 | `Value` | Dynamic | The value of the updated property |
-| `RelationshipId` | String | For properties defined on relationships (as opposed to twins or devices), this column contains the ID of the relationship; otherwise, empty |
-| `RelationshipTarget` | String | For properties defined on relationships, this column defines the twin ID of the twin targeted by the relationship; otherwise, empty |
+| `RelationshipId` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the ID of the relationship. When a *twin* property is updated, this field is empty. |
+| `RelationshipTarget` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the twin ID of the twin targeted by the relationship. When a *twin* property is updated, this field is empty. |
 
 Below is an example table of twin property updates stored to Azure Data Explorer.
 

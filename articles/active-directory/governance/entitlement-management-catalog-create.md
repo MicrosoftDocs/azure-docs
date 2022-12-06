@@ -1,6 +1,6 @@
 ---
 title: Create and manage a catalog of resources in entitlement management - Azure AD
-description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
+description: Learn how to create a new container of resources and access packages in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -20,13 +20,13 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available for creating and managing a catalog so that I can most effectively use catalogs in my organization.
 
 ---
-# Create and manage a catalog of resources in Azure AD entitlement management
+# Create and manage a catalog of resources in Microsoft Entra entitlement management
 
-This article shows you how to create and manage a catalog of resources and access packages in Azure Active Directory (Azure AD) entitlement management.
+This article shows you how to create and manage a catalog of resources and access packages in Microsoft Entra entitlement management.
 
 ## Create a catalog
 
-A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. A user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. An administrator can create a catalog.  In addition, a user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  A non-administrator who creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
@@ -75,7 +75,7 @@ $catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketi
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add to a catalog are groups, applications, and SharePoint Online sites.
 
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
 
