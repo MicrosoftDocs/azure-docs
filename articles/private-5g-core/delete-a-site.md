@@ -42,11 +42,9 @@ You can delete your existing sites in the Azure portal.
 1. Select the checkbox next to each of the sites that you want to delete.
 1. Select the **Delete** button at the top of the list.
 1. Review the list of resources that will be deleted.
-  <!-- :::image type="content" source="media/delete-a-site/review-resources-delete.png" alt-text="Screenshot of the Azure portal showing the review resources tab for site deletion."::: >
-1. If you want to proceed, type the name of the site and select **Delete**.
-  <!-- add image :::image type="content" source="media/delete-a-site/confirm-delete.png" alt-text="Screenshot of the Azure portal showing the conformation window to delete a site."::: >
+  :::image type="content" source="media/delete-a-site/review-resources-multiple-delete.png" alt-text="Screenshot of the Azure portal showing the review resources tab for site deletion.":::
+1. If you want to proceed, type "delete" and select **Delete**.
 1. Confirm that you want to delete this site on the confirmation window by selecting **Delete**.
-1. Repeat steps 6 and 7 for each site that you want to delete.
 
 ## Next steps
 
