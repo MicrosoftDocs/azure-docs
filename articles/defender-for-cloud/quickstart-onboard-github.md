@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
-ms.date: 11/03/2022
+ms.date: 12/04/2022
 ms.topic: quickstart
 ms.custom: ignite-2022
 ---
@@ -22,6 +22,7 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- To use all advanced security capabilities provided by GitHub Connector in Defender for DevOps, you need to have GitHub Enterprise with GitHub Advanced Security (GHAS) enabled.
 
 ## Availability
 
