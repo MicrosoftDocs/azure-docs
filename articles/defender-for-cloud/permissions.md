@@ -35,7 +35,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 
 The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
-## Roles used for remediation
+## Roles used to automatically provision agents and extensions
 
 To allow the Security Admin role to automatically provision agents and extensions used in Defender for Cloud plans, Defender for Cloud uses policy remediation in a similar way to [Azure Policy](/azure/governance/policy/how-to/remediate-resources). To use remediation, Defender for Cloud needs to create service principals, also called managed identities, that assign roles at the subscription level. For example, the service principals for the Defender for Containers plan are:
  
