@@ -105,6 +105,40 @@ To add a new Jupyter kernel to the compute instance:
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
+### Remove added kernels
+> [!WARNING]
+>  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+
+To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel will still be selectable and cause unexpected behavior.
+
+To remove the kernelspec:
+1. Use the terminal window to list and find the kernelspec:
+
+    ```shell
+    jupyter kernelspec list
+    ```
+
+1. Remove the kernelspec, replacing UNWANTED_KERNEL with the kernel you'd like to remove:
+
+    ```shell
+    jupyter kernelspec uninstall UNWANTED_KERNEL
+    ```
+
+To also remove the conda environment:
+1. Use the terminal window to list and find the conda environment:
+
+    ```shell
+    conda env list
+    ```
+
+3. Remove the conda environment, replacing ENV_NAME with the conda environment you'd like to remove:
+
+    ```shell
+    conda env remove -n ENV_NAME
+    ```
+
+Upon refresh, the kernel list in your notebooks view should reflect the changes you have made.
+
 ## Manage terminal sessions
 
  Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
