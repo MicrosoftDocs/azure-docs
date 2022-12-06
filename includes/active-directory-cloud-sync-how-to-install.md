@@ -25,7 +25,7 @@ ms.custom: include file
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
 
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-splash-screen.png" alt-text="Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen" lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::
-    ![.](./media/active-directory-cloud-sync-how-to-install/)
+ 
 
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-3.png" alt-text="Screenshot of the welcome screen" lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-3.png":::
@@ -37,7 +37,7 @@ ms.custom: include file
 
  10. Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png" alt-text="Screenshot of the "Connect Azure AD" screen." lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png":::
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png" alt-text="Screenshot of the Connect Azure AD screen." lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png":::
 
 
  11. On the **Configure Service Account** screen, select a group Managed Service Account (gMSA). This account is used to run the agent service. If a managed service account is already configured in your domain, you might skip this screen. If prompted, choose either:
@@ -47,7 +47,7 @@ ms.custom: include file
 
   To continue, select **Next**.
 
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configure-service-account.png" alt-text="Screenshot of the "Configure Service Account" screen" lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configure-service-account.png":::
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configure-service-account.png" alt-text="Screenshot of the Configure Service Account screen" lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configure-service-account.png":::
 
  12. On the **Connect Active Directory** screen, if your domain name appears under **Configured domains**, skip to the next step. Otherwise, type your Active Directory domain name, and select **Add directory**.  
 
@@ -59,7 +59,7 @@ ms.custom: include file
 
  14. The following screenshot shows an example of contoso.com configured domain. Select **Next** to continue.
 
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configured-domains.png" alt-text="Screenshot of the "Connect Active Directory" screen." lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configured-domains.png":::
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configured-domains.png" alt-text="Screenshot of the Connect Active Directory screen." lightbox="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-configured-domains.png":::
 
  15. On the **Configuration complete** screen, select **Confirm**.  This operation will register and restart the agent.
  
