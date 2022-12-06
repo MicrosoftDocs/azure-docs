@@ -7,12 +7,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure private endpoints for Azure Event Grid custom topics or domains
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your custom topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your topic or domain. For more conceptual information, see [Network security](network-security.md).
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your custom topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your custom topic or domain. For more conceptual information, see [Network security](network-security.md).
 
 This article describes how to configure private endpoints for custom topics or domains.
 
 > [!NOTE]
-> Currently, system topics don't support private endpoints to allow ingress of events directly from your virtual network. 
+> Currently, private endpoints aren't supported for system topics, only for custom topics and domains.
 
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
