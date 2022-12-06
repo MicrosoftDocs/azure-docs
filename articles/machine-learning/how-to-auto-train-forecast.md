@@ -286,7 +286,7 @@ A time series whose moments (mean and variance) change over time is called a **n
 
 Next, let's examine Figure 2, which plots the the original series in first differences `($x_{t} = y_{t} - y_{t-1}$)` where `$x_t$` is the change in retail sales and $y_{t}$ and $y_{t-1}$ represent the original series and its first lag, respectively. Notice, the mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a (first order) stationary times series. The reason we added the `first order` term is because the first moment (mean) is time invariant (does not change with time interval), the same cannot be said about the variance, which is a second moment.
 
-:::image type="content" source="media/non-stationary-retail-sales.png" alt-text="Diagram showing  retail sales for a non-stationary time series detection model.":::
+:::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing  retail sales for a non-stationary time series detection model.":::
 
 :::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series detection model.":::
 
