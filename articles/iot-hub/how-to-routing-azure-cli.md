@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using the Azure CLI
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues, Service Bus topics, and Azure Storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
 
@@ -27,11 +27,11 @@ The procedures that are described in the article use the following prerequisites
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-### IoT hub and an endpoint service
+### An IoT hub and an endpoint service
 
 You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps [Create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
 
 * (Optional) An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
 
@@ -454,6 +454,6 @@ az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue or topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue and topic, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.

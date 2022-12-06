@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using the Azure portal
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure portal to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure portal to create routes that have endpoints in Azure Event Hubs, Azure Service Bus queues, Service Bus topics, Azure Storage, and Azure Cosmos DB.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
@@ -27,9 +27,9 @@ The procedures that are described in the article use the following prerequisites
 
 This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview)
 
-### IoT hub and an endpoint service
+### An IoT hub and an endpoint service
 
-You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
+You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, Service Bus queue, Service Bus topic, Azure Storage, Azure Cosmos DB) you use for an endpoint to connect with your IoT hub route.
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, complete the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
 
@@ -49,19 +49,19 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. An instance of the service that you use for your endpoint must first exist in your Azure account.
 
-Decide which route type (event hub, Service Bus queue or topic, or Azure storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
+Decide which route type (event hub, Service Bus queue or topic, Azure storage account, or Azure Cosmos DB resource) you want to create. For the service you choose to use, complete the steps to create an endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
 To learn how to create an Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
 
-In the Azure portal, you can create a route and endpoint at the same time. If you use the Azure CLI or PowerShell, you must create an endpoint first, and then create a route.
+In the Azure portal, you can create a route and endpoint at the same time. If you use the Azure CLI or Azure PowerShell, you must create an endpoint first, and then create a route.
 
 1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
 1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
 1. In **Add a route**, enter or select these values:
 
@@ -159,13 +159,14 @@ To learn how to create a Service Bus topic, see [Use the Azure portal to create 
 
 # [Azure Storage](#tab/azurestorage)
 
-To learn how to create an Azure storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
+To learn how to create an Azure Storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
 
 1. In the Azure portal, go to your IoT hub. In the left menu under **Hub settings**,  select **Message routing**.
 
 1. In **Message routing**, on the **Routes** tab, select **Add**.
 
-   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
+   :::image type="content" source="media/how-to-routing-portal/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
+
 1. In **Add a route**, enter or select these values:
 
    * **Name**: Enter a unique name for your route. It might be helpful to include the endpoint type in the name, such as *my-storage-route*.
@@ -180,7 +181,7 @@ To learn how to create an Azure storage resource (with container), see [Create a
 
 1. In **Add a storage endpoint**, leave all other default values and select **Create**.
 
-   :::image type="content" source="media/how-to-routing-portal/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with correct options selected.":::
+   :::image type="content" source="media/how-to-routing-portal/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with the correct options selected.":::
 
 1. In **Add a route**, leave all default values and select **Save**.
 
@@ -198,7 +199,7 @@ To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos 
 
 1. Select **Add**, and then select **CosmosDB**.
 
-   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows location of the Add button on the Message routing pane in the Custom endpoint tab of the IoT Hub resource.":::
+   :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows location of the Add button on the Message routing pane on the Custom endpoints tab of the IoT Hub resource.":::
 
 1. In **Add a Cosmos DB endpoint**, enter or select this information:
 
@@ -244,7 +245,7 @@ After you make any changes, select **Save**.
 
 To delete a route in the Azure portal:
 
-1. In **Message routing** for your IoT hub, select the checkbox for the route you want to delete.
+1. In **Message routing** for your IoT hub, select the checkbox for the route to delete.
 
 1. In the command bar, select **Delete**.
 
@@ -256,7 +257,7 @@ To delete a custom endpoint in the Azure portal:
 
 1. In **Message routing** for your IoT hub, select the **Custom endpoints** tab.
 
-1. Select the checkbox for the Event Hubs endpoint you want to delete.
+1. Select the checkbox for the Event Hubs endpoint to delete.
 
 1. In the command bar, select **Delete**.
 
@@ -264,6 +265,6 @@ To delete a custom endpoint in the Azure portal:
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue, a Service Bus topic, Azure Storage, and Azure Cosmos DB.
 
-To further your exploration into message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In this tutorial, you'll create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.

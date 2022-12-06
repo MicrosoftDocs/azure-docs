@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure PowerShell
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues, Service Bus topics, and Azure Storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
@@ -25,9 +25,9 @@ The procedures that are described in the article use the following prerequisites
 
 ### Azure PowerShell
 
-To use PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
+To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-### IoT Hub and an endpoint service
+### An IoT Hub and an endpoint service
 
 You need an IoT hub created with Azure IoT Hub and at least one other service to serve as an endpoint to your IoT hub route. You can choose which Azure service (Event Hubs, a Service Bus queue or topic, or Azure Storage) you use for an endpoint to connect with your IoT hub route.
 
@@ -201,7 +201,7 @@ To create an Azure Storage endpoint and route, you need a Storage account and co
    New-AzStorageAccount -ResourceGroupName MyResourceGroup -Name mystorageaccount -Location westus -SkuName Standard_GRS
    ```
 
-1. Create a new container in your storage account. You need to create a context to your storage account in a variable, and then add the variable to the `Context` parameter. To learn about your options when you create a container, see [Manage blob containers by using PowerShell](/azure/storage/blobs/blob-containers-powershell). For the name of your container, use a unique value for `Name`.
+1. Create a new container in your storage account. You need to create a context to your storage account in a variable, and then add the variable to the `Context` parameter. To learn about your options when you create a container, see [Manage blob containers by using PowerShell](/azure/storage/blobs/blob-containers-powershell). For `Name`, use a unique value for the name of your container.
 
    ```powershell
    $ctx = New-AzStorageContext -StorageAccountName mystorageaccount -UseConnectedAccount `
@@ -291,6 +291,6 @@ Remove-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteNam
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for your event hub, Service Bus queue or topic, and Azure storage account.
+In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue and topic, and Azure Storage.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
