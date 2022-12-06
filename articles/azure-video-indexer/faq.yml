@@ -196,14 +196,23 @@ sections:
           * Video level – video level access tokens let you perform operations on a specific video. For example, get video insights, download captions, get widgets, etc.
 
       - question: How often do I need to get a new access token? When do access tokens expire?
-        answer: Access tokens expire every hour, so you need to generate a new access token every hour.
+        answer: |
+          Access tokens expire every hour, so you need to generate a new access token every hour.
 
       - question: What are the login options to Azure Video Indexer Developer portal?
         answer: |
           See a release note regarding [login information](release-notes.md#october-2020).
 
           Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
-
+          
+      - question: Where are the JSON assets (insights, transcript, etc.) associated with indexed videos stored?
+        answer: |
+           They are stored by the Azure Video Indexer service and can be fetched with the [get-video-index]() and [get-artifact]() APIs.
+ 
+      - question: Once a video has been indexed, are there any additional charges for calling the API? 
+        answer: |
+           There are no additional charges from Azure Video Indexer for calling the API.
+        
   - name: Billing questions
     questions:
       - question: How much does Azure Video Indexer cost?
