@@ -134,7 +134,7 @@ az spring application-accelerator show \
 
 ## Configure Dev Tools to access Application Accelerator
 
-To access Application Accelerator, you must configure VMware Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
+To access Application Accelerator, you must configure Tanzu Dev Tools. For more information, see [Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
 
 ## Use Application Accelerator to bootstrap your new projects
 
