@@ -160,6 +160,5 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 ![Screenshot showing SMART on FHIR app.](media/smart-on-fhir/smart-on-fhir-app.png)
 
 Inspect the token response to see how the launch context fields are passed on to the app.
-</span>
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
