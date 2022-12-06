@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 12/14/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022
