@@ -74,6 +74,10 @@ To redeploy a lab VM in the Azure Lab Services web portal:
 
     :::image type="content" source="./media/how-to-reset-and-redeploy-vm/redeploy-vms.png" alt-text="Screenshot that shows the redeploy a virtual machine menu option in the Lab Services web portal.":::
 
+1. On the **Troubleshoot virtual machine** dialog box, select **Redeploy**.
+
+    :::image type="content" source="./media/how-to-reset-and-redeploy-vm/redeploy-single-vm-confirmation.png" alt-text="Screenshot that shows the confirmation dialog for redeploying a single VM in the Lab Services web portal.":::
+
 ## Next steps
 
 - As a student, learn to [access labs](how-to-use-lab.md).
