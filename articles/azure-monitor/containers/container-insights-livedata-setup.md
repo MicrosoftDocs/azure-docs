@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 # Configure Live Data in Container insights
 
-To view Live Data with Container insights from Azure Kubernetes Service (AKS) clusters, configure authentication to grant permission to access your Kubernetes data. This security configuration allows real-time access to your data through the Kubernetes API directly in the Azure portal.
+To view live data with Container insights from Azure Kubernetes Service (AKS) clusters, configure authentication to grant permission to access your Kubernetes data. This security configuration allows real-time access to your data through the Kubernetes API directly in the Azure portal.
 
 This feature supports the following methods to control access to logs, events, and metrics:
 
@@ -32,9 +32,11 @@ The Live Data feature uses the Kubernetes API, which is identical to the `kubect
 The Azure portal prompts you to validate your sign-in credentials for an Azure AD cluster. It redirects you to the client registration setup during cluster creation (and reconfigured in this article). This behavior is similar to the authentication process required by `kubectl`.
 
 >[!NOTE]
->Authorization to your cluster is managed by Kubernetes and the security model it's configured with. Users who access this feature require permission to download the Kubernetes configuration (*kubeconfig*), which is similar to running `az aks get-credentials -n {your cluster name} -g {your resource group}`. This configuration file contains the authorization and authentication token for the *Azure Kubernetes Service Cluster User Role*, in the case of Azure RBAC enabled and AKS clusters without Kubernetes RBAC authorization enabled. It contains information about Azure AD and client registration details when AKS is enabled with Azure AD SAML-based single sign-on.
+>Authorization to your cluster is managed by Kubernetes and the security model it's configured with. Users who access this feature require permission to download the Kubernetes configuration (*kubeconfig*), which is similar to running `az aks get-credentials -n {your cluster name} -g {your resource group}`.
+>
+>This configuration file contains the authorization and authentication token for the *Azure Kubernetes Service Cluster User Role*, in the case of Azure RBAC enabled and AKS clusters without Kubernetes RBAC authorization enabled. It contains information about Azure AD and client registration details when AKS is enabled with Azure AD SAML-based single sign-on.
 
-Users of this feature require the [Azure Kubernetes Cluster User Role](../../role-based-access-control/built-in-roles.md) access to the cluster to download the `kubeconfig` and use this feature. Users do *not* require contributor access to the cluster to use this feature.
+Users of this feature require the [Azure Kubernetes Cluster User Role](../../role-based-access-control/built-in-roles.md) to access the cluster to download the `kubeconfig` and use this feature. Users do *not* require contributor access to the cluster to use this feature.
 
 ## Use clusterMonitoringUser with Kubernetes RBAC-enabled clusters
 
