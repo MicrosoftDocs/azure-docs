@@ -287,7 +287,7 @@ You'll create a private resolver in the virtual network where the private endpoi
 
 When the private resolver deployment is complete, continue to the next steps.
 
-### Setup DNS for simulated network
+### Set up DNS for simulated network
 
 The following steps will set the private resolver as the primary DNS server for the simulated on-premises network **myVNet-onprem**. 
 
@@ -395,7 +395,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 9. Verify you receive the default web app page.
 
-    :::image type="content" source="./media/tutorial-dns-onprem-private-resolver/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
+    :::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
 
 10. Close the connection to **myVM-onprem**.
 
@@ -403,7 +403,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 12. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
 
-    :::image type="content" source="./media/tutorial-dns-onprem-private-resolver/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
+    :::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
 
 ## Clean up resources
 
@@ -424,4 +424,4 @@ In this tutorial, you learned how to deploy a private resolver and private endpo
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal.md).
+> [Connect to an Azure SQL server using an Azure Private Endpoint](tutorial-private-endpoint-sql-portal.md)
