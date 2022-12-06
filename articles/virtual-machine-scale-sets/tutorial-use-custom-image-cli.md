@@ -5,16 +5,13 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 11/22/2022
+ms.date: 12/6/2022
 ms.reviewer: mimckitt
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI
-
-> [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
@@ -55,20 +52,6 @@ az vm create \
 
 > [!IMPORTANT]
 > The **ID** of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. Copy this someplace safe so you can use it later in this tutorial.
-
-The public IP address of your VM is also shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
-
-```console
-ssh azureuser@<publicIpAddress>
-```
-
-To customize your VM, let's install a basic web server. When the VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *NGINX* as follows:
-
-```bash
-sudo apt-get install -y nginx
-```
-
-When you are done, type `exit` to disconnect the SSH connection.
 
 ## Create an image gallery 
 
@@ -137,9 +120,6 @@ az sig image-version create \
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
 > You can also store your image in Premium storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
->
-
-
 
 
 ## Create a scale set from the image
@@ -156,42 +136,12 @@ az group create --name myResourceGroup --location eastus
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
+   --orchestration-mode flexible \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --specialized
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
-
-
-## Test your scale set
-To allow traffic to reach your scale set and that verify that the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
-
-```azurecli-interactive
-az network lb rule create \
-  --resource-group myResourceGroup \
-  --name myLoadBalancerRuleWeb \
-  --lb-name myScaleSetLB \
-  --backend-pool-name myScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
-```
-
-To see your scale set in action, get the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example gets the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
-
-```azurecli-interactive
-az network public-ip show \
-  --resource-group myResourceGroup \
-  --name myScaleSetLBPublicIP \
-  --query [ipAddress] \
-  --output tsv
-```
-
-Type the public IP address into your web browser. The default NGINX web page is displayed, as shown in the following example:
-
-![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/default-nginx-website.png)
-
 
 
 ## Share the gallery
