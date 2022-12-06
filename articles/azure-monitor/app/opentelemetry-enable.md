@@ -62,7 +62,7 @@ If you require a full-feature experience, use the existing [Application Insights
 
 Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
-- [Live Metrics](live-stream.md)
+ - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
