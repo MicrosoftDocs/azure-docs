@@ -251,6 +251,31 @@ For ARM templates, modify the property `ipSecurityRestrictions`. A sample ARM te
         }
 ```
 
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the property `ipSecurityRestrictionsDefaultAction`. A sample Bicep snippet is provided for you:
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+      ipSecurityRestrictions: [
+        {
+          ipAddress: '122.133.144.0/24'
+          action: 'Allow'
+          priority: 100
+          name: 'IP example rule'
+        }
+      ]
+    }
+  }
+}
+```
+
 ---
 
 You can also set values manually by doing one of the following options:
@@ -305,7 +330,7 @@ You can change *Unmatched rule action* for *Main site* programmatically by doing
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -397,7 +422,7 @@ You can change *Unmatched rule action* for *Advanced tool site* programmatically
 
 ### [Azure CLI](#tab/azurecli)
 
-Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+Run the following command in the [Cloud Shell](https://shell.azure.com). Use [the Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
