@@ -64,8 +64,8 @@ The Qualys extension is available in Defender for Servers Plan 2, and is deploye
     - If you're in a European Azure geography data is processed in Qualys' European data center. 
     - For other regions data is processed in the US data center.
 - To use Qualys on a machine, the extension must be installed, and the machine must be able to communicate with the relevant network endpoint:
-    - Europe datacenter: ```https://qagpublic.qg3.apps.qualys.com```
-    - US datacenter: ```https://qagpublic.qg3.apps.qualys.com```
+    - Europe datacenter: `https://qagpublic.qg3.apps.qualys.com`
+    - US datacenter: `https://qagpublic.qg3.apps.qualys.com`
 
 
 ## Guest configuration extension
