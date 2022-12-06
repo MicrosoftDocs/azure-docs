@@ -154,16 +154,14 @@
       href: https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/
   - name: Threat monitoring with Microsoft Sentinel for SAP
     items:
+      - name: SAP security content reference
+        href: /azure/sentinel/sap/sap-solution-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: How to use Microsoft Sentinel's SOAR capabilities with SAP
         href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485
       - name: Deploy the Microsoft Sentinel solution for SAP
         href: /azure/sentinel/sap/deploy-sap-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
-      - name: Detailed requirements
-        href: /azure/sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Microsoft Sentinel SAP solution data reference
         href: /azure/sentinel/sap/sap-solution-log-reference?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: SAP security content reference
-        href: /azure/sentinel/sap/sap-solution-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
   - name: SAP Business Technology Platform
     items:
     - name: SAP Discovery Center for Azure Services and Missions
@@ -186,7 +184,7 @@
       href: https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/
     - name: Explore your Azure data sources with SAP Data Warehouse Cloud
       href: https://discovery-center.cloud.sap/missiondetail/3656/3699/
-    - name: OpenSAP course Building Applications on SAP BTP with Microsoft Services
+    - name: Building Applications on SAP BTP with Microsoft Services | OpenSAP course
       href: https://open.sap.com/courses/btpma1
 - name: Plan and Deploy (Azure VMs)
   items:
