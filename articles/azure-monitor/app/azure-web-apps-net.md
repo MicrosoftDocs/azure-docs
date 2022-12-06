@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance ASP.NET | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP.NET. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 11/14/2022
 ms.devlang: javascript
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -10,7 +10,7 @@ ms.reviewer: abinetabate
 
 # Application Monitoring for Azure App Service and ASP.NET 
 
-Enabling monitoring on your ASP.NET based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Enabling monitoring on your ASP.NET based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
 > Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the auto-instrumentation instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
@@ -185,7 +185,7 @@ The table below provides a more detailed explanation of what these values mean, 
 
 ### System.IO.FileNotFoundException after 2.8.44 upgrade
 
-2.8.44 version of auto instrumentation upgrades Application Insights SDK to 2.20.0. Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If application has [binding redirect](https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library is not present in application folder it may throw `System.IO.FileNotFoundException`.
+2.8.44 version of auto instrumentation upgrades Application Insights SDK to 2.20.0. Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If application has [binding redirect](/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library is not present in application folder it may throw `System.IO.FileNotFoundException`.
 
 To resolve this issue, remove the binding redirect entry for `System.Runtime.CompilerServices.Unsafe.dll` from web.config file. If the application wanted to use `System.Runtime.CompilerServices.Unsafe.dll` then set the binding redirect as below.
 

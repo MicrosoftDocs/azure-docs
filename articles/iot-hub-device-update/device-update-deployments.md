@@ -38,6 +38,13 @@ After deploying an update, it is critical to ensure that:
 
 To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows you to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version.
 
+## Deployment monitoring
+
+Deployment details give you information on the devices that are part of the deployment as well as their status. As the deployment progresses, devices will move from In progress to Completed or Failed state. If the deployment is Canceled, then all the devices within the deployment will also reflect the Canceled state. 
+
+The devices may move directly to a terminal state i.e. Completed or Failed state, if the deployed update is very small or the network latency is high. These states are set when the service receives the deployment status from the Device Update agent. They cannot be manually changed. 
+
+
 ## Next steps
 
 [Deploy an update](./deploy-update.md)

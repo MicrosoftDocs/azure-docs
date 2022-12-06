@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
-Azure Arc-enabled data services doesn't store any customer data.
+Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to Azure Arc-enabled SQL Managed Instance, Azure Arc-enabled PostgreSQL, and Azure Arc-enabled SQL Server.
 
 ## Related products
 

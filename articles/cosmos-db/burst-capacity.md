@@ -31,6 +31,8 @@ After the 10 seconds is over, the burst capacity has been used up. If the worklo
 
 To get started using burst capacity, enroll in the preview by submitting a request for the **Azure Cosmos DB Burst Capacity** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. You can also select the **Register for preview** button in the eligibility check page to open the **Preview Features** page.
 
+:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure Portal.":::
+
 Before submitting your request:
 
 - Ensure that you have at least one Azure Cosmos DB account in the subscription. This account may be an existing account or a new one you've created to try out the preview feature. If you have no accounts in the subscription when the Azure Cosmos DB team receives your request, it will be declined, as there are no accounts to apply the feature to.

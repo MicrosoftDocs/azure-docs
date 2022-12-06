@@ -1,5 +1,5 @@
 ---
-title: Read and write data in jobs
+title: Access data in a job
 titleSuffix: Azure Machine Learning
 description: Learn how to read and write data in Azure Machine Learning training jobs.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, i
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
-# Read and write data in a job
+# Access data in a job
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

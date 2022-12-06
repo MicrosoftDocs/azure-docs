@@ -3,7 +3,7 @@ title: Tutorial - Define a new gateway device type in Azure IoT Central | Micros
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2022
+ms.date: 10/26/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -17,7 +17,7 @@ This tutorial shows you how to use a gateway device template to define a gateway
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
-![Diagram of relationship between gateway device and downstream devices](./media/tutorial-define-gateway-device-type/gatewaypattern.png)
+:::image type="content" source="media/tutorial-define-gateway-device-type/gatewaypattern.png" alt-text="Diagram that shows the relationship between a gateway device and its downstream devices." border="false":::
 
 As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
 
@@ -62,8 +62,7 @@ To create a device template for an **RS40 Occupancy Sensor** device:
 
 You now have device templates for the two downstream device types:
 
-![Device templates for downstream devices](./media/tutorial-define-gateway-device-type/downstream-device-types.png)
-
+:::image type="content" source="media/tutorial-define-gateway-device-type/downstream-device-types.png" alt-text="Screenshot that shows the downstream device templates." lightbox="media/tutorial-define-gateway-device-type/downstream-device-types.png":::
 
 ## Create a gateway device template
 
@@ -87,7 +86,7 @@ To add a new gateway device template to your application:
 
 1. Enter **Send Data** as the display name, and then select **Property** as the capability type.
 
-1. Select **Boolean** as the schema type and then select **Save**.
+1. Select **Boolean** as the schema type, set **Writable** on, and then select **Save**.
 
 ### Add relationships
 
@@ -101,7 +100,7 @@ Next you add relationships to the templates for the downstream device templates:
 
 1. Select **Save**.
 
-![Smart Building gateway device template, showing relationships](./media/tutorial-define-gateway-device-type/relationships.png)
+:::image type="content" source="media/tutorial-define-gateway-device-type/relationships.png" alt-text="Screenshot that shows the gateway relationships." lightbox="media/tutorial-define-gateway-device-type/relationships.png":::
 
 ### Add cloud properties
 
@@ -109,14 +108,14 @@ A gateway device template can include cloud properties. Cloud properties only ex
 
 To add cloud properties to the **Smart Building gateway device** template.
 
-1. In the **Smart Building gateway device** template, select **Cloud properties**.
+1. In the **Smart Building gateway device** template, select **Smart Building gateway device** model.
 
 1. Use the information in the following table to add two cloud properties to your gateway device template.
 
-    | Display name      | Semantic type | Schema |
-    | ----------------- | ------------- | ------ |
-    | Last Service Date | None          | Date   |
-    | Customer Name     | None          | String |
+    | Display name      | Capability type | Semantic type | Schema |
+    | ----------------- | --------------- | ------------- | ------ |
+    | Last Service Date | Cloud property  | None          | Date   |
+    | Customer Name     | Cloud property  | None          | String |
 
 1. Select **Save**.
 
@@ -161,7 +160,7 @@ To create a simulated gateway device:
 
 1. Select **+ New** to start adding a new device.
 
-1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
+1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **Yes**. Select **Create**.
 
 To create simulated downstream devices:
 
@@ -169,15 +168,15 @@ To create simulated downstream devices:
 
 1. Select **+ New** to start adding a new device.
 
-1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
+1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **Yes**. Select **Create**.
 
 1. On the **Devices** page, select **S1 Sensor** in the list of device templates.
 
 1. Select **+ New** to start adding a new device.
 
-1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
+1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **Yes**. Select **Create**.
 
-![Simulated devices in your application](./media/tutorial-define-gateway-device-type/simulated-devices.png)
+:::image type="content" source="media/tutorial-define-gateway-device-type/simulated-devices.png" alt-text="Screenshot that shows the simulated devices." lightbox="media/tutorial-define-gateway-device-type/simulated-devices.png":::
 
 ### Add downstream device relationships to a gateway device
 
@@ -201,7 +200,7 @@ Now that you have the simulated devices in your application, you can create the 
 
 Both your simulated downstream devices are now connected to your simulated gateway device. If you navigate to the **Downstream Devices** view for your gateway device, you can see the related downstream devices:
 
-![Downstream devices view](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
+:::image type="content" source="media/tutorial-define-gateway-device-type/downstream-device-view.png" alt-text="Screenshot that shows the devices attached to the gateway." lightbox="media/tutorial-define-gateway-device-type/downstream-device-view.png":::
 
 ## Connect real downstream devices
 

@@ -26,7 +26,7 @@ The following table indicates when and how you register bindings.
 
 By default, extension bundles are used by Java, JavaScript, PowerShell, Python, C# script, and Custom Handler function apps to work with binding extensions. In cases where extension bundles can't be used, you can explicitly install binding extensions with your function app project. Extension bundles are supported for version 2.x and later version of the Functions runtime.
 
-Extension bundles are a way to add a pre-defined set of compatible set of binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
+Extension bundles are a way to add a pre-defined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 
 When you create a non-.NET Functions project from tooling or in the portal, extension bundles are already enabled in the app's *host.json* file. 
 

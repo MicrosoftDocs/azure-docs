@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, javascript, python
 ms.reviewer: mmcc
 ---
@@ -471,7 +471,7 @@ for i in range(100):
 ---
 
 > [!TIP]
-> If you're not sure where to set the sampling rate, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
+> If you're not sure where to set the sampling rate, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance panes. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
 
 ## Instrumentation libraries
 
@@ -971,10 +971,10 @@ The following table shows the recommended [aggregation types](../essentials/metr
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Average, Sum, Count (Max, Min for Python and Node.js only) |
+| Histogram                                            | Min, Max, Average, Sum and Count                           |
 | Asynchronous Gauge                                   | Average                                                    |
-| UpDownCounter (Python and Node.js only)              | Sum                                                        |
-| Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
+| UpDownCounter                                        | Sum                                                        |
+| Asynchronous UpDownCounter                           | Sum                                                        |
 
 > [!CAUTION]
 > Aggregation types beyond what's shown in the table typically aren't meaningful.
