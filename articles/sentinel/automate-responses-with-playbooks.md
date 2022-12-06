@@ -18,7 +18,7 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an [automation rule](automate-incident-handling-with-automation-rules.md), respectively.
+A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually on-demand on entities (in preview - see below) and alerts, or set to run automatically in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
@@ -61,8 +61,9 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - **Microsoft Sentinel connector:** To create playbooks that interact with Microsoft Sentinel, use the Microsoft Sentinel connector. For more information, see the [Microsoft Sentinel connector documentation](/connectors/azuresentinel/).
 
-- **Trigger:** A connector component that starts a workflow, in this case, a playbook. The Microsoft Sentinel trigger defines the schema that the playbook expects to receive when triggered. The Microsoft Sentinel connector currently has two triggers:
+- **Trigger:** A connector component that starts a workflow, in this case, a playbook. The Microsoft Sentinel trigger defines the schema that the playbook expects to receive when triggered. The Microsoft Sentinel connector currently has three triggers:
   - [Alert trigger](/connectors/azuresentinel/#triggers): The playbook receives the alert as input.
+  - [Entity trigger (Preview)](/connectors/azuresentinel/#triggers): The playbook receives an entity as input.
   - [Incident trigger](/connectors/azuresentinel/#triggers): The playbook receives the incident as input, along with all the included alerts and entities.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
@@ -206,13 +207,28 @@ Two examples:
 
    - Issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
+#### Response on the fly
+
+**Respond to threats in the course of active investigative activity without pivoting out of context.**
+
+Thanks to the new entity trigger (now in Preview), you can take immediate action on threat actors you discover during an investigation right from within the investigation. You can select an entity in context and perform actions on it right there, saving time and reducing complexity.
+
+
+
 ## How to run a playbook
 
 Playbooks can be run either **manually** or **automatically**.
 
 They are designed to be run automatically, and ideally that is how they should be run in the normal course of operations. You [run a playbook automatically](tutorial-respond-threats-playbook.md#automate-threat-responses) by defining it as an [automated response in an analytics rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule) (for alerts), or as an [action in an automation rule](automate-incident-handling-with-automation-rules.md) (for incidents).
 
-There are circumstances, though, that call for running playbooks manually. For example, when creating a new playbook, you'll want to test it before putting it in production. Or, there may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident or alert and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents.
+There are circumstances, though, that call for running playbooks manually. For example: 
+
+- When creating a new playbook, you'll want to test it before putting it in production. 
+- There may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. 
+
+
+    You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident, alert, or entity and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents and entities.
+
 
 
 ### Set an automated response
