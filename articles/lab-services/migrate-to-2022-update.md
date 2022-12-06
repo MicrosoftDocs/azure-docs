@@ -66,7 +66,8 @@ As a customer, you're now assigned your own [dedicated VM cores quota](/azure/la
 ### Tips for requesting a capacity increase
 
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
-  - For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+
+For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
  
 
 ## 3. Configure shared resources  

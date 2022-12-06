@@ -78,10 +78,9 @@ Calculate the total number of cores for each size group.
 Remember that the total number of cores is the existing cores and the new cores you're requesting.
 
 ## Best practices for requesting a core limit increase
+Verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md).
+
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
-
-For example, you may need to carry more capacity than you actually need for a single session to allow for a short overlap period between sessions. Often you need to keep the previous session's labs available to allow students to finish incomplete work.  However, we don't recommend that you make the full capacity request immediately, instead break it into separate requests starting with the immediate session's needs. Later, you can request the capacity you need for the period between sessions.
-
 
 ## Start a new support request
 You can follow these steps to request a core limit increase:  

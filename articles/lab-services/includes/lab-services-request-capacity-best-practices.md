@@ -10,5 +10,7 @@ The time that it takes to assign capacity varies depending on the VM size, regio
 
 - Request capacity as far in advance as possible.
 - If possible, be flexible on the region where you're requesting capacity.
-- Capacity remains assigned for the lifetime of a subscription. You only need to request extra capacity if you need more than is already assigned to your subscription.
+- Capacity remains assigned for the lifetime of a subscription. When lab plans or labs are deleted, the capacity remains assigned to the subscription. 
+- You only need to request extra capacity if you need more than is already assigned to your subscription. 
+- You should not have to go through the process of requesting extra capacity often.
 - Make incremental requests for VM cores rather than making large, bulk requests. Breaking requests for large numbers of cores into smaller requests gives extra flexibility in how those requests are fulfilled.
