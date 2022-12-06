@@ -174,7 +174,15 @@ items:
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
   - name: Data sources
-    href: data-sources.md
+    items:
+      - name: Overview of data sources
+        href: data-sources.md
+      - name: Platform logs
+        href: essentials/platform-logs-overview.md
+      - name: Activity log
+        href: essentials/activity-log.md
+      - name: Resource logs
+        href: essentials/resource-logs.md
   - name: Diagnostic Settings
     items:
     - name: Overview 
@@ -370,7 +378,6 @@ items:
   - name: Overview
     href: data-platform.md
   - name: Metrics
-    href: essentials/data-platform-metrics.md
     items:
     - name: Overview of Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
@@ -434,13 +441,7 @@ items:
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: logs/data-platform-logs.md 
-    - name: Platform logs
-      href: essentials/platform-logs-overview.md
-    - name: Activity log
-      href: essentials/activity-log.md
-    - name: Resource logs
-      href: essentials/resource-logs.md
+      href: logs/data-platform-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
@@ -469,7 +470,8 @@ items:
             href: logs/manage-logs-tables.md      
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
-          - name: Set log data plan
+          - name: Set Basic or Analytics log data plan
+            displayName: Basic logs
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
@@ -1088,6 +1090,17 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Network insights
+    items:
+    - name: Overview
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-overview.md
+    - name: Topology
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-topology.md
+    - name: Troubleshooting
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
   - name: Log Analytics workspace insights
@@ -1280,28 +1293,26 @@ items:
           href: logs/api/overview.md
         - name: Using the API
           items:
-          - name: Set up authentication and authorization
-            href: logs/api/authentication-authorization.md
-          - name: Access the API
+          - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Register an app for API access
+            href: logs/api/register-app-for-token.md 
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
             href: logs/api/response-format.md
-          - name: API options
-            items:
-            - name: Batch queries
-              href: logs/api/batch-queries.md
-            - name: Cross-resource queries
-              href: logs/api/cross-workspace-queries.md
-            - name: Azure resource queries
-              href: logs/api/azure-resource-queries.md
-            - name: Response caching
-              href: logs/api/cache.md
-            - name: Server timeouts
-              href: logs/api/timeouts.md
-            - name: Prefer headers
-              href: logs/api/prefer-options.md
+          - name: Batch queries
+            href: logs/api/batch-queries.md
+          - name: Cross-resource queries
+            href: logs/api/cross-workspace-queries.md
+          - name: Azure resource queries
+            href: logs/api/azure-resource-queries.md
+          - name: Response caching
+            href: logs/api/cache.md
+          - name: Server timeouts
+            href: logs/api/timeouts.md
+          - name: Prefer headers
+            href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
   - name: Change Analysis
@@ -1528,8 +1539,6 @@ items:
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: Endpoint overrides
-      href: app/custom-endpoints.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
