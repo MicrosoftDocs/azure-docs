@@ -65,8 +65,6 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 >
 > Cookie definitions and respective names are subject to change at any moment in time according to Azure AD service requirements.  
 
-# Next steps
-
 ## Next steps
 
 To learn more about self-service password reset concepts, see [How Azure AD self-service password reset works][concept-sspr].
