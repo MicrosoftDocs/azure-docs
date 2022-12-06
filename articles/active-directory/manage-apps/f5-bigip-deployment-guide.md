@@ -19,14 +19,14 @@ ms.reviewer: miccohen
 
 In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastructure as a service (IaaS). At the end of the tutorial you'll have:
 
-- A prepared BIG-IP virtual machine (VM) for modeling a secure hybrid access (SHA) proof-of-concept
-- A staging instance to use for testing new BIG-IP system updates and hotfixes
+- A prepared BIG-IP virtual machine (VM) to model a secure hybrid access (SHA) proof-of-concept
+- A staging instance to test new BIG-IP system updates and hotfixes
 
-Learn more: [Secure hybrid access: Secure legacy apps with Azure Active Directory](/azure/active-directory/manage-apps/secure-hybrid-access)
+Learn more: [SHA: Secure legacy apps with Azure Active Directory](/azure/active-directory/manage-apps/secure-hybrid-access)
 
 ## Prerequisites
 
-Prior F5 BIG-IP experience or knowledge isn't necessary, however, we recommend you review [F5 BIG-IP terminology](https://www.f5.com/services/resources/glossary) for common industry terms. 
+Prior F5 BIG-IP experience or knowledge isn't necessary. However, we recommend you review industry standard terminology in the F5 [Glossary](https://www.f5.com/services/resources/glossary). 
 
 Deploying a BIG-IP in Azure for SHA requires:
 
@@ -39,7 +39,7 @@ Deploying a BIG-IP in Azure for SHA requires:
   - 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
 - A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL). 
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
-- An SSL certificate to secure the BIG-IPs management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP Fully qualified domain name (FQDN). For example, a wildcard certificate with a subject `*.contoso.com` is suitable for `https://big-ip-vm.contoso.com:8443`
+- An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
 VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
 
@@ -48,36 +48,40 @@ VM deployment and base system configurations take approximately 30 minutes, then
 When you test the scenarios, this tutorial assumes:
 
 * The BIG-IP is deployed into an Azure resource group with an Active Directory (AD) environment
-* The environment consists of a Domain Controller (DC) and web host (IIS) VMs
-* Servers not in the same locations as the BIG-IP VM is acceptable, if the BIG-IP has line of sight to roles required to support a scenario
+* The environment consists of a Domain Controller (DC) and Internet Information Services (IIS) web host VMs
+* Servers not in the same locations as the BIG-IP VM is acceptable, if the BIG-IP sees roles required to support a scenario
 * BIG-IP VM connected to another environment, over a VPN connection, is supported
 
 If you don't have the previous items for testing, you can deploy an AD domain environment into Azure, using a script on [Cloud Identity Lab](https://github.com/Rainier-MSFT/Cloud_Identity_Lab). You can programmatically deploy sample test applications to an IIS web host using a scripted automation on [Demo Suite](https://github.com/jeevanbisht/DemoSuite).
 
 >[!NOTE]
->Some steps in this tutorial may differ from the layout in the Azure portal.
+>Some steps in this tutorial might differ from the layout in the Azure portal.
 
 ## Azure deployment
 
-You can deploy a BIG-IP in different topologies. This guide focuses on a network interface (NIC) deployment. However, if your BIG-IP deployment requires multiple network interfaces for high availability, network segregation, or more than 1-GB throughput, consider using F5 pre-compiled [Azure Resource Manager (ARM) templates](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_multiNIC.html).
+You can deploy a BIG-IP in different topologies. This guide focuses on a network interface card (NIC) deployment. However, if your BIG-IP deployment requires multiple network interfaces for high availability, network segregation, or more than 1-GB throughput, consider using F5 pre-compiled [Azure Resource Manager (ARM) templates](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_multiNIC.html).
 
-Complete the following steps to deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
+To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-1. Log into the [Azure portal](https://portal.azure.com/#home) with an account, which has permissions to create VMs. For example, Contributor.
-2. In the top ribbon search box type **marketplace**, followed by **Enter**.
-3. Type **F5** into the Marketplace filter, followed by **Enter**.
-4. Select **+ Add** from the top ribbon and type **F5** into  the marketplace filter, followed by **Enter**.
-5. Select **F5 BIG-IP Virtual Edition (BYOL)** > **Select a software plan** > **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)**.
-6. Select **Create**.
+1. Log into the [Azure portal](https://portal.azure.com/#home) using an account with permissions to create VMs. For example, Contributor.
+2. In the top ribbon search box, type **marketplace**
+3. Select **Enter**.
+4. Type **F5** into the Marketplace filter.
+5. Select **Enter**.
+6. From the top ribbon, select **+ Add**.
+7. For the marketplace filter, enter **F5**.
+8. Select **Enter**.
+9. Select **F5 BIG-IP Virtual Edition (BYOL)** > **Select a software plan** > **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)**.
+10. Select **Create**.
 
 ![The image shows steps to select a software plan](./media/f5ve-deployment-plan/software-plan.png)
 
-7. For **Basics**:
+11. For **Basics**:
 
 * **Subscription**: Target subscription for the BIG-IP VM deployment
 * **Resource group**: The Azure RG the BIG-IP VM will be deployed into, or create one. It's your DC and IIS VMs resource group
 
-8. For **Instance details**:
+12. For **Instance details**:
 
 * **VM Name** Example BIG-IP-VM
 * **Region**: Target Azure geo for BIG-IP-VM
@@ -86,54 +90,54 @@ Complete the following steps to deploy BIG-IP VE from the [Azure Marketplace](ht
 * **Azure Spot instance**: No, but enable it, if needed
 * **Size**: Minimum specifications are 2 vCPUs and 8-GB memory
  
- 9. For **Administrator account**:
+13. For **Administrator account**:
  
- * **Authentication type**: Select password for now, and switch to a key pair later
- * **Username**: The identity to be created as a BIG-IP local account to access its management interfaces. Username is CASE sensitive
- * **Password**: Secure admin access with a strong password
+* **Authentication type**: Select a password for now, and switch to a key pair later
+* **Username**: The identity to be created as a BIG-IP local account to access its management interfaces. Username is CASE sensitive
+* **Password**: Secure admin access with a strong password
  
- 10. **Inbound port rules**: Public inbound ports, None.
- 11. Select **Next: Disks**. Leave the defaults.
- 12. Select **Next: Networking**.
- 13. For **Networking**:
+14. **Inbound port rules**: Public inbound ports, None.
+15. Select **Next: Disks**. Leave the defaults.
+16. Select **Next: Networking**.
+17. For **Networking**:
 
- * **Virtual network**: The Azure VNet used by your DC and IIS VMs, or create one
- * **Subnet**: The same Azure internal subnet as your DC and IIS VMs, or create one
- * **Public IP**: None
- * **NIC Network Security Group**: Select None, if the Azure subnet you selected is associated with a network security group (NSG); otherwise select Basic
- * **Accelerate Networking**: Off
+* **Virtual network**: The Azure VNet used by your DC and IIS VMs, or create one
+* **Subnet**: The same Azure internal subnet as your DC and IIS VMs, or create one
+* **Public IP**: None
+* **NIC Network Security Group**: Select None, if the Azure subnet you selected is associated with a network security group (NSG); otherwise select Basic
+* **Accelerate Networking**: Off
  
- 14. For **Load balancing**: Load balance VM, No.
- 15. 10. Select **Next: Management** and complete the settings:
+18. For **Load balancing**: Load balance VM, No.
+19. Select **Next: Management** and complete the settings:
 
- * **Detailed monitoring**: Off
- * **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Azure portal. Select an available Azure storage account.
+* **Detailed monitoring**: Off
+* **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Azure portal. Select an available Azure storage account.
  
- 16. For **Identity**:
+20. For **Identity**:
  
 * **System assigned managed identity**: Off
 * **Azure Active Directory**: BIG-IP doesn’t support this option
  
-17. For **Autoshutdown**: Enable, or if testing, you can set the BIG-IP-VM to shut down daily.
-18. Select **Next: Advanced**. Leave the defaults.
-19. Select **Next: Tags**.
-20. To review your BIG-IP-VM configuration, select **Next: Review + create**.
-21. Select **Create**. Time to deploy a BIG-IP VM typically is 5 minutes.
-22. When complete, expand the Azure portal left-hand menu.
-23. Select **Resource groups** and navigate to the BIG-IP-VM. 
+21. For **Autoshutdown**: Enable, or if testing, you can set the BIG-IP-VM to shut down daily.
+22. Select **Next: Advanced**. Leave the defaults.
+23. Select **Next: Tags**.
+24. To review your BIG-IP-VM configuration, select **Next: Review + create**.
+25. Select **Create**. Time to deploy a BIG-IP VM typically is 5 minutes.
+26. When complete, expand the Azure portal left-hand menu.
+27. Select **Resource groups** and navigate to the BIG-IP-VM. 
 
 > [!NOTE]
 > If the VM creation fails, select **Back** and **Next**.
 
 ## Network configuration
 
-When the BIG-IP VM starts, its NIC is provisioned with a **Primary** private IP issued by the Dynamic Host Configuration Protocol (DHCP) service of the Azure subnet it’s connected to. This IP is used by BIG-IP Traffic Management Operating System (TMOS) to communicate with:
+When the BIG-IP VM starts, its NIC is provisioned with a **Primary** private IP issued by the Dynamic Host Configuration Protocol (DHCP) service of the Azure subnet it’s connected to. BIG-IP Traffic Management Operating System (TMOS) uses the IP to communicate with:
 
-- Other hosts and services
+- Hosts and services
 - Outbound access to the public internet
-- Inbound access to the BIG-IPs web config and SSH management interfaces
+- Inbound access to the BIG-IP web config and SSH management interfaces
 
-Exposing the management interfaces to the internet increases BIG-IP attack surface. This risk is why the BIG-IPs primary IP wasn't provisioned with a public IP during deployment. Instead, a secondary internal IP, and associated public IP, is provisioned for publishing. This one-to-one mapping between a VM public IP, and private IP, enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
+Exposing the management interfaces to the internet increases BIG-IP attack surface. This risk is why the BIG-IP primary IP wasn't provisioned with a public IP during deployment. Instead, a secondary internal IP, and associated public IP, is provisioned for publishing. This one-to-one mapping between a VM public IP, and private IP, enables external traffic to reach a VM. However, an Azure NSG rule is required to allow the traffic, similar to a firewall.
 
 The following diagram shows a NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management. There's a separate virtual server IP for publishing services. An NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded to the BIG-IP virtual server.
 
