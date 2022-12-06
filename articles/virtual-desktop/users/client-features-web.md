@@ -31,11 +31,13 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
+## Input methods
+
 You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
 
 ### Keyboard
 
-There are several keyboard shortcuts you can use to help use some of the features. Most common Windows keyboard shortcuts, such as <kbd>CTRL + C</kbd> for copy and <kbd>CTRL + Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
+There are several keyboard shortcuts you can use to help use some of the features. Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|

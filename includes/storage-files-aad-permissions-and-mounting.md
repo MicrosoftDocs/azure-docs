@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 11/01/2022
+ ms.date: 11/29/2022
  ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -139,3 +139,9 @@ if ($connectTestResult.TcpTestSucceeded) {
     Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
 ```
+
+## Mount the file share from a non-domain-joined VM
+
+Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (an Azure AD identity synced from Azure AD to Azure AD DS) in the Azure AD DS managed domain.
+
+When mounting the file share, the user must provide explicit credentials such as **DOMAINNAME\username** where DOMAINNAME is the Azure AD DS domain and username is the identity’s user name in Azure AD DS. This will help route Kerberos ticket requests from the client to the correct domain controller in the Azure AD DS domain.
