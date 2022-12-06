@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
 ms.date: 10/18/2021
-ms.custom: devx-track-python, ignite-2022, devguide-python
+ms.custom: devx-track-python, ignite-2022, devguide-python, py-fresh-zinc
 ---
 
 # Examples for Azure Cosmos DB for NoSQL SDK for Python

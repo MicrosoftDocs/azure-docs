@@ -424,6 +424,8 @@ items:
     href: samples/web-calling-sample.md
   - name: UI Library cross platform samples
     href: samples/ui-library-cross-platform.md
+  - name: Call Automation appointment reminder sample
+    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview

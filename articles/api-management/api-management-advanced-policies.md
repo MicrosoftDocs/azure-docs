@@ -3,7 +3,7 @@ title: Azure API Management advanced policies | Microsoft Docs
 description: Reference for the advanced policies available for use in Azure API Management.
 author: dlepow
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 12/05/2022
 ms.service: api-management
 ms.author: danlep
 ---

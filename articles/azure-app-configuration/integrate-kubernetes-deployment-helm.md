@@ -2,13 +2,13 @@
 title: Integrate Azure App Configuration with Kubernetes Deployment using Helm
 description: Learn how to use dynamic configurations in Kubernetes deployment with Helm.
 services: azure-app-configuration
-author: shenmuxiaosen
+author: barbkess
 manager: zhenlan
 
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
-ms.author: shuawan
+ms.author: barbkess
 
 #Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
 ---

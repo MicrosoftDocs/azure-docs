@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/18/2022
+ms.date: 12/05/2022
 ms.author: radeltch
 
 ---
@@ -1068,10 +1068,10 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following commands as root to identify the process of the message server and kill it.
 
-   <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-1:~ # pgrep -f ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node, in case of ENSA1. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1113,7 +1113,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    <pre><code>nw1-cl-0:~ # 
    #If using ENSA1
-   pgrep en.sapNW1 | xargs kill -9
+   pgrep -f en.sapNW1 | xargs kill -9
    #If using ENSA2
    pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
@@ -1158,7 +1158,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-0:~ # pgrep -f er.sapNW1 | xargs kill -9
    </code></pre>
 
    If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
