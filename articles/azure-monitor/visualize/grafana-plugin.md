@@ -150,7 +150,7 @@ You can configure a variable that will list all available **Solution** values an
 
 ![Screenshot that shows a Grafana configure variable.](./media/grafana-plugin/grafana-configure-variable-dark.png)
 
-After it's created, adjust the query to use the selected values,, and your charts will respond accordingly:
+After it's created, adjust the query to use the selected values, and your charts will respond accordingly:
 
 ```
 Usage 
