@@ -22,7 +22,7 @@ A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) tha
 
 In this how-to guide, we will extend the [Id token hint attestation](how-to-use-quickstart-idtoken.md) example by adding a self attested claim that the user have to enter in the Authenticator during issuance. The issuance request to Verified ID will contain an id token hint with the claim values for `given_name` and `family_name` and a self issued attestation type for claim `displayName` that the user enters themselves.
   
-## Create a custom credential multiple attestation types
+## Create a custom credential with multiple attestation types
 
 In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
