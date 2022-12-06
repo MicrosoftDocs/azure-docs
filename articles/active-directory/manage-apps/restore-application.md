@@ -121,9 +121,30 @@ Replace id with the object ID of the service principal that you want to restore.
 
 1. To restore the enterprise application, run the following query:
    
+   # [HTTP](#tab/http)
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```
+
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/create-directoryobject-from-directory-csharp-snippets.md)]
+   
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/create-directoryobject-from-directory-javascript-snippets.md)]
+   
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/create-directoryobject-from-directory-java-snippets.md)]
+   
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/create-directoryobject-from-directory-go-snippets.md)]
+   
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/create-directoryobject-from-directory-powershell-snippets.md)]
+   
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/create-directoryobject-from-directory-php-snippets.md)]
+   
+   ---
 
 Replace id with the object ID of the service principal that you want to restore.
 
@@ -157,9 +178,31 @@ Remove-AzureADMSDeletedDirectoryObject -Id <id>
 
 To permanently delete a soft deleted enterprise application, run the following query in Microsoft Graph explorer
 
+# [HTTP](#tab/http)
 ```http
 DELETE https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
 ```
+
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-directory-csharp-snippets.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-directory-javascript-snippets.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-directory-java-snippets.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-directory-go-snippets.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-directory-powershell-snippets.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-directory-php-snippets.md)]
+
+---
+
 
 :::zone-end
 
