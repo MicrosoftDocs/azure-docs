@@ -422,6 +422,8 @@
               href: choose-policy.md
             - name: emit-metrics
               href: emit-metrics-policy.md
+            - name: find-and-replace
+              href: find-and-replace-policy.md
             - name: forward-request
               href: forward-request-policy.md
             - name: get-authorization-context
@@ -430,6 +432,8 @@
               href: include-fragment-policy.md
             - name: ip-filter
               href: ip-filter-policy.md
+            - name: json-to-xml
+              href: json-to-xml-policy.md
             - name: limit-concurrency
               href: limit-concurrency-policy.md
             - name: log-to-event-hub
@@ -446,18 +450,28 @@
               href: rate-limit-policy.md
             - name: rate-limit-by-key
               href: rate-limit-by-key-policy.md
+            - name: redirect-content-urls
+              href: redirect-content-urls-policy.md
             - name: retry
               href: retry-policy.md
             - name: return-response
               href: return-response-policy.md
+            - name: rewrite-uri
+              href: rewrite-uri-policy.md
             - name: send-one-way-request
               href: send-one-way-request-policy.md
             - name: send-request
               href: send-request-policy.md
+            - name: set-backend-service
+              href: set-backend-service-policy.md
+            - name: set-body
+              href: set-body-policy.md
             - name: set-header
               href: set-header-policy.md
             - name: set-method
               href: set-method-policy.md
+            - name: set-query-parameter
+              href: set-query-parameter-policy.md
             - name: set-status
               href: set-status-policy.md
             - name: set-variable
@@ -472,6 +486,10 @@
               href: validate-jwt-policy.md 
             - name: wait
               href: wait-policy.md
+            - name: xml-to-json
+              href: xml-to-json-policy.md
+            - name: xsl-transform
+              href: xsl-transform-policy.md
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md
             - name: Advanced policies
