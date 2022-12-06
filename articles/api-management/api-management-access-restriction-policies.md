@@ -290,6 +290,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** product, api, operation
 
+#### Usage notes
+
+* [!INCLUDE [api-management-self-hosted-gatway-rate-limit](../../includes/api-management-self-hosted-gatway-rate-limit.md)]
+
 ## <a name="LimitCallRateByKey"></a> Limit call rate by key
 
 > [!IMPORTANT]
@@ -369,6 +373,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound
 
 -   **Policy scopes:** all scopes
+
+#### Usage notes
+
+* [!INCLUDE [api-management-self-hosted-gatway-rate-limit](../../includes/api-management-self-hosted-gatway-rate-limit.md)]
 
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 

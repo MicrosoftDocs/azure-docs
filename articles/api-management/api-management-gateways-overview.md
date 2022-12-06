@@ -52,6 +52,7 @@ The following table compares features available in the managed gateway versus th
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
+> * For the current supported features of the self-hosted gateway, ensure that you have upgraded to the latest major version of the self-hosted gateway [container image](self-hosted-gateway-overview.md#container-images).
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
 
 ### Infrastructure
@@ -94,15 +95,16 @@ The following table compares features available in the managed gateway versus th
 
 Managed and self-hosted gateways support all available [policies](api-management-howto-policies.md) in policy definitions with the following exceptions.
 
-| Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
 | [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
-| [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>2</sup>
+| [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 | [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
 
-<sup>1</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>2</sup> By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
+<sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
+<sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
+<sup>3</sup> [!INCLUDE [api-management-self-hosted-gatway-rate-limit](../../includes/api-management-self-hosted-gatway-rate-limit.md)]
 
 ### Monitoring
 
