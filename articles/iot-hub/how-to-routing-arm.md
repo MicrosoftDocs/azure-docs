@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure Resource Manager
 
-This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using the Azure CLI or Azure PowerShell. We use an Azure Resource Manager template to create routes that have endpoints in Event Hubs, an Azure Service Bus queue, a Service Bus topic, and Azure Storage.
+This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then deploy the template back to your IoT hub by using the Azure CLI or Azure PowerShell. We use an Azure Resource Manager template to create routes and endpoints to Event Hubs, an Azure Service Bus queue, a Service Bus topic, and Azure Storage.
 
 [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are useful when you need to define resources in a JSON file. Each resource in Azure has a template to export that defines the components used in that resource.
 
@@ -58,21 +58,25 @@ You can use an event hub, a Service Bus queue or topic, or an Azure storage acco
 
 First, export a Resource Manager template from your IoT hub, and then add a route to it.
 
-1. In the Azure portal, go to your IoT hub. Select **Export template** at the bottom of the menu under **Automation**.
+1. In the Azure portal, go to your IoT hub. In the left menu under **Automation**, select **Export template**.
 
-   :::image type="content" source="media/how-to-routing-arm/export-menu-option.jpg" alt-text="Screenshot that shows location of the export template option in the menu of the IoT Hub.":::
+   :::image type="content" source="media/how-to-routing-arm/export-menu-option.png" alt-text="Screenshot that shows the location of the Export template option in the menu of an IoT Hub resource.":::
 
-1. You see a JSON file generated for your IoT hub. Uncheck the **Include parameters** box.
+1. In **Export template**, on the **Template** tab, complete these steps:
 
-   Select **Download** to download a local copy of this file.
+   1. View the JSON file that's generated for your IoT hub.
 
-   :::image type="content" source="media/how-to-routing-arm/download-template.jpg" alt-text="Screenshot that shows location of the download button on the Export template page.":::
+   1. Clear the **Include parameters** checkbox.
 
-   The template has several placeholders for information in case you want to add features or services to your IoT hub in the future. But for this article, we only need to add something to the `routes` property.
+   1. In the command bar, select **Download** to download a local copy of the JSON file.
+
+   :::image type="content" source="media/how-to-routing-arm/download-template.png" alt-text="Screenshot that shows the location of the Download button on the Export template pane.":::
+
+   The template has several placeholders you can use to add features or services to your IoT hub. For this article, add values only to properties that are in or nested under `routing`.
 
 ### Add a new endpoint to your Resource Manager template
 
-In the JSON file, find the `"endpoints": []` property that's nested under `"routing"`. Follow the steps to add a new endpoint based on the endpoint service you choose: Event Hubs, Service Bus queue, Service Bus topic, or Azure Storage.
+In the JSON file, find the `"endpoints": []` property that's nested under `"routing"`. Complete the steps to add a new endpoint based on the Azure service you choose for the endpoint: Event Hubs, Service Bus queue, Service Bus topic, or Azure Storage.
 
 The Azure service adds a value for `id`, so leave the `id` property as a blank string for now.
 
@@ -196,9 +200,9 @@ For `name`, enter a unique name for your endpoint. Leave the `id` parameter as a
 
 ### Add a new route to your Resource Manager template
 
-In the JSON file, find the `"routes": []` property, nested under `"routing"`, and add the following new route, according to the endpoint service (Event Hubs, Service Bus queue or topic, or Azure Storage) you choose. 
-   
-Our default fallback route collects messages from `DeviceMessages`, let's choose another option such as `DeviceConnectionStateEvents`. For more information on source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+In the JSON file, find the `"routes": []` property, nested under `"routing"`, and add the following new route, according to the endpoint service (Event Hubs, Service Bus queue or topic, or Azure Storage) you choose.
+  
+The default fallback route collects messages from `DeviceMessages`. Choose a different option, like `DeviceConnectionStateEvents`. For more information about source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
 
 > [!CAUTION]
 > If you replace your existing value for `"routes"` with the following route, the existing routes are removed when you deploy. To preserve existing routes, *add* the route object to the `"routes"` list.

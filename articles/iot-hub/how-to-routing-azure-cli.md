@@ -11,7 +11,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using the Azure CLI
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues, Service Bus topics, and Azure Storage.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure CLI to create routes and endpoints to Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=cli).
 
@@ -43,9 +43,9 @@ You need an IoT hub created with Azure IoT Hub and at least one other service to
 
 ## Create services in Azure
 
-You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or a Storage account to be the endpoint for your IoT hub route. The service that you use for your endpoint must first exist in your Azure account.
 
-Decide which route type (event hub, Service Bus queue or topic, or Azure storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
+Decide which route type (event hub, Service Bus queue or topic, or a Storage account) you want to create. For the service you choose to use, complete the steps to create an endpoint.
 
 # [Event Hubs](#tab/eventhubs)
 
@@ -195,7 +195,7 @@ For more information, see [Create a storage account](/azure/storage/common/stora
 
 You can use endpoints in an IoT Hub route. An endpoint can be standalone. For example, you can create one to use in the future. However, a route needs an endpoint. In this article, you create the endpoint first, and then create the route later.
 
-You can use an event hub, a Service Bus queue or topic, or an Azure storage account as the endpoint for your IoT hub route. An instance of the service that you use for your endpoint must first exist in your Azure account.
+You can use an event hub, a Service Bus queue or topic, or a Storage account as the endpoint for your IoT hub route. An instance of the service that you use for your endpoint must first exist in your Azure account.
 
 # [Event Hubs](#tab/eventhubs)
 

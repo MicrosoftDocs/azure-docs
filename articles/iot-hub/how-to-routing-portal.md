@@ -265,6 +265,6 @@ To delete a custom endpoint in the Azure portal:
 
 ## Next steps
 
-In this how-to article, you learned how to create a route and endpoint for Event Hubs, a Service Bus queue, a Service Bus topic, Azure Storage, and Azure Cosmos DB.
+In this how-to article, you learned how to create a route that has an endpoint for Event Hubs, a Service Bus queue, a Service Bus topic, Azure Storage, and Azure Cosmos DB.
 
 To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
