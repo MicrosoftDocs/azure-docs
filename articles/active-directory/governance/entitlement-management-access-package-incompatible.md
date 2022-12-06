@@ -67,10 +67,28 @@ Follow these steps to change the list of incompatible groups or other access pac
 
 1.  If you wish to prevent users who have an existing group membership from requesting this access package, then select on **Add group** and select the group that the user would already be in.
 
-### Configure incompatible access packages programmatically
+### Configure incompatible access packages programmatically through Graph
 
-You can also configure the groups and other access packages that are incompatible with access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to add, remove, and list the incompatible groups and access packages [of an access package](/graph/api/resources/accesspackage).
+You can configure the groups and other access packages that are incompatible with an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to add, remove, and list the incompatible groups and access packages [of an access package](/graph/api/resources/accesspackage).
 
+### Configure incompatible access packages through Microsoft PowerShell
+
+You can also configure the groups and other access packages that are incompatible with an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
+
+This script below illustrates using the `v1.0` profile of Graph to create a relationship to indicate another access package as incompatible.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "v1.0"
+
+$apid = "5925c3f7-ed14-4157-99d9-64353604697a"
+$otherapid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
+
+$params = @{
+   "@odata.id" = "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/accessPackages/" + $otherapid
+}
+New-MgEntitlementManagementAccessPackageIncompatibleAccessPackageByRef -AccessPackageId $apid -BodyParameter $params
+```
 
 ## View other access packages that are configured as incompatible with this one
 
