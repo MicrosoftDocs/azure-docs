@@ -85,8 +85,8 @@ You can also attach disks to an existing scale set. Use the scale set created in
 ```azurepowershell-interactive
 # Get scale set object
 $vmss = Get-AzVmss `
-          -ResourceGroupName "myResourceGroup" `
-          -VMScaleSetName "myScaleSet"
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
 Add-AzVmssDataDisk `
@@ -150,8 +150,8 @@ When you no longer need a given disk, you can detach it from the scale set. The 
 ```azurepowershell-interactive
 # Get scale set object
 $vmss = Get-AzVmss `
-          -ResourceGroupName "myResourceGroup" `
-          -VMScaleSetName "myScaleSet"
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
 Remove-AzVmssDataDisk `
