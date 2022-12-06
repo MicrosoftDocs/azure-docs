@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 12/6/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -28,9 +28,9 @@ In this tutorial, you can use the following attributes in CrossCore risk analysi
 - Surname
 - Street Address
 - City
-- State/Province
+- State or Province
 - Postal Code
-- Country/Region
+- Country or Region
 - Phone Number
 
 ## Prerequisites
@@ -63,13 +63,13 @@ The following architecture diagram shows the implementation.
 ## Onboard with Experian
 
 1. Create an Experian account. To get started, go to [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) and scroll to the bottom for the contact form.
-2. When an account is created, you receive information for API configuration. The following sections describe the process.
+2. When an account is created, you receive information for API configuration. The following sections continue the process.
 
 ## Configure Azure AD B2C with Experian
 
 ### Deploy the API
 
-1. Deploy the partner-integration [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. 
+1. Deploy the partner-integration to an Azure service: Go to [samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln). 
 2. Publish the code from Visual Studio. 
 
 >[!NOTE]
@@ -82,10 +82,10 @@ The Experian API call is protected by a client certificate, provided by Experian
 1. Follow the instructions in [Private client certificate](../app-service/environment/certificates.md#private-client-certificate). 
 2. Upload the certificate to the Azure App service. 
 
-The sample policy follows two steps:
+The sample policy has two steps:
 
-- Upload the certificate
-- Set the `WEBSITE_LOAD_ROOT_CERTIFICATES` key with the thumbprint of the certificate
+1. Upload the certificate.
+2. Set the `WEBSITE_LOAD_ROOT_CERTIFICATES` key with the thumbprint of the certificate.
 
 ### Configure the API
 
