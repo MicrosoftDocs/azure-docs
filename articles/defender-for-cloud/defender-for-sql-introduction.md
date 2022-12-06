@@ -12,7 +12,6 @@ Microsoft Defender for Azure SQL helps you discover and mitigate potential [data
 
 - [Vulnerability assessment](#discover-and-mitigate-vulnerabilities): Scan databases to discover, track, and remediate vulnerabilities. Learn more about [vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
 - [Threat protection](#advanced-threat-protection): Receive detailed security alerts and recommended actions based on SQL Advanced Threat Protection to provide to mitigate threats. Learn more about [SQL Advanced Threat Protection](/azure/azure-sql/database/threat-detection-overview).
-- Identify sensitive information: Create a custom policy to label and classify sensitive information stored in your databases. Learn more about [SQL information protection](sql-information-protection-policy.md).
 
 When you enable **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
 
