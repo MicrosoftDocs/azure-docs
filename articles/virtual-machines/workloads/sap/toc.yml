@@ -162,7 +162,7 @@
         href: /azure/sentinel/sap/deploy-sap-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
       - name: Microsoft Sentinel SAP solution data reference
         href: /azure/sentinel/sap/sap-solution-log-reference?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-  - name: SAP Business Technology Platform
+  - name: SAP Business Technology Platform (BTP)
     items:
     - name: SAP Discovery Center for Azure Services and Missions
       href: https://discovery-center.cloud.sap/search/Azure
