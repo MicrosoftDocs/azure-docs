@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 12/06/2022
 ---
 # Configure TLS in Azure Cosmos DB for PostgreSQL
 
