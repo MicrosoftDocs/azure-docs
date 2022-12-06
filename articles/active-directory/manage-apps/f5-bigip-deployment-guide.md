@@ -36,8 +36,8 @@ Deploying a BIG-IP in Azure for SHA requires:
   - F5 BIG-IP® Best bundle
   - F5 BIG-IP Access Policy Manager™ (APM) standalone license
   - F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-  - 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
-- A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL). 
+  - 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
+- A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL) 
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
 - An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
