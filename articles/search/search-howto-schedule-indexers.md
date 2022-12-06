@@ -18,11 +18,13 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + Source data is changing over time, and you want the indexer to automatically process the difference.
 
-+ A search index is populated from multiple data sources, and you want to stagger the indexer jobs to reduce conflicts.
++ An index is populated from multiple data sources and indexers, and you want to stagger the indexer jobs to reduce conflicts.
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-  Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) beyond the 24-interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+  Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. When indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Assuming that change tracking is enabled on the data source, indexers can automatically pick up where they left off by using an internal high water mark that marks where indexing last ended.
+
+  Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) until all documents are processed. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Prerequisites
 

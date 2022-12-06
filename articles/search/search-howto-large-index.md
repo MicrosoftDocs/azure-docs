@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 
 manager: nitinme
-author: dereklegenzoff
-ms.author: delegenz
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 12/10/2022
 ---
 
 # Index large data sets in Azure Cognitive Search
@@ -60,7 +60,7 @@ The Azure .NET SDK automatically retries 503s and other failed requests, but you
 
 + Indexer schedules allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 
-+ Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
++ Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within the processing window, the indexer picks up wherever it left off at the next interval.
 
 + Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then run multiple indexers in parallel. 
 
@@ -72,11 +72,26 @@ Default batch sizes are data source specific. Azure SQL Database and Azure Cosmo
 
 ### Schedule indexers for long-running processes
 
-Indexer scheduling is an important mechanism for processing large data sets and for accommodating slow-running processes like image analysis in an enrichment pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
+Indexer scheduling is an important mechanism for processing large data sets and for accommodating slow-running processes like image analysis in an enrichment pipeline. 
 
-By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
+Typically, indexer processing runs within a 2-hour window. If the indexing workload takes days rather than hours to complete, you can put the indexer on a consecutive, recurring schedule that starts every two hours. Assuming the data source has [change tracking enabled](search-howto-create-indexers.md#change-detection-and-internal-state), the indexer will resume processing where it last left off. At this cadence, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about setting schedules, see [Create Indexer REST API](/rest/api/searchservice/Create-Indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+```json
+{
+    "dataSourceName" : "hotels-ds",
+    "targetIndexName" : "hotels-idx",
+    "schedule" : { "interval" : "PT2H", "startTime" : "2022-01-01T00:00:00Z" }
+}
+```
+
+When there are no longer any new or updated documents in the data source, indexer execution history will report `0/0` documents processed, and no processing occurs.
+
+Once an indexer is on a schedule, it stays on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. The check for a high water mark and the presence of new or changed documents is a relatively fast operation.
+
+For more information about setting schedules, see [Create Indexer REST API](/rest/api/searchservice/Create-Indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Some indexers that run on an older runtime architecture have a 24-hour rather than 2-hour maximum processing limit. The 2-hour limit is for newer content processors that run in an [internally managed multi-tenant environment](search-indexer-securing-resources.md#indexer-execution-environment). Whenever possible, Azure Cognitive Search tries to offload indexer and skillset processing to the multi-tenant environment. If the indexer can't be migrated, it will run in the private environment and it can run for as long as 24 hours. If you're scheduling an indexer that fits these characteristics, assume a 24 hour maximum limit.
 
 <a name="parallel-indexing"></a>
 
