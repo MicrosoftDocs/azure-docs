@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Workbooks bring your own storage
+title: Azure Monitor workbooks bring your own storage
 description: Learn how to secure your workbook by saving the workbook content to your storage.
 services: azure-monitor
 
@@ -11,7 +11,7 @@ ms.date: 07/05/2022
 
 # Bring your own storage to save workbooks
 
-There are times when you might have a query or some business logic that you want to secure. Workbooks provides an option to secure the workbooks by saving the workbook content to your storage. The storage account can then be encrypted with Microsoft-managed keys, or you can manage the encryption by supplying your own keys. For more information, see Azure documentation on [storage service encryption](../../storage/common/storage-service-encryption.md).
+There are times when you might have a query or some business logic that you want to secure. You can help secure workbooks by saving their content to your storage. The storage account can then be encrypted with Microsoft-managed keys, or you can manage the encryption by supplying your own keys. For more information, see Azure documentation on [storage service encryption](../../storage/common/storage-service-encryption.md).
 
 ## Save a workbook with managed identities
 
