@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 12/06/2022
 ms.author: helohr
 manager: femila
 ---
@@ -40,7 +40,7 @@ To re-register your resource provider:
 
 1. Search for **Microsoft.DesktopVirtualization**.
 
-1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Re-register**.
+1. Select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
 
