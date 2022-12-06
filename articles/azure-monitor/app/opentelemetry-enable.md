@@ -856,7 +856,7 @@ provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 ```
 
-##### [Node.js (TypeScript)](#tab/nodejs-script)
+##### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Use a custom processor:
 
@@ -938,7 +938,24 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
-##### [Node.js](#tab/nodejs)
+##### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+```javascript
+...
+const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
+
+class SpanEnrichingProcessor {
+    ...
+
+    onEnd(span){
+        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+    }
+}
+```
+
+##### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
@@ -1055,7 +1072,63 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+1. Exclude the URL option provided by many HTTP instrumentation libraries.
+
+    The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
+    
+    ```javascript
+    const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
+    const { HttpInstrumentation } = require( "@opentelemetry/instrumentation-http");
+    const { NodeTracerProvider } = require( "@opentelemetry/sdk-trace-node");
+
+    const httpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request) => {
+            // Ignore OPTIONS incoming requests
+            if (request.method === 'OPTIONS') {
+                return true;
+            }
+            return false;
+        },
+        ignoreOutgoingRequestHook: (options) => {
+            // Ignore outgoing requests with /test path
+            if (options.path === '/test') {
+                return true;
+            }
+            return false;
+        }
+    };
+
+    const httpInstrumentation = new HttpInstrumentation(httpInstrumentationConfig);
+    const provider = new NodeTracerProvider();
+    provider.register();
+
+    registerInstrumentations({
+        instrumentations: [
+            httpInstrumentation,
+        ]
+    });
+    ```
+
+2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+
+    ```javascript
+    const { SpanKind, TraceFlags } = require("@opentelemetry/api");
+
+    class SpanEnrichingProcessor {
+        ...
+
+        onEnd(span) {
+            if(span.kind == SpanKind.INTERNAL){
+                span.spanContext().traceFlags = TraceFlags.NONE;
+            }
+        }
+    }
+    ```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
@@ -1067,7 +1140,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     import { registerInstrumentations } from "@opentelemetry/instrumentation";
     import { HttpInstrumentation, HttpInstrumentationConfig } from "@opentelemetry/instrumentation-http";
     import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
-
 
     const httpInstrumentationConfig: HttpInstrumentationConfig = {
         ignoreIncomingRequestHook: (request: IncomingMessage) => {
@@ -1096,7 +1168,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     
     ```
 
-1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
 Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
 
     ```typescript
@@ -1112,8 +1184,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
             }
         }
     }
-    ```
-
+ 
 #### [Python](#tab/python)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
@@ -1261,7 +1332,37 @@ public class Program
 }
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+ ```javascript
+    const {
+        MeterProvider,
+        PeriodicExportingMetricReader,
+    } = require("@opentelemetry/sdk-metrics");
+    const {
+        AzureMonitorMetricExporter,
+    } = require("@azure/monitor-opentelemetry-exporter");
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+        connectionString: "<Your Connection String>",
+    });
+
+    const metricReader = new PeriodicExportingMetricReader({
+        exporter: exporter,
+    });
+
+    provider.addMetricReader(metricReader);
+
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let histogram = meter.createHistogram("histogram");
+
+    histogram.record(1, { testKey: "testValue" });
+    histogram.record(30, { testKey: "testValue2" });
+    histogram.record(100, { testKey2: "testValue" });
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
  ```typescript
     import {
@@ -1273,16 +1374,19 @@ public class Program
 
     const provider = new MeterProvider();
     const exporter = new AzureMonitorMetricExporter({
-    connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        connectionString: "<Your Connection String>",
     });
+    
     const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
         exporter: exporter,
     };
     const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+
     provider.addMetricReader(metricReader);
+
     const meter = provider.getMeter("OTel.AzureMonitor.Demo");
     let histogram = meter.createHistogram("histogram");
+
     histogram.record(1, { "testKey": "testValue" });
     histogram.record(30, { "testKey": "testValue2" });
     histogram.record(100, { "testKey2": "testValue" });
@@ -1351,7 +1455,34 @@ public class Program
 }
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+```javascript
+    import {
+        MeterProvider,
+        PeriodicExportingMetricReader,
+        PeriodicExportingMetricReaderOptions
+    } from "@opentelemetry/sdk-metrics";
+    import { AzureMonitorMetricExporter } from "@azure/monitor-opentelemetry-exporter";
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+    connectionString:
+        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    });
+    const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
+        exporter: exporter,
+    };
+    const metricReader = new PeriodicExportingMetricReader(metricReaderOptions);
+    provider.addMetricReader(metricReader);
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let counter = meter.createCounter("counter");
+    counter.add(1, { "testKey": "testValue" });
+    counter.add(5, { "testKey2": "testValue" });
+    counter.add(3, { "testKey": "testValue2" });
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 ```typescript
     import {
