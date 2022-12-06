@@ -493,8 +493,6 @@ We recommend that you monitor the execution of your functions by integrating you
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
 
-## x86 emulation on ARM64
-
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 ### Enable emulation in Visual Studio Code
