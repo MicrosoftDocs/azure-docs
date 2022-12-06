@@ -175,7 +175,9 @@ You can control which portal content appears to different users, based on their 
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/change-visibility-button.png" alt-text="Screenshot of the change visibility button in the developer portal.":::
 
-    You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
+    * You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
+
+    * Media files such as images on a page inherit the visibility of the elements that contain them.
 
 When a user visits the developer portal with visibility and access controls applied:
 
