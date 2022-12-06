@@ -57,7 +57,7 @@ except CosmosResourceExistsError:
 
 ### Create a database if it doesn't already exist
 
-The following example creates a database with the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database-if-not-exists) method. If the database exists, this method returns the database settings. Compared to the previous create method, this method does not throw an exception if the database already exists. This method is useful for avoiding errors if you run the same code multiple times.
+The following example creates a database with the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmosclient#azure-cosmos-cosmosclient-create-database-if-not-exists) method. If the database exists, this method returns the database settings. Compared to the previous create method, this method doesn't throw an exception if the database already exists. This method is useful for avoiding errors if you run the same code multiple times.
 
 ```python
 try:
@@ -79,7 +79,7 @@ Working asynchronously is useful when you want to perform multiple operations in
 
 ## Parsing the response
 
-In the examples above, the response from the requests is a  [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy), which is an interface to interact with a specific database. From the proxy you can use the methods to perform operations on the database.
+In the examples above, the response from the requests is a  [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy), which is an interface to interact with a specific database. From the proxy, you can access methods to perform operations on the database.
 
 The following example shows the **create_database_if_not_exists** method returning a **database** object.
 
