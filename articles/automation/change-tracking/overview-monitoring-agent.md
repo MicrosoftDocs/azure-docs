@@ -1,31 +1,31 @@
 ---
-title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent
-description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
+title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent (Preview)
+description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 11/24/2022
 ms.topic: conceptual
 ---
 
-# Overview of change tracking and inventory using Azure Monitoring Agent
+# Overview of change tracking and inventory using Azure Monitoring Agent (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
 > [!Important]
-> Change tracking and inventory using the Log Analytics Agent will retier on August 2024. We recommend that you use Azure Monitoring Agent as the new support agent.
+> Change tracking and inventory using the Log Analytics Agent will retire on August 2024. We recommend that you use Azure Monitoring Agent as the new support agent.
 
-This article explains on the latest version of change tracking support using Azure Monitoring Agent (AMA) as a singular agent for data collection. 
+This article explains on the latest version of change tracking support using Azure Monitoring Agent (Preview) as a singular agent for data collection. 
 
 ## Key benefits
 
-- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](/articles/azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
+- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent (Preview)](/articles/azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/articles/azure-monitor/agents/azure-monitor-agent-migration.md) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-public-preview/) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 ## Current limitations
 
-Change Tracking and Inventory doesn't support or has the following limitations:
+Change Tracking and Inventory using Azure Monitoring Agent (Preview) doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
 - Network file systems
