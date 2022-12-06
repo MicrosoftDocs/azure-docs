@@ -789,6 +789,10 @@ If you want to use tiling, and want to control tiling behavior, the following pa
 Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
 ## Generate explanations for predictions
+
+> [!IMPORTANT]
+> These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 > [!WARNING]
 >  **Model Explainability** is supported only for **multi-class classification** and **multi-label classification**.
 

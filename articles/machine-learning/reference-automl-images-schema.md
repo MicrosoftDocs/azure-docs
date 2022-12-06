@@ -435,6 +435,10 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 
 ## Data format for Online Scoring and Explainability (XAI)
+
+> [!IMPORTANT]
+> These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 > [!WARNING]
 >  **Explainability** is supported only for **multi-class classification** and **multi-label classification**. While generating explanations on online endpoint, if you encounter timeout issues, use [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs/automl-image-classification-multiclass-batch-scoring) to generate explanations.
 
