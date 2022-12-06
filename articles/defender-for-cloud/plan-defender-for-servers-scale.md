@@ -56,10 +56,10 @@ Auto-provisioning can be configured by assigning the built-in policy definitions
 
 Agent | Policy
 ---  | ---
-Log Analytics agent (default workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with default workspaces**.
-Log Analytics agent (custom workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with custom workspaces**.
-Azure Monitor agent (default data collection rule) | **[Preview]: Configure Arc machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure virtual machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent
-Azure Monitor agent (custom data collection rule)** | **[Preview]: Configure Arc machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**
+Log Analytics agent (default workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with default workspaces**
+Log Analytics agent (custom workspace) | **Enable Security Center's autoprovisioning of the Log Analytics agent on your subscriptions with custom workspaces**
+Azure Monitor agent (default data collection rule) | **[Preview]: Configure Arc machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure virtual machines to create the default Microsoft Defender for Cloud pipeline using Azure Monitor Agent**
+Azure Monitor agent (custom data collection rule) | **[Preview]: Configure Arc machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**<br/><br/> **[Preview]: Configure machines to create the Microsoft Defender for Cloud user-defined pipeline using Azure Monitor Agent**
 Qualys vulnerability assessment | **Configure machines to receive a vulnerability assessment provider** 
 Guest configuration extension | [Overview and prerequisites](../virtual-machines/extensions/guest-configuration.md)
 

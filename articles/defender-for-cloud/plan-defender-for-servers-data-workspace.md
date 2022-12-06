@@ -13,8 +13,6 @@ This article helps you to understand how your data is stored in Defender for Ser
 
 This article is the second in the Defender for Servers planning guide series. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md).
 
-
-
 ## Understand data residency
 
 Data residency refers to the physical or geographic location of your organization’s data.
