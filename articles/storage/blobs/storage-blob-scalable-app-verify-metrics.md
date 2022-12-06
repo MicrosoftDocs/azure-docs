@@ -1,5 +1,5 @@
 ---
-title: Verify throughput and latency metrics for a storage account in the Azure portal | Microsoft Docs 
+title: Verify throughput and latency metrics for a storage account in the Azure portal 
 description: Learn how to verify throughput and latency metrics for a storage account in the portal.
 author: roygara
 ms.service: storage

@@ -5,7 +5,7 @@ description: Learn how to view Azure saving plan costs for chargeback.
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022

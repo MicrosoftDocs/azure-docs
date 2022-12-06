@@ -29,8 +29,8 @@ The [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) class is a gene
 
 Use one of the following strategies to model items that you wish to create in a table:
 
-* [Create an instance of the ``TableEntity`` class](#use-a-built-in-class)
-* [Implement the ``ITableEntity`` interface](#implement-interface)
+- [Create an instance of the ``TableEntity`` class](#use-a-built-in-class)
+- [Implement the ``ITableEntity`` interface](#implement-interface)
 
 ### Use a built-in class
 
