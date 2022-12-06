@@ -3,14 +3,14 @@ title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 03/29/2022
+ms.date: 12/05/2022
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
 
 VMware HCX Advanced and its associated Cloud Manager are no longer pre-deployed in Azure VMware Solution. Instead, you'll install it through the Azure portal as an add-on. You'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter Server. 
 
-Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud) in a single HCX manager system.  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. VMware HCX Enterprise edition is  available and supported on Azure VMware Solution, at no additional cost.
+Any edition of VMware HCX supports 25 site pairings and 10 service meshes (on-premises to cloud or cloud to cloud) in a single HCX manager system.  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. VMware HCX Enterprise edition is  available and supported on Azure VMware Solution, at no additional cost.
 
 Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) are in use.
 
@@ -47,8 +47,8 @@ After you're finished, follow the recommended next steps at the end to continue 
 
    It takes around 35 minutes to install HCX Advanced and configure the Cloud Manager. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing will display on the **Migration using HCX** tab.
 
-    > [NOTE!]
-    > If you aren't able to see the HCX key once installed, click the **ADD** button to generate the key which you can then use for site pairing.
+    >[NOTE!]
+    >If you aren't able to see the HCX key once installed, click the **ADD** button to generate the key which you can then use for site pairing.
 
    :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
 
@@ -63,7 +63,7 @@ In this step, you'll download the VMware HCX Connector OVA file, and then you'll
 
 1. Either download or receive a link for the VMware HCX Connector OVA file you deploy on your local vCenter Server.
 
-1. In your on-premises vCenter Server, select an [OVF template](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) to deploy the VMware HCX Connector to your on-premises vSphere cluster.
+1. In your on-premises vCenter Server, select an [OVF template](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) to deploy the VMware HCX Connector to your on-premises vSphere cluster.
 
 1. Navigate to and select the OVA file that you downloaded and then select **Open**.
 
@@ -73,7 +73,7 @@ In this step, you'll download the VMware HCX Connector OVA file, and then you'll
 
 1. Review license terms, select the required storage and network, and then select **Next**.
 
-1. Select the [VMware HCX management network segment](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments) that you defined during the planning state. Then select **Next**.  
+1. Select the [VMware HCX connector network segment](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments) that you defined during the planning state. Then select **Next**.  
 
 1. In **Customize template**, enter all required information and then select **Next**.
 
@@ -87,29 +87,29 @@ In this step, you'll download the VMware HCX Connector OVA file, and then you'll
 
 ## Activate VMware HCX
 
-After deploying the VMware HCX Connector OVA on-premises and starting the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal, and then you'll activate it in VMware HCX Manager. Finally, you’ll need a key for each on-premises HCX connector deployed.
+After deploying the VMware HCX Connector OVA on-premises and starting the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal, and then you'll activate it in VMware HCX Connector. Finally, you’ll need a key for each on-premises HCX connector deployed.
 
 1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons** > **Migration using HCX**. Then copy the **Activation key**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-activation-key.png" alt-text="Screenshot showing the activation key.":::   
 
-1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` with the **admin** credentials.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
+1. Sign in to the on-premises VMware HCX Connector at `https://HCXConnectorIP:9443` with the **admin** credentials.  Make sure to include the `9443` port number with the VMware HCX Connector IP address.
 
    >[!TIP]
-   >You defined the **admin** user password during the VMware HCX Manager OVA file deployment.
+   >You defined the **admin** user password during the VMware HCX Connector OVA file deployment.
 
 1. In **Licensing**, enter your key for **HCX Advanced Key** and select **Activate**.
 
     >[!IMPORTANT]
-    >VMware HCX Manager must have open internet access or a proxy configured.
+    >VMware HCX Connector must have open internet access or a proxy configured.
 
-1. In **Datacenter Location**, provide the nearest location for installing the VMware HCX Manager on-premises. Then select **Continue**.
+1. In **Datacenter Location**, provide the nearest location for installing the VMware HCX Connector on-premises. Then select **Continue**.
 
 1. In **System Name**, modify the name or accept the default and select **Continue**.
 
 1. Select **Yes, Continue**.
 
-1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials, and then select **Continue**.
+1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter Server and the appropriate credentials, and then select **Continue**.
 
    >[!TIP]
    >The vCenter Server is where you deployed the VMware HCX Connector in your datacenter.
@@ -126,7 +126,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 
 After the services restart, you'll see vCenter Server showing as green on the screen that appears. Both vCenter Server and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
 
-:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::
+:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter Server status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::
 
 
 ## Uninstall HCX Advanced
