@@ -48,7 +48,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |RedHat 7 |RHEL |7.7, 7.8, 7_9 |latest |yes | yes |
 |RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |yes | yes |
 
-* All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. RHEL 6 images don't support cloud-init. 
+* All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. Cloud-init is not supported on RHEL 6. 
 
 
 ### CentOS
