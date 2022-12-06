@@ -114,17 +114,13 @@ Use the following steps to configure your web app to pull from ACR using managed
 
 You are all set, and the web app will now use managed identity to pull from Azure Container Registry. 
 
-::: zone pivot="container-linux"
-
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the virtual network integration feature. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled`site setting:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
 ```
-
-::: zone-end
 
 ## I don't see the updated container
 
