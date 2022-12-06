@@ -20,11 +20,7 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
 - **To view alerts on the OT sensor**, sign into your sensor as an **Admin**, **Security Analyst**, or **Viewer** user.
 
-- **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *Learning* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
-
-- **To create custom alert rules or alert comments**, sign into your sensor as an **Admin** user.
-
-For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *Learning* or *Muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
 
 ## View alerts on an OT sensor
 
@@ -71,74 +67,62 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
+    Select **View full details** to drill down further. For example:
 
-1. Select **View full details** to learn more on the alert details page. For example:
+    :::image type="content" source="media/alerts/alerts-on-sensor.png" alt-text="Screenshot of an alert selected from the Alerts page on an OT sensor.":::
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
+1. The alert details page provides more details about the alert, as well as a set of remediation steps on the **Take action** tab.
 
-1. Gain contextual insight with the following tabs on the alert details page:
+    Use the following tabs to gain more contextual insight:
 
     - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
 
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 
-        :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
+        :::image type="content" source="media/alerts/event-timeline-alert-sensor.png" alt-text="Screenshot of an event timeline on an alert details page.":::
 
-1. If you haven't yet taken any remediation steps, do so now by following the instructions on the **Take action** tab.
+## Manage alert status
 
-
-After taking remediation steps, you may want to change the alert status to close the alert.
-
-## Manage alert status and severity
-
-We recommend that you update alert severity as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
-
-You can update both severity and status for a single alert or for a selection of alerts in bulk.
+Make sure to update your alert status once you've taken remediation steps so that the progress is recorded. You can update status for a single alert or for a selection of alerts in bulk.
 
 *Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor. For more information, see [Learning alert traffic](alerts.md#learning-alert-traffic).
 
-*Mute* an alert on an OT sensor to close it and 
+*Mute* an alert when learning isn't available and you want to ignore a specific scenario on your network. For more information, see [Muting alert traffic](alerts.md#muting-alert-traffic).
 
+- **To manage alert status**:
 
+    1. Select one or more alerts in the grid.
+    1. Use the toolbar ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
 
-<!--validate-->
-- **To manage a single alert**:
-
-    1. Select an alert in the grid.
-    1. Either on the details pane on the right, or in an alert details page itself, select the new status and/or severity.
-
-- **To manage multiple alerts in bulk**:
-
-    1. Select the alerts in the grid that you want to modify.
-    1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
+    The ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
 
 - **To learn one or more alerts**, do one of the following:
 
-    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
     - On an alert details page, in the **Take Action** tab, select **Learn**.
 
-
-    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page, in the **Take Action** tab, select **Learn**.
-
-- **To unlearn an alert, do the following:
+- **To unlearn an alert**:
 
     1. Locate the learned alert and open its alert details page.
     1. Toggle off the **Alert learn** option. For example:
 
-        <!--img-->
-
     After you unlearn an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
+
+- **To mute an alert**:
+
+    1. Open the alert details page for a mutable alert.
+    1. On the **Take Action* tab, select **Mute**.
 
 ## Access alert PCAP data
 
-To access raw traffic files for your alert, known as packet capture files or PCAP files, select one of the following in the top-left corner of your alert details page:
+You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
+
+To access raw traffic files for your alert, select one of the following in the top-left corner of your alert details page:
 
 - **Download Full PCAP**
 - **Download Filtered PCAP**
 
-
+:::image type="content" source="media/alerts/download-pcap-sensor.png" alt-text="Screenshot of the Download PCAP options on the OT sensor.":::
 
 ### Export alerts to CSV or PDF
 
@@ -149,20 +133,11 @@ You may want to export a selection of alerts to a CSV or PDF file for offline sh
 
 **To export alerts to a CSV file**:
 
-1. On the sensor's **Alerts** page, select one or more alerts to export, or select no alerts to export all alerts shown.
+1. On the **Alerts** page, use the search box and filter options to show only the alerts you want to export.
 
 1. In the toolbar above the grid, select **Export to CSV**.
 
-The file is generated, and you're prompted to save it locally. Exported CSV files include the following details for each alert:
-
-- Source address
-- Destination address
-- Alert title
-- Alert severity
-- Alert message
-- Additional information
-- Acknowledged status
-- PCAP availability
+The file is generated, and you're prompted to save it locally.
 
 **To export an alert to PDF**:
 
@@ -172,58 +147,20 @@ Do one of the following:
 - On an alerts details page, select **Export to PDF**.
 
 The file is generated, and you're prompted to save it locally.
+
 ## Add custom alert comments
 
-<!--what user? admin? security analyst? does this even belong here-->
+Custom alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
 
-**To add alert comments:**
+If your admin has created custom comments for your team to add to alerts, add them from the **Comments** section on an alert details page.
 
-1. On the side menu, select **System Settings** > **Network Monitoring**> **Alert Comments**.
+From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
 
-3. Enter a description and select **Submit**.
+:::image type="content" source="media/alerts/add-comment-sensor.png" alt-text="Screenshot of the Comments section on an alert details page on the sensor.":::
+
+For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
 
-
-## Customize alert rules
-
-Add custom alert rules to pinpoint specific activity needed for your organization. The rules can refer, among others, to particular protocols, source or destination addresses, or a combination of parameters.
-For example, for an environment running MODBUS, you can define a rule to detect any written commands to a memory register on a specific IP address and ethernet destination. Another example would be setting an alert about any access to a particular IP address.
-
-Specify in the custom alert rule what action Defender for IT should take when the alert is triggered. For example, the action can be allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages show that the alert was generated from a custom alert rule.
-
-**To create a custom alert rule**:
-
-1. On the sensor console, select **Custom alert rules** > **+ Create rule**.
-
-1. In the **Create custom alert rule** pane that shows on the right, define the following fields:
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Alert name**     | Enter a meaningful name for the alert.        |
-    |**Alert protocol**     | Select the protocol you want to detect. <br> In specific cases, select one of the following protocols: <br> <br> - For a database data or structure manipulation event, select **TNS** or **TDS**. <br> - For a file event, select **HTTP**, **DELTAV**, **SMB**, or **FTP**, depending on the file type. <br> - For a package download event, select **HTTP**. <br> - For an open ports (dropped) event, select **TCP** or **UDP**, depending on the port type. <br> <br> To create rules that track specific changes in one of your OT protocols, such as S7 or CIP, use any parameters found on that protocol, such as `tag` or `sub-function`.        |
-    |**Message**     | Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. <br> <br> For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.        |
-    |**Direction**     | Enter a source and/or destination IP address where you want to detect traffic.        |
-    |**Conditions**     | Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format. <br><br> Note that the **+** sign is enabled only after selecting an **Alert protocol** from above. <br> You must add at least one condition in order to create a custom alert rule.        |
-    |**Detected**     | Define a date and/or time range for the traffic you want to detect. You can customize the days and time range to fit with maintenance hours or set working hours.      |
-    |**Action**     | Define an action you want Defender for IoT to take automatically when the alert is triggered.        |
-
-     For example:
-     
-     :::image type="content" source="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png" alt-text="Screenshot of the Create custom alert rule pane for creating custom alert rules." lightbox="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png":::
-
-1. Select **Save** when you're done to save the rule.
-
-### Edit a custom alert rule
-
-To edit a custom alert rule, select the rule and then select the options (**...**) menu > **Edit**. Modify the alert rule as needed and save your changes.
-
-Edits made to custom alert rules, such as changing a severity level or protocol, are tracked in the **Event timeline** page on the sensor console. For more information, see [Track sensor activity](how-to-track-sensor-activity.md).
-
-### Disable, enable, or delete custom alert rules
-
-Disable custom alert rules to prevent them from running without deleting them altogether.
-
-In the **Custom alert rules** page, select one or more rules, and then select **Enable**, **Disable**, or **Delete** in the toolbar as needed.
 ## Next steps
 
 For more information, see:

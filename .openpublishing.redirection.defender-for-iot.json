@@ -1,6 +1,10 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-manage-the-alert-event.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
+            "redirect_document_id": false
+        },       {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-create-and-manage-users.md",
             "redirect_url": "/azure/defender-for-iot/organizations/manage-users-overview",
             "redirect_document_id": false

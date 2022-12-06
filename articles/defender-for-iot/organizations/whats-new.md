@@ -333,8 +333,7 @@ The sensor console is also synchronized with an on-premises management console, 
 For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts on your sensor](how-to-view-alerts.md)
-- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [View and manage alerts on your sensor](how-to-view-alerts.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation

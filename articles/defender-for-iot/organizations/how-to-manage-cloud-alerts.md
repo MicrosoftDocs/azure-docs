@@ -71,7 +71,9 @@ Use the **Search** box, **Time range**, and **Add filter** options to filter the
 
 For example, filter alerts by **Category**:
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal.":::
+:::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/category-filter.png":::
+
+For more information, see [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
 
 ### Group alerts displayed
 
@@ -79,18 +81,19 @@ Use the **Group by** menu at the top-right to collapse the grid into subsections
 
 For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
 
-Supported grouping options include *Severity*, *Name*, *Site*, and *Engine*.
+Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *Site*.
 
 ## View details and remediate a specific alert
-<!--fix screenshots-->
 
 1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more.
 
+    Select **View full details** to drill down further. For example:
+
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
-1. Select **View full details** to learn more, or **Take action** to jump directly to the suggested remediation steps.
+1. The alert details page provides more details about the alert, as well as a set of remediation steps on the **Take action** tab. For example:
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of the alert details page on the Azure portal.":::
 
 ## Manage alert severity and status
 
@@ -98,7 +101,7 @@ We recommend that you update alert severity as soon as you've triaged an alert s
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
-*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor. For more information, see [Learning alert traffic](alerts.md#learning-alert-traffic).
 
 - **To manage a single alert**:
 
@@ -112,16 +115,14 @@ You can update both severity and status for a single alert or for a selection of
 
 - **To learn one or more alerts**, do one of the following:
 
-    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page, in the **Take Action** tab, select **Learn**.
-
-
-    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
     - On an alert details page, in the **Take Action** tab, select **Learn**.
 
 ## Access alert PCAP data (Public preview)
 
-To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
+You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation. If you're a SOC or OT security engineer, access PCAP files directly from the Azure portal to help you investigate faster.
+
+To access raw traffic files for your alert, select **Download PCAP** in the top-left corner of your alert details page.
 
 For example:
 
@@ -131,9 +132,16 @@ The portal requests the file from the sensor that detected the alert and downloa
 
 Downloading the PCAP file can take several minutes, depending on the quality of your sensor connectivity.
 
-> [!TIP]
-> Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
->
+## Export alerts to a CSV file
+
+You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
+
+1. On the **Alerts** page, use the search box and filter options to show only the alerts you want to export.
+
+1. In the toolbar above the grid, select **Export** > **Confirm**.
+
+The file is generated, and you're prompted to save it locally.
+
 
 ## Next steps
 
