@@ -43,7 +43,7 @@ AKS_ID=$(az aks show \
 Create the first example group in Azure AD for the application developers using the [az ad group create][az-ad-group-create] command. The following example creates a group named *appdev*:
 
 ```azurecli-interactive
-APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
+APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query Id -o tsv)
 ```
 
 Now, create an Azure role assignment for the *appdev* group using the [az role assignment create][az-role-assignment-create] command. This assignment lets any member of the group use `kubectl` to interact with an AKS cluster by granting them the *Azure Kubernetes Service Cluster User Role*.
