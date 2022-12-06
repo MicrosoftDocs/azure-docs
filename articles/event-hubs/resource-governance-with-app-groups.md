@@ -36,7 +36,7 @@ You can create an application group using the Azure portal by following these st
     1. For **Security context type**, select **Namespace Shared access policy**, **Event Hub Shared Access Policy** or **AAD application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
     1. If you selected **Namespace Shared access policy**:
         1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group.You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
-        2.  
+	
               :::image type="content" source="./media/resource-governance-with-app-groups/Create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
      1. If you selected **Event Hub Shared access policy**:
         1. For **SAS key name**, copy the SAS policy name from Event Hubs "Shared Access Policies" Page and paste into textbox
@@ -48,7 +48,7 @@ You can create an application group using the Azure portal by following these st
           
           	:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Azure AD option.":::
 
-### [Supported Security Context type](#Supported-Security-Context-Type)
+### [Supported Security Context type](#supported-security-context-type)
 Review the auto-generated **Client group ID**, which is the unique ID associated with the application group..The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID.The following table  shows  auto generated Client Group ID for different security Context type: 
     
 | Security Context type | Auto-generated client group ID|
@@ -82,7 +82,7 @@ Review the auto-generated **Client group ID**, which is the unique ID associated
 
 ### [Azure CLI](#tab/cli)
 Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create) to create an application group at Event Hubs namespace or event Hubs level. You must set --client-app-group-identifier based on the security
-context type you are choosing. Please review the [table](#Supported-Security-Context-Type) above to know supported Security context type
+context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 The following example creates an application group named `myAppGroup` in the namespace `mynamespace` in the Azure resource group `MyResourceGroup`. It uses the following configurations.
 
@@ -104,7 +104,7 @@ To learn more about the CLI command, see [`az eventhubs namespace application-gr
 
 ### [Azure PowerShell](#tab/powershell)
 Use the PowerShell command: [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group  at Event Hubs namespace or event Hubs level. You must set -ClientAppGroupIdentifier based on the security
-context type you are choosing. Please review the [table](#Supported-Security-Context-Type) above to know supported Security context type
+context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powershell/module/az.eventhub/new-azeventhubthrottlingpolicyconfig) to create two policies that will be associated with the application.
 
@@ -125,7 +125,7 @@ New-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName
 To learn more about the PowerShell command, see [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup).
 
 ### [ARM template](#tab/arm)
-The following example shows how to create an application group using an ARM template. In this example, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `NamespaceSASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template.You must set ClientAppGroupIdentifier based on the security context type you are choosing. Please review the [table](#Supported-Security-Context-Type) above to know supported Security context type
+The following example shows how to create an application group using an ARM template. In this example, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `NamespaceSASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template.You must set ClientAppGroupIdentifier based on the security context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 
 ```json
