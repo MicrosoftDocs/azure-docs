@@ -36,7 +36,7 @@ Some Microsoft services aren't available in all locations. For group license ass
 
 ## Use group-based licensing with dynamic groups
 
-You can use group-based licensing with any security group, including dynamic groups. Dynamic groups run rules against user resource attributes, such as department, to automatically add and remove members. Each group is assigned the licenses that you want members to receive. If an attribute changes, the member leaves the group, and the licenses are removed.
+You can use group-based licensing with any security group, including dynamic groups. Dynamic groups run rules against user resource attributes to automatically add and remove members. Attributes can be department, job title, work location, or other custom attribute. Each group is assigned the licenses that you want members to receive. If an attribute changes, the member leaves the group, and the licenses are removed.
 
 You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud. 
 
@@ -115,51 +115,61 @@ You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) t
 - when the system started processing a group license change, and when it finished
 - what license changes were made to a user as a result of a group license assignment.
 
->[!NOTE]
-> Audit logs are available on most blades in the Azure Active Directory section of the portal. Depending on where you access them, filters may be pre-applied to only show activity relevant to the context of the blade. If you are not seeing the results you expect, examine [the filtering options](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) or access the unfiltered audit logs under [**Azure Active Directory > Activity > Audit logs**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+Audit logs related to group-based licensing can be accessed from the Audit logs in the Groups or Licensing areas of Azure AD or use the following filter combinations from the main Audit logs:
 
-### Find out who modified a group license
+- **Service**: Core Directory
+- **Category**: GroupManagement or UserManagement
 
-1. Set the **Activity** filter to *Set group license* and select **Apply**.
-2. The results include all cases of licenses being set or modified on groups.
-   >[!TIP]
-   > You can also type the name of the group in the *Target* filter to scope the results.
+![Screenshot of the Azure AD audit logs with Core Directory and GroupManagement filter options highlighted.](media/licensing-group-advanced/audit-logs-group-licensing-filters.png)
 
-3. Select an item in the list to see the details of what has changed. Under *Modified Properties,* both old and new values for the license assignment are listed.
+### Find out who modified a license
 
-Here's an example of recent group license changes, with details:
+1. To see the logs for group license changes, use the following Audit log filter options:
+    - **Service**: Core Directory
+    - **Category**: GroupManagement
+    - **Activity**: Set group license
+1. Select a row in the resulting table to view the details.
+1. Select the **Modified Properties** tab see the old and new values for the license agreement.
 
-![Screenshot that shows the "Audit logs" page with a list item selected and the "Activity Details Audit log" pane open.](./media/licensing-group-advanced/audit-group-license-change.png)
+The following example shows the filter settings listed above, plus the *Target* filter set to all groups that start with "EMS." 
+
+![Screenshot of the Azure AD audit logs including a Target filter.](media/licensing-group-advanced/audit-log-group-licensing-target-filter.png)
+
+To see license changes for a specific user, use the following filters:
+- **Service**: Core Directory
+- **Category**: UserManagement
+- **Activity**: Change user license
 
 ### Find out when group changes started and finished processing
 
-When a license changes on a group, Azure AD will start applying the changes to all users.
+When a license changes on a group, Azure AD will start applying the changes to all users, but the changes could take time to process.
 
-1. To see when groups started processing, set the **Activity** filter to *Start applying group based license to users*. The actor for the operation is *Microsoft Azure AD Group-Based Licensing* - a system account that is used to execute all group license changes.
-   >[!TIP]
-   > Click an item in the list to see the *Modified Properties* field - it shows the license changes that were picked up for processing. This is useful if you made multiple changes to a group and you are not sure which one was processed.
+1. To see when groups started processing, use the following filters:
+    - **Service**: Core Directory
+    - **Category**: GroupManagement
+    - **Activity**: Start applying group based license to users
+1. Select a row in the resulting table to view the details.
+1. Select the **Modified Properties** tab see the license changes that were picked up for processing.
+    - Use these details if you're making multiple changes to a group and aren't sure which license processed.
+    - The actor for the operation is *Microsoft Azure AD Group-Based Licensing*, which is a system account that is used to execute all group license changes.
 
-2. Similarly, to see when groups finished processing, use the filter value *Finish applying group based license to users*.
-   > [!TIP]
-   > In this case, the *Modified Properties* field contains a summary of the results - this is useful to quickly check if processing resulted in any errors. Sample output:
-   > ```
-   > Modified Properties
-   > ...
-   > Name : Result
-   > Old Value : []
-   > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
-   > ```
+To see when groups finished processing, change the **Activity** filter to *Finish applying group based license to users*. In this case, the **Modified Properties** field contains a summary of the results, which is useful to quickly check if processing resulted in any errors. Sample output:
+> ```
+> Modified Properties
+> ...
+> Name : Result
+> Old Value : []
+> New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+> ```
 
-3. To see the complete log for how a group was processed, including all user changes, set the following filters:
-   - **Initiated By (Actor)**: "Microsoft Azure AD Group-Based Licensing"
-   - **Date Range** (optional): custom range for when you know a specific group started and finished processing
+To see the complete log for how a group was processed, including all user changes, add the following filters:
+- **Target**: Group name
+- **Initiated By (Actor)**: Microsoft Azure AD Group-Based Licensing (case-sensitive)
+- **Date Range** (optional): Custom range for when you know a specific group started and finished processing
 
-This sample output shows the start of processing, all resulting user changes, and the finish of processing.
+This sample output shows the start and finish of processing the license change.
 
-![Screenshot group license changes](./media/licensing-group-advanced/audit-group-processing-log.png)
-
->[!TIP]
-> Clicking items related to *Change user license* will show details for license changes applied to each individual user.
+![Screenshot of the Azure AD audit log filters and start and end times of license changes.](./media/licensing-group-advanced/audit-log-license-start-finish.png)
 
 ## Deleting a group with an assigned license
 
