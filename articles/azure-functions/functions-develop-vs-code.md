@@ -501,7 +501,7 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 Now that you've configured the Terminal with Rosetta to run x86 emulation for Python development, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
 
-1.  Open Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
+1.  Open the Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
 
     ```json
     "terminal.integrated.profiles.osx": {
@@ -514,7 +514,7 @@ Now that you've configured the Terminal with Rosetta to run x86 emulation for Py
     ```
 1. Open a new Terminal and choose **rosetta**.
 
-    ![vsc-rosetta](./media/functions-develop-vs-code/vsc-rosetta.png)
+    ![Start a new Rosetta terminal in Visual Studio Code](./media/functions-develop-vs-code/vsc-rosetta.png)
 
 ## C\# script projects
 
