@@ -7,7 +7,7 @@ ms.date: 11/24/2022
 ms.topic: conceptual
 ---
 
-# Enable Change Tracking and Inventory for virtual machines from Azure portal
+# Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)  
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
