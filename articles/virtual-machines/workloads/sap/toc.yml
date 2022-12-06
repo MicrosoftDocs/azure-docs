@@ -152,12 +152,6 @@
       href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
     - name: Extend SAP Integrated Business Planning forecasting algorithms with Azure Machine Learning
       href: https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/
-  - name: Azure Networking
-    items:
-    - name: Getting Started with SAP Private Link Service for Azure
-      href: https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/
-    - name: Network topology and connectivity for an SAP migration
-      href: /azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
   - name: Threat monitoring with Microsoft Sentinel for SAP
     items:
       - name: How to use Microsoft Sentinel's SOAR capabilities with SAP
@@ -174,7 +168,9 @@
     items:
     - name: SAP Discovery Center for Azure Services and Missions
       href: https://discovery-center.cloud.sap/search/Azure
-    - name: SAP Private Link service use cases for SAP Cloud Integration and SAP Launchpad
+    - name: Getting Started with SAP Private Link Service for Azure
+      href: https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/
+    - name: SAP Private Link service use cases for SAP Cloud Integration and SAP Launchpad Service
       href: https://blogs.sap.com/2022/08/22/sap-private-link-service-use-cases-for-sap-cloud-integration-and-sap-launchpad/
     - name: Automate SAP Cloud Integration flow recovery
       href: https://blogs.sap.com/2022/03/04/how-to-notice-and-handle-faulty-cpi-iflow-states-automatically/
