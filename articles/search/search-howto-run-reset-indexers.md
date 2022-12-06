@@ -15,9 +15,9 @@ ms.date: 12/06/2022
 
 In Azure Cognitive Search, there are several ways to run an indexer:
 
-+ Run when [creating or updating an indexer (default)](earch-howto-create-indexers.md), assuming it's not created in "disabled" mode.
++ [Run when creating or updating an indexer](search-howto-create-indexers.md), assuming it's not created in "disabled" mode.
++ [Run on a schedule](search-howto-schedule-indexers.md) to invoke execution at regular intervals.
 + Run on demand, with or without a "reset".
-+ Run on [a schedule to invoke execution at regular intervals](search-howto-schedule-indexers.md). 
 
 This article explains how to run indexers on demand, with and without a reset.
 

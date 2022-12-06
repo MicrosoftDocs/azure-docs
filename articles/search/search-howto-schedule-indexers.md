@@ -38,16 +38,16 @@ A schedule is part of the indexer definition. If the "schedule" property is omit
 
 | Property | Description |
 |----------|-------------|
-| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
+| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every two hours.|
 | "startTime" | (optional) Start time is specified in coordinated universal time (UTC). If omitted, the current time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original start time.|
 
-The following example is a schedule that starts on January 1 at midnight and runs every 50 minutes.
+The following example is a schedule that starts on January 1 at midnight and runs every two hours.
 
 ```json
 {
     "dataSourceName" : "hotels-ds",
     "targetIndexName" : "hotels-idx",
-    "schedule" : { "interval" : "PT50M", "startTime" : "2022-01-01T00:00:00Z" }
+    "schedule" : { "interval" : "PT2H", "startTime" : "2022-01-01T00:00:00Z" }
 }
 ```
 
