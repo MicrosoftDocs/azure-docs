@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Workbooks - Transform JSON data with JSONPath
-description: Learn how to use JSONPath in Azure Monitor workbooks to transform the results of JSON data returned by a queried endpoint to the format you desire. 
+title: Azure Monitor workbooks - Transform JSON data with JSONPath
+description: Learn how to use JSONPath in Azure Monitor workbooks to transform the results of JSON data returned by a queried endpoint to the format that you want. 
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -10,7 +10,7 @@ ms.date: 07/05/2022
 
 # Use JSONPath to transform JSON data in workbooks
 
-Workbooks is able to query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint isn't configured in a format that you desire, JSONPath can be used to transform the results.
+Workbooks can query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint isn't configured in a format that you want, JSONPath can be used to transform the results.
 
 JSONPath is a query language for JSON that's similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of JSON structure.
 
