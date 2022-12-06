@@ -322,7 +322,7 @@ As an alternative to using a `.user.ini` file, you can use [ini_set()](https://w
 
 To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux web apps, such as upload_max_filesize, expose_php, and others can be modified using a custom “ini” file. You can use either SSH or Bash to accomplish this.  
 
-1. Go to your KUDU site https://<sitename>.scm.azurewebsites.net
+1. Go to your KUDU site https://\<sitename\>.scm.azurewebsites.net
 2. Select Bash or SSH from the top menu.
 3. In Bash/SSH, go to your “/home/site” directory.
 4. Create a directory called “ini” (i.e. mkdir ini)
@@ -347,7 +347,7 @@ Then we’ll need to go to the Azure Portal and add an Application Setting to sc
 4. For the App Setting Name, enter “PHP_INI_SCAN_DIR” and for value enter “/home/site/wwwroot/ini”.
 5. Press the save button.
 
-**NOTE: If you’re you’ve recompiled a PHP extension such as GD, perform the steps at [“Recompiling PHP Extensions” at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/)** 
+**NOTE: If you’re you’ve recompiled a PHP extension such as GD, perform the steps at [Recompiling PHP Extensions” at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/)** 
 
 ::: zone-end
 
