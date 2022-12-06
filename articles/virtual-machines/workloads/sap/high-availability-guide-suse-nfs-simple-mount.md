@@ -127,18 +127,19 @@ This article assumes that you've already deployed an [Azure virtual network](../
       1. Select **OK**.
    1. Create front-end IP address 10.27.0.10 for the ERS instance:  
       * Repeat the preceding steps to create an IP address for ERS (for example, **10.27.0.10** and **frontend.NW1.ERS**).
-   1. Create a single back-end pool: 
+      1. Create a single back-end pool: 
       1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **backend.NW1**).
+      2. Select **NIC** for Backend Pool Configuration. 
       1. Select **Add a virtual machine**.
-      1. Select **Virtual machine**.
-      1. Select the virtual machines of the ASCS cluster and their IP addresses.
-      1. Select **Add**.      
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.   
    1. Create a health probe for port 62000 for ASCS:
       1. Open the load balancer, select **Health probes**, and then select **Add**.
       1. Enter the name of the new health probe (for example, **health.NW1.ASCS**).
       1. Select **TCP** as the protocol and **62000** as the port. Keep the interval of **5**.  
-      1. Select **OK**.
+      1. Select **Add**.
    1. Create a health probe for port 62101 for the ERS instance:  
       * Repeat the preceding steps to create a health probe for ERS (for example, **62101** and **health.NW1.ERS**).
    1. Create load-balancing rules for ASCS:     
