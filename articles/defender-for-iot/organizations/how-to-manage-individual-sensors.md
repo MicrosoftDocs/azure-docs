@@ -33,9 +33,15 @@ Select the link in each widget to drill down for more information in your sensor
 
 ### Connectivity status
 
-The Azure portal checks the connectivity to the sensor. If the portal fails to access the sensor, it will present an error to the user. The error appears on the sensor overview page. For example:
+The Azure portal checks the connection to the sensor. If the portal fails to access the sensor, it will present a connectivity error message. The message appears on the sensor overview page. For example:
 
-IMAGE to be added
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
+
+The sensor page shows a **Service connection error** message in the notifications as well, under the bell icon in the header of the page.
+
+Find out more details and options, such as troubleshooting, by clicking on the notification, or hovering over the information icon in the overview page. For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
 
 ## Manage sensor activation files
 
