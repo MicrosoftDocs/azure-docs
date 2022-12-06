@@ -14,27 +14,13 @@ ms.custom: template-how-to
 
 This article describes how you plan for and manage costs for Azure Communications Gateway.
 
-Before you deploy Azure Communications Gateway, you can use the Azure pricing calculator to estimate costs for Azure Communications Gateway. After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
+After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
 Costs for Azure Communications Gateway are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Communications Gateway, you're billed for all Azure services and resources used in your Azure subscription. This billing includes third-party services.
 
 ## Prerequisites
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-
-## Estimate costs before using Azure Communications Gateway
-
-> [!WARNING]
-> TODO
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure Communications Gateway.
-
-<!-- Note for Azure service writer: At a minimum, insert a brief walkthrough of using the calculator for your service. You don't need more than a couple of paragraphs. Add screenshots where useful. Add a screenshot where the estimated cost is shown. -->
-
-<!--Note to Azure service writer: Replace the following example image with one specific to your service. -->
-
-:::image type="content" source="../../media/contribute-how-to-write-cost-management-conceptual-article/pricing-calc.png" alt-text="Example showing estimated cost in the Azure Pricing calculator." lightbox="../../media/contribute-how-to-write-cost-management-conceptual-article/pricing-calc.png" :::
 
 ## Understand the full billing model for Azure Communications Gateway
 
