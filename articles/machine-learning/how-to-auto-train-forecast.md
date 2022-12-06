@@ -290,7 +290,7 @@ Next, let's examine Figure 2, which plots the the original series in first diffe
 
 :::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series detection model.":::
 
-In addition to well known problems associated with non stationary time series, machine learning models can not inherently deal with stochastic trends. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
+AutoML Machine learning models can not inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
 The first output of a non-stationary time series model might have data inconsistencies. When Automated ML detects and analyzes a time series dataset, the first output is differenced to mitigate the impact of having data inconsistencies. 
 
