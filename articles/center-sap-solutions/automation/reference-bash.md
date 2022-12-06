@@ -7,7 +7,6 @@ manager: kimforss
 keywords: 'Azure, SAP'
 ms.service: azure-center-sap-solutions
 ms.subservice: sap-automation
-ms.subservice: sap-automation
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/17/2021
