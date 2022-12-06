@@ -70,7 +70,17 @@ Use this table to understand and resolve common errors.
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
 
-If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`, see [DPS Client error](../iot-edge/troubleshoot-common-errors.md?preserve-view=true&view=iotedge-2018-06#dps-client-error) in the IoT Edge (1.1) documentation.
+### Suggested actions
+
+* If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error`, see [DPS Client error](../iot-edge/troubleshoot-common-errors.md?preserve-view=true&view=iotedge-2018-06#dps-client-error) in the IoT Edge (1.1) documentation.
+
+* For 401, Unauthorized or 403, Forbidden or 404, or Not Found errors perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
+
+* For a 429 error, follow the retry pattern of IoT Hub that has exponential backoff with a random jitter. You can follow the retry-after header provided by the SDK.
+
+* For 500-series server errors, retry your [connection](/azure/iot-dps/concepts-deploy-at-scale#iot-hub-connectivity-considerations) using cached credentials or a [Device Registration Status Lookup API](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup#deviceregistrationresult) call.
+
+For related best practices, such as retrying operations, see [Best practices for large-scale IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale).
 
 ## Next Steps
 
