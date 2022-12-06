@@ -436,6 +436,10 @@
               items:
                 - name: Create a database
                   href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes

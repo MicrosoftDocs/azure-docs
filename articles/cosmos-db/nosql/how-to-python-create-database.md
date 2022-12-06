@@ -42,29 +42,44 @@ To create a database, call one of the following methods:
 
 The following example creates a database asynchronously:
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database" highlight="2":::
+```python
+TBD
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database":::
+-->
 
-The [``CosmosClient.CreateDatabaseAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) method will throw an exception if a database with the same name already exists.
+The [`CosmosClient.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database) method will throw an exception if a database with the same name already exists.
 
 ### Create a database asynchronously if it doesn't already exist
 
 The following example creates a database asynchronously only if it doesn't already exist on the account:
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database_check" highlight="2":::
+```python
+TBD
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database_check":::
+-->
 
-The [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
+The [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.aio.cosmosclient#azure-cosmos-aio-cosmosclient-create-database-if-not-exists) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
 
 ## Parsing the response
 
-In all examples so far, the response from the asynchronous request was cast immediately to the [``Database``](/dotnet/api/microsoft.azure.cosmos.database) type. You may want to parse metadata about the response including headers and the HTTP status code. The true return type for the **CosmosClient.CreateDatabaseAsync** and **CosmosClient.CreateDatabaseIfNotExistsAsync** methods is [``DatabaseResponse``](/dotnet/api/microsoft.azure.cosmos.databaseresponse).
+In the examples above, the response from the asynchronous request is a  [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.databaseproxy), which is an interface to interact with a specific database. From the proxy you can use the methods to perform operations on the database.
 
-The following example shows the **CosmosClient.CreateDatabaseIfNotExistsAsync** method returning a **DatabaseResponse**. Once returned, you can parse response properties and then eventually get the underlying **Database** object:
+The following example shows the **create_database_if_not_exsits** method returning a **database** object.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database_response" highlight="2,6":::
+```python
+TBD
+```
+<!--
+:::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database_response":::
+-->
 
 ## Next steps
 
 Now that you've created a database, use the next guide to create containers.
 
 > [!div class="nextstepaction"]
-> [Examples for Azure Cosmos DB for NoSQL SDK for Python](samples-python.md)
+> [Create a container](how-to-python-create-container.md)
