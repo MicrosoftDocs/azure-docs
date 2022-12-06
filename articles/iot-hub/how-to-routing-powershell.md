@@ -41,7 +41,7 @@ To create an IoT hub route, you need at least one other Azure service to use as 
 
 Be sure to have *one* of the following resources to use when you create an endpoint your IoT hub route:
 
-* An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+* An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
 
 * A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
 
@@ -49,9 +49,9 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 * An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
 
-## Create, update, and remove endpoints and routes
+## Create resources and endpoints
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
 You can use an event hub, a Service Bus queue or topic, or a storage account to be the endpoint for your IoT hub route. The service that you use to create your endpoint must first exist in your Azure account.
 

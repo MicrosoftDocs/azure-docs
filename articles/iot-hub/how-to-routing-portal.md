@@ -53,7 +53,7 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 ## Create a route and endpoint
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
 You can use an event hub, a Service Bus queue or topic, a storage account, or an Azure Cosmos DB resource to be the endpoint for your IoT hub route. An instance of the service that you use to create your endpoint must first exist in your Azure account.
 

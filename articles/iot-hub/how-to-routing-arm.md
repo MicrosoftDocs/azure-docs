@@ -60,7 +60,7 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 ## Create a route
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or events originate. The endpoint is where the messages or events end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Then, you use routing queries to filter messages or events before they go to the endpoint.
 
 You can use an event hub, a Service Bus queue or topic, or an Azure storage account to be the endpoint for your IoT hub route. The service that you use to create your endpoint must first exist in your Azure account.
 
@@ -116,6 +116,7 @@ For `name`, use a unique value for your Event Hubs endpoint. Leave the `id` para
       "storageContainers": [],
       "cosmosDBSqlCollections": []
    },
+},
 ```
 
 # [Service Bus queue](#tab/servicebusqueue)
@@ -144,6 +145,7 @@ For `name`, use a unique value for your Service Bus queue endpoint. Leave the `i
       "storageContainers": [],
       "cosmosDBSqlCollections": []
    },
+},
 ```
 
 # [Service Bus topic](#tab/servicebustopic)
@@ -172,6 +174,7 @@ For `name`, enter a unique name for your endpoint. Leave the `id` parameter as a
       "storageContainers": [],
       "cosmosDBSqlCollections": []
    },
+},
 ```
 
 # [Azure Storage](#tab/azurestorage)
@@ -205,7 +208,9 @@ For `name`, enter a unique name for your endpoint. Leave the `id` parameter as a
       ],
       "cosmosDBSqlCollections": []
    },
+},
 ```
+
 ---
 
 ### Add a new route to your Resource Manager template
@@ -317,6 +322,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName MyResourceGroup `
   -TemplateFile "my\path\to\template.json"
 ```
+
 ---
 
 ### Azure Cloud Shell deployment
@@ -343,6 +349,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName MyResourceGroup `
   -TemplateFile "template.json"
 ```
+
 ---
 
 To view your new route in the [Azure portal](https://portal.azure.com/), go to your IoT Hub resource. On the **Message routing** pane, on the **Routes** tab, confirm that your route is listed.
