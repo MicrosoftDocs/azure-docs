@@ -17,9 +17,6 @@ ms.custom: devx-track-java, devguide-java
 
 This article shows how to delete containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). If you've enabled container soft delete, you can restore deleted containers.
 
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and Java](storage-blob-java-get-started.md) article.
-
 ## Delete a container
 
 To delete a container in Java, use one of the following methods from the `BlobServiceClient` class:

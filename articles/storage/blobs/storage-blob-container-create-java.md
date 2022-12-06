@@ -17,9 +17,6 @@ ms.custom: devx-track-java, devguide-java
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and Java](storage-blob-java-get-started.md) article.
-
 ## Name a container
 
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:

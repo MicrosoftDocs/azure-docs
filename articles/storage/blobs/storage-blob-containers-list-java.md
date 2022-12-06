@@ -35,8 +35,6 @@ To filter the list of containers, specify a string for the `prefix` parameter. T
 
 ## Example: List containers
 
-The code examples in this section assume that you've created a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and Java](storage-blob-java-get-started.md) article.
-
 The following example list containers and filters the results by a specified prefix:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerList.java" id="Snippet_ListContainers":::
