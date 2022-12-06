@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 11/22/2022
+ms.date: 12/6/2022
 ms.author: cynthn
 ms.reviewer: mimckitt 
 ms.custom: devx-track-azurepowershell
