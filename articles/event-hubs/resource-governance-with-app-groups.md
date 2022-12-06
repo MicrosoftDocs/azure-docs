@@ -38,7 +38,7 @@ You can create an application group using the Azure portal by following these st
         1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group.You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
 	
               :::image type="content" source="./media/resource-governance-with-app-groups/Create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
-     1. If you selected **Event Hub Shared access policy**:
+     1. If you selected **Event Hubs Shared access policy**:
         1. For **SAS key name**, copy the SAS policy name from Event Hubs "Shared Access Policies" Page and paste into textbox
     
               :::image type="content" source="./media/resource-governance-with-app-groups/Create-application-groups-with-eventhub shared-access-key.png" alt-text="Screenshot of the Add application group page with Event Hub Shared access policy option selected.":::
@@ -53,9 +53,9 @@ Review the auto-generated **Client group ID**, which is the unique ID associated
     
 | Security Context type | Auto-generated client group ID|
 | ---| ---		| 
-| Namespace Shared Access Key	| `NamespaceSASKeyName=<NamespaceLevelKeyName>` |
+| Namespace shared access key	| `NamespaceSASKeyName=<NamespaceLevelKeyName>` |
 | AAD App ID 		| `AADAppID=<AppID>`				|
-| EventHub Shared Access Key 	| `EntitySASKeyName=<EntityLevelKeyName>` 	| 
+| Event Hubs shared access key 	| `EntitySASKeyName=<EntityLevelKeyName>` 	| 
 		
 > [!NOTE]
  > All existing application groups created with namespace shared access key would continue to work with client group ID starting with `SASKeyName`. However all new application groups would have updated client group ID as shown above.
@@ -125,7 +125,7 @@ New-AzEventHubApplicationGroup -ResourceGroupName myresourcegroup -NamespaceName
 To learn more about the PowerShell command, see [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup).
 
 ### [ARM template](#tab/arm)
-The following example shows how to create an application group using an ARM template. In this example, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `NamespaceSASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template.You must set ClientAppGroupIdentifier based on the security context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
+The following example shows how to create an application group using an ARM template. In this example, the application group is associated with an existing SAS policy name `contososaspolicy` by setting the client `AppGroupIdentifier` as `NamespaceSASKeyName=contososaspolicy`. The application group policies are also defined in the ARM template. You must set ClientAppGroupIdentifier based on the security context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 
 ```json
@@ -368,7 +368,7 @@ You can use the below example query to find out all the throttled requests in ce
     | where Outcome_s =="Throttled"  
 	
   ``` 
-Due to restrictions at protocol level, throttled request logs are not generated for consumer operations with Event Hub ( OutgoingMessages/ OutgoingBytes). when reqeusts are throttled at consumer side, you would observe sluggish egress throughput. 
+Due to restrictions at protocol level, throttled request logs are not generated for consumer operations with Event Hub ( `OutgoingMessages` or `OutgoingBytes`). when requests are throttled at consumer side, you would observe sluggish egress throughput. 
 
 ## Next steps
 
