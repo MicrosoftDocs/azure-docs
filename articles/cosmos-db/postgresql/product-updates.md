@@ -7,19 +7,22 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 12/06/2022
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-## Updates feed
+## Release notes
 
-The Microsoft Azure website lists newly available features per product, plus
-features in preview and development. Check the [Azure Cosmos DB for PostgreSQL
-updates](https://azure.microsoft.com/updates/?category=databases&query=%22Cosmos%20DB%20for%20PostgreSQL%22)
-section for the latest. An RSS feed is also available on that page.
+### Release: November 2022
+
+* TODO
+
+### Release: October 2022
+
+* Rebranded from Azure Database for PostgreSQL - Hyperscale (Citus)
 
 ## Features in preview
 
@@ -31,12 +34,7 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Here are the features currently available for preview:
-
-* **[pgAudit](concepts-audit.md)**. Provides detailed
-  session and object audit logging via the standard PostgreSQL
-  logging facility. It produces audit logs required to pass
-  certain government, financial, or ISO certification audits.
+There are no features currently available for preview.
 
 ## Contact us
 
