@@ -1,5 +1,5 @@
 ---
-title: 'User VPN (Point-to-site) Concepts'
+title: 'User VPN (point-to-site) Concepts'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN  User VPN P2S VPN concepts.
 author: cherylmc
@@ -9,7 +9,7 @@ ms.date: 12/05/2022
 ms.author: cherylmc
 
 ---
-# User VPN (Point-to-site) concepts
+# User VPN (point-to-site) concepts
 
 The following article describes the concepts and customer-configurable options associated with Virtual WAN User VPN point-to-site (P2S) configurations and gateways. This article is split into multiple sections, including sections about P2S VPN server configuration concepts, and sections about P2S VPN gateway concepts.
 
