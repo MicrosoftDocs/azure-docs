@@ -62,13 +62,8 @@ As students use a lab VM to advance through a course, they might get stuck at sp
 
 Learn how to [set up a new lab](./tutorial-setup-lab.md#create-a-lab) and how to [create and manage templates](./how-to-create-manage-template.md).
 
-
-
-
-
-Educator
-    Student blocked on installing software components as part of lab -> educator to create multiple labs (using diff templates) for each of the stages in the course
-
-
-
 ## Next steps
+
+- Learn how to [reset or deploy lab VMs](./how-to-reset-and-redeploy-vm.md).
+- [Attach external file storage to a lab](./how-to-attach-external-storage.md).
+- [Use OneDrive to store user data](./how-to-prepare-windows-template.md#install-and-configure-onedrive).
