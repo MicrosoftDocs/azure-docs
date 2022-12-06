@@ -81,7 +81,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
 
 ## User registration 
 
-Users register themselves for the passwordless authentication method of Azure AD. For users who already registered the Microsoft Authenticator app for [multi-factor authentication](./concept-mfa-howitworks.md), skip to the section, [enable phone sign-in](#enable-phone-sign-in). To register the Microsoft Authenticator app, follow these steps:
+Users register themselves for the passwordless authentication method of Azure AD. For users who already registered the Microsoft Authenticator app for [multi-factor authentication](./concept-mfa-howitworks.md), skip to the next section, [enable phone sign-in](#enable-phone-sign-in). To register the Microsoft Authenticator app, follow these steps:
 
 1. Browse to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Sign in, then select **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
