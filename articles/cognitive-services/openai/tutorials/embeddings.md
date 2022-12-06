@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Download the BillSum dataset and prepare it for analyis.
 > * Create environment variables for your resources endpoint and API key.
 > * Use the **text-search-curie-doc-001** and **text-search-curie-query-001** models.
-> * Use cosine similarity to return search results.
+> * Use [cosine similarity](../concepts/understand-embeddings.md) to rank search results.
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ openai.api_version = "2022-06-01-preview"
 
 url = openai.api_base + "/openai/deployments?api-version=2022-06-01-preview"
 
-r = requests.get(url, headers={"api-key": apiKey})
+r = requests.get(url, headers={"api-key": API_KEY})
 
 print(r.text)
 ```
@@ -475,7 +475,7 @@ df_bills
 
 :::image type="content" source="../media/tutorials/embed-text-documents.png" alt-text="Screenshot of the formatted results from df_bills command." lightbox="../media/tutorials/embed-text-documents.png":::
 
-At the time of search (live compute), we'll embed the search query using the corresponding *query* model (text-search-query-001). Next find the closest embedding in the database, ranked by cosine similarity.
+At the time of search (live compute), we'll embed the search query using the corresponding *query* model (text-search-query-001). Next find the closest embedding in the database, ranked by [cosine similarity](../concepts/understand-embeddings.md).
 
 ```python
 # search through the reviews for a specific product
@@ -523,10 +523,8 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-
 ## Next steps
 
 Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
 > [Next steps button](../concepts/models.md)
-

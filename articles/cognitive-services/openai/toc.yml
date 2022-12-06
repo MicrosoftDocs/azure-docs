@@ -18,6 +18,8 @@ items:
       href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Embeddings
+      href: ./concepts/embeddings.md
 - name: How-to 
   items:
     - name: Create a resource
