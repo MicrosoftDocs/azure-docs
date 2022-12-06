@@ -59,7 +59,7 @@ You must have at least the following Role-based access control permissions on th
 
 **only required when adding a virtual network (service endpoint) rule.*
 
-If you are adding a service endpoint-based rule and the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
+If you're adding a service endpoint-based rule and the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
 
 ### Add an access restriction rule
 
@@ -151,7 +151,7 @@ For each header name, you can add up to eight values separated by comma. The htt
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you've more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
 Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
 
@@ -171,12 +171,12 @@ For a scenario where you want to explicitly block a single IP address or a block
 
 ### Restrict access to an SCM site 
 
-In addition to being able to control access to your app, you can restrict access to the SCM (Advanced tool) site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Use main site rules** check box, the rules list will be hidden and it will use the rules from the main site. If you clear the check box, your SCM site settings will appear again. 
+In addition to being able to control access to your app, you can restrict access to the SCM (Advanced tool) site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Use main site rules** check box, the rules list will be hidden, and it will use the rules from the main site. If you clear the check box, your SCM site settings will appear again. 
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
 
 ### Restrict access to a specific Azure Front Door instance
-Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you will need to further filter the incoming requests based on the unique http header that Azure Front Door sends.
+Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you'll need to further filter the incoming requests based on the unique http header that Azure Front Door sends.
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing how to add Azure Front Door restriction.":::
 
@@ -199,7 +199,7 @@ You can add access restrictions rules programmatically by doing one of the follo
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az webapp config access-restriction* command visit [this page](/cli/azure/webapp/config/access-restriction).
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az webapp config access-restriction command, visit [this page](/cli/azure/webapp/config/access-restriction).
 
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -208,7 +208,7 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Add-AzWebAppAccessRestrictionRule* command visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about Add-AzWebAppAccessRestrictionRule command, visit [this page](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
   ```azurepowershell-interactive
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
@@ -332,7 +332,7 @@ You can change *Unmatched rule action* for *Main site* programmatically by doing
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az resource* command visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az resource command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -341,7 +341,7 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com) For more information about *Set-AzResource* command visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Set-AzResource* command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -425,7 +425,7 @@ You can change *Unmatched rule action* for *Advanced tool site* programmatically
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *az resource* command visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about az resource command, visit [this page](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurecli-interactive
   az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -434,7 +434,7 @@ You can run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about *Set-AzResource* command visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about Set-AzResource command, visit [this page](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
   ```azurepowershell-interactive
   $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
