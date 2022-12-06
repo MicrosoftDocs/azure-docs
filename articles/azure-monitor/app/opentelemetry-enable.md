@@ -1573,7 +1573,33 @@ public class Program
 }
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+```javascript
+    const {
+        MeterProvider,
+        PeriodicExportingMetricReader
+    } = require("@opentelemetry/sdk-metrics");
+    const { AzureMonitorMetricExporter } = require("@azure/monitor-opentelemetry-exporter");
+
+    const provider = new MeterProvider();
+    const exporter = new AzureMonitorMetricExporter({
+    connectionString:
+        connectionString: "<Your Connection String>",
+    });
+    const metricReader = new PeriodicExportingMetricReader({
+        exporter: exporter
+    });
+    provider.addMetricReader(metricReader);
+    const meter = provider.getMeter("OTel.AzureMonitor.Demo");
+    let gauge = meter.createObservableGauge("gauge");
+    gauge.addCallback((observableResult) => {
+        let randomNumber = Math.floor(Math.random() * 100);
+        observableResult.observe(randomNumber, {"testKey": "testValue"});
+    });
+```
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 ```typescript
     import {
@@ -1585,8 +1611,7 @@ public class Program
 
     const provider = new MeterProvider();
     const exporter = new AzureMonitorMetricExporter({
-    connectionString:
-        process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        connectionString: "<Your Connection String>",
     });
     const metricReaderOptions: PeriodicExportingMetricReaderOptions = {
         exporter: exporter,
