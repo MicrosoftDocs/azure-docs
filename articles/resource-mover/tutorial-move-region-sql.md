@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 12/06/2022
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
@@ -122,7 +122,7 @@ To resolve the resources you want to move, follow these steps:
 
 ## Move SQL server
 
-Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, assign a target SQL server in the target region.
+Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, ypu must first assign a target SQL server in the target region.
 
 1. **Assign a target SQL server**- To assign a target SQL server, follow these steps:
 
