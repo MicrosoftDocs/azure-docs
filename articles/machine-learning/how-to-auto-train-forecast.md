@@ -292,7 +292,7 @@ Next, let's examine Figure 2, which plots the the original series in first diffe
 
 In addition to well known problems associated with non stationary time series, machine learning models can not inherently deal with stochastic trends. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
-Automated ML automatically analyzes time series dataset to check whether it is stationary or not. When non-stationary time series are detected, they are automatically first diferenced to mitigate the impact of having data inconsistancies.
+The first output of a non-stationary time series model might have data inconsistencies. When Automated ML detects and analyzes a time series dataset, the first output is differenced to mitigate the impact of having data inconsistencies. 
 
 ## Run the experiment 
 
