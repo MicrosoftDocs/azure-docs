@@ -67,4 +67,4 @@ The following example shows the **CosmosClient.CreateDatabaseIfNotExistsAsync** 
 Now that you've created a database, use the next guide to create containers.
 
 > [!div class="nextstepaction"]
-> [Create a container](how-to-dotnet-create-container.md)
+> [Examples for Azure Cosmos DB for NoSQL SDK for Python](samples-python.md)
