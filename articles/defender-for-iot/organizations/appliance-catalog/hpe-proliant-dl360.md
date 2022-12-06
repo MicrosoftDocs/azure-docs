@@ -151,9 +151,23 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 This procedure describes how to install iLO software remotely from a virtual drive.
 
+Before installing the sensor software with iLO, we recommend changing the iLO idle connection timeout setting to infinite, as the installation typically takes longer than the 30 minutes it is set to by default.
+
+**To change the iLO idle connection timeout settings**: 
+
+1. Sign in to the iLO console, and then go to **Overview** on the top menu.
+
+1. On the left, select **Security**, and then select **Access settings** from the top menu.
+
+1. Select the pencil icon next to **iLO** and then select **Show advanced settings**.
+
+1. On the **Idle connection timeout** row, select the triangle icon to open the timeout options, and then select **Infinite**.
+
+Continue the installation with the steps below.
+
 **To install sensor software with iLO**:
 
-1. Sign in to the iLO console, and then right-click the servers' screen.
+1. When signed into the iLO console, right-click the servers' screen on the bottom left.
 
 1. Select **HTML5 Console**.
 
