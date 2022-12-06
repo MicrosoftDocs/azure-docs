@@ -118,7 +118,7 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
-If the source for the OS disk is a snapshot, use `--os-snapshot` to specify the OS disk. If there are data disk snapshots that should also be part of the image version, add those. Use `--data-snapshot-luns` to specify the LUN, and use `--data-snapshots` to specify the snapshots.
+If the source for the OS disk is a snapshot, use `--os-snapshot` to specify the OS disk. Add any additional data disk snapshots that should also be part of the image version. Use `--data-snapshot-luns` to specify the LUN, and use `--data-snapshots` to specify the snapshots.
 
 In this example, the sources are disk snapshots. There's an OS disk and a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1, and the data disk will be encrypted with DiskEncryptionSet2.
 
