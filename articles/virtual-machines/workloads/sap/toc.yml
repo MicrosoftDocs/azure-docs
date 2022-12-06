@@ -150,6 +150,8 @@
       href: expose-sap-odata-to-power-query.md
     - name: SAP HANA Connector for Power Query
       href: /power-query/connectors/sap-hana/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
+    - name: Integrate SAP Data Warehouse Cloud with Power BI and Azure Synapse Analytics
+      href: https://blogs.sap.com/2022/07/27/your-sap-on-azure-part-28-integrate-sap-data-warehouse-cloud-with-powerbi-and-azure-synapse/
     - name: Extend SAP Integrated Business Planning forecasting algorithms with Azure Machine Learning
       href: https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/
   - name: Threat monitoring with Microsoft Sentinel for SAP
