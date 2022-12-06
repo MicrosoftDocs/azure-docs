@@ -238,7 +238,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ## Upload data and create MLTable
 In order to use the data for training, upload data to default Blob Storage of your Azure ML Workspace and register it as an asset. The benefits of registering data are:
 - Easy to share with other members of the team
-- Versioning of the metadata (location, description, etc)
+- Versioning of the metadata (location, description, etc.)
 - Lineage tracking
 
 # [Azure CLI](#tab/cli)
@@ -374,7 +374,7 @@ You can perform a hyperparameter sweep over a defined search space to find the o
 
 #### Job Limits
 
-You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings. PLease refer to [detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings. Please refer to [detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -573,7 +573,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
-We can also create a batch endpoint for batch inferenching on large volumes of data over a period of time. Checkout the [object detection batch scoring](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items-batch-scoring) notebook for batch inferencing using the batch endpoint.
+We can also create a batch endpoint for batch inferencing on large volumes of data over a period of time. Check out the [object detection batch scoring](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items-batch-scoring) notebook for batch inferencing using the batch endpoint.
 
 ### Configure online deployment
 
