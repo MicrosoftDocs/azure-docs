@@ -14,9 +14,6 @@ ms.author: danlep
 
 The following API Management policies are used for authentication with API backends. 
 
-[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
-
 -   [Authenticate with Basic](authentication-basic-policy.md) - Authenticate with a backend service using Basic authentication.
 
 -   [Authenticate with client certificate](authentication-certificate-policy.md) - Authenticate with a backend service using client certificates.

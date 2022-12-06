@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/01/2022
+ms.date: 12/06/2022
 ms.author: danlep
 ---
 
 # Authenticate with managed identity
 
- Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
+ Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme. API Management caches the token until it expires.
 
 Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Azure Active Directory.
 
@@ -30,20 +30,17 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |resource|String. The application ID of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|
 |client-id|String. The client ID of the user-assigned identity in Azure Active Directory.|No|system-assigned identity|
-|output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`. |No|N/A|  
-|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
+|output-token-variable-name|String. Name of the context variable that will receive token value as an object of type `string`. |No|N/A|  
+|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|`false`|  
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
-
 
 ### Use managed identity to authenticate with a backend service
 ```xml  
