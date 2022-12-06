@@ -116,7 +116,7 @@ You are all set, and the web app will now use managed identity to pull from Azur
 
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the virtual network integration feature. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled`site setting:
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the virtual network integration feature. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
@@ -473,7 +473,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Authentication / Authorization
 - Managed Identities
 - CORS
-- VNET integration is not supported for Docker Compose scenarios
+- Virtual network integration is not supported for Docker Compose scenarios
 - Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 ### Docker Compose options
