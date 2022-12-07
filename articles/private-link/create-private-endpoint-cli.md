@@ -250,6 +250,15 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 10. Close the connection to **myVM**.
 
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivateEndpointQS-rg
+```
+
 ## Next steps
 
 For more information about the services that support private endpoints, see:
