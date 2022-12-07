@@ -169,15 +169,15 @@ az cosmosdb sql container create --account-name msdocs-cosmos-nosql --resource-g
 
 ### Get the database
 
-Use the [``CosmosClient.GetDatabase``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method will return a reference to the specified database.
+Use the [``CosmosClient.GetDatabase``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.getdatabase) method will return a reference to the specified database.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="get_database" highlight="20-22":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="create_database" highlight="20-22":::
 
 ### Get the container
 
-The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will return a reference to the specified container.
+The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getcontainer) will return a reference to the specified container.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="get_container" highlight="27-29":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="create_container" highlight="27-29":::
 
 ### Create an item
 
