@@ -22,9 +22,10 @@ Later in this article, you learn how to configure and customize the data that yo
 
 The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. 
 
-Categories can be assigned differently in Azure Functions than in other .NET frameworks. For example, when using `ILogger<T>` in ASP.NET, the category will be the name of the generic type. Azure Functions supports injection of `ILogger<T>`, but does not use the generic type name as a category. Instead it assigns categories based on the source as seen by the runtime: 
- - Log entries related to the execution of a function will have a category of "Function.{function name}".
- - Log entries created by code *within* a function (e.g. using `logger.LogInformation()`) will have a category of `Function.{function name}.User`.
+Category names are assigned differently in Functions compared to other .NET frameworks. For example, when using `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
+ 
++ Entries related to the execution of a function are assigned a category of `Function.<FUNCTION_NAME>`.
++ Entries created by user code inside the function, such as when calling `logger.LogInformation()`, are assigned a category of `Function.<FUNCTION_NAME>.User`.
 
 The following chart describes the main categories of logs that the runtime creates:
 
