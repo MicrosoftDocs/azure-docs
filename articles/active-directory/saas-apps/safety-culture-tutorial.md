@@ -92,8 +92,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Go back to the Azure portal. On the **Basic SAML Configuration** section, if you wish to configure the application in **IdP** initiated mode, perform the following steps:
 
-    1. In the **Identifier** text box, paste the **Service provider entity ID** from SafetyCulture.
-    1. In the **Reply URL** text box, paste the **Service provider assertion consumer service URL** from SafetyCulture.
+    a. In the **Identifier** text box, paste the **Service provider entity ID** from SafetyCulture.
+    
+    b. In the **Reply URL** text box, paste the **Service provider assertion consumer service URL** from SafetyCulture.
 
 1. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL(optional)** text box, enter the **Service provider assertion consumer service URL** from SafetyCulture.
 
