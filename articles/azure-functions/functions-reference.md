@@ -303,21 +303,24 @@ The Azure Functions host uses the storage connection set in [`AzureWebJobsStorag
 >
 > In addition, your function app might be reusing `AzureWebJobsStorage` for other storage connections in their triggers, bindings, and/or function code. Make sure that all uses of `AzureWebJobsStorage` are able to use the identity-based connection format before changing this connection from a connection string.
 
-To use an identity-based connection for `AzureWebJobsStorage`, configure the following app settings:
+These app settings are used to define an identity-based connection `AzureWebJobsStorage`:
 
-| Setting                       | Description                                | Example value                                        |
+| Setting  | Description  | Example value  |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account isn't in a sovereign cloud and doesn't have a custom DNS. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. | <storage_account_name> |
 | `AzureWebJobsStorage__blobServiceUri`| The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
 | `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 | `AzureWebJobsStorage__tableServiceUri` | The data plane URI of a table service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.table.core.windows.net |
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.[blob|queue|file|table].core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service are inferred for this account. This doesn't work when the storage account is in a sovereign cloud or has a custom DNS.
+When you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.[blob|queue|file|table].core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service are inferred for this account. This doesn't work when the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account isn't in a sovereign cloud and doesn't have a custom DNS. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. | <storage_account_name> |
+
+| `AzureWebJobsStorage__credential` | Recommended only when specifying a user-assigned managed identity, when it should be set to `managedidentity`. This is only valid when hosted in the Azure Functions service. | managedidentity |
+| `AzureWebJobsStorage__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity will be used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. | 02f9a4bc-0a67-4691-a732-aa51cfc04d8e |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
