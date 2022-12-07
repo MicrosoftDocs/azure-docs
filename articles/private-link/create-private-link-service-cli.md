@@ -37,6 +37,16 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ```
 
+## Create a DDoS protection plan
+
+Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+
+```azurecli-interactive
+az network ddos-protection create \
+    --resource-group CreatePrivLinkService-rg  \
+    --name myDDoSPlan
+```
+
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
@@ -62,7 +72,9 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
-    --subnet-prefixes 10.1.0.0/24
+    --subnet-prefixes 10.1.0.0/24 \
+    --ddos-protection-plan myDDoSPlan \
+    --ddos-protection true
 
 ```
 
@@ -208,7 +220,9 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNetPE \
     --address-prefixes 11.1.0.0/16 \
     --subnet-name mySubnetPE \
-    --subnet-prefixes 11.1.0.0/24
+    --subnet-prefixes 11.1.0.0/24 \
+    --ddos-protection-plan myDDoSPlan \
+    --ddos-protection true
 ```
 
 To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
