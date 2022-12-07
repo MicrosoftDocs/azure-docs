@@ -38,14 +38,15 @@ For information about creating and managing labs in Canvas, see [Create and mana
 You can use Canvas for accessing Azure Lab Services by enabling the Azure Lab Services Canvas app. The Azure Lab Services app will be an inherited app in Canvas. To use the app, enable the corresponding developer key:
 
 1. In Canvas, select the **Admin** page.
-1. Select **Developer Keys** in the menu bar, and then select the **Inherited** view of the developer keys.
-1. Change the **Azure Lab Services** entry to **On**. The Azure Lab Services developer key is **170000000000711**.
+1. Select **Developer Keys** in the left navigation.
+1. Select the **Inherited** tab of the developer keys.
+1. In the list, change the state of the **Azure Lab Services** entry to **On**.
 
     :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-enable-lab-services-app.png" alt-text="Screenshot that shows how to turn on the inherited Azure Lab Services app in the Canvas Admin settings.":::
 
 ## Add Azure Lab Services app to an account (optional)
 
-After enabling the Azure Lab Services app in Canvas, you add the app to a course. Canvas administrators may choose to enable the Azure Lab Services app for an account. Enabling the app at the account level avoids that educators have to add the app for each individual course. Instead, educators can quickly enable or disable navigation to Azure Lab Services per course.
+After enabling the Azure Lab Services app in Canvas, you may choose to enable the Azure Lab Services app for the entire account. Enabling the app at the account level lets educators quickly enable or disable navigation to Azure Lab Services on a per-course basis.
 
 If you want to add the app to a specific course, skip to [Add the Azure Lab Services app to a course](#add-the-azure-lab-services-app-to-a-course).
 
