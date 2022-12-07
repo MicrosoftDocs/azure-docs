@@ -30,6 +30,28 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
+## Create a DDoS protection plan
+
+1. Select **Create a resource** in the upper left-hand corner of the portal.
+
+2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
+
+3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
+
+    :::image type="content" source="./media/quick-create-portal/create-ddos-plan.png" alt-text="Screenshot of creating a DDoS protection plan.":::
+
+    | Setting | Value |
+    |--|--|
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myDDoSPlan**. |
+    | Region | Select **West Europe**. |
+
+4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
+
+
 ## Create a virtual network and bastion host
 
 Start by creating a virtual network, subnet, and bastion host. 
@@ -85,9 +107,11 @@ You use the bastion host to connect securely to the VM for testing the private e
     | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-13. Select the **Review + create** tab or select the **Review + create** button.
+13. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
 
-14. Select **Create**.
+14. Select the **Review + create** tab or select the **Review + create** button.
+
+15. Select **Create**.
     
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
