@@ -29,13 +29,13 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Send and receive events
       items:
-        - name: .NET (Azure.Messaging.EventHubs)
+        - name: .NET
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java (azure-messaging-eventhubs)
+        - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub)
+        - name: Python
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs)
+        - name: JavaScript
           href: event-hubs-node-get-started-send.md
         - name: Spring
           href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
