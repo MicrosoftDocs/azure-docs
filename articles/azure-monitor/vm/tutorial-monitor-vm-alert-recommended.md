@@ -8,7 +8,7 @@ ms.date: 11/04/2021
 ms.reviewer: Xema Pathak
 ---
 
-# Create availability alert rule for Azure virtual machine (preview)
+# Tutorial: Create availability alert rule for Azure virtual machine (preview)
 When you create a new Azure virtual machine, you can quickly enable a set of recommended alert rules that will provide you with initial monitoring for a common set of performance counters. 
 
 In this article, you learn how to:

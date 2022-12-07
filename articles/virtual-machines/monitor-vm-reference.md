@@ -36,6 +36,16 @@ Azure virtual machines and virtual machine scale sets have the following dimensi
 | VMName | Used with virtual machine scale sets |
 | | |
 
+## VM availability metric (preview)
+The VM availability metric is currently in public preview. This metric value indicates whether a machine is currently running and available. You can use the metric to trend availability over time and to alert if the machine is stopped. VM availability has the values in the following table.
+
+| Value | Description |
+|:---|:---|
+| 1 | VM is running and available. | 
+| 0 | VM is unavailable. The VM could be stopped or rebooting. |
+| Null | State of the VM is unknown. |
+
+
 ## Azure Monitor Logs tables
 
 This section refers to all the Azure Monitor Logs tables that are relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
