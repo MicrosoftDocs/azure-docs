@@ -39,7 +39,7 @@ Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to
 
 ## Normalized content
 
-For a full list of analytics rules that use normalized File Activity events, see [File Activity security content](normalization-content.md#file-Activity-security-content).
+For a full list of analytics rules that use normalized File Activity events, see [File Activity security content](normalization-content.md#file-activity-security-content).
 
 ## Schema details
 
@@ -188,8 +188,8 @@ The following fields represent information about the the destination application
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="targetappname"></a>**TargetAppName** | Optional | String | The name of the destination application.<br><br>Example: `Facebook` |
-| <a name="targetappid"></a>**TargetAppId** | Optional | String | The ID of the destination application, as reported by the reporting device.If [DstAppType](#dstapptype) is `Process`, `DstAppId` and `DstProcessId` should have the same value.<br><br>Example: `124` |
-| <a name="targetapptype"></a>**TargetAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [DstAppName](#dstappname) or [DstAppId](#dstappid) are used. |
+| <a name="targetappid"></a>**TargetAppId** | Optional | String | The ID of the destination application, as reported by the reporting device. |
+| <a name="targetapptype"></a>**TargetAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [TargetAppName](#targetappname) or [TargetAppId](#targetappid) are used. |
 | <a name="targeturl"></a>**TargetUrl**| Optional | String| When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://onedrive.live.com/?authkey=...` |
 | **Url** | Alias | | Alias to [TargetUel](#targeturl) |
 
@@ -234,7 +234,7 @@ The path should be normalized to match one of the following formats. The format 
 These are the changes in version 0.1.1 of the schema:
 - Added the field `EventSchema`.
 
-There are the changes in version 0.2 of the schena:
+There are the changes in version 0.2 of the schema:
 - Added [inspection fields](#inspection-fields).
 - Added the fields `HashType`, `TargetAppName`, `TargetAppId`, `TargetAppType`, `SrcGeoCountry`, `SrcGeoRegion`, `SrcGeoLongitude`, `SrcGeoLatitude` and `ActorSessionId`.
 - Added the aliases `Url`, `IpAddr`, 'FileName', and `Src`.
