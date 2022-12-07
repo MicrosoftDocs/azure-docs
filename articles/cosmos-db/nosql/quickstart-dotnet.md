@@ -121,9 +121,11 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
 ## Authenticate using DefaultAzureCredential
 
-You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by adding the `Azure.Identity` NuGet package to your application.
+You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -170,10 +172,17 @@ We'll use the Azure CLI approach in this example. Use the [`az cosmosdb sql data
 
 ```azurecli
 # Create a SQL API database
-az cosmosdb sql database create --account-name msdocs-cosmos-nosql --resource-group msdocs --name cosmicworks
+az cosmosdb sql database create 
+    --account-name msdocs-cosmos-nosql
+    --resource-group msdocs
+    --name cosmicworks
 
 # Create a SQL API container
-az cosmosdb sql container create --account-name msdocs-cosmos-nosql --resource-group msdocs --database-name cosmicworks --name products
+az cosmosdb sql container create
+    --account-name msdocs-cosmos-nosql 
+    --resource-group msdocs
+    --database-name cosmicworks
+    --name products
 ```
 
 After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
