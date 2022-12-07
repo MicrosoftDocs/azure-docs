@@ -52,7 +52,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
 | `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total connections that you can cache is *ProcessorCount* multiplied by the setting value. |
-| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` | Sets the trigger state entity size, which is proportional to the number of files in the watch folder and is used to detect files. When the number of files exceeds 1,000, increase this value. |
+| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
