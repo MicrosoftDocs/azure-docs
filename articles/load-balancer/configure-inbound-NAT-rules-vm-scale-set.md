@@ -81,15 +81,15 @@ az network lb inbound-nat-rule create
     --frontend-ip-name MyFrontendIp 
 
 az network lb inbound-nat-rule create  
-        -g MyResourceGroup  
-        --lb-name MyLb 
-        -n MyNatRule2 
-        --protocol TCP  
-        --frontend-port-range-start 150  
-        --frontend-port-range-end 180  
-        --backend-port 80 
-        --backend-pool-name mybackend  
-        --frontend-ip-name MyFrontendIp 
+    -g MyResourceGroup  
+    --lb-name MyLb 
+    -n MyNatRule2 
+    --protocol TCP  
+    --frontend-port-range-start 150  
+    --frontend-port-range-end 180  
+    --backend-port 80 
+    --backend-pool-name mybackend  
+    --frontend-ip-name MyFrontendIp 
 
 ```
 
