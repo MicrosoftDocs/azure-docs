@@ -21,14 +21,13 @@ Indexers support two workflows:
 
 + Text-based indexing, extracting strings and metadata for full text search scenarios.
 
-+ Skills-based indexing, using built-in or custom skills to apply integrated machine learning and AI models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. 
-To learn about skill-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
++ Skills-based indexing, using built-in or custom skills to apply integrated machine learning models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. To learn about skill-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of indexer configuration. Depending on the data source and your workflow, more configuration might be necessary. 
 
 ## Indexer definitions
 
-When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. The only difference between the two is that an indexer that invokes AI enrichment has more definitions: a skillset and output field mappings.
+When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. A skills-based indexer has the same definitions as text-based indexers, but with a few more options.
 
 ### Indexer definition for full text search
 
