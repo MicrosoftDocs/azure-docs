@@ -28,7 +28,7 @@ The following table shows the schema formats and request or response content typ
 The policy validates the following content in the request or response against the schema:
 
 * Presence of all required properties. 
-* Presence or absence of additional properties, if the schema has the `additionalProperties` field set. May be overriden with the `allow-additional-properties` attribute.
+* Presence or absence of additional properties, if the schema has the `additionalProperties` field set. May be overridden with the `allow-additional-properties` attribute.
 * Types of all properties. For example, if a schema specifies a property as an integer, the request (or response) must include an integer and not another type, such as a string.
 * The format of the properties, if specified in the schema - for example, regex (if the `pattern` keyword is specified), `minimum` for integers, and so on.
 
