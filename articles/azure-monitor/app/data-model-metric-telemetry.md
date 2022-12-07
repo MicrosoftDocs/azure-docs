@@ -62,4 +62,4 @@ Metric with the custom property `CustomPerfCounter` set to `true` indicate that 
 
 - Learn how to use [Application Insights API for custom events and metrics](./api-custom-events-metrics.md#trackmetric).
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

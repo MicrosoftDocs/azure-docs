@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -51,12 +51,9 @@ If risks are detected on a sign-in, users can perform the required access contro
 Identity Protection analyzes signals about user accounts and calculates a risk score based on the probability that the user has been compromised. If a user has risky sign-in behavior, or their credentials have been leaked, Identity Protection will use these signals to calculate the user risk level. Administrators can configure user risk-based Conditional Access policies to enforce access controls based on user risk, including requirements such as: 
 
 - Block access
-- Allow access but require a secure password change using [Azure AD self-service password reset](../authentication/howto-sspr-deployment.md).
+- Allow access but require a secure password change.
 
 A secure password change will remediate the user risk and close the risky user event to prevent unnecessary noise for administrators.
-
-> [!NOTE] 
-> Users must have previously registered for self-service password reset before triggering the user risk policy.
 
 ## Identity Protection policies
 

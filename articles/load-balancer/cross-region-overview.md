@@ -63,10 +63,11 @@ If a flow is started from Seattle, traffic enters West US. This region is the cl
 
 Azure cross-region load balancer uses geo-proximity load-balancing algorithm for the routing decision. 
 
-The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.
+The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.  
 
 For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
 
+Egress traffic will follow the routing preference set on the regional load balancers.
 
 ### Ability to scale up/down behind a single endpoint
 
@@ -144,6 +145,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * UDP traffic isn't supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
+
+* Currently, regional load load balancers with floating IP enabled aren't supported by the cross-region load balancer.  
 
 
 ## Pricing and SLA

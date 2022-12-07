@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 author: dem108
 ms.author: sehan
-ms.date: 07/28/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1, event-tier1-build-2022
 adobe-target: true
