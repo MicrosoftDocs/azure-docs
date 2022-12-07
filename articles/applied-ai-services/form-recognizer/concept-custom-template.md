@@ -59,7 +59,7 @@ Template models rely on a defined visual template, changes to the template will 
 
 ::: moniker range="form-recog-3.0.0"
 
-Custom template models are generally available with the [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3 API and Form Recognizer Studio to train a custom template model.
+Custom template models are generally available with the [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3 API with Form Recognizer Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
