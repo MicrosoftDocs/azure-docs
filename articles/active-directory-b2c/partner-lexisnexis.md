@@ -3,19 +3,18 @@ title: Tutorial to configure Azure Active Directory B2C with LexisNexis
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with LexisNexis which is a profiling and identity validation service and is used to verify user identification and provide comprehensive risk assessments based on the user's device.
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 12/7/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [LexisNexis](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). LexisNexis provides a variety of solutions, you can find them [here](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). In this sample tutorial, we'll cover the **ThreatMetrix** solution from LexisNexis. ThreatMetrix is a profiling and identity validation service. It's used to verify user identification and provide comprehensive risk assessments based on the user's device.
+In this tutorial, learn how to integrate Azure AD B2C with [LexisNexis](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). LexisNexis provides a variety of solutions, you can find them [here](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). In this sample tutorial, we'll cover the **ThreatMetrix** solution from LexisNexis. ThreatMetrix is a profiling and identity validation service. It's used to verify user identification and provide comprehensive risk assessments based on the user's device.
 
 This integration does profiling based on a few pieces of user information, which is provided by the user during sign-up flow. ThreatMetrix  determines whether the user should be allowed to continue to log in or not. The following attributes are considered in ThreatMetrix's risk analysis:
 
