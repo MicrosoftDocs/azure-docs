@@ -17,12 +17,12 @@ ms.reviewer: mmcc
 
 In this article, you'll learn how to use Java 2.x with Application Insights. This article shows you how to: 
 
-- Get started, including using the Application Insights SDK to instrument request, track dependencies, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with your app
-- Send trace logs sent automatically to Application Insights
+- Get started, including instrumenting request, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
+- Send trace logs to Application Insights and explore them using the Application Insights portal.
 - Monitor dependencies, caught exceptions, and method execution times in Java web apps
 - Filter telemetry in your Java web app
-- Explore Linux system performance metrics in Application Insights by installing collectd
-- Use Micrometer with Azure Application Insights Java SDK
+- Explore Linux system performance metrics in Application Insights by using collectd
+- Measure metrics for JVM-based application code and export the data to your favorite monitoring systems by using Micrometer application monitoring
 
 ## Get started with Application Insights in a Java web project
 
@@ -42,7 +42,7 @@ Application Insights is an extensible analytics service for web developers that 
 
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/deprecated-java-2x/instrumentation-key-001.png)
+    :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="In the new resource overview, click Properties and copy the Instrumentation Key." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -164,23 +164,23 @@ Return to your Application Insights resource in [Microsoft Azure portal](https:/
 
 HTTP requests data appears on the overview pane. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![Screenshot of overview sample data](./media/deprecated-java-2x/overview-graphs.png)
+:::image type="content" source="./media/deprecated-java-2x/overview-graphs.png" alt-text="Screenshot of overview sample data." lightbox="./media/deprecated-java-2x/overview-graphs.png":::
 
 [Learn more about metrics.][metrics]
 
 Click through any chart to see more detailed aggregated metrics.
 
-![Application Insights failures pane with charts](./media/deprecated-java-2x/006-barcharts.png)
+:::image type="content" source="./media/deprecated-java-2x/006-barcharts.png" alt-text="Application Insights failures pane with charts." lightbox="./media/deprecated-java-2x/006-barcharts.png":::
 
 #### Instance data
 Click through a specific request type to see individual instances.
 
-![Drill into a specific sample view](./media/deprecated-java-2x/007-instance.png)
+:::image type="content" source="./media/deprecated-java-2x/007-instance.png" alt-text="Drill into a specific sample view" lightbox="./media/deprecated-java-2x/007-instance.png":::
 
 #### Analytics: Powerful query language
 As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../logs/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-![Example of Analytics](./media/deprecated-java-2x/0025.png)
+:::image type="content" source="./media/deprecated-java-2x/0025.png" alt-text="Example of Analytics." lightbox="./media/deprecated-java-2x/0025.png":::
 
 ### Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
@@ -225,7 +225,7 @@ Outgoing SDK configuration is defined in the [AI-Agent.xml](#monitor-dependencie
 ### Performance counters
 Open **Investigate**, **Metrics**, to see a range of performance counters.
 
-![Screenshot of metrics pane with process private bytes selected](./media/deprecated-java-2x/011-perf-counters.png)
+:::image type="content" source="./media/deprecated-java-2x/011-perf-counters.png" alt-text="Screenshot of metrics pane with process private bytes selected." lightbox="./media/deprecated-java-2x/011-perf-counters.png":::
 
 #### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the *ApplicationInsights.xml* file:
@@ -481,7 +481,7 @@ Now that you've configured your project to send traces to Application Insights, 
 
 Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
 
-![In the Application Insights portal, open Search](./media/deprecated-java-2x/01-diagnostics.png)
+:::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="In the Application Insights portal, open Search" lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
 
 <!-- START ARTICLE: Dependencies -->
 
@@ -863,7 +863,7 @@ In the [Microsoft Azure portal](https://portal.azure.com), open the [Application
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/deprecated-java-2x/instrumentation-key-001.png)
+:::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key" lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -1229,7 +1229,7 @@ Add the following binding code to the configuration  file:
 * Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 * [Diagnostic search][diagnostic]
-* [Sampling](./sampling.md) - Consider sampling as an alternative that does not skew your metrics.
+* [Sampling](./sampling.md) - Consider sampling as an alternative to filtering that does not skew your metrics.
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
 * To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).
 
