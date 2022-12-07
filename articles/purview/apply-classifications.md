@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/07/2022
 ---
 # Apply classifications on assets in Microsoft Purview
 
