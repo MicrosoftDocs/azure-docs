@@ -414,7 +414,7 @@ items:
         href: essentials/prometheus-grafana.md
       - name: Configure Grafana with Azure Active Directory
         displayName: Prometheus
-        href: essentials/prometheus-self-managed-grafana-aad.md
+        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Troubleshoot collection
         displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
