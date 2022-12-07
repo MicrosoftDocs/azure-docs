@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 11/30/2022
+ms.date: 12/07/2022
 ms.custom: references_regions
 ---
 
@@ -34,29 +34,31 @@ Business case creates assessments in the background, which could take some time 
 
 ## Build business case 
 
-## How do I build a business case?
+### How do I build a business case?
 
 Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware environment. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
 
+### Why is the Build business case feature disabled?
+
+The **Build business case** feature will be enabled only when you have discovery performed using an Azure Migrate appliance for servers and workloads in a VMware environment. The Business case feature is not supported for servers and/or workloads discovered only from any of the discovery sources below:
+- Servers and/or SQL Server deployments from Hyper-V environment
+- Servers imported via .csv templates
 
 ### Why can’t I build business case from my project?
 
-You won't be able to create a Business case if your project is in one of the 5 project regions:
-East Asia, Germany West Central, Japan West, Norway East, Switzerland North.
+You will not be able to create a business case if your project is in one of the 6 project regions:
+
+East Asia, Germany West Central, Japan West, Korea Central, Norway East, and Switzerland North.
 
 To verify in an existing project:
+1. You can use the https://portal.azure.com/ URL to get started
+2. In Azure Migrate, go to **Servers, databases and webapps** > **Migration goals**.
+3. On the **Azure Migrate: Discovery and assessment** tool, select **Overview**.
+4. Under Project details, select **Properties**.
+5. Check the Project location.
+6. The Business case feature is not supported in the following regions:
 
-1. You can use the https://portal.azure.com/ URL to get started.
-
-2. In Azure Migrate, Go to **Servers, databases and webapps** migration goal.
-
-3. On the Azure Migrate: Discovery and assessment tool, select **Overview**.
-
-4. Under project details, select **Properties**.
-
-5. Check the Project location. If the project location is one of the below regions, we’d suggest you change the project or create a new one in another region in the geography using [this link](https://portal.azure.com/?feature.createprojectwithregion=true)
-
-    - Eastasia, germanywestcentral, japanwest, norwayeast, switzerlandnorth
+    koreacentral, eastasia, germanywestcentral, japanwest, norwayeast, switzerlandnorth
 
 ### Why can't I change the currency during business case creation?
 Currently, the currency is defaulted to USD. 
@@ -64,12 +66,13 @@ Currently, the currency is defaulted to USD.
 ### What does the different migration strategies mean?
 **Migration Strategy** | **Details** | **Assessment insights**
 --- | --- | ---
-**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy- minimize cost from Azure SQL assessment. For web apps, sizing and cost comes from Azure App Service assessment is picked. For general servers, sizing and cost comes from Azure VM assessment.
-**Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
-**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. General servers are recommended with a quick lift and shift recommendation to Azure IaaS |  For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment.
+**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy- minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment is picked.<br/><br/> For general servers, sizing and cost comes from Azure VM assessment.
+**Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report.<br/><br/> For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
+**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets.<br/><br/> General servers are recommended with a quick lift and shift recommendation to Azure IaaS. |  For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment.
 
 > [!NOTE]
 > Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
+
 ## Business case recommendation
 
 
@@ -77,32 +80,33 @@ Currently, the currency is defaulted to USD.
 
 Multiple possibilities:
 
-- Discovery hasn't completed - Wait for the discovery to get completed (recommended to wait at least 24 hours).
+- Discovery hasn't completed - Wait for the discovery to complete. It is recommended to wait for at least 24 hours.
 - Check and resolve any discovery issues.
 - Changes to discovery happened after creating the Business case.
 
-To fetch latest discovery data, recalculate by selecting **Recalculate** button, or changing the assumptions and selecting **Save**.
+To fetch latest discovery data, recalculate by selecting the **Recalculate** button, or changing the assumptions and selecting **Save**.
 
 
 ### Why are all or some of the servers marked as unknown in the utilization insights?
 
-We couldn't collect sufficient data points to classify these servers. We recommend that you wait at least a day after starting discovery so that the Business case has enough utilization data points. Also, review the notifications/ resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. Reviewing issues prior to building a Business case will ensure that the IT estate in your datacenter is represented more accurately.
+We couldn't collect sufficient data points to classify these servers. We recommend that you wait at least a day after starting discovery so that the Business case has enough utilization data points. Also, review the notifications/resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. Reviewing issues prior to building a Business case will ensure that the IT estate in your datacenter is represented more accurately.
 
 ### Was the readiness taken into consideration in the recommendations?
-Yes, but you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
+Yes, but you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 ### Why was I recommended this Azure target?
 Based on the migration strategy, this was the best recommended target. To understand detailed readiness and sizing, create an assessment and refer to the details.
 
 
 ### How do I get to know details for servers or workloads that aren't ready for Azure?
-To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
+To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 
 ### Does the Azure SQL recommendation logic include SQL consolidation?
 No, it does not include SQL consolidation.
 
 ## Next steps
-[Learn more](how-to-build-a-business-case.md) about how to build a Business case.
-[Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
+
+- [Learn more](how-to-build-a-business-case.md) about how to build a Business case.
+- [Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
 

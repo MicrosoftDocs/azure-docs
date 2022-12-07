@@ -80,7 +80,7 @@ Use the following steps to run the scripts:
 > The new endpoint created by the scripts will be created under the same workspace.
 
 1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
-2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
+2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the Python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
 4. Clone [the repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration) to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
 5. Edit the following values in the `migrate-service.sh` file. Replace the values with ones that apply to your configuration.
