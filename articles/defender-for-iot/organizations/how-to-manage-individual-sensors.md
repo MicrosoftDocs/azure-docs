@@ -33,7 +33,7 @@ Select the link in each widget to drill down for more information in your sensor
 
 ### Troubleshoot connectivity status
 
-If the sensor isn't connected to the Azure portal, an error message is shown in the **General Settings** area on the **Overview** page, and an **Service connection error** message appears at the top of the page. For example:
+If the sensor isn't connected to the Azure portal, an error message is shown in the **General Settings** area on the **Overview** page, and an **Service connection error** message appears at the top of the page in the <image> notifications area. For example:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
 
