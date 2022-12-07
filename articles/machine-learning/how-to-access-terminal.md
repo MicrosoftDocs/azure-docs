@@ -70,7 +70,7 @@ To integrate Git with your Azure Machine Learning workspace, see  [Git integrati
 
 Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Workbench (formerly RStudio Workbench):
 
-* RStudio or Posit Workbench([see Add custom applications such as RStudio or Posit Workbench](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio or Posit Workbench(see [Add custom applications such as RStudio or Posit Workbench](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]
