@@ -183,7 +183,7 @@ Get-ADUser $userObject -properties KerberosEncryptionType
 
 ## Next steps
 
-To grant additional users access to your file share, follow the instructions in [Assign share-level permissions to an Azure AD identity](#assign-share-level-permissions-to-an-azure-ad-identity) and [Configure Windows ACLs](#configure-windows-acls).
+To grant additional users access to your file share, follow the instructions in [Assign share-level permissions](#assign-share-level-permissions) and [Configure Windows ACLs](#configure-windows-acls).
 
 For more information about identity-based authentication for Azure Files, see these resources:
 
