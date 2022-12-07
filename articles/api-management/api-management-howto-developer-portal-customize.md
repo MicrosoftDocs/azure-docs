@@ -167,6 +167,9 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 
 You can control which portal content appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
 
+> [!NOTE]
+> Visibility and access controls are supported only in the managed developer portal. They are not supported in the [self-hosted portal](developer-portal-self-host.md).
+
 * When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
     
     :::image type="content" source="media/api-management-howto-developer-portal-customize/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
