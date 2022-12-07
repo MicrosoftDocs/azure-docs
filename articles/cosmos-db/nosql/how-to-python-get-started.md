@@ -409,7 +409,7 @@ The following guides show you how to use each of these classes to build your app
 - [Samples](samples-python.md)
 - [API reference](/python/api/azure-cosmos/azure.cosmos)
 - [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos)
-- [Give Feedback](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/issues)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## Next steps
 

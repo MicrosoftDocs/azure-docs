@@ -18,13 +18,11 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + Source data is changing over time, and you want the indexer to automatically process the difference.
 
-+ A search index is populated from multiple data sources, and you want to stagger the indexer jobs to reduce conflicts.
++ An index is populated from multiple data sources and indexers, and you want to stagger the indexer jobs to reduce conflicts.
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-Indexer jobs are subject to a 2-hour maximum duration. Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn’t the norm. The longer window only applies if a service or its indexers can’t be internally migrated to the newer runtime behavior. 
-
-If indexing can't complete within the maximum interval, you can [schedule the indexer](search-howto-schedule-indexers.md) to run every 2 hours. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents). For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+If indexing isn't completing within the processing window, you can [schedule the indexer](search-howto-schedule-indexers.md) to run at specific intervals. Most indexers run within a 2-hour processing window, so scheduling on 2-hour cadence is recommended for working through a large volume of data  (many millions of documents). As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run, based on an internal high water mark that marks where indexing last ended. 
 
 ## Prerequisites
 
