@@ -21,6 +21,17 @@ In Azure Cognitive Search, there are several ways to run an indexer:
 
 This article explains how to run indexers on demand, with and without a reset.
 
+## Run without reset
+
+[Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
+
+Change detection is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
+
++ Azure Storage has built-in change detection through its LastModified property
++ Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+
+If the underlying content is unchanged, a run operation has no effect. In this case, idexer execution history will indicate `0\0` documents processed.
+
 ## Indexer execution
 
 Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large.
@@ -43,14 +54,6 @@ Indexer limits vary by the workload. For each workload, the following job limits
 > [!TIP]
 > If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
 
-## Run without reset
-
-[Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
-
-Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. If indexer execution history says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
-
-Indexers use the change detection capabilities of the underlying data source. Azure Storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
-
 ## Resetting indexers
 
 After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped, so that it can pick up where it left off on the next run.
@@ -61,7 +64,7 @@ If you need to rebuild all or part of an index, you can clear the indexer's high
 + [Reset Documents (preview)](#reset-docs) reindexes a specific document or list of documents
 + [Reset Skills (preview)](#reset-skills) invokes skill processing for a specific skill
 
-After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source can't be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
+After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source cannot be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
 
 <a name="reset-indexers"></a>
 
