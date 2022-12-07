@@ -529,7 +529,7 @@ Access restrictions are also available for function apps with the same functiona
 
 ## Next steps
 [Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
-[Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
+[Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)  
 [Advanced access restriction scenarios in Azure App Service - blog post](https://azure.github.io/AppService/2022/11/24/Advanced-access-restriction-scenarios-in-Azure-App-Service.html)
 
 <!--Links-->
