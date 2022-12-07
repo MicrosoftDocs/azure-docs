@@ -38,7 +38,7 @@ Follow these guidelines when using API Management to reach a backend API that im
     <forward-request timeout="120" fail-on-error-status-code="true" buffer-response="false"/>
     ```
 
-* **Avoid other policies that buffer responses** - Certain policies such as [`validate-content`](validation-policies.md#validate-content) can also buffer response content and shouldn't be used with APIs that implement SSE.
+* **Avoid other policies that buffer responses** - Certain policies such as [`validate-content`](validate-content-policy.md) can also buffer response content and shouldn't be used with APIs that implement SSE.
 
 * **Disable response caching** - To ensure that notifications to the client are timely, verify that [response caching](api-management-howto-cache.md) isn't enabled. For more information, see [API Management caching policies](api-management-caching-policies.md).
 

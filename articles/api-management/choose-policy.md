@@ -66,9 +66,9 @@ The following example demonstrates a [set-variable](set-variable-policy.md) poli
 
 The set variable policy is in the inbound section and creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.
 
-The first control flow policy is also in the inbound section, and conditionally applies one of two [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) policies depending on the value of the `isMobile` context variable.
+The first control flow policy is also in the inbound section, and conditionally applies one of two [Set query string parameter](set-query-parameter-policy.md) policies depending on the value of the `isMobile` context variable.
 
-The second control flow policy is in the outbound section and conditionally applies the [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) policy when `isMobile` is set to `true`.
+The second control flow policy is in the outbound section and conditionally applies the [Convert XML to JSON](xml-to-json-policy.md) policy when `isMobile` is set to `true`.
 
 ```xml
 <policies>

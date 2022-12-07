@@ -79,23 +79,23 @@ More information about policies:
 - [Set GraphQL resolver](set-graphql-resolver-policy.md) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
 ## Transformation policies
--   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
--   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
--   [Find and replace string in body](api-management-transformation-policies.md#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
--   [Mask URLs in content](api-management-transformation-policies.md#MaskURLSContent) - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
--   [Set backend service](api-management-transformation-policies.md#SetBackendService) - Changes the backend service for an incoming request.
--   [Set body](api-management-transformation-policies.md#SetBody) - Sets the message body for incoming and outgoing requests.
--   [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
--   [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
--   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
--   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
+-   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.
+-   [Convert XML to JSON](xml-to-json-policy.md) - Converts request or response body from XML to JSON.
+-   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
+-   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
+-   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
+-   [Set body](set-body-policy.md) - Sets the message body for incoming and outgoing requests.
+-   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+-   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
+-   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.
+-   [Transform XML using an XSLT](xsl-transform-policy.md) - Applies an XSL transformation to XML in the request or response body.
 
 ## Validation policies
-- [Validate content](validation-policies.md#validate-content) - Validates the size or JSON schema of a request or response body against the API schema.
-- [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
-- [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
-- [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
+- [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
+- [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
+- [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
+- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in
 ## Next steps
 
 For more information about working with policies, see:

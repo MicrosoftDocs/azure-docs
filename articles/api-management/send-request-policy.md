@@ -45,8 +45,8 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | set-url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
 | set-method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
-| set-header                     | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. Use multiple header elements for multiple request headers.                                  | No                              |
-| set-body                       | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.      | No                              |
+| set-header                     | A [set-header](set-header-policy.md) policy statement. Use multiple header elements for multiple request headers.                                  | No                              |
+| set-body                       | A [set-body](set-body-policy.md) policy statement.      | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                          |
 
 
@@ -59,9 +59,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 - **Multiple statements per policy document:** supported
 
-## Examples
-
-### Verify token with authorization server
+## Example
 
 This example shows one way to verify a reference token with an authorization server. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 

@@ -85,11 +85,11 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
 * If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](transform-api.md) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
 
-* [Response content validation](validation-policies.md#validate-content) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
+* [Response content validation](validate-content-policy.md) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
 
-* Use the [validate status code](validation-policies.md#validate-status-code) policy to block responses with errors undefined in the API schema. 
+* Use the [validate status code](validate-status-code-policy.md) policy to block responses with errors undefined in the API schema. 
 
-* Use the [validate headers](validation-policies.md#validate-headers) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set header](api-management-transformation-policies.md#SetHTTPheader) policy. 
+* Use the [validate headers](validate-headers-policy.md) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set header](set-header-policy.md) policy. 
 
 * For GraphQL scenarios, use the [validate GraphQL request](validate-graphql-request-policy.md) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
 
@@ -103,9 +103,9 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 * Use [rate limit](rate-limit-policy.md) (short-term) and [quota limit](quota-policy.md) (long-term) policies to control the allowed number of API calls or bandwidth per consumer. 
 
-* Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regular expression (regex) for strings. Enforce those schemas with the [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies in API Management. 
+* Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regular expression (regex) for strings. Enforce those schemas with the [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies in API Management. 
 
-* Enforce maximum size of the request with the [validate content](validation-policies.md#validate-content) policy. 
+* Enforce maximum size of the request with the [validate content](validate-content-policy.md) policy. 
 
 * Optimize performance with [built-in caching](api-management-howto-cache.md), thus reducing the consumption of CPU, memory, and networking resources for certain operations. 
 
@@ -151,7 +151,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 * External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](api-management-versions.md) in API Management. 
 
-* Precisely define XML and JSON contracts in the API schema and use [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
+* Precisely define XML and JSON contracts in the API schema and use [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 
 * If the backend interface can't be changed, use [transformation policies](transform-api.md) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
 
