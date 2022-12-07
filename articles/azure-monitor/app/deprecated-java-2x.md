@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights for Java 2.x
 description: A step by step guide on using Java 2.x with Application Insights.
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 12/07/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -24,6 +24,8 @@ In this article, you'll learn how to use Java 2.x with Application Insights. Thi
 - Explore Linux system performance metrics in Application Insights by using collectd
 - Measure metrics for JVM-based application code and export the data to your favorite monitoring systems by using Micrometer application monitoring
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Get started with Application Insights in a Java web project
 
 In this section, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
@@ -43,8 +45,6 @@ Application Insights is an extensible analytics service for web developers that 
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="In the new resource overview, click Properties and copy the Instrumentation Key." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
-
-    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Add the Application Insights SDK for Java to your project
 
@@ -133,7 +133,7 @@ Optionally, the configuration file can be in any location accessible to your app
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
 * Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server. It then adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
-### Alternative ways to set the instrumentation key
+#### Alternative ways to set the instrumentation key
 Application Insights SDK looks for the key in this order:
 
 1. System property: -DAPPINSIGHTS_INSTRUMENTATIONKEY=your_ikey
@@ -308,8 +308,6 @@ If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your t
 
 > [!TIP]
 > You only need to set your Application Insights Instrumentation Key once for your application. If you are using a framework like Java Spring, you may have already registered the key elsewhere in your app's configuration.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Using the Application Insights Java agent
 
@@ -865,8 +863,6 @@ Take a copy of the instrumentation key, which identifies the resource.
 
 :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key" lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ### Install collectd and the plug-in
 On your Linux server machines:
 
@@ -1004,8 +1000,6 @@ Steps
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Build your application and run
 2. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Using Spring 2.x
 
@@ -1227,11 +1221,11 @@ Add the following binding code to the configuration  file:
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
-* For more information, visit [Azure for Java developers](/java/azure).
 * [Diagnostic search][diagnostic]
 * [Sampling](./sampling.md) - Consider sampling as an alternative to filtering that does not skew your metrics.
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
 * To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).
+* For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 [api]: ./api-custom-events-metrics.md
