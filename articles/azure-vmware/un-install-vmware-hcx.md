@@ -26,3 +26,9 @@ In this article you'll learn how to uninstall HCX in Azure VMware solution. You 
     :::image type="content" source="media/hcx/un-install-vmware-hcx.png" alt-text="Screenshot displaying how to uninstall VMware hcx" lightbox="media/hcx/un-install-vmware-hcx.png"::: 
 
 After uninstalling HCX, it no longer has the vCenter Server plugin. If required, you can reinstall it. 
+
+>[!div class="nextstepaction"] 
+
+>[Configure VMware HCX in Azure VMware Solution](configure-vmware-hcx.md) 
+
+>[VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
