@@ -8,9 +8,9 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/04/2022
+ms.date: 12/07/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Key and token-based authentication for online endpoints
