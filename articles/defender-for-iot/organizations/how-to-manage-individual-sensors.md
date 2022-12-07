@@ -23,7 +23,7 @@ The **Overview** page shows the following widgets:
 
 | Name | Description |
 |--|--|
-| **General Settings** | Displays a list of the sensor's basic configuration settings |
+| **General Settings** | Displays a list of the sensor's basic configuration settings and connectivity status.  |
 | **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
 | **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
 | **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
@@ -31,15 +31,13 @@ The **Overview** page shows the following widgets:
 
 Select the link in each widget to drill down for more information in your sensor.
 
-### Connectivity status
+### Troubleshoot connectivity status
 
-The Azure portal checks the connection to the sensor. If the portal fails to access the sensor, it will present a connectivity error message. The message appears on the sensor overview page. For example:
+If the sensor isn't connected to the Azure portal, an error message is shown in the **General Settings** area on the **Overview** page, and an **Service connection error** message appears at the top of the page. For example:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
 
-The sensor page shows a **Service connection error** message in the notifications as well, under the bell icon in the header of the page.
-
-Find out more details and options, such as troubleshooting, by clicking on the notification, or hovering over the information icon in the overview page. For example:
+Find more information about the issue by hovering over the <image> information icon. For example:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
 
