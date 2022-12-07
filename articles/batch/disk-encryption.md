@@ -31,7 +31,7 @@ You won't be able to specify which encryption method will be applied to the node
 
 ![Screenshot of the Pool Creation in the Azure portal](./media/disk-encryption/decision-tree.svg)
 
-Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md#azure-powershell) to determine which VM families support encryption at host.
+Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md) to determine which VM families support encryption at host.
 
 ## Azure portal
 
