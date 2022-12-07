@@ -498,7 +498,7 @@ sections:
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
           
-          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
+          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](best-practices-cost.md#data-collection).
           
           The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It's suitable if you want to use Continuous Export on a large scale.
           

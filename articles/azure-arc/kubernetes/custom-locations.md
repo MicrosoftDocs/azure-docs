@@ -1,6 +1,5 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
-ms.service: azure-arc
 ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
