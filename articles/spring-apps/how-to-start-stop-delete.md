@@ -63,42 +63,42 @@ az extension add --name spring
   - Start your application:
 
     ```azurecli-interactive
-    az spring app start `
-      --resource-group <resource-group-name> `
-      --service <springs-apps-instance-name> `
+    az spring app start \
+      --resource-group <resource-group-name> \
+      --service <springs-apps-instance-name> \
       --name <application-name>
     ```
 
   - Stop your application:
 
     ```azurecli
-    az spring app stop `
-      --resource-group <resource-group-name> `
-      --service <springs-apps-instance-name> `
+    az spring app stop \
+      --resource-group <resource-group-name> \
+      --service <springs-apps-instance-name> \
       --name <application-name>
     ```
 
   - Restart your application:
 
     ```azurecli
-    az spring app restart `
-      --resource-group <resource-group-name> `
-      --service <springs-apps-instance-name> `
+    az spring app restart \
+      --resource-group <resource-group-name> \
+      --service <springs-apps-instance-name> \
       --name <application-name>
     ```
 
   - Delete your application:
 
     ```azurecli
-    az spring app delete `
-        --resource-group <resource-group-name> `
-        --service <springs-apps-instance-name> `
+    az spring app delete \
+        --resource-group <resource-group-name> \
+        --service <springs-apps-instance-name> \
         --name <application-name>
     ```
 
 ---
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn how to Start, stop, and delete an application in Azure Spring Apps](./how-to-start-stop-delete.md)
