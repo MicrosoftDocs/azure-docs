@@ -121,9 +121,9 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
-
 ## Authenticate using DefaultAzureCredential
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
 
