@@ -35,7 +35,7 @@ az group create \
 
 ## Create a virtual network with DDoS Protection Standard enabled
 
-Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
 
 ```azurecli-interactive
 az network ddos-protection create \
