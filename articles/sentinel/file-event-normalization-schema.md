@@ -183,7 +183,7 @@ The following fields represent information about the system initiating the file 
 
 ### Target application fields
 
-The following fields represent information about the the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using Saas (Software as a service) applications.  
+The following fields represent information about the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using Saas (Software as a service) applications.  
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
@@ -208,7 +208,7 @@ The following fields are used to represent that inspection performed by a securi
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the file activity.<br><br>Example: `Trojan` |
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatoriginalriskleveloriginal). |
 | <a name="threatoriginalriskleveloriginal"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
-| **ThreatFilePath** | Optional | String | An file path for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatFilePath** represents. |
+| **ThreatFilePath** | Optional | String | A file path for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatFilePath** represents. |
 | <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcFilePath` or `DstFilePath`. |
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
