@@ -15,7 +15,7 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-### Policy statement
+## Policy statement
 
 ```xml
 <json-to-xml 

@@ -28,7 +28,7 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-### Policy statement
+## Policy statement
 
 ```xml
 <set-body template="liquid" xsi-nil="blank | null">
