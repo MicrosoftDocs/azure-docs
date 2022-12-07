@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
-This document focuses on enabling security key based passwordless authentication. At the end of this article, you will be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
+This document focuses on enabling security key based passwordless authentication. At the end of this article, you'll be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
 
 ## Requirements
 
@@ -60,7 +60,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 ![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
 
-- **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
+- **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
 - **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
 
 **Key Restriction Policy**
@@ -72,7 +72,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
 
-1. Login to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
+1. Sign in to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
 1. Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
     ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
@@ -100,7 +100,7 @@ There are two ways to get your AAGUID. You can either ask your security key prov
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
 1. A box will appear and ask the user to create/enter a PIN for your security key, then perform the required gesture for the key, either biometric or touch.
-1. The user will be returned to the combined registration experience and asked to provide a meaningful name for the key so the user can identify which one if they have multiple. Click **Next**.
+1. The user will be returned to the combined registration experience and asked to provide a meaningful name for the key to identify it easily. Click **Next**.
 1. Click **Done** to complete the process.
 
 ## Sign in with passwordless credential
@@ -123,12 +123,12 @@ If you'd like to share feedback or encounter issues with this feature, share via
 
 ### Security key provisioning
 
-Administrator provisioning and de-provisioning of security keys is not available.
+Administrator provisioning and de-provisioning of security keys isn't available.
 
 
 ### UPN changes
 
-If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The solution for a user with a FIDO2 security key is to login to MySecurityInfo, delete the old key, and add a new one.
+If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The solution for a user with a FIDO2 security key is to sign in to MySecurityInfo, delete the old key, and add a new one.
 
 ## Next steps
 
