@@ -78,17 +78,13 @@ The correct pricing page and file structure matter mostly to the cost of reading
 
 #### Pricing requests to the blob service endpoint
 
-The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net` and is the most common endpoint used by tools and applications that interact with Blob Storage accounts that do not have the hierarchical namespace enabled on them. 
+The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net` and is the most common endpoint used by tools and applications that interact with Blob Storage. 
 
 Requests can originate from any of these sources:
 
-- Service instances, tools, or utilities such as AzCopy
-
 - Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver
 
-- Applications that use [Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)
-
-- Applications that use Blob Storage APIs from an Azure Storage client library
+- Clients that use [Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or Blob Storage APIs from an Azure Storage client library
 
 - Transfers to [Network File System (NFS) 3.0](../blobs/network-file-system-protocol-support.md) mounted containers
 
@@ -106,13 +102,9 @@ The format of the blob service endpoint is `https://<storage-account>.dfs.core.w
 
 Requests can originate from any of these sources:
 
-- Service instances, tools, or utilities such as AzCopy
-
 - Hadoop workloads that use the [Azure Blob File System driver (ABFS)](../blobs/data-lake-storage-abfs-driver.md) driver
 
-- Applications that use [Data Lake Storage Gen2 REST APIs](/rest/api/storageservices/data-lake-storage-gen2)
-
-- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library
+- Clients that use [Data Lake Storage Gen2 REST APIs](/rest/api/storageservices/data-lake-storage-gen2) or Data Lake Storage Gen2 APIs from an Azure Storage client library
 
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
