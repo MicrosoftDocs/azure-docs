@@ -74,7 +74,7 @@ az spring connection create sql \
     --target-resource-group $SQL_RESOURCE_GROUP \
     --server $SQL_SERVER_NAME \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
 ---
