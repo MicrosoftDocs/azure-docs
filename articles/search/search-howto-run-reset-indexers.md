@@ -30,7 +30,7 @@ Change detection is essential for determining what's new or updated in the data 
 + Azure Storage has built-in change detection through its LastModified property
 + Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
-If the underlying content is unchanged, a run operation has no effect. In this case, idexer execution history will indicate `0\0` documents processed.
+If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
 
 ## Indexer execution
 
@@ -56,7 +56,7 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 ## Resetting indexers
 
-After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped, so that it can pick up where it left off on the next run.
+After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped.
 
 If you need to rebuild all or part of an index, you can clear the indexer's high-water mark through a reset. Reset APIs are available at decreasing levels in the object hierarchy:
 
