@@ -111,9 +111,9 @@ Akamai Enterprise Application Access supports SAML federation with cloud IdPs li
 
 2. Create a signing certificate for Azure AD B2C to sign the SAML response sent to Akamai Enterprise Application Access:
 
-   a. [**Obtain a certificate**](.../azure/active-directory-b2c/saml-service-provider?tabs=windows&pivots=b2c-custom-policy#obtain-a-certificate). If you don't already have a certificate, you can use a self-signed certificate.
+   a. [**Obtain a certificate**](./saml-service-provider?tabs=windows&pivots=b2c-custom-policy#obtain-a-certificate). If you don't already have a certificate, you can use a self-signed certificate.
 
-   b. [**Upload the certificate**](https://learn.microsoft.com/azure/active-directory-b2c/saml-service-provider?tabs=windows&pivots=b2c-custom-policy#upload-the-certificate) in your Azure AD B2C tenant. Take note of the name as it will be needed in the `TechnicalProfile` mentioned in the next steps.
+   b. [**Upload the certificate**](./saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy#upload-the-certificate) in your Azure AD B2C tenant. Take note of the name as it will be needed in the `TechnicalProfile` mentioned in the next steps.
 
 3. Enable your policy to connect with a SAML application.
 
@@ -398,7 +398,7 @@ Once the Application is deployed in a private environment and a connector is cap
 
 #### Option 2: OpenID Connect
 
-In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
+In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
 1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
 
@@ -422,7 +422,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
    [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png#lightbox)
 
-7. Replace startup class with the following code in the [ASP.NET MVC web app](../azure/active-directory/develop/tutorial-v2-asp-webapp.md).
+7. Replace startup class with the following code in the [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp.md).
 
    These few changes configure the Authorization code flow grant, the authorization code will be redeemed for tokens at the token endpoint for the application, and it introduces the Metadata Address to set the discovery endpoint for obtaining metadata from Akamai.
 
@@ -496,7 +496,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 8. In the `web.config` file add the Metadata address, replace clientId, clientsecret, authority, redirectUri and PostLogoutRedirectUri with the values from the Akamai application in `appSettings`.
 
-   You can find these values in the previous step 5 in the  OpenID tab for the HTTP Akamai Application, where you created `Discovery URL=MetadataAddress`. `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` [document](../azure/active-directory/develop/v2-protocols-oidc.md).
+   You can find these values in the previous step 5 in the  OpenID tab for the HTTP Akamai Application, where you created `Discovery URL=MetadataAddress`. `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` [document](../active-directory/develop/v2-protocols-oidc.md).
 
    Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration`
 
@@ -536,4 +536,4 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 - [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-- [Register a SAML application in Azure AD B2C](saml-service-provider?tabs=windows&pivots=b2c-custom-policy)
+- [Register a SAML application in Azure AD B2C](saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy)
