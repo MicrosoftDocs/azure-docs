@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/07/2022
 ---
 # Custom classifications in Microsoft Purview
 
@@ -87,7 +87,7 @@ The scanning system can then use this rule to examine the actual data in the col
 
 To create a custom classification rule:
 
-1. Create a custom classification by following the instructions in the previous section. You will add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
+1. Create a custom classification by following the instructions in the previous section. You'll add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
 
 2. Select the **Data Map** icon.
 
@@ -112,7 +112,7 @@ To create a custom classification rule:
 
 ### Creating a Regular Expression Rule
 
-1. If creating a regular expression rule, you will see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule.
+1. If creating a regular expression rule, you'll see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
 
@@ -122,8 +122,8 @@ To create a custom classification rule:
 
    |Field     |Description  |
    |---------|---------|
-   |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
-   |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large. |
+   |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
+   |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is large. |
 
 1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
@@ -133,7 +133,7 @@ To create a custom classification rule:
 1. You can now verify your rule and **create** it.
 1. Test the classification rule before completing the creation process to validate that it will apply tags to your assets. The classifications in the rule will be applied to the sample data uploaded just as it would in a scan. This means all of the system classifications and your custom classification will be matched to the data in your file.
 
-   Input files may include delimited files (CSV, PSV, SSV, TSV), JSON, or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of 3 columns.
+   Input files may include delimited files (CSV, PSV, SSV, TSV), JSON, or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of three columns.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Test rule before creating" border="true":::
 
@@ -141,7 +141,7 @@ To create a custom classification rule:
 
 ### Creating a Dictionary Rule
 
-1. If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
+1. If creating a dictionary rule, you'll see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
 
