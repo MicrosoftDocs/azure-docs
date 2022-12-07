@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## x86 emulation on ARM64
 
-Functions doesn't currently support Python function development on ARM64 devices. Use the following steps to develop Python functions on a Mac with an M1 chip by running in an emulated x86 environment. 
+Functions doesn't currently support local Python function development on ARM64 devices. Use the following steps to develop Python functions on a Mac with an M1 chip by running in an emulated x86 environment. 
 
 ### Enable Rosetta in Terminal
 

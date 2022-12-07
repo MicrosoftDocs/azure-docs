@@ -34,8 +34,24 @@ As a Python developer, you might also be interested in one of the following arti
 
 ::: zone-end
 
-> [!NOTE]
-> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
+## Development options
+
+Both Python Functions programming models support local development in one of the following enviroments:
+
+| Environment | Programming model | Get started |
+| --- | --- | --- |
+| Visual Studio Code | v2 | [Create your first Python function](./create-first-function-vs-code-python.md?pivots=python-mode-decorators) |
+| Visual Studio Code | v1 | [Create your first Python function](./create-first-function-vs-code-python.md?pivots=python-mode-configuration) |
+| Command prompt | v2 | [Create your first Python function](./create-first-function-cli-python.md?pivots=python-mode-decorators)|
+| Command prompt | v1 | [Create your first Python function](./create-first-function-cli-python.md?pivots=python-mode-configuration)|
+
+You can also create Python v1 functions in the Azure portal.
+
+The following considerations apply for local Python development:
+
++ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
+
++ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
 
 ## Programming model
 
