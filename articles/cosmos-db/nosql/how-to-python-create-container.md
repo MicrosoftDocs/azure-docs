@@ -56,9 +56,8 @@ try:
 except CosmosResourceExistsError:
     print("Container already exists.")
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app.py" id="create_container":::
--->
 
 ### Create a container if it doesn't already exist
 
@@ -78,9 +77,8 @@ try:
 except CosmosHttpResponseError:
     print("Request to the Azure Cosmos database service failed.")
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="create_container":::
--->
 
 ### Create a container asynchronously
 
@@ -102,9 +100,8 @@ container = database.create_container_if_not_exists(
     offer_throughput=400
 )
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="parse_response":::
--->
 
 ## Next steps
 

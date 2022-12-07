@@ -51,9 +51,8 @@ try:
 except CosmosResourceExistsError:
     print("Database already exists.")
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app.py" id="create_database":::
--->
 
 ### Create a database if it doesn't already exist
 
@@ -67,9 +66,8 @@ try:
 except CosmosHttpResponseError:
     print("Request to the Azure Cosmos database service failed.")
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app_exists.py" id="create_database":::
--->
 
 ### Create a database asynchronously
 
@@ -88,9 +86,8 @@ database = client.create_database_if_not_exists(id=DATABASE_ID)
 for container in database.list_containers():
     print(f'Container name: {container["id"]}')
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app_exists.py" id="parse_response":::
--->
 
 ## Next steps
 

@@ -72,9 +72,7 @@ from azure.core.exceptions import AzureError
 from azure.cosmos import CosmosClient, PartitionKey
 ```
 
-<!-- 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="imports":::
--->
 
 The preceding code imports modules that you'll use in the rest of the article.
 
@@ -233,9 +231,8 @@ KEY = os.environ["COSMOS_KEY"]
 
 client = CosmosClient(url=ENDPOINT, credential=KEY)
 ```
-<!-- 
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="client":::
--->
 
 ### Connect with a connection string
 
@@ -341,9 +338,8 @@ CONTAINER_ID = "products"
 
 client = CosmosClient.from_connection_string(conn_str=CONN_STR)
 ```
-<!-- 
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_connection_string.py" id="connection_string":::
--->
 
 ### Connect using the Microsoft Identity Platform
 
@@ -386,9 +382,8 @@ credential = DefaultAzureCredential()
 
 client = CosmosClient(ENDPOINT, credential)
 ```
-<!-- 
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_default.py" id="credential":::
--->
 
 > [!IMPORTANT]
 > For details on how to add the correct role to enable `DefaultAzureCredential` to work, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac). In particular, see the section on creating roles and assigning them to a principal ID.
@@ -423,9 +418,8 @@ credential = ClientSecretCredential(
 
 client = CosmosClient(ENDPOINT, credential)
 ```
-<!--
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_add_principal.py" id="credential":::
--->
 
 ## Build your application
 
