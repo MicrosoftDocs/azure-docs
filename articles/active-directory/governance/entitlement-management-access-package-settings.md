@@ -1,6 +1,6 @@
 ---
-title: Share link to request an access package in Microsoft Entra entitlement management - Azure Active Directory
-description: Learn how to share link to request an access package in Microsoft Entra entitlement management.
+title: Share link to request an access package in entitlement management - Microsoft Entra
+description: Learn how to share link to request an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Share link to request an access package in Microsoft Entra entitlement management
+# Share link to request an access package in entitlement management
 
 Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they can request. However, for external business partner users that are not yet in your directory, you will need to send them a link that they can use to request an access package. 
 
