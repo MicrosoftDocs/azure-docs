@@ -958,6 +958,7 @@ viz.visualize_image_attr_multiple(np.transpose(attributions, (1, 2, 0)),
                                   titles=["original_image", "heatmap"],
                                   fig_size=(12, 12))
 ```
+
 ## Large datasets
 
 If you're using AutoML to train on large datasets, there are some experimental settings that may be useful.
