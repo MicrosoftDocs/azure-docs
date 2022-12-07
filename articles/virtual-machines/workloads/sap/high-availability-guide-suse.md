@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/03/2022
+ms.date: 12/05/2022
 ms.author: radeltch
 
 ---
@@ -49,7 +49,9 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system.
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [converged template][template-converged] with SAP system ID NW1 to create the resources.
+In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. 
+
+For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
 
 Read the following SAP Notes and papers first
 
@@ -1066,10 +1068,10 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following commands as root to identify the process of the message server and kill it.
 
-   <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-1:~ # pgrep -f ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node, in case of ENSA1. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1111,7 +1113,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    <pre><code>nw1-cl-0:~ # 
    #If using ENSA1
-   pgrep en.sapNW1 | xargs kill -9
+   pgrep -f en.sapNW1 | xargs kill -9
    #If using ENSA2
    pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
@@ -1156,7 +1158,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-0:~ # pgrep -f er.sapNW1 | xargs kill -9
    </code></pre>
 
    If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.

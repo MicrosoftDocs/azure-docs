@@ -4,10 +4,11 @@ description: Azure quickstart - Learn how to create an Azure IoT Hub Device Prov
 ms.author: jgao
 ms.date: 08/17/2022
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: iot-hub
 services: iot-dps
 author: mumian
 ms.custom: mvc, subject-bicepqs
+ms.subservice: azure-iot-hub-device-provisioning-service
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep

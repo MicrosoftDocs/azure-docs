@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: overview
-ms.date: 07/27/2022
+ms.date: 12/06/2022
 ms.author: halkazwini
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
@@ -20,7 +20,7 @@ Azure Route Server simplifies dynamic routing between your network virtual appli
 
 The following diagram illustrates how Azure Route Server works with an SDWAN NVA and a security NVA in a virtual network. Once you’ve established the BGP peering, Azure Route Server will receive an on-premises route (10.250.0.0/16) from the SDWAN appliance and a default route (0.0.0.0/0) from the firewall. These routes are then automatically configured on the VMs in the virtual network. As a result, all traffic destined to the on-premises network will be sent to the SDWAN appliance. While all Internet-bound traffic will be sent to the firewall. In the opposite direction, Azure Route Server will send the virtual network address (10.1.0.0/16) to both NVAs. The SDWAN appliance can propagate it further to the on-premises network.
 
-![Diagram showing Azure Route Server configured in a virtual network.](./media/overview/route-server-overview.png)
+:::image type="content" source="./media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server configured in a virtual network.":::
 
 ## Key benefits 
 
@@ -42,9 +42,17 @@ Azure Route Server has the following limits (per deployment).
 
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
-## FAQ
+## Pricing
 
-For frequently asked questions about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
+For pricing details, see [Azure Route Server pricing](https://azure.microsoft.com/pricing/details/route-server/).
+
+## Service Level Agreement (SLA)
+
+For SLA, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
+
+## FAQs
+
+For frequently asked questions about Azure Route Server, see [Azure Route Server FAQs](route-server-faq.md).
 
 ## Next steps
 

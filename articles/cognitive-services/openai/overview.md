@@ -8,7 +8,7 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 6/30/2021
+ms.date: 11/07/2022
 ms.custom: event-tier1-build-2022
 recommendations: false
 keywords:  

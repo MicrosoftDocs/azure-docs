@@ -33,9 +33,12 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
+> [!NOTE]
+> The Azure Disks CSI driver has a limit of 32 volumes per node. Other Azure Storage services don't have an equivalent limit.
+
 ### Azure Disks
 
-Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types include:
+Use [Azure Disks][azure-disk-csi] to create a Kubernetes *DataDisk* resource. Disks types include:
 
 * Ultra Disks
 * Premium SSDs
@@ -43,13 +46,13 @@ Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types includ
 * Standard HDDs
 
 > [!TIP]
->For most production and development workloads, use Premium SSD.
+> For most production and development workloads, use Premium SSD.
 
-Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes that can be accessed by pods on multiple nodes simultaneously, use Azure Files.
+Because Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes that can be accessed by pods on multiple nodes simultaneously, use Azure Files.
 
 ### Azure Files
 
-Use *Azure Files* to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
+Use [Azure Files][azure-files-csi] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
 
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
@@ -62,7 +65,7 @@ Use *Azure Files* to mount a Server Message Block (SMB) version 3.1.1 share or N
 
 ### Azure Blob Storage
 
-Use *Azure Blob Storage* to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
+Use [Azure Blob Storage][azure-blob-csi] to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
 
 * Block Blobs
 
@@ -106,6 +109,9 @@ You can use Azure Disks or Files to provide the PersistentVolume. As noted in th
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
 A PersistentVolume can be *statically* created by a cluster administrator, or *dynamically* created by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or Files storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
+
+> [!IMPORTANT]
+> Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
 
 ## Storage classes
 
@@ -241,6 +247,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-disk-csi]: azure-disk-csi.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-files-csi]: azure-files-csi.md
+[azure-files-volume]: azure-files-volume.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

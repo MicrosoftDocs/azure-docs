@@ -84,7 +84,7 @@ You can further customize the device management and monitoring experience using 
 
 - Create more views to display on the **Devices** page for individual devices by adding view definitions to your [device templates](concepts-device-templates.md).
 - Customize the text that describes your devices in the application. To learn more, see [Change application text](howto-customize-ui.md#change-application-text).
-- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-analytics-to-dashboard) from the **Data explorer**.
+- Create [custom device management dashboards](howto-manage-dashboards.md). A dashboard can include a [pinned query](howto-manage-dashboards.md#pin-data-explorer-query-to-dashboard) from the **Data explorer**.
 
 ## Automate
 

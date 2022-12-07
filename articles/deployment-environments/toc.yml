@@ -27,9 +27,9 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure a catalog
+    - name: Add and configure a catalog
       href: how-to-configure-catalog.md
-    - name: Configure a catalog item
+    - name: Add and configure a catalog item
       href: configure-catalog-item.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
