@@ -7,6 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
+#Customer intent
 ---
 
 # Tutorial: Add sign-in to an application in Azure Active Directory
@@ -136,17 +137,9 @@ The same steps can be implemented in Visual Studio for Windows.
     </ul>
     ```
 
-1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step.
+1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line is best placed between `</ul>` and `</div>`.
 
     ```csharp
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-        </li>
       </ul>
       <partial name="_LoginPartial" />
     </div>

@@ -7,6 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
+#Customer intent:
 ---
 
 # Tutorial: Prepare an application for authentication
