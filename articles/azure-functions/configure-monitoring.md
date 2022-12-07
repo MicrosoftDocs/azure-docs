@@ -66,9 +66,9 @@ For each category, you indicate the minimum log level to send. The *host.json* s
 
 The examples below define logging based on the following rules:
 
-+ The default logging level is set to `Warning` to prevent [excessive logging](https://learn.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2#solutions-with-high-volume-of-telemetry) for unanticipated categories.
++ The default logging level is set to `Warning` to prevent [excessive logging](#solutions-with-high-volume-of-telemetry) for unanticipated categories.
 + `Host.Aggregator` and `Host.Results` are set to lower levels. Setting these to too high a level (especially higher than `Information`) can result in loss of metrics and performance data.
-+ Logging for function executions is set to `Information`. This can be [overridden](https://learn.microsoft.com/en-us/azure/azure-functions/functions-host-json#override-hostjson-values) in local development to `Debug` or `Trace` as needed.
++ Logging for function executions is set to `Information`. This can be [overridden](functions-host-json.md#override-hostjson-values) in local development to `Debug` or `Trace`, when needed.
 
 
 # [v2.x+](#tab/v2)
