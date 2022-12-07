@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# NIST authenticator assurance level 1 with Azure Active Directory
+# NIST authenticator assurance level 1 with Azure Active Directory 
 
 The National Institute of Standards and Technology (NIST) develops technical requirements for US federal agencies implementing identity solutions. Organizations must meet these requirements when working with federal agencies. 
 
