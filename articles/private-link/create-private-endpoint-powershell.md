@@ -40,6 +40,19 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
 ```
 
+### Create a DDoS Protection plan
+
+Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+
+```azurepowershell-interactive
+$ddosplan = @{
+    Name = 'myDDoSPlan'
+    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
+    Location = 'EastUS'
+}
+New-AzDdosProtectionPlan @ddosplan
+```
+
 ## Create a virtual network and bastion host
 
 A virtual network and subnet is required for to host the private IP address for the private endpoint. You'll create a bastion host to connect securely to the virtual machine to test the private endpoint. You'll create the virtual machine in a later section.
@@ -55,19 +68,23 @@ In this section, you'll:
 - Create the bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
 ```azurepowershell-interactive
+## Place DDoS plan created previously into a variable. ##
+$ddosplan = Get-AzDdosProtectionPlan -ResourceGroupName CreatePrivateEndpointQS-rg -Name myDDosPlan
+
 ## Configure the back-end subnet. ##
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.1.0.0/24
 
 ## Create the Azure Bastion subnet. ##
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.1.1.0/24
 
 ## Create the virtual network. ##
 $net = @{
     Name = 'MyVNet'
     ResourceGroupName = 'CreatePrivateEndpointQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig, $bastsubnetConfig
+    DDoSProtectionPlan = $ddosplan.Id
 }
 $vnet = New-AzVirtualNetwork @net
 
@@ -160,7 +177,7 @@ $ip = @{
     Name = 'myIPconfig'
     GroupId = 'sites'
     MemberName = 'sites'
-    PrivateIPAddress = '10.0.0.10'
+    PrivateIPAddress = '10.1.0.10'
 }
 $ipconfig = New-AzPrivateEndpointIpConfiguration @ip
 
