@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 12/06/2022
 ---
 
 # Run or reset indexers, skills, or documents
@@ -25,7 +25,12 @@ This article explains how to run indexers on demand, with and without a reset.
 
 [Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
-Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+Change detection is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
+
++ Azure Storage has built-in change detection through its LastModified property
++ Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+
+If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
 
 ## Indexer execution
 
@@ -37,21 +42,21 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 | Workload | Maximum duration | Maximum jobs | Execution environment <sup>1</sup> |
 |----------|------------------|---------------------|-----------------------------|
-| Text-based indexing <sup>3</sup> | 2 or 24 hours | One per search unit <sup>2</sup> | Typically runs on the search service. It may also run on internally managed, multi-tenant content processing cluster. |
+| Text-based indexing | 2 or 24 hours <sup>2</sup> | One per search unit <sup>3</sup> | Typically runs on the search service. It may also run on internally managed, multi-tenant content processing cluster. |
 | Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally managed, multi-tenant content processing cluster, depending on how complex the skillset is. A simple skill might execute on your search service if the service has capacity. Otherwise, skills-based indexer jobs execute off-service. Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
-<sup>1</sup> For optimum processing, a search service determines the internal execution environment for the indexer operation. The execution environment is either the search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You can't control or configure which environment is used. Using an internally managed cluster for skillset processing leaves more service-specific resources available for routine operations like queries and text indexing.
+<sup>1</sup> Indexers have an internal execution environment that's determined by the search service. The execution environment is either your search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You can't control or configure which environment is used. Using an internally managed cluster for content processing leaves more service-specific resources available for routine operations like queries and text indexing.
 
-<sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs aren't tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
+<sup>2</sup> Indexer-based indexing is subject to a 2-hour maximum duration. Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn’t the norm. The longer window only applies if a service or its indexers can’t be internally migrated to the newer runtime behavior. If more than 2 hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals.
 
-<sup>3</sup>  Indexer maximum run time for Basic tier or higher can be 2 or 24 hours, depending on system resources, product implementation and other factors.
+<sup>3</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs aren't tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
 
 > [!TIP]
 > If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
 
 ## Resetting indexers
 
-After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped, so that it can pick up where it left off on the next run.
+After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped.
 
 If you need to rebuild all or part of an index, you can clear the indexer's high-water mark through a reset. Reset APIs are available at decreasing levels in the object hierarchy:
 
@@ -77,7 +82,7 @@ As previously noted, reset is a passive operation: you must follow up a Run requ
 
 Reset/run operations apply to a search index or a knowledge store, to specific documents or projections, and to cached enrichments if a reset explicitly or implicitly includes skills.
 
-Reset also applies to just new and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
+Reset also applies to create and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
 
 Once you reset an indexer, you can't undo the action.
 

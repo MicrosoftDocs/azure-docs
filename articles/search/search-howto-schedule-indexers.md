@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 12/06/2022
 ---
 
 # Schedule an indexer in Azure Cognitive Search
@@ -22,7 +22,9 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-  Indexer jobs are subject to a maximum running time of 2 hours or 24 hours (this period will vary based on different implementation factors that aren't exposed). If indexing can't complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents). For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+Indexer jobs are subject to a 2-hour maximum duration. Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn’t the norm. The longer window only applies if a service or its indexers can’t be internally migrated to the newer runtime behavior. 
+
+If indexing can't complete within the maximum interval, you can [schedule the indexer](search-howto-schedule-indexers.md) to run every 2 hours. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents). For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Prerequisites
 
@@ -36,16 +38,16 @@ A schedule is part of the indexer definition. If the "schedule" property is omit
 
 | Property | Description |
 |----------|-------------|
-| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
+| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every two hours.|
 | "startTime" | (optional) Start time is specified in coordinated universal time (UTC). If omitted, the current time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original start time.|
 
-The following example is a schedule that starts on January 1 at midnight and runs every 50 minutes.
+The following example is a schedule that starts on January 1 at midnight and runs every two hours.
 
 ```json
 {
     "dataSourceName" : "hotels-ds",
     "targetIndexName" : "hotels-idx",
-    "schedule" : { "interval" : "PT50M", "startTime" : "2022-01-01T00:00:00Z" }
+    "schedule" : { "interval" : "PT2H", "startTime" : "2022-01-01T00:00:00Z" }
 }
 ```
 
@@ -103,7 +105,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 
 ## Scheduling behavior
 
-For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can generally have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can generally have 12 indexer jobs in active execution, whether initiated on demand or on a schedule.
 
 Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution). For this reason, the number of service units has no bearing on the number of skills-based indexer jobs you can run. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the execution environment.
 

@@ -10,7 +10,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 12/06/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -31,7 +31,7 @@ When you create an indexer, the definition will adhere to one of two patterns: t
 
 ### Indexer definition for text-based indexing
 
-Full text search is the primary use case for indexers, and for this workflow, an indexer will look like this example.
+Text-based indexing for full text search is the primary use case for indexers, and for this workflow, an indexer will look like this example.
 
 ```json
 {
