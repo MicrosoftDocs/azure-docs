@@ -1,18 +1,18 @@
 ---
-title: Migrate root certificate to DigiCert Global G2 - Azure IoT Hub | Microsoft Docs
-description: All IoT hub instances need to migrate to a new root certificate to maintain device connectivity.
+title: How to migrate hub root certificate - Azure IoT Hub
+description: Migrate all Azure IoT hub instances to use the new DigiCert Global G2 root certificate to maintain device connectivity.
 author: kgremban
 ms.author: kgremban
 manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 12/07/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
 
-Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023 and completing by September 2023, all IoT hubs in the public Azure cloud will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
+Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023 and completing by September 2023, all IoT hubs in the global Azure cloud will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
 
 You should start planning now for the effects of migrating your IoT hubs to the new TLS certificate:
 
@@ -47,7 +47,7 @@ If you've prepared your devices and are ready for the TLS certificate migration 
 
 This manual migration process, and the ability to revert to the previous TLS certificate, is available only until February 15, 2023. After that, migration will be exclusively handled by Microsoft.
 
-After migrating the root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
+After you migrate to the new root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
 
 >[!NOTE]
 >There is no manual migration option for Device Provisioning Service instances. That migration will happen automatically once all IoT hub instances have migrated. No additional action is required from you beyond having the new root certificate on your devices.
@@ -85,7 +85,7 @@ az extension update --name azure-iot
 Use the [az iot hub certificate root-authority show](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-show) command to view the current certificate root-authority for your IoT hub.
 
 ```azurecli-interactive
-az iot hub certificate root-authority show --name <iothub_name>
+az iot hub certificate root-authority show --hub-name <iothub_name>
 ```
 
 >[!TIP]
@@ -94,7 +94,7 @@ az iot hub certificate root-authority show --name <iothub_name>
 Use the [az iot hub certificate root-authority set](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-set) command to migrate your IoT hub to the new DigiCert Global Root G2 certificate.
 
 ```azurecli-interactive
-az iot hub certificate root-authority set --name <iothub_name> --certificate-authority v2
+az iot hub certificate root-authority set --hub-name <iothub_name> --certificate-authority v2
 ```
 
 Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration.
@@ -124,7 +124,7 @@ Regardless of the SDK used, we highly recommended that all customers validate th
 
 ### My devices connect to a sovereign Azure region. Do I still need to update them?
 
-No, only the [public Azure cloud](https://azure.microsoft.com/global-infrastructure/geographies) is affected by this change. Sovereign clouds aren't included in this migration.
+No, only the [global Azure cloud](https://azure.microsoft.com/global-infrastructure/geographies) is affected by this change. Sovereign clouds aren't included in this migration.
 
 ### I use IoT Central. Do I need to update my devices?
 
@@ -139,6 +139,30 @@ Devices are configured to reverify their connection at a specific interval. The 
 Also, as part of the migration, your IoT hub may get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
 
 ## Troubleshoot
+
+### Troubleshoot the self-migration tool
+
+If you're using the CLI commands to migrate to a new root certificate and receive an error that `root-authority` isn't a valid command, make sure that you're running the latest version of the **azure-iot** extension.
+
+1. Use `az extension list` to verify that you have the correct extension installed.
+
+   ```azurecli
+   az extension list
+   ```
+
+   This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-cli-iot-ext`. You should only have one version installed at a time.
+
+   Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
+
+   Use `az extension add --name azure-iot` to add the new version of the extension.
+
+1. Use `az extension update` to install the latest version of the **azure-iot** extension.
+
+   ```azurecli
+   az extension update --name azure-iot
+   ```
+
+### Troubleshoot device reconnection
 
 If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
 
