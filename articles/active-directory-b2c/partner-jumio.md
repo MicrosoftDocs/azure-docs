@@ -39,7 +39,7 @@ The following architecture diagram shows the implementation.
 
   ![Diagram of the architecture of a Azure AD B2C integration with Jumio](./media/partner-jumio/jumio-architecture-diagram.png)
 
-1. The user signs in, or sign up, and creates an account. Azure AD B2C collects user attributes.
+1. The user signs in, or signs up, and creates an account. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the middle-layer API and passes the user attributes.
 3. The middle-layer API converts user attributes into a Jumio API format and sends the attributes to Jumio.
 4. Jumio processes the attributes, and returns results to the middle-layer API.
