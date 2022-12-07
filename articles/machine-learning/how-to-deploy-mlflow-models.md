@@ -216,7 +216,7 @@ You can use Azure ML CLI/SDK v2 to deploy models trained and logged with MLflow 
 This example shows how you can deploy an MLflow model to an online endpoint using CLI (v2).
 
 > [!IMPORTANT]
-> For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 1. Connect to Azure Machine Learning workspace
 

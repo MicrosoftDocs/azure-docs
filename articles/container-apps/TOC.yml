@@ -54,6 +54,8 @@
         href: vnet-custom-internal.md
       - name: Securing a custom VNET
         href: firewall-integration.md
+      - name: Network proxying
+        href: network-proxy.md
     - name: Observability
       items:
       - name: Overview

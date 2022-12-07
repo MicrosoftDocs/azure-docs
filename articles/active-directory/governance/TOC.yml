@@ -1,4 +1,4 @@
-- name: Azure AD Identity Governance documentation
+- name: Microsoft Entra Identity Governance documentation
   href: index.yml
 - name: Overview
   expanded: true
