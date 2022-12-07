@@ -1,7 +1,7 @@
 ---
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
-ms.topic: hot-to
+ms.topic: how-to
 ms.date: 12/07/2022
 ---
 # Restore encrypted Azure virtual machines
