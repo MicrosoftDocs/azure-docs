@@ -1,31 +1,13 @@
 ---
 title: Configure Inbound NAT Rules for Virtual Machine Scale Sets
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+description: Learn how to configure, update, and delete inbound NAT Rules for virtual machine scale set instances. Azure offers two options for Inbound NAT rules.
+author: mbender-ms
+ms.author: mbender
+ms.service: load-balancer
+ms.topic: how-to 
+ms.date: 12/06/2022
+ms.custom: template-how-to 
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
 
 # Configure Inbound NAT Rules for Virtual Machine Scale Sets
 
