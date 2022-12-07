@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Authenticator assurance levels
+# Authenticator assurance levels 
 
 The National Institute of Standards and Technology (NIST) develops technical requirements for US federal agencies implementing identity solutions. [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) has the technical guidelines for digital authentication implementation, using an authenticator assurance levels (AALs) framework. AALs characterize the authentication strength of a digital identity. You can also learn about authenticator lifecycle management, including revocation. 
 
