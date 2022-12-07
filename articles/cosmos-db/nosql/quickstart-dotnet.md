@@ -121,13 +121,21 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
-From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``Microsoft.Azure.Cosmos``.
+## Authenticate using DefaultAzureCredential
+
+You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by adding the `Azure.Identity` NuGet package to your application.
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+From the project directory, open the *Program.cs* file. In your editor, add using directives for the ``Microsoft.Azure.Cosmos`` and `Azure.Identity` namespaces.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``CosmosClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariable) to read the two environment variables you created earlier.
+Define a new instance of the ``CosmosClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariable) to read the `COSMOS_ENDPOINT` environment variable you created earlier.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="client_credentials" highlight="3-4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="client_credentials" highlight="3-4":::
 
 For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
 
@@ -145,7 +153,7 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 ---
 
-### Create the database and container
+### Create and query the database
 
 Next you'll create a database and container to store products, and perform queries to insert and read those items.
 
@@ -158,7 +166,7 @@ The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* opera
 > - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
 > - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 
-We'll use the Azure CLI [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) methods to create a Cosmos DB NoSQL database and container. You can see examples of these commands in the code below.
+We'll use the Azure CLI approach in this example. Use the [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
 
 ```azurecli
 # Create a SQL API database
@@ -167,6 +175,8 @@ az cosmosdb sql database create --account-name msdocs-cosmos-nosql --resource-gr
 # Create a SQL API container
 az cosmosdb sql container create --account-name msdocs-cosmos-nosql --resource-group msdocs --database-name cosmicworks --name products
 ```
+
+After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
 
 ### Get the database
 
