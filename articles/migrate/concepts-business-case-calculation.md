@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 11/30/2022
+ms.date: 12/07/2022
 ---
 
 # Business case (preview) overview
@@ -36,9 +36,9 @@ There are three types of migration strategies that you can choose while building
 
 **Migration Strategy** | **Details** | **Assessment insights**
 --- | --- | ---
-**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment is picked. <br/><br/>For general servers, sizing and cost comes from Azure VM assessment.
+**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets. |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment is picked. <br/><br/>For general servers, sizing and cost comes from Azure VM assessment.
 **Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. <br/><br/>For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
-**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS |  <br/><br/>For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. <br/><br/>For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment. Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
+**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. |  <br/><br/>For SQL Servers, sizing and cost comes from the *Instance to Azure SQL MI* report. <br/><br/>For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment. Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 
 ## How do I build a business case?
@@ -55,7 +55,7 @@ If you're deploying an Azure Migrate appliance to discover on-premises servers, 
 
 After the appliance begins server discovery, you can start building your Business case. Follow our tutorials for [VMware](./tutorial-discover-vmware.md) to try out these steps.
 
-We recommend that you wait at least a day after starting discovery before you build a Business case so that enough performance/resource utilization data points are collected. Also, review the notifications/ resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the Business case recommendations will be more valuable.
+We recommend that you wait at least a day after starting discovery before you build a Business case so that enough performance/resource utilization data points are collected. Also, review the notifications/resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. It will ensure that the IT estate in your datacenter is represented more accurately and the Business case recommendations will be more valuable.
 
 ## What data does the appliance collect?
 
@@ -65,7 +65,7 @@ If you're using the Azure Migrate appliance, learn about the metadata and perfor
 
 If you use the appliance for discovery, it collects performance data for compute settings with these steps:
 
-1. The appliance collects a real-time sample point. For **VMware VMs**, a sample point is collected every 20 seconds.
+1. The appliance collects a real-time sample point. For VMware VMs, a sample point is collected every 20 seconds.
 1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. The assessment service stores all the 10-minute data points for the last month.
 1. When you create a Business case, multiple assessments are triggered in the background.
@@ -85,7 +85,7 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - **Idle servers**: These servers were on but didn't deliver business value by having their CPU and memory utilization below 5% and network utilization below 2%.
 - **Decommission**: These servers were expected to deliver business value, but didn't and can be decommissioned on-premises and recommended to not migrate to Azure:
     - **Zombie**: The CPU, memory and network utilization were 0% with no performance data collection issues.
-- These servers were on but do not have adequate metrics available :
+- These servers were on but do not have adequate metrics available:
     - **Unknown**: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
 
 ## What comprises a business case?
@@ -118,7 +118,7 @@ Cost components for running on-premises servers. For TCO calculations, a one yea
 |     |     | Software Assurance | Calculated per year as in settings. |
 |     | Software - Windows Server licensing | License cost | Calculated per two corepack license pricing of Windows Server. |
 |     |     | Software Assurance | Calculated per year as in settings. |
-|     | Virtualization software | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for Vsphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
+|     | Virtualization software | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for VSphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
 | Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
