@@ -102,6 +102,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```bash
    sudo iotege config apply
    ```
+### Install root CA to OS certificate store
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
@@ -110,7 +111,7 @@ Installing the certificate to the trust bundle file makes it available to contai
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-certificates
+  sudo update-ca-trust
   ```
 
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
