@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 12/07/2022
 
 ms.author: justinha
 author: justinha
@@ -47,9 +47,7 @@ Registration features for passwordless authentication methods rely on the combin
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
-1. Under the method **FIDO2 Security Key**, choose the following options:
-   1. **Enable** - Yes or No
-   1. **Target** - All users or Select users
+1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups.
 1. **Save** the configuration.
 
    >[!NOTE]
@@ -58,11 +56,9 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### FIDO Security Key optional settings 
 
-There are some optional settings for managing security keys per tenant.  
+There are some optional settings on the **Configure** tab to help manage how security keys can be used for sign-in.  
 
 ![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
-
-**General**
 
 - **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
 - **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
