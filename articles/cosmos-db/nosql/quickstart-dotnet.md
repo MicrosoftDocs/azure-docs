@@ -131,7 +131,7 @@ You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by addi
 dotnet add package Azure.Identity
 ```
 
-From the project directory, open the *Program.cs* file. In your editor, add using directives for the ``Microsoft.Azure.Cosmos`` and `Azure.Identity` namespaces.
+From the project directory, open the `Program.cs` file. In your editor, add using directives for the ``Microsoft.Azure.Cosmos`` and `Azure.Identity` namespaces.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
 
@@ -143,7 +143,7 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 ## [Connection String](#tab/connection-string)
 
-From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``Microsoft.Azure.Cosmos``.
+From the project directory, open the `Program.cs` file. In your editor, add a using directive for ``Microsoft.Azure.Cosmos``.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
 
@@ -168,7 +168,7 @@ The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* opera
 > - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
 > - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 
-We'll use the Azure CLI approach in this example. Use the [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
+The Azure CLI approach is used in this example. Use the [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
 
 ```azurecli
 # Create a SQL API database
