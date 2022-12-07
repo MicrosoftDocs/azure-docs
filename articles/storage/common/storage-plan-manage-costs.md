@@ -72,11 +72,11 @@ Data storage and metadata are billed per GB on a monthly basis. For data and met
 
 ### Finding the unit price for each meter
 
-To find unit prices, open the correct pricing page and ensure that the correct value is selected in the **File Structure** drop-down list. Use the following paragraphs as a guide:
+To find unit prices, open the correct pricing page. Then, apply the appropriate file structure, redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
-##### Requests to the blob service endpoint
+#### Find unit prices for requests made to the blob service endpoint
 
-The [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the unit prices for requests that are made to the blob service endpoint. The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net`. To learn more about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints). 
+The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net`. To learn more, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
 
 Requests to this endpoint can originate any of these sources:
 
@@ -92,17 +92,15 @@ Requests to this endpoint can originate any of these sources:
 
 - Transfers made by using the SSH File Transfer Protocol (SFTP).
 
-In the **File Structure** drop-down list of the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page, make sure to choose the correct file structure.
+To find unit prices for requests made to the blob service endpoint, use the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. 
 
-- For accounts that use a flat namespace, make sure that **Flat Namespace** is selected.
+- For accounts that have a flat namespace, make sure that the **File Structure** drop-down list is set to **Flat Namespace**.
 
-- For accounts that use a hierarchical namespace, make sure that **Hierarchical Namespace (NFS v3.0, SFTP Protocol)** is selected.
+- For accounts that have a hierarchical namespace, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**.
 
-Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
+#### Find unit prices for requests made to the Data Lake Storage endpoint
 
-##### Requests to the Data Lake Storage endpoint
-
-The [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page shows the unit prices for requests that are made to the Data Lake Storage endpoint. The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net`. To learn more about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints). 
+The format of the blob service endpoint is `https://<storage-account>.dfs.core.windows.net`. To learn more, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints). 
 
 Requests to this endpoint can originate any of these sources:
 
@@ -114,13 +112,11 @@ Requests to this endpoint can originate any of these sources:
 
 - Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.
 
-In the **File Structure** drop-down list of the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page, make sure to choose the correct file structure.
+To find unit prices for requests made to the Data Lake Storage endpoint, use the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-- For accounts that use a hierarchical namespace, make sure that **Hierarchical Namespace** is selected.
+- For accounts that use a hierarchical namespace, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace**.
 
-- For accounts that use a flat namespace, make sure that **Flat Namespace** is selected.
-
-Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
+- For accounts that use a flat namespace, make sure that the **File Structure** drop-down list is set to **Flat Namespace**.
 
 ### Using Azure Prepayment with Azure Blob Storage
 
