@@ -33,7 +33,7 @@ From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
 Navigate to Kubernetes services, and from the left-hand pane select **Cluster configuration**. On the page, under the section **Authentication and Authorization**, verify the option **Local accounts with Kubernetes RBAC** is shown.
 
-:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal.":::
+:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -307,7 +307,7 @@ kubectl apply -f rolebinding-sre-namespace.yaml
 
 Now, let's test the expected permissions work when you create and manage resources in an AKS cluster. In these examples, you schedule and view pods in the user's assigned namespace. Then, you try to schedule and view pods outside of the assigned namespace.
 
-First, reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
+First, reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign-in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
@@ -319,7 +319,7 @@ Schedule a basic NGINX pod using the [kubectl run][kubectl-run] command in the *
 kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 ```
 
-As the sign in prompt, enter the credentials for your own `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
+As the sign-in prompt, enter the credentials for your own `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
 
 ```console
 $ kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
