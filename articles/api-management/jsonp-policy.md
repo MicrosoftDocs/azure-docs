@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -32,16 +32,16 @@ The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
-
 ## Example
 
 ```xml
 <jsonp callback-parameter-name="cb" />
 ```
 
+If you call the method without the callback parameter `?cb=XXX`, it will return plain JSON (without a function call wrapper).
+
+If you add the callback parameter `?cb=XXX`, it will return a JSONP result, wrapping the original JSON results around the callback function like `XYZ('<json result goes here>');`
 
 ## Related policies
 
