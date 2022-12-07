@@ -109,7 +109,7 @@ The **DNS servers** setting on a VNet can be used to assign **Custom** DNS serve
 
 Consider the [benefits](#azure-dns-private-resolver-benefits) of using the private resolver for DNS resolution instead of VM-based custom DNS servers.
 
-If DNS forwarding is not required, replace the VM-based DNS server IP addresses with the IP address of one or more private resolver inbound endpoints. This solution works across different regions and can enable a [cross-regional reduntant design](tutorial-dns-private-resolver-failover.md).
+If DNS forwarding is not required, replace the VM-based DNS server IP addresses with the IP address of your private resolver inbound endpoint. This solution works across different regions and can enable a [cross-regional reduntant design](tutorial-dns-private-resolver-failover.md). The endpoints also have built-in [resiliency](private-resolver-reliability.md) so that if one availability zone (AZ) in the region fails, the other instances continue to work. 
 
 If forwarding is required, use the **Default (Azure-provided)** setting on your VNet and link the VNet to a [DNS forwarding ruleset](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets). 
 
