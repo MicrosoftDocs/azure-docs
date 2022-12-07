@@ -324,19 +324,19 @@ To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux 
 
 1. Go to your KUDU site https://\<sitename\>.scm.azurewebsites.net
 2. Select Bash or SSH from the top menu.
-3. In Bash/SSH, go to your “/home/site” directory.
+3. In Bash/SSH, go to your “/home/site/wwwroot” directory.
 4. Create a directory called “ini” (i.e. mkdir ini)
 5. Change the current working directory to “ini” folder we just created.
 
 We’ll need to create an “ini” file to add our settings to. In this example, I’m using “extensions.ini”. There are no file editors such as Vi, Vim, or Nano so we’ll simply use echo to add the settings to the file. I’m changing the “upload_max_filesize” from 2M to 50M. Below is the command that I used to add the setting and create an “extensions.ini” file if one doesn’t already exist.
 
 ```
-/home/site/ini>echo "upload_max_filesize=50M" >> extensions.ini
-/home/site/ini>cat extensions.ini
+/home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
+/home/site/wwwroot/ini>cat extensions.ini
 
 upload_max_filesize=50M
 
-/home/site/ini>
+/home/site/wwwroot/ini>
 ```
 
 Then we’ll need to go to the Azure Portal and add an Application Setting to scan the “ini” directory that we just created to apply the change for upload_max_filesize. 
@@ -347,7 +347,7 @@ Then we’ll need to go to the Azure Portal and add an Application Setting to sc
 4. For the App Setting Name, enter “PHP_INI_SCAN_DIR” and for value enter “/home/site/wwwroot/ini”.
 5. Press the save button.
 
-**NOTE: If you’re you’ve recompiled a PHP extension such as GD, perform the steps at [Recompiling PHP Extensions” at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/)** 
+**NOTE: If you’re you’ve recompiled a PHP extension such as GD, perform the steps at [Recompiling PHP Extensions at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/)** 
 
 ::: zone-end
 
