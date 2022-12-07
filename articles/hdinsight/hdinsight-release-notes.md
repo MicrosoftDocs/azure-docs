@@ -28,47 +28,53 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-For workload specific versions see [here].(/azure/hdinsight/hdinsight-40-component-versioning) 
+For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-component-versioning.md) 
 
-![Icon showing new features with text](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
-* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, simply disable and enable classic monitoring.
+* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
 * **Ambari** user auto UI logout due to inactivity. 
 * **Spark** - A new and optimized version of Spark 3.1 is included in this release.
 
-![Icon showing new regions added with text](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
 
 * Qatar Central
 * Germany North
 
-![Icon showing end of support with text](media/hdinsight-release-notes/new-icon-for-end-of-changed.png)
+![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
 
 * HDInsight has moved away from Azul Zulu Java JDK  8 to Adoptium Temurin JDK 8, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
+
 * HDInsight has migrated to reload4j. The log4j changes are applicable to
 
-* Apache Hadoop
-* Apache Zookeeper
-* Apache Oozie
-* Apache Ranger
-* Apache Sqoop
-* Apache Pig
-* Apache Ambari 
-* Apache Kafka
-* Apache Spark
-* Apache Zeppelin
-* Apache Livy
-* Apache Rubix
-* Apache Hive
-* Apache Tez
-* Apache HBase
-* Apache OMI
-* Apache Pheonix
+  * Apache Hadoop
+  * Apache Zookeeper
+  * Apache Oozie
+  * Apache Ranger
+  * Apache Sqoop
+  * Apache Pig
+  * Apache Ambari 
+  * Apache Kafka
+  * Apache Spark
+  * Apache Zeppelin
+  * Apache Livy
+  * Apache Rubix
+  * Apache Hive
+  * Apache Tez
+  * Apache HBase
+  * Apache OMI
+  * Apache Pheonix
+
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+
+HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you are running any applications on top of HDInsight and they use TLS 1.0 and 1.1, please upgrade to TLS 1.2 to avoid any disruption in services before 31 Oct 2022 . 
+
+For more information, see [How to enable Transport Layer Security (TLS)](https://learn.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
 
-![Icon showing end of support with text](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 
-End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022.
-HDInsight had begun release of cluster images using Ubuntu 18.04 since 27 Jun 2021. recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
+End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight had begun release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
 
 For more information on how to check Ubuntu version of cluster, see [here](https://learnubuntu.com/check-ubuntu-version)
 
@@ -76,7 +82,7 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
 
-![Icon showing bug fixes with text](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
+![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
 
 * Support for AZ selection for Kafka and HBase (write access) clusters.
 
@@ -91,5 +97,3 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 |Bug Fixes|Apache JIRA|
 |---|---|
-
-
