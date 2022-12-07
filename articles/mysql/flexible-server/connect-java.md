@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Java and JDBC with Azure Database for MySQLFlexible Server'
+title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server'
 description: Learn how to use Java and JDBC with an Azure Database for MySQL Flexible Server database.
 author: mksuni
 ms.author: sumuth
