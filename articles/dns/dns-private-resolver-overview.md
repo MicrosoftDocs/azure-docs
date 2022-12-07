@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 12/06/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -51,6 +51,9 @@ Azure DNS Private Resolver provides the following benefits:
 * Private access to your Private DNS zones: Conditionally forward to and from on-premises.
 * Scalability: High performance per endpoint.
 * DevOps Friendly: Build your pipelines with Terraform, ARM, or Bicep.
+
+> [!TIP]
+> If you've configured the **DNS servers** setting on a Vnet to **Custom** and you are using [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for name resolution, you can receive these benefits by entering the private resolver's inbound endpoint IP address here.  
 
 ## Regional availability
 
