@@ -346,7 +346,7 @@
 - name: Reference
   items:
   - name: Runtime modules environment variables
-    href: https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md
+    href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
   - name: PowerShell functions
     items:
     - name: IoT Edge for Windows
@@ -386,11 +386,11 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

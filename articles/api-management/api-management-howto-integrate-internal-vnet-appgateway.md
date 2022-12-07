@@ -389,7 +389,10 @@ All configuration items must be set up before you create the application gateway
     $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
     ```
 
-1. Configure WAF to be in "Prevention" mode.
+1. Configure the WAF mode.
+
+    > [!TIP]
+    > For a short period during setup and to test your firewall rules, you might want to configure "Detection" mode, which monitors and logs threat alerts but doesn't block traffic. You can then make any updates to firewall rules before transitioning to "Prevention" mode, which blocks intrusions and attacks that the rules detect.
 
     ```powershell
     $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"

@@ -287,7 +287,7 @@ In the following example, the policy fragment named *myFragment* is added in the
 [...]
 ```
 
-## Elements
+### Elements
 
 | Element           | Description   | Required |
 | ----------------- | ------------- | -------- |
@@ -647,9 +647,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 
 ```xml
 <return-response response-variable-name="existing context variable">
+  <set-status/>
   <set-header/>
   <set-body/>
-  <set-status/>
 </return-response>
 
 ```
@@ -671,9 +671,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Root element.                                                                             | Yes      |
+| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 | set-header      | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. | No       |
 | set-body        | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.         | No       |
-| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 
 ### Attributes
 

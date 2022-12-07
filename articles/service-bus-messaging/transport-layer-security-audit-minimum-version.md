@@ -6,12 +6,13 @@ services: service-bus
 author: EldertGrootenboer
 
 ms.service: service-bus-messaging
+ms.custom: ignite-2022
 ms.topic: article
-ms.date: 04/22/2022
+ms.date: 09/26/2022
 ms.author: egrootenboer
 ---
 
-# Use Azure Policy to audit for compliance of minimum TLS version for an Azure Service Bus namespace (Preview)
+# Use Azure Policy to audit for compliance of minimum TLS version for an Azure Service Bus namespace
 
 If you have a large number of Microsoft Azure Service Bus namespaces, you may want to perform an audit to make sure that all namespaces are configured for the minimum version of TLS that your organization requires. To audit a set of Service Bus namespaces for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../governance/policy/overview.md).
 

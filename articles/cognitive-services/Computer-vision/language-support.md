@@ -7,6 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/02/2022
 ms.author: pafarley
@@ -18,7 +19,7 @@ Some capabilities of Computer Vision support multiple languages; any capabilitie
 
 ## Optical Character Recognition (OCR)
 
-The Computer Vision [Read API](./overview-ocr.md#read-api) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
+The Computer Vision [Read API](./overview-ocr.md) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
 
 > [!NOTE]
 > **Language code optional**

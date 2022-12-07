@@ -5,12 +5,12 @@ description: Learn how to configure user groups and assign IP addresses from spe
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/21/2022
 ms.author: cherylmc
 
 
 ---
-# Configure user groups and IP address pools for P2S User VPNs (preview)
+# Configure user groups and IP address pools for P2S User VPNs - Preview
 
 You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**. This article helps you configure user groups, group members, and prioritize groups. For more information about working with user groups, see [About user groups](user-groups-about.md).
 
@@ -113,6 +113,7 @@ Before beginning, make sure you've configured a virtual WAN that uses one or mor
 1. Every address pool specified on the gateway. Address pools are split into two address pools and assigned to each active-active instance in a point-to-site VPN gateway pair. These split addresses should show up in the effective route table. For example, if you specify 10.0.0.0/24, you should see two /25 routes in the effective route table. If this isn't the case, try changing the address pools defined on the gateway.
 1. Make sure all point-to-site VPN connection configurations are associated to the defaultRouteTable and propagate to the same set of route tables. This should be configured automatically if you're using portal, but if you're using REST, PowerShell or CLI, make sure all propagations and associations are set appropriately.
 1. If you're using the Azure VPN client, make sure the Azure VPN client installed on user devices are the latest version.
+1. If you're using Azure Active Directory authentication, please make sure the tenant URL input in the server configuration (`https://login.microsoftonline.com/<tenant ID>`) does **not** end in a `\`. If the URL is input to end with `\`, the Gateway will not be able to properly process Azure Active Directory user groups and all users will be assigned to the default group. To remediate, please modify the server configuration to remove the trailing `\` and modify the address pools configured on the gateway to apply the changes to the gateway. This is a known issue that will be fixed in a later relase.
 
 ## Next steps
 

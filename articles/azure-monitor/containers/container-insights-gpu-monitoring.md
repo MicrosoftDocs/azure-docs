@@ -2,6 +2,7 @@
 title: Configure GPU monitoring with Container insights
 description: This article describes how you can configure monitoring Kubernetes clusters with NVIDIA and AMD GPU enabled nodes with Container insights.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 05/24/2022
 ms.reviewer: aul
 ---
@@ -16,7 +17,7 @@ Starting with agent version *ciprod03022019*, Container insights integrated agen
 > * containerGpumemoryTotalBytes
 > * containerGpumemoryUsedBytes
 > 
-> To continue collecting GPU metrics through Container Insights, please migrate by December 31, 2022 to your GPU vendor specific metrics exporter and configure [Prometheus scraping](./container-insights-prometheus-integration.md) to scrape metrics from the deployed vendor specific exporter.
+> To continue collecting GPU metrics through Container Insights, please migrate by December 31, 2022 to your GPU vendor specific metrics exporter and configure [Prometheus scraping](./container-insights-prometheus.md) to scrape metrics from the deployed vendor specific exporter.
 
 ## Supported GPU vendors
 

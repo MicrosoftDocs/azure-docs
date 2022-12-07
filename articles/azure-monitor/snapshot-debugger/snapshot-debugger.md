@@ -20,7 +20,7 @@ When an exception occurs, you can automatically collect a debug snapshot from yo
 
 Simply include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application and configure collection parameters in [`ApplicationInsights.config`](../app/configuration-with-applicationinsights-config.md).
 
-Snapshots appear on [**Exceptions**](../app/asp-net-exceptions.md) in the Application Insights blade of the Azure portal.
+Snapshots appear on [**Exceptions**](../app/asp-net-exceptions.md) in the Application Insights pane of the Azure portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio Enterprise. You can also [set SnapPoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
 

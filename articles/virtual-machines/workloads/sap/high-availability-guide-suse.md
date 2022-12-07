@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/25/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 
 ---
@@ -49,7 +49,9 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system.
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [converged template][template-converged] with SAP system ID NW1 to create the resources.
+In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used. 
+
+For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
 
 Read the following SAP Notes and papers first
 
@@ -89,6 +91,13 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 * Probe port 62101 for ERS
 
 ## Setting up a highly available NFS server
+
+> [!NOTE]
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
+> The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
+> - [High availability SAP NW on Azure VMswith simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
+> - [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
+> - [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
 
 SAP NetWeaver requires shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
 
@@ -154,18 +163,19 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-backend**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **nw1-backend**)
-      1. Click Add a virtual machine.
-      1. Select Virtual Machine
-      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-      1. Click Add
+   1. Create a single back-end pool: 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. Enter the name of the new back-end pool (for example, **nw1-backend**).
+      2. Select **NIC** for Backend Pool Configuration. 
+      1. Select **Add a virtual machine**.
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.   
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
          1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Select TCP as protocol, port 620**00**, keep Interval 5
          1. Click OK
       1. Port 621**02** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
@@ -175,46 +185,10 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Enter the name of the new load balancer rule (for example **nw1-lb-ascs**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-backend** and **nw1-ascs-hp**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, ***only if***  your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
-   1. Create the frontend IP addresses
-      1. IP address 10.0.0.7 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **nw1-ascs-frontend**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.7**)
-         1. Click OK
-      1. IP address 10.0.0.8 for the ASCS ERS
-         * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **nw1-backend**)
-      1. Click Add a virtual machine.
-      1. Select the Availability Set you created earlier
-      1. Select the virtual machines of the (A)SCS cluster
-      1. Click OK
-   1. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
-         1. Click OK
-      1. Port 621**02** for ASCS ERS
-         * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
-   1. Load-balancing rules
-      1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load-balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
-         1. Keep protocol **TCP**, enter port **3200**
-         1. Increase idle timeout to 30 minutes
-         1. **Make sure to enable Floating IP**
-         1. Click OK
-      1. Additional ports for the ASCS
-         * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
-      1. Additional ports for the ASCS ERS
-         * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -390,7 +364,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.7</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
@@ -441,7 +416,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.0.0.8</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b>
+   sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
@@ -1056,10 +1032,10 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following commands as root to identify the process of the message server and kill it.
 
-   <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-1:~ # pgrep -f ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node, in case of ENSA1. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1101,7 +1077,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    <pre><code>nw1-cl-0:~ # 
    #If using ENSA1
-   pgrep en.sapNW1 | xargs kill -9
+   pgrep -f en.sapNW1 | xargs kill -9
    #If using ENSA2
    pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
@@ -1146,7 +1122,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-0:~ # pgrep -f er.sapNW1 | xargs kill -9
    </code></pre>
 
    If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.

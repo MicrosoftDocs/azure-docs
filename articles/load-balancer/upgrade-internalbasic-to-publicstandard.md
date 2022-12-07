@@ -12,7 +12,7 @@ ms.author: mbender
 # Upgrade an internal basic load balancer - Outbound connections required
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. See [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md) for upgrade guidance. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
 
 A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in this article, migrates the basic load balancer configuration to a standard public load balancer.
 

@@ -108,7 +108,9 @@ landingContent:
           - text: What are mapping data flows?
             url: ./concepts-data-flow-overview.md
           - text: Data transformation expressions in mapping data flow
-            url: ./data-transformation-functions.md          
+            url: ./data-transformation-functions.md 
+          - text: Change Data Capture (CDC)
+            url: ./concepts-change-data-capture.md
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview
