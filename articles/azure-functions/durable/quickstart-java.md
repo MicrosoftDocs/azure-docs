@@ -37,7 +37,7 @@ Add the following to your `pom.xml`:
 ```xml
 <properties>
   <azure.functions.maven.plugin.version>1.18.0</azure.functions.maven.plugin.version>
-  <azure.functions.java.library.version>2.2.0</azure.functions.java.library.version>
+  <azure.functions.java.library.version>3.0.0</azure.functions.java.library.version>
   <durabletask.azure.functions>1.0.0</durabletask.azure.functions>
   <functionAppName>your-unique-app-name</functionAppName>
 </properties>
