@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: article
-ms.date: 10/04/2022
+ms.date: 12/07/2022
 ms.author: v-pgaddala 
 ms.custom: devx-track-azurepowershell
 ---
