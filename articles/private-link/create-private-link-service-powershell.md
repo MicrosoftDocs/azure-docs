@@ -40,7 +40,7 @@ Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module
 $ddosplan = @{
     Name = 'myDDoSPlan'
     ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Location = 'EastUS'
+    Location = 'eastus2'
 }
 New-AzDdosProtectionPlan @ddosplan
 ```
