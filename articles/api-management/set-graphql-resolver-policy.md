@@ -22,7 +22,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
-## Policy statement
+### Policy statement
 
 ```xml
 <set-graphql-resolver parent-type="type" field="field"> 
@@ -60,12 +60,12 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 | `set-method`| Method of the resolver's HTTP request, configured using the [set-method](set-method-policy.md) policy.  |   Yes    | 
 | `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
 | `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](set-header-policy.md) policy.  | No  | 
-| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 
+| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](set-body-policy.md) policy. | No  | 
 | `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
 | `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
-| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) policy. | No  | 
-| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON) policy. | No  | 
-| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) policy. | No  | 
+| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](json-to-xml-policy.md) policy. | No  | 
+| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](xml-to-json-policy.md) policy. | No  | 
+| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](find-and-replace-policy.md) policy. | No  | 
 
 
 
@@ -224,7 +224,7 @@ type User {
 
 ### Example 2: Resolver for a GraqhQL query that returns a list, using a liquid template
 
-The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
+The following example uses a liquid template, supported for use in the [set-body](set-body-policy.md) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 
 #### Example schema
 
