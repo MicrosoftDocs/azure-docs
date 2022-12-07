@@ -70,7 +70,7 @@ landingContent:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
           - text: Control plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins
           - text: Data plane .NET (C#) SDK
             url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
