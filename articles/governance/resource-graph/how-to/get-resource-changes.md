@@ -13,34 +13,16 @@ Resources change through the course of daily use, reconfiguration, and even rede
 - View property change details
 - Query changes at scale across your subscriptions, management group, or tenant
 
+This article shows how to query resource configuration changes through Resource Graph.
+
 ## Prerequisites
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
 
-Change detection and details are valuable for the following example scenarios:
+## Get change events
 
-
-
-This article shows how to query Resource configuration changes through Resource Graph. To see this
-information in the Azure portal, see [Azure Resource Graph Explorer](../first-query-portal.md), Azure Policy's
-[Change history](../../policy/how-to/determine-non-compliance.md#change-history), or Azure Activity
-Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
-details about changes to your applications from the infrastructure layer all the way to application
-deployment, see
-[Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
-Monitor.
-
-> [!WARNING]
-> There has been a temporary reduction in lookback retention to 7 days.
-
-
-> [!IMPORTANT]
-
-
-## Find detected change events and view change details
-
-When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in under five minutes.
+When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes.
 
 Example change resource property bag:
 
@@ -75,27 +57,25 @@ Example change resource property bag:
 
 Each change resource has the following properties:
 
-- **targetResourceId** - The resourceID of the resource on which the change occurred.
- - **targetResourceType** - The resource type of the resource on which the change occurred.
-- **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
-  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
+| Property | Description |
+|:--------:|:-----------:|
+| `targetResourceId` | The resourceID of the resource on which the change occurred. |
+|---|---|
+| `targetResourceType` | The resource type of the resource on which the change occurred. |
+| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when **changeType** is _Update_. For the delete case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior. |
+| `changes` | Dictionary of the resource properties (with property name as the key) that were updated as part of the change: |
+| `propertyChangeType` | Describes the type of change detected for the individual resource property. Values are: Insert, Update, and Remove. |
+| `previousValue` | The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_. |
+| `newValue` | The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_. |
+| `changeCategory` | Describes if the property change was the result of a change in value (_User_) or a difference in referenced API versions (_System_). Values are: _System_ and _User_. |
+| `changeAttributes` | Array of metadata related to the change: |
+| `changesCount` | The number of properties changed as part of this change record. |
+| `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID. |
+| `timestamp` | The datetime of when the change was detected. |
+| `previousResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the previous state of the resource. |
+| `newResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the new state of the resource. |
 
-
-- **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
-  - **propertyChangeType** - Describes the type of change detected for the individual resource property.
-    Values are: _Insert_, _Update_, _Remove_.
-  - **previousValue** - The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_.
-  - **newValue** - The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_.
-  - **changeCategory** - Describes if the property change was the result of a change in value (_User_) or a difference in referenced API versions (_System_). Values are: _System_ and _User_.
-
-- **changeAttributes** - Array of metadata related to the change:
-  - **changesCount** - The number of properties changed as part of this change record.
-  - **correlationId** - Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID.
-  - **timestamp** - The datetime of when the change was detected.
-  - **previousResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the previous state of the resource.
-  - **newResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the new state of the resource.
-
-## Query changes using Resource Graph
+## Get changes with Resource Graph
 
 ### Run your Resource Graph query
 It's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
