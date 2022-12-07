@@ -66,7 +66,7 @@ SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of
 
 To enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance, select the **SMART on FHIR proxy** check box:
 
-![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
+![Screenshot shows enabling the SMART on FHIR proxy.](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
 
 The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
@@ -94,7 +94,7 @@ $newReplyUrl = $FhirServerUrl.TrimEnd('/') + "/AadSmartOnFhirProxy/callback/" + 
 
 Add the reply URL to the public client application that you created earlier for Azure AD:
 
-![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)
+![Screenshot show how reply url can be configured for the public client.](media/tutorial-smart-on-fhir/configure-reply-url.png)
 
 ### Step 3: Get a test patient
 
@@ -138,7 +138,7 @@ dotnet run
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
-![SMART on FHIR app launcher](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
+![Screenshot of SMART on FHIR app launcher.](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
 When you enter **Patient**, **Encounter**, or **Practitioner** information, you'll notice that the **Launch context** is updated. When you're using the Azure API for FHIR, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
 
@@ -152,9 +152,6 @@ The SMART on FHIR proxy uses this information to populate fields in the token re
 
 These fields are meant to provide guidance to the app, but they don't convey any security information. A SMART on FHIR application can ignore them.
 
-Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app, and you should see something like this sample:
-
-<!---![SMART on FHIR app](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)--->
-Inspect the token response to see how the launch context fields are passed on to the app.
+Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app.
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
