@@ -109,7 +109,7 @@ Learn to create and compose custom models:
 ::: moniker range="form-recog-2.1.0"
 
 > [!div class="nextstepaction"]
-> [**Build a custom model**](concept-custom.md?view=form-recog-2.1.0#build-a-custom-model)
-> [**Compose custom models**](concept-composed-models.md?view=form-recog-2.1.0#development-options)
+> [**Build a custom model**](concept-custom.md#build-a-custom-model)
+> [**Compose custom models**](concept-composed-models.md#development-options)
 
 ::: moniker-end
