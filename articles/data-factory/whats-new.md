@@ -26,6 +26,10 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ## October 2022
 
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=Ou90M59VQCA&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
+ 
 ### Data flow
 
 - Export up to 1000 rows from data flow preview [Learn more](concepts-data-flow-debug-mode.md?tabs=data-factory#data-preview)

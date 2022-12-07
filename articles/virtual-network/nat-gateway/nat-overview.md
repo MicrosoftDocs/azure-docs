@@ -10,6 +10,7 @@ ms.subservice: nat
 ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: allensu
+ms.custom: FY23 content-maintenance
 ---
 
 # What is Virtual Network NAT?
