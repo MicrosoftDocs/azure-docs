@@ -13,20 +13,11 @@ ms.custom: template-how-to
 
 In this article you'll learn how to configure, update, and delete inbound NAT Rules for Virtual Machine Scale Set instances. Azure offers two options for Inbound NAT rules. The first option is the ability to add a single inbound NAT rule to a single backend resource. The second option is the ability to create a group of inbound NAT rules for a backend pool. Additional information on the various options is provided [here](inbound-nat-rules.md). It's recommended to use the second option for inbound NAT rules when using Virtual Machine Scale Sets, since this option provides better flexibility and scalability.  
 
-
-
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
-
 ## Prerequisites
 
 - A running instance of [Azure Load Balancer](quickstart-load-balancer-standard-public-portal.md).
 - A [Virtual Machine Scale Set instance](configure-vm-scale-set-portal.md) in the backend pool of the running load balancer.
-
-## Set up a load balancer for scaling out Virtual Machine Scale Sets 
-Make sure that your instance of  is running and that the   
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Add inbound NAT rules 
 Individual inbound NAT rules can't be added to a Virtual Machine Scale Set. However, you can add a set of inbound NAT rules with a defined front-end port range and back-end port for all instances in the Virtual Machine Scale Set. 
