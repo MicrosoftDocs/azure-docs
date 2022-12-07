@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights for Java 2.x
 description: A step by step guide on using Java 2.x with Application Insights.
 ms.topic: conceptual
-ms.date: 12/5/2022
+ms.date: 12/06/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -26,7 +26,7 @@ In this article, you'll learn how to use Java 2.x with Application Insights. Thi
 
 ## Get started with Application Insights in a Java web project
 
-In this tutorial, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this section, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -153,7 +153,7 @@ You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
 ### Add agent
 
-[Install the Java Agent](java-2x-agent.md) to capture outgoing HTTP calls, JDBC queries, application logging,
+[Install the Java Agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to capture outgoing HTTP calls, JDBC queries, application logging,
 and better operation naming.
 
 ### Run your application
@@ -210,7 +210,7 @@ Unhandled exceptions and request failures are automatically collected by the App
 To collect data on other exceptions, you can [insert calls to trackException() in your code][apiexceptions].
 
 ### Monitor method calls and external dependencies
-[Install the Java Agent](java-2x-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
+[Install the Java Agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to log specified internal methods and calls made through JDBC, with timing data.
 
 And for automatic operation naming.
 
@@ -220,7 +220,7 @@ The Application Insights Java SDK now supports [W3C distributed tracing](https:/
 
 The incoming SDK configuration is explained further in our article on [correlation](correlation.md).
 
-Outgoing SDK configuration is defined in the [AI-Agent.xml](java-2x-agent.md) file.
+Outgoing SDK configuration is defined in the [AI-Agent.xml](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) file.
 
 ### Performance counters
 Open **Investigate**, **Metrics**, to see a range of performance counters.
@@ -276,7 +276,7 @@ Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-
 * instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 #### Unix performance counters
-* [Install collectd with the Application Insights plugin](java-2x-collectd.md) to get a wide variety of system and network data.
+* [Install collectd with the Application Insights plugin](#collectd-linux-performance-metrics-in-application-insights-deprecated) to get a wide variety of system and network data.
 
 ### Get user and session data
 OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
@@ -301,7 +301,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
-<!--START ARTICLE: Lot traces -->
+<!--START ARTICLE: Log traces -->
 ## Explore Java trace logs in Application Insights
 
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
@@ -484,9 +484,10 @@ Exceptions submitted via loggers will be displayed on the portal as Exception Te
 ![In the Application Insights portal, open Search](./media/deprecated-java-2x/01-diagnostics.png)
 
 <!-- START ARTICLE: Dependencies -->
+
 ## Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
-If you have [instrumented your Java web app with Application Insights SDK][java], you can use the Java Agent to get deeper insights, without any code changes:
+If you have [instrumented your Java web app with Application Insights SDK][javaagent], you can use the Java Agent to get deeper insights, without any code changes:
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.
@@ -502,7 +503,7 @@ If you have [instrumented your Java web app with Application Insights SDK][java]
   * **Spring** - based on `@RequestMapping`.
   * **JAX-RS** - based on `@Path`. 
 
-To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
+To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][javaagent]. 
 
 ### Install the Application Insights agent for Java
 1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.4). Please make sure the version of the 2.x Java Agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
@@ -600,7 +601,7 @@ To search for individual instances of dependency, exception, and method reports,
 <!--START ARTICLE: Filter telemetry-->
 ## Filter telemetry in your Java web app
 
-Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-2x-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
+Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](#get-started-with-application-insights-in-a-java-web-project). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
 
 The out-of-the-box filters include:
 
@@ -753,7 +754,7 @@ Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.m
 
 #### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-2x-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](#explore-java-trace-logs-in-application-insights)).
 
 ```xml
 
@@ -964,7 +965,7 @@ Workaround: Exclude data collected by the problem Write plugins.
 <!--START ARTICLE: Micrometer Metrics -->
 ## How to use Micrometer with Azure Application Insights Java SDK (not recommended)
 
-Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
+Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This section will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
 ### Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
@@ -1233,38 +1234,13 @@ Add the following binding code to the configuration  file:
 * To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).
 
 <!--Link references-->
-
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
-[javalogs]: java-2x-trace-logs.md
+[javalogs]: #explore-java-trace-logs-in-application-insights
 [metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md
-
-<!--Link references-->
-
-[diagnostic]: ./diagnostic-search.md
-[java]: java-2x-get-started.md
-
-<!--Link references-->
-
-[api]: ./api-custom-events-metrics.md
-[apiexceptions]: ./api-custom-events-metrics.md#track-exception
-[availability]: ./monitor-web-app-availability.md
-[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: java-in-process-agent.md
-[javalogs]: java-2x-trace-logs.md
-[metrics]: ../essentials/metrics-charts.md
-
-<!--Link references-->
-
-[api]: ./api-custom-events-metrics.md
-[apiexceptions]: ./api-custom-events-metrics.md#track-exception
-[availability]: ./monitor-web-app-availability.md
-[diagnostic]: ./diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[java]: java-2x-get-started.md
-[javalogs]: java-2x-trace-logs.md
-[metrics]: ../essentials/metrics-charts.md
+[java]: #get-started-with-application-insights-in-a-java-web-project
+[javaagent]: java-in-process-agent.md
