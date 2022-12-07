@@ -1,6 +1,6 @@
 ---
 title: "Upgrade Azure Arc-enabled Kubernetes agents"
-ms.date: 09/09/2022
+ms.date: 12/07/2022
 ms.topic: how-to
 description: "Control agent upgrades for Azure Arc-enabled Kubernetes"
 ---
