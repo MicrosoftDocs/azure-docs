@@ -14,7 +14,9 @@ This article explains what Microsoft Sentinel playbooks are, and how to use them
 
 ## What is a playbook?
 
-SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
+SOC analysts are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
+
+Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address.
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
@@ -128,7 +130,7 @@ There are many differences between these two resource types, some of which affec
 
 ### Use cases for playbooks
 
-The Azure Logic Apps platform offers hundreds of actions and triggers, so almost any automation scenario can be created. Microsoft Sentinel recommends starting with the following SOC scenarios:
+The Azure Logic Apps platform offers hundreds of actions and triggers, so almost any automation scenario can be created. Microsoft Sentinel recommends starting with the following SOC scenarios, for which ready-made playbook templates are available out of the box:
 
 #### Enrichment
 
@@ -197,7 +199,7 @@ Two examples:
      - Check with Azure AD Identity Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Azure AD Identity Protection will label the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
 
         > [!NOTE]
-        > The playbook does not initiate any enforcement action on the user, nor does it initiate any configuration of enforcement policy. It only tells Azure AD Identity Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Azure AD Identity Protection.
+        > This particular Azure AD action does not initiate any enforcement activity on the user, nor does it initiate any configuration of enforcement policy. It only tells Azure AD Identity Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Azure AD Identity Protection.
 
 **Example 2:** Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
@@ -207,13 +209,18 @@ Two examples:
 
    - Issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
-#### Response on the fly
+#### Manual response during investigation or while hunting
 
 **Respond to threats in the course of active investigative activity without pivoting out of context.**
 
-Thanks to the new entity trigger (now in Preview), you can take immediate action on threat actors you discover during an investigation right from within the investigation. You can select an entity in context and perform actions on it right there, saving time and reducing complexity.
+Thanks to the new [entity trigger (now in Preview)](/connectors/azuresentinel/#triggers), you can take immediate action on individual threat actors you discover during an investigation, one at a time, right from within the investigation. This option is also available in the threat hunting context, unconnected to any particular incident. You can select an entity in context and perform actions on it right there, saving time and reducing complexity.
 
-
+The actions you can take on entities using this playbook type include:
+- Blocking a compromised user.
+- Blocking traffic from a malicious IP address in your firewall.
+- Isolating a compromised host on your network.
+- Adding an IP address to a safe/unsafe address watchlist, or to your external CMDB. ***(???)***
+- Getting a file hash report from an external threat intelligence source and adding it to an incident as a comment.
 
 ## How to run a playbook
 
@@ -272,17 +279,36 @@ See the [complete instructions for creating automation rules](tutorial-respond-t
 
 ### Run a playbook manually
 
-While full automation is the best solution for many incident-handling, investigation, and mitigation tasks, there may often be cases where you would prefer your analysts have more human input and control over the situation. Also, you may want your SOC engineers to be able to test the playbooks they write before fully deploying them in automation rules.
+Full automation is the best solution for as many incident-handling, investigation, and mitigation tasks as you're comfortable automating. Having said that, there can be good reasons for a sort of hybrid automation: using playbooks to consolidate a string of activities against a range of systems into a single command, but running the playbooks only when and where you decide. For example:
 
-For these and other reasons, Microsoft Sentinel allows you to **run playbooks manually** on-demand for both incidents (now in Preview) and alerts. 
+- You may prefer your SOC analysts have more human input and control over some situations.
 
-- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** blade. Select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu. This opens the **Run playbook on incident** panel.
+- You may also want them to be able to take action against specific threat actors (entities) on-demand, in the course of an investigation or a threat hunt, in context without having to pivot to another screen. (This ability is now in Preview.)
 
-- **To run a playbook on an alert,** select an incident, enter the incident details, and from the **Alerts** tab, choose an alert and select **View playbooks**. This opens the **Alert playbooks** panel.
+- You may want your SOC engineers to write playbooks that act on specific entities (now in Preview) and that can only be run manually.
 
-In either of these panels, you'll see two tabs: **Playbooks** and **Runs**.
+- You would probably like your engineers to be able to test the playbooks they write before fully deploying them in automation rules.
 
-- In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the appropriate trigger - the **Microsoft Sentinel Incident** trigger for incident playbooks and the **Microsoft Sentinel Alert** trigger for alert playbooks. Each playbook in the list has a **Run** button which you select to run the playbook immediately.  
+For these and other reasons, Microsoft Sentinel allows you to **run playbooks manually** on-demand for entities and incidents (both now in Preview), as well as for alerts. 
+
+- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** blade. Select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu.
+
+    This opens the **Run playbook on incident** panel.
+
+- **To run a playbook on an alert,** select an incident, enter the incident details, and from the **Alerts** tab, choose an alert and select **View playbooks**.
+
+    This opens the **Alert playbooks** panel.
+
+- **To run a playbook on an entity,**, select an entity in any of the following ways:
+    - From the **Entities** tab of an incident, choose an entity from the list and select the **Run playbook (Preview)** link at the end of its line in the list.
+    - From the **Investigation graph**, select an entity and select the **Run playbook (Preview)** button in the entity side panel.
+    - From **Entity behavior**, select an entity and from the entity page, select the **Run playbook (Preview)** button in the left-hand panel.
+
+    These will all open the **Run playbook on *\<entity type>*** panel.    
+
+In any of these panels, you'll see two tabs: **Playbooks** and **Runs**.
+
+- In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the appropriate trigger - whether **Microsoft Sentinel Incident**, **Microsoft Sentinel Alert**, or **Microsoft Sentinel Entity**. Each playbook in the list has a **Run** button which you select to run the playbook immediately.  
 If you want to run an incident-trigger playbook that you don't see in the list, [see the note about Microsoft Sentinel permissions above](#incident-creation-automated-response).
 
 - In the **Runs** tab, you'll see a list of all the times any playbook has been run on the incident or alert you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Azure Logic Apps.
@@ -299,7 +325,7 @@ The **Plan** column indicates whether the playbook uses the **Standard** or **Co
 
 | Trigger kind | Indicates component types in playbook |
 |-|-|
-| **Microsoft Sentinel Incident/Alert** | The playbook is started with one of the Sentinel triggers (alert, incident) |
+| **Microsoft Sentinel Incident/Alert/Entity** | The playbook is started with one of the Sentinel triggers (incident, alert, entity) |
 | **Using Microsoft Sentinel Action** | The playbook is started with a non-Sentinel trigger but uses a Microsoft Sentinel action |
 | **Other** | The playbook does not include any Sentinel components |
 | **Not initialized** | The playbook has been created, but contains no components (triggers or actions). |
