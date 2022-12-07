@@ -27,6 +27,30 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## December 2022
+
+December 2022
+
+* [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
+
+  Form Recognizer Studio December release includes the latest updates to the Form Recognizer Studio. There are significant improvements to user experience, primarily in custom model labeling support.
+
+  * **Page range**. The Studio now supports analyzing specified pages from the document.
+
+  * **Custom model labeling**:
+
+    * **Batch OCR**. You can opt to run batch OCR in the setup wizard for custom model on all documents in blob storage.
+
+    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
+
+    * **Navigate to target page using labels**. You can select labels to move to labeled words within a document.
+
+    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
+
+    * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns and rows and second-level subtypes for types such as dates and numbers.
+
+---
+
 ## November 2022
 
 * **Announcing the latest stable release of Azure Form Recognizer libraries**
@@ -586,7 +610,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
 
   * `image/bmp`
-  
+
   * **New property `Pages`  supported by the following classes**:
 
    **[RecognizeBusinessCardsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizebusinesscardsoptions?view=azure-java-preview&preserve-view=true)**</br>
