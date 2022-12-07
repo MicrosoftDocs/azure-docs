@@ -4,7 +4,7 @@ description: Learn about the availability of Microsoft Defender for Cloud contai
 ms.topic: overview
 author: bmansheim
 ms.author: benmansheim
-ms.date: 10/24/2022
+ms.date: 12/07/2022
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -36,6 +36,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images). 
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
+
+Adding the Defender agent on an AKS cluster with [ARM64 node pool](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#add-an-arm64-node-pool) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
 
 ## Additional environment information
 
@@ -201,6 +203,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
 
+Adding the Defender agent on an AKS cluster with [ARM64 node pool](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#add-an-arm64-node-pool) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
 
 ## Additional information
 
