@@ -205,7 +205,7 @@ sections:
 
           Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
           
-      - question: Where are the JSON assets (like insights, transcript, etc.), associated with indexed videos, are stored?
+      - question: Where are the JSON assets (like insights, transcript, etc.), associated with indexed videos, stored?
         answer: |
            They are stored by the Azure Video Indexer service and can be fetched with the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) and [Get Video Artifact Download Url](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url) APIs.
  
