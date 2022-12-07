@@ -10,7 +10,7 @@ ms.custom: references_regions, mode-other
 
 # QuickStart: Get started with Datadog by creating new instance
 
-In this quickstart, you'll create a new instance of Datadog. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
+In this quickstart, you'll create a new instance of Datadog-An Azure native service. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
 
 ## Prerequisites
 
