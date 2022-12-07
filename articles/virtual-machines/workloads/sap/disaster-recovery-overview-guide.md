@@ -8,7 +8,7 @@ ms.author: depadia
 ms.service: virtual-machines-sap
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/21/2022
+ms.date: 12/06/2022
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -113,7 +113,7 @@ An SAP workload running on Azure uses different infrastructure components to run
   | NFS on Azure files (LRS or ZRS) | Custom script to replicate data between two sites (for example, rsync) |
   | NFS on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../../azure-netapp-files/cross-region-replication-introduction.md) |
   | Azure shared disk (LRS or ZRS)  | Custom solution to replicate data between two sites          |
-  | SMB on Azure files (LRS or ZRS) | Use [AzCopy](../../../storage/common/storage-use-azcopy-files.md) to copy files between two sites |
+  | SMB on Azure files (LRS or ZRS) | Use [RoboCopy](../../../storage/files/storage-files-migration-robocopy.md) to copy files between two sites |
   | SMB on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../../azure-netapp-files/cross-region-replication-introduction.md) |
 
 - For custom built storage solutions like NFS cluster, you need to make sure the appropriate DR strategy is in place.
