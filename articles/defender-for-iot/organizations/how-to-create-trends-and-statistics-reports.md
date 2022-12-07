@@ -33,11 +33,11 @@ Sign into your OT sensor and select **Trends & Statistics** > **Create Dashboard
 
     | Tool | Description |
     |---------|---------|
-    | :::image type="icon" source="media/how-to-generate-reports/edit-layout-icon.png" border="false"::: **Edit dashboards layout** |         |
-    | :::image type="icon" source="media/how-to-generate-reports/add-icon.png" border="false"::: **Add widget** |         |
-    | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit dashboard** |         |
-    | :::image type="icon" source="media/how-to-generate-reports/delete-icon.png" border="false"::: **Delete dashboard** |         |
-    | :::image type="icon" source="media/how-to-generate-reports/default-icon.png" border="false"::: **Set as Default** |         |
+    | :::image type="icon" source="media/how-to-generate-reports/edit-layout-icon.png" border="false"::: **Edit dashboards layout** | Change the layout of the gadgets in your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/add-icon.png" border="false"::: **Add widget** | Add another widget to your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit dashboard** | Edit the name of your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/delete-icon.png" border="false"::: **Delete dashboard** | Delete the selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/default-icon.png" border="false"::: **Set as Default** | Set the selected dashboard as your default dashboard. |
 
 Timestamps shown in each widget are set according to the sensor’s machine time.
 
