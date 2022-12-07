@@ -10,7 +10,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
