@@ -475,7 +475,7 @@
             - name: validate-jwt
               href: validate-jwt-policy.md
             - name: validate-parameters
-              href: validate-parameters-policymd
+              href: validate-parameters-policy.md
             - name: validate-status-code
               href: validate-status-code-policy.md
             - name: wait
