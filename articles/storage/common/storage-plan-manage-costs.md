@@ -31,7 +31,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
    ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options effect the price of storage-related operations.
+   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
 4. Modify the remaining options to see their effect on your estimate.
 
