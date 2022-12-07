@@ -70,7 +70,7 @@ An organization's device administrators are able to deploy their devices and you
 ### Use App Protection Policies to provide data loss prevention between users.
 For data protection capabilities along with shared device mode, Microsoft’s supported data protection solution for Microsoft 365 applications on Android and iOS is Microsoft Intune Application Protection Policies. For more information about the policies, see [App protection policies overview - Microsoft Intune | Microsoft Learn](/mem/intune/apps/app-protection-policy).
 
-When setting up App Protection Policies for shared devices, we recommend using [level 2 enterprise enhanced data protection](https://learn.microsoft.com/mem/intune/apps/app-protection-framework#level-2-enterprise-enhanced-data-protection). With level 2 data protection, you can restrict data transfer scenarios which may cause data to move to parts of the device that are not cleared with shared device mode.
+When setting up App protection policies for shared devices, we recommend using [level 2 enterprise enhanced data protection](/mem/intune/apps/app-protection-framework#level-2-enterprise-enhanced-data-protection). With level 2 data protection, you can restrict data transfer scenarios that may cause data to move to parts of the device that are not cleared with shared device mode.
 
 ## Next steps
 
