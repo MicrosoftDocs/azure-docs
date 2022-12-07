@@ -57,7 +57,7 @@
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
   - name: Strategies for troubleshooting lab VMs
-    href: concept-strategies-troubleshoot-lab-vm.md
+    href: concept-approaches-troubleshoot-lab-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
