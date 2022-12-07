@@ -55,9 +55,24 @@ ENDPOINT_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv 
 
 ## Score data using the token
 
-When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key (if using a token, replace `$ENDPOINT_KEY` with the token value):
+# [CLI](#tab/CLI)
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::    
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key:
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+
+If you're using a token, replace `$ENDPOINT_KEY` with the token value:
+
+```Azure CLI
+SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scoring_uri)
+
+curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_TOKEN" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
+```
+
+# [Python SDK](#tab/pythonsdk)
+
+
+---
 
 ## Next steps
 
