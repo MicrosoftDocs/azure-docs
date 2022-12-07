@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -111,10 +111,8 @@ $input
 ```java
 @FunctionName("HelloWorldOrchestration")
 public String helloWorldOrchestration(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        return String.format("Hello %s!", ctx.getInput(String.class));
-    });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    return String.format("Hello %s!", ctx.getInput(String.class));
 }
 ```
 ---
@@ -179,12 +177,10 @@ $output
 ```java
 @FunctionName("HelloWorld")
 public String helloWorldOrchestration(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        String input = ctx.getInput(String.class);
-        String result = ctx.callActivity("SayHello", input, String.class).await();
-        return result;
-    });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String input = ctx.getInput(String.class);
+    String result = ctx.callActivity("SayHello", input, String.class).await();
+    return result;
 }
 ```
 

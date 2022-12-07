@@ -2,7 +2,7 @@
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -88,22 +88,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```java
 @FunctionName("DeviceProvisioningOrchestration")
-public String deviceProvisioningOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            // Step 1: Create an installation package in blob storage and return a SAS URL.
-            String deviceId = ctx.getInput(String.class);
-            String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).await();
+public void deviceProvisioningOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    String deviceId = ctx.getInput(String.class);
+    String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).await();
 
-            // Step 2: Notify the device that the installation package is ready.
-            String[] args = { deviceId, blobUri };
-            ctx.callActivity("SendPackageUrlToDevice", args).await();
+    // Step 2: Notify the device that the installation package is ready.
+    String[] args = { deviceId, blobUri };
+    ctx.callActivity("SendPackageUrlToDevice", args).await();
 
-            // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
-            ctx.waitForExternalEvent("DownloadCompletedAck").await();
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    ctx.waitForExternalEvent("DownloadCompletedAck").await();
 
-            // Step 4: ...
-        });
+    // Step 4: ...
 }
 ```
 
@@ -193,18 +191,16 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```java
 @FunctionName("ProvisionNewDevices")
-public String provisionNewDevices(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            List<?> deviceIDs = ctx.getInput(List.class);
+public void provisionNewDevices(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    List<?> deviceIDs = ctx.getInput(List.class);
 
-            // Schedule each device provisioning sub-orchestration to run in parallel
-            List<Task<Void>> parallelTasks = deviceIDs.stream()
-                .map(device -> ctx.callSubOrchestrator("DeviceProvisioningOrchestration", device))
-                .collect(Collectors.toList());
+    // Schedule each device provisioning sub-orchestration to run in parallel
+    List<Task<Void>> parallelTasks = deviceIDs.stream()
+        .map(device -> ctx.callSubOrchestrator("DeviceProvisioningOrchestration", device))
+        .collect(Collectors.toList());
 
-            // ...
-        });
+    // ...
 }
 ```
 

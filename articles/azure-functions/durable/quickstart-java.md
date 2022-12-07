@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using Java (Preview)
 description: Create an Azure Durable Function in Java
 author: lilyjma
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 12/07/2022
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: mode-api, ignite-2022
@@ -19,12 +19,12 @@ In this article, you learn how to create and test a "hello world" durable functi
 
 To complete this tutorial, you need:
 
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
+- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or newer.
 
-- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Apache Maven](https://maven.apache.org), version 3.0 or newer.
 
 - Latest version of the [Azure Functions Core Tools](../functions-run-local.md).
-  - For Azure Functions 4.x, Core Tools **v4.0.4590** or newer is required.
+  - For Azure Functions 4.x, Core Tools **v4.0.4915** or newer is required.
 
 - An Azure Storage account, which requires that you have an Azure subscription.
 
@@ -37,8 +37,8 @@ Add the following to your `pom.xml`:
 ```xml
 <properties>
   <azure.functions.maven.plugin.version>1.18.0</azure.functions.maven.plugin.version>
-  <azure.functions.java.library.version>2.0.1</azure.functions.java.library.version>
-  <durabletask.azure.functions>1.0.0-beta.1</durabletask.azure.functions>
+  <azure.functions.java.library.version>2.2.0</azure.functions.java.library.version>
+  <durabletask.azure.functions>1.0.0</durabletask.azure.functions>
   <functionAppName>your-unique-app-name</functionAppName>
 </properties>
 
@@ -118,16 +118,14 @@ Add a `host.json` file to your project directory. It should look similar to the 
     }
   },
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[4.*, 5.0.0)"
   }
 }
 ```
 
-It's important to note that only the Azure Functions v4 _Preview_ bundle currently has the necessary support for Durable Functions for Java.
-
-> [!WARNING]
-> Be aware that the Azure Functions v4 preview bundles do not yet support Azure Cosmos DB bindings for Java function apps. For more information, see [Azure Cosmos DB trigger and bindings reference documentation](../functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-java#install-bundle).
+> [!NOTE]
+> It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is not supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../functions-bindings-register.md#extension-bundles).
 
 Add a `local.settings.json` file to your project directory. You should have the connection string of your Azure Storage account configured for `AzureWebJobsStorage`:
 
@@ -178,18 +176,16 @@ public class DurableFunctionsSample {
 
     /**
      * This is the orchestrator function, which can schedule activity functions, create durable timers,
-     * or wait for external events in a way that's completely fault-tolerant. The OrchestrationRunner.loadAndRun()
-     * static method is used to take the function input and execute the orchestrator logic.
+     * or wait for external events in a way that's completely fault-tolerant.
      */
     @FunctionName("HelloCities")
-    public String helloCitiesOrchestrator(@DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            String result = "";
-            result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
-            result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
-            result += ctx.callActivity("SayHello", "Seattle", String.class).await();
-            return result;
-        });
+    public String helloCitiesOrchestrator(
+            @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+        String result = "";
+        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "Seattle", String.class).await();
+        return result;
     }
 
     /**
@@ -205,6 +201,9 @@ public class DurableFunctionsSample {
 ## Test the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer.
+
+> [!NOTE]
+> Durable Functions for Java requires Azure Functions Core Tools v4.0.4915 or newer. You can see which version is installed by running the `func --version` command from the terminal.
 
 1. If you are using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
