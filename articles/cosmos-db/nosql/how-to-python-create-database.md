@@ -63,12 +63,6 @@ In the examples above, the response from the requests is a  [``DatabaseProxy``](
 
 The following example shows the **create_database_if_not_exists** method returning a **database** object.
 
-```python
-database = client.create_database_if_not_exists(id=DATABASE_ID)
-for container in database.list_containers():
-    print(f'Container name: {container["id"]}')
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/004-create-db/app_exists.py" id="parse_response":::
 
 ## Next steps
