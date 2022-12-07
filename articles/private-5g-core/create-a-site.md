@@ -40,7 +40,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. You'll now see the **Packet core** configuration tab.
 
-    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource."::: <!-- TODO: update screenshot to show both Local access tab and multi DN changes -->
+    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
 1. In the **Packet core** section, set the fields as follows:
 
@@ -68,10 +68,10 @@ In this step, you'll create the mobile network site resource representing the ph
     Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
-1. If you decided you want to provide a custom HTTPS certificate in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
+1. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
     
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
-    1. Use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) select a certificate and, if applicable, add a user-assigned managed identity.
+    1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) select a certificate and, if applicable, add a user-assigned managed identity.
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
 

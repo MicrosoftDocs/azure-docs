@@ -18,8 +18,8 @@ In this how-to guide, you'll learn how to use the Azure portal to change the cer
 
 ## Prerequisites
 
-- If you want to use a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a CA.
-- Refer to [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to collect the required values and make sure they're in the correct format.
+- If you want to use a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
+- Refer to [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the local access configuration
@@ -38,8 +38,6 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
 1. Check the fields under the **Local access** heading to view the current local access configuration and status.
-    
-    :::image type="content" source="media//modify-local-access-configuration/packet-core-control-plane-overview-local-access.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane overview.":::
 
 ## Modify the local access configuration
 
@@ -48,7 +46,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media//modify-local-access-configuration/modify-local-access.png" alt-text="Screenshot of the Azure portal showing the Modify local access option.":::
 
 1. Under **HTTPS certificate**, choose whether you want to provide a custom HTTPS certificate for accessing your local monitoring tools.
-1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) to select a certificate and, if applicable, add a user-assigned managed identity.
+1. If you selected **Yes** for **Provide custom HTTPS certificate?**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate and, if applicable, add a user-assigned managed identity.
 
     :::image type="content" source="media//modify-local-access-configuration/local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab.":::
 
