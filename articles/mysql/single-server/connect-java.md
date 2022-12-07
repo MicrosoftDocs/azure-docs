@@ -358,6 +358,18 @@ user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
 
+
+> [!NOTE]
+> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin" in the url.
+
+```bash
+mkdir -p src/main/resources && touch src/main/resources/application.properties
+
+cat << EOF > src/main/resources/application.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+EOF
+```
 #### [Password](#tab/password)
 
 ```bash
