@@ -18,6 +18,7 @@ For the latest news from the SAP+Microsoft world follow our SAP on Azure [YouTub
 
 To get a first impression about the limitless opportunities of extending SAP applications with Microsoft and Azure services, this Azure Friday episode is a perfect starting point:
 
+
 > [!VIDEO https://www.youtube.com/embed/72kbjv0GJAY]
 
 ## The partnership between both companies dates back many decades
@@ -57,9 +58,13 @@ In the SAP integration documentation space, you can find the following areas:
 
 ## Customer Engagement Initiatives (CEI), public BETAs, Customer Influence programs
 
-* [Inviting you: Register soon to explore your event-driven pathway between SAP and Microsoft Azure | SAP Blogs](https://blogs.sap.com/2021/10/08/inviting-you-register-soon-to-explore-your-event-driven-pathway-between-sap-and-microsoft-azure/)
-* [SAP Private Link Service GA announcement after public Beta | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
-* [SAP Private Link service CEI - Jul 22 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
+* [SAP S/4HANA Cloud - MS Teams Integration - Jul 2024 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+
+* [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+
+* [SAP Private Link Service GA announcement after public Beta - Jun 2022 | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
+
+* [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
 ## Recommended content
 
