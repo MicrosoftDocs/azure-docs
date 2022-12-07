@@ -37,19 +37,38 @@ For more information on using Azure RBAC with Azure Machine Learning, see [Manag
 
 # [CLI](#tab/CLI)
 
-To get the key, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or token. __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
-
-__Tokens__ will be returned in the `accessToken` field. Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
+To get the key or token, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or token. __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
 ```Azure CLI
-ENDPOINT_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
+ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query primaryKey)
+```
+
+__Tokens__ will be returned in the `accessToken` field:
+
+```Azure CLI
+ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
+
+Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
+
 ```
 
 # [Python SDK](#tab/pythonsdk)
 
+To get the key or token, use [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the OnlineEndpointOperations Class.
 
+__Keys__ will be returned in the `primary_key` and `secondary_key` fields:
+
+```Python
+endpoint_cred = ml_client.online_endpoints.get_keys(name=endpoint_name).primary_key
+```
+
+__Tokens__ will be returned in the `accessToken` field:
+
+```Python
+endpoint_cred = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
+```
+
+Additionally, the `expiry_time_utc` and `refresh_after_time_utc` fields contain the token expiration and refresh times. 
 
 ---
 
