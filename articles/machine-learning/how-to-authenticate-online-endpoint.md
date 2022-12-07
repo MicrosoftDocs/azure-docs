@@ -35,7 +35,7 @@ Access to retrieve the key or token for an online endpoint is restricted by Azur
 
 For more information on using Azure RBAC with Azure Machine Learning, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 To get the key or token, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or token. __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
@@ -51,7 +51,7 @@ ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv -
 
 Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 To get the key or token, use [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the OnlineEndpointOperations Class.
 
@@ -78,7 +78,7 @@ print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
 
 ## Score data using the token or token
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key/token:
 
@@ -88,7 +88,7 @@ SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scorin
 curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_CRED" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
 ```
 
-# [Python SDK](#tab/pythonsdk)
+# [Python](#tab/python)
 
 When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key/token in Python:
 
