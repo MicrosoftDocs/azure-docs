@@ -45,9 +45,9 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 | Multifactor authentication policy | Authentication method policy |
 |-----------------------------------|------------------------------|
-| Call to phone                     | Phone calls                   |
-| Text message to phone             | SMS<br>Microsoft Authenticator      |
-| Notification through mobile app   | Microsoft Authenticator             |
+| Call to phone                     | Phone calls                  |
+| Text message to phone             | SMS                          |
+| Notification through mobile app   | Microsoft Authenticator      |
 | Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens (not yet available)<br>Microsoft Authenticator |
 
 ### Review the legacy SSPR policy
@@ -63,8 +63,8 @@ Record which users are in scope for SSPR (either all users, one specific group, 
 | Mobile app notification     | Microsoft Authenticator      |
 | Mobile app code             | Microsoft Authenticator<br>Software OATH tokens  |
 | Email                       | Email OTP                    |
-| Mobile phone                | Phone calls<br>SMS            |
-| Office phone                | Phone calls                   |
+| Mobile phone                | Voice calls<br>SMS            |
+| Office phone                | Voice calls                   |
 | Security questions          | Not yet available; copy questions for later use  |
 
 ### Authentication methods policy
@@ -99,7 +99,7 @@ Where the policies match, you can easily match your current state. Where there's
 
 In the Authentication methods policy, you'll then need to choose whether to enable **Microsoft Authenticator** for both SSPR and MFA or disable it (we recommend enabling Microsoft Authenticator). 
 
-As you update each method in the Authentication methods policy, some methods have configurable parameters that allow you to control how that method can be used. For example, if you enable **Phone calls** as authentication method, you can choose to allow both office phone and mobile phones, or mobile only. Step through the process to configure each authentication method from your audit. 
+As you update each method in the Authentication methods policy, some methods have configurable parameters that allow you to control how that method can be used. For example, if you enable **Voice calls** as authentication method, you can choose to allow both office phone and mobile phones, or mobile only. Step through the process to configure each authentication method from your audit. 
 
 You aren't required to match your existing policy! It's a great opportunity to review your enabled methods and choose a new policy that maximizes security and usability for your tenant. Just note that disabling methods for users who are already using them may require those users to register new authentication methods and prevent them from using previously registered methods.
 
@@ -121,11 +121,11 @@ If **Verification code from mobile app or hardware token** is enabled in the leg
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/one-time-password.png" alt-text="Screenshot of Microsoft Authenticator OTP.":::
 
-### SMS and phone calls
+### SMS and voice calls
 
 The legacy MFA policy has separate controls for **SMS** and **Phone calls**. But there's also a **Mobile phone** control that enables mobile phones for both SMS and voice calls. And another control for **Office phone** enables an office phone only for voice call.
 
-The Authentication methods policy has controls for **SMS** and **Phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Phone calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Phone calls** in the Authentication methods policy, and ensure that the **Office phone** option is enabled. 
+The Authentication methods policy has controls for **SMS** and **Voice calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Voice calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Voice calls** in the Authentication methods policy, and ensure that the **Office phone** option is enabled. 
 
 ### OATH tokens
 
