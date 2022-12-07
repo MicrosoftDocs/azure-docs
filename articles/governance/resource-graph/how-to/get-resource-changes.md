@@ -1,28 +1,26 @@
 ---
 title: Get resource changes
-description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
+description: Get resource configuration changes at scale
 ms.date: 06/16/2022
 ms.topic: how-to
 ---
-# Get resource changes
 
-Resources get changed through the course of daily use, reconfiguration, and even redeployment.
-Change can come from an individual or by an automated process. Most change is by design, but
-sometimes it isn't. With the **last fourteen days** of changes, Resource configuration changes enables you to:
+# Get resource configuration changes
+
+Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. For the last 14 days of changes, you can:
 
 - Find when changes were detected on an Azure Resource Manager property
-- For each resource change, see property change details
-- Query changes at scale across your subscriptions, Management group, or tenant
+- View property change details
+- Query changes at scale across your subscriptions, management group, or tenant
+
+## Prerequisites
+
+- To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
+- To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
 
 Change detection and details are valuable for the following example scenarios:
 
-- During incident management to understand _potentially_ related changes. Query for change events
-  during a specific window of time and evaluate the change details.
-- Keeping a Configuration Management Database, known as a CMDB, up-to-date. Instead of refreshing
-  all resources and their full property sets on a scheduled frequency, only get what changed.
-- Understanding what other properties may have been changed when a resource changed compliance
-  state. Evaluation of these extra properties can provide insights into other properties that
-  may need to be managed via an Azure Policy definition.
+
 
 This article shows how to query Resource configuration changes through Resource Graph. To see this
 information in the Azure portal, see [Azure Resource Graph Explorer](../first-query-portal.md), Azure Policy's
@@ -36,14 +34,9 @@ Monitor.
 > [!WARNING]
 > There has been a temporary reduction in lookback retention to 7 days.
 
-> [!NOTE]
-> Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
-> a virtual machine, see Azure Automation's
-> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
-> [Machine Configuration for VMs](../../machine-configuration/overview.md). To view examples of how to query guest configuration resources in Resource Graph, view [Azure Resource Graph queries by category - Azure Policy Machine Configuration](../samples/samples-by-category.md#azure-policy-guest-configuration).
 
 > [!IMPORTANT]
-> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query result to any of the Azure data stores (e.g., Log Analytics) for your desired retention.
+
 
 ## Find detected change events and view change details
 
@@ -102,10 +95,7 @@ Each change resource has the following properties:
   - **previousResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the previous state of the resource.
   - **newResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the new state of the resource.
 
-## How to query changes using Resource Graph
-### Prerequisites
-- To enable Azure PowerShell to query Azure Resource Graph, the [module must be added](../first-query-powershell.md#add-the-resource-graph-module).
-- To enable Azure CLI to query Azure Resource Graph, the [extension must be added](../first-query-azurecli.md#add-the-resource-graph-extension).
+## Query changes using Resource Graph
 
 ### Run your Resource Graph query
 It's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
@@ -309,10 +299,17 @@ resourcechanges 
 | project createTime, id, resourceGroup, type
 ```
 
+## Best practices
+
+- Query for change events during a specific window of time and evaluate the change details. This works best during incident management to understand _potentially_ related changes. 
+- Keep a Configuration Management Database (CMDB) up to date. Instead of refreshing all resources and their full property sets on a scheduled frequency, only get what changed.
+- Understand what other properties may have been changed when a resource changed compliance state. Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
+- Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../azure-monitor/log-analytics-overview.md) for your desired retention.
+
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md).
-- See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn more about how to [explore resources](../concepts/explore-resources.md).
-- For guidance on working with queries at a high frequency, see
-  [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md).
+- [Starter Resource Graph query samples](../samples/starter.md)
+- [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md)
+- [Azure Automation's change tracking](../../../automation/change-tracking/overview.md)
+- [Azure Policy's machine configuration for VMs](../../machine-configuration/overview.md)
+- [Azure Resource Graph queries by category](../samples/samples-by-category.md)
