@@ -116,6 +116,11 @@ MongoClientURI uri = new MongoClientURI(connectionString);
 MongoClient client = new MongoClient(uri);
 ```
 
+## Authenticate using Mongosh
+```powershell
+mongosh --authenticationDatabase <YOUR_DB> --authenticationMechanism SCRAM-SHA-256 "mongodb://<YOUR_USERNAME>:<YOUR_PASSWORD>@<YOUR_HOST>:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000"
+```
+
 ## Azure CLI RBAC Commands
 The RBAC management commands will only work with newer versions of the Azure CLI installed. See the Quickstart above on how to get started. 
 

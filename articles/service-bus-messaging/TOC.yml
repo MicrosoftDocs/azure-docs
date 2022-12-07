@@ -237,8 +237,6 @@
       href: enable-duplicate-detection.md
     - name: Enable partitions (basic / standard)
       href: enable-partitions-basic-standard.md
-    - name: Enable partitions (premium tier)
-      href: enable-partitions-premium.md
     - name: Enable auto forwarding for a queue or subscription
       href: enable-auto-forward.md
     - name: Enable dead lettering for a queue or subscription

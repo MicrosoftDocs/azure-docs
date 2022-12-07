@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/25/2022
 ms.author: abnarain 
 ms.custom: synapse
 ---
@@ -68,7 +68,7 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 ---
 
 > [!NOTE] 
-> You can use SDK/ PowerShell/ REST APIs for the above actions.
+> You can use [SDK](/dotnet/api/microsoft.azure.management.synapse?preserve-view=true&view=azure-dotnet-preview)/ [PowerShell](/powershell/module/az.synapse/?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&view=azps-9.1.0&preserve-view=true)/ [REST APIs](/rest/api/synapse/) for the above actions.
 > Linked services with user-assigned managed identity are currently not supported in Synapse Spark. 
 
 ## Next steps

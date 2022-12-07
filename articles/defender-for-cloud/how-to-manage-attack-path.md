@@ -4,14 +4,14 @@ titleSuffix: Defender for Cloud
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 10/03/2022
+ms.date: 11/21/2022
 ---
 
 # Identify and remediate attack paths 
 
 Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment of your security issues. Defender for Cloud identifies the biggest security risk issues, while distinguishing them from less risky issues.
 
-Attack Path Analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
+Attack path analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
 
 You can check out the full list of [Attack path names and descriptions](attack-path-reference.md).
 
@@ -20,6 +20,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 | Aspect | Details |
 |--|--|
 | Release state | Preview |
+| Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender for CSPM](enable-enhanced-security.md) <br> - [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
@@ -34,7 +35,9 @@ On this page you can organize your attack paths based on name, environment, path
 
 For each attack path you can see all of risk categories and any affected resources.
 
-The potential risk categories include Credentials exposure, Compute abuse, Data exposure, Subscription/account takeover.
+The potential risk categories include credentials exposure, compute abuse, data exposure, subscription and account takeover.
+
+Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
 ## Investigate and remediate attack paths
 
@@ -126,4 +129,4 @@ While you are [investigating and remediating an attack path](#investigate-and-re
 
 ## Next Steps
 
-Learn how to [Build queries with Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
+Learn how to [Build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md).

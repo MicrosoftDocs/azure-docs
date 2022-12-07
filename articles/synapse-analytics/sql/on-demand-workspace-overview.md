@@ -7,18 +7,18 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: ignite-2022
-ms.date: 01/19/2022
+ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
-# Serverless SQL pool in Azure Synapse Analytics 
+# Serverless SQL pool in Azure Synapse Analytics
 
 Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Azure Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
- 
-- A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. 
-- Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. 
+
+- A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. To learn more, see the [T-SQL support](#t-sql-support) section.
+- Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. To learn more, see the [Client tools](#client-tools) section.
 
 Serverless SQL pool is a distributed data processing system, built for large-scale data and computational functions. Serverless SQL pool enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving large data sets.
 

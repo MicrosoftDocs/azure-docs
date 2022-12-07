@@ -1,15 +1,15 @@
 ---
 title: 'Migrate from v1 to v2'
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK (preview).
+description: Migrate from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: s-polly
-ms.author: scottpolly
+author: balapv
+ms.author: balapv
 ms.date: 09/23/2022
-ms.reviewer: blackmist
+ms.reviewer: sgilley
 ms.custom: devx-track-azurecli, devplatv2, ignite-2022
 ---
 

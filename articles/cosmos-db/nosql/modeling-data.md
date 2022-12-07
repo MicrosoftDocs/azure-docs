@@ -540,7 +540,7 @@ Just as there's no single way to represent a piece of data on a screen, there's 
 
 ## Next steps
 
-* To learn more about Azure Cosmos DB, refer to the service's [documentation](/azure/cosmos-db/) page.
+* To learn more about Azure Cosmos DB, refer to the service's [documentation](../index.yml) page.
 
 * To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](../partitioning-overview.md).
 

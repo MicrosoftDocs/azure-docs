@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/07/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -22,7 +22,7 @@ An Elastic SAN (preview) has three attributes that determine its performance: to
 
 The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
 
-The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
@@ -38,29 +38,28 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
-
-|Resource  |France Central   |Southeast Asia  |
-|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |
-|Maximum total capacity (TiB)     |100         |100         |
-|Maximum base capacity (TiB)    |100         |100         |
-|Minimum total capacity (TiB)    |64         |64         |
-|Maximum total IOPS     |500,000         |500,000         |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |
+|Resource  |France Central   |Southeast Asia  |West US 2   |
+|---------|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |
+|Maximum total capacity (TiB)     |100         |100         |600        |
+|Maximum base capacity (TiB)    |100         |100         |400        |
+|Minimum total capacity (TiB)    |1         |1         |1        |
+|Maximum total IOPS     |500,000         |500,000         |2,000,000        |
+|Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |
 
 
 #### ZRS
 
-ZRS is only available in France Central.
+ZRS is only available in France Central and West US 2.
 
-|Resource  |France Central  |
-|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |
-|Maximum total capacity (TiB)     |200         |
-|Maximum base capacity (TiB)    |100         |
-|Minimum total capacity (TiB)    |64         |
-|Maximum total IOPS     |500,000         |
-|Maximum total throughput (MB/s)    |8,000         |
+|Resource  |France Central  |West US 2    |
+|---------|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |
+|Maximum total capacity (TiB)     |200         |200        |
+|Maximum base capacity (TiB)    |100         |100        |
+|Minimum total capacity (TiB)    |1         |1        |
+|Maximum total IOPS     |500,000         |500,000        |
+|Maximum total throughput (MB/s)    |8,000         |8,000        |
 
 
 ## Volume group

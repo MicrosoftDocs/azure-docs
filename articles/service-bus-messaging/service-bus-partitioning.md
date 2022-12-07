@@ -12,11 +12,8 @@ ms.custom: devx-track-csharp, ignite-2022
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 > [!NOTE]
-> There are some differences between the Basic / Standard and Premium SKU when it comes to partitioning.
 > - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. A namespace can have both partitioned and non-partitioned entities.
-> - Partitioning is available at namespace creation for the Premium messaging SKU, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in Premium namespaces will continue to work as expected.
-> - When partitioning is enabled in the Basic or Standard SKUs, we will always create 16 partitions.
-> - When partitioning is enabled in the Premium SKU, the amount of partitions is specified during namespace creation.
+> - When partitioning is enabled in the Basic or Standard SKUs, the entity is created 16 partitions.
  
 It isn't possible to change the partitioning option on any existing namespace, queue, or topic; you can only set the option when you create the entity.
 
@@ -114,7 +111,7 @@ Currently Service Bus imposes the following limitations on partitioned queues an
 * Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
 
 ## Next steps
-You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md) or [Enable partitioning (Premium)](enable-partitions-premium.md).
+You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md).
 
 Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
 

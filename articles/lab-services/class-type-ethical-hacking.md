@@ -74,12 +74,12 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
     1. On the **Configure Networking** page, leave the connection as **Not Connected**. You'll set up the network adapter later.
     1. On the **Connect Virtual Hard Disk** page, select **Use an existing virtual hard disk**. Browse to the location for the **Kali-Linux-{version}-vmware-amd64.vhdk** file created in the previous step, and select **Next**.
     1. On the **Completing the New Virtual Machine Wizard** page, and select **Finish**.
-    1. Once the virtual machine is created, select it in the Hyper-V Manager. Don't turn on the machine yet.  
+    1. Once the virtual machine is created, select it in the Hyper-V Manager. Don't turn on the machine yet.
     1. Choose **Action** -> **Settings**.
     1. On the **Settings for Kali-Linux** dialog for, select **Add Hardware**.
     1. Select **Legacy Network Adapter**, and select **Add**.
     1. On the **Legacy Network Adapter** page, select **LabServicesSwitch** for the **Virtual Switch** setting, and select **OK**. LabServicesSwitch was created when preparing the template machine for Hyper-V in the **Prepare Template for Nested Virtualization** section.
-    1. The Kali-Linux image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine.  The default username is **kali** and the password is **kali**.
+    1. The Kali-Linux image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine. The default username is `kali` and the password is `kali`.
 
 ### Set up a nested VM with Metasploitable Image  
 
@@ -118,7 +118,7 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
         :::image type="content" source="./media/class-type-ethical-hacking/network-adapter-page.png" alt-text="Screenshot of settings dialog for Hyper V VM.":::
     1. On the **Legacy Network Adapter** page, select **LabServicesSwitch** for the **Virtual Switch** setting, and select **OK**. LabServicesSwitch was created when preparing the template machine for Hyper-V in the **Prepare Template for Nested Virtualization** section.
         :::image type="content" source="./media/class-type-ethical-hacking/legacy-network-adapter-page.png" alt-text="Screenshot of Legacy Network adapter settings page for Hyper V VM.":::
-    1. The Metasploitable image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine.  The default username is **msfadmin** and the password is **msfadmin**.
+    1. The Metasploitable image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine.  The default username is `msfadmin` and the password is `msfadmin`.
 
 The template is now updated and has images needed for an ethical hacking penetration testing class, an image with tools to do the penetration testing and another image with security vulnerabilities to discover. The template image can now be [published](how-to-create-manage-template.md#publish-the-template-vm) to the class.
 

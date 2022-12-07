@@ -85,7 +85,7 @@ You can combine the two models. Provisioning throughput on both the database and
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
 > [!NOTE]
-> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput.
+> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput. You will need to move the data to a container with the desired throughput setting. ([Container copy jobs](intra-account-container-copy.md) for NoSQL and Cassandra APIs help with this process.)
 
 ## Update throughput on a database or a container
 

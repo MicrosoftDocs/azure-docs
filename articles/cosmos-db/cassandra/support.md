@@ -146,7 +146,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `COMPACT STORAGE` | N/A (PaaS service) |
 | `CREATE AGGREGATE` | No | 
 | `CREATE CUSTOM INDEX (SASI)` | No |
-| `CREATE INDEX` | Yes (without [specifying index name](secondary-indexing.md), and indexes on clustering keys or full FROZEN collection not supported) |
+| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md), and cluster key index is currently in [private preview](https://devblogs.microsoft.com/cosmosdb/now-in-private-preview-cluster-key-index-support-for-azure-cosmos-db-cassandra-api/) but full FROZEN collection is not supported) |
 | `CREATE FUNCTION` | No |
 | `CREATE KEYSPACE` (replication settings ignored) | Yes |
 | `CREATE MATERIALIZED VIEW` | No |
@@ -289,7 +289,7 @@ keytool -importcert -alias bc2025ca -file bc2025.crt
 echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install cassandra
+sudo apt-get install cassandra=3.11.13
 ```
 
 **Connect with Unix/Linux/Mac:**

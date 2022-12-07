@@ -138,7 +138,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Upgrade from Windows Server 2019 to 2022
-            url: /azure/aks/upgrade-windows-2019-2022
+            url: ./upgrade-windows-2019-2022.md
           - text: Create Dockerfiles for Windows Server containers
             url: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context 
           - text: Optimize Dockerfiles for Windows Server containers
@@ -146,7 +146,7 @@ landingContent:
           - text: Use HostProcess containers
             url: use-windows-hpc.md
           - text: Enable network policies
-            url: /azure/aks/use-network-policies
+            url: ./use-network-policies.md
           - text: Use Azure disks CSI drivers
             url: azure-disk-csi.md#windows-containers
           - text: Use Azure files CSI drivers
@@ -190,3 +190,15 @@ landingContent:
             url: cluster-extensions.md
           - text: GitHub Actions for AKS
             url: integrations.md#github-actions
+  # Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+         - text: Troubleshooting Guides
+           url: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
+         - text: Troubleshoot create operations
+           url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
+         - text: Troubleshoot common issues 
+           url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+        

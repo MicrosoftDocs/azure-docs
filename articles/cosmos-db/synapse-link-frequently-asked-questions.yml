@@ -21,7 +21,7 @@ sections:
       - question: |
           Is Azure Synapse Link supported for all Azure Cosmos DB APIs?
         answer: |
-          Azure Synapse Link is supported for the Azure Cosmos DB API for NoSQL and MongoDB. The support for API for Gremlin is now in preview.
+          Azure Synapse Link is supported for the Azure Cosmos DB API for NoSQL and for the Azure Cosmos DB API for MongoDB. The support for Azure Cosmos DB API for Gremlin is now in preview.
 
       - question: |
           Is Azure Synapse Link supported for multi-region Azure Cosmos DB accounts?

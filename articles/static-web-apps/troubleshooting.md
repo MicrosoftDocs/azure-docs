@@ -25,19 +25,19 @@ npm run build:azure # if specified in package.json
 
 Any errors raised by this process are logged in the GitHub workflow run.
 
-1. Navigate to the GitHub repository for your static web app.
+1. Go to the GitHub repository for your static web app.
 1. Select **Actions**.
 
     > [!NOTE]
-    > Any failed workflow runs will be displayed with a red *X* rather than a green check mark
+    > Any failed workflow runs display with a red *X* rather than a green check mark.
 
-1. Select the link for the workflow run you wish to validate.
-1. Select **Build and Deploy Job** to open the details of the deployment
-1. Select **Build And Deploy** to display the log
+2. Select the link for the workflow run you wish to validate.
+3. Select **Build and Deploy Job** to open the details of the deployment
+4. Select **Build And Deploy** to display the log
 
     ![Screenshot of the deployment log for a static web app](./media/troubleshooting/build-deploy-log.png)
 
-1. Review the logs and any error messages.
+5. Review the logs and any error messages.
 
     > [!NOTE]
     > Some warning error messages may display in red, such as notes about *.oryx_prod_node_modules* and *workspace*. These are part of the normal deployment process.
@@ -54,13 +54,13 @@ If you see one of the following error messages in the error log, it's an indicat
 | --- | --- |
 |App Directory Location: '/*folder*' is invalid. Could not detect this directory. | Verify your workflow reflects your repository structure. |
 | The app build failed to produce artifact folder: '*folder*'. | Ensure the `folder` property is configured correctly in your workflow file. |
-| Either no Api directory was specified, or the specified directory was not found. | Azure Functions will not be created as the workflow doesn't define a value for the `api` folder. |
+| Either no Api directory was specified, or the specified directory was not found. | Azure Functions isn't created, as the workflow doesn't define a value for the `api` folder. |
 
 There are three folder locations specified in the workflow. Ensure these settings match both your project and any tools that transform your source code before deployment.
 
 | Configuration setting | Description |
 | --- | --- |
-| `app_location` | The root location of the source code to be deployed. This setting will typically be */* or the location of the JavaScript and HTML for your project. |
+| `app_location` | The root location of the source code to be deployed. This setting is typically */* or the location of the JavaScript and HTML for your project. |
 | `output_location` | Name of the folder created by any build process from a bundler such as webpack. This folder both needs to be created by the build process, and a subdirectory under the `app_location` |
 | `api_location` |The root location of your Azure Functions application hosted by Azure Static Web Apps. This points to the root folder of all Azure Functions for your project, typically *api*. |
 
@@ -78,15 +78,15 @@ Use [Application Insights](../azure-monitor/app/app-insights-overview.md) to fin
 1. Select the Application Insights instance, which has the same name as your static web app (if created using the steps above).
 1. Under *Investigate*, select **Failures**.
 1. Scroll down to *Drill into* on the right.
-1. In the lower right corner, under *Drill into*, a button will display the number of recently failed operations.
+2. In the lower right corner, under *Drill into*, a button displays the number of recently failed operations.
 
     ![Screenshot of the failures screen](./media/troubleshooting/app-insights-errors.png)
 
-1. Select the button that says **x Operations** to open a panel displaying the recent failed operations.
+3. Select **x Operations** to open a panel displaying the recent failed operations.
 
     ![Screenshot of the operations screen](./media/troubleshooting/app-insights-operations.png)
 
-1. Explore an error by selecting one from the list.
+4. Explore an error by selecting one from the list.
 
     ![Screenshot of the error details screen](./media/troubleshooting/app-insights-details.png)
 

@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 09/07/2022
+ms.date: 11/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -340,6 +340,14 @@ Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid p
 
 If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
+### UserErrorUnableToOpenMount
+
+**Error code**: UserErrorUnableToOpenMount
+
+**Cause**: Backups failed because the backup extensions on the VM were unable to open the mount points in the VM.
+
+**Recommended action**: The backup extension on the VM must be able to access all mount points in the VM to determine the underlying disks, take snapshot, and calculate the size. Ensure that all mount points are accessible.
+
 ## Jobs
 
 | Error details | Workaround |
@@ -471,6 +479,14 @@ To resolve this issue:
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 
 **Resolution**: Use the same subscription for Restore of Trusted Launch Azure VMs. 
+
+### UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error code**: UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.
+
+**Recommended action**: Ensure that the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should typically register the Subscription to Recovery Services vault Provider.
 
 ## Backup or restore takes time
 

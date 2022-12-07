@@ -53,7 +53,7 @@ Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/
 
 # [Azure Pipelines](#tab/pipelines)
 
-To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
 
 Next, you grant permissions to this service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -112,7 +112,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -195,7 +195,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
 You'll now create a CI/CD workflow to create and run a load test for the sample application. The sample application repository already contains a CI/CD workflow definition that first deploys the application to Azure, and then creates a load test based on JMeter test script (*SampleApp.jmx*). You'll update the sample workflow definition file to specify the Azure subscription and application details.
 
-On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about ARM templates [here](/azure-resource-manager/templates/overview).
+On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about [ARM templates](/azure/azure-resource-manager/templates/overview).
 
 # [Azure Pipelines](#tab/pipelines)
 
@@ -426,7 +426,7 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
         - percentage(error) > 20
     ```
 
-    You've now specified pass/fail criteria for your load test. The test will fail if at least one of these conditions is met:
+    You've now specified fail criteria for your load test based on the average response time and the error rate. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
     - The aggregate percentage of errors is greater than 20%.
@@ -437,13 +437,13 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
 
 1. After the test finishes, notice that the CI/CD pipeline run has failed.
 
-    In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the pass/fail criteria.
+    In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the fail criteria.
 
     :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria to increase the criterion for average response time:
+1. Edit the *SampleApp.yml* file and change the test's fail criteria to increase the criterion for average response time:
 
     ```yaml
     failureCriteria: 
@@ -466,4 +466,4 @@ You've now created a CI/CD workflow that uses Azure Load Testing to automate run
 * Learn more about [Configuring server-side monitoring](./how-to-monitor-server-side-metrics.md).
 * Learn more about [Comparing results across multiple test runs](./how-to-compare-multiple-test-runs.md).
 * Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
-* Learn more about [Defining test pass/fail criteria](./how-to-define-test-criteria.md).
+* Learn more about [Defining test fail criteria](./how-to-define-test-criteria.md).

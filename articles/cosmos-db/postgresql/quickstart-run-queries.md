@@ -84,7 +84,7 @@ SELECT date_trunc('hour', created_at) AS hour,
        sum((payload->>'distinct_size')::int) AS num_commits
 FROM   github_events
 WHERE  event_type = 'PushEvent' AND
-       payload @> '{"ref":"refs/heads/main"}'
+       payload @> '{"ref":"refs/heads/master"}'
 GROUP BY hour
 ORDER BY hour;
 ```
