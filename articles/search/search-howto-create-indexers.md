@@ -19,9 +19,9 @@ An indexer is a named object on a search service that automates an indexing work
 
 Indexers support two workflows:
 
-+ Text-based indexing, extracting strings and metadata for full text search scenarios.
++ Text-based indexing, extracting strings and metadata from textual content for full text search scenarios.
 
-+ Skills-based indexing, using built-in or custom skills to apply integrated machine learning and AI models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. To learn about skills-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
++ Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
 
@@ -71,9 +71,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for skills-based indexing and AI enrichment
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following extra properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. 
-
-A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters for apply, but the following extra properties are specific to AI enrichment: "skillSetName", "cache", "outputFieldMappings". 
 
 ```json
 {
@@ -91,7 +89,7 @@ A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveService
 }
 ```
 
-AI enrichment is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
+AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
 
 ## Prerequisites
 
@@ -133,6 +131,8 @@ Indexers require a data source that specifies the type, container, and connectio
    + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
    + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
    + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
+1. If the data source is a database, such as Azure SQL or Cosmos DB, enable change tracking. The above links for the various data sources explain which change tracking methods are supported by indexers.
 
 ## Prepare an index
 
