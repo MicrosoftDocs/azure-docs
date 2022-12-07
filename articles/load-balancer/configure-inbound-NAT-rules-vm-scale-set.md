@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 In this article you'll learn how to configure, update, and delete inbound NAT Rules for Virtual Machine Scale Set instances. Azure offers two options for Inbound NAT rules. The first option is the ability to add a single inbound NAT rule to a single backend resource. The second option is the ability to create a group of inbound NAT rules for a backend pool. Additional information on the various options is provided [here](inbound-nat-rules.md). It's recommended to use the second option for inbound NAT rules when using Virtual Machine Scale Sets, since this option provides better flexibility and scalability.  
 
-[Add your introductory paragraph]
+
 
 <!-- 3. Prerequisites 
 Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
@@ -33,7 +33,7 @@ Individual inbound NAT rules can't be added to a Virtual Machine Scale Set. Howe
 
 To add a whole set of inbound NAT rules for the Virtual Machine Scale Sets, first create an inbound NAT rule in the load balancer that targets a backend pool.  
 
-The new inbound NAT rule shouldn't have an overlapping front-end port range with existing inbound NAT rules. To view existing inbound NAT rules that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-rule?view=azure-cli-latest):
+The new inbound NAT rule shouldn't have an overlapping front-end port range with existing inbound NAT rules. To view existing inbound NAT rules that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-rule):
 
 ```azurecli
 
@@ -53,6 +53,8 @@ The new inbound NAT rule shouldn't have an overlapping front-end port range with
 ## Update inbound NAT rules 
 When using inbound NAT rules with Virtual Machine Scale Sets, Individual inbound NAT rules can't be updated. However, you can update a set of inbound NAT rules that target a backend pool. 
 
+```azurecli
+
 az network lb inbound-nat-rule update
     -g MyResourceGroup
     --lb-name MyLb
@@ -60,6 +62,7 @@ az network lb inbound-nat-rule update
     --frontend-port-range-start 150
     --frontend-port-range-end 250 
 
+```
 ## Delete inbound NAT rules 
 
 When using inbound NAT rules with Virtual Machine Scale Sets, Individual inbound NAT rules can't be deleted. However, you can delete the entire set of inbound NAT rules by deleting the inbound NAT rule that targets a specific backend pool. 
