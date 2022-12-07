@@ -111,7 +111,7 @@ Akamai Enterprise Application Access supports SAML federation with cloud IdPs li
 
 2. Create a signing certificate for Azure AD B2C to sign the SAML response sent to Akamai Enterprise Application Access:
 
-   a. [**Obtain a certificate**](./saml-service-provider?tabs=windows&pivots=b2c-custom-policy#obtain-a-certificate). If you don't already have a certificate, you can use a self-signed certificate.
+   a. [**Obtain a certificate**](saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy#obtain-a-certificate). If you don't already have a certificate, you can use a self-signed certificate.
 
    b. [**Upload the certificate**](./saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy#upload-the-certificate) in your Azure AD B2C tenant. Take note of the name as it will be needed in the `TechnicalProfile` mentioned in the next steps.
 
@@ -398,7 +398,7 @@ Once the Application is deployed in a private environment and a connector is cap
 
 #### Option 2: OpenID Connect
 
-In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
+In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
 1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
 
