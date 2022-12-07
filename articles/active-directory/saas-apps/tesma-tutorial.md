@@ -22,7 +22,7 @@ In this article, you'll learn how to integrate tesma with Azure Active Directory
 * Enable your users to be automatically signed-in to tesma with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for tesma in a test environment. tesma supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning..
+You'll configure and test Azure AD single sign-on for tesma in a test environment. tesma supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the tesma for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the tesma tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the tesma for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the tesma tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the tesma for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
