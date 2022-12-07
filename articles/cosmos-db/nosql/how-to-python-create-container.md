@@ -43,40 +43,11 @@ To create a container, call one of the following methods:
 
 The following example creates a container with the [``DatabaseProxy.create_container``](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container) method. This method throws an exception if the container with the same name already exists.
 
-```python
-try:
-    partition_key_path = PartitionKey(path="/categoryId")
-    container = database.create_container(
-        id=CONTAINER_ID,
-        partition_key=partition_key_path,
-        offer_throughput=400
-    )
-    print(f'Container created: {container.id}')
-
-except CosmosResourceExistsError:
-    print("Container already exists.")
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app.py" id="create_container":::
 
 ### Create a container if it doesn't already exist
 
-
 The following example creates a container with the [``DatabaseProxy.create_container_if_not_exists``](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exist) method. Compared to the previous create method, this method doesn't throw an exception if the database already exists. This method is useful for avoiding errors if you run the same code multiple times.
-
-```python
-try:
-    partition_key_path = PartitionKey(path="/categoryId")
-    container = database.create_container_if_not_exists(
-        id=CONTAINER_ID,
-        partition_key=partition_key_path,
-        offer_throughput=400
-    )
-    print(f'Container created or returned: {container.id}')
-
-except CosmosHttpResponseError:
-    print("Request to the Azure Cosmos database service failed.")
-```
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="create_container":::
 

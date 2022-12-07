@@ -62,16 +62,6 @@ pip install azure-cosmos
 
 In your environment, create a new *app.py* file and add the following code to it:
 
-```python
-import json
-import os
-import sys
-import uuid
-
-from azure.core.exceptions import AzureError
-from azure.cosmos import CosmosClient, PartitionKey
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="imports":::
 
 The preceding code imports modules that you'll use in the rest of the article.
@@ -225,13 +215,6 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables as parameters.
 
-```python
-ENDPOINT = os.environ["COSMOS_ENDPOINT"]
-KEY = os.environ["COSMOS_KEY"]
-
-client = CosmosClient(url=ENDPOINT, credential=KEY)
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="client":::
 
 ### Connect with a connection string
@@ -331,14 +314,6 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
-```Python
-CONN_STR = os.environ["COSMOS_CONNECTION_STRING"]
-DATABASE_ID = "cosmicworks"
-CONTAINER_ID = "products"
-
-client = CosmosClient.from_connection_string(conn_str=CONN_STR)
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_connection_string.py" id="connection_string":::
 
 ### Connect using the Microsoft Identity Platform
@@ -372,16 +347,6 @@ In your *app.py*:
 * Import the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and create an instance of it.
 
 * Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
-
-```python
-from azure.identity import DefaultAzureCredential
-
-ENDPOINT = os.environ["COSMOS_ENDPOINT"]
-
-credential = DefaultAzureCredential()
-
-client = CosmosClient(ENDPOINT, credential)
-```
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_default.py" id="credential":::
 
@@ -419,7 +384,7 @@ credential = ClientSecretCredential(
 client = CosmosClient(ENDPOINT, credential)
 ```
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_add_principal.py" id="credential":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_principal.py" id="credential":::
 
 ## Build your application
 
