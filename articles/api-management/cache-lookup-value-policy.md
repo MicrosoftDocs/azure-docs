@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -15,6 +15,8 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 > [!NOTE]
 > This policy must have a corresponding [Store value in cache](cache-store-value-policy.md) policy.
+
+[!INCLUDE [api-management-cache-volatile](../../includes/api-management-cache-volatile.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -40,23 +42,19 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 ## Usage
 
-
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).
+## Example
 
 ```xml
 <cache-lookup-value
     key="@("userprofile-" + context.Variables["enduserid"])"
     variable-name="userprofile" />
-
 ```
+
+For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).
 
 
 
