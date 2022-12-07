@@ -51,6 +51,10 @@ Copy the value of the `id` property out of the results and paste it somewhere fo
 Finally, assign the custom role you created to your user account using the `az cosmosdb sql role assignment create` command and the IDs you copied previously.
 
 ```azurecli
-az cosmosdb sql role assignment create --account-name <your-cosmos-account-name> --resource-group <your-cosmos-resource-group --scope "/" --principal-id <your-user-id> --role-definition-id <your-custom-role-id> 
+az cosmosdb sql role assignment create 
+    --account-name <your-cosmos-account-name>
+    --resource-group <your-cosmos-resource-group
+    --scope "/" --principal-id <your-user-id>
+    --role-definition-id <your-custom-role-id> 
 ```
 
