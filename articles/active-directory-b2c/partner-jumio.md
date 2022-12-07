@@ -83,7 +83,7 @@ A client certificate helps protect the Jumio API call.
 
 1. Create a random string with a length greater than 64 characters (letters and numbers only).
 
-For example: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
+  For example: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
 
 2. Use the following PowerShell script to create the string:
 
