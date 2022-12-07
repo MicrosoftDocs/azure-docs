@@ -53,7 +53,7 @@ Azure DNS Private Resolver provides the following benefits:
 * DevOps Friendly: Build your pipelines with Terraform, ARM, or Bicep.
 
 > [!TIP]
-> If you've configured the **DNS servers** setting on a Vnet to **Custom** and you are using [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for name resolution, you can receive these benefits by entering the private resolver's inbound endpoint IP address here.  
+> If you've configured the **DNS servers** setting on a Vnet to **Custom** and you are using [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for name resolution, you can receive the benefits above by entering the private resolver's inbound endpoint IP address as your custom DNS server.
 
 ## Regional availability
 
