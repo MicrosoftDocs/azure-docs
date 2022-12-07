@@ -20,7 +20,7 @@ This article shows how to query resource configuration changes through Resource 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
 
-## Get change events
+## Understand change event properties
 
 When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes.
 
@@ -75,7 +75,7 @@ Each change resource has the following properties:
 | `previousResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the previous state of the resource. |
 | `newResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the new state of the resource. |
 
-## Get changes using Resource Graph
+## Get change events using Resource Graph
 
 ### Run a query
 
@@ -171,7 +171,6 @@ or `-Subscription` parameters respectively.
 
 ---
 
-
 > [!NOTE]
 > If the query does not return results from a subscription you already have access to, then the `Search-AzGraph` PowerShell cmdlet defaults to subscriptions in the default context.
 
@@ -212,7 +211,7 @@ resourcechanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-#### Query the latest resource configuration for resources created in the last seven days
+#### Latest resource configuration for resources created in the last seven days
 ```kusto
 resourcechanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
@@ -243,7 +242,7 @@ resourcechanges  
 ```
 
 
-#### Query the latest resource configuration for resources created with a certain tag
+#### Latest resource configuration for resources created with a certain tag
 ```kusto
 resourcechanges 
 |extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
@@ -261,7 +260,7 @@ resourcechanges 
 - Keep a Configuration Management Database (CMDB) up to date. Instead of refreshing all resources and their full property sets on a scheduled frequency, only get what changed.
 - Understand what other properties may have been changed when a resource changed compliance state. Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
 - The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command order first orders the query results by the change time and then limits them to ensure that you get the five most recent results.
-- Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../azure-monitor/log-analytics-overview.md) for your desired retention.
+- Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
 
 ## Next steps
 
