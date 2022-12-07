@@ -88,8 +88,6 @@ You can also create a database asynchronously using similar object and methods i
 
 Working asynchronously is useful when you want to perform multiple operations in parallel. For more information, see [Using the asynchronous client](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos#using-the-asynchronous-client).
 
-
-
 ## Parsing the response
 
 In the examples above, the response from the requests is a [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.containerproxy), which is an interface to interact with a DB Container. From the proxy, you can access methods to perform operations on the container.
@@ -105,7 +103,7 @@ container = database.create_container_if_not_exists(
 )
 ```
 <!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="create_container_response":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="parse_response":::
 -->
 
 ## Next steps

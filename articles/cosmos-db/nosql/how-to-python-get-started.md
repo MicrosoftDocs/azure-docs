@@ -42,7 +42,13 @@ pip install azure-cosmos
 
 ##### [Dev container](#tab/env-container)
 
-The Visual Studio Code [dev container](https://code.visualstudio.com/docs/devcontainers/containers) is a pre-configured environment that you can use to run Python code. Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. For an example of a dev container definition you can use to run these samples, see [devcontainer.json](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/blob/main/.devcontainer/devcontainer.json).
+A [dev container](https://containers.dev/) is a pre-configured environment that you can use to run Python code. For an example of a dev container definition you can use to run these samples, see [devcontainer.json](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/blob/main/.devcontainer/devcontainer.json).
+
+To run a dev container, you can use:
+
+* **Visual Studio Code**: Clone this repo to your local machine and open the folder using the [Dev containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+* **GitHub Codespaces**: Open this repo in the browser with a [GitHub codespace](https://docs.github.com/en/codespaces/overview).
 
 Install the Azure Cosmos DB for NoSQL Python SDK in the dev container.
 
@@ -67,7 +73,7 @@ from azure.cosmos import CosmosClient, PartitionKey
 ```
 
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-how-to/app.py" id="imports":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="imports":::
 -->
 
 The preceding code imports modules that you'll use in the rest of the article.
@@ -228,7 +234,7 @@ KEY = os.environ["COSMOS_KEY"]
 client = CosmosClient(url=ENDPOINT, credential=KEY)
 ```
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/200-how-to/app.py" id="client":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app.py" id="client":::
 -->
 
 ### Connect with a connection string
@@ -336,7 +342,7 @@ CONTAINER_ID = "products"
 client = CosmosClient.from_connection_string(conn_str=CONN_STR)
 ```
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_connection_string.py" id="connection_string":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_connection_string.py" id="connection_string":::
 -->
 
 ### Connect using the Microsoft Identity Platform
@@ -381,7 +387,7 @@ credential = DefaultAzureCredential()
 client = CosmosClient(ENDPOINT, credential)
 ```
 <!-- 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_aad_default.py" id="credential":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_default.py" id="credential":::
 -->
 
 > [!IMPORTANT]
@@ -418,7 +424,7 @@ credential = ClientSecretCredential(
 client = CosmosClient(ENDPOINT, credential)
 ```
 <!--
-:::code language="python" source="~/cosmos-db-nosql-python-samples/300-how-to/app_add_principal.py" id="credential":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_add_principal.py" id="credential":::
 -->
 
 ## Build your application
