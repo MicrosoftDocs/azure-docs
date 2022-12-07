@@ -50,7 +50,7 @@ The next sections outline the sequence for performing the migration and creating
 
 If your organizational roles are used to assign permissions that control access to non-Microsoft SaaS apps, on-premises apps or your own cloud apps, then you will need to connect your applications to Azure AD.
 
-In order to for an access package representing an organizational role to be able to refer to an application's roles as the permissions to include in the role, for an application that  has multiple roles and supports modern standards such as SCIM, you should [integrate the application with Azure AD](identity-governance-applications-integrate.md) and ensure that the application's roles are listed in the application manifest.
+In order for an access package representing an organizational role to be able to refer to an application's roles as the permissions to include in the role, for an application that  has multiple roles and supports modern standards such as SCIM, you should [integrate the application with Azure AD](identity-governance-applications-integrate.md) and ensure that the application's roles are listed in the application manifest.
 
 If the application only has a single role, then you should still [integrated the application with Azure AD](identity-governance-applications-integrate.md).  For applications that do not support SCIM, Azure AD can write users into an application's existing directory or SQL database, or add AD users into an AD group.
 
@@ -58,11 +58,11 @@ If the application only has a single role, then you should still [integrated the
 
 If your role definitions include statements of the form "all users with these attribute values get assigned to the role automatically" or "users with these attribute values are allowed to request", then you will need to ensure those attributes are present in Azure AD.
 
-You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md) and then populate those attributes either from on-premises AD, via Azure AD Connect, or from a HR system such as Workday or SuccessFactors.
+You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md) and then populate those attributes either from on-premises AD, via Azure AD Connect, or from an HR system such as Workday or SuccessFactors.
 
 ### Create catalogs for delegation
 
-If the ongoing maintenance of roles are delegated, then you can delegate the administration of access packages by creating a catalog for each part of the organization you will be delegating to.
+If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by creating a catalog for each part of the organization you will be delegating to.
 
 If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create.md#create-a-catalog-with-powershell).
 
@@ -78,9 +78,9 @@ If you have many resources, you can use a PowerShell script to [add each resourc
 
 Each organizational role definition can be represented with an access package.  You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#create-an-access-package-with-microsoft-powershell).
 
-Once you've created an access package, then you'll link the one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
+Once you've created an access package, then you'll link one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
 
-In addition, you'll create a policy for direct assignment, as part of that access package, that can be used to track the users who already have individual organizational role assignments.
+In addition, you'll create a policy for direct assignment, as part of that access package that can be used to track the users who already have individual organizational role assignments.
 
 ### Create access package assignments for existing individual organizational role assignments
 
@@ -96,7 +96,7 @@ If you have separation of duties constraints that prevent a user from taking on 
 
 ### Add policies to access packages for users to be allowed to request
 
-If users are allowed to request and be approved to take on an organizational role, who do not already have the role, then you can also configure entitlement management to allow users to request an access package. You can add additional policies to an access package, and specify which users can request and who must approve.
+If users who do not already have an organizational role are allowed to request and be approved to take on a role, then you can also configure entitlement management to allow users to request an access package. You can add additional policies to an access package, and specify which users can request and who must approve.
 
 ### Configure access reviews in access package assignment policies
 
