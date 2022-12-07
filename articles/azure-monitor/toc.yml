@@ -1388,7 +1388,7 @@ items:
         href: alerts/alerts-non-common-schema-definitions.md
       - name: Customize alert notifications using Logic apps
         href: alerts/alerts-logic-apps.md
-      - name: Test notification troubleshooting
+      - name: Test notification troubleshooting guide
         href: alerts/test-action-group-errors.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
