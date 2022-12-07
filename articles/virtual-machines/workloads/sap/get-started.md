@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc, we've got you covered.
 
-Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure.
+Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP lead to a variety of integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
@@ -53,6 +53,7 @@ If you have specific questions, we are going to point you to specific documents 
 
 In the SAP workload documentation space, you can find the following areas:
 
+- **Integration with Microsoft Services** and **References** contain different links to integration scenarios between SAP and other Microsoft services. The list may not be complete.
 - **SAP on Azure Large Instances**: This documentation section is covering a bare-metal service that orginally was named HANA Large Instances. Different topics around this technology are covered in this section
 - **Plan and Deploy (Azure VMs)**: Deploying SAP workload into Azure Infrastructure as a Service, you should go through the documents in this section first to learn more about the principle Azure components used and guidelines
 - **Storage (Azure VMs)**: This section includes documents that give recommendations how to use the different Azure storage types when deploying SAP workload on Azure
@@ -60,7 +61,6 @@ In the SAP workload documentation space, you can find the following areas:
 - **High Availability (Azure VMs)**: In this section, many of the high availability configurations around SAP workload on Azure is covered. This section includes detailed documentation around deploying Windows  clustering and Pacemaker cluster configuration for the different SAP components and different database systems
 - **Automation Framework (Azure VMs)**: Automation Framework documentation is covering an a [Terraform and Ansible based automation framework](https://github.com/Azure/sap-automation) that allows automation of Azure infrastructure and SAP software
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
-- **Integration with Microsoft Services** and **References** contain different links to integration between SAP and other Microsoft services. The list may not be complete.
 
 ## Change Log
 
