@@ -21,6 +21,7 @@ To use Managed NAT gateway, you must have the following:
 * Kubernetes version 1.20.x or above
 
 ## Create an AKS cluster with a Managed NAT Gateway
+
 To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
 
 To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
@@ -144,37 +145,40 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
 ### Prerequisites
 
-You need to use `aks-preview` and register the feature flag.
+* You need to use `aks-preview` and register the feature flag.
 
-1. Install or update `aks-preview`.
+  1. Install or update `aks-preview`.
 
-```azurecli
-# Install aks-preview
+    ```azurecli
+    # Install aks-preview
 
-az extension add --name aks-preview
+    az extension add --name aks-preview
 
-# Update aks-preview
+    # Update aks-preview
 
-az extension update --name aks-preview
-```
+    az extension update --name aks-preview
+    ```
 
-2. Register the feature flag.
+  1. Register the feature flag.
 
-```azurecli
-az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
-```
+    ```azurecli
+    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+    ```
 
-3. Check the registration status.
+  1. Check the registration status.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
-```
+    ```azurecli
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+    ```
 
-4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
+  1. Refresh the registration of the `Microsoft.ContainerService` resource provider.
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+* Your clusters must have a Managed NAT Gateway (which may increase the overall cost).
+* If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
 
 ### Manually disable OutboundNAT for Windows
 
@@ -207,3 +211,4 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [az-cli]: /cli/azure/install-azure-cli
 [agic]: ../application-gateway/ingress-controller-overview.md
 [app-gw]: ../application-gateway/overview.md
+[upgrade-kubernetes]:tutorial-kubernetes-upgrade-cluster.md
