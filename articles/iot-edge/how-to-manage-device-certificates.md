@@ -111,7 +111,7 @@ Installing the certificate to the trust bundle file makes it available to contai
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-certificates
+  sudo update-ca-trust
   ```
 
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
