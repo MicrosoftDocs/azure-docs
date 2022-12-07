@@ -45,12 +45,12 @@ Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.c
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -Location "EastUS" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic"
+  -LoadBalancerName "myLoadBalancer" 
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -135,8 +135,6 @@ $frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 ```
-
-
 
 ## Test your scale set
 To see your web server in action, get the public IP address of your load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address created in the *myResourceGroup* resource group:
