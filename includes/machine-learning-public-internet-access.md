@@ -25,6 +25,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | 443 | MicrosoftContainerRegistry.region</br>**Note** that this  tag has a dependency on the **AzureFrontDoor.FirstParty** tag | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
 | Outbound | 443 | AzureMonitor | Used to log monitoring and metrics to App Insights and Azure Monitor. |
 | Outbound | 443 | Keyvault.region | Access the key vault for the Azure Batch service. Only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled. |
+| Outbound | 5831 | AzureMachineLearning | Communication with Azure Machine Learning for compute instances. |
 
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:

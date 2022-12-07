@@ -46,7 +46,31 @@ Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com
 > [!TIP]
 > It may take one to two weeks to allowlist your subscription.
 
-## 2. Allow inbound and outbound network traffic
+## 2. Create the service endpoint policy
+
+1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
+1. On the __Policy definitions__ tab, perform the following actions:
+    1. Select __+ Add a resource__, and then provide the following information:
+    
+        <!-- > [!TIP]
+        > * At least one storage account resource must be listed in the policy.
+        > * If you are adding multiple storage accounts, and the _default storage account_ for your workspace is configured with a private endpoint, you do not need to include it in the policy. -->
+
+        * __Service__: Microsoft.Storage
+        * __Scope__: Select the scope as __Single account__ to limit the network traffic to one storage account.
+        * __Subscription__: The Azure subscription that contains the storage account.
+        * __Resource group__: The resource group that contains the storage account.
+        * __Resource__: The default storage account of your workspace.
+    
+        Select __Add__ to add the resource information.
+    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
+    
+        > [!NOTE]
+        > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
+
+1. Select __Review + Create__, and then select __Create__.
+
+## 3. Allow inbound and outbound network traffic
 
 ### Inbound
 
@@ -87,36 +111,12 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 
 For more information, see [How to secure training environments](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
-## 3. Enable storage endpoint for the subnet
+## 4. Enable storage endpoint for the subnet
 
 1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
 1. In the form that appears, expand the __Services__ dropdown and then __enable Microsoft.Storage__. Select __Save__ to save these changes.
-
-## 4. Create the service endpoint policy
-
-1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
-1. On the __Policy definitions__ tab, perform the following actions:
-    1. Select __+ Add a resource__, and then provide the following information:
-    
-        > [!TIP]
-        > * At least one storage account resource must be listed in the policy.
-        > * If you are adding multiple storage accounts, and the _default storage account_ for your workspace is configured with a private endpoint, you do not need to include it in the policy.
-
-        * __Service__: Microsoft.Storage
-        * __Scope__: Select the scope. For example, select __Single account__ if you want to limit the network traffic to one storage account.
-        * __Subscription__: The Azure subscription that contains the storage account.
-        * __Resource group__: The resource group that contains the storage account.
-        * __Resource__: The storage account.
-    
-        Select __Add__ to add the resource information.
-    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
-    
-        > [!NOTE]
-        > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
-
-1. Select __Review + Create__, and then select __Create__.
-
+1. Apply the service endpoint policy to your workspace subnet.
 
 ## 5. Curated environments
 
