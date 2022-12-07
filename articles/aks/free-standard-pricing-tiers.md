@@ -16,9 +16,10 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 |**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
 |**Pricing**|• Free basic cluster management <br> • Pay-as-you-go for resources you consume|• $0.10 per cluster per hour for greater scaling and performance support <br> • Pay-as-you-go for resources you consume|
-|**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• [Uptime SLA](#uptime-sla) <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
+|**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
 
-You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
+> [!NOTE]
+> You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
 
 For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
@@ -26,9 +27,9 @@ For clusters with egress lockdown, see [limit egress traffic](limit-egress-traff
 
 > [!IMPORTANT]
 >
-> Uptime SLA has been repositioned as a feature of the Standard pricing tier. The estimated length of the transition process is six months. During this time, you're still able to use both the new and old SKUs, however, you'll be notified via email to begin using the new SKU name and API versions before the transition process ends. Once the process is complete, the old SKU names, API versions, and deployment parameters for Uptime SLA will be removed, and a three year breaking change for API changes will be introduced.
+> Uptime SLA has been repositioned as a default feature included with the Standard tier. The estimated length of the transition process is six months. During this time, you're still able to use both the new and old SKUs, however, you'll be notified via email to begin using the new SKU name and API versions before the transition process ends. Once the process is complete, the old SKU names, API versions, and deployment parameters for Uptime SLA will be removed, and a three year breaking change for API changes will be introduced.
 
-The Uptime SLA feature in the Standard pricing tier enables a financially backed, higher SLA for your AKS clusters. Clusters in the Standard tier come with a greater amount of control plane resources and provide automatic scaling. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones. AKS uses main node replicas across update and fault domains to ensure the SLA requirements are met.
+The Uptime SLA feature in the Standard tier enables a financially backed, higher SLA for your AKS clusters. Clusters in the Standard tier come with a greater amount of control plane resources and provide automatic scaling. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones. AKS uses main node replicas across update and fault domains to ensure the SLA requirements are met.
 
 ### Uptime SLA terms and conditions
 
@@ -47,40 +48,45 @@ The Uptime SLA feature is included in the Standard tier and is enabled per clust
 
 Use the Azure CLI to create a new cluster in the *Free tier* or *Standard tier*. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
-Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group - one in the *Free tier* and one in the *Standard tier*.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group in each tier.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard --node-count 1
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier free
+# Create a new AKS cluster in the Free tier
+
+az aks create --resource-group myResourceGroup --name myAKSCluster --tier free --node-count 1
+
+# Create a new AKS cluster in the Standard tier
+
+az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard
 ```
 
 > [!NOTE]
 >
-> * `--tier standard` corresponds to the existing `--uptime-sla` parameter.
 > * `--tier free` corresponds to the existing `--no-uptime-sla` parameter.
+> * `--tier standard` corresponds to the existing `--uptime-sla` parameter.
 
 Once the deployment completes, it returns JSON-formatted information about your cluster. The following example output of the JSON snippet shows the *Standard tier* for the SKU, indicating your cluster is in the *Standard tier* and enabled with Uptime SLA.
 
 ```output
   },
   "sku": {
-    "name": "Basic",
+    "name": "Base",
     "tier": "Standard"
   },
 ```
 
-## Modify an existing cluster to use Uptime SLA
-
-You can update your existing clusters to use Uptime SLA.
-
-> [!NOTE]
-> Updating your cluster to enable the Uptime SLA does not disrupt its normal operation or impact its availability.
+## Update the tier of an existing cluster
 
 The following example uses the [`az aks update`][az-aks-update] command to update the existing cluster.
 
 ```azurecli-interactive
-# Update an existing cluster to use Uptime SLA
-az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+# Update an existing cluster to the Free tier
+
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
+
+# Update an existing cluster to the Standard tier
+
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
 ```
 
 This process takes several minutes to complete. When finished, the following example JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
@@ -88,8 +94,8 @@ This process takes several minutes to complete. When finished, the following exa
 ```output
   },
   "sku": {
-    "name": "Basic",
-    "tier": "Paid"
+    "name": "Base",
+    "tier": "Standard"
   },
 ```
 

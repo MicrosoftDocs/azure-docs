@@ -147,7 +147,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 AKS provides SLA guarantees in the [Standard pricing tier with the Uptime SLA feature][pricing-tiers].
 
-The Free pricing tier doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using the Standard tier with Uptime SLA.
+The Free pricing tier doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. For mission-critical and production workloads, or if your workload doesn't tolerate API Server restarts, we recommend using the Standard tier which includes Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 

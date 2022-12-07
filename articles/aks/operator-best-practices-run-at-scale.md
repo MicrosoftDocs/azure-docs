@@ -12,9 +12,9 @@ ms.date: 10/04/2022
 
 AKS clusters that satisfy any of the below criteria should use the [Standard tier with the Uptime SLA feature][standard-tier] for higher reliability and scalability of the Kubernetes control plane:
 
+* Clusters running production workloads or availability sensitive mission critical workloads
 * Clusters running greater than 10 nodes on average
 * Clusters that need to scale beyond 1000 nodes
-* Clusters running production workloads or availability sensitive mission critical workloads
 
 To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket in the [Azure Portal][Azure Portal] up-to a maximum of 5000 nodes per cluster.
 
