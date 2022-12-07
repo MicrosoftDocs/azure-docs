@@ -1,18 +1,18 @@
 ---
-title: View your Azure usage summary details and download reports for direct EA enrollments
-description: This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
+title: View your Azure usage summary details and download reports for EA enrollments
+description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/14/2022
+ms.date: 12/07/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ---
 
-# View your usage summary details and download reports for direct EA enrollments
+# View your usage summary details and download reports for EA enrollments
 
-This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
+This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
 > [!NOTE]
 > We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
@@ -21,7 +21,7 @@ This article explains how enterprise administrators of direct Enterprise Agreeme
 > 
 > This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
-Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY]
 
@@ -139,7 +139,7 @@ For more information about invoice documents, see [Direct EA billing invoice doc
 
 ## Update a PO number for an upcoming overage invoice
 
-In the Azure portal, a direct enterprise administrator can update the purchase order (PO) for upcoming invoices. The PO number can get updated anytime before the invoice is created during the current billing period.
+In the Azure portal, an Enterprise Administrator for a direct EA enrollment can update the purchase order (PO) for the upcoming invoices. The PO number can get updated anytime before the invoice is created during the current billing period.
 
 For a new enrollment, the default PO number is the enrollment number.
 
@@ -298,4 +298,4 @@ To import the CSV file without formatting issues:
 
 ## Next steps
 
-- To learn about common tasks that a direct enterprise administrator accomplishes in the Azure portal, see [Azure direct EA administration](direct-ea-administration.md).
+- To learn about common tasks that an enterprise administrator accomplishes in the Azure portal, see [EA Billing administration on the Azure Portal](direct-ea-administration.md).
