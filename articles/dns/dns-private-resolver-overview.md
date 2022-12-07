@@ -52,9 +52,6 @@ Azure DNS Private Resolver provides the following benefits:
 * Scalability: High performance per endpoint.
 * DevOps Friendly: Build your pipelines with Terraform, ARM, or Bicep.
 
-> [!TIP]
-> If you've configured the **DNS servers** setting on a VNet to **Custom** and you are using [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for name resolution, you can receive the benefits above by entering the private resolver's inbound endpoint IP address as your custom DNS server.
-
 ## Regional availability
 
 Azure DNS Private Resolver is available in the following regions:
@@ -103,6 +100,23 @@ A DNS forwarding rule includes one or more target DNS servers that will be used 
 - A domain name
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
+
+## VNets using custom DNS
+
+The **DNS servers** setting on a VNet can be used to assign **Custom** DNS servers. You might use this setting to deploy [your own DNS servers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for name resolution. VM-based DNS servers can perform DNS resolution and optional forwarding of DNS queries. See the following example:
+
+![Azure VNet custom DNS setting](./media/dns-resolver-overview/custom-dns.png)
+
+Consider the [benefits](#azure-dns-private-resolver-benefits) of using the private resolver for DNS resolution instead of VM-based custom DNS servers.
+
+If DNS forwarding is not required, replace the VM-based DNS server IP addresses with the IP address of one or more private resolver inbound endpoints. This solution works across different regions and can enable a [cross-regional reduntant design](tutorial-dns-private-resolver-failover.md).
+
+If forwarding is required, use the **Default (Azure-provided)** setting on your VNet and link the VNet to a [DNS forwarding ruleset](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets). 
+
+> [!NOTE]
+> - Private DNS zones are not resolved when Custom DNS servers are configured.
+> - DNS forwarding rulesets are regional. A ruleset can't be linked to a VNet in another region. 
+> - Review the restrictions section below for detailed information.
 
 ## Restrictions:
 
