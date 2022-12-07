@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 12/06/2022
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -137,6 +137,15 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 * *Volume Backup Last Transferred Bytes*   
     The total bytes transferred for the last backup or restore operation.  
 
+## Cool access metrics
+
+* *Volume cool tier size*
+    <!-- to add-->
+
+* *Volume cool tier data read size*
+
+* *Volume cool tier data write size*
+ 
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
