@@ -20,7 +20,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 To learn more, see the following video:
 
-> [!VIDEO https://www.youtube.com/watch?v=bTdu3PjXN3o]
+> [!VIDEO https://www.youtube.com/embed/v=bTdu3PjXN3o]
 
 ## What is Apache Spark
 
