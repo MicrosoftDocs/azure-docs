@@ -7,13 +7,15 @@ ms.topic: how-to
 
 # Create attack vector reports
 
-Attack vector reports show a chain of vulnerable devices in a specified attack path. Simulate an attack on a specific target in your network to discover vulnerable devices and analyze attack vectors in real time.
+Attack vector reports show a chain of vulnerable devices in a specified attack path, for devices detected by a specific OT network sensor. Simulate an attack on a specific target in your network to discover vulnerable devices and analyze attack vectors in real time.
 
-Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a system upgrade would disrupt the attacker's path, or if an alternate attack path still remains.
+Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a software update would disrupt the attacker's path, or if an alternate attack path still remains.
 
 ## Prerequisites
 
-You must be an **Admin** or **Security Analyst** [user](roles-on-premises.md) to create an attack vector report.
+To create attack vector reports, you must be able to access the OT network sensor you want to generate data for, as an **Admin** or **Security Analyst** user.
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
 ## Generate an attack vector simulation
 
@@ -37,24 +39,37 @@ Generate an attack vector simulation so that you can view the resulting report.
     | **Exclude Subnets** | Select one or more subnets to exclude from the attack vector simulation.|
 
 1. Select **Save**. Your simulation is added to the list, with the number of attack paths indicated in parenthesis.
-1. Expand your simulation to view the list of possible attack vector, and select one to view more details on the right. For example:
+
+1. Expand your simulation to view the list of possible attack vectors, and select one to view more details on the right.
+
+    For example:
+
     :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report." lightbox="media/how-to-generate-reports/sample-attack-vectors.png":::
 
 ## View an attack vector in the Device Map
 
-The Device map provides, among [other things](how-to-work-with-the-sensor-device-map.md), a graphical representation of vulnerable devices detected in attack vector reports. To view an attack vector in the Device map:
+The Device map provides a graphical representation of vulnerable devices detected in attack vector reports. To view an attack vector in the Device map:
 
 1. In the **Attack vector** page, make sure your simulation has **Show in Device map** toggled on.
 1. Select **Device map** from the side menu.
-1. Select your simulation and then select an attack vector to visualize the devices in your map. For example:
+1. Select your simulation and then select an attack vector to visualize the devices in your map. 
+
+    For example:
+
     :::image type="content" source="media/how-to-generate-reports/sample-device-map.png" alt-text="Screen shot of Device map." lightbox="media/how-to-generate-reports/sample-device-map.png":::
+
+For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md)
 
 ## Next steps
 
-Continue creating other reports for more security data from your OT sensor. For more information, see:
+- Enhance security posture with Azure security [recommendations](recommendations.md).
 
-- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+- View additional reports based on cloud-connected sensors in the Azure portal. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
 
-- [Sensor data mining queries](how-to-create-data-mining-queries.md)
+- Continue creating other reports for more security data from your OT sensor. For more information, see:
 
-- [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)
+    - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+    
+    - [Sensor data mining queries](how-to-create-data-mining-queries.md)
+    
+    - [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)

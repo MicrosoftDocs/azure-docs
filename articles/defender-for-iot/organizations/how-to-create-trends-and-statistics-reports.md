@@ -7,39 +7,47 @@ ms.topic: how-to
 
 # Create trends and statistics reports
 
-On your sensor console, create reports that provide insight into network trends and statistics, using dashboards.
+Trends and statistics reports are dashboards that provide insight into network trends in traffic detected by a specific OT network sensor.
+
+Create custom dashboards to track specific data needed by your organization, such as traffic, device state, alerts, connectivity, or protocols.
 
 ## Prerequisites
 
-You must be an **Administrator** or **Security Analyst** [user](roles-on-premises.md) to create dashboards.
+To create trends and statistics dashboards, you must be able to access the OT network sensor you want to generate data for, as an **Administrator** or **Security Analyst** user.
 
-## Create dashboards
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
-You can create many different types of dashboards, based on traffic, device state, alerts, connectivity, and protocol.
+## Create custom dashboards
 
-**To create a dashboard**:
+Sign into your OT sensor and select **Trends & Statistics** > **Create Dashboard**.
 
-1. On your Defender for IoT sensor console, select **Trends & Statistics** > **Create Dashboard**.
+1. In the **Create Dashboard** pane, in the **Dashboard name** field, enter a meaningful name for your dashboard.
 
-1. In the **Create Dashboard** pane that appears  on the right, enter the following values:
+1. From the **Dashboard widget type** menu, either leave **All** selected, or select a specific type of widget to view.
 
-    |Parameter  |Description  |
+1. Scroll down the list of available widgets and select any widget you want to add to your dashboard.
+
+1. When you're done, select **Save** to add your dashboard to the drop-down menu under the toolbar.
+
+1. Use any of the following tools to modify your dashboard:
+
+    | Tool | Description |
     |---------|---------|
-    | **Dashboard name** | Enter a meaningful name for your dashboard. |
-    | **Dashboard widget type** (Optional) | Filter the widgets displayed by selecting a category or protocol from the  menu. |
-    | **Widget** | Scroll down as needed and select the widget you want to add. Each widget has a short description and indicates what it focuses on. |
+    | :::image type="icon" source="media/how-to-generate-reports/edit-layout-icon.png" border="false"::: **Edit dashboards layout** |         |
+    | :::image type="icon" source="media/how-to-generate-reports/add-icon.png" border="false"::: **Add widget** |         |
+    | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit dashboard** |         |
+    | :::image type="icon" source="media/how-to-generate-reports/delete-icon.png" border="false"::: **Delete dashboard** |         |
+    | :::image type="icon" source="media/how-to-generate-reports/default-icon.png" border="false"::: **Set as Default** |         |
 
-1. Select **Save** to start your new dashboard.
+Timestamps shown in each widget are set according to the sensor’s machine time.
 
-1. Your widget is added to the new dashboard. Use the toolbar at the top of page to continue modifying your dashboard.
+By default, results display detections for the current day. Select the :::image type="icon" source="media/how-to-generate-reports/filter-icon.png" border="false"::: **Filter** icon at the top left of each widget to change this range. You can view data for up to a maximum of 14 days.
 
-By default, results display detections for the current day. Select the **Filter** icon at the top left of each widget to change this range.
+For example:
 
-> [!NOTE]
-> The time shown in the widget is set according to the sensor machine's time.
->
+:::image type="content" source="media/how-to-generate-reports/custom-dashboard-widgets.png" alt-text="Screenshot of a widget in a custom dashboard." lightbox="media/how-to-generate-reports/custom-dashboard-widgets.png":::
 
-## Sample widgets
+## Commonly used dashboard widgets
 
 The following table summarizes common use cases for dashboard widgets.
 
@@ -59,10 +67,12 @@ The following table summarizes common use cases for dashboard widgets.
 
 ## Next steps
 
-Continue creating other reports for more security data from your OT sensor. For more information, see:
+- View additional reports based on cloud-connected sensors in the Azure portal. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
 
-- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+- Continue creating other reports for more security data from your OT sensor. For more information, see:
 
-- [Sensor data mining queries](how-to-create-data-mining-queries.md)
-
-- [Attack vector reporting](how-to-create-attack-vector-reports.md)
+    - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+    
+    - [Sensor data mining queries](how-to-create-data-mining-queries.md)
+    
+    - [Attack vector reporting](how-to-create-attack-vector-reports.md)
