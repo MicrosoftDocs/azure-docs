@@ -78,7 +78,7 @@ print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
 
 ---
 
-## Score data using the token or token
+## Score data using the key or token
 
 # [Azure CLI](#tab/azure-cli)
 
