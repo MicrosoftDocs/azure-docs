@@ -82,7 +82,6 @@ Open PowerShell ISE and copy the following script and update the parameters to m
         remove-item .\configureDevOps.ps1
     }
     
-    Set-ExecutionPolicy Unrestricted
     Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/setup_devops.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
     
 ```
