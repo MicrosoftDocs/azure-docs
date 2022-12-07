@@ -43,7 +43,7 @@ The HYPR integration has the following components:
 
 The following architecture diagram shows the implementation.
 
-![Screenshot for hypr-architecture-diagram](media/partner-hypr/hypr-architecture-diagram.png)
+  ![Diagram of hypr architecture](media/partner-hypr/hypr-architecture-diagram.png)
 
 1. User arrives at a sign-in page and selects sign-in or sign-up. User enters username.
 2. The application sends the user attributes to Azure AD B2C for identify verification.
