@@ -75,7 +75,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
-   Note that you have to import the `JobService` class from the `azure.ai.entities` package to configure interactive services via the SDKv2. 
+   Note that you have to import the `JobService` class from the `azure.ai.ml.entities` package to configure interactive services via the SDKv2. 
 
     ```python
     command_job = command(...
