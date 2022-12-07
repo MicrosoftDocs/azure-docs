@@ -15,8 +15,8 @@ In this article you'll, follow these key steps:
 - Consume events from a compacted event hub. 
 
 > [!NOTE] 
-> This feature is currently in Preview.
-> Log compaction feature is available only in **premium** and **dedicated** tiers. 
+> - This feature is currently in Preview.
+> - Log compaction feature is available only in **premium** and **dedicated** tiers. 
 
 > [!WARNING]
 > Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
