@@ -70,7 +70,9 @@ You can't configure groups and organizational units within a configuration.
      - **Selected organizational units**: Scopes the configuration to apply to specific OUs. 
  3. For security groups and organizational units, supply the appropriate distinguished name and click **Add**.
  4. Once your scoping filters are configured, click **Save**.
- 5. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
+ 5. After saving you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+ :::image type="content" source="media/how-to-configure/new-ux-configure-16.png" alt-text="Screenshot of the nudge for scoping filters" lightbox="media/how-to-configure/new-ux-configure-16.png":::
+ 7. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
@@ -82,6 +84,8 @@ You can customize the default attribute-mappings according to your business need
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of default attribute mappings" lightbox="media/how-to-configure/new-ux-configure-7.png":::
 
+After saving you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+ :::image type="content" source="media/how-to-configure/new-ux-configure-17.png" alt-text="Screenshot of the nudge for attribute filters" lightbox="media/how-to-configure/new-ux-configure-17.png":::
 
 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
@@ -94,6 +98,9 @@ Azure AD Connect cloud sync allows you to test configuration changes, by applyin
 You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning" lightbox="media/how-to-configure/new-ux-configure-9.png":::
+
+After testing you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+ :::image type="content" source="media/how-to-configure/new-ux-configure-18.png" alt-text="Screenshot of the nudge for testing" lightbox="media/how-to-configure/new-ux-configure-18.png":::
 
 
 For more information, see [on-demand provisioning](how-to-on-demand-provision.md).
