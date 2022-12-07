@@ -27,21 +27,21 @@ Common use cases include:
 
 ## Enable service accounts
 
-To enable service accounts, start by enabling API keys. API keys are disabled by default in Azure Managed Grafana. If your existing Grafana workspace doesn't have API keys enabled, you can enable them by updating the preference settings of your Grafana instance.
+Service accounts are disabled by default in Azure Managed Grafana. If your existing Grafana workspace doesn't have service accounts enabled, you can enable them by updating the preference settings of your Grafana instance.
 
 ### [Portal](#tab/azure-portal)
 
-  1. In the Azure portal, under **Settings**, select **Configuration**, and then under **API keys**, select **Enable**.
+  1. In the Azure portal, under **Settings**, select **Configuration**, and then under **API keys and service accounts**, select **Enable**.
 
-      :::image type="content" source="media/create-api-keys/enable-api-keys.png" alt-text="Screenshot of the Azure platform. Enable API keys.":::
-  1. Select **Save** to confirm that you want to activate the creation of API keys in Azure Managed Grafana.
+      :::image type="content" source="media/service-accounts/enable.png" alt-text="Screenshot of the Azure platform. Enable service accounts.":::
+  1. Select **Save** to confirm that you want to enable API keys and service accounts in Azure Managed Grafana.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
+Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
 
 ```azurecli-interactive
-az grafana update --name <azure-managed-grafana-name> --api-key Enabled
+az grafana update --name <azure-managed-grafana-name> ---service-account Enabled
 ```
 
 ---
@@ -60,8 +60,6 @@ Follow the steps below to create a new Grafana service account and list existing
 1. Select the back arrow sign to view a list of all the service accounts of your Grafana instance.
 
 ### [Azure CLI](#tab/azure-cli)
-
-#### Create a service account
 
 Run the `az grafana service-account create` command to create a service account. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
 
