@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 11/17/2022
+ms.date: 12/06/2022
 ms.author: allensu
 ms.custom: mode-ui
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -38,8 +38,6 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
 
-    :::image type="content" source="./media/quick-create-portal/create-ddos-plan.png" alt-text="Screenshot of creating a DDoS protection plan.":::
-
     | Setting | Value |
     |--|--|
     | **Project details** |   |
@@ -50,7 +48,6 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     | Region | Select **West Europe**. |
 
 4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
-
 
 ## Create a virtual network and bastion host
 
@@ -296,7 +293,9 @@ If you're not going to continue to use this web app, delete the virtual network,
 In this quickstart, you created:
 
 * A virtual network and bastion host
+
 * A virtual machine
+
 * A private endpoint for an Azure web app
 
 You used the VM to test connectivity to the web app across the private endpoint.
