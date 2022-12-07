@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 12/07/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -72,51 +72,51 @@ Data storage and metadata are billed per GB on a monthly basis. For data and met
 
 ### Finding the unit price for each meter
 
-To find unit prices, open the correct pricing page. Then, apply the appropriate file structure, redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
+To find unit prices, open the correct pricing page and select the appropriate file structure. Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
-#### Find unit prices for requests made to the blob service endpoint
+The correct pricing page and file structure matter mostly to the cost of reading and writing data as the cost to store data is essentially unchanged by those selections. To accurately estimate the cost of reading and writing data, start by determining which [Storage account endpoint](storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads will use to read and write data.  
 
-The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net`. To learn more, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
+#### Pricing requests to the blob service endpoint
 
-Requests to this endpoint can originate any of these sources:
+The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net` and is the most common endpoint used by tools and applications that interact with Blob Storage accounts that do not have the hierarchical namespace enabled on them. 
 
-- Service instances, tools, or utilities such as AzCopy which target the blob service endpoint.
+Requests can originate from any of these sources:
 
-- Hadoop workloads that use the Windows Azure Storage Blob driver (WASB) driver.
+- Service instances, tools, or utilities such as AzCopy
 
-- Applications that use Blob Storage REST APIs
+- Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver
 
-- Applications that use Blob Storage APIs from an Azure Storage client library.
+- Applications that use [Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)
 
-- Transfers to Network File System (NFS) 3.0 mounted containers
+- Applications that use Blob Storage APIs from an Azure Storage client library
 
-- Transfers made by using the SSH File Transfer Protocol (SFTP).
+- Transfers to [Network File System (NFS) 3.0](../blobs/network-file-system-protocol-support.md) mounted containers
 
-To find unit prices for requests made to the blob service endpoint, use the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. 
+- Transfers made by using the [SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support.md)
 
-- For accounts that have a flat namespace, make sure that the **File Structure** drop-down list is set to **Flat Namespace**.
+The correct pricing page for these requests is the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. 
 
-- For accounts that have a hierarchical namespace, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**.
+Requests to this endpoint can also occur in accounts that have a hierarchical namespace. In fact, to use NFS 3.0 and SFTP protocols, you must first enable the hierarchical namespace feature of the account. 
 
-#### Find unit prices for requests made to the Data Lake Storage endpoint
+If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
 
-The format of the blob service endpoint is `https://<storage-account>.dfs.core.windows.net`. To learn more, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints). 
+#### Pricing requests to the Data Lake Storage endpoint
 
-Requests to this endpoint can originate any of these sources:
+The format of the blob service endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by big data analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
 
-- Service instances, tools, or utilities such as AzCopy which target the Data Lake Storage endpoint.
+Requests can originate from any of these sources:
 
-- Hadoop workloads that use the Azure Blob File System driver (ABFS) driver.
+- Service instances, tools, or utilities such as AzCopy
 
-- Applications that use Data Lake Storage Gen2 REST APIs
+- Hadoop workloads that use the [Azure Blob File System driver (ABFS)](../blobs/data-lake-storage-abfs-driver.md) driver
 
-- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.
+- Applications that use [Data Lake Storage Gen2 REST APIs](/rest/api/storageservices/data-lake-storage-gen2)
 
-To find unit prices for requests made to the Data Lake Storage endpoint, use the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library
 
-- For accounts that use a hierarchical namespace, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace**.
+The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
-- For accounts that use a flat namespace, make sure that the **File Structure** drop-down list is set to **Flat Namespace**.
+If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
 ### Using Azure Prepayment with Azure Blob Storage
 
