@@ -92,7 +92,7 @@ curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_CRE
 
 # [Python](#tab/python)
 
-When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key/token in Python:
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key/token in Python. In the example, replace the `api_key` variable with your key/token you obtained.
 
 ```Python
 import urllib.request
