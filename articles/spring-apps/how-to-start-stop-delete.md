@@ -23,55 +23,80 @@ This guide explains how to change an application's state in Azure Spring Apps by
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Apps service instance. Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
-* At least one application already created in your service instance.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- A deployed Azure Spring Apps service instance. Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+- At least one application already created in your service instance.
 
-## Using the Azure portal
+## Application state
 
-After you deploy an application, you can start, stop, and delete it by using the Azure portal.
+Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not awalys need to run if it's only used during business hours.
 
-1. Go to your Azure Spring Apps service instance in the Azure portal.
+There may be times where you wish to **stop** or **start** an application. You can also **restart** an application as part of general troubleshooting steps or **delete** an application you no longer require. 
+
+## Manage application state
+
+After you deploy an application, you can start, stop, and delete it by using the [Azure portal](https://portal.azure.com) or [Azure CLI](/cli/azure/).
+
+### [Azure portal](#tab/azure-portal)
+
+1. Go to your Azure Spring Apps service instance in the [Azure portal](https://portal.azure.com).
+
 1. Select the **Application Dashboard** tab.
+
 1. Select the application whose state you want to change.
+
 1. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
 
-## Using the Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > You can use optional parameters and configure defaults with the Azure CLI. Learn more about the Azure CLI by reading [our reference documentation](/cli/azure/spring).
 
-First, install the Azure Spring Apps extension for the Azure CLI as follows:
+1. First, install the Azure Spring Apps extension for the Azure CLI as follows:
 
-```azurecli
+```azurecli-interactive
 az extension add --name spring
 ```
 
-Next, select any of these Azure CLI operations:
+1. Next, perform any of these Azure CLI operations:
 
-* To start your application:
+  - Start your application:
 
-    ```azurecli
-    az spring app start -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    ```azurecli-interactive
+    az spring app start `
+      --resource-group <resource-group-name> `
+      --service <springs-apps-instance-name> `
+      --name <application-name>
     ```
 
-* To stop your application:
+  - Stop your application:
 
     ```azurecli
-    az spring app stop -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app stop `
+      --resource-group <resource-group-name> `
+      --service <springs-apps-instance-name> `
+      --name <application-name>
     ```
 
-* To restart your application:
+  - Restart your application:
 
     ```azurecli
-    az spring app restart -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app restart `
+      --resource-group <resource-group-name> `
+      --service <springs-apps-instance-name> `
+      --name <application-name>
     ```
 
-* To delete your application:
+  - Delete your application:
 
     ```azurecli
-    az spring app delete -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app delete `
+        --resource-group <resource-group-name> `
+        --service <springs-apps-instance-name> `
+        --name <application-name>
     ```
+
+---
 
 ## Next Steps
 
