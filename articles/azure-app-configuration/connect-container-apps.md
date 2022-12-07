@@ -23,29 +23,42 @@ In this tutorial, you'll learn how to connect an container app to Azure App Conf
 
 ## Build a docker image and test it locally
 
-### Clone the sample repository
+### Create a Dockerfile
 
-Run the command below in your terminal to clone the sample Docker repository [Compose sample application: ASP.NET with MS SQL server database](https://docs.docker.com/samples/dotnet/#create-a-dockerfile-for-an-aspnet-core-application).
+A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
-```bash
-git clone https://github.com/docker/awesome-compose/
+Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below, assuming that you're using the app created in the ASP.NET quickstart.
+
+```docker
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /TestAppConfig
+
+# copy csproj and restore as distinct layers
+COPY *.sln .
+COPY TestAppConfig/*.csproj ./TestAppConfig/
+RUN dotnet restore
+
+# copy everything else and build app
+COPY aspnetapp/. ./aspnetapp/
+WORKDIR /source/aspnetapp
+RUN dotnet publish -c release -o /app --no-restore
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build /app ./
+ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 ```
 
 ### Build and run the container
 
-1. Navigate to the folder containing the Dockerfile used to build the container.
-
-    ```bash
-    cd awesome-compose/aspnet-mssql/app/aspnetapp
-    ```
-
-1. Build the container by running the command below
+1. Navigate to the folder containing the Dockerfile used to build the container and build the container by running the command below
 
     ```bash
     docker build --tag aspnetapp .
     ```
 
-1. Execute the container locally using the command below and replace `<connection-string>` with your the connection string of your own App Configuration store.
+1. Execute the container locally using the command below and replace `<connection-string>` with the connection string of your App Configuration store.
 
     ```bash
     docker run –-detach –-publish 8080:80 --name myapp aspnetapp -env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
