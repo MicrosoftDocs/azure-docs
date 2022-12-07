@@ -28,12 +28,24 @@ This article contains both a quick reference and detailed description of Azure F
 
 ## Model usage
 
+::: moniker range="form-recog-3.0.0"
+
 > [!div class="checklist"]
 >
-> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Form Recognizer Studio v3.0**](quickstarts/try-v3-form-recognizer-studio.md)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+> [!div class="checklist"]
+>
+> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Sample Labeling Tool v2.1**](https://fott-2-1.azurewebsites.net/)
+
+::: moniker-end
 
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
