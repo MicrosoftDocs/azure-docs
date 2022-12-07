@@ -52,7 +52,7 @@ For information on TPMs and Windows, see [Trusted Platform Module](/windows/secu
 
 You can group authentication factors into three categories:
 
-![Graphic of authentication factors, grouped by something someone is, knows, or has](media/nist-authentication-basics/nist-authentication-basics-0.png)
+  ![Graphic of authentication factors, grouped by something someone is, knows, or has](media/nist-authentication-basics/nist-authentication-basics-0.png)
 
 Authentication factor strength is determined by how sure you are it's something only the subscriber is, knows, or has. The NIST organization provides limited guidance on authentication factor strength. Use the information in the following section to learn how Microsoft assesses strengths. 
 
@@ -89,7 +89,7 @@ SOFA-B framework to quantify biometrics strength:
 
 You can implement single-factor authentication by using an authenticator that verifies something you know, or are. A something-you-are factor is accepted as authentication, but it's not accepted solely as an authenticator. 
 
-![How single-factor authentication works](media/nist-authentication-basics/nist-authentication-basics-1.png)
+  ![How single-factor authentication works](media/nist-authentication-basics/nist-authentication-basics-1.png)
 
 ## Multi-factor authentication
 
@@ -105,14 +105,14 @@ MFA requires two authentication factors, which can be independent. For example:
 
 These methods enable two independent authentication transactions with Azure Active Directory (Azure AD).
 
-![MFA with two authenticators](media/nist-authentication-basics/nist-authentication-basics-2.png)
+  ![MFA with two authenticators](media/nist-authentication-basics/nist-authentication-basics-2.png)
 
 
 ### MFA with one multi-factor authenticator
 
 Multifactor authentication requires one factor (something you know, or are) to unlock a second factor. This user experience is easier than multiple independent authenticators.
 
-![MFA with a single multifactor authenticator](media/nist-authentication-basics/nist-authentication-basics-3a.png)
+  ![MFA with a single multifactor authenticator](media/nist-authentication-basics/nist-authentication-basics-3a.png)
 
 One example is the Microsoft Authenticator app, in passwordless mode: the user access to a secured resource (relying party), and receives notification on the Authenticator app. The user provides a biometric (something you are) or a PIN (something you know). This factor unlocks the cryptographic key on the phone (something you have), which the verifier validates.
 
