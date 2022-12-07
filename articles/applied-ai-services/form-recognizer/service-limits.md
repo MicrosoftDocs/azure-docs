@@ -25,9 +25,9 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-* This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
+This article contains both a quick reference and detailed description of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-## Model usuage
+## Model usage
 
 > [!div class="checklist"]
 >
@@ -55,19 +55,25 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-## Custom model usuage
+## Custom model usage
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Custom neural model**](concept-custom-neural.md)
+> * [**Composed custom models**](concept-composed-models.md)
 
 |Quota|Free (F0) <sup>1</sup>|Standard (S0)|
 |--|--|--|
 | **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
+| **Training dataset size * Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
 | Adjustable | No | No |
-| **Max number of pages (Training) - Template** | 500 | 500 (default value) |
+| **Max number of pages (Training) * Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
-| **Max number of pages (Training) - Neural** | 50,000 | 50,000 (default value) |
+| **Max number of pages (Training) * Neural** | 50,000 | 50,000 (default value) |
 | Adjustable | No | No |
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No |Yes <sup>3</sup>|
@@ -77,6 +83,11 @@ recommendations: false
 ::: moniker range="form-recog-2.1.0"
 
 ## Custom model limits v2.1
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Composed custom models**](concept-composed-models.md)
 
 | Quota | Free (F0) <sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -109,8 +120,8 @@ If your application returns Response Code 429 (*Too many requests*) and your wor
 
 To minimize issues related to throttling (Response Code 429), we recommend using the following techniques:
 
-- Implement retry logic in your application
-- Avoid sharp changes in the workload. Increase the workload gradually <br/>
+* Implement retry logic in your application
+* Avoid sharp changes in the workload. Increase the workload gradually <br/>
 *Example.* Your application is using Form Recognizer and your current workload is 10 TPS (transactions per second). The next second you increase the load to 40 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.
 
 The next sections describe specific cases of adjusting quotas.
@@ -124,7 +135,7 @@ Increasing the Concurrent Request limit does **not** directly affect your costs.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
-If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource - [enable auto scaling](../../cognitive-services/autoscale.md). You can also submit an increase TPS support request.
+If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource * [enable auto scaling](../../cognitive-services/autoscale.md). You can also submit an increase TPS support request.
 
 #### Have the required information ready
 
@@ -143,21 +154,21 @@ If you would like to increase your transactions per second, you can enable auto 
 
 Initiate the increase of transactions per second(TPS) limit for your resource by submitting the Support Request:
 
-- Ensure you have the [required information](#have-the-required-information-ready)
-- Go to [Azure portal](https://portal.azure.com/)
-- Select the Form Recognizer Resource for which you would like to increase the TPS limit
-- Select *New support request* (*Support + troubleshooting* group)
-- A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
-- Enter *Summary* (like "Increase Form Recognizer TPS limit")
-- In Problem type,* select "Quota or usage validation"
-- Select *Next: Solutions*
-- Proceed further with the request creation
-- Under the *Details* tab enters the following in the *Description* field:
-  - a note, that the request is about **Form Recognizer** quota.
-  - Provide a TPS expectation you would like to scale to  meet.
-  - Azure resource information you [collected](#have-the-required-information-ready).
-  - Complete entering the required information and select *Create* button in *Review + create* tab
-  - Note the support request number in Azure portal notifications. You'll be contacted shortly for further processing
+* Ensure you have the [required information](#have-the-required-information-ready)
+* Go to [Azure portal](https://portal.azure.com/)
+* Select the Form Recognizer Resource for which you would like to increase the TPS limit
+* Select *New support request* (*Support + troubleshooting* group)
+* A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
+* Enter *Summary* (like "Increase Form Recognizer TPS limit")
+* In Problem type,* select "Quota or usage validation"
+* Select *Next: Solutions*
+* Proceed further with the request creation
+* Under the *Details* tab enters the following in the *Description* field:
+  * a note, that the request is about **Form Recognizer** quota.
+  * Provide a TPS expectation you would like to scale to  meet.
+  * Azure resource information you [collected](#have-the-required-information-ready).
+  * Complete entering the required information and select *Create* button in *Review + create* tab
+  * Note the support request number in Azure portal notifications. You'll be contacted shortly for further processing
 
 ## Example of a workload pattern best practice
 
