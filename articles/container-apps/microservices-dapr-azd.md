@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 10/21/2022
+ms.date: 12/07/2022
 ---
 
 # Deploy a Dapr application to Azure Container Apps using Azure Developer CLI (preview) 
@@ -17,7 +17,12 @@ ms.date: 10/21/2022
 - Handles Dapr version upgrades seamlessly
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-In this guide, you'll deploy a Dapr bindings API microservice application template to Azure Container Apps via the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). You'll then learn how `azd` works alongside the Dapr application template with just one command.
+In this guide, you'll compare deploying using the Dapr CLI vs. the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md) by:
+
+> [!div class="checklist"]
+> Deploying a Dapr bindings API microservice application locally. 
+> Redeploying the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
+> Unpacking how `azd` works alongside the Dapr application template with just one command.
 
 The Dapr service you deploy:
 1. Listens to input binding events from a system CRON (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
@@ -32,7 +37,7 @@ The Dapr service you deploy:
 - [Install](https://docs.dapr.io/getting-started/install-dapr-cli/) and [init](https://docs.dapr.io/getting-started/install-dapr-selfhost/) Dapr
 - Install [Git](https://git-scm.com/downloads)
 
-## Deploy the Dapr application to Azure Container Apps
+## Deploy a Dapr application locally
 
 ### Prepare the project
 
@@ -48,7 +53,7 @@ The Dapr service you deploy:
    cd bindings-dapr-nodejs-cron-postgres
    ```
 
-### Run and develop the Dapr application locally
+### Run the Dapr application using the Dapr CLI
 
 Start by running the PostgreSQL container and JavaScript service with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
@@ -106,11 +111,25 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    docker compose stop
    ```
 
-### Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using `azd`
 
 Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres using [`azd`](/developer/azure-developer-cli/overview.md).
 
-1. Navigate to the sample's root directory.
+### Prepare the project
+
+1. Clone the [sample Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git) to your local machine.
+
+   ```bash
+   git clone https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git
+   ```
+
+1. Navigate into the sample's root directory.
+
+   ```bash
+   cd bindings-dapr-nodejs-cron-postgres
+   ```
+
+### Run using Azure Developer CLI
 
 1. Set the environment variable for Postgres password. Make sure the password is long enough with unique alphabetical and numeral characters.
 
@@ -165,7 +184,6 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    Created Container App: <container-app-name>
    ```
 
-
 ### Confirm successful deployment 
 
 In the Azure portal, verify the batch Postgres container is logging each insert successfully every 10 seconds. 
@@ -179,7 +197,6 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 1. Confirm the container is logging the same output as in the terminal earlier.
 
    :::image type="content" source="media/tutorial-deploy-dapr/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
-
 
 ## How `azd up` deployed the Dapr application
 
@@ -202,11 +219,12 @@ cd bindings-dapr-nodejs-cron-postgres/infra
 code .
 ```
 
-In the `infra` directory, you'll see the following files:
+In the `infra` directory, you'll see the following files and directories:
 
 - `main.parameters.json`
 - `main.bicep`
-- A `resources` directory with several bicep files configuring Azure resources for a container app
+- An `app` resources directory organized by functionality
+- A `core` reference library that contains the Bicep modules used by the `azd` template
 
 #### `main.parameters.json`
 
@@ -232,7 +250,13 @@ In `main.parameters.json`, we've inserted the environment variables stored in yo
 
 #### `main.bicep`
 
-In `main.bicep`, we've declared the parameters included in `main.parameters.json`. 
+In `main.bicep`, we:
+
+- Declare the password, location, and name parameters included in `main.parameters.json`:
+- Declare the Bicep files we want to use, like:
+  - `app/batch-service.bicep`: the Dapr application's Cron input binding
+  - `app/paas-application.bicep`: Azure resources like Log Analytics, App Insights, etc.
+  - `app/dapr-state-postgres.bicep`: the Dapr application's PostgreSQL output binding
 
 ```bicep
 targetScope = 'subscription'
@@ -256,8 +280,10 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
 }
 
-module application 'building-blocks/paas-application.bicep' = {
-  name: 'bindings-dapr-aca-paas'
+var resourceToken = toLower(uniqueString(subscription().id, name, location))
+
+module application 'app/paas-application.bicep' = {
+  name: 'bindings-dapr-aca-paas-${resourceToken}'
   params: {
     name: name
     location: location
@@ -270,8 +296,8 @@ module application 'building-blocks/paas-application.bicep' = {
   ]
 }
 
-module batchContainerApp 'resources/batch.bicep' = {
-  name: 'ca-batch'
+module batchContainerApp 'app/batch-service.bicep' = {
+  name: 'ca-batch-${resourceToken}'
   params:{
     name: name
     location: location
@@ -282,8 +308,8 @@ module batchContainerApp 'resources/batch.bicep' = {
   ]
 }
 
-module binding 'building-blocks/dapr-state-postgres.bicep' = {
-  name: 'bindings-pg-orders'
+module binding 'app/dapr-state-postgres.bicep' = {
+  name: 'bindings-pg-orders-${resourceToken}'
   params: {
     name: name
     location: location
@@ -300,11 +326,6 @@ output APP_CHECKOUT_BASE_URL string = batchContainerApp.outputs.CONTAINERAPP_URI
 output APP_APPINSIGHTS_INSTRUMENTATIONKEY string = application.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
 output POSTGRES_USER string = binding.outputs.POSTGRES_USER
 ```
-
-In our sample above, we also declare the Azure resources found in the `infra/building-blocks` and `infra/resources` Bicep directories.  
-
-#### `resources` directory
-
 
 ## Clean up resources
 
