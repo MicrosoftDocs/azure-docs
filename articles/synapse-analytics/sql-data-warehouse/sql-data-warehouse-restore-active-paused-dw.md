@@ -6,8 +6,8 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/11/2022
-ms.author: stevehow
+ms.date: 12/07/2022
+ms.author: ajagadish
 ms.reviewer: joannapea
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
@@ -150,7 +150,11 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTim
 $RestoredDatabase.status
 ```
 ## Restore an existing dedicated SQL pool (formerly SQL DW) to a different tenant through PowerShell
-This is similar guidance to restoring an existing dedicated SQL pool, however the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating subscription while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination subscription. Note that the user performing the restore must have proper permissions in both the source and target subscriptions.The user must have a 'GUEST' account with either the 'Owner' or 'Contributor' access permissions to the destination tenant to which the dedicated SQL pool (formerly SQL DW) will be restored to.
+This is similar guidance to restoring an existing dedicated SQL pool, however the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating subscription while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination subscription. 
+
+Note that the user performing the restore must have proper permissions in both the source and target subscriptions.The at the destination tenant, the user must have a 'GUEST' account with either the 'Owner' or 'Contributor' access permissions to which the dedicated SQL pool (formerly SQL DW) will be restored to.
+
+The Powershell script for cross tenant restore works the in the same way as cross-subscription restore when the user is given 'GUEST' access to the destination tenant. As a best practice it is advised to also use the destination Tenant ID along with the destination subscription ID.
 
 1.	Open a PowerShell terminal.
 2.	Update Az.Sql Module to 3.8.0 (or greater) if needed
