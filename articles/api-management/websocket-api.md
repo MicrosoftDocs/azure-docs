@@ -117,7 +117,7 @@ Below are the current restrictions of WebSocket support in API Management:
 * WebSocket APIs are not supported yet in the [self-hosted gateway](./self-hosted-gateway-overview.md).
 * 200 active connections limit per unit.
 * WebSocket APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
-* Currently, the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
+* Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
 
 ### Unsupported policies

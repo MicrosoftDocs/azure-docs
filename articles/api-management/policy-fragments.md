@@ -50,7 +50,7 @@ While not required, you may want to [configure](set-edit-policies.md) one or mor
 
     :::image type="content" source="media/policy-fragments/create-fragment.png" alt-text="Screenshot showing the create a new policy fragment form.":::
 
-    For example, the following fragment contains a [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy configuration to forward context information to a backend service. This fragment would be included in an inbound policy section. The policy expressions in this example access the built-in [`context` variable](api-management-policy-expressions.md#ContextVariables).
+    For example, the following fragment contains a [`set-header`](set-header-policy.md) policy configuration to forward context information to a backend service. This fragment would be included in an inbound policy section. The policy expressions in this example access the built-in [`context` variable](api-management-policy-expressions.md#ContextVariables).
 
     ```xml
     <fragment>

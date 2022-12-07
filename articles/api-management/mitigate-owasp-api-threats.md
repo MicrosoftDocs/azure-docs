@@ -32,7 +32,7 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
         In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send request](send-request-policy.md) policy.
 
-* For GraphQL scenarios, enforce object-level authorization through the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy, using the `authorize` element.  
+* For GraphQL scenarios, enforce object-level authorization through the [validate GraphQL request](validate-graphql-request-policy.md) policy, using the `authorize` element.  
 
 ## Broken user authentication
 
@@ -85,13 +85,13 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
 * If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](transform-api.md) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
 
-* [Response content validation](validation-policies.md#validate-content) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
+* [Response content validation](validate-content-policy.md) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
 
-* Use the [validate status code](validation-policies.md#validate-status-code) policy to block responses with errors undefined in the API schema. 
+* Use the [validate status code](validate-status-code-policy.md) policy to block responses with errors undefined in the API schema. 
 
-* Use the [validate headers](validation-policies.md#validate-headers) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set header](api-management-transformation-policies.md#SetHTTPheader) policy. 
+* Use the [validate headers](validate-headers-policy.md) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set header](set-header-policy.md) policy. 
 
-* For GraphQL scenarios, use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
+* For GraphQL scenarios, use the [validate GraphQL request](validate-graphql-request-policy.md) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
 
 ## Lack of resources and rate limiting 
 
@@ -103,21 +103,21 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 * Use [rate limit](rate-limit-policy.md) (short-term) and [quota limit](quota-policy.md) (long-term) policies to control the allowed number of API calls or bandwidth per consumer. 
 
-* Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regular expression (regex) for strings. Enforce those schemas with the [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies in API Management. 
+* Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regular expression (regex) for strings. Enforce those schemas with the [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies in API Management. 
 
-* Enforce maximum size of the request with the [validate content](validation-policies.md#validate-content) policy. 
+* Enforce maximum size of the request with the [validate content](validate-content-policy.md) policy. 
 
 * Optimize performance with [built-in caching](api-management-howto-cache.md), thus reducing the consumption of CPU, memory, and networking resources for certain operations. 
 
 * Enforce authentication for API calls (see [Broken user authentication](#broken-user-authentication)). Revoke access for abusive users. For example, deactivate the subscription key, block the IP address with the [restrict caller IPs](ip-filter-policy.md) policy, or reject requests for a certain user claim from a [JWT token](validate-jwt-policy.md). 
 
-* Apply a [CORS](api-management-cross-domain-policies.md#CORS) policy to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
+* Apply a [CORS](cors-policy.md) policy to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
 
 * Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given timeframe. 
 
     * Define `timeout` in the [forward request](forward-request-policy.md) policy. 
 
-    * Use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
+    * Use the [validate GraphQL request](validate-graphql-request-policy.md) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
 
     * Limit the number of parallel backend connections with the [limit concurrency](limit-concurrency-policy.md) policy. 
 
@@ -151,7 +151,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 * External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](api-management-versions.md) in API Management. 
 
-* Precisely define XML and JSON contracts in the API schema and use [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
+* Precisely define XML and JSON contracts in the API schema and use [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 
 * If the backend interface can't be changed, use [transformation policies](transform-api.md) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
 
@@ -181,7 +181,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * When using OAuth 2.0, configure and test the [validate JWT](validate-jwt-policy.md) policy to check the existence and validity of the JWT token before it reaches the backend. Automatically check the token expiration time, token signature, and issuer. Enforce claims, audiences, token expiration, and token signature through policy settings. 
 
-    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
+    * Configure the [CORS](cors-policy.md) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
     * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
@@ -197,7 +197,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
             * Validate the certificate name where applicable 
 
-* For GraphQL scenarios, use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
+* For GraphQL scenarios, use the [validate GraphQL request](validate-graphql-request-policy.md) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
 
 * Don't store secrets in policy files or in source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
 
