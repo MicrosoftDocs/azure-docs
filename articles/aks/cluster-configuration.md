@@ -4,7 +4,7 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 11/30/2022
+ms.date: 12/06/2022
 ---
 
 # Configure an AKS cluster
@@ -362,7 +362,7 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 
 ## OIDC Issuer
 
-You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys.
+You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys. The maximum lifetime of the token issued by the OIDC provider is 1 day.
 
 > [!WARNING]
 > Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.

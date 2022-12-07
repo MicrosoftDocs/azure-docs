@@ -1,6 +1,6 @@
 ---
 title: Review your access to groups & apps in access reviews
-description: Learn how to review your own access to groups or applications in Microsoft Entra access reviews.
+description: Learn how to review your own access to groups or applications in access reviews.
 services: active-directory
 author: amsliu
 manager: amycolannino
@@ -16,9 +16,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review access for yourself to groups or applications in Microsoft Entra access reviews
+# Review access for yourself to groups or applications in access reviews
 
-Microsoft Entra simplifies how enterprises manage access to groups or applications in Azure AD and other Microsoft Online Services with a feature called Microsoft Entra access reviews.
+Microsoft Entra simplifies how enterprises manage access to groups or applications in Azure AD and other Microsoft Online Services with a feature called access reviews.
 
 This article describes how to review your own access to a group or an application.
 
