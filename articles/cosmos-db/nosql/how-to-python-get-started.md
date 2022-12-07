@@ -367,23 +367,6 @@ In your *app.py*:
 
 * Create a new instance of the **CosmosClient** class with the **ENDPOINT** and **credential** as parameters.
 
-```python
-from azure.identity import ClientSecretCredential
-
-ENDPOINT = os.environ["COSMOS_ENDPOINT"]
-TENANT_ID = os.environ["TENANT_ID"]
-CLIENT_SECRET = os.environ["CLIENT_SECRET"]
-CLIENT_ID = os.environ["CLIENT_ID"]
-
-credential = ClientSecretCredential(
-    tenant_id=TENANT_ID,
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET
-)
-
-client = CosmosClient(ENDPOINT, credential)
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_principal.py" id="credential":::
 
 ## Build your application
