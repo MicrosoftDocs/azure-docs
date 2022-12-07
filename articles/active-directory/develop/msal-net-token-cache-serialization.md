@@ -548,8 +548,7 @@ A product-quality, file-based token cache serializer for public client applicati
 
 #### Dual token cache serialization (MSAL unified cache and ADAL v3)
 
-If you want to implement token cache serialization with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following sample
-sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL
+If you want to implement token cache serialization with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL.
 
 ---
 
