@@ -21,11 +21,7 @@ The serverless SQL pool in Synapse workspace enables you to read the data stored
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
 
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports
-on Delta Lake files created by data engineers.
-
-Optionally you can also learn how to query delta lake tables in the following video:
-
-> [!VIDEO https://www.youtube.com/watch?v=LSIVX0XxVfc]
+on Delta Lake files created by data engineers. You can learn more from the [how to query delta lake tables video](https://www.youtube.com/watch?v=LSIVX0XxVfc).
 
 ## Quickstart example
 

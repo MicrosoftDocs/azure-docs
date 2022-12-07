@@ -18,13 +18,9 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 ![Diagram shows Spark SQL, Spark MLib, and GraphX linked to the Spark core engine, above a YARN layer over storage services.](./media/apache-spark-overview/spark-overview.png)
 
-To learn more, see the following video:
-
-> [!VIDEO https://www.youtube.com/embed/v=bTdu3PjXN3o]
-
 ## What is Apache Spark
 
-Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations. You can learn more from the [Apache Spark for Synapse video](https://www.youtube.com/watch?v=bTdu3PjXN3o).
 
 ![Diagram shows Traditional MapReduce, with disk-based apps and Spark, with cache-based operations.](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
