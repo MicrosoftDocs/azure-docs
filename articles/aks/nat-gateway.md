@@ -179,10 +179,14 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
 * Your clusters must have a Managed NAT Gateway (which may increase the overall cost).
 * If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
+* If you need to switch from a load balancer to NAT Gateway, you can either add a NAT Gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
 
 ### Manually disable OutboundNAT for Windows
 
 You can manually disable OutboundNAT for Windows when creating new Windows agent pools using `--disable-windows-outbound-nat`.
+
+> [!NOTE]
+> You can use an existing AKS cluster, but you may need to update the outbound type and add a node pool to enable `--disable-windows-outbound-nat`.
 
 ```azurecli
 az aks nodepool add \
@@ -212,3 +216,4 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [agic]: ../application-gateway/ingress-controller-overview.md
 [app-gw]: ../application-gateway/overview.md
 [upgrade-kubernetes]:tutorial-kubernetes-upgrade-cluster.md
+[aks-upgrade]: /cli/azure/aks?view=azure-cli-latest#az-aks-update
