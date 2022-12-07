@@ -1,5 +1,5 @@
 ---
-title: Request an access package - Microsoft Entra entitlement management
+title: Request an access package - entitlement management
 description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a requestor, I want simple steps for how to request resources I need so that I can start using the resources to perform my job.
 
 ---
-# Request access to an access package in Microsoft Entra entitlement management
+# Request access to an access package in entitlement management
 
-With Microsoft Entra entitlement management, an access package enables a one-time setup of resources and policies that automatically administers access for the life of the access package. 
+With entitlement management, an access package enables a one-time setup of resources and policies that automatically administers access for the life of the access package. 
 
 An access package manager can configure policies to require approval for users to have access to access packages. A user that needs access to an access package can submit a request to get access. This article describes how to submit an access request.
 
