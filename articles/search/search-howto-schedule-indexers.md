@@ -14,7 +14,7 @@ ms.date: 12/01/2022
 
 # Schedule an indexer in Azure Cognitive Search
 
-Indexers can be configured to run on a schedule when you set the "schedule" property in the indexer definition. By default, an indexer runs once, immediately after it is created. Afterwards, you can run it again on demand or on a schedule. Some situations where indexer scheduling is useful include:
+Indexers can be configured to run on a schedule when you set the "schedule" property in the indexer definition. By default, an indexer runs once, immediately after it's created. Afterwards, you can run it again on demand or on a schedule. Some situations where indexer scheduling is useful include:
 
 + Source data is changing over time, and you want the indexer to automatically process the difference.
 
@@ -22,7 +22,7 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-  Indexer jobs are subject to a maximum running time of 2 hours or 24 hours (this period will vary based on different implementation factors that are not exposed). If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents). For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+  Indexer jobs are subject to a maximum running time of 2 hours or 24 hours (this period will vary based on different implementation factors that aren't exposed). If indexing can't complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents). For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Prerequisites
 
@@ -107,15 +107,15 @@ For text-based indexing, the scheduler can kick off as many indexer jobs as the 
 
 Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution). For this reason, the number of service units has no bearing on the number of skills-based indexer jobs you can run. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the execution environment.
 
-Although multiple indexers can run simultaneously, a given indexer is single instance. You cannot run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
+Although multiple indexers can run simultaneously, a given indexer is single instance. You can't run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
 
-Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an interval of hourly and a start time of June 1, 2021 at 8:00:00 AM UTC. Here's what could happen when an indexer run takes longer than an hour:
+Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an interval of hourly and a start time of June 1, 2022 at 8:00:00 AM UTC. Here's what could happen when an indexer run takes longer than an hour:
 
-+ The first indexer execution starts at or around June 1, 2021 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any time less than 1 hour).
++ The first indexer execution starts at or around June 1, 2022 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any amount of time that's less than 1 hour).
 
-+ The second execution starts at or around June 1, 2021 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
++ The second execution starts at or around June 1, 2022 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
 
-+ The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer will not start until 11:00 AM UTC.
++ The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer won't start until 11:00 AM UTC.
 
 > [!NOTE]
 > If an indexer is set to a certain schedule but repeatedly fails on the same document each time, the indexer will begin running on a less frequent interval (up to the maximum interval of at least once every 2 hours or 24 hours, depending on different implementation factors) until it successfully makes progress again. If you believe you have fixed whatever the underlying issue, you can [run the indexer manually](search-howto-run-reset-indexers.md), and if indexing succeeds, the indexer will return to its regular schedule.
