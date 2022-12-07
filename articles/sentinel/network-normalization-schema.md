@@ -354,7 +354,7 @@ The following are the changes in version 0.2.4 of the schema:
 - Added the `TcpFlags` fields.
 - Updated `NetworkIcpmType` and `NetworkIcmpCode` to reflect the number value for both. 
 - Added additional inspection fields.
-- The field 'ThreatRiskLevelOriginal' was renamed to `ThreatOriginalRiskLevel` to alighn with ASIM convensions. Existing Microsoft parsers will maintain `ThreatRiskLevelOriginal` until May 1st 2023.
+- The field 'ThreatRiskLevelOriginal' was renamed to `ThreatOriginalRiskLevel` to align with ASIM conventions. Existing Microsoft parsers will maintain `ThreatRiskLevelOriginal` until May 1st 2023.
 - Marked `EventResultDetails` as recommended, and specified the allowed values.
 
 ## Next steps
