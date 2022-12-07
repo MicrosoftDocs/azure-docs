@@ -142,6 +142,19 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization) objects and set sponsors for them.
 
+### Manage connected organizations through Microsoft PowerShell
+
+You can also manage connected organizations in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
+
+This script below illustrates using the `v1.0` profile of Graph to retrieve all the connected organizations.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "v1.0"
+
+$co = Get-MgEntitlementManagementConnectedOrganization -all
+```
+
 ## State properties of connected organizations
 
 There are two different types of state properties for connected organizations in Microsoft Entra entitlement management currently, configured and proposed: 

@@ -113,7 +113,7 @@ The Functions extension lets you create a function app project, along with your 
 
     :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
 
-1. From the dropdown list, select **Add to workplace**.
+1. From the dropdown list, select **Add to workspace**.
 
     :::image type="content" source="./media/functions-develop-vs-code/add-to-workplace.png" alt-text=" Screenshot for selectIng Add to workplace.":::
 

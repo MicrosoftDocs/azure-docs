@@ -23,7 +23,7 @@ You can use entitlement management as a way of onboarding external users. This f
 
 In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They will need access to a Teams group called **External collaboration**. 
 Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
-To use Microsoft Entra entitlement management, you must have one of the following licenses:
+To use entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
