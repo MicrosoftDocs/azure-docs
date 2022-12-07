@@ -19,7 +19,7 @@ Most on-premises datacenters enforce strict network rules that prevent inbound c
 
 The following high-level steps are involved in [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md):
 
-1. Create a Kubernetes cluster on your choice of infrastructure (VMware vSphere, Amazon Web Services, Google Cloud Platform, etc.). The cluster must already exist before you connect it to Azure ARc.
+1. Create a Kubernetes cluster on your choice of infrastructure (VMware vSphere, Amazon Web Services, Google Cloud Platform, etc.). The cluster must already exist before you connect it to Azure Arc.
 
 1. Start the Azure Arc registration for your cluster.
 
