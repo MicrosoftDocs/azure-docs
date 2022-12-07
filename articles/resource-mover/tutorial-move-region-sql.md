@@ -16,7 +16,7 @@ ms.custom: mvc
 > [!IMPORTANT]
 > Azure Resource Mover is currently GA.
 
-Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 In this tutorial, you learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
 
@@ -77,17 +77,19 @@ To select the resources you want to move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-sql/get-started.png" alt-text="Screenshot displays button to add resources to move to another region." lightbox="./media/tutorial-move-region-sql/get-started.png":::
 
-3. In **Move resources** > **Source + destination**, select the source subscription and region.
-4. In **Destination**, select the region to which you want to move the resources. Then select **Next**.
+3. In **Move resources** > **Source + destination**:
+    1. Select the source **Subscription** and **Region**.
+    2. In **Destination**, select the region to which you want to move the resources. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/source-target.png" alt-text="Screenshot displays page to select source and destination region." lightbox="./media/tutorial-move-region-sql/source-target.png":::
 
-6. In **Resources to move**, select **Select resources**.
-7. In **Select resources**, select the resources. You can only add resources that are supported for move. Then select **Done**.
+6. In **Move resources** > **Resources to move**:
+    1. Go to **Select resources**.
+    1. In **Select resources**, select the resources. You can only add resources that are supported for move. Then select **Done**.
 
-    :::image type="content" source="./media/tutorial-move-region-sql/select-resources.png" alt-text="Screenshot displays page to select SQL resources to move." lightbox="./media/tutorial-move-region-sql/select-resources.png":::
+        :::image type="content" source="./media/tutorial-move-region-sql/select-resources.png" alt-text="Screenshot displays page to select SQL resources to move." lightbox="./media/tutorial-move-region-sql/select-resources.png":::
 
-8. In **Resources to move**, select **Next**.
+    1. In **Resources to move**, select **Next**.
 
 9. In **Review + Add**, check the source and destination settings. Verify that you understand that metadata about the move will be stored in a resource group created for this purpose in the metadata region.
 
@@ -95,7 +97,7 @@ To select the resources you want to move, follow these steps:
 
 10. Select **Proceed**, to begin adding the resources.
 11. After the add process finishes successfully, select **Adding resources for move** in the notification icon.
-12. After clicking the notification, review the resources on the **Across regions** page.
+12. After selecting the notification, review the resources on the **Across regions** page.
 
 
 > [!NOTE]
@@ -122,11 +124,11 @@ To resolve the resources you want to move, follow these steps:
 
 ## Move SQL server
 
-Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, ypu must first assign a target SQL server in the target region.
+Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, you must first assign a target SQL server in the target region.
 
 1. **Assign a target SQL server**- To assign a target SQL server, follow these steps:
 
-    1. In **Across regions**, for the SQL server resource, in the **Destination configuration** column, click **Resource not assigned**.
+    1. In **Across regions**, for the SQL server resource, in the **Destination configuration** column, select **Resource not assigned**.
     2. Select an existing SQL Server resource in the target region. 
         
         :::image type="content" source="./media/tutorial-move-region-sql/sql-server-commit-move-pending.png" alt-text="Screenshot displays entry showing SQL Server state set to Commit move pending." lightbox="./media/tutorial-move-region-sql/sql-server-commit-move-pending.png":::
@@ -232,7 +234,7 @@ After the initial move, you can decide whether you want to commit the move, or t
 - **Discard**: You might want to discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of **Initiate move pending**.
 - **Commit**: Commit completes the move to the target region. After committing, a source resource will be in a state of **Delete source pending** and you can decide if you want to delete it.
 
-## Discard the move 
+### Discard the move 
 
 You can discard the move as follows:
 
@@ -244,11 +246,11 @@ You can discard the move as follows:
 > - After discarding resources, they're in an *Initiate move pending* state.
 > - If there's only an elastic pool, discard progresses, and the elastic pool created in the target region is deleted.
 > - If there's an elastic pool with associated databases in the *Commit move pending* state, you can't discard the elastic pool.
-> - If you discard a SQL database, target region resources aren't deleted. 
+> - If you discard an SQL database, target region resources aren't deleted. 
 
-If you want to start the move again after discarding, select the SQL database or elastic pool and initiate the move again.
+If you want to start the move again after discarding, select the SQL database, or elastic pool and initiate the move again.
 
-## Commit the move
+### Commit the move
 
 Finish moving databases and elastic pools as follows:
 
