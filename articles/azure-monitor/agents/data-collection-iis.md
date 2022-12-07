@@ -60,10 +60,8 @@ To create the data collection rule in the Azure Portal:
 
     [ ![Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.](media/data-collection-iis/iis-data-collection-rule.png) ](media/data-collection-iis/iis-data-collection-rule.png#lightbox)
 
-1. (Optional) The file pattern identifies the directory were the log files are located. 
+1. Optionally, specify a file pattern to identify the directory were the log files are located. 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
-
-    You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs.
 
     [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
