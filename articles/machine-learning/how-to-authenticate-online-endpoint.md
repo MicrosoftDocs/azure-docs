@@ -119,9 +119,7 @@ body = str.encode(json.dumps(data))
 url = 'https://endpt-auth-token.eastus.inference.ml.azure.com/score'
 api_key = '<endpoint_cred>' # Replace this with the key or token you obtained
 
-# The azureml-model-deployment header will force the request to go to a specific deployment
-# Remove this header to have the request observe the endpoint traffic rules
-headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key), 'azureml-model-deployment': 'blue' }
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
 req = urllib.request.Request(url, body, headers)
 
