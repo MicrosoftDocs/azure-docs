@@ -241,11 +241,14 @@ To use an identity-based connection for "AzureWebJobsStorage", configure the fol
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
+
 If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
 | `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account is not in a sovereign cloud and does not have a custom DNS. This syntax is unique to "AzureWebJobsStorage" and cannot be used for other identity-based connections. | <storage_account_name> |
+| `AzureWebJobsStorage__credential` | Recommended only when specifying a user-assigned managed identity, when it should be set to "managedidentity". This is only valid when hosted in the Azure Functions service. | managedidentity |
+| `AzureWebJobsStorage__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity will be used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. | 02f9a4bc-0a67-4691-a732-aa51cfc04d8e |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
