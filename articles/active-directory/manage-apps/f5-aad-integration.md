@@ -70,7 +70,7 @@ In the scenario, a BIG-IP is a reverse proxy that hands off service pre-authenti
 
 The following diagram illustrates the front-end pre-authentication exchange between a user, a BIG-IP, and Azure AD, in a service provider (SP) initiated flow. It then shows subsequent APM session enrichment, and SSO to individual back-end services.
 
-![Image shows the high level architecture](./media/f5-aad-integration/integration-flow-diagram.png)
+  ![Image shows the high level architecture](./media/f5-aad-integration/integration-flow-diagram.png)
 
 1. In the portal, a user selects an application icon, resolving URL to the SAML SP (BIG-IP)
 2. BIG-IP redirects the user to the SAML identity provider (IdP), Azure AD, for pre-authentication
@@ -87,9 +87,9 @@ Users can find their BIG-IP published services in the [My Apps portal](https://s
 
 Users access the My Apps portal to find BIG-IP published services and to manage their account properties. See the gallery and self-service page in the following graphics. 
 
-![The screenshot shows woodgrove myapps gallery](media/f5-aad-integration/woodgrove-app-gallery.png)
+  ![The screenshot shows woodgrove myapps gallery](media/f5-aad-integration/woodgrove-app-gallery.png)
 
-![The screenshot shows woodgrove myaccounts self-service page](media/f5-aad-integration/woodgrove-myaccount.png)
+  ![The screenshot shows woodgrove myaccounts self-service page](media/f5-aad-integration/woodgrove-myaccount.png)
 
 ## Insights and analytics
 
@@ -188,7 +188,7 @@ Our recommendation is to start with an application that isn’t published via a 
 
 The following interactive guide illustrates implementing SHA with a template, and the end-user experience.
 
-[![The image shows the guide's title page](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
+  [![The image shows the guide's title page](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
 
 ## Resources
 
