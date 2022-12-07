@@ -102,11 +102,11 @@ In this section, you create a user called Britta Simon in Aqua Platform. Work wi
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Aqua Platform Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Aqua Platform Sign on URL where you can initiate the login flow. 
 
-* Go to Aqua Platform Sign-on URL directly and initiate the login flow from there.
+* Go to Aqua Platform Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Aqua Platform tile in the My Apps, this will redirect to Aqua Platform Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Aqua Platform tile in the My Apps, this will redirect to Aqua Platform Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
