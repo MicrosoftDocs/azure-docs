@@ -90,6 +90,7 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
     ```
 
 1. Add the following code to call the API and display the result:
+
     ```csharp
     public async Task OnGet()
     {
@@ -105,6 +106,16 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
         throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}: {error}");
       }
     }
+    ```
+
+1. Now open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file.
+
+	```html
+    <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
+
+    <p><pre><code class="language-js">@ViewData["ApiResult"]</code></pre></p>
+
+    <p>Refreshing this page will continue to use the cached access token acquired for Microsoft Graph, which is valid for future page views will attempt to refresh this token as it nears its expiration.</p>
     ```
 
 ## Test the application

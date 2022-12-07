@@ -46,19 +46,26 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
+1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
 1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar to create a new folder or use the **Terminal**.
-1. Provide the app a similar name to what you registered in the Azure portal, for example *NewApp1*.
+1. Create a new folder using either the terminal you have just opened or the **New Folder...** icon at the top of the left panel. Give it a similar name to the one you registered on the Azure portal, for example, *MyWebApp*.
+1. Using the terminal, run the following commands to change into your new folder and set up your project;
 1. Run the following command in the terminal:
 
 ```powershell
+cd MyWebApp
 dotnet new webapp --framework net6.0
 ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-<!-- Information with Visual Studio for Mac instructions in progress. -->
-EDITS NEEDED
+<!-- Checks needed here -->
+1. Open Visual Studio, and then select **New**.
+1. Under **Web and Console** in the left navigation bar, select **App**.
+1. Under **ASP.NET Core**, select **APP** and ensure **C#** is selected in the drop down menu, then select **Continue**.
+1. Accept the default for the **Target Framework and Advanced**, then select **Continue**.
+1. Enter a name for your **Project name**, this will be reflected in **Solution Name**. Choose something similar to the application you registered on the Microsoft identity platform, such as *MyNewApp*.
+1. Accept the default location for the project or choose a different location, and then select **Create**.
 
 ---
 
@@ -124,6 +131,7 @@ The application created earlier needs to be configured for authentication with A
 1. Add the following configuration settings for Azure AD:
   
     ``` json
+    {
     "AzureAd": {
       "Instance": "https://login.microsoftonline.com/",
       "TenantId": "Enter the tenant ID here",
@@ -137,6 +145,7 @@ The application created earlier needs to be configured for authentication with A
       ],
       "CallbackPath": "/signin-oidc"
     },
+    }
     ```
 
     * `Instance` - The endpoint of the cloud provider. For this tutorial, accept the default endpoint for Azure AD.

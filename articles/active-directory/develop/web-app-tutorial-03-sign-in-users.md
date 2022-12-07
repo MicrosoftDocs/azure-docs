@@ -104,7 +104,6 @@ The same steps can be implemented in Visual Studio for Windows.
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In the Explorer bar, select **Pages**, then right-click **Shared**, and then select **New File**, and name it *_LoginPartial.cshtml*.
-1. Open *_LoginPartial.cshtml*, and then add the following code for adding sign-in and sign-out to the page:
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
@@ -137,7 +136,7 @@ The same steps can be implemented in Visual Studio for Windows.
     </ul>
     ```
 
-1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. Ensure this is placed between the `</header` and `<footer class="border-top footer text-muted">`.
+1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step.
 
     ```csharp
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">

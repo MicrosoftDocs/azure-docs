@@ -45,5 +45,6 @@ The following articles are related to the concepts presented in this tutorial:
 
 > [!div class="nextstepaction"]
 > [Call an API and display results](web-app-tutorial-05-call-web-api.md)
+> 
 > [Create an API from scratch](web-app-tutorial-05-call-web-api.md)
 <!-- Link to web API tutorial series recommended here -->
