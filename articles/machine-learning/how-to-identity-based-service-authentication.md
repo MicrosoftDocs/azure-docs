@@ -185,6 +185,9 @@ To enable authentication with compute managed identity:
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 
+> [!NOTE]
+> The name of the created system managed identity for compute instance or cluster will be in the format /workspace-name/computes/compute-name in your Azure Active Directory.
+
 Once the identity-based authentication is enabled, the compute managed identity is used by default when accessing data within your training jobs. Optionally, you can authenticate with user identity using the steps described in next section.
 
 For information on using configuring Azure RBAC for the storage, see [role-based access controls](../storage/blobs/assign-azure-role-data-access.md).
@@ -470,7 +473,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
 
     ```azurecli-interactive
-    az ml connection --file <yml file> -w <workspace name> -g <resource group>
+    az ml connection create --file <yml file> --resource-group <resource group> --workspace-name <workspace>
     ```
 
 1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:

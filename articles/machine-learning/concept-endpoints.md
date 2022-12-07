@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following elements:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the [CLI](how-to-deploy-managed-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
+Learn how to deploy online endpoints from the [CLI](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 
@@ -89,7 +89,7 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
-Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 10% is mirrored to the green deployment. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Mirror traffic functionality is a __preview__ feature.
+Traffic to one deployment can also be mirrored (or copied) to another deployment. Mirroring traffic (also called shadowing) is useful when you want to test for things like response latency or error conditions without impacting live clients; for example, when implementing a blue/green deployment where 100% of the traffic is routed to blue and 10% is mirrored to the green deployment. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/), and the functionality is currently a __preview__ feature.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
@@ -139,19 +139,19 @@ Kubernetes online endpoint allows you to deploy models and serve online endpoint
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
-|  | Managed online endpoints | Kubernetes online endpoints |
-|-|-|-|
-| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
-| **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
-| **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
-| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Supported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 	Unsupported |
-| **Application Insights** | Supported | Supported |
-| **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
-| **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
-| **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
-| **Mirrored traffic** | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
-| **No-code deployment** | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
+|                               | Managed online endpoints                                                                                                          | Kubernetes online endpoints                                                                                             |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Recommended users**         | Users who want a managed model deployment and enhanced MLOps experience                                                           | Users who prefer Kubernetes and can self-manage infrastructure requirements                                             |
+| **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening                                              | User responsibility                                                                                                     |
+| **Compute type**              | Managed (AmlCompute)                                                                                                              | Kubernetes cluster (Kubernetes)                                                                                         |
+| **Out-of-box monitoring**     | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput)                    | Supported                                                                                                               |
+| **Out-of-box logging**        | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Unsupported                                                                                                             |
+| **Application Insights**      | Supported                                                                                                                         | Supported                                                                                                               |
+| **Managed identity**          | [Supported](how-to-access-resources-from-endpoints-managed-identities.md)                                                         | Supported                                                                                                               |
+| **Virtual Network (VNET)**    | [Supported](how-to-secure-online-endpoint.md) (preview)                                                                           | Supported                                                                                                               |
+| **View costs**                | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md)                                                            | Cluster level                                                                                                           |
+| **Mirrored traffic**          | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)                          | Unsupported                                                                                                             |
+| **No-code deployment**        | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models)           | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
 
 ### Managed online endpoints
 
@@ -178,7 +178,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
     >
     > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
+For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-online-endpoints.md).
 
 ## What are batch endpoints?
 
@@ -235,7 +235,7 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI and Python SDK](batch-inference/how-to-use-batch-endpoint.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
