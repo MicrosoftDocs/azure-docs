@@ -69,7 +69,7 @@ Use the following instructions to run the script, depending on the Operating Sys
 
 **Known issues**
 
-We are observing extension installation issues with Azure CLI 2.42.0 version. We recommend to use Azure CLI 2.36.0 to 2.41.0 versions. 
+We are observing extension installation issues with Azure CLI 2.42.0 version. We recommend using Azure CLI 2.36.0 to 2.41.0 versions. 
 
 ### Windows
 
@@ -138,9 +138,9 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
     bash resource-bridge-onboarding-script.sh --force
   ```
 >[!NOTE]
-> - After successful deployment, we recommend to maintain the state of **Arc Resource Bridge VM** as *online*.
-> - Intermittently appliance might become unreachable, when you shut down and restart the VM.
-> - After the command execution, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
+> - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
+> - Intermittently appliance might become unreachable when you shut down and restart the VM.
+> - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
 >- After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
 
 
