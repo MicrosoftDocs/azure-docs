@@ -6,8 +6,8 @@
     href: sap-certifications.md
 - name: Integration with Microsoft Services
   items:
-  - name: Extend your SAP applications and data to innovate on Azure | Azure Friday
-    href: https://www.youtube.com/watch?v=72kbjv0GJAY
+  - name: How to get started with SAP and Microsoft integration scenarios
+    href: integration-get-started.md
   - name: Integration with SAP RISE managed workloads
     href: sap-rise-integration.md#sap-btp-connectivity
   - name: Microsoft Office
