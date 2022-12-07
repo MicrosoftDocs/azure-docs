@@ -72,7 +72,7 @@ landingContent:
           - text: Control plane .NET (C#) SDK
             url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
           - text: Data plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
         links:
           - text: Call the Azure Digital Twins APIs with Postman

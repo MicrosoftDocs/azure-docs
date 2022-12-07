@@ -170,7 +170,7 @@
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/digitaltwins.core-readme
         - name: Java SDK
           href: /java/api/overview/azure/digital-twins
         - name: JavaScript SDK
