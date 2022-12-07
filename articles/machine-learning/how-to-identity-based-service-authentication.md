@@ -185,11 +185,14 @@ To enable authentication with compute managed identity:
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 
+> [!NOTE]
+> The name of the created system managed identity for compute instance or cluster will be in the format /workspace-name/computes/compute-name in your Azure Active Directory.
+
 Once the identity-based authentication is enabled, the compute managed identity is used by default when accessing data within your training jobs. Optionally, you can authenticate with user identity using the steps described in next section.
 
 For information on using configuring Azure RBAC for the storage, see [role-based access controls](../storage/blobs/assign-azure-role-data-access.md).
 
-### Access data for training jobs on compute clusters using user identity (preview)
+### Access data for training jobs on compute clusters using user identity
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -202,20 +205,13 @@ This authentication mode allows you to:
 
 > [!IMPORTANT] 
 > This functionality has the following limitations
-> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
-> * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
+> * Feature is supported for experiments submitted via the [Azure Machine Learning CLI and Python SDK V2](concept-v2.md), but not via ML Studio.
 > * User identity and compute managed identity cannot be used for authentication within same job.
+> * For pipeline jobs, the user identity must be configured at job top level, not for individual pipeline steps.   
 
-> [!WARNING]
-> This feature is __public preview__ and is __not secure for production workloads__. Ensure that only trusted users have permissions to access your workspace and storage accounts.
->
-> Preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The following steps outline how to set up data access with user identity for training jobs on compute clusters from CLI. 
 
-The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
-
-1. Grant the user identity access to storage resources. For example,  grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
+1. Grant the user identity access to storage resources. For example, grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
 
 1. Create an Azure Machine Learning datastore without cached credentials for the storage account. If a datastore has cached credentials, such as storage account key, those credentials are used instead of user identity.
 
@@ -239,11 +235,45 @@ The following steps outline how to set up identity-based data access for trainin
     type: user_identity
     ```
 
+The following steps outline how to set up data access with user identity for training jobs on compute clusters from Python SDK.
+
+1. Grant data access and create data store as described above for CLI.
+
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
+
+    ```python
+    from azure.ai.ml import command
+    from azure.ai.ml.entities import Data, UriReference
+    from azure.ai.ml import Input
+    from azure.ai.ml.constants import AssetTypes
+    from azure.ai.ml import UserIdentity
+    
+    # Specify the data location
+    my_job_inputs = {
+        "input_data": Input(type=AssetTypes.URI_FILE, path="<path-to-my-data>")
+    }
+
+    # Define the job
+    job = command(
+        code="<my-local-code-location>", 
+        command="python <my-script>.py --input_data ${{inputs.input_data}}",
+        inputs=my_job_inputs,
+        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
+        compute="<my-compute-cluster-name>",
+        identity= UserIdentity() 
+    )
+    # submit the command
+    returned_job = ml_client.jobs.create_or_update(job)
+    ```
+
+> [!IMPORTANT] 
+> During job submission with authentication with user identity enabled, the code snapshots are protected against tampering by checksum validation. If you have existing pipeline components and intend to use them with authentication with user identity enabled, you may need to re-upload them. Otherwise the job may fail during checksum validation. 
+
 ### Work with virtual networks
 
 By default, Azure Machine Learning can't communicate with a storage account that's behind a firewall or in a virtual network.
 
-You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires extra steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](v1/how-to-access-data.md#virtual-network). 
+You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires extra steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to prevent data exfiltration](how-to-prevent-data-loss-exfiltration.md). 
 
 If your storage account has virtual network settings, that dictates what identity type and permissions access is needed. For example for data preview and data profile, the virtual network settings determine what type of identity is used to authenticate data access. 
  
@@ -443,7 +473,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
 
     ```azurecli-interactive
-    az ml connection --file <yml file> -w <workspace name> -g <resource group>
+    az ml connection create --file <yml file> --resource-group <resource group> --workspace-name <workspace>
     ```
 
 1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:

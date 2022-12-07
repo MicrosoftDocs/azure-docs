@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 12/05/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -54,7 +54,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | `90.00:00:00` <br>(90 days) | Sets the amount of time in days to keep workflow run history after a run starts. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` <br>(90 days) | Sets the amount of time in days to keep workflow run history after a run starts. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>

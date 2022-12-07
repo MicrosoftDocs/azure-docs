@@ -45,15 +45,16 @@ You can see all alert instances in all your Azure resources generated in the las
 
 ## Types of alerts
 
-There are four types of alerts. This table provides a brief description of each alert type. 
+This table provides a brief description of each alert type. 
 See [this article](alerts-types.md) for detailed information about each alert type and how to choose which alert type best suits your needs.
 
 |Alert type|Description|
 |:---------|:---------|
 |[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features, such as the ability to apply multiple conditions and dynamic thresholds.|
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
-|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
+|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. **Resource Health** alerts and **Service Health** alerts are activity log alerts that report on your service and resource health.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
+|[Prometheus alerts (preview)](alerts-types.md#prometheus-alerts-preview)|Prometheus alerts are used for alerting on performance and health of Kubernetes clusters (including AKS). The alert rules are based on PromQL, which is an open source query language.|
 
 ## Out-of-the-box alert rules (preview)
 

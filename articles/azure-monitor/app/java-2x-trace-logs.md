@@ -188,7 +188,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 The Application Insights appenders can be referenced by any configured logger, and not necessarily by the root logger (as shown in the code samples above).
 
 ## Explore your traces in the Application Insights portal
-Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] pane.
 
 Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
 

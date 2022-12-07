@@ -9,9 +9,8 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
-
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Manage container properties and metadata with .NET

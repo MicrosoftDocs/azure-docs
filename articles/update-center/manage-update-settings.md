@@ -35,9 +35,7 @@ To configure update settings on your machines on a single VM, follow these steps
     The following update settings are available for configuration for the selected machine(s):
 
    - **Periodic assessment** - enable periodic **Assessment** to run every 24 hours.
-     >[!NOTE]
-     > You must [register for the periodic assessement](./enable-machines.md?branch=release-updatecenterv2-publicpreview&tabs=portal-periodic%2cps-periodic-assessment%2ccli-periodic-assessment%2crest-periodic-assessment) in your Azure subscription to enable this feature.
-
+     
     - **Hot patching** - for Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment.
 
     - **Patch orchestration** option provides the following:
@@ -67,10 +65,6 @@ To configure update settings on your machines on a single VM, follow these steps
 1. In **Change update settings**, you can select the update settings that you want to change for your machines and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
 
 # [From a selected VM](#tab/singlevm-schedule-home)
-
->[!NOTE]
-> **For Azure machines**, your subscription needs to be allowlisted for preview feature. For more information, see 
-[On-boarding preview features](enable-machines.md)
 
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.

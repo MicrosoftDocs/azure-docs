@@ -172,6 +172,10 @@ By default, the **Restrict access** option, found on the **Users** page, is turn
 
 For more information about managing usage of student VMs, see [How to configure student usage](how-to-configure-student-usage.md).
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 In this tutorial, you created a lab for your class in Azure. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial.

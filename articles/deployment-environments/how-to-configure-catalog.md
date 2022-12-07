@@ -103,9 +103,9 @@ To store the personal access token you generated as a [key vault secret](../key-
     | Field | Value |
     | ----- | ----- |
     | **Name** | Enter a name for the catalog. |
-    | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.|
-    | **Branch**  | Enter the repository branch to connect to.|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.|
+    | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.<br/>*Sample Catalog Example:* https://github.com/Azure/deployment-environments.git |
+    | **Branch**  | Enter the repository branch to connect to.<br/>*Sample Catalog Example:* main|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.|
 
    :::image type="content" source="media/how-to-configure-catalog/catalog-item-add.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::

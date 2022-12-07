@@ -4,7 +4,7 @@ description: Create your first app to Azure App Service in seconds using Azure B
 author: seligj95
 ms.author: msangapu
 ms.topic: article
-ms.date: 8/26/2021
+ms.date: 11/18/2022
 ---
 
 # Create App Service app using Bicep

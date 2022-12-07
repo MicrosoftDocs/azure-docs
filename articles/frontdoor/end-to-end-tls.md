@@ -80,11 +80,13 @@ For TLS1.2 the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 > [!NOTE]
-> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE cipher suites. The DHE cipher suites have been provided for compatibility with those operating systems.
+> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE cipher suites for better security. CBC ciphers are enabled to support Windows 8.1, 8, and 7 operating systems.  The DHE cipher suites will be disabled in the future.
 
 Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 

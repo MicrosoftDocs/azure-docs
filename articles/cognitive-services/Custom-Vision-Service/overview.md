@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 07/20/2022
+ms.date: 11/06/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -33,7 +33,7 @@ This documentation contains the following types of articles:
 * The [tutorials](./iot-visual-alerts-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
-For a more structured approach, follow a Learn module for Custom Vision:
+For a more structured approach, follow a Training module for Custom Vision:
 * [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision/)
 * [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
 
