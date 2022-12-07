@@ -70,7 +70,42 @@ To create a policy for an access package, you need to start from the access pack
 
 ## Create an automatic assignment policy programmatically (Preview)
 
-You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.  In your [request payload](/graph/api/resources/accesspackageassignmentpolicy?view=graph-rest-1.0&preserve-view=true), include the `displayName`, `description`, `specificAllowedTargets`, [`automaticRequestSettings`](/graph/api/resources/accesspackageautomaticrequestsettings?view=graph-rest-1.0&preserve-view=true) and `accessPackage` properties of the policy.
+There are two ways to create an access package assignment policy for automatic assignment programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
+
+### Creating an access package assignment policy through Graph
+
+You can create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API. In your [request payload](/graph/api/resources/accesspackageassignmentpolicy?view=graph-rest-1.0&preserve-view=true), include the `displayName`, `description`, `specificAllowedTargets`, [`automaticRequestSettings`](/graph/api/resources/accesspackageautomaticrequestsettings?view=graph-rest-1.0&preserve-view=true) and `accessPackage` properties of the policy.
+
+### Creating an access package assignment policy through PowerShell
+
+You can also create a policy in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
+
+This script below illustrates using the `v1.0` profile, to create a policy for automatic assignment to an access package.  See [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-v1.0&preserve-view=true) for more examples.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "v1.0"
+
+$apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
+
+$pparams = @{
+	DisplayName = "Sales department users"
+	Description = "All users from sales department"
+	AllowedTargetScope = "specificDirectoryUsers"
+	SpecificAllowedTargets = @( @{
+        "@odata.type" = "#microsoft.graph.attributeRuleMembers"
+        description = "All users from sales department"
+        membershipRule = '(user.department -eq "Sales")'
+	} )
+	AutomaticRequestSettings = @{
+        RequestAccessForAllowedTargets = $true
+	}
+    AccessPackage = @{
+      Id = $apid
+    }
+}
+New-MgEntitlementManagementAssignmentPolicy -BodyParameter $pparams
+```
 
 ## Next steps
 
