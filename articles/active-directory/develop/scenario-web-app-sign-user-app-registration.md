@@ -124,7 +124,7 @@ By default, the sample uses:
 
 ## Register an app by using PowerShell
 
-You can also register an application with Microsoft Graph PowerShell, using the [New-MgApplication](/powershell/module/microsoft.graph.applications/new-mgapplication?view=graph-powershell-1.0).
+You can also register an application with Microsoft Graph PowerShell, using the [New-MgApplication](/powershell/module/microsoft.graph.applications/new-mgapplication).
 
 Here's an idea of the code. For a fully functioning code, see [this sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal/AppCreationScripts/Configure.ps1)
 
