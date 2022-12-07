@@ -17,8 +17,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 1. From the top command bar, select **Alert rules**. You'll see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
 1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
-    - **Scope**
-        You can edit the scope for all alert rules other than:
+    - **Scope**. You can edit the scope for all alert rules **other than**:
         - Log alert rules
         - Metric alert rules that monitor a custom metric
         - Smart detection alert rules
