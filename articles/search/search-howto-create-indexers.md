@@ -21,15 +21,6 @@ Indexers support two workflows:
 
 + Text-based indexing, extracting strings and metadata for full text search scenarios.
 
-<<<<<<< HEAD
-+ Skills-based indexing, using built-in or custom skills to apply integrated machine learning models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. To learn about skill-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
-
-This article focuses on the basic steps of indexer configuration. Depending on the data source and your workflow, more configuration might be necessary. 
-
-## Indexer definitions
-
-When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. A skills-based indexer has the same definitions as text-based indexers, but with a few more options.
-=======
 + Skills-based indexing, using built-in or custom skills to apply integrated machine learning and AI models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. To learn about skills-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
@@ -37,7 +28,6 @@ This article focuses on the basic steps of creating an indexer. Depending on the
 ## Indexer definitions
 
 When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. The patterns are the same except that skills-based indexing has more definitions.
->>>>>>> 8210cf5497597852db9af57d133e52dec451f57c
 
 ### Indexer definition for text-based indexing
 
@@ -81,11 +71,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for skills-based indexing and AI enrichment
 
-<<<<<<< HEAD
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. 
-=======
 Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following extra properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. 
->>>>>>> 8210cf5497597852db9af57d133e52dec451f57c
 
 A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
 
@@ -246,15 +232,9 @@ Change detection logic is built into the data platforms. How an indexer supports
 
 + Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index.
 
-<<<<<<< HEAD
-+ Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. For these data sources, change detection isn't automatically. You'll need to specify in the data source definition which change detection policy is used.
-
-For text-based (non-AI-enriched) indexing, indexers don't cache content, but they do keep track of the last document processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
-=======
 + Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You'll need to specify in the data source definition which change detection policy is used.
 
 Indexers keep track of the last document it processed from the data source through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
->>>>>>> 8210cf5497597852db9af57d133e52dec451f57c
 
 If you need to clear the high water mark to reindex in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective reindexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
