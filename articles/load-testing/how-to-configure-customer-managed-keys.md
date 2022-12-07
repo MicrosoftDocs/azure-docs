@@ -10,9 +10,9 @@ ms.date: 05/10/2022
 ms.topic: how-to
 ---
 
-# Configure customer-managed keys for your Azure Load Testing Preview resource with Azure Key Vault
+# Configure customer-managed keys for your Azure Load Testing resource with Azure Key Vault
 
-Azure Load Testing Preview automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
+Azure Load Testing automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
 
 The keys you provide are stored securely using [Azure Key Vault](../key-vault/general/overview.md). You can create a separate key for each Azure Load Testing resource you enable with customer-managed keys.
 
@@ -21,9 +21,6 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 - Test script and configuration files
 - Secrets
 - Environment variables
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -271,7 +268,7 @@ You can change the managed identity for customer-managed keys for an existing Az
     To learn more about each type of managed identity, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
     - If you select System-assigned, the system-assigned managed identity needs to be enabled on the resource and granted access to the AKV before changing the identity for customer-managed keys.
-    - If you select **User-assigned**, you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Use managed identities for Azure Load Testing Preview](how-to-use-a-managed-identity.md).
+    - If you select **User-assigned**, you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
 
 1. Save your changes.
 

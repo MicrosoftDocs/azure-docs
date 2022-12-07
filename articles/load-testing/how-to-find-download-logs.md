@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Troubleshoot load test errors by downloading Apache JMeter logs
 
-Learn how to diagnose and troubleshoot errors while running a load test with Azure Load Testing Preview. Download the Apache JMeter worker logs or load test results for detailed logging information.
+Learn how to diagnose and troubleshoot errors while running a load test with Azure Load Testing. Download the Apache JMeter worker logs or load test results for detailed logging information.
 
 When you start a load test, the Azure Load Testing test engines run your Apache JMeter script. Errors can occur at different levels. For example, during the execution of the JMeter script, while connecting to the application endpoint, or in the test engine instance.
 
@@ -22,9 +22,6 @@ You can use different sources of information to diagnose these errors:
 - [Export the load test result](./how-to-export-test-results.md) and analyze the response code and response message of each HTTP request.
 
 There might also be problems with the application endpoint itself. If you host the application on Azure, you can [configure server-side monitoring](./how-to-monitor-server-side-metrics.md) to get detailed insights about the application components.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Load test error indicators
 
