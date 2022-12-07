@@ -27,27 +27,14 @@ recommendations: false
 
 * This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-## Model usage (not custom)
+## Model usage 
 
 > [!div class="checklist"]
 >
 > * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 > * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-
-monikerRange: 'form-recog-3.0.0'
-> [!div class="checklist"]
->
-> * [**Form Recognizer Studio**](quickstarts/try-v3-form-recognizer-studio.md)
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-> [!div class="checklist"]
->
-> * [**Sample Labeling Tool**](https://fott-2-1.azurewebsites.net/)
-
-::: moniker-end
+> * [**Form Recognizer Studio v3.0**](quickstarts/try-v3-form-recognizer-studio.md)
+> * [**Sample Labeling Tool v2.1**](https://fott-2-1.azurewebsites.net/)
 
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
@@ -68,7 +55,7 @@ monikerRange: 'form-recog-3.0.0'
 
 ::: moniker range="form-recog-3.0.0"
 
-## Custom model limits v3.0
+## Custom model limits
 
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
@@ -104,14 +91,13 @@ monikerRange: 'form-recog-3.0.0'
 
 ::: moniker range=">=form-recog-2.1.0"
 
->> <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
->> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions]</br>(#create-and-submit-support-request).
->> <sup>3</sup> Open a support request to increase the monthly training limit.</br>
+> <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
+> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
+> <sup>3</sup> Open a support request to increase the monthly training limit.</br>
 
 ::: moniker-end
-
 ::: moniker range="form-recog-3.0.0"
->> <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
+> <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
 ::: moniker-end
 
 ## Detailed description, Quota adjustment, and best practices
