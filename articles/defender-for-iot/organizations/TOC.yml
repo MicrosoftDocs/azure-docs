@@ -99,8 +99,6 @@
       items:
       - name: View alerts from a sensor console
         href: how-to-view-alerts.md
-      - name: Manage alerts from a sensor console
-        href: how-to-manage-the-alert-event.md
       - name: Manage alert workflows from a sensor console
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert data from a sensor console

@@ -15,12 +15,24 @@ Several alerts are disabled by default, as indicated by asterisks (*) in the tab
 
 If you disable alerts that are referenced in other places, such as alert forwarding rules, make sure to update those references as needed.
 
+## Alert severities
+
+Defender for IoT alerts use the following severity levels:
+
+- **Critical**: Indicates a malicious attack that should be handled immediately.
+
+- **Major**: Indicates a security threat that's important to address.
+
+- **Minor**: Indicates some deviation from the baseline behavior that might contain a security threat.
+
+- **Warning**: Indicates some deviation from the baseline behavior with no security threats.
+
 ## Supported alert types
 
 | Alert type | Description |
 |-|-|
 | **Policy violation alerts** | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
-| **Protocol violation alerts** | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
+| **Protocol violation alerts** | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. |
 | **Operational alerts** | Triggered when the Operational engine detects network operational incidents or a device malfunctioning. For example, a network device was stopped through a Stop PLC command, or an interface on a sensor stopped monitoring traffic. |
 | **Malware alerts** | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
 | **Anomaly alerts** | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but isn't defined as a scanning device. |
@@ -303,7 +315,6 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 For more information, see:
 
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
-- [Manage alerts](how-to-manage-the-alert-event.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
 - [Forward alert information](how-to-forward-alert-information-to-partners.md)
