@@ -17,7 +17,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 12/07/2022
+## Release date: December 12, 2022
 
 This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
 
@@ -65,9 +65,9 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
   * Apache OMI
   * Apache Pheonix
 
-![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
 
-HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you are running any applications on top of HDInsight and they use TLS 1.0 and 1.1, please upgrade to TLS 1.2 to avoid any disruption in services before 31 Oct 2022 . 
+HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you are running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services before 31st October 2022. 
 
 For more information, see [How to enable Transport Layer Security (TLS)](https://learn.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
