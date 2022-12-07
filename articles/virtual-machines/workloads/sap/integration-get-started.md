@@ -19,6 +19,7 @@ For the latest news from the SAP+Microsoft world follow our SAP on Azure [YouTub
 To get a first impression about the limitless opportunities of extending SAP applications with Microsoft and Azure services, this Azure Friday episode is a perfect starting point:
 
 
+
 > [!VIDEO https://www.youtube.com/embed/72kbjv0GJAY]
 
 ## The partnership between both companies dates back many decades
@@ -66,7 +67,11 @@ In the SAP integration documentation space, you can find the following areas:
 
 * [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
-## Recommended content
+## Resources
+
+<sup>1</sup> [SAP Corporate Fact Sheet](https://www.sap.com/documents/2017/04/4666ecdd-b67c-0010-82c7-eda71af511fa.html), Oct 2022
+
+## Next Steps
 
 [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1)
 
@@ -77,7 +82,3 @@ In the SAP integration documentation space, you can find the following areas:
 [Secure your SAP NetWeaver email needs with Exchange Online](./exchange-online-integration-sap-email-outbound.md)
 
 [Migrate your legacy SAP middleware to Azure](./expose-sap-process-orchestration-on-azure.md)
-
-## Resources
-
-<sup>1</sup>: https://www.sap.com/documents/2017/04/4666ecdd-b67c-0010-82c7-eda71af511fa.html (SAP Corporate Fact Sheet, Oct 2022)
