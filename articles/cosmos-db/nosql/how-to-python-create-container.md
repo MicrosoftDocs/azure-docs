@@ -63,15 +63,6 @@ In the examples above, the response from the requests is a [``ContainerProxy``](
 
 The following example shows the **create_container_if_not_exists** method returning a **container** object.
 
-```python
-partition_key_path = PartitionKey(path="/categoryId")
-container = database.create_container_if_not_exists(
-    id=CONTAINER_ID,
-    partition_key=partition_key_path,
-    offer_throughput=400
-)
-```
-
 :::code language="python" source="~/cosmos-db-nosql-python-samples/005-create-container/app_exists.py" id="parse_response":::
 
 ## Next steps
