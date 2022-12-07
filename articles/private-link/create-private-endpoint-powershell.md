@@ -341,6 +341,14 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 10. Close the connection to **myVM**.
 
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, virtual network, and the remaining resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg'
+```
+
 ## Next steps
 
 For more information about the services that support private endpoints, see:
