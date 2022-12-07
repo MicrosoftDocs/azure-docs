@@ -65,6 +65,8 @@ Follow the steps below to create a new Grafana service account and list existing
 
 Run the `az grafana service-account create` command to create a service account. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
 
+Available roles: `Admin`, `Editor`, `Viewer`.
+
 ```azurecli-interactive
 az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role>
 ```
@@ -77,12 +79,20 @@ Run the `az grafana service-account list` command to get a list of all service a
 az grafana service-account list --name <azure-managed-grafana-name> --output table
 ```
 
+Example of output:
+
+```output
+AvatarUrl             IsDisabled    Login        Name        OrgId    Role    Tokens
+--------------------  ------------  -----------  ----------  -------  ------  --------
+/avatar/abc12345678   False         sa-account1  account1    1        Viewer  0
+```
+
 #### Display service account details
 
 Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
 
 ```azurecli-interactive
-az grafana service-account list --name <azure-managed-grafana-name> --service-account <service-account-name>
+az grafana service-account show --name <azure-managed-grafana-name> --service-account <service-account-name>
 ```
 
 ---
@@ -105,17 +115,19 @@ Once you've created a service account, add one or more access tokens. Access tok
 
 #### Create a new token
 
-Create a Grafana service account token with `az grafana service-account token create`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>`,`<token-name>`, and `<role>` with your own information.
+1. Create a Grafana service account token with `az grafana service-account token create`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` with your own information.
 
-Consider using the option below:
+    Optionally set an expiry time:
 
-| Parameter     | Description                                                                                                    | Example           |
-|---------------|----------------------------------------------------------------------------------------------------------------|-------------------|
-| `expiry-date` | Tokens have an unlimited expiry date by default. Enter an expiry date to disable the token at a specific date. | `25/01/2023`      |
+    | Parameter     | Description                                                                                                    | Example           |
+    |---------------|----------------------------------------------------------------------------------------------------------------|-------------------|
+    | `--time-to-live` | Tokens have an unlimited expiry date by default. Set an expiry time to disable the token after a given time. Use `s` for seconds, `m` for minutes, `h` for hours, `d` for days, `w` for weeks, `M` for months or `y` for years. | `15d`      |
 
-```azurecli-interactive
-az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name> --expiry <expiry-date>  --role <role>
-```
+    ```azurecli-interactive
+    az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name> --time-to-live 15d
+    ```
+
+1. Take note of the generated token. This token will only be shown once, so make sure you save it, as loosing a token requires creating a new one.
 
 #### List service account tokens
 
@@ -125,50 +137,70 @@ Run the `az grafana service-account token list` command to get a list of all tok
 az grafana service-account token list --name <azure-managed-grafana-name> --service-account <service-account-name> --output table
 ```
 
+Example of output:
+
+```output
+Created               Expiration            HasExpired    Name    SecondsUntilExpiration
+--------------------  --------------------  ------------  ------  ------------------------
+2022-12-07T11:40:45Z  2022-12-08T11:40:45Z  False         token1  85890.870731556
+2022-12-07T11:42:35Z  2022-12-22T11:42:35Z  False         token2  0
+```
+
 ---
 
-## Update a service account
+## Edit a service account
+
+In this section, learn how to update a Grafana service account in the following ways:
+
+- Edit the name of a service account
+- Edit the role of a service account
+- Disable a service account
+- Enable a service account
 
 ### [Portal](#tab/azure-portal)
 
-To update a service account:
+Actions:
 
-- To edit the name of the service account, select a service account and under **Information**, select **Edit**.
-- To edit the role of a service account, select a service account and under **Information**,  select the role and choose another role name.
+- To edit the name, select the service account and under **Information** select **Edit**.
+- To edit the role, select the service account and under **Information**,  select the role and choose another role name.
+- To disable a service account, select a service account and at the top of the page select **Disable service account**, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
 
-   :::image type="content" source="media/service-accounts/edit-service-account.png" alt-text="Screenshot of the Azure platform. Edit service account page.":::
+:::image type="content" source="media/service-accounts/edit-service-account.png" alt-text="Screenshot of the Azure platform. Edit service account page.":::
 
-The notification *Service account updated* is displayed as soon as you update a parameter.
+The notification *Service account updated* is instantly displayed.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Update a service account with `az grafana service-account update`. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<role>` with your own information.
+Edit the name or the role of a service account with `az grafana service-account update`. Replace the placeholders `<azure-managed-grafana-name>`, and `<service-account-name>` with your own information and use one or several of the following parameters:
 
-Consider using the options below:
-
-| Parameter   | Description                                                                           | Example           |
-|-------------|---------------------------------------------------------------------------------------|-------------------|
-| `--enabled` | Enter `--enabled false` or `--enabled true` to disable or enable the service account. | `--enabled false` |
+| Parameter        | Description                                                                                                                                                                                                                     | Example |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `--name`         | Enter another name for your service account.                                                                                                                                                                                                                            |         |
+| `--role`         | Enter another role for your service account. Available roles: `Admin`, `Editor`, `Viewer`.                                                                                                                                                                                                                       |         |
 
 ```azurecli-interactive
 az grafana service-account update --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role> --enabled false
 ```
 
+To disable a service account run the `az grafana update` command and use the option `--is-disabled true`. To enable a service account, use `--is-disabled false`.
+
+```azurecli-interactive
+az grafana update --service-account Disabled --name <service-account-name>
+```
+
 ---
 
-## Delete or disable a service account
+## Delete a service account
 
 ### [Portal](#tab/azure-portal)
 
-To delete a Grafana service account select a service account and at the top of the page select **Delete service account**, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
+To delete a Grafana service account, select a service account and at the top of the page select **Delete service account**, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
 
-To disable a Grafana service account select a service account and at the top of the page select **Disable service account**, then select **Disable service account** to confirm. Disabled service accounts can be re-enabled by selecting **Enable service account**.
-
-   :::image type="content" source="media/service-accounts/disable-delete.png" alt-text="Screenshot of the Azure platform. Disabling or deleting service account page.":::
+:::image type="content" source="media/service-accounts/delete.png" alt-text="Screenshot of the Azure platform. Deleting service account page.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-Delete a service account with `az grafana service-account delete`. Replace the placeholders `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+To delete a service account, run the `az grafana service-account delete` command. Replace the placeholders `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
 
 ```azurecli-interactive
 az grafana service-account delete --name <azure-managed-grafana-name> --service-account <service-account-name>
