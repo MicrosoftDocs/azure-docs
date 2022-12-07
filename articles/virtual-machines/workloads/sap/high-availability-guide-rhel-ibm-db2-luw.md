@@ -340,13 +340,21 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
    e. After the new front-end IP pool is created, note the pool IP address.
 
 1. Create a single back-end pool: 
+
    1. Open the load balancer, select **Backend pools**, and then select **Add**.
+   
    1. Enter the name of the new back-end pool (for example, **Db2-backend**).
-   2. Select **NIC** for Backend Pool Configuration. 
+   
+   2. Select **NIC** for Backend Pool Configuration.
+    
    1. Select **Add a virtual machine**.
-   1. Select the virtual machines of the ASCS cluster.
-   1. Select **Add**.     
+   
+   1. Select the virtual machines of the cluster.
+   
+   1. Select **Add**.
+        
    2. Select **Save**.   
+
 
 1. Create a health probe:
 
