@@ -846,12 +846,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-* To learn more about Reprovisioning, see
+In this tutorial, you provisioned multiple devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
-    > [!div class="nextstepaction"]
-    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more about Deprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+> [!div class="nextstepaction"]
+> [Use custom allocation policies](tutorial-custom-allocation-policies.md)

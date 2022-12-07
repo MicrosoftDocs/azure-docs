@@ -134,7 +134,7 @@ az group delete --name my-sample-resource-group
 
 ## Next steps
 
-In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a simulated device, continue to the quickstart for creating a simulated device.
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
-> [Quickstart to create a simulated device](./quick-create-simulated-device-tpm.md)
+> [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

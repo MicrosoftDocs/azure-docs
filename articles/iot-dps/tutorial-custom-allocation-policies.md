@@ -644,17 +644,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about custom allocation policies, see
+To learn more about custom allocation policies, see
 
-    > [!div class="nextstepaction"]
-    > [Understand custom allocation policies](concepts-custom-allocation.md)
-
-* To learn more Reprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more Deprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
+> [!div class="nextstepaction"]
+> [Understand custom allocation policies](concepts-custom-allocation.md)

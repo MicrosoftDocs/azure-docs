@@ -749,7 +749,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device.
+In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. Next, learn how to enroll your TPM device programmatically.
 
 ::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-csharp"

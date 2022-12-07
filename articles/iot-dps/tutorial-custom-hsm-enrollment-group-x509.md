@@ -1496,7 +1496,7 @@ When you're finished testing and exploring this device client sample, use the fo
 
 ## Next steps
 
-In this tutorial, you provisioned X.509 devices using an enrollment group to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
+In this tutorial, you provisioned multiple X.509 devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [How to use allocation policies](how-to-use-allocation-policies.md)
+> [Use custom allocation policies](tutorial-custom-allocation-policies.md)
