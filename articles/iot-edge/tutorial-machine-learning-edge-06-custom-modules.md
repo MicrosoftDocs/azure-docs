@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
-description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
+description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from downstream devices through a machine learning model and then send the insights to IoT Hub.'
 author: PatAltimore
 
 ms.author: patricka
@@ -15,16 +15,16 @@ monikerRange: "=iotedge-2018-06"
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
+In this article, we create three IoT Edge modules that receive messages from downstream IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
 
 We want the IoT Edge device to accomplish four things for us:
 
-* Receive data from the leaf devices.
+* Receive data from the downstream devices.
 * Predict the remaining useful life (RUL) for the device that sent the data.
 * Send a message with the RUL for the device to IoT Hub. This function could be modified to send data only if the RUL drops below a specified level.
-* Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub to refine the training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
+* Save the downstream device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub to refine the training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
 
 To accomplish these tasks, we use three custom modules:
 
@@ -32,10 +32,10 @@ To accomplish these tasks, we use three custom modules:
 
 * **Avro writer:** This module receives messages on the "avroModuleInput" input and persists the message in Avro format to disk for later upload to IoT Hub.
 
-* **Router Module:** The router module receives messages from downstream leaf devices, then formats and sends the messages to the classifier. The module then receives the messages from the classifier and forwards the message onto the Avro writer module. Finally, the module sends just the RUL prediction to the IoT Hub.
+* **Router Module:** The router module receives messages from downstream devices, then formats and sends the messages to the classifier. The module then receives the messages from the classifier and forwards the message onto the Avro writer module. Finally, the module sends just the RUL prediction to the IoT Hub.
 
   * Inputs:
-    * **deviceInput**: receives messages from leaf devices
+    * **deviceInput**: receives messages from downstream devices
     * **rulInput:** receives messages from the "amlOutput"
 
   * Outputs:
@@ -155,7 +155,7 @@ In this step, we are going to create an Azure IoT Edge solution using the "Azure
 
 Next, we add the Router module to our solution. The Router module handles several responsibilities for our solution:
 
-* **Receive messages from leaf devices:** as messages arrive to the IoT Edge device from downstream devices, the Router module receives the message and begins orchestrating the routing of the message.
+* **Receive messages from downstream devices:** as messages arrive to the IoT Edge device from downstream devices, the Router module receives the message and begins orchestrating the routing of the message.
 * **Send messages to the RUL Classifier module:** when a new message is received from a downstream device, the Router module transforms the message to the format that the RUL Classifier expects. The Router sends the message to the RUL Classifier for a RUL prediction. Once the classifier has made a prediction, it sends the message back to the Router module.
 * **Send RUL messages to IoT Hub:** when the Router receives messages from the classifier, it transforms the message to contain only the essential information, device ID and RUL, and sends the abbreviated message to the IoT hub. A further refinement, which we have not done here, would send messages to the IoT Hub only when the RUL prediction falls below a threshold (for example, when the RUL is fewer than 100 cycles). Filtering in this way would reduce volume of messages and reduce cost of the IoT hub.
 * **Send message to the Avro Writer module:** to preserve all the data sent by the downstream device, the Router module sends the entire message received from the classifier to the Avro Writer module, which will persist and upload the data using IoT Hub file upload.
@@ -235,7 +235,7 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromClassifier, ClassifierCallbackMessageHandler, ioTHubModuleClient);
    ```
 
-2. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. In the *deployment.template.json* file, add a route that tells the edge hub to route any message received by the IoT Edge device that was not sent by an IoT Edge module into the input called "deviceInput" on the turbofanRouter module:
+2. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any downstream device to this input. In the *deployment.template.json* file, add a route that tells the edge hub to route any message received by the IoT Edge device that was not sent by an IoT Edge module into the input called "deviceInput" on the turbofanRouter module:
 
    ```json
    "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")"
@@ -347,7 +347,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
    ssh -l <user>@<vm name>.<region>.cloudapp.azure.com
    ```
 
-1. After logging in, create the directory that will hold the saved leaf device messages.
+1. After logging in, create the directory that will hold the saved downstream device messages.
 
    ```bash
    sudo mkdir -p /data/avrofiles
@@ -583,7 +583,7 @@ By introducing the IoT Edge device and modules to the system, we have changed ou
 
 ### Set up route for RUL messages in IoT Hub
 
-With the router and classifier in place, we expect to receive regular messages containing only the device ID and the RUL prediction for the device. We want to route the RUL data to its own storage location where we can monitor the status of the devices, build reports and fire alerts as needed. At the same time, we want any device data that is still being sent directly by a leaf device that has not yet been attached to our IoT Edge device to continue to route to the current storage location.
+With the router and classifier in place, we expect to receive regular messages containing only the device ID and the RUL prediction for the device. We want to route the RUL data to its own storage location where we can monitor the status of the devices, build reports and fire alerts as needed. At the same time, we want any device data that is still being sent directly by a downstream device that has not yet been attached to our IoT Edge device to continue to route to the current storage location.
 
 #### Create a RUL message route
 

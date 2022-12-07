@@ -35,5 +35,4 @@ A client can use the connection string to connect to the Service Bus namespace. 
 
     You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string. 
 
-
 ---

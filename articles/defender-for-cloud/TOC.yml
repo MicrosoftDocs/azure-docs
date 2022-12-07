@@ -134,8 +134,6 @@
       - name: Automate connector deployment
         displayName: rest api
         href: plan-multicloud-security-automate-connector-deployment.md
-      - name: Other resources
-        href: plan-multicloud-security-other-resources.md
   - name: Improve your cloud security posture
     items:
       - name: Policies, initiatives, and recommendations
@@ -168,6 +166,25 @@
       - name: Reference list of attack paths and cloud security graph components
         displayName: attack, paths, security, graph, components
         href: attack-path-reference.md
+  - name: Protect servers
+    items:
+    - name: Plan Defender for Servers deployment
+      items:
+      - name: Get started
+        displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
+        href: plan-defender-for-servers.md
+      - name: Review data residency, workspace design 
+        href: plan-defender-for-servers-data-workspace.md
+      - name: Determine roles and access
+        href: plan-defender-for-servers-roles.md
+      - name: Select a plan
+        href: plan-defender-for-servers-select-plan.md
+      - name: Review agents and extensions
+        href: plan-defender-for-servers-agents.md
+      - name: Scale Defender for Servers deployment
+        href: plan-defender-for-servers-scale.md
+      - name: Common questions
+        href: faq-defender-for-servers.yml
   - name: Protect cloud workloads
     items:
     - name: Agentless scanning
@@ -327,9 +344,6 @@
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
-    - name: Overview
-      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
-      href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
@@ -338,7 +352,7 @@
       - name: Find vulnerabilities and software inventory with agentless scanning
         displayName: vulnerability, software inventory, agentless scanning
         href: enable-vulnerability-assessment-agentless.md
-      - name: Find vulnerabilities with threat and vulnerability management
+      - name: Find vulnerabilities with Microsoft Defender Vulnerability Management
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
       - name: Find vulnerabilities with the integrated Qualys scanner
@@ -611,7 +625,9 @@
     - name: Cloud security explorer and attack path analysis
       href: episode-twenty.md
     - name: Latest updates in the regulatory compliance dashboard
-      href: episode-twenty-one.md  
+      href: episode-twenty-one.md
+    - name: Defender EASM
+      href: episode-twenty-two.md 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

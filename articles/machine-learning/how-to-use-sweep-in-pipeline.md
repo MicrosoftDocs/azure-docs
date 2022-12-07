@@ -54,7 +54,7 @@ Below code snippet is the source code of trial component.
 
 ### Python SDK
 
-The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep* to check the example.
+The Python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep* to check the example.
 
 In Azure Machine Learning Python SDK v2, you can enable hyperparameter tuning for any command component by calling `.sweep()` method.
 
@@ -88,4 +88,4 @@ If a child jobs failed, select the name of that child job to enter detail page o
 ## Next steps
 
 - [Track an experiment](how-to-log-view-metrics.md)
-- [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a trained model](how-to-deploy-online-endpoints.md)
