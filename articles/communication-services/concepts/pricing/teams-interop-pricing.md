@@ -87,7 +87,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - One participant (Bob) x three chat messages x $0.0008 = $0.0024.
 - One participant (Alice) x five chat messages x $0.000  = $0.0*.
 
-*her Microsoft 365 license covers the participation. For your convenience, the Azure invoice will show the number of minutes and chat messages that Teams users had with Communication Services users, but those minutes and messages originating from the Teams client won't be charged.
+*Her Microsoft 365 license covers the participation. For your convenience, the Azure invoice will show the number of minutes and chat messages that Teams users had with Communication Services users, but those minutes and messages originating from the Teams client won't be charged.
 
 **Total cost for a visit**:
 - User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
@@ -109,7 +109,7 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 - One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
 - One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
 
-*his Microsoft 365 license covers the participation.
+*His Microsoft 365 license covers the participation.
 
 **Total cost of the visit**:
 - Teams cost for a user joining using the Communication Services JavaScript SDK: 25 minutes from Teams minute pool
