@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 12/07/2022
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
@@ -16,11 +16,11 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 When an application transfers data using the Azure Storage client library for .NET, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app will run in.
 
-This article walks through several considerations and best practices to tune data transfer options. This guidance applies to any API that accepts `StorageTransferOptions` as a parameter. When properly tuned, the client library can efficiently distribute data across multiple requests, which can result in improved operation speed, memory usage, and network stability.
+This article walks through several considerations for tuning data transfer options, and the guidance applies to any API that accepts `StorageTransferOptions` as a parameter. When properly tuned, the client library can efficiently distribute data across multiple requests, which can result in improved operation speed, memory usage, and network stability.
 
 ## Performance tuning with StorageTransferOptions
 
-Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in this struct. The maximum supported transfer size varies by REST API and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in an instance of this struct. The maximum supported transfer size varies by REST API and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 The following properties of `StorageTransferOptions` can be tuned based on the needs of your app:
 
@@ -35,7 +35,7 @@ The following properties of `StorageTransferOptions` can be tuned based on the n
 
 [InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. This initial service request attempts to transfer the number of bytes specified by the value in `InitialTransferSize`. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
-It's important to note that `MaximumTransferSize` *doesn't* limit the value you define for `InitialTransferSize`. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
+It's important to note that `MaximumTransferSize` *does not* limit the value you define for `InitialTransferSize`. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
@@ -49,13 +49,15 @@ The effectiveness of this value is subject to connection pool limits in .NET, wh
 
 #### MaximumTransferSize
 
-[MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *doesn't* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+[MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *does not* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. 
+
+To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 #### Code example
 
-The client library includes overloads for the `Upload` and `UploadAsync` methods, which accept `StorageTransferOptions` as part of a `BlobUploadOptions` parameter. Similar overloads also exist for the `DownloadTo` and `DownloadToAsync` methods, using a `BlobDownloadToOptions` parameter.
+The client library includes overloads for the `Upload` and `UploadAsync` methods, which accept [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) as part of a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) parameter. Similar overloads also exist for the `DownloadTo` and `DownloadToAsync` methods, using a [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadoptions) parameter.
 
-The following code example shows how to define values for `StorageTransferOptions` and pass these configuration options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you'll want to consider the specific needs of your app.
+The following code example shows how to define values for a `StorageTransferOptions` instance and pass these configuration options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you'll need to consider the specific needs of your app.
 
 ```csharp
 // Specify the StorageTransferOptions
@@ -78,11 +80,11 @@ BlobUploadOptions options = new BlobUploadOptions
 await blobClient.UploadAsync(localFilePath, options);
 ```
 
-In this example, the initial range request will attempt to upload 8 MiB of data. If the blob size is smaller than 8 MiB, the operation is complete, and only a single request is necessary. If the blob size is larger than 8 MiB, all subsequent transfer requests will have a maximum size of 4 MiB.
+In this example, the initial range request will attempt to upload 8 MiB of data. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests will have a maximum size of 4 MiB.
 
-## Uploads
+## Performance considerations for uploads
 
-During an upload, the Storage client libraries will split a given upload stream into multiple subuploads based on the values defined in `StorageTransferOptions`. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object or `BlockBlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). For a `DataLakeFileClient` object, this operation is [Append Data](/rest/api/storageservices/datalakestoragegen2/path/update). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
+During an upload, the Storage client libraries will split a given upload stream into multiple subuploads based on the values defined in the `StorageTransferOptions` instance. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object or `BlockBlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). For a `DataLakeFileClient` object, this operation is [Append Data](/rest/api/storageservices/datalakestoragegen2/path/update). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
 
 > [!NOTE]
 > Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `MaximumTransferSize`.
@@ -99,9 +101,9 @@ To avoid this buffering behavior during an asynchronous upload call, you must pr
 
 When a seekable stream is provided for upload, the stream length will be checked against the value of `InitialTransferSize`. If the stream length is less than this value, the entire stream will be uploaded as a single REST call, regardless of other `StorageTransferOptions` values. Otherwise, upload will be done in multiple parts as described earlier. `InitialTransferSize` has no effect on a non-seekable stream and will be ignored.
 
-## Downloads
+## Performance considerations for downloads
 
-During a download, the Storage client libraries will split a given download request into multiple subdownloads based on the values defined in `StorageTransferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
+During a download, the Storage client libraries will split a given download request into multiple subdownloads based on the values defined in the `StorageTransferOptions` instance. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
 
 ### Buffering during downloads
 
