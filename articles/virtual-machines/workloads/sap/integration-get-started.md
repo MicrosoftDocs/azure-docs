@@ -34,7 +34,7 @@ The Azure Friday session above gave you a glimpse into the world of combining SA
 
 In the SAP integration documentation space, you can find the following areas:
 
-- **Integration with SAP RISE managed workloads**: Learn how to [integrate your SAP RISE managed workloads](./sap-rise-integration#sap-btp-connectivity.md) with Azure services.
+- **Integration with SAP RISE managed workloads**: Learn how to [integrate your SAP RISE managed workloads](./sap-rise-integration.md#sap-btp-connectivity.md) with Azure services.
 - **Microsoft Office**: Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more.
 - **Microsoft Teams**: Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams.
 - **Microsoft Power Platform**: Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json) enabling your business users to achieve more with less.
