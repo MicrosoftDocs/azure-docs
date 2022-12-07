@@ -46,6 +46,8 @@ The public preview of using Private Link with Azure Virtual Desktop has the foll
 
 - You'll need to [re-register your resource provider](private-link-setup.md#re-register-your-resource-provider) in order to use Private Link.
 
+- Manual approval flows don't currently work in the public preview version of Private Link. We're aware of this issue and are currently working on fixing it.
+
 - All Azure Virtual Desktop clients are compatible with Private Link, but we currently only offer troubleshooting support for the web client version of Private Link.
 
 - A private endpoint to the global sub-resource of any workspace controls the shared FQDN for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint.
