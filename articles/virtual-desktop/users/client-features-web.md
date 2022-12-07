@@ -43,21 +43,21 @@ A new user interface is available in preview for you to try. To enable the new u
 
 1. Toggle **Try the new client (Preview)** to **On**. To revert to the original user interface, toggle this to **Off**.
 
-### List view (preview)
+### Grid view and list view (preview)
 
-You can change the view of remote resources assigned to you from grid view (default) to list view. To enable list view:
+You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
 
 1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**.
 
-1. In the top-right hand corner, select the **List View** icon. The change will take effect immediately.
+1. In the top-right hand corner, select **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
-### Dark mode (preview)
+### Light mode and dark mode (preview)
 
-You can enable dark mode to reduce the amount of light. To enable dark mode:
+You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
 1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
 
-1. Toggle **Dark Mode** to **On**. The change will take effect immediately.
+1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
 ## Input methods
 
