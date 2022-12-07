@@ -107,7 +107,7 @@ You'll use the following .NET classes to interact with these resources:
 - [Get an item](#get-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``cosmicworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 For this sample code, the container will use the category as a logical partition key.
 
@@ -125,7 +125,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authenticate to Cosmos DB for NoSQL using DefaultAzureCredential by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -133,7 +133,7 @@ dotnet add package Azure.Identity
 
 From the project directory, open the `Program.cs` file. In your editor, add using directives for the ``Microsoft.Azure.Cosmos`` and `Azure.Identity` namespaces.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="using_directives":::
 
 Define a new instance of the ``CosmosClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariable) to read the `COSMOS_ENDPOINT` environment variable you created earlier.
 

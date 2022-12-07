@@ -52,9 +52,10 @@ Finally, assign the custom role you created to your user account using the `az c
 
 ```azurecli
 az cosmosdb sql role assignment create 
-    --account-name <your-cosmos-account-name>
-    --resource-group <your-cosmos-resource-group
-    --scope "/" --principal-id <your-user-id>
+    --account-name msdocs-cosmos-nosql
+    --resource-group msdocs
+    --scope "/" 
+    --principal-id <your-user-id>
     --role-definition-id <your-custom-role-id> 
 ```
 
