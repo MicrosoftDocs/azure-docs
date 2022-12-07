@@ -116,7 +116,7 @@ Verify that you can access the console web GUI:
 
 1. Verify that the GUI network is connected to the management port.
 
-1. Ping the appliance's IP address. If there is no ping:
+1. Ping the appliance's IP address. If there's no ping:
 
    1. Connect a monitor and a keyboard to the appliance.
 
@@ -157,10 +157,9 @@ Verify that you can access the console web GUI:
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 
+### Investigate password failure at initial sign-in
 
-### Investigate password failure at initial sign in
-
-When signing into a preconfigured sensor for the first time, you'll need to perform password recovery as follows:
+When signing into a pre-configured sensor for the first time, you'll need to perform password recovery as follows:
 
 1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
@@ -172,7 +171,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
     :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover on-premises management console password option.":::
 
-1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded. Do not extract or modify the zip file.
+1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded. Don't extract or modify the zip file.
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of the Recover dialog box.":::
 
@@ -205,7 +204,7 @@ When a new sensor is deployed or a sensor is working slowly or not showing any a
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
-1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
+1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert hasn't been handled yet, the sensor console does not show a new alert.
 1. Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console.
 
 ### Investigate dashboard that shows no data
@@ -349,7 +348,7 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-CM.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the in-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-CM.png":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
 
 1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
