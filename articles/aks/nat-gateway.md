@@ -15,14 +15,14 @@ This article shows you how to create an AKS cluster with a Managed NAT Gateway f
 
 ## Before you begin
 
-To use Managed NAT gateway, you must have the following:
+To use Managed NAT gateway, you must have the following prerequisites:
 
 * The latest version of [Azure CLI][az-cli]
 * Kubernetes version 1.20.x or above
 
 ## Create an AKS cluster with a Managed NAT Gateway
 
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
 
 To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
@@ -138,7 +138,7 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
 
 * **Unhealthy backend status**: When you deploy an AKS cluster with [Application Gateway Ingress Control (AGIC)][agic] and [Application Gateway][app-gw] in different VNets, the backend health status becomes "Unhealthy." The outbound connectivity fails because the peered networked IP isn't present in the CNI config of the Windows nodes.
-* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP. This can cause an unstable connection to the external service due a port exhaustion issue.
+* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP, which can cause an unstable connection to the external service due a port exhaustion issue.
 * **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
 
 Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
@@ -216,4 +216,4 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [agic]: ../application-gateway/ingress-controller-overview.md
 [app-gw]: ../application-gateway/overview.md
 [upgrade-kubernetes]:tutorial-kubernetes-upgrade-cluster.md
-[aks-upgrade]: /cli/azure/aks?view=azure-cli-latest#az-aks-update
+[aks-upgrade]: /cli/azure/aks#az-aks-update
