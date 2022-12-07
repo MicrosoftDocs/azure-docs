@@ -41,7 +41,7 @@ To enable service accounts, start by enabling API keys. API keys are disabled by
 Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
 
 ```azurecli-interactive
-az grafana update --name <azure-managed-grafana-name> --api-keys Enabled
+az grafana update --name <azure-managed-grafana-name> --api-key Enabled
 ```
 
 ---
@@ -171,12 +171,13 @@ The notification *Service account updated* is instantly displayed.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Edit the name or the role of a service account with `az grafana service-account update`. Replace the placeholders `<azure-managed-grafana-name>`, and `<service-account-name>` with your own information and use one or several of the following parameters:
+Edit a service account with `az grafana service-account update`. Replace the placeholders `<azure-managed-grafana-name>`, and `<service-account-name>` with your own information and use one or several of the following parameters:
 
-| Parameter        | Description                                                                                                                                                                                                                     | Example |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `--name`         | Enter another name for your service account.                                                                                                                                                                                                                            |         |
-| `--role`         | Enter another role for your service account. Available roles: `Admin`, `Editor`, `Viewer`.                                                                                                                                                                                                                       |         |
+| Parameter       | Description                                                                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------|
+| `--is-disabled` | Enter `--is-disabled true` disable a service account, or `--is-disabled false` to enable a service account. |
+| `--name`        | Enter another name for your service account.                                                                |
+| `--role`        | Enter another role for your service account. Available roles: `Admin`, `Editor`, `Viewer`.                  |
 
 ```azurecli-interactive
 az grafana service-account update --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role> --enabled false
