@@ -46,7 +46,9 @@ The following diagram outlines the basic steps of the MedTech service deployment
 
 ## Next steps
 
-In this article, you learned about the different types of deployment methods for the MedTech service. To learn more about the MedTech service, see
+In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
+
+To learn more about the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](iot-connector-overview.md)
