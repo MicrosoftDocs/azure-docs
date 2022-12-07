@@ -66,7 +66,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 ::: moniker range="form-recog-3.0.0"
 
-## Custom model usage v3.0
+## Custom model usage
 
 > [!div class="checklist"]
 >
@@ -93,7 +93,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 ::: moniker range="form-recog-2.1.0"
 
-## Custom model usage v2.1
+## Custom model limits
 
 > [!div class="checklist"]
 >
