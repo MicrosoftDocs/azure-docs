@@ -27,7 +27,7 @@ recommendations: false
 
 * This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-## Model usage 
+## Model usuage
 
 > [!div class="checklist"]
 >
@@ -55,7 +55,7 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-## Custom model limits
+## Custom model usuage
 
 |Quota|Free (F0) <sup>1</sup>|Standard (S0)|
 |--|--|--|
@@ -93,7 +93,7 @@ recommendations: false
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
-> <sup>3</sup> Open a support request to increase the monthly training limit.</br>
+> <sup>3</sup> Open a support request to increase the monthly training limit.
 ::: moniker-end
 ::: moniker range="form-recog-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
