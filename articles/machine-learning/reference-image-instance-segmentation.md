@@ -25,7 +25,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 
 ## YAML syntax
 
-For information on all the keys in Yaml syntax, see [Yaml syntax](./automl-ref-image-classification.md#yaml-syntax) of image classification task. Here we only describe the keys that have different values as compared to what's specified for image classification task.
+For information on all the keys in Yaml syntax, see [Yaml syntax](./reference-image-classification.md#yaml-syntax) of image classification task. Here we only describe the keys that have different values as compared to what's specified for image classification task.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
