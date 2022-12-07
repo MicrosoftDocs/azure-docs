@@ -20,6 +20,16 @@ To get a first impression about the limitless opportunities of extending SAP app
 
 [!VIDEO https://www.youtube.com/embed/72kbjv0GJAY]
 
+## The partnership between both companies dates back many decades
+
+The Azure Friday session above gave you a glimpse into the world of combining SAP and Microsoft.  We are looking back at 30+ years of partnership between both companies which is the foundation to support common goals long term. See below what is current top of mind in that area.
+
+| Description | Source |
+| ----------- | ----------- |
+| Press release which covers the [joint commitment by the companies](https://news.sap.com/2019/10/sap-microsoft-partnership-cloud-migration-offerings/) to simplify and streamline customers’ journeys to the cloud | [SAP and Microsoft Partnership Expands - SAP News Center](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/) |
+| Overview about Microsoft and SAP partnering to meet the needs of every business | [Come Explore the Future (sap.com)](https://www.sap.com/dmc/exp/2020-09-sap-microsoft-immersive-experience/index.html#/) |
+| How SAP and Microsoft are working together to accelerate customer innovation and transformation | [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html) |
+
 ## Overview
 
 In the SAP integration documentation space, you can find the following areas:
@@ -35,6 +45,21 @@ In the SAP integration documentation space, you can find the following areas:
 - **Azure Data Services**: Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more.
 - **Threat Monitoring with Microsoft Sentinel for SAP**: Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time.
 - **SAP Business Technology Platform (BTP)**: Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads.
+
+## Free developer accounts
+
+| Description | Account |
+| ----------- | ----------- |
+| **Azure Free Trial**, useful in the context of configuring Azure AD for development purposes | [Azure Free Trial](https://azure.microsoft.com/free/) |
+| **SAP BTP on Azure Trial Account**, select Singapore for Azure | [BTP (🚀 on Azure 🚀) Trial Account](https://developers.sap.com/tutorials/hcp-create-trial-account.html) |
+| **M365** Developer Program | [Developer Program \| Microsoft 365 Dev Center](https://developer.microsoft.com/microsoft-365/dev-program) |
+| Public **GitHub** account to host your projects | [GitHub account](https://github.com/) |
+
+## Customer Engagement Initiatives (CEI), public BETAs, Customer Influence programs
+
+* [Inviting you: Register soon to explore your event-driven pathway between SAP and Microsoft Azure | SAP Blogs](https://blogs.sap.com/2021/10/08/inviting-you-register-soon-to-explore-your-event-driven-pathway-between-sap-and-microsoft-azure/)
+* [SAP Private Link Service GA announcement after public Beta | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
+* [SAP Private Link service CEI - Jul 22 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
 ## Recommended content
 
