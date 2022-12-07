@@ -32,8 +32,8 @@ To complete this tutorial:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
-    - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
-    - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+    - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
+    - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
 
 ## Set up the app locally
 
@@ -335,7 +335,7 @@ ENTRYPOINT ["init.sh"]
 
 ## I. Create a user-assigned managed identity
 
-App Service can either use a default managed identity or a user-assigned managed identity to authenticate with a container registry. In this tutorial, you will use a user-assigned managed identity.
+App Service can either use a default managed identity or a user-assigned managed identity to authenticate with a container registry. In this tutorial, you'll use a user-assigned managed identity.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -371,7 +371,7 @@ App Service can either use a default managed identity or a user-assigned managed
     :::column span="2":::
         **I.B.** In the create wizard:
         1. In **Subscription**, select the subscription you want to create your resources in.
-        1. In **Resource group**, click **Create new**, type the name *msdocs-custom-container-tutorial* for the resource group, then type **OK**.
+        1. In **Resource group**, select **Create new**, type the name *msdocs-custom-container-tutorial* for the resource group, then type **OK**.
         1. In **Region**, select **West Europe**, or a region near you.
         1. In **Name**, type **myID**.
     :::column-end:::
@@ -382,8 +382,8 @@ App Service can either use a default managed identity or a user-assigned managed
 :::row:::
     :::column span="2":::
         **I.C.**
-        1. Click the **Review + create** tab.
-        1. Click **Create**.
+        1. Select the **Review + create** tab.
+        1. Select **Create**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="A screenshot showing how to complete managed identity create in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
@@ -391,7 +391,7 @@ App Service can either use a default managed identity or a user-assigned managed
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **I.D.** When the creation of the identity is complete, you can open its management page by clicking **Go to resource**.
+        **I.D.** When the creation of the identity is complete, you can open its management page by selecting **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png" alt-text="A screenshot showing how to open the management page of the new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png":::
@@ -450,8 +450,8 @@ App Service can either use a default managed identity or a user-assigned managed
 :::row:::
     :::column span="2":::
         **II.C.**
-        1. Click the **Review + create** tab.
-        1. Click **Create**.
+        1. Select the **Review + create** tab.
+        1. Select **Create**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png" alt-text="A screenshot showing how to complete container registry creation in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png":::
@@ -459,7 +459,7 @@ App Service can either use a default managed identity or a user-assigned managed
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **II.D.** When the creation of the container registry is complete, open its management page by clicking **Go to resource**.
+        **II.D.** When the creation of the container registry is complete, open its management page by selecting **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png" alt-text="A screenshot showing how to open the management page of the new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png":::
@@ -493,7 +493,7 @@ In this section, you push the image to Azure Container Registry, which will be u
 
     You use the same registry name in all the remaining steps of this section.
 
-1. When the log in is successful, tag your local Docker image to the registry:
+1. When the sign-in is successful, tag your local Docker image to the registry:
 
     ```bash
     docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -542,7 +542,7 @@ The managed identity you created doesn't have authorization to pull from the con
         1. Select **Add role assignment**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="A screenshot showing how to enable add a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="A screenshot showing how to enable adding a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -633,7 +633,7 @@ The managed identity you created doesn't have authorization to pull from the con
         1. In **Publish**, select **Docker Container**.
         1. In **Operating System**, select **Linux**.
         1. In **Region**, select **West Europe**, or a region near you.
-        1. In **Linux Plan (West Europe)**, click **Create new**, type a plan name, and select **OK**.
+        1. In **Linux Plan (West Europe)**, select **Create new**, type a plan name, and select **OK**.
         1. In **Pricing plan**, select **Change size**.
     :::column-end:::
     :::column:::
@@ -667,8 +667,8 @@ The managed identity you created doesn't have authorization to pull from the con
 :::row:::
     :::column span="2":::
         **V.E.**
-        1. Click the **Review + create** tab.
-        1. Click **Create**.
+        1. Select the **Review + create** tab.
+        1. Select **Create**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-5.png" alt-text="A screenshot showing how to complete web app creation in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-5.png":::
@@ -676,7 +676,7 @@ The managed identity you created doesn't have authorization to pull from the con
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **V.F.** When the creation of the web app is complete, you can open its management page by clicking **Go to resource**.
+        **V.F.** When the creation of the web app is complete, you can open its management page by selecting **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-6.png" alt-text="A screenshot showing how to open the management page of the new web app." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-6.png":::
@@ -691,7 +691,7 @@ In this step, you configure the web app as follows:
 
 - The sample container is listening on port 8000 for web requests, and you configure the app to send requests to port 8000. 
 - Tell your app to use the managed identity to pull images from your container registry.
-- Configure continuous deployment from the container registry (or, every image push to the registry will trigger your app to pull the new image). This part is not needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
+- Configure continuous deployment from the container registry (or, every image push to the registry will trigger your app to pull the new image). This part isn't needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -723,7 +723,7 @@ In this step, you configure the web app as follows:
 
     Replace `<app-name>` with the name you used in the previous step.
 
-1. Set the client ID your web app uses to pull from Azure Container Registry. This step is not needed if you use the system-assigned managed identity.
+1. Set the client ID your web app uses to pull from Azure Container Registry. This step isn't needed if you use the system-assigned managed identity.
     
     ```azurecli-interactive
     clientId=$(az identity show --resource-group msdocs-custom-container-tutorial --name myID --query clientId --output tsv)
@@ -744,7 +744,7 @@ In this step, you configure the web app as follows:
     az acr webhook create --name appserviceCD --registry <registry-name> --uri $cicdUrl --actions push --scope appsvc-tutorial-custom-image:latest
     ```
 
-1. To test if your webhook is configured properly, ping the webhook and see if you get a 200 OK response.
+1. To test if your webhook is configured properly, ping the webhook, and see if you get a 200 OK response.
 
     ```azurecli-interactive
     eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
@@ -846,7 +846,7 @@ To test the app, browse to `https://<app-name>.azurewebsites.net`, replacing `<a
 
 On first access, it might take some time for the app to respond because App Service must pull the entire image from the registry. If the browser times out, just refresh the page. Once the initial image is pulled, subsequent tests will run much faster.
 
-:::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt-text="Successful test of the web app on Azure.":::
+:::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt-text="A screenshot of the browser showing web app running successfully in Azure.":::
 
 ## VIII. Access diagnostic logs
 
@@ -946,7 +946,7 @@ SSH enables secure communication between a container and a client. To enable SSH
 
 ### Configure the container for SSH
 
-The sample app used in this tutorial already has the necessary configuration in the *Dockerfile*, which installs the SSH server and also sets the login credentials. This section is informational only. To connect to the container, skip to the next section.
+The sample app used in this tutorial already has the necessary configuration in the *Dockerfile*, which installs the SSH server and also sets the sign-in credentials. This section is informational only. To connect to the container, skip to the next section.
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"
@@ -1004,7 +1004,7 @@ service ssh start
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **X.B.** The SSH session is opened in a new browser tab. Wait for the status bar at the bottom to show a green `SSH CONNECTION ESTABLISHED`. You can then run commands from within the container. Note that configuration changes made to your container aren't persisted across app restarts.
+        **X.B.** The SSH session is opened in a new browser tab. Wait for the status bar at the bottom to show a green `SSH CONNECTION ESTABLISHED`. You can then run commands from within the container. Configuration changes made to your container aren't persisted across app restarts.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png" alt-text="A screenshot showing an SSH session with a custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png":::
