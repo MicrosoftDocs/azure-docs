@@ -47,7 +47,7 @@ The following architecture diagram shows the implementation.
 
 1. User arrives at a sign-in page and selects sign-in or sign-up. User enters username.
 2. The application sends the user attributes to Azure AD B2C for identify verification.
-3. Azure AD B2C sends user attributes to HYPR to authenticate the user through the HYPR mobile app
+3. Azure AD B2C sends user attributes to HYPR to authenticate the user through the HYPR mobile app.
 4. HYPR sends a push notification to the registered user mobile device for a Fast Identity Online (FIDO) certified authentication. It can be a user fingerprint, biometric, or decentralized PIN. 
 5. After user acknowledges the push notification, user is granted or denied access to the customer application.
 
@@ -63,7 +63,7 @@ The following architecture diagram shows the implementation.
 ## Test the user flow
 
 1. Open the Azure AD B2C tenant.
-2. Under **Policies** select **Identity Experience Framework**.
+2. Under **Policies**, select **Identity Experience Framework**.
 3. Select the **SignUpSignIn** you created.
 4. Select **Run user flow**.
 5. For **Application**, select the registered app (sample is JWT).
