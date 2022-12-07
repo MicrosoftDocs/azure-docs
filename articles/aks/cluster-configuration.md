@@ -4,7 +4,7 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 11/23/2022
+ms.date: 12/06/2022
 ---
 
 # Configure an AKS cluster
@@ -85,7 +85,7 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 > [!IMPORTANT]
 > When you don't explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
 
-If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure VM documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
+If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. Size requirements and recommendations for VM cache are available in the [Azure VM documentation](../virtual-machines/ephemeral-os-disks.md).
 
 If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you'll receive a validation error.
 
@@ -109,7 +109,7 @@ Configure the cluster to use Ephemeral OS disks when the cluster is created. Use
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as per below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as described below.
 
 ### Use Ephemeral OS on existing clusters
 
@@ -362,7 +362,7 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 
 ## OIDC Issuer
 
-You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys.
+You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys. The maximum lifetime of the token issued by the OIDC provider is 1 day.
 
 > [!WARNING]
 > Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.

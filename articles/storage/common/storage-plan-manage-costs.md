@@ -31,9 +31,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
    ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
+   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options effect the price of storage-related operations.
 
-4. Modify the remaining options to see their affect on your estimate.
+4. Modify the remaining options to see their effect on your estimate.
 
    > [!TIP]
    > - To view an Excel template which can help you to itemize the amount of storage and number of operations required by your workloads, see [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/). 
@@ -159,7 +159,7 @@ You can add other filters as well (For example: a filter to see costs for specif
 
 ## Export cost data
 
-You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## FAQ
 
@@ -170,6 +170,7 @@ Storage capacity is billed in units of the average daily amount of data stored, 
 ## Next steps
 
 - Learn more on how pricing works with Azure Storage. See [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
+- Understanding how your blobs and containers are stored, organized, and used in production so that you better optimize the tradeoffs between cost and performance. See [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md).
 - [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
