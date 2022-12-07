@@ -4,13 +4,12 @@ titleSuffix: Azure AD B2C
 description: In this tutorial, you configure Azure Active Directory B2C with Jumio for automated ID verification, safeguarding customer data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/7/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
