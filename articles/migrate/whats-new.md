@@ -18,11 +18,11 @@ ms.custom: mvc
 
 Key highlights:
 
-    - On-premises vs Azure total cost of ownership.
-    - Year on year cashflow analysis.
-    - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
-    - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
-    - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+- On-premises vs Azure total cost of ownership.
+- Year on year cashflow analysis.
+- Resource utilization based insights to identify servers and workloads that are ideal for cloud.
+- Quick wins for migration and modernization including end of support Windows OS and SQL versions.
+- Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
 
 ## Update (November 2022)
 
