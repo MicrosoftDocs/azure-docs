@@ -118,16 +118,16 @@ Start by importing the SAP on Azure Deployment Automation Framework GitHub repos
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation-bootstrap.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP on Azure Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the repository manually, and then import the content from the SAP on Azure Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
 > [!NOTE]
 > Only do this step if you are unable to import the repository directly.
 
-Create the 'sap-automation' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button.
+Create the 'workspaces' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button.
 
-Choose the repository type 'Git' and provide a name for the repository, for example 'sap-automation'.
+Choose the repository type 'Git' and provide a name for the repository, for example 'SAP Configuration Repository'.
 ### Cloning the repository
 
 In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally.
@@ -139,7 +139,7 @@ Clone the repository to a local folder by clicking the  _Clone_ button in the Fi
 
 You can also download the content from the SAP on Azure Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
 
-Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_.
+Navigate to 'https://github.com/Azure/SAP-automation-samples' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_.
 
 Copy the content from the zip file to the root folder of your local clone.
 
@@ -149,17 +149,34 @@ Open the local folder in Visual Studio code, you should see that there are chang
 
 Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
-### Create configuration root folder
+### Choosing the source for the Terraform and Ansible code
 
-> [!IMPORTANT]
-   > In order to ensure that your configuration files are not overwritten by changes in the SAP on Azure Deployment Automation Framework, store them in a separate folder hierarchy.
+You can either run the SDAF code directly from GitHub or you can import it locally.
+#### Running the code from a local repository 
+
+If you want to run the SDAF code from the local Azure DevOps project you need to create a separate code repository and a configuration repository in the Azure DevOps project.
+
+Name of code repository: 'sap-automation', source: 'https://github.com/Azure/sap-automation.git'
+
+Name of sample and template repository: 'sap-samples', source: 'https://github.com/Azure/sap-automation-samples.git'
+
+#### Running the code directly from Github
+If you want to run the code directly from GitHub you need to provide credentials for Azure DevOps to be able to pull the content from Github
+#### Creating the Github Service connection
+
+To pull the code from Github, you need an Github service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
+
+To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
+
+:::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
+
+Choose _Github_ as the service connection type. Choose 'Azure Pipelines' in the OAuth Configuration drop down.
+
+Click 'Authorize' to logon to GitHub.
+ 
+Enter a Service connection name, for instance 'SDAF Connection to GitHub' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Save_ to save the service connection.
 
 
-Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP on Azure Deployment Automation Framework.
-
-Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you created, this will allow you to experiment with sample deployments.
-
-Push the changes back to the repository by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
 ## Set up the web app
 
@@ -206,7 +223,7 @@ Create the control plane deployment pipeline by choosing _New Pipeline_ from the
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/01-deploy-control-plane.yaml` |
+| Path    | `deploy/pipelines/01-deploy-control-plane.yml`  |
 | Name    | Control plane deployment                        |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -218,7 +235,7 @@ Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipeli
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
 | Branch  | main                                         |
-| Path    | `deploy/pipelines/02-sap-workload-zone.yaml` |
+| Path    | `deploy/pipelines/02-sap-workload-zone.yml`  |
 | Name    | SAP workload zone deployment                 |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP workload zone deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -230,7 +247,7 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
 | Branch  | main                                             |
-| Path    | `deploy/pipelines/03-sap-system-deployment.yaml` |
+| Path    | `deploy/pipelines/03-sap-system-deployment.yml`  |
 | Name    | SAP system deployment (infrastructure)           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -242,7 +259,7 @@ Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
 | Branch  | main                                             |
-| Path    | `deploy/pipelines/04-sap-software-download.yaml` |
+| Path    | `deploy/pipelines/04-sap-software-download.yml`  |
 | Name    | SAP software acquisition                         |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP software acquisition' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -254,7 +271,7 @@ Create the SAP configuration and software installation pipeline by choosing _New
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
 | Branch  | main                                               |
-| Path    | `deploy/pipelines/05-DB-and-SAP-installation.yaml` |
+| Path    | `deploy/pipelines/05-DB-and-SAP-installation.yml`  |
 | Name    | Configuration and SAP installation                 |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -266,7 +283,7 @@ Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipel
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
 | Branch  | main                                         |
-| Path    | `deploy/pipelines/10-remover-terraform.yaml` |
+| Path    | `deploy/pipelines/10-remover-terraform.yml`  |
 | Name    | Deployment removal                           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -278,7 +295,7 @@ Create the control plane deployment removal pipeline by choosing _New Pipeline_ 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/12-remove-control-plane.yaml` |
+| Path    | `deploy/pipelines/12-remove-control-plane.yml`  |
 | Name    | Control plane removal                           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane removal' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -290,7 +307,7 @@ Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the P
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/11-remover-arm-fallback.yaml` |
+| Path    | `deploy/pipelines/11-remover-arm-fallback.yml`  |
 | Name    | Deployment removal using ARM                    |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM processor' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -305,7 +322,7 @@ Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipel
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/20-update-ado-repository.yaml`|
+| Path    | `deploy/pipelines/20-update-ado-repository.yml` |
 | Name    | Repository updater                              |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Repository updater' by choosing 'Rename/Move' from the three-dot menu on the right.
@@ -324,7 +341,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 ## Preparations for self-hosted agent
 
 
-1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
+1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the control plane environment, for example `MGMT-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
 
 1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
 
@@ -365,7 +382,7 @@ s-password="<SAP Support user password>"
 
 az devops login
 
-az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.2.8 --output yaml
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.3.0 --output yaml
 
 ```
 
@@ -381,10 +398,11 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | Variable                        | Value                                                              | Notes                                                    |
 | ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
 | Agent                           | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID                   | 'Service principal application ID'.                                |                                                          |
-| ARM_CLIENT_SECRET               | 'Service principal password'.                                      | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID             | 'Target subscription ID'.                                          |                                                          |
-| ARM_TENANT_ID                   | 'Tenant ID' for the service principal.                             |                                                          |
+| CP_ARM_CLIENT_ID                   | 'Service principal application ID'.                                |                                                          |
+| CP_ARM_OBJECT_ID                   | 'Service principal object ID'.                                |                                                          |
+| CP_ARM_CLIENT_SECRET               | 'Service principal password'.                                      | Change variable type to secret by clicking the lock icon |
+| CP_ARM_SUBSCRIPTION_ID             | 'Target subscription ID'.                                          |                                                          |
+| CP_ARM_TENANT_ID                   | 'Tenant ID' for the service principal.                             |                                                          |
 | AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
 | sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
 | FENCING_SPN_ID                  | 'Service principal application ID' for the fencing agent.          | Required for highly available deployments using a service principal for fencing agent.               |
