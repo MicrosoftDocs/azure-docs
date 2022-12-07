@@ -41,13 +41,13 @@ To get the key or token, use [az ml online-endpoint get-credentials](/cli/azure/
 
 __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
-```Azure CLI
+```azurecli
 ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query primaryKey)
 ```
 
 __Tokens__ will be returned in the `accessToken` field:
 
-```Azure CLI
+```azurecli
 ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
 ```
 
@@ -84,7 +84,7 @@ print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
 
 When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key/token:
 
-```Azure CLI
+```azurecli
 SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scoring_uri)
 
 curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_CRED" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
