@@ -122,21 +122,6 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 After the services restart, you'll see vCenter Server displayed as green on the screen that appears. Both vCenter Server and SSO must have the appropriate configuration parameters, which should be the same as the previous screen. 
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png"::: 
- 
-
-## Uninstall HCX 
-You can uninstall HCX Advanced on cloud side  through the portal, which removes the existing pairing and software.  
->[!NOTE] 
->It could take approximately 30 minutes to return the resources to your private cloud occupied by the HCX virtual appliances.  
-
-1. Make sure you don't have any active migrations in progress. 
-1. Ensure that L2 extensions are no longer needed or the networks have been `unstretched` to the destination.  
-1. For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.   
-1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**. 
-1. Select **Get started** for **HCX Workload Mobility**, then select **Uninstall**. 
-1. Enter **yes** to confirm the uninstall. 
-
-At this point, HCX is no longer has the vCenter Server plugin, and if needed, you can reinstall it at any time. 
 
 ## Next steps 
 Continue to the next tutorial to configure the VMware HCX Connector.  After you've configured the VMware HCX Connector, you'll have a production-ready environment for creating virtual machines (VMs) and migration.  
@@ -147,6 +132,8 @@ Continue to the next tutorial to configure the VMware HCX Connector.  After you'
 >[Configure VMware HCX in Azure VMware Solution](configure-vmware-hcx.md) 
 
 >[VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) 
+
+>[Un-install VMware HCX](un-install-vmware-hcx.md)
 
 
 
