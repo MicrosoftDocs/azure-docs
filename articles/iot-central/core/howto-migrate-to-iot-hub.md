@@ -28,10 +28,15 @@ You need the following prerequisites to complete the device migration steps:
 
 - The source IoT Central application where your devices currently connect.
 - The destination IoT hub where you want to move the devices to. This [IoT hub must be linked to a DPS instance](../../iot-dps/concepts-service.md#linked-iot-hubs).
-- The devices that you want to migrate must implement the **DeviceMove** command. The command payload contains the *ID scope* of the destination DPS instance.
 - [node.js and npm](https://nodejs.org/download/) installed on the local machine where you run the migrator tool.
 
-## Setup
+## Device requirements
+
+The devices that you want to migrate must implement the **DeviceMove** command. The command payload contains the *ID scope* of the destination DPS instance. The migrator tool repository includes an example [DTDL component model](https://raw.githubusercontent.com/Azure/iotc-migrator/main/assets/deviceMigrationComponent.json) that that defines the **DeviceMove** command. You can add this component to your existing device templates.
+
+The tool repository also includes [sample code](https://github.com/Azure/iotc-migrator/tree/main/device_samples) that shows you how a device should implement the **DeviceMove** command.
+
+## Tool setup
 
 Complete the following setup tasks to prepare for the migration:
 
@@ -84,7 +89,7 @@ If your devices use X.509 certificates to authenticate to your IoT Central appli
 
 Download or clone a copy of the migrator tool to your local machine:
 
-```cmd/bash
+```cmd/sh
 git clone https://github.com/Azure/iotc-migrator.git
 ```
 
@@ -105,7 +110,7 @@ Open the *config.ts* file in a text editor. Update the `AADClientID` and `AADDIr
 
 In your command-line environment, navigate to the root of the `iotc-migrator` repository. Then run the following commands to install the required node.js packages and then run the tool:
 
-```cmd/bash
+```cmd/sh
 npm install
 npm start
 ```

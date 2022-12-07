@@ -759,6 +759,6 @@
         "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
         "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
         "redirect_document_id": true
-    }  
+    }
   ]
 }

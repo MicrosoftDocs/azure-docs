@@ -34,7 +34,7 @@ The diagram shows the testing scenario used to validate the Application Gateway 
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the testing scenario used to validate the Application Gateway with Azure VMware Solution web applications."lightbox="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" border="false":::
 
-The Application Gateway instance gets deployed on the hub in a dedicated subnet with an Azure public IP address. Activating the [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Additionally, Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
+The Application Gateway instance gets deployed on the hub in a dedicated subnet with an Azure public IP address. Activating the [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Additionally, Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
 
 ## Prerequisites
 

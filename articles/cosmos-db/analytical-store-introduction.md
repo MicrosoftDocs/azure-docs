@@ -539,8 +539,8 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
- * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
 
 ## Backup
 
@@ -552,10 +552,7 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Continuous backup mode isn't fully supported yet:
-  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
-  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
-  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
+* Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
 
 ### Backup Polices
 

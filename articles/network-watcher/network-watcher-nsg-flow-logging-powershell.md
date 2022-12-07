@@ -6,9 +6,9 @@ author: damendo
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
+ms.date: 12/24/2021
 ms.author: damendo 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Configuring Network Security Group Flow logs with Azure PowerShell
