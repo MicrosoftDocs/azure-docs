@@ -84,11 +84,11 @@ By design, in Hyper-V if maximum memory provisioned is less than what is require
 
 ## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
 
-The assessment now considers processor parameters such as number of operational cores, sockets, etc and calculating it optimal performance over a period in a simulated environment. This is done to benchmark all processors based available processor information. Please re-calculate your assessments to see the updated recommendations.
+The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Re-calculate your assessments to see the updated recommendations.
 
-The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-prem VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
 
-Due to this, the targe Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-prem VMware environment.
+Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware environment.
 
 ## For scenarios where customers choose "as-on-prem", is there any impact due to processor benchmarking?
 
