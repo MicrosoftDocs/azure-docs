@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: ignite-2022
-ms.date: 10/11/2022
+ms.date: 12/06/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
@@ -19,6 +19,10 @@ Serverless SQL pool is a query service over the data in your data lake. It enabl
 
 - A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. To learn more, see the [T-SQL support](#t-sql-support) section.
 - Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. To learn more, see the [Client tools](#client-tools) section.
+ 
+To learn more, see the following video:
+
+> [!VIDEO https://www.youtube.com/watch?v=rDl58M5PyVw]
 
 Serverless SQL pool is a distributed data processing system, built for large-scale data and computational functions. Serverless SQL pool enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving large data sets.
 

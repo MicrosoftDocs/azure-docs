@@ -7,7 +7,7 @@ ms.author: juluczni
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
-ms.date: 05/23/2022
+ms.date: 12/06/2022
 ms.reviewer: euang
 ms.custom: kr2b-contr-experiment
 ---
@@ -17,6 +17,10 @@ ms.custom: kr2b-contr-experiment
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a serverless Apache Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Spark pools to process your data stored in Azure.
 
 ![Diagram shows Spark SQL, Spark MLib, and GraphX linked to the Spark core engine, above a YARN layer over storage services.](./media/apache-spark-overview/spark-overview.png)
+
+To learn more, see the following video:
+
+> [!VIDEO https://www.youtube.com/watch?v=bTdu3PjXN3o]
 
 ## What is Apache Spark
 
