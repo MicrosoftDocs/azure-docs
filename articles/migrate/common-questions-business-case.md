@@ -52,13 +52,13 @@ East Asia, Germany West Central, Japan West, Korea Central, Norway East, and Swi
 
 To verify in an existing project:
 1. You can use the https://portal.azure.com/ URL to get started
-2. In Azure Migrate, Go to Servers, databases and webapps migration goal
-3. On the Azure Migrate: Discovery and assessment tool, click on overview
-4. Under project details, click on Properties.
+2. In Azure Migrate, go to **Servers, databases and webapps** > **Migration goals**.
+3. On the **Azure Migrate: Discovery and assessment** tool, select **Overview**.
+4. Under Project details, select **Properties**.
 5. Check the Project location.
-6. If the project location is one of the below, we’d suggest you wait for a few weeks when we start supporting the feature in the region:
+6. The Business case feature is not supported in the following regions:
 
-koreacentral, eastasia, germanywestcentral, japanwest, norwayeast, switzerlandnorth
+    koreacentral, eastasia, germanywestcentral, japanwest, norwayeast, switzerlandnorth
 
 ### Why can't I change the currency during business case creation?
 Currently, the currency is defaulted to USD. 
