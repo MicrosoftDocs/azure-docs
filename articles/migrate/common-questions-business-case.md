@@ -38,7 +38,7 @@ Business case creates assessments in the background, which could take some time 
 
 Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware environment. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
 
-### Why is the Build business case gesture disabled?
+### Why is the Build business case feature disabled?
 
 The **Build business case** feature will be enabled only when you have discovery performed using an Azure Migrate appliance for servers and workloads in a VMware environment. The Business case feature is not supported for servers and/or workloads discovered only from any of the discovery sources below:
 - Servers and/or SQL Server deployments from Hyper-V environment
