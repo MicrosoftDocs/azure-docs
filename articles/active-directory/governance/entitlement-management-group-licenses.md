@@ -26,7 +26,7 @@ With Azure Active Directory (Azure AD), you can use groups to manage the [licens
 
 In this tutorial, you play the role of an IT administrator for Woodgrove Bank. You're asked to create an access package so employees in your organization can easily gain access to Office licenses. (You should already have a group that manages your [Office licenses](../enterprise-users/licensing-groups-assign.md).) You want to be able to review these group members every year. You also want to allow new employees to request Office licenses, pending manager approval.
  
-To use Microsoft Entra entitlement management, you must have one of these licenses:
+To use entitlement management, you must have one of these licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
