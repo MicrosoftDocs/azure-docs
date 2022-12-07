@@ -39,7 +39,7 @@ recommendations: false
 |Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
 | **Transactions Per Second limit** | 1 | 15 (default value) |
-| Adjustable | No | Yes<sup>2</sup> |
+| Adjustable | No | Yes <sup>2</sup> |
 | **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
 | **Max number of pages (Analysis)** | 2 | 2000 |
@@ -57,13 +57,13 @@ recommendations: false
 
 ## Custom model limits
 
-|Quota|Free (F0)<sup>1</sup>|Standard (S0)|
+|Quota|Free (F0) <sup>1</sup>|Standard (S0)|
 |--|--|--|
 | **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Template** | 50 MB<sup>4</sup> | 50 MB (default value) |
+| **Training dataset size - Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Neural** | 1 GB<sup>3</sup> | 1 GB (default value) |
+| **Training dataset size - Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) - Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
@@ -78,7 +78,7 @@ recommendations: false
 
 ## Custom model limits v2.1
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+| Quota | Free (F0) <sup>1</sup> | Standard (S0) |
 |--|--|--|
 | **Compose Model limit** | 5 | 100 (default value) |
 | Adjustable | No | No |
@@ -94,7 +94,6 @@ recommendations: false
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
 > <sup>3</sup> Open a support request to increase the monthly training limit.</br>
-
 ::: moniker-end
 ::: moniker range="form-recog-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
