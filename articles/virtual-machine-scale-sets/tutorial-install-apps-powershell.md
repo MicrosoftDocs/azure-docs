@@ -13,9 +13,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Tutorial: Install applications in Virtual Machine Scale Sets with Azure PowerShell
 
-> [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
-
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -45,12 +42,12 @@ Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.c
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -Location "EastUS" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic"
+  -LoadBalancerName "myLoadBalancer" 
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -135,8 +132,6 @@ $frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 ```
-
-
 
 ## Test your scale set
 To see your web server in action, get the public IP address of your load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address created in the *myResourceGroup* resource group:
