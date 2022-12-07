@@ -127,3 +127,13 @@ landingContent:
             url: quickstart-connected-registry-cli.md
           - text: Create a connected registry - Portal
             url: quickstart-connected-registry-portal.md
+
+
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Push and pull supply chain artifacts (Preview)
+            url: container-registry-oras-artifacts.md
+          - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
+            url: container-registry-tutorial-sign-build-push.md
