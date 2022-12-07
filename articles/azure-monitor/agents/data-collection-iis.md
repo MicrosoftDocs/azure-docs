@@ -19,7 +19,7 @@ To complete this procedure, you need:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A VM, Virtual Machine Scale Set, or Arc-enabled On Prem server with IIS logs. 
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server with IIS logs. 
     
     - The log file must be stored on a local drive of the machine on which Azure Monitor Agent is running. 
     - Each entry in the log file must be delineated with an end of line. 
@@ -32,7 +32,7 @@ The [data collection rule](../essentials/data-collection-rule-overview.md) defin
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
 
-To create the data collection rule in the Azure Portal:
+To create the data collection rule in the Azure portal:
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
 1. Select **Create** to create a new data collection rule and associations.
@@ -60,7 +60,7 @@ To create the data collection rule in the Azure Portal:
 
     [ ![Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.](media/data-collection-iis/iis-data-collection-rule.png) ](media/data-collection-iis/iis-data-collection-rule.png#lightbox)
 
-1. Optionally, specify a file pattern to identify the directory were the log files are located. 
+1. Optionally, specify a file pattern to identify the directory where the log files are located. 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
     [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
@@ -97,7 +97,7 @@ Heartbeat
 ### Verify that IIS logs are being created
 Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for IIS log files is C:\\inetpub\\LogFiles\\W3SVC1.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of I I S log on agent machine showing the timestamp.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of IIS log on agent machine showing the timestamp.":::
 
 ### Verify that you specified the correct log location in the data collection rule
 The data collection rule will have a section similar to the following. The `logDirectories` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
@@ -121,16 +121,16 @@ The data collection rule will have a section similar to the following. The `logD
 
 This directory should correspond to the location of the IIS logs on the agent machine.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of I I S log files on agent machine.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of IIS log files on agent machine.":::
 
 ### Verify that the IIS logs are W3C formatted
 Open IIS Manager and verify that the logs are being written in W3C format.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of I I S logging configuration dialog box on agent machine.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
 
 Open IIS log on the agent machine to verify logs are in W3C format.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of I I S log on agent machine showing the header specifies W3C format.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of IIS log on agent machine showing the header specifies W3C format.":::
 
 ### Share logs with Microsoft
 If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
