@@ -47,10 +47,9 @@ __Tokens__ will be returned in the `accessToken` field:
 
 ```Azure CLI
 ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
+```
 
 Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 
-
-```
 
 # [Python SDK](#tab/pythonsdk)
 
@@ -70,26 +69,74 @@ endpoint_cred = ml_client.online_endpoints.get_keys(name=endpoint_name).access_t
 
 Additionally, the `expiry_time_utc` and `refresh_after_time_utc` fields contain the token expiration and refresh times. 
 
+For example, to get the `expiry_time_utc`:
+```Python
+print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
+```
+
 ---
 
-## Score data using the token
+## Score data using the token or token
 
 # [CLI](#tab/CLI)
 
-When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key:
-
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
-
-If you're using a token, replace `$ENDPOINT_KEY` with the token value:
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key/token:
 
 ```Azure CLI
 SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scoring_uri)
 
-curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_TOKEN" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
+curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_CRED" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
 ```
 
 # [Python SDK](#tab/pythonsdk)
 
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key/token in Python:
+
+```Python
+import urllib.request
+import json
+import os
+import ssl
+
+def allowSelfSignedHttps(allowed):
+    # bypass the server certificate verification on client side
+    if allowed and not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None):
+        ssl._create_default_https_context = ssl._create_unverified_context
+
+allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service
+
+# Request data goes here
+# The example below assumes JSON formatting which may be updated
+# depending on the format your endpoint expects
+# More information can be found here:
+# https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script
+data = {}
+
+body = str.encode(json.dumps(data))
+
+url = 'https://endpt-auth-token.eastus.inference.ml.azure.com/score'
+api_key = '<endpoint_cred>' # Replace this with the key or token you obtained
+
+# The azureml-model-deployment header will force the request to go to a specific deployment
+# Remove this header to have the request observe the endpoint traffic rules
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key), 'azureml-model-deployment': 'blue' }
+
+req = urllib.request.Request(url, body, headers)
+
+try:
+    response = urllib.request.urlopen(req)
+
+    result = response.read()
+    print(result)
+except urllib.error.HTTPError as error:
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(error.read().decode("utf8", 'ignore'))
+```
+
+Replece the `api_key` variable with your key/token you obtained.
 
 ---
 
