@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSO integration with Elsevier SP'
+title: Azure Active Directory SSO integration with Elsevier SP
 description: Learn how to configure single sign-on between Azure Active Directory and Elsevier SP.
 services: active-directory
 author: jeevansd
