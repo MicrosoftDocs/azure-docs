@@ -37,7 +37,7 @@ CSPs, government agencies, and those who work with them, must meet one or more s
 
 CSPs and organizations in industries such as healthcare and finance have standards, such as: 
 
-* [The Health Insurance Portability and Accountability Act of 1996 (HIPPA)](/azure/compliance/offerings/offering-hipaa-us)
+* [Health Insurance Portability and Accountability Act of 1996 (HIPPA)](/azure/compliance/offerings/offering-hipaa-us)
 * [Sarbanes-Oxley Act of 2002 (SOX)](/azure/compliance/offerings/offering-sox-us)
 
 To learn more about supported compliance frameworks, see [Azure compliance offerings](/azure/compliance/offerings/).
