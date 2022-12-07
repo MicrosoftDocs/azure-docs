@@ -203,7 +203,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 If you use performance-based sizing in an Azure VM assessment, the assessment makes sizing recommendations as follows:
 
-- The assessment considers the performance (resource utilization) history of the server along with the processor benchmark to identify the VM size and disk type in Azure.
+- The assessment considers the performance (resource utilization) history of the server along with the [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment) to identify the VM size and disk type in Azure.
 
 > [!NOTE] 
 > If you import servers by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
@@ -252,7 +252,7 @@ For an Azure VM assessment, assessment tries to find an Azure VM that supports t
 
 After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.
 
-- Azure Migrate looks at the effective utilized cores (including processor benchmark) and RAM to find a suitable Azure VM size.
+- Azure Migrate looks at the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size.
 - If no suitable size is found, the server is marked as unsuitable for Azure.
 - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
