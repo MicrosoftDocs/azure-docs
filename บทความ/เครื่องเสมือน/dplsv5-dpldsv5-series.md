@@ -1,4 +1,5 @@
 ---
+Dv5/1ms.date
 title: Overview of the Dplsv5 and Dpldsv5-series sizes
 description: Overview of Dplsv5 and Dpldsv5 series of ARM64-based Azure Virtual Machines featuring the 80 core, 3.0 GHz Ampere Altra processor.
 author: noahwood28
