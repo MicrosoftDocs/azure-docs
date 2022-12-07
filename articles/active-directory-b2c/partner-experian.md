@@ -51,7 +51,7 @@ The Experian integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-![screenshot for experian-architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
+  ![screenshot for experian-architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
 
 1. User arrives at sign-in page, creates a new account, and enters information. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the middle-layer API and passes the user attributes.
@@ -99,13 +99,13 @@ Provide the following application settings to the REST API:
 |CrossCoreConfig:OrgCode | Experian account configuration |N/A|
 |CrossCore:ApiEndpoint |Experian account configuration|N/A|
 |CrossCore:ClientReference | Experian account configuration |N/A|
-| CrossCore:ModelCode |Experian account configuration|N/A|
-| CrossCore:OrgCode | Experian account configuration |N/A|
-| CrossCore:SignatureKey  | Experian account configuration |N/A|
-| CrossCore:TenantId  | Experian account configuration |N/A|
-| CrossCore:CertificateThumbprint | Experian certificate |N/A|
-| BasicAuth:ApiUsername | Define a username for the API | Used in the ExtId configuration |
-| BasicAuth:ApiPassword | Define a password for the API | Used in the ExtId configuration|
+|CrossCore:ModelCode |Experian account configuration|N/A|
+|CrossCore:OrgCode | Experian account configuration |N/A|
+|CrossCore:SignatureKey  | Experian account configuration |N/A|
+|CrossCore:TenantId  | Experian account configuration |N/A|
+|CrossCore:CertificateThumbprint | Experian certificate |N/A|
+|BasicAuth:ApiUsername | Define a username for the API | Used in the ExtId configuration |
+|BasicAuth:ApiPassword | Define a password for the API | Used in the ExtId configuration|
 
 ### Create API policy keys
 
