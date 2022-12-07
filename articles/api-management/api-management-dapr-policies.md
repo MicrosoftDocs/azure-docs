@@ -25,7 +25,7 @@ Dapr is a portable runtime for building stateless and stateful microservices-bas
 
 ## Enable Dapr support in the self-hosted gateway
 
-To turn on Dapr support in the self-hosted gateway, add the [Dapr annotations](https://github.com/dapr/docs/blob/master/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
+To turn on Dapr support in the self-hosted gateway, add the [Dapr annotations](https://github.com/dapr/docs/blob/master/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md), replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
@@ -38,7 +38,6 @@ template:
 
 > [!TIP]
 > You can also deploy the [self-hosted gateway with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) and use the Dapr configuration options.
-
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 
