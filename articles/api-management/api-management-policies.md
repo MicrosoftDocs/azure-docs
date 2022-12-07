@@ -65,18 +65,18 @@ More information about policies:
 -   [Remove value from cache](cache-remove-value-policy.md) - Remove an item in the cache by key.
 
 ## Cross-domain policies
--   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
--   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
--   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
+- [Allow cross-domain calls](cross-domain-policy.md) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
+- [CORS](cors-policy.md) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
+- [JSONP](jsonp-policy.md) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
 
 ## Dapr integration policies
-- [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
--  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
--  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
+-  [Send request to a service](set-backend-service-dapr-policy.md): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
+-  [Send message to Pub/Sub topic](publish-to-dapr-policy.md): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
+-  [Trigger output binding](invoke-dapr-binding-policy.md): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
 ## GraphQL API policies
-- [Validate GraphQL request](graphql-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
-- [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
+- [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
+- [Set GraphQL resolver](set-graphql-resolver-policy.md) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
 ## Transformation policies
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.

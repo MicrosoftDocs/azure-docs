@@ -32,7 +32,7 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
         In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send request](send-request-policy.md) policy.
 
-* For GraphQL scenarios, enforce object-level authorization through the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy, using the `authorize` element.  
+* For GraphQL scenarios, enforce object-level authorization through the [validate GraphQL request](validate-graphql-request-policy.md) policy, using the `authorize` element.  
 
 ## Broken user authentication
 
@@ -91,7 +91,7 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
 * Use the [validate headers](validation-policies.md#validate-headers) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set header](api-management-transformation-policies.md#SetHTTPheader) policy. 
 
-* For GraphQL scenarios, use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
+* For GraphQL scenarios, use the [validate GraphQL request](validate-graphql-request-policy.md) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
 
 ## Lack of resources and rate limiting 
 
@@ -111,13 +111,13 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 * Enforce authentication for API calls (see [Broken user authentication](#broken-user-authentication)). Revoke access for abusive users. For example, deactivate the subscription key, block the IP address with the [restrict caller IPs](ip-filter-policy.md) policy, or reject requests for a certain user claim from a [JWT token](validate-jwt-policy.md). 
 
-* Apply a [CORS](api-management-cross-domain-policies.md#CORS) policy to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
+* Apply a [CORS](cors-policy.md) policy to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
 
 * Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given timeframe. 
 
     * Define `timeout` in the [forward request](forward-request-policy.md) policy. 
 
-    * Use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
+    * Use the [validate GraphQL request](validate-graphql-request-policy.md) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
 
     * Limit the number of parallel backend connections with the [limit concurrency](limit-concurrency-policy.md) policy. 
 
@@ -181,7 +181,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * When using OAuth 2.0, configure and test the [validate JWT](validate-jwt-policy.md) policy to check the existence and validity of the JWT token before it reaches the backend. Automatically check the token expiration time, token signature, and issuer. Enforce claims, audiences, token expiration, and token signature through policy settings. 
 
-    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
+    * Configure the [CORS](cors-policy.md) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
     * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
@@ -197,7 +197,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
             * Validate the certificate name where applicable 
 
-* For GraphQL scenarios, use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
+* For GraphQL scenarios, use the [validate GraphQL request](validate-graphql-request-policy.md) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
 
 * Don't store secrets in policy files or in source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
 
