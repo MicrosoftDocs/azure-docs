@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 12/07/2022
 
 ---
 
@@ -18,7 +18,32 @@ This article shows you how to control access using Kubernetes RBAC in an AKS clu
 
 This article assumes that you have an existing AKS cluster enabled with Azure AD integration. If you need an AKS cluster, see [Integrate Azure Active Directory with AKS][azure-ad-aks-cli].
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+Kubernetes RBAC is enabled by default during AKS cluster creation. If Kubernetes RBAC wasn't enabled when you originally deployed your cluster, you'll need to delete and recreate your cluster.
+
+- The Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
+
+To verify if Kubernetes RBAC is enabled, you can check from Azure portal or Azure CLI.
+
+#### [Azure portal](#tab/portal)
+
+From your browser, sign in to the [Azure portal](https://portal.azure.com).
+
+Navigate to Kubernetes services, and from the left-hand pane select **Cluster configuration**. On the page, under the section **Authentication and Authorization**, verify the option **Local accounts with Kubernetes RBAC** is shown.
+
+:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal.":::
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify RBAC is enabled, you can use the `az aks show` command.
+
+```azuecli
+az aks show --resource-group myResourceGroup --name myAKSCluster` 
+```
+
+The output will show that the value for `enableRbac` is `true`.
+
+---
 
 ## Create demo groups in Azure AD
 
@@ -435,3 +460,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-ad-group-show]: /cli/azure/ad/group#az_ad_group_show
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
+[terraform-on-azure]: /azure/developer/terraform/overview
