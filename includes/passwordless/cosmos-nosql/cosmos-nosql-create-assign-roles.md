@@ -14,6 +14,8 @@ When developing locally with Passwordless authentication, make sure the user acc
 
 Roles consist of a collection of permissions or actions that a user is allowed to perform, such as read, write, and delete. You can read more about [configuring role based access control (RBAC)](/azure/cosmos-db/how-to-setup-rbac) in the cosmos security configuration documentation. 
 
+## Create the custom role
+
 Create roles using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
 ```azurecli

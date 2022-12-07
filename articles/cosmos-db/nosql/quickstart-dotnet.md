@@ -133,7 +133,6 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 ## [Connection String](#tab/connection-string)
 
-
 From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``Microsoft.Azure.Cosmos``.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="using_directives":::
@@ -146,9 +145,11 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 ---
 
-## [Passwordless](#tab/passwordless)
+### Create the database and container
 
-## Create the database and container
+Next you'll create a database and container to store products, and perform queries to insert and read those items.
+
+## [Passwordless](#tab/passwordless)
 
 The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 
@@ -171,13 +172,13 @@ az cosmosdb sql container create --account-name msdocs-cosmos-nosql --resource-g
 
 Use the [``CosmosClient.GetDatabase``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.getdatabase) method will return a reference to the specified database.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="create_database" highlight="20-22":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_database" highlight="2,4":::
 
 ### Get the container
 
 The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getcontainer) will return a reference to the specified container.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="create_container" highlight="27-29":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_container" highlight="2,4":::
 
 ### Create an item
 
