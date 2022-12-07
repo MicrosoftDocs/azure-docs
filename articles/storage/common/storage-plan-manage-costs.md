@@ -82,7 +82,7 @@ The format of the blob service endpoint is `https://<storage-account>.blob.core.
 
 Requests can originate from any of these sources:
 
-- Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver
+- Hadoop workloads that use the [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver
 
 - Clients that use [Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or Blob Storage APIs from an Azure Storage client library
 
