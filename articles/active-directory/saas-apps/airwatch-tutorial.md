@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with AirWatch, perform the following steps:
     1. **[Create AirWatch test user](#create-airwatch-test-user)** - to have a counterpart of B.Simon in AirWatch that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure AirWatch SSO
+## Configure AirWatch SSO
 
 1. In a different web browser window, sign in to your AirWatch company site as an administrator.
 
@@ -218,7 +218,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 > [!NOTE]
 > You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision Azure AD user accounts.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
