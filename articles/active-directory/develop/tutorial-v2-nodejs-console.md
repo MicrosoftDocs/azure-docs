@@ -191,8 +191,8 @@ CLIENT_ID=Enter_the_Application_Id_Here
 CLIENT_SECRET=Enter_the_Client_Secret_Here
 
 # Endpoints
-AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here ## include the trailing slash
-GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here ## include the trailing slash
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here/
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here/
 ```
 
 Fill in these details with the values you obtain from Azure app registration portal:
