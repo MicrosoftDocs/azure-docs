@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Overview of shared device mode
 
-Shared device mode is a feature of Azure Active Directory that allows you to build and deploy applications that support frontline workers and educational scenarios that require shared Android and iOS devices.
+Shared device mode is a feature of Azure Active Directory(Azure AD) that allows you to build and deploy applications that support frontline workers and educational scenarios that require shared Android and iOS devices.
 
 >[!IMPORTANT]
 > Shared device mode for iOS [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
