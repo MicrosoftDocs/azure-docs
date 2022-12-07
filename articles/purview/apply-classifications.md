@@ -24,9 +24,11 @@ This document explains how to apply classifications to your data.
 - Set up scan on your data sources.
 
 ## Apply classifications
+
 In Microsoft Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
 
 ### Apply classification to a file asset
+
 Microsoft Purview can scan and automatically classify documents. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Microsoft Purview adds the classification **EU National Identification Number** to the file asset's detail page.
 
 In some scenarios, you might want to manually add classifications to your file asset or if you have multiple files that are grouped into a resource set, add classifications at the resource set level.
@@ -94,19 +96,22 @@ To add a classification to a column:
     :::image type="content" source="./media/apply-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema.":::
 
 ## View classification details
+
 Microsoft Purview captures important details like who applied a classification and when it was applied. To view the details, hover over the classification to revel the Classification details card. The classification details card shows the following information:
+
 - Classification name - Name of the classification applied on the asset or column.
 - Applied by - Who applied the classification. Possible values are scan and user name.
 - Applied time - Local timestamp when the classification was applied via scan or manually.
 - Classification type - System or custom.
 
-Users with *Data Curator* role will see additional details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
+Users with *Data Curator* role will see more details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
 
 :::image type="content" source="./media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail.":::
 
 ## Impact of rescanning on existing classifications
 
-Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
+Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets more classifications on it. Existing classifications stay on the column, and must be removed manually.
 
 ## Next steps
+
 To learn how to create a custom classification, see [Create a custom classification](create-a-custom-classification-and-classification-rule.md).
