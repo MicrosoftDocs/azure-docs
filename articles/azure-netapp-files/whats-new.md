@@ -12,14 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 11/17/2022
+ms.date: 12/07/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [2 TiB capacity pool](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool) (Preview)
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool) (Preview)
 
     Azure NetApp Files now supports capacity pool sizes starting at 2 TiB.
 
