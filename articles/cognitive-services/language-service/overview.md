@@ -186,12 +186,12 @@ This section will help you decide which Language service feature you should use 
 
 |What do you want to do?  |Document format  |Your best solution  | Is this solution customizable?* |
 |---------|---------|---------|---------|
-| Detect and/or redact sensitive information such as PII and PHI. | Unstructured text, <br> text-based or transcribed conversations | [PII detection](./personally-identifiable-information/overview.md) | |
+| Detect and/or redact sensitive information such as PII and PHI. | Unstructured text, <br> transcribed conversations | [PII detection](./personally-identifiable-information/overview.md) | |
 | Extract categories of information without creating a custom model.     | Unstructured text         | The [pre-configured NER feature](./named-entity-recognition/overview.md) |       |
 | Extract categories of information using a model specific to your data. | Unstructured text | [Custom NER](./custom-named-entity-recognition/overview.md) | ✓ |
 |Extract main topics and important phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
 | Determine the sentiment and opinions expressed in text. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | |
-| Summarize long chunks of text or conversations. | Unstructured text, <br> text-based or transcribed conversations. | [Summarization](./summarization/overview.md) | | 
+| Summarize long chunks of text or conversations. | Unstructured text, <br> transcribed conversations. | [Summarization](./summarization/overview.md) | | 
 | Disambiguate entities and get links to Wikipedia. | Unstructured text | [entity linking](./entity-linking/overview.md) | | 
 | Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
 | Extract medical information from clinical/medical documents. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
