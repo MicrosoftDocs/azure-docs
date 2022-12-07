@@ -256,5 +256,4 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 * [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
-* [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 * [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)

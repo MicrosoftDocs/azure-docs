@@ -20,9 +20,6 @@ All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK.
 
 You can use Zeppelin notebooks to use AutoML as well.
 
-> [!Note]
-> Zeppelin has a [known issue](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) where PySpark3 doesn't pick the right version of Python. Please use the documented work-around.
-
 ## Authentication for workspace
 
 Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  

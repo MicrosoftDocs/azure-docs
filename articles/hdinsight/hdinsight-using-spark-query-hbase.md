@@ -145,7 +145,7 @@ __NOTE:__ These steps need to perform every time one of the clusters undergoes a
 
 ## Run Spark Shell referencing the Spark HBase Connector
 
-After you complete the preceding step, you should be able to run Spark shell, referencing the appropriate version of Spark HBase Connector. To find the most recent appropriate Spark HBase Connector core version for your cluster scenario, see [SHC Core Repository](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+After you complete the preceding step, you should be able to run Spark shell, referencing the appropriate version of Spark HBase Connector.
 
 As an example, the following table lists two versions and the corresponding commands the HDInsight team currently uses. You can use the same versions for your clusters if the versions of HBase and Spark are same as indicated in the table. 
 

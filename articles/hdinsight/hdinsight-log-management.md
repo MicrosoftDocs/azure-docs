@@ -4,7 +4,7 @@ description: Determine the types, sizes, and retention policies for HDInsight ac
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/28/2022
+ms.date: 12/07/2022
 ---
 
 # Manage logs for an HDInsight cluster
@@ -180,4 +180,3 @@ To collect the logs from all the nodes to one central location, you can create a
 
 * [Monitoring and Logging Practice for HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Access Apache Hadoop YARN application logs in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

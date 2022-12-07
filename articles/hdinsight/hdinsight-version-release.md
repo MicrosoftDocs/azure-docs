@@ -49,7 +49,6 @@ Some benefits of ACID tables are the following:
 
 * Spark can read and write to Hive ACID tables via Hive Warehouse Connector.
 
-Learn more about [Apache Hive 3](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/hive-overview/content/hive_whats_new_in_this_release_hive.html).
 
 ### Apache Spark
 
@@ -65,7 +64,6 @@ Apache Spark on HDInsight 4.0 supports the following scenarios:
 
 You no longer have to worry about accidentally trying to access Hive transactional tables directly from Spark. Resulting in inconsistent results, duplicate data, or data corruption. In HDInsight 4.0, Spark tables and Hive tables are kept in separate Metastores. Use Hive Data Warehouse Connector to explicitly register Hive transactional tables as Spark external tables.
 
-Learn more about [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
 ### Apache Oozie
 
@@ -74,8 +72,6 @@ Apache Oozie 4.3.1 is included in HDI 4.0 with the following changes:
 * Oozie no longer runs Hive actions. Hive CLI has been removed and replaced with BeeLine.
 
 * You can exclude unwanted dependencies from share lib by including an exclude pattern in your **job.properties** file.
-
-Learn more about [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
 ## How to upgrade to HDInsight 4.0
 

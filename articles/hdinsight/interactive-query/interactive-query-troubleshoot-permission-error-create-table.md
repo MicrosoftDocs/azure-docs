@@ -30,7 +30,7 @@ The ability to create a table in Apache Hive is decided by the permissions appli
 
 ## Resolution
 
-This is caused by a lack of sufficient permissions on the storage container being used. The user creating the Hive table needs read, write, and execute permissions against the container. For more information, please see [Best Practices for Hive Authorization Using Apache Ranger in HDP 2.2](https://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/).
+This is caused by a lack of sufficient permissions on the storage container being used. The user creating the Hive table needs read, write, and execute permissions against the container.
 
 ## Next steps
 
