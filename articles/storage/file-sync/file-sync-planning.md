@@ -242,7 +242,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported with DFS-N implementation. You can install the Azure File Sync agent on one or more file servers to sync data between the server endpoints and the cloud endpoint, and then use DFS-N to provide namespace service. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) and [DFS Namespaces with Azure Files](../files/files-manage-namespaces.md).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
