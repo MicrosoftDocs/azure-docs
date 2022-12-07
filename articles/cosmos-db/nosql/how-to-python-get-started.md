@@ -399,17 +399,17 @@ The following guides show you how to use each of these classes to build your app
 
 | Guide | Description |
 |--|---|
-| [Create a database](how-to-dotnet-create-database.md) | Create databases |
-| [Create container](/azure/cosmos-db/nosql/samples-python#container-examples) | Create containers |
+| [Create a database](how-to-python-create-database.md) | Create databases |
+| [Create container](how-to-python-create-container.md) | Create containers |
 | [Item examples](/azure/cosmos-db/nosql/samples-python#item-examples) | Point read a specific item |
 
 ## See also
 
-- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-- [Samples](samples-dotnet.md)
-- [API reference](/dotnet/api/microsoft.azure.cosmos)
-- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+- [PyPi](https://pypi.org/project/azure-cosmos/)
+- [Samples](samples-python.md)
+- [API reference](/python/api/azure-cosmos/azure.cosmos)
+- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/issues)
 
 ## Next steps
 
