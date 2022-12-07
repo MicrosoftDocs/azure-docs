@@ -3,7 +3,7 @@ title: Deploy a Java application with Red Hat JBoss Enterprise Application Platf
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster.
 author: yersan
 ms.author: edburns
-ms.date: 06/06/2022
+ms.date: 11/28/2022
 ms.topic: article
 ms.service: azure-redhat-openshift
 keywords: java, jakartaee, microprofile, EAP, JBoss EAP, ARO, OpenShift, JBoss Enterprise Application Platform
@@ -103,10 +103,9 @@ Once the database has been created with the above database name, Server admin lo
 
 Follow the next steps to build and run the application locally.
 
-1. Build the Bootable JAR. When we are building the Bootable JAR, we need to specify the database driver version we want to use:
+1. Build the Bootable JAR.
 
     ```bash
-    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
     mvn clean package
     ```
 
@@ -244,6 +243,7 @@ The next steps explain how you can deploy the application with a Helm chart usin
 1. Create `todo-list-secret`.
 
     ```bash
+    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
     oc create secret generic todo-list-secret \
     --from-literal app-cluster-password=mut2UTG6gDwNDcVW \
     --from-literal app-driver-version=${MSSQLSERVER_DRIVER_VERSION} \
