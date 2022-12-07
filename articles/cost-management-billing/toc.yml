@@ -141,7 +141,7 @@
       href: understand/mpa-overview.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
-    - name: Get started with EA billing in the Azure Portal
+    - name: Get started with EA billing in the Azure portal
       href: manage/ea-direct-portal-get-started.md
     - name: Direct EA billing invoice documents
       href: manage/direct-ea-billing-invoice-documents.md
