@@ -1,7 +1,7 @@
 ---
 title: Labs concepts
 titleSuffix: Azure Lab Services
-description: Learn the different approaches for troubleshooting lab VMs in Azure Lab Services. Understand how each apporach affects user data.
+description: Learn the different approaches for troubleshooting lab VMs in Azure Lab Services. Understand how each approach affects user data.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
