@@ -22,7 +22,9 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-If indexing isn't completing within the processing window, you can [schedule the indexer](search-howto-schedule-indexers.md) to run at specific intervals. Most indexers run within a 2-hour processing window, so scheduling on 2-hour cadence is recommended for working through a large volume of data  (many millions of documents). As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run, based on an internal high water mark that marks where indexing last ended. 
+If indexing isn't completing within the processing window, you can [schedule the indexer](search-howto-schedule-indexers.md) to run at specific intervals. Most indexers run within a 2-hour processing window, so scheduling on 2-hour cadence is recommended for working through a large volume of data  (many millions of documents). As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run, based on an internal high water mark that marks where indexing last ended.
+
+Once an indexer is on a schedule, it stays on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for a high water mark and the presence of new or changed documents is a relatively fast operation.
 
 ## Prerequisites
 
