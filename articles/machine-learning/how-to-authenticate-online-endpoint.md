@@ -55,7 +55,7 @@ Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the t
 
 # [Python](#tab/python)
 
-To get the key or token, use [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the OnlineEndpointOperations Class.
+To get the key or token, use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` Class.
 
 __Keys__ will be returned in the `primary_key` and `secondary_key` fields:
 
