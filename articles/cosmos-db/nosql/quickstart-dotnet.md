@@ -161,11 +161,11 @@ Next you'll create a database and container to store products, and perform queri
 
 ## [Passwordless](#tab/passwordless)
 
-The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
+The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 
-> - [Azure CLI scripts](./sql/manage-with-cli.md)
-> - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
-> - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
+> - [Azure CLI scripts](manage-with-cli.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md)
+> - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
 > - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 
 The Azure CLI approach is used in this example. Use the [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
