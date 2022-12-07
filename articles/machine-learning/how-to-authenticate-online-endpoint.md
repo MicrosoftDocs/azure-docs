@@ -136,7 +136,6 @@ except urllib.error.HTTPError as error:
     print(error.read().decode("utf8", 'ignore'))
 ```
 
-Replace the `api_key` variable with your key/token you obtained.
 
 ---
 
