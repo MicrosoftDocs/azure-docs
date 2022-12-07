@@ -212,12 +212,8 @@ When performing a cross-tenant-subscription restore, a dedicated SQL pool in an 
 
 For cross-tenant-subscription restore, the user must have a 'GUEST' account with either the 'Owner' or 'Contributor' access permissions to the destination tenant to which the dedicated SQL pool (formerly SQL DW) will be restored to.
 
-The PowerShell script below is similar to the above, however there are three main differences:
-
-  •	After retrieving the SQL Pool object to be restored, the subscription and the tenant context needs to be switched to the destination (or target) tenant ID and subscription name or ID.
-  •	When performing the restore, use the Az.Sql modules instead of the Az.Synapse modules.
-  •	The below sample code has additional steps for restoring to an Azure Synapse workspace in the destination subscription. Uncomment the PowerShell commands as described in the sample.
-  
+The Powershell script for cross tenant restore works the in the same way as cross-subscription restore when the user is given 'GUEST' access to the destination tenant. As a best practice it is advised to also use the destination Tenant ID along with the destination subscription ID.
+ 
 Steps:
 
 1.	Open a PowerShell terminal.
