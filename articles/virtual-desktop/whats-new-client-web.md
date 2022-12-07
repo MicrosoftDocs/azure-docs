@@ -26,4 +26,4 @@ A new user interface is available in preview, which has the following new functi
 - [Switch between light mode and dark mode](users/client-features-web.md#light-mode-and-dark-mode-preview).
 - [Reset user settings](users/client-features-web.md#reset-user-settings-preview).
 
-For more information and how to try the new user interface, see [Preview user interface](client-features-web.md#preview-user-interface-preview).
+For more information and how to try the new user interface, see [Preview user interface](users/client-features-web.md#preview-user-interface-preview).

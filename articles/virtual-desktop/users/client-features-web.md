@@ -31,10 +31,6 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
-## Input methods
-
-You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
-
 ### Preview user interface (preview)
 
 A new user interface is available in preview for you to try. To enable the new user interface:
@@ -61,7 +57,7 @@ You can change between light mode (default) and dark mode. To change between lig
 
 ## Input methods
 
-You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps. Touch gestures are not supported with the Remote Desktop Web client
+You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
 
 ### Keyboard
 
