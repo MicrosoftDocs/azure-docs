@@ -98,7 +98,7 @@ If your account has the hierarchical namespace feature enabled, make sure that t
 
 #### Pricing requests to the Data Lake Storage endpoint
 
-The format of the blob service endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by big data analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
+The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
 
 Requests can originate from any of these sources:
 
