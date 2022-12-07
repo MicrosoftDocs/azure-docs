@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 12/07/2022
 ms.author: alkohli
 ---
 
@@ -161,27 +161,21 @@ The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwit
 Here is an example output.
 
 ```output
-[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -Name vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
-
-[10.100.10.10]: PS> Get-HcsVirtualNetwork
- 
-Name             : vnet2015
-AddressSpace     : 10.128.48.0/22
+PS C:\> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -Name vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50,5.5.50.100" -DnsSuffix "name.domain.com"
+PS C:\> Get-HcsVirtualNetwork 
+Name             : vlanNetwork100
+AddressSpace     : 5.5.0.0/16
 SwitchName       : vSwitch1
-GatewayIPAddress : 10.128.48.1
-DnsServers       : {}
-DnsSuffix        :
-VlanId           : 2015
- 
-Name             : vnet3011
-AddressSpace     : 10.126.64.0/22
-SwitchName       : vSwitch1
-GatewayIPAddress : 10.126.64.1
-DnsServers       : {}
-DnsSuffix        :
-VlanId           : 3011
+GatewayIPAddress : 5.5.0.1
+DnsServers       : {5.5.50.50, 5.5.50.100}
+DnsSuffix        : name.domain.com
+VlanId           : 100
+MacAddressPools  :
+IPAddressPools   : {}
+BGPPeers         :
+EnabledForK8s    : False
 ```
- 
+
 > [!NOTE]
 > - You can configure multiple virtual LANs on the same virtual switch. 
 > - The gateway IP address must in the same subnet as the parameter passed in as address space.
