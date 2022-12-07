@@ -5,8 +5,8 @@ author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 07/13/2022
-ms.author: wamota
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
