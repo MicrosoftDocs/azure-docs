@@ -88,7 +88,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
 Run the script and follow the instructions. The script will open browser windows for authentication and for performing tasks in the Azure DevOps project.
 
-You can choose to either run the code directly from Github or you can import a copy of the code into your Azure DevOps project.
+You can choose to either run the code directly from GitHub or you can import a copy of the code into your Azure DevOps project.
 
 
 Validate that the project has been created by navigating to the Azure DevOps portal and selecting the project. Ensure that the Repo is populated and that the pipelines have been created.
@@ -160,19 +160,19 @@ Name of code repository: 'sap-automation', source: 'https://github.com/Azure/sap
 
 Name of sample and template repository: 'sap-samples', source: 'https://github.com/Azure/sap-automation-samples.git'
 
-#### Running the code directly from Github
+#### Running the code directly from GitHub
 If you want to run the code directly from GitHub you need to provide credentials for Azure DevOps to be able to pull the content from Github
-#### Creating the Github Service connection
+#### Creating the GitHub Service connection
 
-To pull the code from Github, you need an Github service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
+To pull the code from GitHub, you need a GitHub service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
 :::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
 
-Choose _Github_ as the service connection type. Choose 'Azure Pipelines' in the OAuth Configuration drop down.
+Choose _Github_ as the service connection type. Choose 'Azure Pipelines' in the OAuth Configuration drop-down.
 
-Click 'Authorize' to logon to GitHub.
+Click 'Authorize' to log on to GitHub.
  
 Enter a Service connection name, for instance 'SDAF Connection to GitHub' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Save_ to save the service connection.
 
@@ -452,7 +452,7 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check ""Deploy the configuration web application" if you would like to set up the configuration web app.
+Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check "Deploy the configuration web application" if you would like to set up the configuration web app.
 
 
 ### Configure the Azure DevOps Services self-hosted agent manually
