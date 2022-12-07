@@ -409,9 +409,12 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
-      - name: Configure Grafana
+      - name: Configure Grafana with managed system identity
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
+      - name: Configure Grafana with Azure Active Directory
+        displayName: Prometheus
+        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Troubleshoot collection
         displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md

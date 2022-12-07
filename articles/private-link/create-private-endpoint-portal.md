@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 11/17/2022
+ms.date: 12/06/2022
 ms.author: allensu
 ms.custom: mode-ui
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -30,9 +30,28 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
+## Create a DDoS protection plan
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
+
+3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
+
+    | Setting | Value |
+    |--|--|
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myDDoSPlan**. |
+    | Region | Select **West Europe**. |
+
+4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
+
 ## Create a virtual network and bastion host
 
-Start by creating a virtual network, subnet, and bastion host. 
+Create a virtual network, subnet, and bastion host. 
 
 You use the bastion host to connect securely to the VM for testing the private endpoint.
 
@@ -52,7 +71,6 @@ You use the bastion host to connect securely to the VM for testing the private e
     | **Instance details** |  |
     | Name | Enter **myVNet**. |
     | Region | Select **West Europe**. |
-
 
 5. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
@@ -85,9 +103,11 @@ You use the bastion host to connect securely to the VM for testing the private e
     | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-13. Select the **Review + create** tab or select the **Review + create** button.
+13. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
 
-14. Select **Create**.
+14. Select the **Review + create** tab or select the **Review + create** button.
+
+15. Select **Create**.
     
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
@@ -272,7 +292,9 @@ If you're not going to continue to use this web app, delete the virtual network,
 In this quickstart, you created:
 
 * A virtual network and bastion host
+
 * A virtual machine
+
 * A private endpoint for an Azure web app
 
 You used the VM to test connectivity to the web app across the private endpoint.
