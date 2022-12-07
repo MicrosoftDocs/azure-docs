@@ -28,31 +28,44 @@ A [Run Indexer](/rest/api/searchservice/run-indexer) operation will detect and p
 [Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
 
 + Azure Storage has built-in change detection through its LastModified property.
+
 + Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
-If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed. You'll need to reset the index if want to reprocess in full.
+If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
+
+You'll need to [reset the indexer](#resetting-indexers) if want to reprocess in full.
 
 ## Indexer execution
 
-Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large.
-
 You can run multiple indexers at one time, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
 
-Indexer limits vary by the workload. For each workload, the following job limits apply.
+An indexer job runs in a managed execution environment. You can't control or configure which environment is used. Azure Cognitive Search determines the environment based on job complexity, duration, and the ability of the service to move an indexer job onto a content processor (some security features block the multi-tenant environment).
 
-| Workload | Maximum duration | Maximum jobs | Execution environment <sup>1</sup> |
+Currently, there are two environments:
+
++ A private execution environment that runs on search nodes, specific to your search service.
+
++ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. 
+
+> [!NOTE]
+> The multi-tenant environment was initially designed as a way to offload skillset processing. Over time, as the efficiency and the benefits of offloading became clear, the use of content processors expanded to include text-based indexing as well. Whenever possible, most indexer jobs will be run in the multi-tenant environment. 
+
+<!-- In a private execution environment, indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large. -->
+<!-- 
+A multi-tenant environment is managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations.  -->
+
+Indexer limits vary for each environment:
+
+| Workload | Maximum duration | Maximum jobs | Execution environment |
 |----------|------------------|---------------------|-----------------------------|
-| Text-based indexing | 2 or 24 hours <sup>2</sup> | One per search unit <sup>3</sup> | Typically runs on the search service. It may also run on internally managed, multi-tenant content processing cluster. |
-| Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally managed, multi-tenant content processing cluster, depending on how complex the skillset is. A simple skill might execute on your search service if the service has capacity. Otherwise, skills-based indexer jobs execute off-service. Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
+| Private execution | 24 hours | One indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) <sup>1</sup>. If search service capacity is 12 units, your service can run up to 12 indexer jobs concurrently. | Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large. |
+| Multi-tenant| 2 hours <sup>2</sup> | Indeterminate <sup>3</sup> | Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
-<sup>1</sup> Indexers have an internal execution environment that's determined by the search service. The execution environment is either your search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You can't control or configure which environment is used. Using an internally managed cluster for content processing leaves more service-specific resources available for routine operations like queries and text indexing.
+<sup>1</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, but indexer jobs aren't tied to one or the other. In other words, if you have four units, you can have four indexer jobs running concurrently in private execution, no matter how the search units are deployed.
 
-<sup>2</sup> Indexer-based indexing is subject to a 2-hour maximum duration. Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn’t the norm. The longer window only applies if a service or its indexers can’t be internally migrated to the newer runtime behavior. If more than 2 hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals.
+<sup>2</sup> If more than 2 hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals. See [Indexing a large data set](search-howto-large-index.md) for more strategies.
 
-<sup>3</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs aren't tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
-
-> [!TIP]
-> If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
+<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
 
 ## Resetting indexers
 
@@ -64,7 +77,7 @@ If you need to rebuild all or part of an index, you can clear the indexer's high
 + [Reset Documents (preview)](#reset-docs) reindexes a specific document or list of documents
 + [Reset Skills (preview)](#reset-skills) invokes skill processing for a specific skill
 
-After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source cannot be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
+After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source can't be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
 
 <a name="reset-indexers"></a>
 

@@ -13,15 +13,18 @@ ms.date: 12/10/2022
 
 # Index large data sets in Azure Cognitive Search
 
-Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index. You can *push* your data into the index programmatically, or point an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
-As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
+As data volumes grow or processing needs change, you might find that simple indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
 The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#run-indexers-in-parallel) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
 
 The following sections explain techniques for indexing large amounts of data for both push and pull approaches. You should also review [Tips for improving performance](search-performance-tips.md) for more best practices.
 
-For a C# tutorial and code sample, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md). 
+For C# tutorials, code samples, and alternative strategies, see:
+
++ [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md)
++ [Tutorial: Index at scale using SynapseML and Apache Spark](search-synapseml-cognitive-services.md)
 
 ## Indexing large datasets with the "push" API
 
@@ -101,7 +104,7 @@ Make sure you have sufficient capacity. One search unit in your service can run 
 
 The number of indexing jobs that can run simultaneously varies for text-based and skills-based indexing. For more information, see [Indexer execution](search-howto-run-reset-indexers.md#indexer-execution).
 
-If your data source is an [Azure Blob Storage container](../storage/blobs/storage-blobs-introduction.md#containers) or [Azure Data Lake Storage Gen 2](../storage/blobs/storage-blobs-introduction.md#about-azure-data-lake-storage-gen2), enumerating a big number of blobs can take a long time (even hours) until this operation is completed. This will cause that your indexer's documents succeded count is not increased during that time and it may seem it's not making any progress, when it is. If you would like document processing to go faster for a big number of blobs, consider partitioning your data into multiple containers and create parallel indexers pointing to a single index.
+If your data source is an [Azure Blob Storage container](../storage/blobs/storage-blobs-introduction.md#containers) or [Azure Data Lake Storage Gen 2](../storage/blobs/storage-blobs-introduction.md#about-azure-data-lake-storage-gen2), enumerating a large number of blobs can take a long time (even hours) until this operation is completed. This will cause that your indexer's documents succeeded count isn't increased during that time and it may seem it's not making any progress, when it is. If you would like document processing to go faster for a large number of blobs, consider partitioning your data into multiple containers and create parallel indexers pointing to a single index.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
 
@@ -115,9 +118,9 @@ If your data source is an [Azure Blob Storage container](../storage/blobs/storag
 
 1. Review indexer status and execution history for confirmation.
 
-There are some risks associated with parallel indexing. First, recall that indexing does not run in the background, increasing the likelihood that queries will be throttled or dropped. 
+There are some risks associated with parallel indexing. First, recall that indexing doesn't run in the background, increasing the likelihood that queries will be throttled or dropped. 
 
-Second, Azure Cognitive Search does not lock the index for updates. Concurrent writes are managed, invoking a retry if a particular write does not succeed on first attempt, but you might notice an increase in indexing failures.
+Second, Azure Cognitive Search doesn't lock the index for updates. Concurrent writes are managed, invoking a retry if a particular write doesn't succeed on first attempt, but you might notice an increase in indexing failures.
 
 Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer can't merge values from multiple runs into the same field.
 
