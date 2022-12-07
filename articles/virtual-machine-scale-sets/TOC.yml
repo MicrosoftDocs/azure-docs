@@ -62,14 +62,14 @@
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
-    - name: Template
-      href: tutorial-install-apps-template.md
   - name: Autoscale a scale set
     items:
     - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
+    - name: Template
+      href: tutorial-autoscale-template.md
 - name: Scale
   items:
   - name: Autoscale
