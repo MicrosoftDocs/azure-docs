@@ -45,9 +45,9 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 | Multifactor authentication policy | Authentication method policy |
 |-----------------------------------|------------------------------|
-| Call to phone                     | Voice calls                   |
-| Text message to phone             | SMS<br>Microsoft Authenticator      |
-| Notification through mobile app   | Microsoft Authenticator             |
+| Call to phone                     | Phone calls                  |
+| Text message to phone             | SMS                          |
+| Notification through mobile app   | Microsoft Authenticator      |
 | Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens (not yet available)<br>Microsoft Authenticator |
 
 ### Review the legacy SSPR policy

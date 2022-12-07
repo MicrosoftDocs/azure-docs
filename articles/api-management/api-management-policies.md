@@ -65,37 +65,37 @@ More information about policies:
 -   [Remove value from cache](cache-remove-value-policy.md) - Remove an item in the cache by key.
 
 ## Cross-domain policies
--   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
--   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
--   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
+- [Allow cross-domain calls](cross-domain-policy.md) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
+- [CORS](cors-policy.md) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
+- [JSONP](jsonp-policy.md) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
 
 ## Dapr integration policies
-- [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
--  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
--  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
+-  [Send request to a service](set-backend-service-dapr-policy.md): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
+-  [Send message to Pub/Sub topic](publish-to-dapr-policy.md): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
+-  [Trigger output binding](invoke-dapr-binding-policy.md): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
 ## GraphQL API policies
-- [Validate GraphQL request](graphql-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
-- [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
+- [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
+- [Set GraphQL resolver](set-graphql-resolver-policy.md) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
 ## Transformation policies
--   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
--   [Convert XML to JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converts request or response body from XML to JSON.
--   [Find and replace string in body](api-management-transformation-policies.md#Findandreplacestringinbody) - Finds a request or response substring and replaces it with a different substring.
--   [Mask URLs in content](api-management-transformation-policies.md#MaskURLSContent) - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
--   [Set backend service](api-management-transformation-policies.md#SetBackendService) - Changes the backend service for an incoming request.
--   [Set body](api-management-transformation-policies.md#SetBody) - Sets the message body for incoming and outgoing requests.
--   [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
--   [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
--   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
--   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
+-   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.
+-   [Convert XML to JSON](xml-to-json-policy.md) - Converts request or response body from XML to JSON.
+-   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
+-   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
+-   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
+-   [Set body](set-body-policy.md) - Sets the message body for incoming and outgoing requests.
+-   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+-   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
+-   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.
+-   [Transform XML using an XSLT](xsl-transform-policy.md) - Applies an XSL transformation to XML in the request or response body.
 
 ## Validation policies
-- [Validate content](validation-policies.md#validate-content) - Validates the size or JSON schema of a request or response body against the API schema.
-- [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
-- [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
-- [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
+- [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
+- [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
+- [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
+- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in
 ## Next steps
 
 For more information about working with policies, see:

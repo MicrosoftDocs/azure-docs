@@ -36,8 +36,8 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| set-header      | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. | No       |
-| set-body        | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.         | No       |
+| set-header      | A [set-header](set-header-policy.md) policy statement. | No       |
+| set-body        | A [set-body](set-body-policy.md) policy statement.         | No       |
 | set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
 
 ## Usage

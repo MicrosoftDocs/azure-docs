@@ -66,7 +66,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
 ## Configure resolver
 
-Configure the [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) policy to map a field in the schema to an existing HTTP endpoint. 
+Configure the [set-graphql-resolver](set-graphql-resolver-policy.md) policy to map a field in the schema to an existing HTTP endpoint. 
 
 Suppose you imported the following basic GraphQL schema and wanted to set up a resolver for the *users* query.
 
