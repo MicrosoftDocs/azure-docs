@@ -230,9 +230,15 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index.
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure Cognitive Search](search-howto-index-changed-deleted-blobs.md).
 
-+ Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You'll need to specify in the data source definition which change detection policy is used.
++ Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You'll need to specify in the data source definition which change detection policy is used:
+
+  + [Azure SQL > Change detection](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#indexing-new-changed-and-deleted-rows)
+  + [Azure DB for MySQL > Change detection](search-howto-index-mysql.md#indexing-new-and-changed-rows)
+  + [Azure Cosmos DB for NoSQL > Change detection](earch-howto-index-cosmosdb.md#indexing-new-and-changed-documents)
+  + [Azure Cosmos DB for MongoDB > Change detection](search-howto-index-cosmosdb-mongodb.md#indexing-new-and-changed-documents)
+  + [Azure CosmosDB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md#indexing-new-and-changed-documents)
 
 Indexers keep track of the last document it processed from the data source through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
 
