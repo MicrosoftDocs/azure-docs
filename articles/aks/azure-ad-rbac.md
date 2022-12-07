@@ -20,6 +20,8 @@ This article assumes that you have an existing AKS cluster enabled with Azure AD
 
 Kubernetes RBAC is enabled by default during AKS cluster creation. If Kubernetes RBAC wasn't enabled when you originally deployed your cluster, you'll need to delete and recreate your cluster.
 
+Consider the following basic requirements before continuing:
+
 - The Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
 
