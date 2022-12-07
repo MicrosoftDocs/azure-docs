@@ -2339,6 +2339,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TerraTrue
         href: terratrue-tutorial.md  
+      - name: tesma
+        href: tesma-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
       - name: Textline
