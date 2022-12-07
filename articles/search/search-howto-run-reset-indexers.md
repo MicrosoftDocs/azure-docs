@@ -29,7 +29,7 @@ After reset, follow with a Run command to reprocess new and existing documents. 
 
 ## Indexer execution
 
-Indexing does not run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large.
+Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large.
 
 You can run multiple indexers at one time, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
 
@@ -40,9 +40,9 @@ Indexer limits vary by the workload. For each workload, the following job limits
 | Text-based indexing <sup>3</sup> | 2 or 24 hours | One per search unit <sup>2</sup> | Typically runs on the search service. It may also run on internally managed, multi-tenant content processing cluster. |
 | Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally managed, multi-tenant content processing cluster, depending on how complex the skillset is. A simple skill might execute on your search service if the service has capacity. Otherwise, skills-based indexer jobs execute off-service. Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
-<sup>1</sup> For optimum processing, a search service determines the internal execution environment for the indexer operation. The execution environment is either the search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You cannot control or configure which environment is used. Using an internally managed cluster for skillset processing leaves more service-specific resources available for routine operations like queries and text indexing.
+<sup>1</sup> For optimum processing, a search service determines the internal execution environment for the indexer operation. The execution environment is either the search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You can't control or configure which environment is used. Using an internally managed cluster for skillset processing leaves more service-specific resources available for routine operations like queries and text indexing.
 
-<sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs are not tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
+<sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs aren't tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
 
 <sup>3</sup>  Indexer maximum run time for Basic tier or higher can be 2 or 24 hours, depending on system resources, product implementation and other factors.
 
@@ -73,7 +73,7 @@ Reset/run operations apply to a search index or a knowledge store, to specific d
 
 Reset also applies to just new and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
 
-Once you reset an indexer, you cannot undo the action.
+Once you reset an indexer, you can't undo the action.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -166,7 +166,7 @@ Remember to follow up with Run Indexer to invoke actual processing.
 
 The [Reset Documents API](/rest/api/searchservice/preview-api/reset-documents) accepts a list of document keys so that you can refresh specific documents. If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that document is processed.
 
-On a per-document basis, all fields in that search document are refreshed with values from the data source. You cannot pick and choose which fields to refresh. 
+On a per-document basis, all fields in that search document are refreshed with values from the data source. You can't pick and choose which fields to refresh. 
 
 If the document is enriched through a skillset and has cached data, the  skillset is invoked for just the specified documents, and the cache is updated for the reprocessed documents.
 
@@ -186,7 +186,7 @@ When you're testing this API for the first time, the following APIs can help you
     }
     ```
 
-    + The document keys provided in the request are values from the search index, which can be different from the corresponding fields in the data source. If you are unsure of the key value, [send a query](search-query-create.md) to return the value.You can use `select` to return just the document key field.
+    + The document keys provided in the request are values from the search index, which can be different from the corresponding fields in the data source. If you're unsure of the key value, [send a query](search-query-create.md) to return the value.You can use `select` to return just the document key field.
 
     + For blobs that are parsed into multiple search documents (where parsingMode is set to [jsonLines or jsonArrays](search-howto-index-json-blobs.md), or [delimitedText](search-howto-index-csv-blobs.md)), the document key is generated by the indexer and might be unknown to you. In this scenario, a query for the document key to return the correct value.
 
@@ -194,7 +194,7 @@ When you're testing this API for the first time, the following APIs can help you
 
 1. Call [Run Indexer](/rest/api/searchservice/run-indexer) a second time to process from the last high-water mark.
 
-1. Call [Search Documents](/rest/api/searchservice/search-documents) to check for updated values, and also to return document keys if you are unsure of the value. Use `"select": "<field names>"` if you want to limit which fields appear in the response.
+1. Call [Search Documents](/rest/api/searchservice/search-documents) to check for updated values, and also to return document keys if you're unsure of the value. Use `"select": "<field names>"` if you want to limit which fields appear in the response.
 
 ### Overwriting the document key list
 
