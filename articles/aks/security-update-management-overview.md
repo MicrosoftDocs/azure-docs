@@ -32,7 +32,7 @@ Microsoft scans containers using <What tool or method is used> to discover vulne
 
 In addition to automated scanning, Microsoft discovers and updates vulnerabilities unknown to scanners in the following ways.
 
-* Microsoft performs its own audits, penetration testing, and vulnerability discovery across all AKS platforms. Specialized teams inside Microsoft and trusted third-party security vendors conduct their own attack research. Microsoft has also worked with the [Cloud Native Computing Foundation][cloud-native-computing-foundation] (CNCF) to provide much of the organization and technical consulting expertise for the Kubernetes security audit <Is this valid or do we need to rephrase to represent our participation or contributions to the CNCF>.
+* Microsoft performs its own audits, penetration testing, and vulnerability discovery across all AKS platforms. Specialized teams inside Microsoft and trusted third-party security vendors conduct their own attack research.
 
 * Microsoft actively engages with the security research community through multiple vulnerability reward programs. A dedicated [Microsoft Azure Bounty program][azure-bounty-program-overview] provides significant bounties for the best cloud vulnerability found each year.
 
