@@ -11,8 +11,8 @@ ms.custom: ignite-2022
 Log compaction is a way of retaining data in Event Hubs using event key based retention. By default, each event hub/Kafka topic is created with time-based retention or *delete* cleanup policy, where events are purged upon the expiration of the retention time. Rather using coarser-grained time based retention, you can use event key-based retention mechanism where Event Hubs retrains the last known value for each event key of an event hub or a Kafka topic. 
 
 > [!NOTE] 
-> This feature is currently in Preview.
-> Log compaction feature is available only in **premium** and **dedicated** tiers. 
+> - This feature is currently in Preview.
+> - Log compaction feature is available only in **premium** and **dedicated** tiers. 
 
 > [!WARNING]
 > Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
