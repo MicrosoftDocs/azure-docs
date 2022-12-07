@@ -18,8 +18,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
 1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
     - **Scope**
-
-        Note that you can't change the scope for these types of rules:
+        You can edit the scope for all alert rules other than:
         - Log alert rules
         - Metric alert rules that monitor a custom metric
         - Smart detection alert rules
