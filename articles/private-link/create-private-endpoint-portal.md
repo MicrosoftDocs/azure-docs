@@ -32,7 +32,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 ## Create a DDoS protection plan
 
-1. Select **Create a resource** in the upper left-hand corner of the portal.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
 
@@ -51,7 +51,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 ## Create a virtual network and bastion host
 
-Start by creating a virtual network, subnet, and bastion host. 
+Create a virtual network, subnet, and bastion host. 
 
 You use the bastion host to connect securely to the VM for testing the private endpoint.
 
@@ -71,7 +71,6 @@ You use the bastion host to connect securely to the VM for testing the private e
     | **Instance details** |  |
     | Name | Enter **myVNet**. |
     | Region | Select **West Europe**. |
-
 
 5. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
