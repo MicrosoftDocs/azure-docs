@@ -33,6 +33,7 @@ The following permissions are required for Lifecycle Workflows:
 |LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows and tasks.| Allows the app to create, update, list, read and delete all workflows and tasks related to lifecycle workflows on behalf of the signed-in user.| Yes
 
 ## Parts of a workflow 
+
 A workflow can be broken down in to the following three main parts.
 
 |Workflow part|Description|
@@ -42,6 +43,7 @@ A workflow can be broken down in to the following three main parts.
 |Execution conditions| The execution condition section of a workflow sets up<br><br>- Who(scope) the workflow runs against  <br><br>- When(trigger) the workflow runs|
 
 ## Templates
+
 Creating a workflow via the portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for pre-defined tasks and helps automate the creation of a workflow.  
 
   [![Understanding workflow template diagram.](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
@@ -127,6 +129,7 @@ After reviewing the tasks on the review and create screen, you:
  [![Review and create workflow template.](media/understanding-lifecycle-workflows/workflow-7.png)](media/understanding-lifecycle-workflows/workflow-7.png#lightbox)
 
 ## Scheduling
+
 A workflow isn't scheduled to run by default. To enable the workflow, it needs to be scheduled.
 
 To verify whether the workflow is scheduled, you can view the **Scheduled** column.  
