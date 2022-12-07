@@ -7,8 +7,8 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: article
 ms.workload: infrastructure-services
-ms.custom: ignite-2022
-ms.date: 02/25/2022
+ms.custom: ignite-2022, FY23 content-maintenance
+ms.date: 12/06/2022
 ms.author: allensu
 ---
 
@@ -16,7 +16,7 @@ ms.author: allensu
 
 NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use up to 16 static IP addresses from either.
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs traffic to and from two subnets of VMs and a virtual machine scale set.":::
+:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway resource that consumes all IP addresses for a public IP prefix. The NAT gateway directs traffic for two subnets of VMs and a Virtual Machine Scale Set.":::
 
 *Figure: Virtual Network NAT for outbound to internet*
 
@@ -27,7 +27,9 @@ Configuring and using NAT gateway is intentionally made simple:
 NAT gateway:
 
 - Create a non-zonal or zonal NAT gateway.
+
 - Assign a public IP address or public IP prefix.
+
 - If necessary, modify TCP idle timeout (optional). Review [timers](#timers) before you change the default.
 
 Virtual network:
@@ -52,13 +54,13 @@ NAT gateway is recommended for all production workloads where you need to connec
 
 ### Coexistence of outbound and inbound connectivity 
 
-NAT gateway, Load balancer and instance-level public IPs are flow direction aware. NAT gateway can coexist in the same virtual network as Load balancer and IL PIPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through Load balancer or IL PIPs is translated separately from outbound traffic through NAT gateway. 
+NAT gateway, load balancer and instance-level public IPs are flow direction aware. NAT gateway can coexist in the same virtual network as a load balancer and instance-level public IPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway. 
 
-The following scenarios are examples of how to ensure coexistence of Load balancer or instance level public IPs for inbound with NAT gateway for outbound.
+The following examples demonstrate co-existence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
 
 #### NAT and VM with an instance-level public IP
 
-:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets that contain VMs and a virtual machine scale set.":::
+:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram of a NAT gateway resource that consumes all IP addresses for a public IP prefix. The NAT gateway directs traffic for two subnets of VMs and a Virtual Machine Scale Set.":::
 
 *Figure: Virtual Network NAT and VM with an instance level public IP*
 
@@ -84,7 +86,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 #### NAT and VM with an instance-level public IP and a standard public load balancer
 
-:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer.":::
+:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram of a NAT gateway that supports outbound traffic to the internet from a virtual network. Inbound traffic is depicted with an instance-level public IP and a public load balancer.":::
 
 *Figure: Virtual Network NAT and VM with an instance-level public IP and a standard public load balancer*
 
