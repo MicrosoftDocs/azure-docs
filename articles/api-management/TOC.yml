@@ -496,8 +496,16 @@
               hewd: validate-graphql-request-policy.md
             - name: validate-azure-ad-token
               href: validate-azure-ad-token-policy.md
+            - name: validate-content
+              href: validate-content-policy.md
+            - name: validate-headers
+              href: validate-headers-policy.md
             - name: validate-jwt
-              href: validate-jwt-policy.md 
+              href: validate-jwt-policy.md
+            - name: validate-parameters
+              href: validate-parameters-policy.md
+            - name: validate-status-code
+              href: validate-status-code-policy.md
             - name: wait
               href: wait-policy.md
             - name: xml-to-json
