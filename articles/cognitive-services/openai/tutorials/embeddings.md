@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, transformers
+* The transformers library requires you to have Flax, PyTorch, or TensorFlow present. Consult the transformers [installation guidance](https://pypi.org/project/transformers/) for more info.
 * An Azure OpenAI Service resource with **text-search-curie-doc-001** and **text-search-curie-query-001** models deployed. If you don't have a resource the process is documented in our [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
@@ -44,7 +45,7 @@ In this tutorial, you learn how to:
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install openai, num2words, matplotlib, plotly, scipy, scikit-learn, transformers
+pip install openai num2words matplotlib plotly scipy scikit-learn transformers requests
 ```
 
 Alternatively, you can use our [requirements.txt file](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/requirements.txt).
