@@ -14,19 +14,27 @@ services: azure-maps
 
 See below for information about new features and other changes to the Map Control.
 
-## 3.0.0-preview.2
+## 3.0.0-preview.2 (December 9, 2022)
+
+### New Features
 
 - Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
 - Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221).
 
+### Bug Fixes
+
 - Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
 
 - Add `.atlas-map` to all css selectors to scope the styles within the map container. The fix prevents the css from accidentally adding unwanted styles to other elements on the page.
 
-## 3.0.0-preview.1
+## 3.0.0-preview.1 (November 18, 2022)
+
+### New Features
 
 - This update is the first preview of the upcoming 3.0.0 release. There's no breaking change except that the underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, which offers improvements in stability and performance.
+
+### Bug Fixes
 
 - Fix a regression issue that prevents IndoorManager from removing a tileset by using
     ```js
@@ -35,7 +43,9 @@ See below for information about new features and other changes to the Map Contro
     })
     ```
 
-## 2.2.1
+## 2.2.1 (December 9, 2022)
+
+### New Features
 
 - Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map.
   - `progressiveLoading`
@@ -46,6 +56,8 @@ See below for information about new features and other changes to the Map Contro
     - Defaults to ["base"].
     - Possible values are `base`, `transit`, `labels`, `buildings`, and `labels_places`.
     - Other layer groups are deferred such that the initial layer groups can be loaded first.
+
+### Bug Fixes
 
 - Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
 
