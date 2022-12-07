@@ -420,6 +420,10 @@
               href: check-header-policy.md
             - name: choose
               href: choose-policy.md
+            - name: cors
+              href: cors-policy.md
+            - name: cross-domain
+              href: cross-domain-policy.md
             - name: emit-metrics
               href: emit-metrics-policy.md
             - name: find-and-replace
@@ -430,6 +434,8 @@
               href: get-authorization-context-policy.md
             - name: include-fragment
               href: include-fragment-policy.md
+            - name: invoke-dapr-binding
+              href: invoke-dapr-binding-policy.md
             - name: ip-filter
               href: ip-filter-policy.md
             - name: json-to-xml
@@ -442,6 +448,8 @@
               href: mock-response-policy.md
             - name: proxy
               href: proxy-policy.md
+            - name: publish-to-dapr
+              href: publish-to-dapr-policy.md
             - name: quota
               href: quota-policy.md
             - name: quota-by-key
@@ -462,6 +470,10 @@
               href: send-one-way-request-policy.md
             - name: send-request
               href: send-request-policy.md
+            - name: set-backend-service (Dapr)
+              href: set-backend-service-dapr-policy.md
+            - name: set-graphql-resolver
+              href: set-graphql-resolver-policy.md
             - name: set-backend-service
               href: set-backend-service-policy.md
             - name: set-body
@@ -480,6 +492,8 @@
               href: trace-policy.md
             - name: validate-client-certificate
               href: validate-client-certificate-policy.md
+            - name: validate-graphql-request
+              hewd: validate-graphql-request-policy.md
             - name: validate-azure-ad-token
               href: validate-azure-ad-token-policy.md
             - name: validate-content
