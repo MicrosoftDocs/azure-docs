@@ -118,6 +118,7 @@ body = str.encode(json.dumps(data))
 
 url = 'https://endpt-auth-token.eastus.inference.ml.azure.com/score'
 api_key = '<endpoint_cred>' # Replace this with the key or token you obtained
+assert api_key != "<endpoint_cred>", "key should be provided to invoke the endpoint"
 
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
