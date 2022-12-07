@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Application Insights for Java 2.x
-description: A step by step guide on using Java 2.x with Application Insights.
+title: Use the Application Insights Java 2.x SDK
+description: Learn how to use the Application Insights Java 2.x SDK, including sending trace logs, monitoring dependencies, filtering telemetry, and measuring metrics.
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.devlang: java
@@ -15,9 +15,9 @@ ms.reviewer: mmcc
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
-In this article, you'll learn how to use Java 2.x with Application Insights. This article shows you how to: 
+In this article, you'll learn how to use the Application Insights Java 2.x SDK. This article shows you how to: 
 
-- Get started, including instrumenting request, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
+- Get started, including instrumenting requests, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
 - Send trace logs to Application Insights and explore them using the Application Insights portal.
 - Monitor dependencies, caught exceptions, and method execution times in Java web apps
 - Filter telemetry in your Java web app
@@ -28,7 +28,7 @@ In this article, you'll learn how to use Java 2.x with Application Insights. Thi
 
 ## Get started with Application Insights in a Java web project
 
-In this section, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this section, you use the Application Insights SDK to instrument requests, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -301,7 +301,6 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
-<!--START ARTICLE: Log traces -->
 ## Explore Java trace logs in Application Insights
 
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
@@ -481,8 +480,6 @@ Exceptions submitted via loggers will be displayed on the portal as Exception Te
 
 :::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="In the Application Insights portal, open Search" lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
 
-<!-- START ARTICLE: Dependencies -->
-
 ## Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
 If you have [instrumented your Java web app with Application Insights SDK][javaagent], you can use the Java Agent to get deeper insights, without any code changes:
@@ -596,7 +593,6 @@ To search for individual instances of dependency, exception, and method reports,
 * No data? [Set firewall exceptions](./ip-addresses.md)
 * [Troubleshooting Java](java-2x-troubleshoot.md)
 
-<!--START ARTICLE: Filter telemetry-->
 ## Filter telemetry in your Java web app
 
 Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](#get-started-with-application-insights-in-a-java-web-project). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
@@ -849,7 +845,6 @@ You will need to create your own filter parameters in `application.properties` a
 
 * Check that you have provided valid parameter values. For example, durations should be integers. Invalid values will cause the filter to be ignored. If your custom filter throws an exception from a constructor or set method, it will be ignored.
 
-<!--START ARTICLE: Unix metrics -->
 ## collectd: Linux performance metrics in Application Insights [Deprecated]
 
 To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
@@ -958,7 +953,6 @@ Symptom: The collectd log shows errors that include "AI: ... SyntaxError: Unexpe
 
 Workaround: Exclude data collected by the problem Write plugins.
 
-<!--START ARTICLE: Micrometer Metrics -->
 ## How to use Micrometer with Azure Application Insights Java SDK (not recommended)
 
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This section will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
@@ -1086,34 +1080,7 @@ Steps:
         </dependency>
      ```
 
-2. Put `ApplicationInsights.xml` file in the resources folder:
-
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-
-       <!-- The key from the portal: -->
-       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-
-       <!-- HTTP request component (not required for bare API) -->
-       <TelemetryModules>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
-       </TelemetryModules>
-
-       <!-- Events correlation (not required for bare API) -->
-       <!-- These initializers add context data to each event -->
-       <TelemetryInitializers>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
-       </TelemetryInitializers>
-
-    </ApplicationInsights>
-    ```
+2. If you haven't already, add `ApplicationInsights.xml` file in the resources folder. For more information, see [Add an ApplicationInsights.xml file](#add-an-applicationinsightsxml-file).
 
 3. Sample Servlet class (emits a timer metric):
 
@@ -1220,7 +1187,7 @@ Add the following binding code to the configuration  file:
 ## Next steps
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
+* Use [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
 * [Diagnostic search][diagnostic]
 * [Sampling](./sampling.md) - Consider sampling as an alternative to filtering that does not skew your metrics.
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
