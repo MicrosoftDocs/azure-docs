@@ -17,7 +17,7 @@ You may need to download software for your on-premises management console if you
 
 **To download on-premises management console software**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
+1. In the [Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
 
 1. Select **Download** for your on-premises management console software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
 
