@@ -14,7 +14,9 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (December 2022)
-- Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. Key highlights:
+- Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. 
+
+Key highlights:
 
     - On-premises vs Azure total cost of ownership.
     - Year on year cashflow analysis.

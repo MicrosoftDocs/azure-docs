@@ -151,7 +151,7 @@ Cost components for running on-premises servers. For TCO calculations, a one yea
 | OPEX | Total OPEX (B) | Y1 OPEX = Total OPEX (B) * (1+server growth rate%) | Y2 OPEX = Y1 OPEX (B) * (1+server growth rate%) | Y3 OPEX = Y2 OPEX (B) * (1+server growth rate%) | Y4 OPEX = Y3 OPEX (B) * (1+server growth rate%) |
 | Status Quo Cash Flow | Y0 Cashflow  = Total CAPEX (A) + Total OPEX (B) | Y1 Cashflow= Y1 CAPEX+ Y1 OPEX | Y2 Cashflow= Y2 CAPEX + Y2 OPEX | Y3 Cashflow= Y3 CAPEX (A) + Y3 OPEX (B) | Y4 Cashflow= Y4 CAPEX (A) + Y4 OPEX (B) |
 
-**CAPEX & OPEX:**
+**CAPEX & OPEX**
 
 |   Component  | Sub component  | Assumptions | Azure retained |
  --- | --- | --- | --- |
@@ -178,7 +178,7 @@ You can override the above values in the assumptions section of the Business cas
 
  In Azure, there is no CAPEX, the yearly Azure cost is an OPEX
 
-|  Component  | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** |
+|  **Component**  | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** |
 --- | --- | --- | --- | --- | --- |
 | CAPEX | Total CAPEX (A) | Y1 CAPEX Azure =80%* (Y1 CAPEX On-premises) | Y2 CAPEX Azure =50%* (Y2 CAPEX On-premises) | Y3 CAPEX Azure =0%* (Y3 CAPEX On-premises) | Y4 CAPEX = 0%* (Y4 CAPEX On-premises) |
 | OPEX | Total OPEX (B) | Y1 OPEX Azure = 80%* (Y1 OPEX On-premises)+20%* (Azure Yearly cost) * (1+server growth rate%) | Y2 OPEX Azure = 50%* (Y2 OPEX On-premises)+50%* (Azure Yearly cost) * (1+server growth rate%) | Y3 OPEX Azure = 100%* (Azure Yearly cost) * (1+server growth rate%) | Y4 OPEX Azure = 100%* (Azure Yearly cost) * (1+server growth rate%) |
