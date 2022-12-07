@@ -176,6 +176,8 @@
         href: appsec-flow-sso-tutorial.md
       - name: Apptio
         href: apptio-tutorial.md
+      - name: Aqua Platform
+        href: aqua-platform-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
       - name: ARC Facilities
@@ -766,6 +768,8 @@
         href: elionboarding-tutorial.md
       - name: Elium
         href: elium-tutorial.md
+      - name: Elsevier SP
+        href: elsevier-sp-tutorial.md
       - name: eLuminate
         href: eluminate-tutorial.md
       - name: Embark
@@ -1119,8 +1123,8 @@
         href: hyperanna-tutorial.md
       - name: IamIP Platform
         href: iamip-patent-platform-tutorial.md
-      - name: iAuditor
-        href: iauditor-tutorial.md  
+      - name: SafetyCulture
+        href: safety-culture-tutorial.md  
       - name: IBM Digital Business Automation on Cloud
         href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBMid
@@ -1729,6 +1733,8 @@
         href: pantheon-tutorial.md 
       - name: Parkalot - Car park management
         href: parkalot-car-park-management-tutorial.md       
+      - name: Parkable
+        href: parkable-tutorial.md
       - name: ParkHere Corporate
         href: parkhere-corporate-tutorial.md
       - name: PatentSQUARE
@@ -2219,6 +2225,8 @@
         href: spacio-tutorial.md
       - name: SpectrumU
         href: spectrumu-tutorial.md
+      - name: SpedTrack
+        href: spedtrack-tutorial.md
       - name: Speexx
         href: speexx-tutorial.md  
       - name: Splashtop
@@ -2339,6 +2347,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TerraTrue
         href: terratrue-tutorial.md  
+      - name: tesma
+        href: tesma-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
       - name: Textline
@@ -2457,6 +2467,8 @@
         href: unifi-tutorial.md
       - name: uniFLOW Online
         href: uniflow-online-tutorial.md
+      - name: Unite Us
+        href: unite-us-tutorial.md
       - name: Upshotly
         href: upshotly-tutorial.md
       - name: Upwork Enterprise
