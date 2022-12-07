@@ -20,7 +20,7 @@ See below for information about new features and other changes to the Map Contro
 
 - Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
-- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221).
+- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221-december-9-2022).
 
 ### Bug Fixes
 
