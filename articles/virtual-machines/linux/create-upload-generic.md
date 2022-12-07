@@ -150,7 +150,8 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 * The Azure Linux Agent must be at or above the [minimum supported version](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 > [!NOTE]
-> Make sure **'udf'** and **'vfat'** modules are enable. Disabling the udf module will cause a provisioning failure. Disabling vfat module will cause both provisioning and boot failures. Cloud-init >= 21.2 can provision VMs without requiring UDF if: 1) the VM was created using SSH public keys and not password, 2) no custom data was provided
+> Make sure **'udf'** and **'vfat'** modules are enabled. Disabling the UDF module will cause a provisioning failure. Disabling the VFAT module will cause both provisioning and boot failures. Cloud-init >= 21.2 can provision VMs without requiring UDF if: 1) the VM was created using SSH public keys and not password and 2) no custom data was provided.
+
 > 
 
 ## General Linux System Requirements
