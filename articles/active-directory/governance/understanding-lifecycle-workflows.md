@@ -124,7 +124,7 @@ After reviewing the tasks on the review and create screen, you:
 - It's named **on-board pre-hire employee**.
 - Based on the date in the **EmployeeHireDate** attribute, it will trigger **seven** (7) days prior to the date.
 - It will run against users who have **marketing** for the **department** attribute value.
-- It will generate a **TAP (temporary access password)**, and send an email to the user in the **manager** attribute of the pre-hire employee.
+- It will generate a **TAP (Temporary Access Pass)**, and send an email to the user in the **manager** attribute of the pre-hire employee.
 
  [![Review and create workflow template.](media/understanding-lifecycle-workflows/workflow-7.png)](media/understanding-lifecycle-workflows/workflow-7.png#lightbox)
 
