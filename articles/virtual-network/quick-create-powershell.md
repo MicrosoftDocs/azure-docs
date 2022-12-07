@@ -45,12 +45,12 @@ New-AzResourceGroup @rg
 Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
 
 ```azurepowershell-interactive
-$ddosplan = @{
+$plan = @{
     Name = 'myDDoSPlan'
     ResourceGroupName = 'CreateVNetQS-rg'
     Location = 'EastUS'
 }
-New-AzDdosProtectionPlan @ddosplan
+$ddosplan = New-AzDdosProtectionPlan @plan
 ```
 
 ### Create the virtual network
