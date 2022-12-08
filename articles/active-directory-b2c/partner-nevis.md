@@ -35,7 +35,7 @@ To get started, you'll need:
 
 Add the branded Access app to your back-end application for passwordless authentication. The following components make up the solution:
 
-- **Azure AD B2C tenant** with a combined sign-in and sign-up policy for your back-end
+- **Azure AD B2C tenant** with a combined sign-in and sign-up policy for your back end
 - **Nevis instance** and its REST API to enhance Azure AD B2C
 - Your branded **Access** app
 
@@ -137,7 +137,7 @@ The diagram shows the implementation.
 ### Customize SignUpOrSignin.xml
 
 1. In your IDE, go to the [/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
-2. Open the [**SignUpOrSignin.xml**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/SignUpOrSignin.xml) file.
+2. Open the [SignUpOrSignin.xml](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/SignUpOrSignin.xml) file.
 3. Replace **your tenant** with your Azure tenant account name in **TenantId**.
 4. Replace **your tenant** with your Azure tenant account name in **PublicPolicyUri**.
 5. Under **BasePolicy**, in **TenantId**, replace **your tenant** with your Azure tenant account name.
