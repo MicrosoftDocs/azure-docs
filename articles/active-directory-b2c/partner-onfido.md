@@ -124,7 +124,7 @@ In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-i
 |{your_tenant_extensions_appid}|Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_app_insights_instrumentation_key}|Your app insights instance* instrumention key|01234567-89ab-cdef-0123-456789abcdef|
-|{your_ui_file_base_url}|Location URL of your UI folders **ocean_blue**, **dist**, and **assets**| https://yourstorage.blob.core.windows.net/UI/|
+|{your_ui_file_base_url}|Location URL of your UI folders **ocean_blue**, **dist**, and **assets**| `https://yourstorage.blob.core.windows.net/UI/`|
 |{your_app_service_URL}|The app service URL you set up|`https://yourapp.azurewebsites.net`|
 
 *App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps, if they're not needed.
