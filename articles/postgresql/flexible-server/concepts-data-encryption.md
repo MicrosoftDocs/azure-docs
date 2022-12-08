@@ -242,7 +242,7 @@ Prerequisites:
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
 
 Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
-1. Change key/identity for data encryption for existing server
+1. Change key/identity  for data encryption for existing server
 ```azurecli-interactive
  az postgres flexible-server update --resource-group <resource_group> --name <server_name> \
           --key '<key identifier of new AKV key>' --identity <identity_name>
