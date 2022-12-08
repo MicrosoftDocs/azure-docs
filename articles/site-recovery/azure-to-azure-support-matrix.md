@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 11/23/2022
+ms.date: 12/07/2022
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -65,11 +65,11 @@ This table summarizes support for the cache storage account used by Site Recover
 **Setting** | **Support** | **Details**
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is recommended because GPv1 does not support ZRS (Zonal Redundant Storage). 
-Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
+Premium storage | Supported | Use Premium Block Blob storage accounts to get High Churn support (in Public Preview). For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
-Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. ASR performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs very frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 
 The table below lists the limits in terms of number of disks that can replicate to a single storage account.
@@ -241,7 +241,7 @@ Availability sets | Supported | If you enable replication for an Azure VM with t
 Availability zones | Supported |
 Dedicated Hosts | Not supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
-VMSS Flex | Availability scenario - supported. Scalability scenario - not supported. |
+Virtual machine scale set Flex | Availability scenario - supported. Scalability scenario - not supported. |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
@@ -317,8 +317,8 @@ Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
-Soft delete | Not supported | Soft delete is not supported because once it is enabled on a storage account, it increases cost. ASR performs very frequent creates/deletes of log files while replicating causing costs to increase.
-iSCSI disks | Not supported | ASR may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks are not supported for Azure to Azure replication and failover/failback.
+Soft delete | Not supported | Soft delete is not supported because once it is enabled on a storage account, it increases cost. Azure Site Recovery performs very frequent creates/deletes of log files while replicating causing costs to increase.
+iSCSI disks | Not supported | Azure Site Recovery may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks are not supported for Azure to Azure replication and failover/failback.
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -332,6 +332,7 @@ The following table summarizes Site Recovery limits.
 - There are two limits to consider, per disk data churn and per virtual machine data churn.
 - The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
 
+
 **Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
 Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
@@ -340,6 +341,10 @@ Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
+
+
+>[!Note]
+>High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
 
 ## Replicated machines - networking
 

@@ -1,6 +1,6 @@
 ---
 title: Manage the lifecycle of group-based licenses in Azure AD
-description: This step-by-step tutorial shows how to create an access package for managing group-based licenses in Azure Active Directory entitlement management.
+description: This step-by-step tutorial shows how to create an access package for managing group-based licenses in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: sama
@@ -138,4 +138,4 @@ In this step, you can delete the Office Licenses access package.
 
 Learn how to create access packages to manage access to other types of resources, like applications and sites: 
 
-[Manage access to resources in Microsoft Entra entitlement management](./entitlement-management-access-package-first.md)
+[Manage access to resources in entitlement management](./entitlement-management-access-package-first.md)

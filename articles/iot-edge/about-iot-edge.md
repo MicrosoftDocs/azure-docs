@@ -50,7 +50,7 @@ The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. T
 * Maintains Azure IoT Edge security standards on the device.
 * Ensures that IoT Edge modules are always running.
 * Reports module health to the cloud for remote monitoring.
-* Manages communication between downstream leaf devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
+* Manages communication between downstream devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
 
 ![IoT Edge runtime sends insights and reporting to IoT Hub](./media/about-iot-edge/runtime.png)
 

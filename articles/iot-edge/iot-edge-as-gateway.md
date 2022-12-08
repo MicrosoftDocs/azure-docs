@@ -63,6 +63,9 @@ Beginning with version 1.2 of IoT Edge, transparent gateways can handle connecti
 
 You declare transparent gateway relationships in IoT Hub by setting the IoT Edge gateway as the *parent* of a downstream device *child* that connects to it.
 
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+
 The parent/child relationship is established at three points in the gateway configuration:
 
 #### Cloud identities
