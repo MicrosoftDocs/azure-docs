@@ -3,8 +3,12 @@ title: Plan a Defender for Servers deployment to protect on-premises and multicl
 description: Design a solution to protect on-premises and multicloud servers with Defender for Servers 
 ms.topic: conceptual
 ms.date: 11/06/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 # Plan Defender for Servers deployment
+
+Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint to provide endpoint detection and response (EDR), and also provides a host of additional threat protection features.
 
 This guide helps you to design and plan an effective Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
@@ -23,10 +27,6 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 
 - Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 - If you're deploying for AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
-
-## Defender for Servers
-
-Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint provide to endpoint detection and response (EDR), and provides a host of additional threat protection features.
 
 ## Deployment overview
 
