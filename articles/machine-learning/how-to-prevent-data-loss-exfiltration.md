@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 08/26/2022
 ---
 
-# Azure Machine Learning data exfiltration prevention (Preview)
+# Azure Machine Learning data exfiltration prevention
 
 <!-- Learn how to use a [Service Endpoint policy](../virtual-network/virtual-network-service-endpoint-policies-overview.md) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning. -->
 
@@ -36,17 +36,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 * An Azure Machine Learning workspace with a private endpoint that connects to the VNet.
     * The storage account used by the workspace must also connect to the VNet using a private endpoint.
 
-## 1. Opt in to the preview
-
-> [!IMPORTANT]
-> Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
-
-Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
-
-> [!TIP]
-> It may take one to two weeks to allowlist your subscription.
-
-## 2. Create the service endpoint policy
+## 1. Create the service endpoint policy
 
 1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
 1. On the __Policy definitions__ tab, perform the following actions:
@@ -73,7 +63,7 @@ Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com
 
 1. Select __Review + Create__, and then select __Create__.
 
-## 3. Allow inbound and outbound network traffic
+## 2. Allow inbound and outbound network traffic
 
 ### Inbound
 
@@ -114,7 +104,7 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 
 For more information, see [How to secure training environments](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
-## 4. Enable storage endpoint for the subnet
+## 3. Enable storage endpoint for the subnet
 
 1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
@@ -123,7 +113,7 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 :::image type="content" source="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png" alt-text="A screenshot of the Azure portal showing how to enable storage endpoint for the subnet." lightbox="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png":::
 
-## 5. Curated environments
+## 4. Curated environments
 
 When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
@@ -131,7 +121,7 @@ When using Azure ML curated environments, make sure to use the latest environmen
 1. Verify that the __Azure container registry__ begins with a value of `mcr.microsoft.com`.
 
     > [!IMPORTANT]
-    > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration preview. Try upgrading to the latest version of the curated environment.
+    > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration. Try upgrading to the latest version of the curated environment.
 
 1. When using `mcr.microsoft.com`, you must also allow outbound configuration to the following resources. Select the configuration option that you're using:
 
