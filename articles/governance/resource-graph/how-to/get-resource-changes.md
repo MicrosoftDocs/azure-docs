@@ -301,10 +301,10 @@ resourcechanges  
 ```kusto
 resourcechanges 
 |extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
-| where createTime > ago(7d) and changeType == "Create" 
+| where createTime > ago(7d) and changeType == "Create" or changeType == "Update" or changeType == "Delete"
 | project  targetResourceId, changeType, createTime 
-| join ( resources | extend targetResourceId=id) on targetResourceId 
-| where tags[“Environment”] =~ “prod” 
+| join ( resources | extend targetResourceId=id) on targetResourceId
+| where tags ['Environment'] =~ 'prod' 
 | order by createTime desc 
 | project createTime, id, resourceGroup, type
 ```

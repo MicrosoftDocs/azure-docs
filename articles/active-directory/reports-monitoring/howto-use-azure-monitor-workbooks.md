@@ -105,7 +105,7 @@ To use Monitor workbooks, you need:
 - Following roles in Azure Active Directory (if you're accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
-    - Report reader
+    - Reports reader
     - Global administrator
 
 ## Roles

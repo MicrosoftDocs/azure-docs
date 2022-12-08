@@ -219,6 +219,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-kafka-extension",
       "url": "https://github.com/Azure/azure-functions-kafka-extension",
       "branch": "dev",
@@ -944,6 +950,7 @@
     "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+    "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
     "articles/mariadb/.openpublishing.redirection.mariadb.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
     "articles/mysql/.openpublishing.redirection.mysql.json",

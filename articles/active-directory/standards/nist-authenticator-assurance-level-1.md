@@ -28,7 +28,7 @@ Before you begin authenticator assurance level 1 (AAL1), you can review the foll
 
 ## Permitted authenticator types
 
-For AAL1, you can use NIST single-factor or multi-factor [authenticator types](nist-authenticator-types.md). The following table contains permitted types.
+To achieve AAL1, you can use any NIST single-factor or multifactor [permitted authenticator](nist-authenticator-types.md). Note that Password and Phone (SMS) are not covered in [AAL2](nist-authenticator-assurance-level-2.md) or [AAL3](nist-authenticator-assurance-level-2.md).
 
 |Azure AD authentication method|NIST authenticator type |
 | - | - |
