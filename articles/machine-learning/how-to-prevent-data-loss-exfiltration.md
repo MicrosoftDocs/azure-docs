@@ -118,7 +118,7 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
-1. In the form that appears, expand the __Services__ dropdown and then __enable Microsoft.Storage__. Select __Save__ to save these changes.
+1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
 1. Apply the service endpoint policy to your workspace subnet.
 
 :::image type="content" source="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png" alt-text="A screenshot of the Azure portal showing how to enable storage endpoint for the subnet.":::
