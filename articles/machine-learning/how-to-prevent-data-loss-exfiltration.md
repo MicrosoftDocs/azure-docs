@@ -64,7 +64,7 @@ Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com
     
         Select __Add__ to add the resource information.
 
-        :::image type="content" source="media/how-to-data-exfiltration-prevention/create-service-endpoint-policy.png" alt-text="A screenshot showing how to create a service endpoint policy.":::
+        :::image type="content" source="media/how-to-data-exfiltration-prevention/create-service-endpoint-policy.png" alt-text="A screenshot showing how to create a service endpoint policy." lightbox="media/how-to-data-exfiltration-prevention/create-service-endpoint-policy.png":::
 
     1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
     
@@ -121,7 +121,8 @@ For more information, see [How to secure training environments](how-to-secure-tr
 1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
 1. Apply the service endpoint policy to your workspace subnet.
 
-:::image type="content" source="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png" alt-text="A screenshot of the Azure portal showing how to enable storage endpoint for the subnet.":::
+:::image type="content" source="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png" alt-text="A screenshot of the Azure portal showing how to enable storage endpoint for the subnet." lightbox="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png":::
+
 ## 5. Curated environments
 
 When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
