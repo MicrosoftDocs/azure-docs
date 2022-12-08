@@ -45,22 +45,22 @@ Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
 
-| Network usage             | Subnet | Example          |
-| ------------------------- | ------ | ---------------- |
-| Private cloud management  | `/26`  | `10.10.0.0/26`   |
-| HCX Mgmt Migrations       | `/26`  | `10.10.0.64/26`  |
-| Global Reach Reserved     | `/26`  | `10.10.0.128/26` |
-| NSX-T DNS Service         | `/32`  | `10.10.0.192/32` |
-| Reserved                  | `/32`  | `10.10.0.193/32` |
-| Reserved                  | `/32`  | `10.10.0.194/32` |
-| Reserved                  | `/32`  | `10.10.0.195/32` |
-| Reserved                  | `/30`  | `10.10.0.196/30` |
-| Reserved                  | `/29`  | `10.10.0.200/29` |
-| Reserved                  | `/28`  | `10.10.0.208/28` |
-| ExpressRoute peering      | `/27`  | `10.10.0.224/27` |
-| ESXi Management           | `/25`  | `10.10.1.0/25`   |
-| vMotion Network           | `/25`  | `10.10.1.128/25` |
-| Replication Network       | `/25`  | `10.10.2.0/25`   |
+| Network usage             | Summary | Subnet | Example          |
+| ------------------------- | ------------------------- | ------ | ---------------- |
+| Private cloud management  | Network for managment tools (i.e. vCenter, NSX-t ) | `/26`  | `10.10.0.0/26`   |
+| HCX Mgmt Migrations       | VM's like HCX Interconnect and Network extension | `/26`  | `10.10.0.64/26`  |
+| Global Reach Reserved     | Outbound interface for ExpressRoute | `/26`  | `10.10.0.128/26` |
+| NSX-T DNS Service         | NSX-T DNS Service | `/32`  | `10.10.0.192/32` |
+| Reserved                  | Reserved | `/32`  | `10.10.0.193/32` |
+| Reserved                  | Reserved | `/32`  | `10.10.0.194/32` |
+| Reserved                  | Reserved | `/32`  | `10.10.0.195/32` |
+| Reserved                  | Reserved | `/30`  | `10.10.0.196/30` |
+| Reserved                  | Reserved | `/29`  | `10.10.0.200/29` |
+| Reserved                  | Reserved | `/28`  | `10.10.0.208/28` |
+| ExpressRoute peering      | ExpressRoute Peering | `/27`  | `10.10.0.224/27` |
+| ESXi Management           | Network for ESXi Managment VMkernal interfaces | `/25`  | `10.10.1.0/25`   |
+| vMotion Network           | Network for vMotion VMkernal interfaces | `/25`  | `10.10.1.128/25` |
+| Replication Network       | Network for| `/25`  | `10.10.2.0/25`   |
 | vSAN                      | `/25`  | `10.10.2.128/25` |
 | HCX Uplink                | `/26`  | `10.10.3.0/26`   |
 | Reserved                  | `/26`  | `10.10.3.64/26`  |
@@ -84,15 +84,13 @@ The subnets:
 | HCX Connector (on-prem) | Interconnect (HCX-IX) (on-prem) | TCP(HTTPS) | 8123 | Send host-based replication service instructions to the Hybrid Cloud Gateway. |
 | HCX Connector (on-prem) | Interconnect (HCX-IX on-prem) | HTTP  TCP(HTTPS) | 9443 | Send management instructions to the local Hybrid Cloud Gateway using the REST API. |
 | Interconnect (HCX-IX) (on-prem) | Network Extension (HCX-NE) (on-prem) | TCP(HTTPS) | 443 | Send management instructions from Cloud Gateway to L2C when L2C uses the same path as the Hybrid Cloud Gateway. |
-| HCX Connector (on-prem) | ESXi Hosts (on-prem) | TCP | 80,902 | Management and OVF deployment. |
+| HCX Connector (on-prem) | ESXi Hosts (on-prem) | TCP | 80,902,443 | Authentication, Management and OVF deployment. |
 | Interconnect and Network Extension (on-prem)| Interconnect and Network Extenion (cloud) | UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
 | Interconnect (HCX-IX) (on-prem) | Interconnect (HCX-IX) (cloud)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter to Private Cloud vCenter using "Cross vCenter vMotion."  This is outside of HCX vMotions and is not an hcx requirement. |    
 | HCX Connector (on-prem) | connect.hcx.vmware.com and hybridity-depot.vmware.com | TCP | 443 |  connect.hcx.vmware.com is needed to validate Hybrid Cloud Manager license key.  Hybridity-depot is used for updates.   |    
 
 There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scanerios. Note that when source and destination says "on-prem", this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-prem components, you can ignore those rules as they would not be needed. For a detailed list of HCX ports for different features, please refer to the following links:
-
-https://hybridityguru.files.wordpress.com/2020/02/hcx-network-ports.pdf
 
 https://ports.esp.vmware.com/home/VMware-HCX
 
