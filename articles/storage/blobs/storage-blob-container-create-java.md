@@ -33,13 +33,13 @@ The URI for a container is in this format:
 
 To create a container, call one of the following methods from the `BlobServiceClient` class:
 
-- [BlobServiceClient.createBlobContainer](/java/api/com.azure.storage.blob.BlobServiceClient#com-azure-storage-blob-blobserviceclient-createblobcontainer(java-lang-string))
-- [BlobServiceClient.createBlobContainerIfNotExists](/java/api/com.azure.storage.blob.BlobServiceClient#com-azure-storage-blob-blobserviceclient-createblobcontainerifnotexists(java-lang-string))
+- [createBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient)
+- [createBlobContainerIfNotExists](/java/api/com.azure.storage.blob.blobserviceclient)
 
 You can also create a container using one of the following methods from the `BlobContainerClient` class:
 
-- [BlobContainerClient.create](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-create())
-- [BlobContainerClient.createIfNotExists](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-createifnotexists())
+- [create](/java/api/com.azure.storage.blob.blobcontainerclient)
+- [createIfNotExists](/java/api/com.azure.storage.blob.blobcontainerclient)
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. For the `create` and `createBlobContainer` methods, an exception is thrown if a container with the same name already exists. 
 

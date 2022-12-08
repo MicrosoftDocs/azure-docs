@@ -21,13 +21,13 @@ This article shows how to delete containers with the [Azure Storage client libra
 
 To delete a container in Java, use one of the following methods from the `BlobServiceClient` class:
 
-- [BlobServiceClient.deleteBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient#com-azure-storage-blob-blobserviceclient-deleteblobcontainer(java-lang-string))
-- [BlobServiceClient.deleteBlobContainerIfExists](/java/api/com.azure.storage.blob.blobserviceclient#com-azure-storage-blob-blobserviceclient-deleteblobcontainerifexists(java-lang-string))
+- [deleteBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient)
+- [deleteBlobContainerIfExists](/java/api/com.azure.storage.blob.blobserviceclient)
 
 You can also delete a container using one of the following methods from the `BlobContainerClient` class:
 
-- [BlobContainerClient.delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete#com-azure-storage-blob-blobcontainerclient-delete())
-- [BlobContainerClient.deleteIfExists](/java/api/com.azure.storage.blob.blobcontainerclient.delete#com-azure-storage-blob-blobcontainerclient-deleteifexists())
+- [delete](/java/api/com.azure.storage.blob.blobcontainerclient)
+- [deleteIfExists](/java/api/com.azure.storage.blob.blobcontainerclient)
 
 After you delete a container, you can't create a container with the same name for *at least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains will fail with HTTP error code `404 (Not Found)`.
 
@@ -43,7 +43,7 @@ The following example shows how to delete all containers that start with a speci
 
 When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. You can restore a soft deleted container by calling the following method of the `BlobServiceClient` class:
 
-- [BlobServiceClient.undeleteBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient#com-azure-storage-blob-blobserviceclient-undeleteblobcontainer(java-lang-string-java-lang-string))
+- [undeleteBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient)
 
 The following example finds a deleted container, gets the version of that deleted container, and then passes the version into the `undeleteBlobContainer` method to restore the container.
 

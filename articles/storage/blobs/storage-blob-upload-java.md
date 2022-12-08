@@ -21,11 +21,11 @@ Blobs in Azure Storage are organized into containers. Before you can upload a bl
 
 To upload a blob using a stream or a binary object, use the following method:
 
-- [BlobClient.upload](/java/api/com.azure.storage.blob.blobclient#com-azure-storage-blob-blobclient-upload(com-azure-core-util-binarydata))
+- [upload](/java/api/com.azure.storage.blob.blobclient)
 
 To upload a blob using a file path, use the following method:
 
-- [BlobClient.uploadFromFile](/java/api/com.azure.storage.blob.blobclient#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string-boolean))
+- [uploadFromFile](/java/api/com.azure.storage.blob.blobclient)
 
 Each of these methods can also be called using a [BlockBlobClient] object if you're working with block blobs.
 

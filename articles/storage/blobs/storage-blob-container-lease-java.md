@@ -23,7 +23,7 @@ A lease establishes and manages a lock on a container or the blobs in a containe
 
 When you acquire a lease, you'll obtain a lease ID that your code can use to operate on the blob or container. To acquire a lease, create an instance of the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, and then use the following method:
 
-- [BlobLeaseClient.acquireLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient#com-azure-storage-blob-specialized-blobleaseclient-acquirelease(int))
+- [acquireLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
 The following example acquires a 30-second lease for a blob:
 
@@ -33,7 +33,7 @@ The following example acquires a 30-second lease for a blob:
 
 If your lease expires, you can renew it. To renew a lease, use the following method:
 
-- [BlobLeaseClient.renewLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient#com-azure-storage-blob-specialized-blobleaseclient-renewlease())
+- [renewLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
 The following example renews a lease for a blob:
 
@@ -43,7 +43,7 @@ The following example renews a lease for a blob:
 
 You can either wait for a lease to expire or explicitly release it. When you release a lease, other clients can obtain a lease. You can release a lease by using the following method:
 
-- [BlobLeaseClient.releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient#com-azure-storage-blob-specialized-blobleaseclient-releaselease())
+- [releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
 The following example releases the lease on a blob:
 
@@ -53,7 +53,7 @@ The following example releases the lease on a blob:
 
 When you break a lease, the lease ends, but other clients can't acquire a lease until the lease period expires. You can break a lease by using the following method:
 
-- [BlobLeaseClient.breakLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient#com-azure-storage-blob-specialized-blobleaseclient-breaklease())
+- [breakLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
 The following example breaks the lease on a blob:
 

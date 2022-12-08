@@ -21,7 +21,7 @@ When you list the containers in an Azure Storage account from your code, you can
 
 To list containers in your storage account, call the following method:
 
-- BlobServiceClient.[listBlobContainers](/java/api/com.azure.storage.blob.blobserviceclient#com-azure-storage-blob-blobserviceclient-listblobcontainers())
+- [listBlobContainers](/java/api/com.azure.storage.blob.blobserviceclient)
 
 The overloads for this method provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
 
