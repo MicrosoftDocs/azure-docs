@@ -159,19 +159,19 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
     az extension update --name aks-preview
     ```
 
-  1. Register the feature flag.
+  2. Register the feature flag.
 
     ```azurecli
     az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
     ```
 
-  1. Check the registration status.
+  3. Check the registration status.
 
     ```azurecli
     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
     ```
 
-  1. Refresh the registration of the `Microsoft.ContainerService` resource provider.
+  4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
 
     ```azurecli
     az provider register --namespace Microsoft.ContainerService
