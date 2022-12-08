@@ -137,7 +137,7 @@ Pointers to ensure you are submitting a high quality application:
 - Opt-in image URL is provided and publicly accessible 
 - [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms) are being followed
 
-### What are the Ineligible Use Cases for toll-free verification? 
+### What are the ineligible use cases for toll-free verification? 
 | High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activites | General                  |
 |---------------------------------|-----------------------------------|----------------------------------|------------------------------|--------------------------|
 | Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     | Phishing                 |
