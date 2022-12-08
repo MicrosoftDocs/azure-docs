@@ -121,7 +121,6 @@ export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | 
 
 The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
 
-
 ```python
 import mlflow
 
@@ -134,13 +133,16 @@ azureml_mlflow_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptio
 mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
+> [!WARNING]
+> If you are working in a private link-enabled workspace, the MLflow endpoint will also use a private link to communicate with Azure Machine Learning. As a consequence, the tracking URI will look different as proposed here. On those cases, you need to get the tracking URI using the Azure ML SDK or CLI v2.
+
+---
+
 > [!NOTE]
 > You can also get this URL by: 
 > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-> 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> 2. Click on the upper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
 > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
-
----
 
 ### Set experiment name
 
