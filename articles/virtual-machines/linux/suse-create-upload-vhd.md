@@ -73,11 +73,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 7. Update waagent and cloud-init configuration
 
     ```console
+    sudo -i
     sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
     sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 
-    sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
-    sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
+    sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
+    exit
     ```
 
 8. Edit the "/etc/default/grub" file to ensure console logs are sent to the serial port by adding the following line:
@@ -127,8 +129,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
     ```console
+    sudo -i    
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    exit
     ```
 
     Please see the [Linux agent configuration](/azure/virtual-machines/extensions/agent-linux#configuration) documentation for more information on the waagent.conf configuration options.
