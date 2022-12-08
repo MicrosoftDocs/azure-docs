@@ -82,7 +82,7 @@ Caches can't be upgraded while they have a geo-replication link.
 
 #### What happens to my cache if I don't upgrade to Redis version 6 by June 30, 2023?
 
-If you don't upgrade your Redis 4 cache by June 30, 2023, the cache is automatically upgraded to version 6. If you have a maintenance window scheduled for your cache, the upgrade happens during the maintenance window. Geo-replicated Redis 4 caches will be retired on August 20, 2023.
+If you don't upgrade your Redis 4 cache by June 30, 2023, the cache is automatically upgraded to version 6. If you have a maintenance window scheduled for your cache, the upgrade happens during the maintenance window. Geo-replicated Redis 4 caches will be retired on August 30, 2023.
 
 #### What happens to my Cloud Service cache if I don't upgrade it by June 30, 2023?
 
