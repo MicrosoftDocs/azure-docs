@@ -94,7 +94,7 @@ The UI is based on the ocean blue template in [/samples/ThreatMetrix/ui-template
 
 To create two policy keys, follow the instructions in [add REST API username and password policy keys](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys). One policy is for the API username, the other is for the API password, you created.
 
-The sample policy uses key names:
+Example policy key names:
 
 - B2C_1A_RestApiUsername
 - B2C_1A_RestApiPassword
