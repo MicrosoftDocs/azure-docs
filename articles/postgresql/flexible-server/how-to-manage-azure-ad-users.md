@@ -98,7 +98,7 @@ Azure Database for PostgreSQL Flexible Servers uses Security Labels associated w
 You can use the following SQL to assign security label:
 
 ```sql
-SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>',type=<user|group|service>,admin';
+SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,type=<user|group|service>,admin';
 ```
 
 **Parameters:**
