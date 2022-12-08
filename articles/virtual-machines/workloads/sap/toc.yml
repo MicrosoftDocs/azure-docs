@@ -456,6 +456,8 @@
       href: /azure/api-management/sap-api?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
   - name: App Development and DevOps
     items:
+    - name: ABAP SDK for Azure - get inspired to integrate with Microsoft services natively
+      href: https://github.com/microsoft/ABAP-SDK-for-Azure
     - name: dotNET speaks OData too, how to implement Azure App Service with SAP Gateway
       href: https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/
     - name: Apply cloud native deployment practice blue-green to SAP BTP apps with Azure DevOps
