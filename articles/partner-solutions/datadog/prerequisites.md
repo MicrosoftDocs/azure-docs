@@ -7,13 +7,13 @@ author: flang-msft
 ms.author: franlanglois
 ---
 
-# Configure environment before Datadog deployment
+# Configure environment before Datadog - An Azure Native ISV Service deployment
 
-This article describes how to set up your environment before deploying your first instance of Datadog. These conditions are prerequisites for completing the quickstarts.
+This article describes how to set up your environment before deploying your first instance of Datadog - An Azure Native ISV Service. These conditions are prerequisites for completing the quickstarts.
 
 ## Access control
 
-To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+To set up the Datadog - An Azure Native ISV Service, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 
 ## Add enterprise application
  
