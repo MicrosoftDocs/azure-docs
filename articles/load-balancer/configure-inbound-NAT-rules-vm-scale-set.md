@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Configure Inbound NAT Rules for Virtual Machine Scale Sets
 
-In this article you'll learn how to configure, update, and delete inbound NAT Rules for Virtual Machine Scale Set instances. Azure offers two options for Inbound NAT rules. The first option is the ability to add a single inbound NAT rule to a single backend resource. The second option is the ability to create a group of inbound NAT rules for a backend pool. Additional information on the various options is provided [here](inbound-nat-rules.md). It's recommended to use the second option for inbound NAT rules when using Virtual Machine Scale Sets, since this option provides better flexibility and scalability.  
+In this article you'll learn how to configure, update, and delete inbound NAT Rules for Virtual Machine Scale Set instances. Azure offers two options for inbound NAT rules. The first option is the ability to add a single inbound NAT rule to a single backend resource. The second option is the ability to create a group of inbound NAT rules for a backend pool. Additional information on the various options is provided [here](inbound-nat-rules.md). It's recommended to use the second option for inbound NAT rules when using Virtual Machine Scale Sets, since this option provides better flexibility and scalability.  
 
 ## Prerequisites
 
