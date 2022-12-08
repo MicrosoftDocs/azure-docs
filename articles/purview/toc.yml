@@ -316,7 +316,7 @@ items:
   - name: Data Estate Insights
     items:
     - name: Disable or enable Data Estate Insights
-      href: enable-disable-data-estate-insights.md
+      href: disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
