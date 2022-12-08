@@ -207,11 +207,11 @@ The following diagram shows the overall architecture of this example:
 
 :::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
-To start cretae a resource group, use the following Azure CLI commands. Replace 'Your resource group name' and 'Your location' with the desierd values.  
+To start cretae a resource group, use the following Azure CLI commands. Replace <my-resource-group> and 'my-location' with the desierd values.  
 
 ```azurecli
 # create resource group
-az group create --name <my-resource-group> --location <Your-location>
+az group create --name <my-resource-group> --location <my-location>
 ```
 
 Clone the example files for the deployment, use the following command:
