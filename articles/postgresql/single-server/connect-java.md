@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: judubois
 author: jdubois
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
 ms.date: 09/27/2022
 ---
 
@@ -93,6 +93,8 @@ az group create \
 
 ## Create an Azure Database for PostgreSQL instance
 
+The following sections describe how to create and configure your database instance.
+
 ### Create a PostgreSQL server and set up admin user
 
 The first thing you'll create is a managed PostgreSQL server with an admin user.
@@ -104,7 +106,7 @@ The first thing you'll create is a managed PostgreSQL server with an admin user.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli
 az login --scope https://graph.microsoft.com/.default
 ```
 

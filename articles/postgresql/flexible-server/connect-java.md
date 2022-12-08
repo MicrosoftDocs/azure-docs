@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 11/07/2022
@@ -16,7 +16,7 @@ ms.date: 11/07/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL Flexible Server](./index.yml).
+This article demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL Flexible Server](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
@@ -58,7 +58,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 > [!IMPORTANT]
-> When setting <YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>, the username must already exist in your Azure AD tenant or you will be unable to create an Azure AD user in your database.
+> When setting `<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>`, the username must already exist in your Azure AD tenant or you will be unable to create an Azure AD user in your database.
 
 ### [Password](#tab/password)
 
@@ -95,6 +95,8 @@ az group create \
 
 ## Create an Azure Database for PostgreSQL instance
 
+The following sections describe how to create and configure your database instance.
+
 ### Create a PostgreSQL server and set up admin user
 
 The first thing we'll create is a managed PostgreSQL server.
@@ -106,7 +108,7 @@ The first thing we'll create is a managed PostgreSQL server.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli
 az login --scope https://graph.microsoft.com/.default
 ```
 
@@ -121,10 +123,10 @@ az postgres flexible-server create \
     --output tsv
 ```
 
-Follow the steps in this [article](/azure/postgresql/flexible-server/how-to-manage-azure-ad-users#create-or-delete-azure-ad-administrators-using-azure-portal-or-azure-resource-manager-arm-api) to set up an Azure AD administrator after creating the server.
+To set up an Azure AD administrator after creating the server, follow the steps in [Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 > [!IMPORTANT]
-> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. Multiple Azure AD administrators can be created per PostgreSQL Flexible Server.
+> When setting up an administrator, a new user with full administrator privileges is added to the PostgreSQL Flexible Server's Azure database. You can create multiple Azure AD administrators per PostgreSQL Flexible Server.
 
 #### [Password](#tab/password)
 
