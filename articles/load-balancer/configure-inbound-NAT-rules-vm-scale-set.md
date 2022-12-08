@@ -49,6 +49,7 @@ When using inbound NAT rules with Virtual Machine Scale Sets, Individual inbound
 az network lb inbound-nat-rule update
     -g MyResourceGroup
     --lb-name MyLb
+
     -n MyNatPool
     --frontend-port-range-start 150
     --frontend-port-range-end 250 
@@ -92,7 +93,6 @@ az network lb inbound-nat-rule create
     --frontend-ip-name MyFrontendIp 
 
 ```
-
 
 ## Next steps
 To learn more about Azure Load Balancer and Virtual Machine Scale Sets, read more about the concepts. 
