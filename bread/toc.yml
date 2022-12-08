@@ -354,6 +354,19 @@
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
+  - name: Center for SAP solutions
+    tocHref: /azure/center-sap-solutions/
+    topicHref: /azure/center-sap-solutions/index
+    items:
+    - name: Deployment automation framework
+      tocHref: /azure/center-sap-solutions/automation/
+      topicHref: /azure/center-sap-solutions/automation/index
+    - name: Monitor for SAP solutions
+      tocHref: /azure/center-sap-solutions/monitor/
+      topicHref: /azure/center-sap-solutions/monitor/index
+    - name: Azure VMs for SAP workloads
+      tocHref: /azure/virtual-machines/workloads/sap/
+      topicHref: /azure/virtual-machines/workloads/sap/index
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
@@ -1042,13 +1055,6 @@
           - name: High Performance Computing
             tocHref: /azure/virtual-machines/workloads/hpc/
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
-          - name: SAP
-            tocHref: /azure/virtual-machines/workloads/sap/
-            topicHref: /azure/virtual-machines/workloads/sap/index
-            items:
-              - name: Azure Center for SAP solutions
-                tocHref: /azure/center-sap-solutions/
-                topicHref: /azure/center-sap-solutions/index
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
             topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
