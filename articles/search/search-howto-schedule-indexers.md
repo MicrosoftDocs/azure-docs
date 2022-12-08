@@ -20,7 +20,7 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 + Source data is very large, and you need a recurring schedule to index all of the content.
 + An index is populated from multiple sources, using multiple indexers, and you want to stagger the jobs to reduce conflicts.
 
-When indexing can't complete within the typical 2-hour processing window, you can schedule the indexer to run on a 2-hour cadence to work through a large volume of data. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run.
+When indexing can't complete within the [typical 2-hour processing window](search-howto-run-reset-indexers.md#indexer-execution), you can schedule the indexer to run on a 2-hour cadence to work through a large volume of data. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run.
 
 Once an indexer is on a schedule, it remains on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for changed content is a relatively fast operation.
 
