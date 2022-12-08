@@ -82,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-## Configure ChartDesk SSO SSO
+## Configure ChartDesk SSO
 
 To configure single sign-on on **ChartDesk SSO** side, you need to send the **App Federation Metadata Url** to [ChartDesk SSO support team](mailto:support@chartdesk.pro). They set this setting to have the SAML SSO connection set properly on both sides.
 
