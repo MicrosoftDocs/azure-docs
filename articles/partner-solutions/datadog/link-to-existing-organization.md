@@ -14,11 +14,11 @@ In this quickstart, you'll link to an existing organization of Datadog. You can 
 
 ## Prerequisites
 
-Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
+Before creating your first instance of Datadog - An Azure Native ISV Service, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
 
 ## Find offer
 
-Use the Azure portal to find Datadog.
+Use the Azure portal to find Datadog - An Azure Native ISV Service.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -26,7 +26,7 @@ Use the Azure portal to find Datadog.
 
     :::image type="content" source="media/link-to-existing-organization/marketplace.png" alt-text="Marketplace icon.":::
 
-1. In the Marketplace, search for **Datadog**.
+1. In the Marketplace, search for **Datadog - An Azure Native ISV Service**.
 
 1. In the plan overview screen, select **Set up + subscribe**.
 
