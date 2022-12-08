@@ -1,11 +1,12 @@
 ---
-title: Forward alert information
-description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 11/09/2021
+title: Forward OT alert information to partners - Microsoft Defender for IoT
+description: Learn how to forward OT alert details from an OT sensor or on-premises management console to partner services.
+forwarding rules.
+ms.date: 12/08/2022
 ms.topic: how-to
 ---
 
-# Forward alert information
+# Forward OT alert information
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
@@ -26,129 +27,113 @@ This article describes how to configure your OT sensor or on-premises management
     :::column-end:::
 :::row-end:::
 
+
+
 ## Prerequisites
 
-Depending on where you want to create your forwarding alert rules, you'll need to have either an OT network sensor or on-premises management console installed, with access as an **Admin** user.
+- Depending on where you want to create your forwarding alert rules, you'll need to have either an [OT network sensor or on-premises management console installed](how-to-install-software.md), with access as an **Admin** user.
 
-For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+    For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-## About forwarded alert information
+- You'll also need to define SMTP settings on the OT sensor or on-premises management console. For more information, see:
 
-Alerts provide information about an extensive range of security and operational events. For example:
+    - [Configure SMTP settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-settings)
+    - [Configure SMTP settings on an on-premises management console](how-to-manage-the-on-premises-management-console.md#mail-server-settings)
 
+## Create forwarding rules on an OT sensor
 
+1. Sign in to the OT sensor and select **Forwarding** on the left > **+ Create new rule**.
 
+1. In the **Add forwarding rule** pane, enter a meaningful rule name, and then define rule conditions and actions as follows:
 
-## About Forwarding rules and certificates
+    |Name  |Description  |
+    |---------|---------|
+    |**Minimal alert level**     | Select the minimum [alert severity level](alert-engine-messages.md#alert-severities) you want to forward.        |
+    |**Any protocol detected**     | Toggle on to forward alerts from all protocol traffic, or toggle off and select the specific protocols you want to include.        |
+    |**Traffic detected by any engine**     |  Toggle on to forward alerts from all [analytics engines](architecture.md#analytics-engines), or toggle off and select the specific engines you want to include.             |
+    |**Actions**     | Select the type of server you want to forward alerts to, and then define any other required information for that server type. To add multiple servers to the same rule, select **+ Add server** and add more details. <br><br>For more information, see [Supported forwarding rule actions](#supported-forwarding-rule-actions).       |
 
-Certain Forwarding rules allow encryption and certificate validation between the sensor or on-premises management console, and the server of the integrated vendor.
+1. When you're done configuring the rule, select **Save**. The rule is listed on the **Forwarding** page
 
-In these cases, the sensor or on-premises management console is the client and initiator of the session.  The certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration.
+1. Test the rule you've just created.
 
-Your Defender for IoT system was set up to either validate certificates or ignore certificate validation.  See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for information about enabling and disabling validation.
+    1. Select the options menu (**...**) for your rule > **Send Test Message**.
+    1. Go to your partner system to verify that the information sent by the sensor was received.
 
-If validation is enabled and the certificate cannot be verified, communication between Defender for IoT and the server will be halted.  The sensor will display an error message indicating the validation failure.  If the validation is disabled and the certificate isn't valid, communication will still be carried out.
+### Edit or delete forwarding rules on an OT sensor
 
-The following Forwarding rules allow encryption and certificate validation:
-- Syslog CEF
-- Microsoft Sentinel
-- QRadar
+To edit or delete an existing rule:
 
-## Create forwarding rules
+1. Sign into your OT sensor and select **Forwarding** on the left.
 
-**Prerequisites**:
+1. Select the options menu (**...**) for your rule, and then do one of the following:
 
-Before you can configure a forwarding rule, you'll need to define SMTP settings on your sensor. For more information, see [Configure SMTP settings](how-to-manage-individual-sensors.md#configure-smtp-settings).
+    - Select **Edit** and [update the fields as needed](#create-forwarding-rules-on-an-ot-sensor). When you're done, select **Save**.
 
-**To create a new forwarding rule**:
+    - Select **Delete** > **Yes** to confirm the deletion.
 
-1. Sign in to the sensor.
+## Configure alert forwarding rule actions
 
-1. Select **Forwarding** on the side menu.
-
-1. Select **Create new rule**.
-1. Add a rule name.
-1. Define rule conditions:
-    -  Select the severity level.  This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-    
-    - Select a protocol(s) that should be detected. 
-       Information will be forwarded if the traffic detected was running selected protocols. 
-    
-    - Select which engines the rule should apply to.
-    Alert information detected from selected engines will be forwarded
- 
-1. Define rule actions by selecting a server.
-
-   Forwarding rule actions instruct the sensor to forward alert information to selected partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-1. Select **Save**.
-
-## Supported forwarding rule actions
-
-You can send alert information to the servers described in this section.
+This section describes how to configure settings for supported forwarding rule actions.
 
 ### Email address action
 
-Send mail that includes the alert information. You can enter one email address per rule.
+In the **Actions** area, enter the following details:
 
-**To define email for the forwarding rule:**
+|Name  |Description  |
+|---------|---------|
+|**Server**     | Select **Email**.        |
+|**Email**     | Enter the email address you want to forward the alerts to. Each rule supports a single email address.        |
+|**Timezone**    |  Select the time zone you want to use for the alert detection in the target system.  |
 
-1. Enter a single email address. If you need to add more than one email, you'll need to create another action for each email address.
-
-1. Enter the time zone for the time stamp for the alert detection at the SIEM.
-
-1. Select **Save**.
 
 ### Syslog server actions
 
-The following formats are supported:
+In the **Actions** area, enter the following details:
 
-- Text messages
+|Name  |Description  |
+|---------|---------|
+| **Server** | Select one of the following types of syslog formats: <br>SYSLOG Server (CEF format) <br>- SYSLOG Server (LEEF format) <br>SYSLOG Server (Object) <br>SYSLOG Server (Text Message) |
+| **Host** / **Port** | Enter the syslog server's host name and port
+|**Timezone**    |  Select the time zone you want to use for the alert detection in the target system.  |
+| **Protocol** | Supported for text messages only. Select **TCP** or **UDP**. |
+| **Enable encryption** | Supported for CEF format only. Toggle on to configure a TLS encryption certificate file, key file, and passphrase. |
 
-- CEF messages
+Syslog outputs have the following syntax:
 
-- LEEF messages
+#### Syslog text message output fields
 
-- Object messages
-
-Enter the following parameters:
-
-- Syslog host name and port.
-
-- Protocol TCP and UDP.
-
-- Time zone for the time stamp for the alert detection at the SIEM.
-
-- TLS encryption certificate file and key file for CEF servers (optional).
-
-
-| Syslog text message output fields | Description |
+| Name | Description |
 |--|--|
 | Priority | User. Alert |
 | Message | CyberX platform name: The sensor name.<br /> Microsoft Defender for IoT Alert: The title of the alert.<br /> Type: The type of the alert. Can be **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**.<br /> Severity: The severity of the alert. Can be **Warning**, **Minor**, **Major**, or **Critical**.<br /> Source: The source device name.<br /> Source IP: The source device IP address.<br /> Protocol (Optional): The detected source protocol.<br /> Address (Optional): Source protocol address.<br /> Destination: The destination device name.<br /> Destination IP: The IP address of the destination device.<br /> Protocol (Optional): The detected destination protocol.<br /> Address (Optional): The destination protocol address.<br /> Message: The message of the alert.<br /> Alert group: The alert group associated with the alert. <br /> UUID (Optional): The UUID the alert. |
 
-| Syslog object output | Description |
+#### Syslog object output fields
+
+| Name | Description |
 |--|--|
-| Date and Time | Date and time that the syslog server machine received the information. |  
+| Date and Time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the appliance. <br /> Alert time: The time that the alert was detected: Can vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br /> Alert title: The title of the alert. <br /> Alert message: The message of the alert. <br /> Alert severity: The severity of the alert: **Warning**, **Minor**, **Major**, or **Critical**. <br /> Alert type: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> Protocol: The protocol of the alert.  <br /> **Source_MAC**: IP address, name, vendor, or OS of the source device. <br /> Destination_MAC: IP address, name, vendor, or OS of the destination. If data is missing, the value will be **N/A**. <br /> alert_group: The alert group associated with the alert. |
 
-| Syslog CEF output format | Description |
+#### Syslog CEF output fields
+
+| Name | Description |
 |--|--|
 | Priority | User.Alert |
 | Date and time | Date and time that sensor sent the information |
 | Hostname | Sensor hostname |
 | Message | CEF:0 <br />Microsoft Defender for IoT/CyberX <br />Sensor name <br />Sensor version <br />Microsoft Defender for IoT Alert <br />Alert title <br />Integer indication of severity. 1=**Warning**, 4=**Minor**, 8=**Major**, or 10=**Critical**.<br />msg= The message of the alert. <br />protocol= The protocol of the alert. <br />severity= **Warning**, **Minor**, **Major**, or **Critical**. <br />type= **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />UUID= UUID of the alert  (Optional) <br /> start= The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip= IP address of the source device. (Optional) <br />src_mac= MAC address of the source device. (Optional)  <br />dst_ip= IP address of the destination device. (Optional)<br />dst_mac= MAC address of the destination device. (Optional)<br />cat= The alert group associated with the alert.  |
 
-| Syslog LEEF output format | Description |
+#### Syslog LEEF output fields
+
+| Name | Description |
 |--|--|
-| Date and time | Date and time that the syslog server machine received the information. |  
+| Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
-
-
 
 ### Webhook server action
 
@@ -231,35 +216,64 @@ Use the actions section to enter the credentials and other information required 
 
 For details about setting up forwarding rules for the integrations, refer to the relevant partner integration articles.
 
-## Test forwarding rules
 
-Test the connection between the sensor and the partner server that's defined in your forwarding rules:
+## Create forwarding rules on an on-premises management console
 
-1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row. 
+**To create a forwarding rule on the management console**:
 
-1. Select **Send Test Message**.
+1. Sign in to the sensor.
 
-1. Go to your partner system to verify that the information sent by the sensor was received.
+1. Select **Forwarding** on the side menu.
 
-## Edit and delete forwarding rules 
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
 
-**To edit a forwarding rule**:
+1. In the Create Forwarding Rule window, enter a name for the rule
 
-1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row.
-1. Select **Edit** and update the rule.
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
+
+   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
+
+1. Select the severity level from the drop-down menu.
+
+    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+
+1. Select any protocols to apply.
+
+    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+
+1. Select which engines the rule should apply to.
+ 
+   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
+
+1. Select which notifications you want to forward:
+ 
+    -	**Report system notifications:** disconnected sensors, remote backup failures.
+
+    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
+
+1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
+
+    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
+
+1. Add another action if desired.
+
 1. Select **Save**.
 
-**To remove a forwarding rule**:
+You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about [Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
 
-1. In the Forwarding page, find the rule you need and select the three dots (...) at the end of the row.
-1. Select **Delete** and confirm.
-1. Select **Save**. 
+## Troubleshoot forwarding rules
 
-## Forwarding rules and alert exclusion rules 
+If your forwarding alert rules aren't working as expected, check the following details:
 
-The administrator might have defined alert exclusion rules. These rules help administrators achieve more granular control over alert triggering by instructing the sensor to ignore alert events based on various parameters. These parameters might include device addresses, alert names, or specific sensors.
+- **Certificate validation**. Forwarding rules for Syslog CEF, Microsoft Sentinel, and QRadar support encryption and certificate validation.
 
-This means that the forwarding rules you define might be ignored based on exclusion rules that your administrator has created. Exclusion rules are defined in the on-premises management console.
+    If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#about-certificate-validation) and the certificate can't be verified, the alerts aren't forwarded.
+
+    <!--In these cases, the sensor or on-premises management console is the client and initiator of the session.  The certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration.
+    -->
+
+- **Alert exclusion rules**. If you have exclusion rules configured on your on-premises management console, your sensors might be ignoring the alerts you're trying to forward. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
+
 
 ## Next steps
 
@@ -339,47 +353,3 @@ The following alert groups are automatically defined:
 
 Alert groups are predefined. For details about alerts associated with alert groups, and about creating custom alert groups, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
-
-## Create forwarding rules
-
-**To create a forwarding rule on the management console**:
-
-1. Sign in to the sensor.
-
-1. Select **Forwarding** on the side menu.
-
-1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
-
-1. In the Create Forwarding Rule window, enter a name for the rule
-
-    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
-
-   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
-
-1. Select the severity level from the drop-down menu.
-
-    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-
-1. Select any protocols to apply.
-
-    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-1. Select which engines the rule should apply to.
- 
-   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
-
-1. Select which notifications you want to forward:
- 
-    -	**Report system notifications:** disconnected sensors, remote backup failures.
-
-    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
-
-1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
-
-    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-1. Add another action if desired.
-
-1. Select **Save**.
-
-You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about [Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).

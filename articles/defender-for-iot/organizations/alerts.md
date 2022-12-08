@@ -76,59 +76,22 @@ Examples of when you'd mute traffic include:
   - The Anomaly engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
 
   - The Protocol Violation engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
-  
+
   - The Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure. After investigation, it's determined that the new mode is acceptable.
+
+> [!TIP]
+> If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event log, create an [alert exclusion rule](#accelerating-ot-alert-workflows) instead.
 
 
 ## Managing alerts in a hybrid deployment
 
 Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
 
-Alert management across all interfaces functions as follows:
+Alert statuses are fully synchronized between the Azure portal and the sensor. This means that when you set an alert status to **Closed** on either the Azure portal or the sensor, the alert status is updated in the other location as well.
 
-- **Alert statuses are fully synchronized** between the Azure portal and the sensor. This means that when you set an alert status to **Closed** on either the Azure portal or the sensor, the alert status is updated in the other location as well.
+Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
 
-    Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
-
-    [Learning](#manage-alert-status-and-severity) an alert in Azure also updates the alert in the sensor console.
-
-- **Alert Exclusion rules**: If you're working with an on-premises management console, you may have defined alert *Exclusion rules* to determine the rules detected by relevant sensors.
-
-    Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
-
-<!--
-You can suppress alerts by either muting them or creating alert exclusion rules. This section describes potential use cases for both features.
-
-- **Exclusion rule**. Write an exclusion rule when:
-
-  - You know ahead of time that you want to exclude the event from the database. For example, you know that the scenario detected at a certain sensor will trigger irrelevant alerts. For example, you'll be carrying out maintenance work on organizational PLCs on a specific site and want to suppress alerts related to PLCs for this site.
-
-  - You want Defender for IoT to ignore events for a specific range of time (for system maintenance tasks).
-
-  - You want to ignore events in a specific subnet.
-
-  - You want to control alert events generated from several sensors with one rule.
-
-  - You don't want to track the alert exclusion as an event in the event log.
-
-- **Mute**. Mute an alert when:
-
-  - Items that need to be muted are not planned. You don't know ahead of time which events will be irrelevant.
-
-  - You want to suppress the alert from the **Alerts** window, but you still want to track it in the event log.
-
-  - You want to ignore events on a specific channel.
-
-- Time zones and time periods
-
-- Device address (IP, MAC, subnet)
-
-- Alert names
-
-- A specific sensor
-
-Create alert exclusion rules when you want Defender for IoT to ignore activity that will trigger an alert.
--->
+[Learning](#manage-alert-status-and-severity) an alert in Azure also updates the alert in the sensor console.
 
 ## Accelerating OT alert workflows
 
@@ -148,6 +111,11 @@ Create alert exclusion rules when you want Defender for IoT to ignore activity t
 
     For more information, see [Accelerate incident workflows by using alert comments](how-to-view-alerts.md#accelerate-incident-workflows-by-using-alert-comments).
 
+- **Create alert exclusion rules**: If you're working with an on-premises management console, define *alert exclusion rules* to ignore events across multiple sensors that meet specific criteria. For example, you might create an alert exclusion rule to ignore all events that would trigger irrelevant alerts during a specific maintenance window. Alerts ignored by exclusion rules aren't shown on the Azure portal, sensor, or on-premises management console, or in the event logs.
+
+    For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+
+- **Forward alert data to partner systems**, including SIEMs, syslog servers, email addresses and more. For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Alert data retention
 
