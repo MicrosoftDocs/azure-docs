@@ -2,7 +2,7 @@
 title: Support matrix for Backup center
 description: This article summarizes the scenarios that Backup center supports for each workload type
 ms.topic: conceptual
-ms.date: 12/081/2022
+ms.date: 12/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
