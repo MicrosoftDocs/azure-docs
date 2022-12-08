@@ -12,7 +12,7 @@ Exporting data from Azure Monitor to an Azure Storage account enables low-cost r
 
 The process flow is to:
 
-1. Export data from the Log Analytics workspace to the Azure Storage account.
+1. Export data from the Log Analytics workspace to the storage account.
 1. Create an external table in your Azure Data Explorer cluster and mapping for the data types.
 1. Query data from Azure Data Explorer.
 
@@ -22,7 +22,7 @@ The process flow is to:
 Azure Monitor logs can be exported to a storage account by using any of the following options:
 
 - To export all data from your Log Analytics workspace to a storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. For more information, see [Log Analytics workspace data export in Azure Monitor](./logs-data-export.md).
-- Scheduled export from a log query by using a logic app. This method is similar to the data export feature but allows you to send filtered or aggregated data to Azure Storage. This method is subject to [log query limits](../service-limits.md#log-analytics-workspaces). For more information, see [Archive data from Log Analytics workspace to Azure storage using Logic App](./logs-export-logic-app.md).
+- Scheduled export from a log query by using a logic app. This method is similar to the data export feature but allows you to send filtered or aggregated data to Azure Storage. This method is subject to [log query limits](../service-limits.md#log-analytics-workspaces). For more information, see [Archive data from a Log Analytics workspace to Azure Storage by using Logic Apps](./logs-export-logic-app.md).
 - One-time export by using a logic app. For more information, see [Azure Monitor Logs connector for Logic Apps and Power Automate](./logicapp-flow-connector.md).
 - One-time export to a local machine by using a PowerShell script. For more information, see [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
@@ -40,9 +40,9 @@ You can now use the output to create the Kusto query for building the external t
 Follow the guidance in [Create and alter external tables in Azure Storage or Azure Data Lake](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake) to create an external table in a JSON format. Then run the query from your Azure Data Explorer database.
 
 >[!NOTE]
->The external table creation is built from two processes. The first process is creating the external table, while the second process is creating the mapping.
+>The external table creation is built from two processes. The first process is to create the external table. The second process is to create the mapping.
 
-The following PowerShell script will create the [create](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake#create-external-table-mapping) commands for the table and the mapping:
+The following PowerShell script creates the [create](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake#create-external-table-mapping) commands for the table and the mapping:
 
 ```powershell
 PARAM(
@@ -109,7 +109,7 @@ write-host -ForegroundColor Green $CreateExternal
 Write-Host -ForegroundColor Green $createMapping
 ```
 
-The following image shows an example of the output.
+The following image shows an example of the output:
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Screenshot that shows the ExternalTable create command output.":::
 
@@ -119,7 +119,7 @@ The following image shows an example of the output.
 
 ## Query the exported data from Azure Data Explorer
 
-After you configure the mapping, you can query the exported data from Azure Data Explorer. Your query requires the [external_table](/azure/data-explorer/kusto/query/externaltablefunction) function, such as in the following example:
+After you configure the mapping, you can query the exported data from Azure Data Explorer. Your query requires the [external_table](/azure/data-explorer/kusto/query/externaltablefunction) function, as shown in the following example:
 
 ```kusto
 external_table("HBTest","map") | take 10000
