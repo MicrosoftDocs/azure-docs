@@ -45,10 +45,10 @@ Indexer execution environments include:
 
 + A private execution environment that runs on search nodes, specific to your search service.
 
-+ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. 
++ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multi-tenant environment. 
 
-> [!NOTE]
-> The multi-tenant environment was initially a way to offload skillset processing. Over time, as the efficiency and benefits of offloading became clear, the use of content processors expanded to include text-based indexing as well. Whenever possible, most indexer jobs are executed in the multi-tenant environment. 
+  > [!NOTE]
+  > The multi-tenant environment was initially a way to offload skillset processing. Over time, as the efficiency and benefits of offloading became clear, the use of content processors expanded to include text-based indexing as well. 
 
 Indexer limits vary for each environment:
 
@@ -61,7 +61,7 @@ Indexer limits vary for each environment:
 
 <sup>2</sup> If more than two hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at two hour intervals. See [Indexing a large data set](search-howto-large-index.md) for more strategies.
 
-<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
+<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
 
 ## Resetting indexers
 
