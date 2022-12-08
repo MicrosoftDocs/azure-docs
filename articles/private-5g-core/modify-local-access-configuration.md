@@ -60,7 +60,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 1. Select **Go to resource**. Check that the fields under **Local access** contain the updated certificate information and successful provisioned status.
 1. If you added or updated a custom HTTPS certificate, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if your browser trusts the connection to your local monitoring tools. Note:
     
-    - It may take up to four hours for the changes in the Key Vault to synchronize with the edge location. You can verify that the certificate has been created or updated by logging into the cluster and checking the update/time of the secret named *ingress-tls*. <!-- TODO: clarify how this is done. -->
+    - It may take up to four hours for the changes in the Key Vault to synchronize with the edge location.
     - You may need to clear your browser cache to observe the changes.
 
 ## Next steps

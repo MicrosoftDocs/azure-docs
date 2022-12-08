@@ -49,11 +49,11 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 ## Access to local monitoring tools
 
-Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). You can provide your own HTTPS certificate to authenticate access to your local diagnostics tools. Providing a certificate signed by a well-known certificate authority (CA) grants additional security to your deployment; we recommend this option over using a self-signed certificate.
+Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). You can provide your own HTTPS certificate to attest access to your local diagnostics tools. Providing a certificate signed by a well-known certificate authority (CA) grants additional security to your deployment; we recommend this option over using a self-signed certificate.
 
 If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](/azure/key-vault/) and set up the appropriate access permissions. See [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) for additional information on configuring custom HTTPS certificates for local monitoring access. 
 
-You can configure how access to your local monitoring tools is authenticated while [creating a site](create-a-site.md). For existing sites, you can modify the local access configuration by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+You can configure how access to your local monitoring tools is attested while [creating a site](create-a-site.md). For existing sites, you can modify the local access configuration by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 ## Next steps
 
