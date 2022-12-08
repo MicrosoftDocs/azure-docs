@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 12/07/2022
 ms.custom: designer, event-tier1-build-2022
 ---
 
@@ -105,6 +105,53 @@ After cloning, you can also know which pipeline job it's cloned from by selectin
 :::image type="content" source="./media/how-to-use-pipeline-ui/draft-show-lineage.png" alt-text="Screenshot showing the draft lineage after selecting show lineage button." lightbox= "./media/how-to-use-pipeline-ui/draft-show-lineage.png":::
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
+
+## How to debug a failed job using graph comparison (preview)
+
+Graph comparison identifies the differences (including topology, component properties and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
+
+Two major scenarios where you can use graph comparison to help with debugging:
+
+- Debug your failed pipeline job but comparing it to a completed one.
+- Debug your failed node in a pipeline by comparing it to a similar completed one.
+
+### How to debug your failed pipeline job by comparing to a completed one
+
+During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use graph comparison to identify what has changed by comparing it to the baseline pipeline which could help with figuring out why it failed.
+
+#### Compare a pipeline with its parent lineage
+
+The first thing you should check when debugging is locate the failed node and check the logs. 
+
+For example, you may get an error message showing that your pipeline failed due to out-of-memory. If your pipeline is cloned from a completed parent pipeline, you can use use graph comparison to see what has changed.
+
+1. Select *Show lineage*
+1. Select the link under "Cloned From*. This will open a new browser tab with the parent pipeline.
+1. Select **Add to compare** on the failed pipeline and the parent pipeline. This will add them in the comparison candidate list.
+
+#### Compare pipelines under the same experiment
+
+If the completed and failed pipeline are under the same experiment:
+
+1. Go to the experiment detail page.
+1. Select the two pipeline jobs.
+1. Select *Compare* then *Compare Pipeline Graph*.
+
+:::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-same-experiment.png" alt-text="Screenshot showing the experiment detail page." lightbox= "./media/how-to-use-pipeline-ui/asset-library.png":::
+
+#### Compare pipelines under different experiments
+
+#### Compare topology
+
+#### Compare pipeline meta info and properties
+
+### How to debug your failed node in a pipeline by comparing to similar completed node
+
+#### Find the job to compared with
+
+
+### Share the comparison results
+
 
 ## Next steps
 
