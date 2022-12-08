@@ -102,6 +102,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```bash
    sudo iotege config apply
    ```
+### Install root CA to OS certificate store
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
@@ -110,7 +111,7 @@ Installing the certificate to the trust bundle file makes it available to contai
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-certificates
+  sudo update-ca-trust
   ```
 
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
@@ -223,7 +224,7 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 ```
 
 > [!TIP]
-> To test without access to certificate files provided by a PKI, see [Create demo certificates to test device features](/azure/iot-edge/how-to-create-test-certificates) to generate a short-lived non-production device identity certificate and private key.
+> To test without access to certificate files provided by a PKI, see [Create demo certificates to test device features](./how-to-create-test-certificates.md) to generate a short-lived non-production device identity certificate and private key.
 
 Configuration example when provisioning with IoT Hub:
 
@@ -485,7 +486,7 @@ The following table lists what each option in `auto_renew` does:
 
 ### Example: renew device identity certificate automatically with EST
 
-To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](/azure/iot-edge/how-to-provision-devices-at-scale-linux-x509?tabs=group-enrollment%2Cubuntu). For example:
+To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](./how-to-provision-devices-at-scale-linux-x509.md?tabs=group-enrollment%2cubuntu). For example:
 
 ```toml
 ## DPS provisioning with X.509 certificate

@@ -1,5 +1,6 @@
 ---
-title: How to use Azure Queue Storage from Node.js - Azure Storage
+title: How to use Azure Queue Storage from Node.js
+titleSuffix: Azure Storage
 description: Learn to use the Azure Queue Storage to create and delete queues. Learn to insert, get, and delete messages using Node.js.
 author: normesta
 ms.author: normesta

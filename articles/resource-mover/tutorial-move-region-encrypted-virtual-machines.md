@@ -3,7 +3,7 @@ title: Move encrypted Azure VMs across regions by using Azure Resource Mover
 description: Learn how to move encrypted Azure VMs to another region by using Azure Resource Mover.
 manager: evansma
 author: rayne-wiselman 
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: raynew
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Check prerequisites. 
 > * For VMs with Azure Disk Encryption enabled, copy keys and secrets from the source-region key vault to the destination-region key vault.
-> * Prepare to move VMs and to select resources in the source region that you want to move them from.
+> * Prepare to move VMs and select resources in the source region that you want to move them from.
 > * Resolve resource dependencies.
 > * For VMs with Azure Disk Encryption enabled, manually assign the destination key vault. For VMs that use server-side encryption with customer-managed keys, manually assign a disk encryption set in the destination region.
 > * Move the key vault or disk encryption set.
@@ -42,14 +42,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Requirement |Details
---- | ---
-**Subscription permissions** | Check to ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
-**VM support** | Check to ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
-**Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you need a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you need these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)
-**Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you need a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using hardware security module (HSM keys) for customer-managed keys.
-**Target region quota** | The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Target region charges** | Verify the pricing and charges that are associated with the target region to which you're moving the VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+| Requirement |Details |
+|------------ | -------|
+|**Subscription permissions** | Check to ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
+| **VM support** | Check to ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
+| **Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you need a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you need these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)|
+| **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you need a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using a hardware security module (HSM keys) for customer-managed keys.|
+| **Target region quota** | The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).|
+| **Target region charges** | Verify the pricing and charges that are associated with the target region to which you're moving the VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).|
 
 
 ## Verify permissions in the key vault
@@ -82,7 +82,7 @@ For users who execute the script, set permissions for the following components:
 Component | Permissions needed
 --- | ---
 Secrets |  *Set* <br></br> Select **Secret permissions** > **Secret Management Operations**, and then select **Set**. 
-Keys <br></br> If you're using a KEK, you need these permissions in addition to the permissions for secrets. | *Get*, *Create*, and *Encrypt* <br></br> Select **Key Permissions** > **Key Management Operations**, and then select **Get** and **Create** . In **Cryptographic Operations**, select **Encrypt**.
+Keys <br></br> If you're using a KEK, you need these permissions in addition to the permissions for secrets. | *Get*, *Create*, and *Encrypt* <br></br> Select **Key Permissions** > **Key Management Operations**, and then select **Get** and **Create**. In **Cryptographic Operations**, select **Encrypt**.
 
 <br>
 
@@ -384,11 +384,11 @@ After the move, you can optionally delete resources in the source region.
 After the move, you can manually delete the move collection and Site Recovery resources that you created during this process.
 
 - The move collection is hidden by default. To see it you need to turn on hidden resources.
-- The cache storage has a lock that must be deleted, before it can be deleted.
+- The cache storage has a lock that must be deleted before it can be deleted.
 
 To delete your resources, do the following: 
-1. Locate the resources in resource group ```RegionMoveRG-<sourceregion>-<target-region>```.
-1. Check to ensure that all the VMs and other source resources in the source region have been moved or deleted. This step ensures that there are no pending resources using them.
+1. Locate the resources in the resource group ```RegionMoveRG-<sourceregion>-<target-region>```.
+1. Check to ensure that all the VMs and other source resources in the source region have been moved or deleted. This step ensures that no pending resources are using them.
 1. Delete the resources:
 
     - Move collection name: ```movecollection-<sourceregion>-<target-region>```
