@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 12/8/2022
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
@@ -64,8 +64,16 @@ You might want to refer to this sample for full implementation details.
 
 Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. These are the values you're required to specify in the configuration:
 
-- The cloud instance (`Instance`) if you want your app to run in national clouds, for example
-- The audience in the tenant ID (`TenantId`)
+- The cloud instance (`Instance`) if you want your app to run in national clouds, for example. The different options include;
+  - `https://login.microsoftonline.com/` for Azure public cloud
+  - `https://login.microsoftonline.us/` for Azure US government
+  - `https://login.microsoftonline.de/` for Azure AD Germany
+  - `https://login.partner.microsoftonline.cn/common` for Azure AD China operated by 21Vianet
+- The audience in the tenant ID (`TenantId`). The options vary depending on whether your app is single tenant or multitenant.
+  - `TenantId` for a GUID obtained from the Azure portal to sign in users in your organization
+  - `organizations` to sign in users in any work or school account
+  - `common` to sign in users with any work or school account or Microsoft personal account
+  - `consumers` to sign in users with a Microsoft personal account only
 - The client ID (`ClientId`) for your application, as copied from the Azure portal
 
 You might also see references to the `Authority`. The `Authority` value is the concatenation of the `Instance` and `TenantId` values.
@@ -77,18 +85,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
 ```Json
 {
   "AzureAd": {
-    // Azure cloud instance among:
-    // - "https://login.microsoftonline.com/" for Azure public cloud
-    // - "https://login.microsoftonline.us/" for Azure US government
-    // - "https://login.microsoftonline.de/" for Azure AD Germany
-    // - "https://login.partner.microsoftonline.cn/common" for Azure AD China operated by 21Vianet
     "Instance": "https://login.microsoftonline.com/",
-
-    // Azure AD audience among:
-    // - "TenantId" as a GUID obtained from the Azure portal to sign in users in your organization
-    // - "organizations" to sign in users in any work or school account
-    // - "common" to sign in users with any work or school account or Microsoft personal account
-    // - "consumers" to sign in users with a Microsoft personal account only
     "TenantId": "[Enter the tenantId here]",
 
     // Client ID (application ID) obtained from the Azure portal
@@ -131,7 +128,7 @@ In ASP.NET Core, another file ([properties\launchSettings.json](https://github.c
 }
 ```
 
-In the Azure portal, the redirect URIs that you register on the **Authentication** page for your application need to match these URLs. For the two preceding configuration files, they would be `https://localhost:44321/signin-oidc`. The reason is that `applicationUrl` is `http://localhost:3110`, but `sslPort` is specified (44321). `CallbackPath` is `/signin-oidc`, as defined in `appsettings.json`.
+In the Azure portal, the redirect URIs that you register on the **Authentication** page for your application need to match these URLs. For the two preceding configuration files, they would be `https://localhost:44321/signin-oidc`. The reason is that `applicationUrl` is `http://localhost:3110`, but `sslPort` is specified (`44321`). `CallbackPath` is `/signin-oidc`, as defined in `appsettings.json`.
 
 In the same way, the sign-out URI would be set to `https://localhost:44321/signout-oidc`.
 > [!NOTE]
@@ -218,7 +215,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## Initialization code
 
-The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure Active Directory (Azure AD) v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. In the case of Java, it's handled by Spring with the cooperation of the application.
+The initialization code differences are platform dependant. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure Active Directory (Azure AD) v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. 
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -227,7 +224,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 To add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
 > [!NOTE]
-> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET Core 3.1 and .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
+> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
 >
 > If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
@@ -381,7 +378,7 @@ Move on to the next article in this scenario,
 # [Node.js](#tab/nodejs)
 
 Move on to the next article in this scenario,
-[Sign in](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs).
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs).
 
 # [Python](#tab/python)
 
