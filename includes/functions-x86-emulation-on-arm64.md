@@ -16,11 +16,11 @@ Functions doesn't currently support local Python function development on ARM64 d
 
 1. Control-click **Terminal** and select **Get Info**. You can also create a separate parallel environment by duplicating the Terminal and renaming it.
 
-    ![Select Get Info by control-clicking Terminal](./media/functions-x86-emulation-on-arm64/arm64-python-1.png)
+    ![Screenshot of selecting Get Info by control-clicking Terminal](./media/functions-x86-emulation-on-arm64/arm64-python-1.png)
 
 1. Select **Open using Rosetta**.
 
-    ![Configure Terminal to open using Rosetta](./media/functions-x86-emulation-on-arm64/arm64-python-2.png)
+    ![Screenshot of the Terminal configured to open using Rosetta](./media/functions-x86-emulation-on-arm64/arm64-python-2.png)
 
 1. Open Terminal, which now has Rosetta enabled, and make sure your shell is zsh.
 

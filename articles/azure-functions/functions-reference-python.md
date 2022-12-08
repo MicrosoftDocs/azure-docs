@@ -36,7 +36,7 @@ As a Python developer, you might also be interested in one of the following arti
 
 ## Development options
 
-Both Python Functions programming models support local development in one of the following enviroments:
+Both Python Functions programming models support local development in one of the following environments:
 
 Python v2 programming model:
 
