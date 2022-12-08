@@ -25,8 +25,8 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **OS versions**
 
-HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-component-versioning.md) 
 
@@ -67,7 +67,7 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
 
 ![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
 
-HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you are running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services before 31st October 2022. 
+HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
 
 For more information, see [How to enable Transport Layer Security (TLS)](https://learn.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
@@ -84,16 +84,12 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 ![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
 
-* Support for AZ selection for Kafka and HBase (write access) clusters.
+* Support for Availability Zones selection for Kafka and HBase (write access) clusters.
 
 ### Open source bug fixes
-
-#### TEZ bug fixes
-
-|Bug Fixes|Apache JIRA|
-|---|---|
 
 #### Hive bug fixes
 
 |Bug Fixes|Apache JIRA|
 |---|---|
+|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)|INSERT OVERWRITE error - File Not Found|
