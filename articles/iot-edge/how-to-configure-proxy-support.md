@@ -440,9 +440,15 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 ## Working with traffic-inspecting proxies
 
-If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
+Some proxies like [Zscaler](https://www.zscaler.com) can inspect TLS-encrypted traffic. During TLS traffic inspection, the certificate returned by the proxy isn't the certificate from the target server, but instead is the certificate signed by the proxy's own root certificate. By default, this proxy's certificate isn't trusted by IoT Edge modules (including *edgeAgent* and *edgeHub*), and the TLS handshake fails.
 
-To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
+To resolve this, the proxy's root certificate needs to be trusted by both the operating system and IoT Edge modules.
+
+1. Configure proxy certificate in the trusted root certificate store of your host operating system. For more information about how to install a root certificate, see [Install root CA to OS certificate store](how-to-manage-device-certificates.md#install-root-ca-to-os-certificate-store).
+
+2. Configure your IoT Edge device to communicate through a proxy server by referencing the certificate in the trust bundle. For more information on how to configure the trust bundle, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
+
+To configure traffic inspection proxy support for containers not managed by IoT Edge, contact your proxy provider. 
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
