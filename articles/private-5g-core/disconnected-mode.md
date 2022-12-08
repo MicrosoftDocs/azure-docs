@@ -27,9 +27,9 @@ The following functions aren't supported while in disconnected mode:
 
 ## Monitoring and troubleshooting during disconnects
 
-Azure Active Directory based sign on for distributed tracing and Grafana monitoring won't be available while in disconnected mode. However, if you know ahead of time that you'll need distributed tracing and Grafana access, you can configure username and password access to each of these tools.
+Azure Active Directory based sign on for distributed tracing and Grafana monitoring won't be available while in disconnected mode. However, you can configure username and password access to each of these tools if you plan to require access during periods of disconnect.
 
-Once the disconnect ends, Azure will update with the stored data, excluding rate and gauge type metrics.
+Once the disconnect ends, log analytics on Azure will update with the stored data, excluding rate and gauge type metrics.
 
 ## Next steps
 
