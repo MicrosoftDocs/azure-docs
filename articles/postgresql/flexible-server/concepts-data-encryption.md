@@ -168,7 +168,7 @@ Prerequisites:
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
 
-Follow the steps below to enable CMK while creating Postgres Flexible Server using Azure Portal.
+Follow the steps below to enable CMK while creating Postgres Flexible Server using Azure portal.
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create pane via Azure portal
 
@@ -224,7 +224,7 @@ Prerequisites:
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key.
 
-Follow the steps below to update CMK on CMK enabled Flexible Server using Azure Portal:
+Follow the steps below to update CMK on CMK enabled Flexible Server using Azure portal:
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
 
