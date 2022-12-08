@@ -22,11 +22,10 @@ Migration of [Task Hub data](durable-functions-task-hubs.md) across storage prov
 
 The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it.
 
-In particular, we expect that you have already:
-1. Created a Functions project on your local machine.
-2. Added Durable Functions to your project.
+In particular, this quickstart assumes that you have already:
+1. Created an Azure Functions project on your local machine.
+2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 3. Configured the project for local debugging.
-4. Deployed the local project to a Function app that runs in the cloud.
 
 If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
@@ -40,11 +39,10 @@ If this is not the case, we suggest you start with one of the following articles
 
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
+
 You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
-There are many ways to achieve this, especially for C# users who may leverage [Visual Studio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md#install-binding-extensions).
-
-However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
+You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
 ```cmd
 func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
@@ -59,7 +57,7 @@ For more information on installing Azure Functions Extensions via the Core Tools
 
 As the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
 
-You can also do local, offline development with [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Linux container. For ease of setup, we will focus on the latter.
+You can also do local, offline development with [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container. For ease of setup, we will focus on the latter.
 
 ### Set up your local Docker-based SQL Server
 
@@ -115,8 +113,6 @@ DurableDB
 
 ```
 
-In this instance, you're looking for a result named `DurableDB`, which we can see as the last item above.
-
 ### Add your SQL connection string to local.settings.json
 
 The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Please review the documentation of your specific provider for information on how to obtain a connection string.
@@ -152,33 +148,32 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 
 ```json
 {
+  "version": "2.0",
   "extensions": {
     "durableTask": {
       "storageProvider": {
         "type": "mssql",
         "connectionStringName": "SQLDB_Connection",
-        "createDatabaseIfNotExists": true, 
+        "createDatabaseIfNotExists": true 
         }
     }
   },
-  { // optional logging configuration
   "logging": {
     "logLevel": {
-      "DurableTask.SqlServer": "Information",
+      "DurableTask.SqlServer": "Warning",
       "DurableTask.Core": "Warning"
     }
   }
-}
 }    
 ```
 
-The snippet above is a fairly *minimal* configuration. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a fairly *minimal* `host.json` example. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
-Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your applications' root and executing a simple orchestrator Function.
+Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the MSSQL backend is running, it will write to its backing DB. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server, you may view the state of 5 of your orchestrator instanceIDs through the following command:
+While the function app is running, it updates runtime state in the configured SQL database. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server, you can view the state of your orchestration instances with the following command:
 
 ```bash
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -d $dbname -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances"
@@ -194,7 +189,7 @@ InstanceID                           RuntimeStatus        CreatedTime           
 
 ## Run your app on Azure
 
-To run your app in the cloud, you will need a publicly accessible SQL Server. You can obtain one by creating an Azure SQL database.
+To run your app in Azure, you will need a publicly accessible SQL Server. You can obtain one by creating an Azure SQL database.
 
 ### Create an Azure SQL database
 
@@ -212,21 +207,25 @@ Below is an example of the portal view for obtaining the Azure SQL connection st
 
 ![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
+In the portal, the connection string will have the database's password removed: it is replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your *Server name* in the "Essentials" view, and clicking "Reset password" in the resulting page. Below are some guiding images.
+
+![The Azure SQL database view, with the Server name option highlighted](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
+
+![The SQL server view, where the Reset password is visible](./media/quickstart-mssql/mssql-azure-reset-pass-2.png)
+
+
 ### Add connection string as an application setting
 
-You need to add your database's connection string as an application setting. To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
+You need to add your database's connection string as an application setting. To do this through the Azure portal, first go to your Azure Functions App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
 
 ![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-envvar-1.png)
 ![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-envvar-2.png)
 
-> [!NOTE]
-> Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
-
 ### Deploy
 
-You can now deploy your code to the cloud, and then run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
+You can now deploy your function app to Azure and run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
 
-For instance, if you were using an Azure SQL database, you could review the information about your orchestration instanceIDs by going to your SQL database's blade, going to Query Editor, authenticating, and then running the following query:
+For example, with Azure SQL database you can query for your orchestration instances by navigating to your SQL database's blade, clicking Query Editor, authenticating, and then running the following query:
 
 ```sql
 SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances
@@ -236,4 +235,4 @@ After running a simple orchestrator, you should see at least one result, as show
 
 ![Azure SQL Query editor results for the SQL query provided.](./media/quickstart-mssql/mssql-azure-db-check.png)
 
-For more information about the MSSQL architecture, configuration, and workload behavior, please see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
+For more information about the Durable Task MSSQL backend architecture, configuration, and workload behavior, please see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
