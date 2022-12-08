@@ -15,7 +15,7 @@ To view existing scans:
 1. Go to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Select the **Data map** tab on the left pane.
 1. Select the desired data source. You can view a list of existing scans on that data source under **Recent scans**, or you can view all scans on the **Scans** tab.
 1. Select the scan that has results you want to view. The page shows you all of the previous scan runs, along with the status and metrics for each scan run. 
-1. Click the **run ID** to check more about the [scan run details](how-to-monitor-scan-runs.md#scan-run-details).
+1. Click the **run ID** to check more about the [scan run details](../how-to-monitor-scan-runs.md#scan-run-details).
 
 ### Manage your scans - edit, delete, or cancel
 
