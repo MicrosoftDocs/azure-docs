@@ -1,6 +1,6 @@
 ---
 title: Respond to threat actors while investigating or threat hunting in Microsoft Sentinel
-description: Use this tutorial to help you use playbooks together with automation rules in Microsoft Sentinel to automate your incident response and remediate security threats.
+description: This article shows you how to take response actions against threat actors on the spot, during the course of an incident investigation or threat hunt, without pivoting or context switching out of the investigation or hunt. You accomplish this using playbooks based on the new entity trigger.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
