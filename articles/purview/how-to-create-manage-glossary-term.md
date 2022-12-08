@@ -1,6 +1,6 @@
 ---
-title: Create, import, export, and delete glossary terms
-description: Learn how to create, import, export, and manage business glossary terms in Microsoft Purview.
+title: Create and manage glossary terms
+description: Learn how to create and manage business glossary terms in Microsoft Purview.
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/14/2022
 ---
 
-# Create, import, export, and delete glossary terms
+# Create and manage glossary terms
 
 This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview Data Catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
 
@@ -21,7 +21,10 @@ To create a glossary term, follow these steps:
 
     :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the button for managing a glossary highlighted." border="true":::
 
-1. On the **Glossary terms** page, select **+ New term**. 
+1. On the **Business glossary** page, select the glossary you would like to create the new term for, then select **+ New term**. A term can only be added to one glossary at a time.
+
+   > [!NOTE]
+   > For more information about creating and managing glossaries see the [manage glossaries page.](how-to-create-manage-glossary.md)
 
    A pane opens with the **System default** template selected. Choose the template, or templates, that you want to use to create a glossary term, and then select **Continue**.
    Selecting multiple templates will allow you to use the custom attributes from those templates.
@@ -103,61 +106,15 @@ To create a glossary term, follow these steps:
 
     :::image type="content" source="media/how-to-create-import-export-glossary/submit-for-approval.png" alt-text="Screenshot of the button to submit a term for approval." border="true":::
 
-## Import terms into the glossary
-
-The Microsoft Purview Data Catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
-
-1. On the **Glossary terms** page, select **Import terms**.
-
-   The term template page opens. 
-
-1. Select the template, or templates, for the terms you want to import, and then select **Continue**.
-
-   You can select multiple templates and import terms for different templates from a single .csv file.
-
-   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the template list for importing a term, with the system default template highlighted.":::
-
-1. Download the .csv template and use it to enter the terms that you want to add. 
-
-   Give your template file a name that starts with a letter and includes only letters, numbers, spaces, an underscore (_), or other non-ASCII Unicode characters. Special characters in the file name will create an error.
-
-   > [!Important]
-   > The system supports only importing columns that are available in the template. The **System default** template will have all the default attributes.
-   >
-   > Custom term templates define out-of-the box attributes and additional custom attributes. Therefore, the .CSV file differs in the total number of columns and the column names, depending on the term template that you select. You can also review the file for problems after upload.
-   >
-   > If you want to upload a file with a rich text definition, be sure to enter the definition with markup tags and populate the column `IsDefinitionRichText` to `true` in the .CSV file.
-
-   :::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-import.png" alt-text="Screenshot of the button for downloading a sample template file.":::
-
-1. After you finish filling out your .CSV file, select your file to import, and then select **OK**.
-
-The system will upload the file and add all the terms to your glossary.
- 
-> [!Important]
-> The email address for an expert or steward should be the primary address of the user from the Azure Active Directory (Azure AD) group. Alternate emails, user principal names, and non-Azure AD emails are not yet supported. 
-
-## Export terms from the glossary with custom attributes
-
-When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
-
-> [!NOTE]
-> Selected terms **don't** need to be from the same term template to be able to export them.
-
-Select **Export terms** to download the selected terms.
-
-:::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
-
-> [!Important]
-> The import process currently doesn't support updating the parent of a term.
-
 ## Delete terms
 
 1. On the home page, select **Data catalog** on the left pane, and then select the **Manage glossary** button in the center of the page.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog and the button for managing a glossary." border="true":::
 
-1. Select the checkboxes for the terms that you want to delete. You can select a single term or multiple terms for deletion.
+1. Select the glossary that has the terms you want to delete, and select the **Terms** tab.
+
+1. Select checkboxes for the terms that you want to delete. You can select a single term or multiple terms for deletion.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-terms.png" alt-text="Screenshot of the glossary with a few terms selected." border="true":::
 
