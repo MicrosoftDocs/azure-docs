@@ -144,7 +144,7 @@ Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) t
 Get-AzVirtualNetwork -ResourceGroupName myResourceGroup -Name myVNet
 ```
 
-### View virtual networks and settings the Azure CLI
+### View virtual networks and settings using the Azure CLI
 
 Use [az network vnet list](/cli/azure/network/vnet#az-network-vnet-list) to list all virtual networks in a resource group.
 

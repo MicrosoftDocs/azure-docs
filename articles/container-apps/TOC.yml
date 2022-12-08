@@ -54,6 +54,8 @@
         href: vnet-custom-internal.md
       - name: Securing a custom VNET
         href: firewall-integration.md
+      - name: Network proxying
+        href: network-proxy.md
     - name: Observability
       items:
       - name: Overview
@@ -94,8 +96,12 @@
       href: revisions-manage.md
     - name: Set up HTTPS or TCP ingress
       href: ingress.md
-    - name: Set up custom domains and certificates
-      href: custom-domains-certificates.md
+    - name: Custom domains and certificates
+      items:
+      - name: Set up container app custom domain
+        href: custom-domains-certificates.md
+      - name: Set up environment custom DNS suffix
+        href: environment-custom-dns-suffix.md
     - name: Connect to a cloud service using Service Connector
       items:
         - name: .NET app with Blob Storage

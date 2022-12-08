@@ -23,7 +23,7 @@ In this quickstart, you learn how to create a virtual network. After creating a 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a resource group and a virtual network
+## Create a resource group
 
 Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **CreateVNetQS-rg** in the **Eastus** location:
 
@@ -33,13 +33,25 @@ az group create \
     --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNet** with one subnet named **default**:
+## Create a virtual network with DDoS Protection Standard enabled
+
+Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+
+```azurecli-interactive
+az network ddos-protection create \
+    --resource-group CreateVNetQS-rg \
+    --name myDDoSPlan
+```
+
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNet** with one subnet named **default** with a DDoS Protection plan enabled:
 
 ```azurecli-interactive
 az network vnet create \
   --name myVNet \
   --resource-group CreateVNetQS-rg \
   --subnet-name default
+  --ddos-protection-plan myDDoSPlan \
+  --ddos-protection true
 ```
 
 ## Create virtual machines

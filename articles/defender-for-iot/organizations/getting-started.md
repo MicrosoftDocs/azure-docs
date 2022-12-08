@@ -20,22 +20,9 @@ Before you start, make sure that you have:
 
 - An Azure account. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
-- Access to an Azure subscription with the subscription **Owner** or **Contributor** role.
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 If you're using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
-
-### Permissions
-
-Defender for IoT users require the following permissions:
-
-| Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
-|--|--|--|--|--|
-| Onboard subscriptions and update committed devices  |  | ✓ | ✓ | ✓ |
-| Onboard sensors  |  |  ✓ | ✓ | ✓ |
-| View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
-| Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
-
-For more information, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Supported service regions
 
@@ -77,7 +64,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. In the **Purchase** pane, define the plan:
 
-     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial). For OT networks, Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
 
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 

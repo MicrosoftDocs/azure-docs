@@ -88,7 +88,7 @@ A. To limit any downtime you might incur, perform an online migration to Flexibl
 
 **Q. Will there be future updates to Single Server to support latest MySQL versions?**
 
-A. The last minor version upgrade to Single Server version 8.0 will be 8.0.28. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
+A. The last minor version upgrade to Single Server version 8.0 will be 8.0.15. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
 
 **Q. How does the flexible server’s 99.99% availability SLA differ from that of single server?**
 
