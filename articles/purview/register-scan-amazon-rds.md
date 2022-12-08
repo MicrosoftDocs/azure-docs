@@ -1,8 +1,8 @@
 ---
 title: Amazon RDS Multicloud scanning connector for Microsoft Purview
 description: This how-to guide describes details of how to scan Amazon RDS databases, including both Microsoft SQL and PostgreSQL data.
-author: batamig
-ms.author: bagol
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
