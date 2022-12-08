@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/24/2022
+ms.date: 12/08/2022
 ms.author: lenalepa
 ---
 
@@ -16,10 +16,10 @@ ms.author: lenalepa
 
 Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization:
 
-* Azure AD My Apps
-* Microsoft 365 application launcher
-* Direct sign-on to federated apps
-* Deep links to federated, password-based, or existing apps
+- Azure AD My Apps
+- Microsoft 365 application launcher
+- Direct sign-on to federated apps
+- Deep links to federated, password-based, or existing apps
 
 Which method(s) you choose to deploy in your organization is your discretion.
 
@@ -71,7 +71,7 @@ To enable or disable previews for your app launchers:
 
 - Sign in to the Azure portal as a global administrator for your directory.
 - Search for and select **Azure Active Directory**, then select **Enterprise applications**.
-- On the left menu, select **App launchers**, then select **settings**.
+- On the left menu, select **App launchers**, then select **Settings**.
 - Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.
 - Select **Save**. Wait a few minutes for the changes to take effect.
 Navigate to the My Apps portal and verify that the preview you enabled or disabled is reflected.
