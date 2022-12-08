@@ -37,7 +37,8 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images).
 
-Adding the Defender agent on an AKS cluster with [ARM64 node pool](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#add-an-arm64-node-pool) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
+> [!NOTE]
+> Adding the Defender agent on an AKS cluster with the [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
 
 ## Additional environment information
 
@@ -203,7 +204,8 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
 
-Adding the Defender agent on an AKS cluster with [ARM64 node pool](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#add-an-arm64-node-pool) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
+> [!NOTE]
+> Adding the Defender agent on an AKS cluster with [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to AKS cluster with Defender agent installed) is currently not supported.
 
 ## Additional information
 
