@@ -95,10 +95,10 @@ Application Insights receives:
 | *Trace* | If you configure a [trace](trace-policy.md) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
 ### Emit custom metrics
-You can emit custom metrics by configuring the [`emit-metric`](emit-metrics-policy.md) policy. 
+You can emit custom metrics by configuring the [`emit-metric`](emit-metric-policy.md) policy. 
 
 To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable custom metrics in the service.
-1. Use the [`emit-metrics`](emit-metrics-policy.md) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
+1. Use the [`emit-metric`](emit-metric-policy.md) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
 1. Add `"metrics":true` to the payload, along with any other properties.
 
 > [!NOTE]

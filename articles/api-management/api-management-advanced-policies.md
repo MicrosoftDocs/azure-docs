@@ -15,11 +15,11 @@ The following API Management policies are for advanced use, including use of pol
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 -   [Control flow](choose-policy.md) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
+-   [Emit metrics](emit-metric-policy.md) - Sends custom metrics to Application Insights at execution.
 -   [Forward request](forward-request-policy.md) - Forwards the request to the backend service.
 -   [Include fragment](include-fragment-policy.md) - Inserts a policy fragment in the policy definition.
 -   [Limit concurrency](limit-concurrency-policy.md) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to event hub](log-to-event-hub-policy.md) - Sends messages in the specified format to an event hub defined by a Logger entity.
--   [Emit metrics](emit-metrics-policy.md) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](mock-response-policy.md) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](retry-policy.md) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 -   [Return response](return-response-policy.md) - Aborts pipeline execution and returns the specified response directly to the caller.
@@ -28,7 +28,7 @@ The following API Management policies are for advanced use, including use of pol
 -   [Set HTTP proxy](proxy-policy.md) - Allows you to route forwarded requests via an HTTP proxy.
 -   [Set request method](set-method-policy.md) - Allows you to change the HTTP method for a request.
 -   [Set status code](set-status-policy.md) - Changes the HTTP status code to the specified value.
--   [set-variable-policy.md](set-variable-policy.md) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
+-   [Set variable](set-variable-policy.md) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
 -   [Trace](trace-policy.md) - Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
 -   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
