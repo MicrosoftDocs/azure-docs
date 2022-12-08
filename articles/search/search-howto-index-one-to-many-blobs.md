@@ -132,7 +132,7 @@ id, temperature, pressure, timestamp
 2, 120, 3,"2013-05-11T00:00:00Z" 
 ```
 
-Notice that `id` is set as the target field with the source `AzureSearch_DocumentKey` but the field is also present in the structure of the blobs. In this case, the key taken from each json line will be used as the document key instead of the unique identifier that would be generated for `AzureSearch_DocumentKey`.
+Notice that each document contains the id field, which is defined as the 'key' field in the index. In such a case, even though a document-unique AzureSearch_DocumentKey will be generated, it won't be used as the 'key' for the document. Rather, the value of the id field will be mapped to the 'key' field
 
 Similar to the example above, this mapping will _not_ result in 4 documents showing up in the index, because the `id` field is not unique _across blobs_. When this is the case, any json entry that specifies an `id` will result in a merge on the existing document instead of an upload of a new document, and the state of the index will reflect the latest read entry with the specified `id`.
 
