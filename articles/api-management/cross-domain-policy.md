@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -37,9 +37,7 @@ Child elements must conform to the [Adobe cross-domain policy file specification
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Example
 
@@ -50,8 +48,6 @@ Child elements must conform to the [Adobe cross-domain policy file specification
     </cross-domain-policy>
 </cross-domain>
 ```
-
-
 
 ## Related policies
 

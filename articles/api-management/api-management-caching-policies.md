@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/01/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -14,11 +14,7 @@ ms.author: danlep
 
 The following API Management policies are used for caching responses. 
 
-[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
-
-> [!IMPORTANT]
-> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
+[!INCLUDE [api-management-cache-volatile](../../includes/api-management-cache-volatile.md)]
 
 ## Response caching policies
 - [Get from cache](cache-lookup-policy.md) - Perform cache lookup and return a valid cached response when available.

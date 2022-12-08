@@ -36,13 +36,9 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Example
-
-### Provide username and password to backend service
 
 ```xml
 <authentication-basic username="testuser" password="testpassword" />

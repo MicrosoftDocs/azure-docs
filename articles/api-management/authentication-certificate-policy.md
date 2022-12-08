@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Authenticate with client certificate
 
- Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. The certificate needs to be [installed into API Management](./api-management-howto-mutual-certificates.md) first and is identified by its thumbprint or certificate ID (resource name). 
+ Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. When the certificate is [installed into API Management](./api-management-howto-mutual-certificates.md) first, identify it first by its thumbprint or certificate ID (resource name). 
 
 > [!CAUTION]
 > If the certificate references a certificate stored in Azure Key Vault, identify it using the certificate ID. When a key vault certificate is rotated, its thumbprint in API Management will change, and the policy will not resolve the new certificate if it is identified by thumbprint.
@@ -32,17 +32,14 @@ ms.author: danlep
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` can be present.|N/A|
 |certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` can be present.|N/A|
-|body|Client certificate as a byte array.|No|N/A|
-|password|Password for the client certificate.|Used if certificate specified in `body` is password protected.|N/A|
-
+|body|Client certificate as a byte array. Use if the certificate isn't retrieved from the built-in certificate store.|No|N/A|
+|password|Password for the client certificate.|Use if certificate specified in `body` is password protected.|N/A|
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
@@ -53,7 +50,6 @@ ms.author: danlep
 ``` 
 
 ### Client certificate identified by thumbprint
-
 
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />

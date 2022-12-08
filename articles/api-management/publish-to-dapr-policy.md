@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/02/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
 # Send message to Pub/Sub topic
 
-The `publish-to-dapr` policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` replacing template parameters and adding content specified in the policy statement.
+The `publish-to-dapr` policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}`, replacing template parameters and adding content specified in the policy statement.
 
 The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
 
@@ -31,10 +31,10 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the __topic__ attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
+| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the `topic` attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
 | topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr.               | Yes      | N/A     |
-| ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
-| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
+| ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. | No | `false` |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
 | template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
@@ -43,9 +43,11 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
-- **Multiple statements per policy document:** supported
+
+### Usage notes
+
+Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
 
 ## Example
 
@@ -77,7 +79,6 @@ The "backend" section is empty and the request is not forwarded to the backend.
     </on-error>
 </policies>
 ```
-
 
 ## Related policies
 

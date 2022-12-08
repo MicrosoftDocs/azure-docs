@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/02/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -15,9 +15,6 @@ ms.author: danlep
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
 [!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
-
-* This policy is invoked only when a matching GraphQL query is executed. 
-* The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -47,38 +44,41 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| `parent-type`| An object type in the GraphQL schema.  |   Yes    | N/A   |
-| `field`| A field of the specified `parent-type` in the GraphQL schema.  |   Yes    | N/A   |
+| parent-type| An object type in the GraphQL schema.  |   Yes    | N/A   |
+| field| A field of the specified `parent-type` in the GraphQL schema.  |   Yes    | N/A   |
 
+> [!NOTE]
+> Currently, the values of `parent-type` and `field` aren't validated by this policy. If they aren't valid, the policy is ignored, and the GraphQL query is forwarded to a GraphQL endpoint (if one is configured).
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
-| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](set-method-policy.md) policy.  |   Yes    | 
-| `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
-| `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](set-header-policy.md) policy.  | No  | 
-| `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](set-body-policy.md) policy. | No  | 
-| `authentication-certificate`  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
-| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
-| `json-to-xml`   | Transforms the resolver's HTTP response using the [json-to-xml](json-to-xml-policy.md) policy. | No  | 
-| `xml-to-json`   | Transforms the resolver's HTTP response using the [xml-to-json](xml-to-json-policy.md) policy. | No  | 
-| `find-and-replace`   | Transforms the resolver's HTTP response using the [find-and-replace](find-and-replace-policy.md) policy. | No  | 
-
-
-
+| http-data-source | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
+| http-request | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
+| set-method| Method of the resolver's HTTP request, configured using the [set-method](set-method-policy.md) policy.  |   Yes    | 
+| set-url  |  URL of the resolver's HTTP request. | Yes  | 
+| set-header  | Header set in the resolver's HTTP request, configured using the [set-header](set-header-policy.md) policy.  | No  | 
+| set-body  |  Body set in the resolver's HTTP request, configured using the [set-body](set-body-policy.md) policy. | No  | 
+| authentication-certificate  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
+| http-response |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
+| json-to-xml   | Transforms the resolver's HTTP response using the [json-to-xml](json-to-xml-policy.md) policy. | No  | 
+| xml-to-json   | Transforms the resolver's HTTP response using the [xml-to-json](xml-to-json-policy.md) policy. | No  | 
+| find-and-replace   | Transforms the resolver's HTTP response using the [find-and-replace](find-and-replace-policy.md) policy. | No  | 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated
-- **Multiple statements per policy document:** supported
 
-## GraphQL Context
+### Usage notes
+
+* This policy is invoked only when a matching GraphQL query is executed. 
+* The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
+
+
+## GraphQL context
 
 * The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
   * `context.ParentResult` is set to the parent object for the current resolver execution.
@@ -190,9 +190,9 @@ When the resolver is executed, the `arguments` property is added to the body.  Y
 </set-graphql-resolver>
 ```
 
-## Examples
+## More examples
 
-### Example 1: Resolver for GraphQL query
+### Resolver for GraphQL query
 
 The following example resolves a query by making an HTTP `GET` call to a backend data source.
 
@@ -222,7 +222,7 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Example 2: Resolver for a GraqhQL query that returns a list, using a liquid template
+### Resolver for a GraqhQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](set-body-policy.md) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 
@@ -263,7 +263,7 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Example 3: Resolver for GraphQL mutation
+### Resolver for GraphQL mutation
 
 The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP request modifies a `name` argument that is passed in the GraphQL query as its body.  The body that is sent will look like the following JSON:
 
@@ -311,8 +311,6 @@ type User {
     </http-data-source>
 </set-graphql-resolver>
 ```
-
-
 
 ## Related policies
 

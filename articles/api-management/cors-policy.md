@@ -16,25 +16,15 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
-## About CORS
-
-[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is an HTTP header-based standard that allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (`XMLHttpRequest` calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
-
-CORS specifies two types of [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#specifications):
-
-1. **Preflighted (or "preflight") requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request is permitted to send. If the server response includes the `Access-Control-Allow-Origin` header that allows access, the browser follows with the actual request.
-
-1. **Simple requests** - These requests include one or more extra `Origin` headers but don't trigger a CORS preflight. Only requests using the `GET` and `HEAD` methods and a limited set of request headers are allowed.
-
 ## Policy statement
 
 ```xml
-<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
+<cors allow-credentials="false | true" terminate-unmatched-request="true | false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
     <allowed-methods preflight-result-max-age="number of seconds">
-        <method>http verb</method>
+        <method>HTTP verb</method>
     </allowed-methods>
     <allowed-headers>
         <header>header name</header>
@@ -49,8 +39,8 @@ CORS specifies two types of [cross-origin requests](https://developer.mozilla.or
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
-|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings. When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|true|
+|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|`false`|
+|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings.<br/><br/>When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings:<br/> - If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response<br/>- If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings:<br/>- If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response.<br/> - If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|`true`|
 
 ## Elements
 
@@ -77,13 +67,21 @@ CORS specifies two types of [cross-origin requests](https://developer.mozilla.or
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** yes
 
 ### Usage notes
  * You may configure the `cors` policy at more than one scope (for example, at the product scope and the global scope). Ensure that the `base` element is configured at the operation, API, and product scopes to inherit needed policies at the parent scopes. 
 * Only the `cors` policy is evaluated on the `OPTIONS` request during preflight. Remaining configured policies are evaluated on the approved request. 
+
+## About CORS
+
+[CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS) is an HTTP header-based standard that allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (`XMLHttpRequest` calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
+
+CORS specifies two types of [cross-origin requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#specifications):
+
+- **Preflighted (or "preflight") requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request is permitted to send. If the server response includes the `Access-Control-Allow-Origin` header that allows access, the browser follows with the actual request.
+
+- **Simple requests** - These requests include one or more extra `Origin` headers but don't trigger a CORS preflight. Only requests using the `GET` and `HEAD` methods and a limited set of request headers are allowed.
 
 
 ## `cors` policy scenarios
@@ -107,8 +105,6 @@ Configure the `cors` policy in API Management for the following scenarios:
 * **Empty 200 OK response** - In some policy configurations, certain cross-origin requests complete with an empty `200 OK` response. This response is expected when `terminate-unmatched-request` is set to its default value of `true` and an incoming request has an `Origin` header that doesn’t match an allowed origin configured in the `cors` policy. 
 
 ## Example
-
-### Preflight requests
 
 This example demonstrates how to support [preflight requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), such as those with custom headers or methods other than `GET` and `POST`. To support custom headers and other HTTP verbs, use the `allowed-methods` and `allowed-headers` sections as shown in the following example.
 

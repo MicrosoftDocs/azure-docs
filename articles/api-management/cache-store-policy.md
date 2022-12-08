@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/07/2022
 ms.author: danlep
 ---
 
@@ -16,6 +16,9 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 > [!NOTE]
 > This policy must have a corresponding [Get from cache](cache-lookup-policy.md) policy.
+
+[!INCLUDE [api-management-cache-volatile](../../includes/api-management-cache-volatile.md)]
+
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -31,16 +34,13 @@ The `cache-store` policy caches responses according to the specified cache setti
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
-| cache-response         | Set to true to cache the current HTTP response. If the attribute is omitted or set to false, only HTTP responses with the status code `200 OK` are cached.                           | No      | false               |
+| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted or set to `false`, only HTTP responses with the status code `200 OK` are cached.                           | No      | `false`               |
 
 ## Usage
 
-
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
@@ -62,6 +62,7 @@ The `cache-store` policy caches responses according to the specified cache setti
 ```
 
 ### Example using policy expressions
+
 This example shows how to configure API Management response caching duration that matches the response caching of the backend service as specified by the backend service's `Cache-Control` directive. 
 
 ```xml
