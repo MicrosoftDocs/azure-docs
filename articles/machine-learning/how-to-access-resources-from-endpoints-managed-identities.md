@@ -111,9 +111,6 @@ This guide assumes you don't have a managed identity, a storage account or an on
     pip install --pre azure-mgmt-authorization
     ```
 
-
-Install them with the following code:
-
 # [User-assigned (Python)](#tab/user-identity-python)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
@@ -901,7 +898,7 @@ Refer to the following script to understand how to use your identity token to ac
 
 ## Create a deployment with your configuration
 
-Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
+Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-online-endpoints.md).
 
 >[!WARNING]
 > This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
@@ -1119,8 +1116,8 @@ msi_client.user_assigned_identities.delete(
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using a online endpoint](how-to-deploy-managed-online-endpoints.md).
-* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
+* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).

@@ -12,8 +12,6 @@ ms.custom:
 
 # Enable Data use management on your Microsoft Purview sources
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 *Data use management* is an option within the data source registration in Microsoft Purview. This option lets Microsoft Purview manage data access for your resources. The high level concept is that the data owner allows its data resource to be available for access policies by enabling *Data use management*. 
 
 Currently, a data owner can enable Data use management on a data resource, which enables it for these types of access policies:

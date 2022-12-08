@@ -35,18 +35,14 @@ For your custom Windows image, you must choose the right [parent image (base ima
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [https://mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/windows/servercore:ltsc2022)
-- [https://mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/windows/servercore:ltsc2019)
-- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022)
-- [https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019](https://mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019)
-- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-ltsc2022)
-- [https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-1809)
-- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-ltsc2022)
-- [https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-1809)
-- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-ltsc2022)
-- [https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:3.1-nanoserver-1809)
-- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-ltsc2022)
-- [https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809](https://mcr.microsoft.com/dotnet/aspnet:6.0-nanoserver-1809)
+- [mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/product/windows/servercore/about)
+- [mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/product/windows/servercore/about)
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags):4.8-windowsservercore-ltsc2022
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags):4.8-windowsservercore-ltsc2019
+- [mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):6.0-nanoserver-ltsc2022
+- [mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):6.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):6.0-nanoserver-ltsc2022
+- [mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):6.0-nanoserver-1809
 
 ::: zone-end
 
@@ -118,17 +114,13 @@ Use the following steps to configure your web app to pull from ACR using managed
 
 You are all set, and the web app will now use managed identity to pull from Azure Container Registry. 
 
-::: zone pivot="container-linux"
-
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the virtual network integration feature. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
 ```
-
-::: zone-end
 
 ## I don't see the updated container
 
@@ -481,7 +473,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Authentication / Authorization
 - Managed Identities
 - CORS
-- VNET integration is not supported for Docker Compose scenarios
+- Virtual network integration is not supported for Docker Compose scenarios
 - Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 ### Docker Compose options

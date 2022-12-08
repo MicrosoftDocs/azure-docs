@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

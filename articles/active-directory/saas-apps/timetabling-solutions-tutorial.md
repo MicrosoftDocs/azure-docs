@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -147,7 +147,7 @@ In this section, you create a user called Britta Simon in the Timetabling Soluti
 
 
 > [!NOTE]
-> Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
+> To add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

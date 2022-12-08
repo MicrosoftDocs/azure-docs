@@ -18,6 +18,10 @@ ms.date: 10/19/2022
 
 Known issues and limitations associated with the Azure SQL Migration extension for Azure Data Studio.
 
+> [!NOTE]
+> When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
+
+
 ### Error code: 2007 - CutoverFailedOrCancelled 
 - **Message**: `Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`  
 
@@ -79,12 +83,37 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Cause**: Azure Storage firewall isn't configured to allow access to Azure SQL target.
 
-- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security) for more information on Azure Storage firewall setup.  
+- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md) for more information on Azure Storage firewall setup.  
+
+- **Message**: `Migration for Database <Database Name> failed with error 'There are backups from multiple databases in the container folder. Please make sure the container folder has backups from a single database.`
+
+- **Cause**: Backups of multiple databases are in the same container folder.
+
+- **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. See [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations) for more information.
+
 
     > [!NOTE]
     > For more information on general troubleshooting steps for Azure SQL Managed Instance errors, see [Known issues with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/doc-changes-updates-known-issues)
 
 ### Error code: 2012 - TestConnectionFailed
+- **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
+
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is usually caused by network settings in the firewall.
+
+- **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. See [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
+
+- **Message**: `Failed to test connections using provided Integration Runtime. 'Cannot connect to <File share>. Detail Message: The system could not find the environment option that was entered`
+
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+
+- **Recommendation**: Make sure your network file share name is entered correctly.
+
+- **Message**: `Failed to test connections using provided Integration Runtime. The file name does not conform to the naming rules by the data store. Illegal characters in path.`
+
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+
+- **Recommendation**: Make sure your network file share name is entered correctly.
+
 - **Message**: `Failed to test connections using provided Integration Runtime.`
 
 - **Cause**: Connection to the Self-Hosted Integration Runtime has failed.
@@ -127,7 +156,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 ### Error code: 2039 - MigrationRetryNotAllowed
 - **Message**: `Migration isn't in a retriable state. Migration must be in state WaitForRetry. Current state: <State>, Target server: <Target Server>, Target database: <Target database>.`
 
-**Cause**: A retry request was received when the migration wasn't in a state allowing retrying.
+- **Cause**: A retry request was received when the migration wasn't in a state allowing retrying.
 
 - **Recommendation**: No action required migration is ongoing or completed.  
 
@@ -188,6 +217,9 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 - Azure SQL Database table names with double byte characters currently aren't supported for migration.  Mitigation is to rename tables before migration; they can be changed back to their original names after successful migration.
 - Tables with large blob columns may fail to migrate due to timeout.
 - Database names with SQL Server reserved words aren't valid.
+- Database names with double-byte character set (DBCS) are currently not supported.
+- Table names that include semicolons are currently not supported.
+- Computed columns do not get migrated.
 
 ## Azure SQL Managed Instance and SQL Server on Azure Virtual Machine known issues and limitations
 - If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 

@@ -76,7 +76,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Next steps
 
-In this article, you've learned how to deploy Events in the Azure portal. 
+In this article, you've learned how to deploy events in the Azure portal. For details about supported events, see [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
 
 To learn how to enable the Events metrics, see
 

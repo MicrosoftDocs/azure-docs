@@ -45,7 +45,6 @@ The creation of federated identity credentials is available on user-assigned man
 - Brazil Southeast
 - East Asia
 - Southeast Asia
-- Switzerland West
 - South Africa West
 - Qatar Central
 - Australia Central

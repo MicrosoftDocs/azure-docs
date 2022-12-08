@@ -552,7 +552,10 @@ Access restriction to the public endpoint is done using the storage account fire
 - [Create one or more private endpoints for the storage account](#create-the-storage-account-private-endpoint) and disable access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
-#### Disable access to the storage account public endpoint
+> [!Note]  
+> The **Allow Azure services on the trusted services list to access this storage account** exception must be selected on your storage account to allow trusted first party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Grant access to trusted Azure services](../common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
+#### Grant access to trusted Azure services and disable access to the storage account public endpoint
 When access to the public endpoint is disabled, the storage account can still be accessed through its private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
@@ -566,7 +569,7 @@ When access to the public endpoint is disabled, the storage account can still be
 
 ---
 
-#### Restrict access to the storage account public endpoint to specific virtual networks
+#### Grant access to trusted Azure services and restrict access to the storage account public endpoint to specific virtual networks 
 When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
@@ -613,7 +616,7 @@ The following pre-defined policies are available for Azure Files and Azure File 
 
 | Action | Service | Condition | Policy name |
 |-|-|-|-|
-| Audit | Azure Files | The storage account's public endpoint is enabled. See [Disable access to the storage account public endpoint](#disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
+| Audit | Azure Files | The storage account's public endpoint is enabled. See [Grant access to trusted Azure services and disable access to the storage account public endpoint](#grant-access-to-trusted-azure-services-and-disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
 | Audit | Azure File Sync | The Storage Sync Service's public endpoint is enabled. See [Disable access to the Storage Sync Service public endpoint](#disable-access-to-the-storage-sync-service-public-endpoint) for more information. | Public network access should be disabled for Azure File Sync |
 | Audit | Azure Files | The storage account needs at least one private endpoint. See [Create the storage account private endpoint](#create-the-storage-account-private-endpoint) for more information. | Storage account should use a private link connection |
 | Audit | Azure File Sync | The Storage Sync Service needs at least one private endpoint. See [Create the Storage Sync Service private endpoint](#create-the-storage-sync-service-private-endpoint) for more information. | Azure File Sync should use private link |

@@ -54,6 +54,8 @@
         href: vnet-custom-internal.md
       - name: Securing a custom VNET
         href: firewall-integration.md
+      - name: Network proxying
+        href: network-proxy.md
     - name: Observability
       items:
       - name: Overview
@@ -78,6 +80,8 @@
       href: dapr-overview.md
 - name: How-to guides
   items:
+    - name: Deploy an app with containerapp up
+      href: containerapp-up.md
     - name: Scale an app
       href: scale-app.md
     - name: Manage secrets
@@ -92,8 +96,12 @@
       href: revisions-manage.md
     - name: Set up HTTPS or TCP ingress
       href: ingress.md
-    - name: Set up custom domains and certificates
-      href: custom-domains-certificates.md
+    - name: Custom domains and certificates
+      items:
+      - name: Set up container app custom domain
+        href: custom-domains-certificates.md
+      - name: Set up environment custom DNS suffix
+        href: environment-custom-dns-suffix.md
     - name: Connect to a cloud service using Service Connector
       items:
         - name: .NET app with Blob Storage
@@ -102,8 +110,15 @@
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Connect multiple apps
       href: connect-apps.md
-    - name: Publish revisions with GitHub Actions
-      href: github-actions-cli.md
+    - name: Set up continuous deployment
+      items:
+        - name: Azure Pipelines
+          href: azure-pipelines.md
+          displayName: Azure DevOps
+        - name: GitHub Actions
+          href: github-actions.md
+        - name: GitHub Actions with Azure CLI
+          href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
     - name: Use health probes

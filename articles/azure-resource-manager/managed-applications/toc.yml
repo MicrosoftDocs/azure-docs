@@ -84,7 +84,7 @@
   - name: PowerShell
     href: /powershell/module/az.resources/
   - name: REST
-    href: /rest/api/resources/
+    href: /rest/api/managedapplications/
   - name: User interface functions
     items:
     - name: All functions

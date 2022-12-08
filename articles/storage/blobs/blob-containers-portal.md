@@ -37,7 +37,7 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
 1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
 1. Within the **New Container** pane, provide a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-1. Set the **Public access level** for the container. The default level is **Private (no anonymous access)**. Read the article to learn how to [configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal).
+1. Set the **Public access level** for the container. The recommended level is **Private (no anonymous access)**. For information about preventing anonymous public access to blob data, see [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md).
 1. Select **Create** to create the container.
 
     :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container within the Azure portal." lightbox="media/blob-containers-portal/create-container-lrg.png":::
@@ -83,12 +83,6 @@ Properly managing access to containers and their blobs is key to ensuring that y
 Azure Active Directory (Azure AD) offers optimum security for Blob Storage resources. Azure role-based access control (Azure RBAC) determines what permissions a security principal has to a given resource. To grant access to a container, you'll assign an RBAC role at the container scope or above to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
 You can read about the assignment of roles at [Assign Azure roles using the Azure portal](assign-azure-role-data-access.md?tabs=portal).
-
-### Enable anonymous public read access
-
-Although anonymous read access for containers is supported, it's disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request.
-
-Read about enabling public access level in the [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal) article.
 
 ### Generate a shared access signature
 

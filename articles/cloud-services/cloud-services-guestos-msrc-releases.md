@@ -11,12 +11,67 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/4/2022
+ms.date: 11/8/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November 2022 Guest OS
+
+>[!NOTE] 
+
+>The November Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the November Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-11 |  [5019966]  |  Latest Cumulative Update(LCU) | 6.51 | Nov 8, 2022 |
+|  Rel 22-11 |  [5019958]  |  IE Cumulative Updates | 2.131, 3.118, 4.111 | Nov 8, 2022 |
+|  Rel 22-11 |  [5019081]  |  Latest Cumulative Update(LCU) | 7.19 | Nov 8, 2022 |
+|  Rel 22-11 |  [5019964]  |  Latest Cumulative Update(LCU) | 5.75 | Nov 8, 2022 |
+|  Rel 22-11 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 2.131 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020630]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 2.131 | Nov 8, 2022 |
+|  Rel 22-11 |  [5016268]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 4.111 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020629]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 4.111 | Nov 8, 2022 |
+|  Rel 22-11 |  [5013635]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 3.118 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020628]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 3.118 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020627]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update LKG | 6.51 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020619]  |  .NET Framework 4.8 Security and Quality Rollup LKG | 7.19 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020000]  |  Monthly Rollup | 2.131 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020009]  |  Monthly Rollup | 3.118 | Nov 8, 2022 |
+|  Rel 22-11 |  [5020023]  |  Monthly Rollup | 4.111 | Nov 8, 2022 |
+|  Rel 22-11 |  [5016263]  |  Servicing Stack update | 3.118 | Jul 12, 2022 |
+|  Rel 22-11 |  [5018922]  |  Servicing Stack update | 4.111 | Oct 11, 2022 |
+|  Rel 22-11 |  [4578013]  |  OOB Standalone Security Update | 4.111 | Aug 19, 2020 |
+|  Rel 22-11 |  [5017396]  |  Servicing Stack update | 5.75 | Sep 13, 2022 |
+|  Rel 22-11 |  [5017397]  |  Servicing Stack update | 2.131 | Sep 13, 2022 |
+|  Rel 22-11 |  [4494175]  |  Microcode | 5.75 | Sep 1, 2020 |
+|  Rel 22-11 |  [4494174]  |  Microcode | 6.51 | Sep 1, 2020 |
+
+[5019966]: https://support.microsoft.com/kb/5019966
+[5019958]: https://support.microsoft.com/kb/5019958
+[5019081]: https://support.microsoft.com/kb/5019081
+[5019964]: https://support.microsoft.com/kb/5019964
+[5013637]: https://support.microsoft.com/kb/5013637
+[5020630]: https://support.microsoft.com/kb/5020630
+[5016268]: https://support.microsoft.com/kb/5016268
+[5020629]: https://support.microsoft.com/kb/5020629
+[5013635]: https://support.microsoft.com/kb/5013635
+[5020628]: https://support.microsoft.com/kb/5020628
+[5020627]: https://support.microsoft.com/kb/5020627
+[5020619]: https://support.microsoft.com/kb/5020619
+[5020000]: https://support.microsoft.com/kb/5020000
+[5020009]: https://support.microsoft.com/kb/5020009
+[5020023]: https://support.microsoft.com/kb/5020023
+[5016263]: https://support.microsoft.com/kb/5016263
+[5018922]: https://support.microsoft.com/kb/5018922
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017396]: https://support.microsoft.com/kb/5017396
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## October 2022 Guest OS
 
@@ -3444,7 +3499,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4038779]: https://support.microsoft.com/kb/4038779
 [4038786]: https://support.microsoft.com/kb/4038786
 [4038793]: https://support.microsoft.com/kb/4038793
-[4040966]: https://support.microsoft.com/kb/4040966
+[4040966]: https://support.microsoft.com/topic/description-of-the-security-only-update-for-the-net-framework-3-5-1-for-windows-7-sp1-and-windows-server-2008-r2-sp1-september-12-2017-bd775b30-8761-a576-7c43-19ce534267f0
 [4040960]: https://support.microsoft.com/kb/4040960
 [4040965]: https://support.microsoft.com/kb/4040965
 [4040959]: https://support.microsoft.com/kb/4040959
