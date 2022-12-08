@@ -19,7 +19,7 @@ You provision the Datadog resources through a resource provider named `Microsoft
 
 ## Capabilities
 
-Integrating Datadog with Azure provides the following capabilities:
+Datadog - An Azure Native ISV Service provides the following capabilities:
 
 - **Integrated onboarding** - Datadog is an integrated service on Azure. You can provision Datadog and manage the integration through the Azure portal.
 - **Unified billing** - Datadog costs are reported through Azure monthly bill.
