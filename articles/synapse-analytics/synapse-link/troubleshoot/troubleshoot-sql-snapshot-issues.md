@@ -26,7 +26,7 @@ The users can follow the below resolution steps to investigate the below cases:
 
 ### Step 1: Query to get the current snapshot state for the tables included in the link connection 
 
-Connect to the source database enabled for Azure Synapse Link using [SQL Server Management Studio](https://aka.ms/ssms) or [Azure Data Studio](http://aka.ms/azuredatastudio).
+Connect to the source database enabled for Azure Synapse Link using [SQL Server Management Studio](https://aka.ms/ssms) or [Azure Data Studio](https://aka.ms/azuredatastudio).
 
 Run the following T-SQL command in the source database to list all the tables enabled for change feed and their snapshot-related columns from [changefeed.change_feed_tables](/sql/relational-databases/system-tables/changefeed-change-feed-tables-transact-sql). In the results from the query, check the `snapshot_phase` column. 
 
