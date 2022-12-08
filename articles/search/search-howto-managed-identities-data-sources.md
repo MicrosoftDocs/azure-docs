@@ -189,7 +189,7 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
 1. Select **Add role assignment**.
 
-1. On the **Role** page, select the roles needed for your search service. Recall that roles are cumulative. Choose only what you need, but you can select all of them for full access to integrated features:
+1. On the **Role** page, select the roles needed for your search service. Recall that roles are cumulative. You should choose only what you need, but you can select all of them for full access to integrated features:
 
    | Role | Usage |
    |------|-------|
