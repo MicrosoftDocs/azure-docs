@@ -59,11 +59,11 @@ Yes. You're billed when a report is generated. For more information about billin
 
 Below are listed all the schedule options currently available when you modify your refresh schedule:
     
-    - [Recurring or off](#recurring-or-off)
-    - [Time zone](#time-zone)
-    - [Recurrence](#recurrence)
-    - [Start at](#start-at)
-    - [End date (optional)](#specify-an-end-date)
+- [Recurring or off](#recurring-or-off)
+- [Time zone](#time-zone)
+- [Recurrence](#recurrence)
+- [Start at](#start-at)
+- [End date (optional)](#specify-an-end-date)
 
 ### Recurring or off
 
@@ -76,7 +76,7 @@ Below are listed all the schedule options currently available when you modify yo
 
 Select the time zone you'd like to align your refresh schedule with. If the time zone you select observes daylight savings, your trigger will auto-adjust for the difference.
 
-    :::image type="content" source="media/how-to-schedule-data-estate-insights/time-zone.png" alt-text="Screenshot of the Edit refresh page time zone options, showing the time set to Pacific Standard." :::
+:::image type="content" source="media/how-to-schedule-data-estate-insights/time-zone.png" alt-text="Screenshot of the Edit refresh page time zone options, showing the time set to Pacific Standard." :::
 
 ### Recurrence
 
@@ -117,7 +117,7 @@ Here's all the information you can find there:
 |---|---|---|---|---|
 |Lists the feature your settings are for|Either **On** or **Off**. For more information about turning off reports, see our [disable Data Estate Insights article.](disable-data-estate-insights.md#disable-report-refresh)| Select **More info** to see your recurrence schedule, start time, and end time. | The day your recurrence schedule was last set. By default this will be the creation date of your Microsoft Purview account. | Allows you to update your recurrence schedule when reports are turned on. |
 
-:::image type="content" source="media/how-to-schedule-data-estate-insights/insights-refresh-menu.png" alt-text="Screenshot of the Edit refresh page specify an end date option, with the option selected and the date selected." :::
+:::image type="content" source="media/how-to-schedule-data-estate-insights/insights-refresh-menu.png" alt-text="Screenshot of the insights refresh menu." :::
 
 ## Next steps
 
