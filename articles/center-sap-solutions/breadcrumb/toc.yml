@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Center for SAP solutions
+    tocHref: /azure/center-sap-solutions/
+    topicHref: /azure/center-sap-solutions/index
+    items:
+    - name: Deployment automation framework
+      tocHref: /azure/center-sap-solutions/
+      topicHref: /azure/center-sap-solutions/automation/index
+    - name: Azure Monitor for SAP solutions
+      tocHref: /azure/center-sap-solutions/
+      topicHref: /azure/center-sap-solutions/monitor/index
+    - name: Azure VMs for SAP workloads
+      tocHref: /azure/virtual-machines/workloads/sap/
+      topicHref: /azure/virtual-machines/workloads/sap/index
