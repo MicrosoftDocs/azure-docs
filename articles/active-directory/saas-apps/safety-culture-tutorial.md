@@ -48,8 +48,8 @@ To configure the integration of SafetyCulture into Azure AD, you need to add Saf
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **iAuditor** in the search box.
-1. Select **iAuditor** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **SafetyCulture** in the search box.
+1. Select **SafetyCulture** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
@@ -69,7 +69,7 @@ To configure and test Azure AD SSO with SafetyCulture, perform the following ste
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **iAuditor** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **SafetyCulture** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -98,11 +98,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL(optional)** text box, enter the **Service provider assertion consumer service URL** from SafetyCulture.
 
-1. The iAuditor application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The SafetyCulture application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-    ![Screenshot shows the image of the iAuditor application.](common/default-attributes.png "Attributes")
+    ![Screenshot shows the image of the SafetyCulture application.](common/default-attributes.png "Attributes")
 
-1. In addition to above, the iAuditor application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre-populated but you can review them as per your requirements.
+1. In addition to above, the SafetyCulture application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre-populated but you can review them as per your requirements.
 
     | Name | Source Attribute |
     | -------| --------- |
@@ -141,7 +141,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SafetyCulture.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **iAuditor**.
+1. In the applications list, select **SafetyCulture**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.

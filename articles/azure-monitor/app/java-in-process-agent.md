@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 12/05/2022
+ms.date: 12/07/2022
 ms.devlang: java
 ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
@@ -30,7 +30,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.4.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.5/applicationinsights-agent-3.4.5.jar) file.
+Download the [applicationinsights-agent-3.4.6.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.6/applicationinsights-agent-3.4.6.jar) file.
 
 > [!WARNING]
 >
@@ -62,7 +62,7 @@ Download the [applicationinsights-agent-3.4.5.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.5.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.6.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -80,7 +80,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.4.5.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.5.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.6.jar` with the following content:
 
         ```json
         {
