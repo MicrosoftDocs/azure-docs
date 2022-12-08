@@ -44,7 +44,7 @@ If you don't plan on using Data Estate Insights for a while, a **[data curator](
 > [!NOTE]
 > The application or report refresh can be enabled again later at any time.
 
-A **[data curator](catalog-permissions.md#roles) on your account's [root collection](reference-azure-purview-glossary.md#root-collection)** can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**. For specific steps, see the [disable Data Estates Insights article](disable-data-estate-insights.md.md)
+A **[data curator](catalog-permissions.md#roles) on your account's [root collection](reference-azure-purview-glossary.md#root-collection)** can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**. For specific steps, see the [disable Data Estates Insights article](disable-data-estate-insights.md)
 
 :::image type="content" source="media/concept-guidelines-pricing/disable-data-estate-insights.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal. Under feature options, the data estate insights option is highlighted." :::
 
@@ -60,7 +60,7 @@ Disabling Data Estate Insights will disable the entire application, including th
 
 The application icon will still show in the menu, but insights readers won't have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account won't receive any bill for Data Estate Insights.
 
-For steps to disable the Data Estate Insights application, see the [disable article.](disable-data-estate-insights.md.md#disable-the-data-estate-insights-application)
+For steps to disable the Data Estate Insights application, see the [disable article.](disable-data-estate-insights.md#disable-the-data-estate-insights-application)
 
 ### Disable report refresh
 
@@ -70,11 +70,11 @@ When you disable report refreshes, insight readers will be able view reports but
 
 In this case, graphs showing data from last 30 days will appear blank after 30 days. Graphs showing snapshot of the data map will continue to show graph and details. When an [insights readers](catalog-permissions.md#roles) accesses an insight report, report consumption meter will be triggered, and the Microsoft Purview account will be billed.
 
-For steps to disable report refresh see the [disable article.](disable-data-estate-insights.md.md#disable-report-refresh)
+For steps to disable report refresh see the [disable article.](disable-data-estate-insights.md#disable-report-refresh)
 
 ## Next steps
 
-- [Disable Data Estate Insights](disable-data-estate-insights.md.md)
+- [Disable Data Estate Insights](disable-data-estate-insights.md)
 - [Microsoft Purview, formerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
 - [Pricing guideline overview](concept-guidelines-pricing.md)
 - [Pricing guideline Data Map](concept-guidelines-pricing-data-map.md)
