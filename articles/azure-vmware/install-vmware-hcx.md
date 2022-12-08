@@ -133,7 +133,7 @@ Continue to the next tutorial to configure the VMware HCX Connector.  After you'
 
 >[VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) 
 
->[Uninstall VMware HCX](un-install-vmware-hcx.md)
+>[Uninstall VMware HCX in Azure VMware Solution](uninstall-vmware-hcx.md)
 
 
 
