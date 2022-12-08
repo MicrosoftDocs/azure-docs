@@ -137,20 +137,13 @@
   items: 
     - name: Deploy an app from an existing container image - CLI
       href: tutorial-deploy-first-app-cli.md
-    - name: Interactive tour
+    - name: Build a multiple service app 
       expanded: true
       items:
-      - name: Build a multiple service app - frontend service
-        href: communicate-between-microservices.md
-      - name: Deploy backend API microservice from code
-        expanded: true
-        items:
-        - name: Command line
+        - name: Deploy a backend app
           href: tutorial-code-to-cloud.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
+        - name: Deploy a frontend app
+          href: communicate-between-microservices.md
     - name: Deploy microservices with Dapr
       expanded: true
       items:
