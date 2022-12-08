@@ -193,9 +193,9 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/use-smart-on-fhir-proxy.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/use-smart-on-fhir-proxy",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/use-smart-on-fhir-proxy.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/smart-on-fhir",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/use-custom-headers.md",
@@ -355,11 +355,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/tutorial-web-app-write-web-app.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-write-web-app",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/use-smart-on-fhir-proxy.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/use-smart-on-fhir-proxy",
         "redirect_document_id": true
     },
     {

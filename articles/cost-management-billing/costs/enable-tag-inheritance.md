@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2022
+ms.date: 12/08/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -41,9 +41,9 @@ To enable tag inheritance in the Azure portal:
 2. Select a scope.
 3. In the left menu under **Settings**, select either **Manage billing account** or **Manage subscription**, depending on your scope.
 4. Under **Tag inheritance**, select **Edit**.  
-    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance.png" alt-text="Screenshot showing the Edit option for Tag inheritance." lightbox="./media/enable-tag-inheritance/edit-tag-inheritance.png" :::
+    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance.png" alt-text="Screenshot showing the Edit option for Tag inheritance." :::
 5. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
-    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option." lightbox="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" :::
+    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option." :::
 
 Here's an example diagram showing how a tag is inherited.
 
@@ -55,7 +55,7 @@ When a resource tag matches the resource group or subscription tag being applied
 
 In the Tag inheritance window, select the **Use the subscription or resource group tag** option.
 
-:::image type="content" source="./media/enable-tag-inheritance/use-subscription-resource-group-tag.png" alt-text="Screenshot showing the override options." lightbox="./media/enable-tag-inheritance/use-subscription-resource-group-tag.png" :::
+:::image type="content" source="./media/enable-tag-inheritance/use-subscription-resource-group-tag.png" alt-text="Screenshot showing the override options." :::
 
 Let's look at an example of how a resource tag gets applied. In the following diagram, resource 4 and resource group 2 have the same tag: *App*. Because the user chose to keep the resource tag, usage record 4 is updated with the resource tag value *E2E*.
 
@@ -63,7 +63,7 @@ Let's look at an example of how a resource tag gets applied. In the following di
 
 Let's look at another example where a resource tag gets overridden. In the following diagram, resource 4 and resource group 2 have the same tag: **App**. Because the user chose to use the resource group or subscription tag, usage record 4 is updated with the resource group tag value, which is *backend*.
 
-:::image type="content" source="./media/enable-tag-inheritance/tag-example-03.svg" alt-text="Example diagram showing how a resource tag gets overridden." border="false" lightbox="./media/enable-tag-inheritance/tag-example-03.svg":::
+:::image type="content" source="./media/enable-tag-inheritance/tag-example-03.svg" alt-text="Example diagram showing how a resource tag gets overridden." border="false":::
 
 ## Usage record updates
 
