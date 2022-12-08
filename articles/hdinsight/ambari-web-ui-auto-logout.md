@@ -27,6 +27,7 @@ To disable the auto logout feature,
 1. Modify the values to 0 for both the properties to disable the feature.
 1. Save changes and restart the running Ambari Server.
   
-## Next steps
+**Next steps**
   
 * [Optimize clusters with Apache Ambari in Azure HDInsight](/azure/hdinsight/hdinsight-changing-configs-via-ambari.md)
+
