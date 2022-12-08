@@ -7,9 +7,9 @@ author: flang-msft
 ms.author: franlanglois
 ---
 
-# Manage the Datadog resource
+# Manage the Datadog - An Azure Native ISV Service resource
 
-This article shows how to manage the settings for your Azure integration with Datadog.
+This article shows how to manage the settings for your Datadog - An Azure Native ISV Service.
 
 ## Resource overview
 
