@@ -64,9 +64,9 @@ az network lb inbound-nat-rule delete --resourcegroup MyResourceGroup --name MyN
 
 ```
 
-## Multiple Inbound NAT rules behind a Virtual Machine Scale Set 
+## Add multiple inbound NAT rules behind a Virtual Machine Scale Set 
 
-Multiple inbound NAT rules can be attached to a single Virtual Machine Scale Set, given that the rules frontend port ranges aren’t overlapping. This is accomplished by having multiple inbound NAT rules that target the same backend pool. A full example using the CLI is shown. 
+Multiple inbound NAT rules can be attached to a single Virtual Machine Scale Set, given that the rules frontend port ranges aren’t overlapping. This is accomplished by having multiple inbound NAT rules that target the same backend pool. A full example using the CLI is shown below: 
 
 ```azurecli
 az network lb inbound-nat-rule create \
