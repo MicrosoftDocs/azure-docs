@@ -150,7 +150,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Enter the name of the new back-end pool (for example, **nw-backend**).
          2. Select **NIC** for Backend Pool Configuration. 
          1. Select **Add a virtual machine**.
-         1. Select the virtual machines of the ASCS cluster.
+         1. Select the virtual machines of the cluster.
          1. Select **Add**.     
          2. Select **Save**.   
       1. Create the health probes

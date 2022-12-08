@@ -8,8 +8,6 @@
     href: core/overview-iot-central-tour.md
   - name: Tour of the API
     href: core/overview-iot-central-api-tour.md
-  - name: What's new?
-    href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
 - name: Quickstarts
   expanded: true
   items:
@@ -113,8 +111,6 @@
     - name: FAQ
       href: core/howto-faq.yml
       items:
-      - name: Why should I start with IoT Central?
-        href: core/concepts-faq-start-iot-central.md
       - name: How do I extend IoT Central?
         href: core/concepts-faq-extend.md
       - name: How does IoT Central scale and enable HADR?

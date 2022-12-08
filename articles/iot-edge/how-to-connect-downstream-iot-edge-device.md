@@ -22,13 +22,13 @@ In a gateway scenario, an IoT Edge device can be both a gateway and a downstream
 
 There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that doesn't have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
 
-Some network architectures require that only the top IoT Edge device in a hierarchy can connect to the cloud. In this configuration, all IoT Edge devices in lower layers of a hierarchy can only communicate with their gateway (or parent) device and any downstream (or child) devices.
+Some network architectures require that only the top IoT Edge device in a hierarchy can connect to the cloud. In this configuration, all IoT Edge devices in lower layers of a hierarchy can only communicate with their gateway (parent) device and any downstream (child) devices.
 
 All the steps in this article build on [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which sets up an IoT Edge device to be a gateway for downstream IoT devices. The same basic steps apply to all gateway scenarios:
 
 * **Authentication**: Create IoT Hub identities for all devices in the gateway hierarchy.
-* **Authorization**: Set up the parent/child relationship in IoT Hub to authorize child devices to connect to their parent device like they would connect to IoT Hub.
-* **Gateway discovery**: Ensure that the child device can find its parent device on the local network.
+* **Authorization**: Set up the parent/child relationship in IoT Hub to authorize downstream devices to connect to their parent device like they would connect to IoT Hub.
+* **Gateway discovery**: Ensure that the downstream device can find its parent device on the local network.
 * **Secure connection**: Establish a secure connection with trusted certificates that are part of the same chain.
 
 ## Prerequisites
@@ -43,7 +43,7 @@ This article provides detailed steps and options to help you create the right ga
 
 You create an IoT Edge gateway hierarchy by defining parent/child relationships for the IoT Edge devices in the scenario. You can set a parent device when you create a new device identity, or you can manage the parent and children of an existing device identity.
 
-The step of setting up parent/child relationships authorizes child devices to connect to their parent device like they would connect to IoT Hub.
+The step of setting up parent/child relationships authorizes downstream devices to connect to their parent device like they would connect to IoT Hub.
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
@@ -90,7 +90,7 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 
 ## Generate certificates
 
-A consistent chain of certificates must be installed across devices in the same gateway hierarchy to establish a secure communication between themselves. Every device in the hierarchy, whether an IoT Edge device or an IoT leaf device, needs a copy of the same root CA certificate. Each IoT Edge device in the hierarchy then uses that root CA certificate as the root for its device CA certificate.
+A consistent chain of certificates must be installed across devices in the same gateway hierarchy to establish a secure communication between themselves. Every device in the hierarchy, whether an IoT Edge device or an IoT downstream device, needs a copy of the same root CA certificate. Each IoT Edge device in the hierarchy then uses that root CA certificate as the root for its device CA certificate.
 
 With this setup, each downstream IoT Edge device can verify the identity of their parent by verifying that the *edgeHub* they connect to has a server certificate that is signed by the shared root CA certificate.
 
@@ -120,7 +120,7 @@ For example, the following commands create a root CA certificate, a parent devic
     # signed by the shared root CA certificate
     ./certGen.sh create_edge_device_ca_certificate "gateway"
     
-    # Create the child (downstream) device test certificate
+    # Create the downstream device test certificate
     # signed by the shared root CA certificate
     ./certGen.sh create_edge_device_ca_certificate "downstream"
     ```
@@ -313,15 +313,15 @@ To verify the *hostname*, you need to inspect the environment variables of the *
 
     The *edgeAgent* and *edgeHub* containers are recreated and started within a few minutes. Once *edgeHub* container is running, inspect the container and verify the *EdgeDeviceHostName* parameter matches the configuration file.
 
-## Configure child device
+## Configure downstream device
 
-To configure your child device, open a local or remote command shell.
+To configure your downstream device, open a local or remote command shell.
 
-To enable secure connections, every IoT Edge child device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
+To enable secure connections, every IoT Edge downstream device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the child device. The examples in this article use the directory `/var/aziot` for the certificates and keys directory.
+01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the downstream device. The examples in this article use the directory `/var/aziot` for the certificates and keys directory.
 
-01. Install the **root CA certificate** on the child IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
+01. Install the **root CA certificate** on the downstream IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
 
@@ -347,12 +347,12 @@ Updating certificates in /etc/ssl/certs...
 1 added, 0 removed; done.
 ```
 
-### Update child configuration file
+### Update downstream configuration file
 
 You should already have IoT Edge installed on your device. If not, follow the steps to
 [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
-01. Verify the `/etc/aziot/config.toml` configuration file exists on the child device.
+01. Verify the `/etc/aziot/config.toml` configuration file exists on the downstream device.
 
     If the config file doesn't exist on your device, use the following command to create it based on the template file:
 
@@ -386,7 +386,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge child device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge downstream device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
@@ -401,7 +401,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     image: "mcr.microsoft.com/azureiotedge-agent:1.4"
     ```
 
-01. The beginning of your child configuration file should look similar to the following example.
+01. The beginning of your downstream configuration file should look similar to the following example.
 
     ```toml
     parent_hostname = "10.0.0.4"
@@ -445,7 +445,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
 ### Verify connectivity from child to parent
 
-01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the child device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
+01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the downstream device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
 
     ```bash
     echo | openssl s_client -connect <parent hostname>:8883 2>/dev/null | openssl x509 -text
@@ -823,11 +823,11 @@ The API proxy module was designed to be customized to handle most common gateway
 
 ## Integrate Microsoft Defender for IoT with IoT Edge gateway
 
-Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
+Downstream devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using downstream device proxying.
 
 Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
 
-**To integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
+**To integrate Microsoft Defender for IoT with IoT Edge using downstream device proxying**:
 
 1. Sign in to the Azure portal.
 
@@ -843,9 +843,9 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
 
-1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=downstream1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
-1. Open a terminal on the leaf device.
+1. Open a terminal on the downstream device.
 
 1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/etc/defender_iot_micro_agent/connection_string.txt`:
 
@@ -871,7 +871,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the parent device from the displayed list.
 
-1. Ensure that port 8883 (MQTT) between the leaf device and the IoT Edge device is open.
+1. Ensure that port 8883 (MQTT) between the downstream device and the IoT Edge device is open.
 
 ## Next steps
 
