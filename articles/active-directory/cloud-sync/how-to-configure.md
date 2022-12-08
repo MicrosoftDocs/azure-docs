@@ -51,7 +51,7 @@ To configure provisioning, follow these steps.
 |Section|Description|
 |-----|-----|
 |1. Add [scoping filters](#scope-provisioning-to-specific-users-and-groups)|Use this section to define what objects appear in Azure AD|
-|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between you on-premises users/groups with Azure AD objects|
+|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between your on-premises users/groups with Azure AD objects|
 |3. [Test](#on-demand-provisioning)|Test your configuration before deploying it|
 |4. View [default properties](#accidental-deletions-and-email-notifications)|View the default setting prior to enabling them and make changes where appropriate|
 |5. Enable [your configuration](#enable-your-configuration)|Once ready, enable the configuration and users/groups will begin synchronizing|
@@ -70,13 +70,13 @@ You can't configure groups and organizational units within a configuration.
 
    :::image type="content" source="media/how-to-configure/new-ux-configure-5.png" alt-text="Screenshot of scoping filters" lightbox="media/how-to-configure/new-ux-configure-5.png":::
  
- 2. Select the scoping filter. This can be one of the following:
+ 2. Select the scoping filter. The filter can be one of the following:
      - **All users**: Scopes the configuration to apply to all users that are being synchronized.
      - **Selected security groups**: Scopes the configuration to apply to specific security groups.
      - **Selected organizational units**: Scopes the configuration to apply to specific OUs. 
  3. For security groups and organizational units, supply the appropriate distinguished name and click **Add**.
  4. Once your scoping filters are configured, click **Save**.
- 5. After saving you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+ 5. After saving, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
  :::image type="content" source="media/how-to-configure/new-ux-configure-16.png" alt-text="Screenshot of the nudge for scoping filters" lightbox="media/how-to-configure/new-ux-configure-16.png":::
  7. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
@@ -90,7 +90,7 @@ You can customize the default attribute-mappings according to your business need
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of default attribute mappings" lightbox="media/how-to-configure/new-ux-configure-7.png":::
 
-After saving you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+After saving, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
  :::image type="content" source="media/how-to-configure/new-ux-configure-17.png" alt-text="Screenshot of the nudge for attribute filters" lightbox="media/how-to-configure/new-ux-configure-17.png":::
 
 
@@ -105,7 +105,7 @@ You can use this to validate and verify that the changes made to the configurati
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning" lightbox="media/how-to-configure/new-ux-configure-9.png":::
 
-After testing you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
+After testing, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
  :::image type="content" source="media/how-to-configure/new-ux-configure-18.png" alt-text="Screenshot of the nudge for testing" lightbox="media/how-to-configure/new-ux-configure-18.png":::
 
 
@@ -131,7 +131,7 @@ Click the **pencil** next to **Basics** to change the defaults in a configuratio
 :::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of basics" lightbox="media/how-to-configure/new-ux-configure-11.png":::
 
 ## Enable your configuration
-Once you have finalized and test your configuration you can enable it.
+Once you have finalized and tested your configuration, you can enable it.
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-12.png" alt-text="Screenshot of review and enable icon" lightbox="media/how-to-configure/new-ux-configure-12.png":::
 
