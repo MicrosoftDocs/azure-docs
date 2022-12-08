@@ -23,7 +23,7 @@ The steps in this article help you create the architecture in the following diag
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
-* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](certificates-point-to-site.md)).
+* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
 ## Create a virtual WAN
 
