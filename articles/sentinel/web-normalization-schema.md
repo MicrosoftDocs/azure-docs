@@ -149,6 +149,7 @@ The following ASIM Network Session schema fields have specific guidelines when u
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
 - For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
+- The fields `NetworkRuleName` and `NetworkRuleNumber` are renamed `RuleName` and `RuleNumber` respectively.
 
 Web Session events are commonly reported by intermediate devices that terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
 
