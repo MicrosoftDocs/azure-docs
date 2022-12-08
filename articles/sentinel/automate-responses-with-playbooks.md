@@ -16,9 +16,7 @@ This article explains what Microsoft Sentinel playbooks are, and how to use them
 
 SOC analysts are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
 
-Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address.
-
-Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
+Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions. Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address. To the extent that these activities can be automated, a SOC can be that much more productive and efficient, allowing analysts to devote more time and energy to investigative activity.
 
 A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually on-demand on entities (in preview - see below) and alerts, or set to run automatically in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
 
@@ -109,8 +107,9 @@ There are many differences between these two resource types, some of which affec
 
 #### Azure roles for Microsoft Sentinel
 
-- **Microsoft Sentinel Contributor** role lets you attach a playbook to an analytics rule.
-- **Microsoft Sentinel Responder** role lets you run a playbook manually.
+- **Microsoft Sentinel Contributor** role lets you attach a playbook to an analytics or automation rule.
+- **Microsoft Sentinel Responder** role lets you access an incident in order to run a playbook manually. But to actually run the playbook, you also need...
+- **Microsoft Sentinel Playbook Operator** role lets you run a playbook manually.
 - **Microsoft Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
 
 #### Learn more
@@ -299,7 +298,7 @@ For these and other reasons, Microsoft Sentinel allows you to **run playbooks ma
 
     This opens the **Alert playbooks** panel.
 
-- **To run a playbook on an entity,**, select an entity in any of the following ways:
+- **To run a playbook on an entity,** select an entity in any of the following ways:
     - From the **Entities** tab of an incident, choose an entity from the list and select the **Run playbook (Preview)** link at the end of its line in the list.
     - From the **Investigation graph**, select an entity and select the **Run playbook (Preview)** button in the entity side panel.
     - From **Entity behavior**, select an entity and from the entity page, select the **Run playbook (Preview)** button in the left-hand panel.

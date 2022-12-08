@@ -80,7 +80,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
     1. If you're creating a **Standard** playbook (the new kind - see [Logic app types](automate-responses-with-playbooks.md#logic-app-types)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
 
-    1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
+    1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger**, **Playbook with alert trigger**, or **Playbook with entity trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
         > [!NOTE]
         > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
@@ -119,6 +119,10 @@ Regardless of which trigger you chose to create your playbook with in the previo
 1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png":::
+
+    If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
 # [Logic Apps Standard](#tab/LAS)
 
@@ -198,21 +202,23 @@ Since you selected **Blank playbook**, a new browser tab will open and take you 
 
 1. Select the **Azure** tab and enter "Sentinel" in the Search line.
 
-1. In the **Triggers** tab below, you will see the two triggers offered by Microsoft Sentinel:
+1. In the **Triggers** tab below, you will see the three triggers offered by Microsoft Sentinel:
     - Microsoft Sentinel alert (preview)
+    - Microsoft Sentinel entity (preview)
     - Microsoft Sentinel incident (preview)
 
    Select the trigger that matches the type of playbook you are creating.
 
-    > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Both types can also be run manually.
-    > 
-    > For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
-
     :::image type="content" source="./media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
+
+    If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+
+    :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types-standard.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
 > [!NOTE]
 > When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md).
+
+For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
 
 ---
