@@ -119,8 +119,8 @@ The diagram shows the implementation.
 
 1. In your IDE, go to the [/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
 2. Open [TrustFrameworkBase.xml](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkBase.xml).
-3. Replace **yourtenant** with your Azure tenant account name in **TenantId**.
-4. Replace **yourtenant** with your Azure tenant account name in **PublicPolicyURI**.
+3. Replace **your tenant** with your Azure tenant account name in **TenantId**.
+4. Replace **your tenant** with your Azure tenant account name in **PublicPolicyURI**.
 5. Replace all **authentication_cloud_url** instances with the Nevis Admin console URL.
 6. Select **Save**.
 
@@ -128,9 +128,9 @@ The diagram shows the implementation.
 
 1. In your IDE, go to the [/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
 2. Open [TrustFrameworkExtensions.xml](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkExtensions.xml).
-3. Replace **yourtenant** with your Azure tenant account name in **TenantId**.
-4. Replace **yourtenant** with your Azure tenant account name in **PublicPolicyURI**.
-5. Under **BasePolicy**, in the **TenantId**, replace **yourtenant** with your Azure tenant account name.
+3. Replace **your tenant** with your Azure tenant account name in **TenantId**.
+4. Replace **your tenant** with your Azure tenant account name in **PublicPolicyURI**.
+5. Under **BasePolicy**, in the **TenantId**, replace **your tenant** with your Azure tenant account name.
 6. Under **BuildingBlocks**, replace **LoadUri** with the nevis.html blob link URL, in your blob storage account.
 7. Select **Save**.
 
@@ -138,9 +138,9 @@ The diagram shows the implementation.
 
 1. In your IDE, go to the [/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
 2. Open the [**SignUpOrSignin.xml**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/SignUpOrSignin.xml) file.
-3. Replace **yourtenant** with your Azure tenant account name in **TenantId**.
-4. Replace **yourtenant** with your Azure tenant account name in **PublicPolicyUri**.
-5. Under **BasePolicy**, in **TenantId**, replace **yourtenant** with your Azure tenant account name.
+3. Replace **your tenant** with your Azure tenant account name in **TenantId**.
+4. Replace **your tenant** with your Azure tenant account name in **PublicPolicyUri**.
+5. Under **BasePolicy**, in **TenantId**, replace **your tenant** with your Azure tenant account name.
 6. Select **Save**.
 
 ### Upload custom policies to Azure AD B2C
