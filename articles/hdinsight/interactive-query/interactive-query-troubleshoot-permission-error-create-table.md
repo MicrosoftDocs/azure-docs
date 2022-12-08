@@ -26,11 +26,11 @@ hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
 
 ## Cause
 
-The ability to create a table in Apache Hive is decided by the permissions applied to the cluster’s storage account. If the cluster storage account permissions are incorrect, you won't be able to create tables. This means that you could have the correct Ranger policies for table creation, and still see "Permission Denied" errors.
+The ability to create a table in Apache Hive is decided by the permissions applied to the cluster’s storage account. If the cluster storage account permissions are incorrect, you won't be able to create tables. This error denotes that you could have the correct Ranger policies for table creation, and still see "Permission Denied" errors.
 
 ## Resolution
 
-This is caused by a lack of sufficient permissions on the storage container being used. The user creating the Hive table needs read, write, and execute permissions against the container.
+This error is caused due to lack of sufficient permissions on the storage container being used. The user creating the Hive table needs read, write, and execute permissions against the container.
 
 ## Next steps
 
