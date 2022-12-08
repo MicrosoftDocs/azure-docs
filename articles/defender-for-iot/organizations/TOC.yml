@@ -287,7 +287,7 @@
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
-      - name: Dell Poweredge R350
+      - name: Dell PowerEdge R350
         href: appliance-catalog/dell-poweredge-r350-e1800.md
     - name: Production line
       items:

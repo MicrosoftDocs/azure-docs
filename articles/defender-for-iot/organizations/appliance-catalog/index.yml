@@ -31,6 +31,8 @@ landingContent:
             url: hpe-proliant-dl20-plus-enterprise.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
+          - text: Dell PowerEdge R350 (E1800)
+            url: dell-poweredge-r350-e1800.md
 
   # Card
   - title: Production line

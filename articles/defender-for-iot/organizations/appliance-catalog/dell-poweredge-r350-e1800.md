@@ -174,7 +174,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 ### Install Defender for IoT software on the Dell R350
 
-This procedure describes how to install Defender for IoT software on the HPE DL360.
+This procedure describes how to install Defender for IoT software on the Dell R350.
 
 The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
