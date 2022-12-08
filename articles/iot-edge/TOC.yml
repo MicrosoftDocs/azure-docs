@@ -271,7 +271,7 @@
       href: troubleshoot-in-portal.md
     - name: Resolve common errors
       href: troubleshoot-common-errors.md
--name: Azure IoT Edge for Linux on Windows (EFLOW)
+- name: Azure IoT Edge for Linux on Windows (EFLOW)
   expanded: false
   items:
   - name: About EFLOW
