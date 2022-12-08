@@ -171,6 +171,12 @@
         href: billing.md
       - name: Best practices
         href: best-practices.md
+      - name: Scenarios
+        items:
+        - name: Overview
+          href: scenarios.md
+        - name: Azure Storage blobs
+          href: scenario-storage-blobs.md
     - name: Classic
       items:
         - name: Migrate to Standard or Premium Tier

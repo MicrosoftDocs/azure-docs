@@ -2,6 +2,8 @@
 title: Plan Defender for Servers agents and extensions deployment
 description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premises servers with Defender for Servers 
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/06/2022
 ---
 # Plan Defender for Servers agents/extensions and Azure Arc
