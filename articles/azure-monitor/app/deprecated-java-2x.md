@@ -1,6 +1,6 @@
 ---
-title: Use the Application Insights Java 2.x SDK
-description: Learn how to use the Application Insights Java 2.x SDK, including sending trace logs, monitoring dependencies, filtering telemetry, and measuring metrics.
+title: Use Application Insights Java 2.x
+description: Learn how to use the Application Insights Java 2.x, including sending trace logs, monitoring dependencies, filtering telemetry, and measuring metrics.
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.devlang: java
@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
-In this article, you'll learn how to use the Application Insights Java 2.x SDK. This article shows you how to: 
+In this article, you'll learn how to use the Application Insights Java 2.x. This article shows you how to: 
 
 - Get started, including instrumenting requests, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
 - Send trace logs to Application Insights and explore them using the Application Insights portal.
