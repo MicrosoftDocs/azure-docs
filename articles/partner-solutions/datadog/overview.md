@@ -38,4 +38,4 @@ For more help using the Datadog - An Azure Native ISV service, see the following
 
 ## Next steps
 
-To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
+To create an instance of Datadog, see [QuickStart: Get started with Datadog - An Azure Native ISV Service](create.md).
