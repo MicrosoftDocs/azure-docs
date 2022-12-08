@@ -171,6 +171,7 @@
     - name: Plan Defender for Servers deployment
       items:
       - name: Get started
+        displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
         href: plan-defender-for-servers.md
       - name: Review data residency, workspace design 
         href: plan-defender-for-servers-data-workspace.md
@@ -343,9 +344,6 @@
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
-    - name: Overview
-      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
-      href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
