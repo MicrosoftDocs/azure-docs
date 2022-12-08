@@ -42,9 +42,7 @@ When you're investigating an incident, and you determine that a given entity - a
 
 1. In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the **Microsoft Sentinel Entity** trigger for that entity type (in this case, user accounts). Select the **Run** button for the playbook you want to run it immediately.
 
-
-
-- In the **Runs** tab, you'll see a list of all the times any playbook has been run on the incident or alert you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Azure Logic Apps.
+1. You can audit the activity of your entity-trigger playbooks in the **Runs** tab. You'll see a list of all the times any playbook has been run on the entity you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Azure Logic Apps.
 
 
 
