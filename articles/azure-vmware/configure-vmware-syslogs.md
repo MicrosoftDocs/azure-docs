@@ -96,7 +96,7 @@ For more information, see
 
 ### Archive to storage account
 
-    1. In **Diagnostic setting**, select the storage account where you want to store the logs and select **Save**.
+    1. In Diagnostic setting, select the storage account where you want to store the logs and select **Save**.
 
        :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png" alt-text="Screenshot showing the options to select for storing the syslogs." lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png":::
 
@@ -111,7 +111,7 @@ For more information, see
 
 ### Stream to Microsoft Azure Event Hubs
 
-    1. In **Diagnostic setting**, under Destination details, select **Stream to an Event Hub**. 
+    1. In Diagnostic setting, under Destination details, select **Stream to an Event Hub**. 
     1. From the **Event Hub namespace** drop-down menu, choose where you want to send the logs, select, and **Save**.
     
        :::image type="content" source="media/diagnostic-settings/stream-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs." lightbox="media/diagnostic-settings/stream-event-hub.png"::: 
