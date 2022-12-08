@@ -62,9 +62,6 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Use your smartphone as a device to connect to IoT Central
-        - url: iot-solution-apaas-paas.md
-          itemType: concept
-          text: What's the difference between PaaS and aPaaS?
       # footerLink
       footerLink:
         url: ../iot-central/index.yml
