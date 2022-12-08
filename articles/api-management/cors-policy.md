@@ -75,13 +75,13 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 ## About CORS
 
-[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is an HTTP header-based standard that allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (`XMLHttpRequest` calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
+[CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS) is an HTTP header-based standard that allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (`XMLHttpRequest` calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
-CORS specifies two types of [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#specifications):
+CORS specifies two types of [cross-origin requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#specifications):
 
-1. **Preflighted (or "preflight") requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request is permitted to send. If the server response includes the `Access-Control-Allow-Origin` header that allows access, the browser follows with the actual request.
+- **Preflighted (or "preflight") requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request is permitted to send. If the server response includes the `Access-Control-Allow-Origin` header that allows access, the browser follows with the actual request.
 
-1. **Simple requests** - These requests include one or more extra `Origin` headers but don't trigger a CORS preflight. Only requests using the `GET` and `HEAD` methods and a limited set of request headers are allowed.
+- **Simple requests** - These requests include one or more extra `Origin` headers but don't trigger a CORS preflight. Only requests using the `GET` and `HEAD` methods and a limited set of request headers are allowed.
 
 
 ## `cors` policy scenarios
