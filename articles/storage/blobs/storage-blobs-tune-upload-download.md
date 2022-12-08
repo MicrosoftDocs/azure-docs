@@ -20,7 +20,7 @@ This article walks through several considerations for tuning data transfer optio
 
 ## Performance tuning with StorageTransferOptions
 
-Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in an instance of this struct. The maximum supported transfer size varies by REST API and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers based on the property values defined in an instance of this struct. The maximum supported transfer size varies by operation and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 The following properties of `StorageTransferOptions` can be tuned based on the needs of your app:
 
@@ -35,7 +35,7 @@ The following properties of `StorageTransferOptions` can be tuned based on the n
 
 [InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) is the size of the first range request in bytes. An HTTP range request is a partial request, with the size defined by `InitialTransferSize` in this case. Blobs smaller than this size will be transferred in a single request. Blobs larger than this size will continue being transferred in chunks of size `MaximumTransferSize`.
 
-It's important to note that `MaximumTransferSize` *does not* limit the value you define for `InitialTransferSize`. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
+It's important to note that the value you specify for `MaximumTransferSize` *does not* limit the value that you define for `InitialTransferSize`. `InitialTransferSize` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you'll want `InitialTransferSize` to be *at least* as large as the value you define for `MaximumTransferSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `InitialTransferSize` to the same value used for `MaximumTransferSize`.
 
@@ -51,7 +51,7 @@ The effectiveness of this value is subject to connection pool limits in .NET, wh
 
 [MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) is the maximum length of a transfer in bytes. As mentioned earlier, this value *does not* limit `InitialTransferSize`, which can be larger than `MaximumTransferSize`. 
 
-To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the REST API, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+To keep data moving efficiently, the client libraries may not always reach the `MaximumTransferSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For example, block blobs calling the [Put Block](/rest/api/storageservices/put-block#remarks) operation with a service version of 2019-12-12 or later have a maximum block size of 4000 MiB. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 ### Code example
 
@@ -101,7 +101,7 @@ To avoid buffering during an asynchronous upload call, you must provide a seekab
 
 ### InitialTransferSize on upload
 
-When a seekable stream is provided for upload, the stream length will be checked against the value of `InitialTransferSize`. If the stream length is less than this value, the entire stream will be uploaded as a single REST call, regardless of other `StorageTransferOptions` values. Otherwise, upload will be done in multiple parts as described earlier. `InitialTransferSize` has no effect on a non-seekable stream and will be ignored.
+When a seekable stream is provided for upload, the stream length will be checked against the value of `InitialTransferSize`. If the stream length is less than this value, the entire stream will be uploaded as a single REST call, regardless of other `StorageTransferOptions` values. Otherwise, the upload will be done in multiple parts as described earlier. `InitialTransferSize` has no effect on a non-seekable stream and will be ignored.
 
 ## Performance considerations for downloads
 
@@ -109,7 +109,7 @@ During a download, the Storage client libraries will split a given download requ
 
 ### Buffering during downloads
 
-Receiving multiple HTTP responses simultaneously with body contents has implications for memory usage. However, the Storage client libraries don't explicitly add a buffer step for downloaded contents. Incoming responses are processed in order. The client libraries configure a 16-kilobyte buffer for copying streams from an HTTP response stream to caller-provided destination stream or file path.
+Receiving multiple HTTP responses simultaneously with body contents has implications for memory usage. However, the Storage client libraries don't explicitly add a buffer step for downloaded contents. Incoming responses are processed in order. The client libraries configure a 16-kilobyte buffer for copying streams from an HTTP response stream to a caller-provided destination stream or file path.
 
 ### InitialTransferSize on download
 
