@@ -15,6 +15,8 @@ Microsoft Purview Data Estate Insights automatically aggregates metrics and crea
 
 These features are optional and can be enabled or disabled at any time. This article provides the specific steps required to enable or disable Microsoft Purview Data Estate Insights features.
 
+To reschedule without disabling, see [the article to schedule Data Estate Insights reports](how-to-schedule-data-estate-insights.md).
+
 > [!IMPORTANT]
 > The Data Estate Insights application is **on** by default when you create a Microsoft Purview account.
 >
@@ -108,7 +110,7 @@ If Data Estate Insights or report refresh has been disabled in your Microsoft Pu
 
 1. In the **Edit** menu, select **Recurring**.
 
-1. Then select your time zone, set your recurrence to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time.
+1. Then select your time zone, set your recurrence to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time. For more information about the available options, see [the article to schedule Data Estate Insights reports](how-to-schedule-data-estate-insights.md).
 
     :::image type="content" source="media/disable-data-estate-insights/set-recurrance.png" alt-text="Screenshot of the Data Estate Insights edit page, with the Recurring radio button highlighted and set to Recurring." :::
 
@@ -116,3 +118,11 @@ If Data Estate Insights or report refresh has been disabled in your Microsoft Pu
 1. Now you can see your schedule is set. Selecting **More info** in the schedule columns will give you the recurrence details.
 
     :::image type="content" source="media/disable-data-estate-insights/schedule-set.png" alt-text="Screenshot of the management page, with the Data Estate Insights information row highlighted." :::
+
+## Next steps
+
+- [Learn how to use Asset insights](asset-insights.md)
+- [Learn how to use Classification insights](classification-insights.md)
+- [Learn how to use Glossary insights](glossary-insights.md)
+- [Learn how to use Label insights](sensitivity-insights.md)
+- [Schedule Data Estate Insights reports](how-to-schedule-data-estate-insights.md)
