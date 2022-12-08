@@ -44,7 +44,7 @@ Application Insights is an extensible analytics service for web developers that 
 
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
-    :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="In the new resource overview, click Properties and copy the Instrumentation Key." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
+    :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot of the Overview pane for an Application Insights resource in the Azure portal. The screenshot shows the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
 ### Add the Application Insights SDK for Java to your project
 
@@ -170,17 +170,17 @@ HTTP requests data appears on the overview pane. (If it isn't there, wait a few 
 
 Click through any chart to see more detailed aggregated metrics.
 
-:::image type="content" source="./media/deprecated-java-2x/006-barcharts.png" alt-text="Application Insights failures pane with charts." lightbox="./media/deprecated-java-2x/006-barcharts.png":::
+:::image type="content" source="./media/deprecated-java-2x/006-barcharts.png" alt-text="Screenshot that shows Application Insights failures pane with charts." lightbox="./media/deprecated-java-2x/006-barcharts.png":::
 
 #### Instance data
 Click through a specific request type to see individual instances.
 
-:::image type="content" source="./media/deprecated-java-2x/007-instance.png" alt-text="Drill into a specific sample view" lightbox="./media/deprecated-java-2x/007-instance.png":::
+:::image type="content" source="./media/deprecated-java-2x/007-instance.png" alt-text="Screenshot that shows drilling into a specific sample view." lightbox="./media/deprecated-java-2x/007-instance.png":::
 
 #### Analytics: Powerful query language
 As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../logs/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-:::image type="content" source="./media/deprecated-java-2x/0025.png" alt-text="Example of Analytics." lightbox="./media/deprecated-java-2x/0025.png":::
+:::image type="content" source="./media/deprecated-java-2x/0025.png" alt-text="Screenshot that shows an example of Analytics in the Azure portal." lightbox="./media/deprecated-java-2x/0025.png":::
 
 ### Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
@@ -225,7 +225,7 @@ Outgoing SDK configuration is defined in the [AI-Agent.xml](#monitor-dependencie
 ### Performance counters
 Open **Investigate**, **Metrics**, to see a range of performance counters.
 
-:::image type="content" source="./media/deprecated-java-2x/011-perf-counters.png" alt-text="Screenshot of metrics pane with process private bytes selected." lightbox="./media/deprecated-java-2x/011-perf-counters.png":::
+:::image type="content" source="./media/deprecated-java-2x/011-perf-counters.png" alt-text="Screenshot of the Metrics pane for an Application Insights resource in the Azure portal. The screenshot shows process private bytes selected." lightbox="./media/deprecated-java-2x/011-perf-counters.png":::
 
 #### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the *ApplicationInsights.xml* file:
@@ -478,7 +478,7 @@ Now that you've configured your project to send traces to Application Insights, 
 
 Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
 
-:::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="In the Application Insights portal, open Search" lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
+:::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="Screenshot of the Search pane for an Application Insights resource in the Azure portal." lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
 
 ## Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
@@ -856,7 +856,7 @@ In the [Microsoft Azure portal](https://portal.azure.com), open the [Application
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-:::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key" lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
+:::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot of the Overview pane for an Application Insights resource in the Azure portal. The screenshot shows the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
 ### Install collectd and the plug-in
 On your Linux server machines:
