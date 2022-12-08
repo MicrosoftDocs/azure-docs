@@ -4,10 +4,11 @@ titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics, and their possible workarounds or resolutions.
 author: charithdilshan
 ms.author: ccaldera
-ms.date: 12/06/2022
+ms.date: 12/08/2022
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
+ms.reviewer: wiassaf
 ---
 
 # Azure Synapse Analytics known issues
@@ -21,7 +22,7 @@ To learn more about Azure Synapse Analytics, see the [Overview](index.yml), and 
 
 |Issue  |Date discovered  |Status  |Synapse Component|
 |---------|---------|---------|---------|
-|[Query failures from Serverless SQL to Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-cosmos-db-analytical-store)|June 2022|Has Workaround|Azure Synapse Serverless SQL pool|
+|[Query failures from Serverless SQL to Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|June 2022|Has Workaround|Azure Synapse Serverless SQL pool|
 |[Query failures while reading Cosmos Data using OPENROWSET](#query-failures-while-reading-cosmos-data-using-openrowset)|September 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
 |[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|October 2022|Has Workaround|Azure Synapse Dedicated SQL Pool|
 |[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|October 2022|Has Workaround|Azure Synapse Workspace|

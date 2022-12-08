@@ -4,7 +4,7 @@ description: This article contains information that can help you troubleshoot pr
 author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
-ms.date: 12/06/2022
+ms.date: 12/08/2022
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
@@ -1079,7 +1079,7 @@ Some general system constraints might affect your workload:
 
 Serverless SQL pools have limitations, and you can't create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
 
-If you get the error "CREATE DATABASE failed. User database limit has been already reached," you've created the maximum number of databases that are supported in one workspace.
+If you get the error `CREATE DATABASE failed. User database limit has been already reached` you've created the maximum number of databases that are supported in one workspace.
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
@@ -1088,5 +1088,5 @@ You don't need to use separate databases to isolate data for different tenants. 
 - [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
 - [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
 - [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)
-- [Synapse Studio troubleshooting](troubleshoot/troubleshoot-synapse-studio.md)
+- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)
 - [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)
