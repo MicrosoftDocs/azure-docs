@@ -21,7 +21,7 @@ When deploying a machine learning model to a managed online endpoint, you can se
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources used by the deployment. Security for inbound and outbound communication is configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
+You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
 The following diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from clients are received through the workspace private endpoint from your virtual network. Outbound communication with services is handled through private endpoints to those service instances from the deployment:
 
@@ -62,13 +62,13 @@ The following diagram shows how communications flow through private endpoints to
 
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
-* Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
+* Secure outbound communication creates three private endpoints per deployment. One to the Azure Blob storage, one to the Azure Container Registry, and one to your workspace.
 
 * Azure Log Analytics and Application Insights aren't supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
 
 * You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
 
-    Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+    Outbound communication from a managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
@@ -112,9 +112,15 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 
 When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
 
+> [!NOTE]
+> You can update (enable or disable) the `public_network_access` flag of an online endpoint after creating it.
+
 ## Outbound (resource access)
 
-To restrict communication between a deployment and the Azure resources it uses, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
+To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough—your workspace must also have a private link that allows access to Azure resources via a private endpoint. See the [Prerequisites](#prerequisites) for more details.
+
+> [!WARNING]
+> You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
 
 # [Azure CLI](#tab/cli)
 
@@ -290,7 +296,7 @@ When prompted, enter the password you used when creating the VM.
 1. To create a managed online endpoint that is secured using a private endpoint for inbound and outbound communication, use the following commands:
 
     > [!TIP]
-    > You can test or debug the Docker image locally by using the `--local` flag when creating the deployment. For more information, see the [Deploy and debug locally](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints) article.
+    > You can test or debug the Docker image locally by using the `--local` flag when creating the deployment. For more information, see the [Deploy and debug locally](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints) article.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/create_moe.sh" id="create_vnet_deployment":::
 

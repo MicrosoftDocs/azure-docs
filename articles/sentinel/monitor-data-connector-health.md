@@ -74,7 +74,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Amazon Web Services (CloudTrail and S3)](connect-aws.md)
 - [Dynamics 365](connect-dynamics-365.md)
 - [Office 365](connect-office-365.md)
-- [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
 

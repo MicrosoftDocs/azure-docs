@@ -1,12 +1,12 @@
 ---
 title: Register Spacecraft on Azure Orbital Earth Observation service
 description: Learn how to register a spacecraft.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: wamota
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
