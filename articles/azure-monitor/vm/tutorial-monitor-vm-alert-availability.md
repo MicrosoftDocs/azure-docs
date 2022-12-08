@@ -9,12 +9,12 @@ ms.reviewer: Xema Pathak
 ---
 
 # Tutorial: Create availability alert rule for Azure virtual machine (preview)
-One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview.
+One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the **VM availability** metric which is currently in public preview.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * View the VM availability metric that shows when a VM is running.
+> * View the VM availability metric that indicates whether a VM is running.
 > * Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
 > * Create an action group to be proactively notified when an alert is created.
 
@@ -35,9 +35,7 @@ There are multiple methods to create an alert rule in Azure Monitor. In this tut
 > [!TIP]
 > You can create an alert rule for a group of VMs in the same region by changing the scope of the alert rule to a subscription or resource group.
 
-Click on the **VM availability** chart to open the metric in [metrics explorer](../essentials/metrics-getting-started.md). This is a tool in Azure Monitor that allows you to interactively analyze metrics collected from your Azure resources.
-
-Click **New alert rule**. This starts the creation of a new alert rule using the VM availability metric and the current VM. 
+Click on the **VM availability** chart to open the metric in [metrics explorer](../essentials/metrics-getting-started.md). This is a tool in Azure Monitor that allows you to interactively analyze metrics collected from your Azure resources. Click **New alert rule**. This starts the creation of a new alert rule using the VM availability metric and the current VM. 
 
 :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-explorer.png" alt-text="Screenshot of VM Availability metric in metrics explorer." lightbox="media/tutorial-monitor-vm/vm-availability-metric-explorer.png":::
 
@@ -84,7 +82,7 @@ Select **Notifications** and add one or more methods to notify appropriate peopl
 ## Configure details
 The **Details** page allows you to configure different settings for the alert rule.
 
-| Setting } Description |
+| Setting | Description |
 |:---|:---|
 | Subscription | Subscription where the alert rule will be stored. |
 | Resource group | Resource group where the alert rule will be stored. This doesn't need to be in the same resource group as the resource that you're monitoring. |
@@ -98,13 +96,10 @@ The **Details** page allows you to configure different settings for the alert ru
 Click **Review + create** to create the alert rule.
 
 ## View the alert
-To test the alert rule, stop the virtual machine. If you configured a notification in your action group, then you should receive that notification within a few minutes. You'll also see an alert indicated in the summary shown in the **Alerts** page for the virtual machine.
+To test the alert rule, stop the virtual machine. If you configured a notification in your action group, then you should receive that notification within a few seconds. You'll also see an alert indicated in the summary shown in the **Alerts** page for the virtual machine.
 
-:::image type="content" source="media/tutorial-monitor-vm/alerts-summary.png" lightbox="media/tutorial-monitor-vm/alerts-summary.png" alt-text="Alerts summary":::
+:::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-alert.png" lightbox="media/tutorial-monitor-vm/alerts-summary.png" alt-text="Alerts summary":::
 
-Click on the **Severity** to see the list of those alerts. Click on the alert itself to view its details.
-
-:::image type="content" source="media/tutorial-monitor-vm/alerts-summary.png" lightbox="media/tutorial-monitor-vm/alerts-summary.png" alt-text="Alerts list":::
 
 ## Next steps
 Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
