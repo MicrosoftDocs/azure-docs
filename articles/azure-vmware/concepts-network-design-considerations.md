@@ -16,7 +16,7 @@ Azure VMware Solution is incompatible with AS-Path Prepend for redundant Express
 
 ## Prerequisites
 
-Verify that all connections are true using the checklist below.
+Based on the following checklist, verify that all connections are true:
 
 - Both or all circuits are connected to Azure VMware Solution with global reach.
 - The same netblocks are being advertised from two or more circuits.
@@ -52,6 +52,7 @@ Communication between Azure VMware Solution and the on-premises network usually 
 ## Connectivity between Azure VMware Solution and on-premises network via a third party network virtual appliance
 
 There are two main scenarios for this connectivity pattern:
+
 - Organizations may have the requirement to send traffic between Azure VMware Solution and the on-premises network through an NVA (typically a firewall).
 - ExpressRoute Global Reach might not be available in a particular region to interconnect the ExpressRoute circuits of Azure VMware Solution and the on-premises network.
 
@@ -63,26 +64,34 @@ There are two topologies you can apply to meet all requirements for these two sc
 ### Supernet design topology
 
 If both ExpressRoute circuits (to Azure VMware Solution and to on-premises) are terminated in the same ExpressRoute gateway, you can assume that the gateway is going to route packets across them. However, an ExpressRoute gateway isn't designed to do that. You need to hairpin the traffic to an NVA that can route the traffic. There are two requirements to hairpin network traffic to an NVA:
-- The NVA should advertise a supernet for the Azure VMware Solution and on-premises prefixes, as shown in the diagram below. 
+
+- The NVA should advertise a supernet for the Azure VMware Solution and on-premises prefixes.
 
     You could use a supernet that includes both Azure VMware Solution and on-premises prefixes, or individual prefixes for Azure VMware Solution and on-premises (always less specific that the actual prefixes advertised over ExpressRoute). Keep in mind that all supernet prefixes advertised to Route Server are going to be propagated both to Azure VMware Solution and on-premises.
-- UDRs in the GatewaySubnet that exactly match the prefixes advertised from Azure VMware Solution and on-premises will hairpin traffic from the GatewaySubnet to the NVA.
+- UDRs in the GatewaySubnet that exactly match the prefixes advertised from Azure VMware Solution and on-premises will cause hairpin traffic from the GatewaySubnet to the NVA.
 
-    **This topology results in high management overhead for large networks that change over time. The specific limitations are listed below.**
+    **This topology results in high management overhead for large networks that change over time. Note that there are specific limitations to be considered.**
+
+    **Limitations**
+
     - Anytime a workload segment is created in Azure VMware Solution, UDRs may need to be added to ensure traffic from Azure VMware Solution is transiting through the NVA.
     - If your on-premises environment has a large number of routes that change, BGP and UDR configuration in the supernet may need to be updated.
     - Since there's a single ExpressRoute Gateway that processes network traffic in both directions, performance may be limited.
     - There's an Azure Virtual Network limit of 400 UDRs.
+
+The following diagram demonstrates how the NVA needs to advertise more generic (less specific) prefixes that include the networks from on-premises and Azure VMware Solution. Be careful with this approach as the NVA could potentially attract traffic that it shouldn't (since it's advertising wider ranges, for example: the whole `10.0.0.0/8` network).
+
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in a single region." lightbox="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png":::
 
-The diagram above demonstrates how the NVA needs to advertise more generic (less specific) prefixes that include the networks from on-premises and Azure VMware Solution. Be careful with this approach as the NVA could potentially attract traffic that it shouldn't (since it's advertising wider ranges, in the example above the whole `10.0.0.0/8` network).
 
 ### Transit Spoke Virtual Network Topology
 
 > [!NOTE]
-> If advertising less specific prefixes is not possible due to the limits described above, you can implement an alternative design using two separate Virtual Networks.
+> If advertising less specific prefixes is not possible due to the limits previously described, you can implement an alternative design using two separate Virtual Networks.
 
-In this topology, instead of propagating less specific routes to attract traffic to the ExpressRoute gateway, two different NVAs in separate Virtual Networks can exchange routes between each other. The Virtual Networks can propagate these routes to their respective ExpressRoute circuits via BGP and Azure Route Server, as the following diagram shows. Each NVA has full control on which prefixes are propagated to each ExpressRoute circuit. The diagram example below shows how a single 0.0.0.0/0 is advertised to Azure VMware Solution, and the individual Azure VMware Solution prefixes are propagated to the on-premises network.
+In this topology, instead of propagating less specific routes to attract traffic to the ExpressRoute gateway, two different NVAs in separate Virtual Networks can exchange routes between each other. The Virtual Networks can propagate these routes to their respective ExpressRoute circuits via BGP and Azure Route Server, as the following diagram shows. Each NVA has full control on which prefixes are propagated to each ExpressRoute circuit.
+
+The following diagram example shows how a single 0.0.0.0/0 is advertised to Azure VMware Solution and how the individual Azure VMware Solution prefixes are propagated to the on-premises network.
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in two regions." lightbox="media/concepts-network-design/vmware-solution-to-on-premises.png":::
 
@@ -91,7 +100,8 @@ In this topology, instead of propagating less specific routes to attract traffic
 
 An alternative to using an overlay is by applying secondary NICs in the NVA that don't learn the routes from Azure Route Server and configuring UDRs so that Azure can route traffic to the remote environment over those NICs. You can find more details in [Enterprise-scale network topology and connectivity for Azure VMware Solution](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity).
 
-**This topology requires a complex initial set-up. Once the set-up is complete, the topology works as expected with minimal management overhead. The specific set-up complexities are listed below.**
+**This topology requires a complex initial set-up. Once the set-up is complete, the topology works as expected with minimal management overhead. See the following list of specific set-up complexities.**
+
 - There's an extra cost due to an additional transit Virtual Network that includes an Azure Route Server, ExpressRoute Gateway, and another NVA. The NVAs may also need to use large VM sizes to meet throughput requirements.
 - There's IPSec or VxLAN tunneling between the two NVAs required which means that the NVAs are also in the datapath. Depending on the type of NVA you're using, it can result in custom and complex configuration on those NVAs.
 
