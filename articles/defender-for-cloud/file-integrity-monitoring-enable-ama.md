@@ -55,7 +55,7 @@ To enable File Integrity Monitoring (FIM), use the FIM recommendation to select 
         - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
         - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
    
-You can update the DCR and Log Analytics workspace settings later.
+        You can update the DCR and Log Analytics workspace settings later.
    
  1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
