@@ -5,7 +5,7 @@ metadata:
   namespace: my-project
 type: Opaque
 data:
-  connection-string-secret: SERVICE_BUS_CONNECTION_STRING
+  connection-string-secret: <SERVICE_BUS_CONNECTION_STRING>
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication

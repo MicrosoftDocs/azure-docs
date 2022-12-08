@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 12/08/2022
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -50,7 +50,6 @@ Scaling is driven by three different categories of triggers:
     - Azure Event Hubs
     - Apache Kafka
     - Redis
-    
 
 ## HTTP
 
@@ -322,7 +321,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 1. In the ARM template, add all entries to the `auth` array of the scale rule.
 
     1. Add a [secret](./manage-secrets.md) to the container app's `secrets` array containing the secret value.
-    
+
     1. Set the value of the `triggerParameter` property to the value of the `TriggerAuthentication`'s `key` property.
 
     1. Set the value of the `secretRef` property to the name of the Container Apps secret.
@@ -438,23 +437,23 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 > [!IMPORTANT]
 > Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and all you have is the default limits and rule, then your container app will scale to zero and have no way of starting back up.
 
-## Unsupported KEDA capabilities
+## Considerations
+
+- In "multiple revision" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
+
+- No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
+
+### Unsupported KEDA capabilities
 
 - KEDA ScaledJobs aren't supported. For more information, see [KEDA Scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview).
 
-## Known limitations
+### Known limitations
 
 - Vertical scaling isn't supported.
 
 - Replica quantities are a target amount, not a guarantee.
 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
-
-## Considerations
-
-- In "multiple revision" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
-
-- No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
 ## Next steps
 
