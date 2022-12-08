@@ -17,10 +17,10 @@ ms.date: 12/07/2022
 - Handles Dapr version upgrades seamlessly
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-In this guide, you'll compare deploying using the Dapr CLI vs. the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md) by:
+To simplify this process even further, you can deploy a Dapr application using the developer-focused [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). In this guide, we guide you through:
 
 > [!div class="checklist"]
-> Deploying a Dapr bindings API microservice application locally. 
+> Deploying a Dapr bindings API microservice application locally using the Dapr CLI. 
 > Redeploying the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
 > Unpacking how `azd` works alongside the Dapr application template with just one command.
 
@@ -28,8 +28,10 @@ The Dapr service you deploy:
 1. Listens to input binding events from a system CRON (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
 1. Outputs the contents of local data to a [PostgreSQL](https://www.postgresql.org/) output binding.  
 
-> ![NOTE]
-> The `azd` is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+:::image type="content" source="media/microservices-dapr-azd/bindings-application.png" alt-text="Diagram of the Dapr binding application.":::
+
+> [!NOTE]
+> The Azure Developer CLI (`azd`) is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
@@ -196,7 +198,7 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 1. Confirm the container is logging the same output as in the terminal earlier.
 
-   :::image type="content" source="media/tutorial-deploy-dapr/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
 
 ## How `azd up` deployed the Dapr application
 
@@ -254,7 +256,7 @@ In `main.bicep`, we:
 
 - Declare the password, location, and name parameters included in `main.parameters.json`:
 - Declare the Bicep files we want to use, like:
-  - `app/batch-service.bicep`: the Dapr application's Cron input binding
+  - `app/batch-service.bicep`: the Dapr application listening to the Cron input binding
   - `app/paas-application.bicep`: Azure resources like Log Analytics, App Insights, etc.
   - `app/dapr-state-postgres.bicep`: the Dapr application's PostgreSQL output binding
 
