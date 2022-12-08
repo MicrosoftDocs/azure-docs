@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - **Cloud feature**: [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)  <br><br>**Version 22.3.?**:   |
+|**OT networks**     | - **Cloud feature**: [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)  <br><br>- **Version 22.3.?**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)  |
 
 ### Azure connectivity status shown on OT sensors
 
