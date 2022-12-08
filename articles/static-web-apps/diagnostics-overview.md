@@ -1,7 +1,7 @@
 ---
 title: Diagnose and solve tool for Static Web Apps
-description: Learn to troubleshoot issues with your static web app with the Diagnose and Solve tool in the Azure portal.
-ms.date: 12/06/2022
+description: Learn to troubleshoot issues with your static web app with the diagnose and solve tool in the Azure portal.
+ms.date: 12/08/2022
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Azure Static Web Apps diagnostics overview
 
-If your static web app encounters issues, the Static Web Apps' diagnose and solve features can guide you through steps to troubleshoot problems.
+If your static web app encounters issues, the Static Web Apps diagnose and solve features can guide you through steps to troubleshoot problems.
 
 Diagnostics for your static web app are accessible directly from the Azure portal, with no configuration required.
 
@@ -23,7 +23,7 @@ You have access to diagnostic data in these categories:
 | Category | Description | Examples |
 |--|--|--|
 | Availability and performance | Health and performance data | Service uptime, site hits, platform health |
-| Configuration and Management | Application configuration data | Configuration of Static Web App features, custom authentication information |
+| Configuration and Management | Application configuration data | Configuration of Static Web Apps features, custom authentication information |
 | Content Deployment | Content deployment data | Deployments |
 
 ## View diagnostics
@@ -37,7 +37,9 @@ From the diagnostics window you can filter diagnostic categories, or select one 
 ## Reports
 
 Selecting a detector reveals a series of visualization for the diagnostic data.
-The following is an example of the Availability and Performance report.
+
+The following screenshot is an example of the availability and performance report.
+
 :::image type="content" source="media/diagnotics-overview/azure-static-web-apps-diagnostics-chart.png" alt-text="Screenshot of Azure Static Web Apps diagnostics chart.":::
 
 ## Next steps
