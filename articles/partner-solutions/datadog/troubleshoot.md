@@ -7,9 +7,9 @@ author: flang-msft
 ms.author: franlanglois
 ---
 
-# Fix common errors for Datadog on Azure
+# Fix common errors for Datadog - An Azure Native ISV Service
 
-This document contains information about troubleshooting your solutions that use Datadog.
+This document contains information about troubleshooting your solutions that use Datadog - An Azure Native ISV Service.
 
 ## Purchase errors
 
@@ -21,7 +21,7 @@ This document contains information about troubleshooting your solutions that use
 
   Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
 
-## Unable to create Datadog resource
+## Unable to create Datadog - An Azure Native ISV Service resource
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
