@@ -84,9 +84,7 @@ To assign session hosts VMs permissions for the storage account and file share:
 
 10. Set up NTFS permissions for the user accounts. You'll need an organizational unit (OU) sourced from the AD DS that the accounts in the VM belong to.
 
-Once you've assigned the identity to your storage, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
-
-You'll also need to make sure your session hosts VMs have **Modify** NTFS permissions. You must have an OU container that's sourced from Active Directory Domain Services (AD DS), and your users must be members of that OU to use these permissions.
+Ensure your session hosts VMs have **Modify** NTFS permissions. You must have an OU container that's sourced from Active Directory Domain Services (AD DS), and your users must be members of that OU to use these permissions.
 
 ## Next steps
 
