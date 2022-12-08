@@ -42,7 +42,7 @@ Front Door's security capabilities help to protect your application servers from
 - **DDoS protection:** Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
 - **Private Link origins:** [Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
 
-When you have strict network security requirments, you can use Azure Front Door to manage inbound HTTP and HTTPS traffic to your application, and use [Azure Firewall](../firewall/overview.md) to control non-HTTP and egress traffic.
+When you have strict network security requirements, you can use Azure Front Door to manage inbound HTTP and HTTPS traffic to your application, and use [Azure Firewall](../firewall/overview.md) to control non-HTTP and egress traffic.
 
 ### Reliability
 

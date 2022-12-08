@@ -85,7 +85,7 @@ You can also use the Front Door WAF to perform [rate limiting](../web-applicatio
 
 ### Resiliency
 
-Front Door has provides a 99.99% availability service level agreement (SLA). As a globally distributed service, Front Door is resilient to failures of single Azure regions and PoPs.
+Front Door is a highly available service, and because of its globally distributed architecture, it's resilient to failures of single Azure regions and PoPs.
 
 By using the Front Door cache, you reduce the load on your storage account. Additionally, if your storage account is unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
