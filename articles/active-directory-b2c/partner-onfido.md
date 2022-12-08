@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial for configuring Onfido with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure AD business-to-consumer B2C with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses AI-based identity verification, which verifies a photo ID, then matches it with facial biometrics. The solution connects a digital identity to a person and provides a reliable onboarding experience, while reducing fraud.
+In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses AI-based identity verification, which verifies a photo ID, then matches it with facial biometrics. The solution connects a digital identity to a person and provides a reliable onboarding experience, while reducing fraud.
 
 In this tutorial, you'll enable the Onfido service to verify identity in the sign-up, or sign-in, flow. Onfido results inform decisions about which product or service the user accesses.
 
@@ -50,116 +50,109 @@ The following architecture diagram shows the implementation.
 5. Middle layer API processes the results and sends relevant information to Azure AD B2C, in JavaScript Object Notation (JSON) format.
 6. Azure AD B2C receives the information. If the response fails, an error message appears. If the response succeeds, the user is authenticated and written into the directory.
 
-## Onboard with Onfido
+## Create an Onfido account
 
-1. To create an Onfido account, contact [Onfido](https://onfido.com/signup/).
-
-2. Once an account is created, create an [API key](https://documentation.onfido.com/). Live keys are billable, however, you can use the [sandbox keys for testing](https://documentation.onfido.com/?javascript#sandbox-and-live-differences) the solution. The sandbox keys produce the same result structure as live keys, however, the results are always predetermined. Documents aren't processed or saved.
+1. Create an Onfido account: go to onfido.com [Contact us](https://onfido.com/signup/) and fill out the form.
+2. Create an API key: go to [Get started (API v3.5)](https://documentation.onfido.com/). 
 
 >[!NOTE]
 > You will need the key later.
 
-For more information about Onfido, see [Onfido API documentation](https://documentation.onfido.com) and [Onfido Developer Hub](https://developers.onfido.com).  
+Live keys are billable, however, you can use the sandbox keys for testing. Go to [Sandbox and live differences](https://documentation.onfido.com/?javascript#sandbox-and-live-differences). The sandbox keys produce the same result structure as live keys, however, results are predetermined. Documents aren't processed or saved.
+
+For more Onfido documentation, see 
+
+* [Onfido API documentation](https://documentation.onfido.com)
+* [Onfido Developer Hub](https://developers.onfido.com)
 
 ## Configure Azure AD B2C with Onfido
 
-### Part 1 - Deploy the API
+### Deploy the API
 
-- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
-- Set-up CORS, add **Allowed Origin** as https://{your_tenant_name}.b2clogin.com
+1. Deploy the API code to an Azure service. Go to [samples/OnFido-Combined/API/Onfido.Api/](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api). You can publish the code from Visual Studio.
+2. Set up cross-origin resource sharing (CORS).
+3. Add **Allowed Origin** as `https://{your_tenant_name}.b2clogin.com`.
 
 >[!NOTE]
->You'll need the URL of the deployed service to configure Azure AD with the required settings.
+>You'll need the deployed service URL to configure Azure AD.
 
 #### Adding sensitive configuration settings
 
-Application settings can be configured in the [App service in Azure](../app-service/configure-common.md#configure-app-settings). The App service allows for settings to be securely configured without checking them into a repository. The REST API needs the following settings:
+[Configure app settings](../app-service/configure-common.md#configure-app-settings) in the Azure App service without checking them into a repository. The REST API needs the following settings:
 
-| Application setting name | Source | Notes |
-|:-------------------------|:-------|:-------|
-|OnfidoSettings:AuthToken| Onfido Account |
+* **Application setting name**: OnfidoSettings:AuthToken
+* **Source**: Onfido Account
 
-### Part 2 - Deploy the UI
+### Deploy the UI
 
 #### Configure your storage location
 
-1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+Create a container
 
-2. Store the UI files from the [UI folder](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) to your blob container.
-
-3. Allow CORS access to storage container you created by following these instructions:
-
-   a. Go to **Settings** >**Allowed Origin**, enter `https://{your_tenant_name}.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, https://fabrikam.b2clogin.com. Use all lowercase letters when entering your tenant name.
-
-   b. For **Allowed Methods**, select `GET` and `PUT`.
-
-   c. Select **Save**.
+1. In the Azure portal, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+2. Store the UI files in [/samples/OnFido-Combined/UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) in your blob container.
+3. Allow CORS access to the storage container you created: Go to **Settings** >**Allowed Origin**.
+4. Enter `https://{your_tenant_name}.b2clogin.com`. 
+5. Replace your tenant name with your Azure AD B2C tenant name, using lower-case letters. For example, `https://fabrikam.b2clogin.com`. 
+6. For **Allowed Methods**, select `GET` and `PUT`.
+7. Select **Save**.
 
 #### Update UI files
 
-1. In the UI files, go to the folder [**ocean_blue**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI/ocean_blue)
-
+1. In the UI files, go to [samples/OnFido-Combined/UI/ocean_blue](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI/ocean_blue).
 2. Open each html file.
-
-3. Find and replace `{your-ui-blob-container-url}` with the URL of where your UI **ocean_blue**, **dist**, and **assets** folders are located
-
-4. Find and replace `{your-intermediate-api-url}` with the URL of the intermediate API app service.
+3. Find `{your-ui-blob-container-url}`, and replace it with your UI **ocean_blue**, **dist**, and **assets** folder URLs.
+4. Find `{your-intermediate-api-url}`, and replace it with the intermediate API app service URL.
 
 #### Upload your files
 
-1. Store the UI files from the UI folder to your blob container.
+1. Store the UI folder files in your blob container.
+2. [Use Azure Storage Explorer to manage Azure managed disks](../virtual-machines/disks-use-storage-explorer-managed-disks.md) and access permissions.
 
-2. Use [Azure Storage Explorer](../virtual-machines/disks-use-storage-explorer-managed-disks.md) to manage your files and access permissions.
-
-### Part 3 - Configure Azure AD B2C
+### Configure Azure AD B2C
 
 #### Replace the configuration values
 
-In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies), find the following placeholders and replace with the corresponding values from your instance.
+In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies), find the following placeholders and replace them with the corresponding values from your instance.
 
-| Placeholder | Replace with value | Example  |
-|:---------------|:----------------|:-------------------|
-| {your_tenant_name}  | Your tenant short name |  "yourtenant" from yourtenant.onmicrosoft.com |
-| {your_tenantID} | TenantID of your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef           |
-| {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
-| {your_tenant_ ProxyIdentityExperienceFramework _appid} | App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef         |
-| {your_tenant_extensions_appid}                         | App ID of your tenant's storage application                                      | 01234567-89ab-cdef-0123-456789abcdef         |
-| {your_tenant_extensions_app_objectid}                  | Object ID of your tenant's storage application                                   | 01234567-89ab-cdef-0123-456789abcdef         |
-| {your_app_insights_instrumentation_key} | Instrumentation key of your app insights instance*| 01234567-89ab-cdef-0123-456789abcdef|
+| Placeholder| Replace with value|Example|
+|---|---|---|
+|{your_tenant_name}|Your tenant short name|"your tenant" from yourtenant.onmicrosoft.com|
+|{your_tenantID}|Your Azure AD B2C TenantID| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_extensions_appid}| Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_extensions_app_objectid}| Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_app_insights_instrumentation_key}|Your app insights instance* instrumention key|01234567-89ab-cdef-0123-456789abcdef|
 |{your_ui_file_base_url}| URL of the location where your UI **ocean_blue**, **dist**, and **assets** folders are located | https://yourstorage.blob.core.windows.net/UI/|
-| {your_app_service_URL}                                 | URL of the app service you've set up                                             | `https://yourapp.azurewebsites.net`          |
+|{your_app_service_URL}| URL of the app service you've set up| `https://yourapp.azurewebsites.net`|
 
-*App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps if not needed.
+*App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps, if they're not needed.
 
-### Part 4 - Configure the Azure AD B2C policy
+### Configure the Azure AD B2C policy
 
-Refer to this [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+See, [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) for instructions to set up your Azure AD B2C tenant and configure policies. Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys.
 
 >[!NOTE]
-> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
+>We recommend you add consent notification on the attribute collection page. Notify users that information goes to third-party services for identity verification.
 
 ## Test the user flow
 
-1. Open the Azure AD B2C tenant and under Policies select **Identity Experience Framework**.
+1. Open the Azure AD B2C tenant.
+2. Under **Policies** select **Identity Experience Framework**.
+3. Select your previously created **SignUpSignIn**.
+4. Select **Run user flow**.
+5. For **Application**, select the registered app (example is JWT).
+6. For **Reply URL**, select the **redirect URL**
+7. Select **Run user flow**.
+8. Complete the sign-up flow.
+9. Create an account.
+10. When the user attribute is created, Onfido is called during the flow. 
 
-2. Select your previously created **SignUpSignIn**.
-
-3. Select **Run user flow** and select the settings:
-
-   a. **Application**: select the registered app (sample is JWT)
-
-   b. **Reply URL**: select the **redirect URL**
-
-   c. Select **Run user flow**.
-
-4. Go through sign-up flow and create an account
-
-5. Onfido service will be called during the flow, after user attribute is created. If the flow is incomplete, check that user isn't saved in the directory.
+>[!NOTE]
+>If the flow is incomplete, confirm the user is saved in the directory.
 
 ## Next steps
 
-For additional information, review the following articles:
-
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
 - [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
