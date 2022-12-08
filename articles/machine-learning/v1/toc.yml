@@ -71,7 +71,7 @@
     - name: Microsoft Power BI integration
       items:
         - name: "Part 1: Train and deploy models"
-          href: ../tutorial-power-bi-custom-model.md
+          href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Samples (v1)
