@@ -15,7 +15,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 
@@ -32,7 +32,7 @@ In this tutorial, you:
 ## Prerequisites
 
 - An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://azure.microsoft.com/free/). 
-- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create workspace resources](quickstart-create-resources.md).
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create workspace resources](../quickstart-create-resources.md).
 - Introductory knowledge of the Python language and machine learning workflows.
 
 ## Create a notebook and compute
