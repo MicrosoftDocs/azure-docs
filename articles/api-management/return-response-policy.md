@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -20,37 +20,33 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 ```xml
 <return-response response-variable-name="existing context variable">
-  <set-header/>
-  <set-body/>
-  <set-status/>
+  <set-status>...</set-status>
+  <set-header>...</set-header>
+  <set-body>...</set-body>
 </return-response>
 ```
 
 ## Attributes
 
-|  Attribute              | Description                                                                                                                                                                          | Required  |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md) policy and containing a `Response` object | No |
+|  Attribute              | Description                                                                                                                                                                          | Required  | Default |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ---- |
+| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md) policy and containing a `Response` object. | No | N/A |
 
 ## Elements
 
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
+| set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
 | set-header      | A [set-header](set-header-policy.md) policy statement. | No       |
 | set-body        | A [set-body](set-body-policy.md) policy statement.         | No       |
-| set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Return unauthorized response
+## Example
 
 ```xml
 <return-response>
@@ -60,7 +56,6 @@ The `return-response` policy cancels pipeline execution and returns either a def
    </set-header>
 </return-response>
 ```
-
 
 ## Related policies
 

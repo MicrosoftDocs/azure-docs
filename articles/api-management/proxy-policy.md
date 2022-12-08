@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
 # Set HTTP proxy
 
-The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. To route the `send-request` via HTTP proxy, you must place the  `proxy` policy inside the `send-request` policy block.
+The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -27,18 +27,15 @@ The `proxy` policy allows you to route requests forwarded to backends via an HTT
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="string"      | Proxy URL in the form of http://host:port.             | Yes      | N/A     |
-| username="string" | Username to be used for authentication with the proxy. | No       | N/A     |
-| password="string" | Password to be used for authentication with the proxy. | No       | N/A     |
-
+| url      | Proxy URL in the form of `http://host:port`.             | Yes      | N/A     |
+| username | Username to be used for authentication with the proxy. | No       | N/A     |
+| password | Password to be used for authentication with the proxy. | No       | N/A     |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Example
 

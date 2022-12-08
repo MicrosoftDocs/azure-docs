@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -20,13 +20,14 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 ## Policy statement
 
 ```xml
-<send-request mode="new|copy" response-variable-name="" timeout="60 sec" ignore-error
-="false|true">
-  <set-url>...</set-url>
-  <set-method>...</set-method>
-  <set-header name="" exists-action="override | skip | append | delete">...</set-header>
+<send-request mode="new | copy" response-variable-name="" timeout="60 sec" ignore-error
+="false | true">
+  <set-url>request URL</set-url>
+  <set-method>.../set-method>
+  <set-header>...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
+  <proxy>...</proxy>
 </send-request>
 ```
 
@@ -34,30 +35,27 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 | Attribute                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | New      |
-| response-variable-name="string" | The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accessible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.                                                                                                                                                                                                                                                                                                                          | Yes      | N/A      |
-| timeout="integer"               | The timeout interval in seconds before the call to the URL fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
-| ignore-error                    | If true and the request results in an error, the error will be ignored, and the response variable will contain a null value.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
+| mode                  | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | `new`      |
+| response-variable-name | The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accessible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.                                                                                                                                                                                                                                                                                                                          | Yes      | N/A      |
+| timeout               | The timeout interval in seconds before the call to the URL fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
+| ignore-error                    | If `true` and the request results in an error, the error will be ignored, and the response variable will contain a null value.                                                                                                                                                                                                                                                                                                                                                                                   | No       | `false`    |
 
 ## Elements
 
 | Element                    | Description                                                                                                 | Required                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| set-url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
-| set-method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
-| set-header                     | A [set-header](set-header-policy.md) policy statement. Use multiple header elements for multiple request headers.                                  | No                              |
+| set-url                        | The URL of the request.                                                                                     | No if `mode=copy`; otherwise yes. |
+| set-method                     | A [set-method](set-method-policy.md) policy statement.                                                                           | No if `mode=copy`; otherwise yes. |
+| set-header                     | A [set-header](set-header-policy.md) policy statement. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | set-body                       | A [set-body](set-body-policy.md) policy statement.      | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                          |
-
-
+| proxy | A [proxy](proxy-policy.md) policy statement. Used to route request via HTTP proxy | No |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Example
 

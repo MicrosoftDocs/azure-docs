@@ -1,18 +1,18 @@
 ---
-title: Azure API Management policy reference - emit-metrics | Microsoft Docs
-description: Reference for the emit-metrics policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+title: Azure API Management policy reference - emit-metric | Microsoft Docs
+description: Reference for the emit-metric policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
 # Emit custom metrics
 
-The `emit-metrics` policy sends custom metrics in the specified format to Application Insights.
+The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
 > [!NOTE]
 > * Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
@@ -30,11 +30,11 @@ The `emit-metrics` policy sends custom metrics in the specified format to Applic
 
 ## Attributes
 
-| Attribute | Description                | Required | Type               | Default value  |
-| --------- | -------------------------- | -------- | ------------------ | -------------- |
-| name      | Name of custom metric.      | Yes      | string, expression | N/A            |
-| namespace | Namespace of custom metric. | No       | string, expression | API Management |
-| value     | Value of custom metric.    | No       | int, expression    | 1              |
+| Attribute | Description                | Required                | Default value  |
+| --------- | -------------------------- |  ------------------ | -------------- |
+| name      | A string or policy expression. Name of custom metric.      | Yes       | N/A            |
+| namespace | A string or policy expression. Namespace of custom metric. | No        | API Management |
+| value     | An integer or policy expression. Value of custom metric.    | No           | 1              |
 
 
 ## Elements
@@ -45,12 +45,12 @@ The `emit-metrics` policy sends custom metrics in the specified format to Applic
 
 ### dimension attributes
 
-| Attribute | Description                | Required | Type               | Default value  |
-| --------- | -------------------------- | -------- | ------------------ | -------------- |
-| name      | Name of dimension.      | Yes      | string, expression | N/A            |
-| value     | Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
+| Attribute | Description                | Required |  Default value  |
+| --------- | -------------------------- |  ------------------ | -------------- |
+| name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
+| value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
-**Default dimension names that may be used without value:**
+ ### Default dimension names that may be used without value
 
 * API ID
 * Operation ID
@@ -60,18 +60,13 @@ The `emit-metrics` policy sends custom metrics in the specified format to Applic
 * Location ID
 * Gateway ID
 
-
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Count API requests with custom dimensions
+## Example
 
 The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
 

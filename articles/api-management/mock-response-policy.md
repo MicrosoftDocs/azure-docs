@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
 # Mock response
 
-The `mock-response` policy, as the name implies, is used to mock APIs and operations. It aborts normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, whenever available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
+The `mock-response` policy, as the name implies, is used to mock APIs and operations. It cancels normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, when available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -34,19 +34,15 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
 ```xml
-<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
-status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this status code. First found content type is used. If no example or schema is found, the content is empty. -->
 <mock-response/>
 
-<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
-status code and media type. If no example or schema found, the content is empty. -->
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this status code and media type. If no example or schema found, the content is empty. -->
 <mock-response status-code='200' content-type='application/json'/>
 ```
 

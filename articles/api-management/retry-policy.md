@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -21,7 +21,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ```xml
 <retry
-    condition="boolean expression or literal"
+    condition="Boolean expression or literal"
     count="number of retry attempts"
     interval="retry interval in seconds"
     max-interval="maximum retry interval in seconds"
@@ -36,14 +36,14 @@ The `retry` policy executes its child policies once and then retries their execu
 
 | Attribute        | Description                                                                                                                                           | Required | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | A boolean literal or [expression](api-management-policy-expressions.md) specifying if retries should be stopped (`false`) or continued (`true`).      | Yes      | N/A     |
+| condition        | A Boolean literal or [expression](api-management-policy-expressions.md) specifying if retries should be stopped (`false`) or continued (`true`).      | Yes      | N/A     |
 | count            | A positive number specifying the maximum number of retries to attempt.                                                                                | Yes      | N/A     |
 | interval         | A positive number in seconds specifying the wait interval between the retry attempts.                                                                 | Yes      | N/A     |
 | max-interval     | A positive number in seconds specifying the maximum wait interval between the retry attempts. It is used to implement an exponential retry algorithm. | No       | N/A     |
 | delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
 | first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
 
-### Retry wait times
+## Retry wait times
 
 * When only the `interval` is specified, **fixed** interval retries are performed.
 * When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
@@ -59,16 +59,13 @@ The `retry` policy may contain any other policies as its child elements.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
+### Request forwarding with exponential retry
 
-### 1. Request forward with exponential retry
-
-In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
+In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to `false`, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
 
 ```xml
 <retry
@@ -82,7 +79,7 @@ In the following example, request forwarding is retried up to ten times using an
 </retry>
 ```
 
-### 2. Send request upon initial request failure
+### Send request upon initial request failure
 
 In the following example, sending a request to a URL other than the defined backend is retried up to three times if the connection is dropped/timed out, or the request results in a server-side error. Since `first-fast-retry` is set to true, the first retry is executed immediately upon the initial request failure. Note that `send-request` must set `ignore-error` to true in order for `response-variable-name` to be null in the event of an error.
 
@@ -103,7 +100,6 @@ In the following example, sending a request to a URL other than the defined back
 		</send-request>
 </retry>
 ```
-
 
 ## Related policies
 

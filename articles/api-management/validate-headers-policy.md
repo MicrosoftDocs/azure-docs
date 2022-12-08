@@ -41,15 +41,15 @@ The `validate-headers` policy validates the response headers against the API sch
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| header | Add one or more elements for named headers to override the default validation actions for headers in responses. | No |
+| header | Add one or more elements for named headers to override the default validation [actions](#actions) for headers in responses. | No |
+
+[!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 

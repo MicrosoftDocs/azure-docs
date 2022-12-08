@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
 # Log to event hub
 
-The `log-to-event-hub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
+The `log-to-event-hub` policy sends messages in the specified format to an event hub defined by a [Logger](/rest/api/apimanagement/current-ga/logger) entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
 The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
 > [!NOTE]
@@ -34,20 +34,16 @@ The policy is not affected by Application Insights sampling. All invocations of 
 | Attribute     | Description                                                               | Required                                                             | Default |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----|
 | logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                 | N/A |
-| partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. | N/A |
-| partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  | N/A |
+| partition-id  | Specifies the index of the partition where messages are sent.             | Optional. Do not use if `partition-key` is used. | N/A |
+| partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. Do not use if `partition-id` is used.  | N/A |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Log inbound request data
+## Example
 
 Any string can be used as the value to be logged in Event Hubs. In this example the date and time, deployment service name, request ID, IP address, and operation name for all inbound calls are logged to the event hub Logger registered with the `contoso-logger` ID.
 
