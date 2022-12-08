@@ -70,7 +70,7 @@ Before deploying the connector to an existing directory server, you'll need to d
  |-----|-----|-----|
  | hostname of the directory server | Configuration wizard **Connectivity** page | `APP3` |
  | port number of the directory server| Configuration wizard **Connectivity** page | 636. For LDAP over SSL or TLS (LDAPS), use port 636.  For `Start TLS`, use port 389. |
- | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | `CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
+ | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
  | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | |
  | structural object class for a user in the directory server | Configuration wizard **Object Types** page | `User` |
  | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | No  auxiliary classes are used in this example |
@@ -244,9 +244,7 @@ Depending on the options you select, some of the wizard screens might not be ava
       Once all the relevant attributes have been added, select **Next**.
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. If `Set attribute value` is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
- >[!NOTE]
- >If you use the **Set attribute value** be aware that only boolean values are allowed.
- 15. Select **Finish**.
+ 17. Select **Finish**.
 
 ## Ensure ECMA2Host service is running
  1. On the server running the Azure AD ECMA Connector Host, select **Start**.
@@ -404,4 +402,3 @@ After waiting, check the directory server to ensure users are being provisioned.
  8. For the BaseDN enter **CN=App,DC=contoso,DC=lab** and click **OK**.
  9. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your users who were provisioned from Azure AD.
   [![Screenshot showing Ldp binding for users.](media/active-directory-app-provisioning-ldap/test-3.png)](media/active-directory-app-provisioning-ldap/test-3.png#lightbox)</br>
-
