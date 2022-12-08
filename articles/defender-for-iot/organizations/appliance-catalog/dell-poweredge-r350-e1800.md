@@ -24,7 +24,6 @@ The following image shows a view of the Dell PowerEdge R350 front panel:
 The following image shows a view of the Dell PowerEdge R350 back panel:
 
 
-
 ## Specifications
 
 |Component| Technical specifications|
@@ -70,21 +69,19 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |1|	865-BBPG	|	ProSupport and Next Business Day Onsite Service Initial, 15 Month(s)	|
 |1|	338-CCOZ	|	Intel Xeon E-2334 3.4GHz, 8M Cache, 4C/8T, Turbo (65W), 3200 MT/s, XE Only	|
 |1|	325-BEIF	|	Brand/Bezel, Dell Branded, PowerEdge R350XE	|
-|1|	340-CXXB	|	PowerEdge R350 Shipping EMEA2 (English/Slovenian/Slovakian/Polish/Czech/Hungar/Greek/Arab)	|
 |1|	389-ECFF	|	PowerEdge R350 CE and CCC Marking	|
 |1|	321-BGVQ	|	3.5" Chassis with up to 4 Hot Plug Hard Drives	|
 |1|	750-ADOY	|	Standard Fan	|
 |1|	429-ABHN	|	DVD +/-RW, SATA, Internal for Hot Plug Chassis	|
-|1|	340-CWUL	|	PowerEdge R350 Shipping Material for 3.5" Chassis	|
 |1|	405-ABBT	|	PERC H755 Controller Card	|
 |1|	461-AADZ	|	No Trusted Platform Module	|
 |1|	683-11870	|	No Installation Service Selected (Contact Sales Rep for more details)	|
 |1|	865-BBPF	|	ProSupport and Next Business Day Onsite Service Extension, 24 Month(s)	|
-|1|	683-17926	|	CSO OEM Solution Enterprise Program Support, EMEA	|
 |4|	400-BLLH	|	1TB Hard Drive SATA 6Gbps 7.2K 512n 3.5in Hot-Plug	|
 |1|	540-BBDF	|	Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile	|
-|1|	540-BBVI	|	Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile	|
 |1|	780-BCDQ	|	RAID 10	|
+
+
 
 ## Dell PowerEdge R350 installation
 
@@ -95,9 +92,10 @@ Before installing the software on the Dell appliance, you need to adjust the app
 > [!NOTE]
 > Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
+
 ### Prerequisites
 
-To install the Dell PowerEdge R350 appliance, you need:
+To install the Dell PowerEdge R350 appliance, you'll need:
 
 - An Enterprise license for Dell Remote Access Controller (iDrac)
 
@@ -105,7 +103,7 @@ To install the Dell PowerEdge R350 appliance, you need:
 
 ### Configure the Dell BIOS
 
- An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
+ An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances. 
 
 To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
@@ -128,7 +126,7 @@ When the connection is established, the BIOS is configurable.
 
 1. Change the static subnet mask to **255.255.255.0**.
 
-    :::image type="content" source="../media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask in iDRAC.":::
+   :::image type="content" source="../media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask in iDRAC settings.":::
 
 1. Select **Back** > **Finish**.
 
@@ -136,7 +134,7 @@ When the connection is established, the BIOS is configurable.
 
 This procedure describes how to update the Dell PowerEdge R350 configuration for your OT deployment.
 
-Configure the appliance BIOS only if you didn't purchase your appliance from Arrow or if you have an appliance, but don't have access to the XML configuration file.
+Configure the appliance BIOS only if you didn't purchase your appliance from Arrow, or if you have an appliance, but don't have access to the XML configuration file.
 
 1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
 
