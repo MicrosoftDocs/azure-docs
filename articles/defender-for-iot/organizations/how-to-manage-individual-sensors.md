@@ -23,13 +23,25 @@ The **Overview** page shows the following widgets:
 
 | Name | Description |
 |--|--|
-| **General Settings** | Displays a list of the sensor's basic configuration settings |
+| **General Settings** | Displays a list of the sensor's basic configuration settings and connectivity status. |
 | **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
 | **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
 | **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
 | **Top open alerts** | Displays a table listing any currently open alerts with high severity levels, including critical details about each alert. |
 
 Select the link in each widget to drill down for more information in your sensor.
+
+### Troubleshoot connectivity status
+
+If the sensor isn't connected to the Azure portal, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
+
+Find more information about the issue by hovering over the :::image type="icon" source="media/how-to-manage-individual-sensors/information-icon.png" border="false"::: information icon. For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
+
+Take action by selecting the **Troubleshoot** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**.
 
 ## Manage sensor activation files
 
