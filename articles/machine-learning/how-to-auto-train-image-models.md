@@ -272,14 +272,14 @@ Automatic sweeps can yield competitive results for many datasets. Additionally, 
 
 ### Primary metric
 
-The primary metric used for model optimization and hyperparameter tuning depends on the task type. Using other primary metric values is currently not supported. 
+An AutoML training job uses a primary metric for model optimization and hyperparameter tuning. The primary metric depends on the task type as shown below; other primary metric values are currently not supported. 
 
 * `accuracy` for IMAGE_CLASSIFICATION
 * `iou` for IMAGE_CLASSIFICATION_MULTILABEL
 * `mean_average_precision` for IMAGE_OBJECT_DETECTION
 * `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
     
-### Job Limits
+### Job limits
 
 You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.
 
