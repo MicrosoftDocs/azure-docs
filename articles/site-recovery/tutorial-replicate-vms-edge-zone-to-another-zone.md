@@ -10,6 +10,9 @@ ms.author: v-pgaddala
 
 # Replicate virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC in the same region 
 
+> [!IMPORTANT]
+> ASR functionality for Public MEC is in preview state.
+
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview) connected to the same parent region. 
 
 Azure Public MECs (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. 

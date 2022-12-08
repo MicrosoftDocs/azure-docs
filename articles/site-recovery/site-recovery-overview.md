@@ -26,6 +26,9 @@ Site Recovery can manage replication for:
 - Replication between two Azure Public MECs (preview).
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
+> [!NOTE]
+> ASR functionality for Public MEC is in preview state.
+
 ## What does Site Recovery provide?
 
 **Feature** | **Details**

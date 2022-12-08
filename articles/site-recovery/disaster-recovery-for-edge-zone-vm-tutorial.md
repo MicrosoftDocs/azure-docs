@@ -10,6 +10,9 @@ ms.author: v-pgaddala
 
 # Tutorial: Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow
 
+> [!IMPORTANT]
+> ASR functionality for Public MEC is in preview state.
+
 This tutorial shows you how to set up disaster recovery for VMs on Azure Public MEC (preview) using Azure Site Recovery (via the Portal). In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -45,7 +48,8 @@ Select the source settings and enable VM replication.
     - **Resource group**: Select the desired resource group from the drop-down. 
     - **Virtual machine deployment model**: Retain the default **Resource Manager** setting. 
     - **Disaster recovery between availability zones**: Retain the default **No** setting. 
-
+    
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/enable-replication-add-zone.png" alt-text="Screenshot of Enable replication adding region tab.":::
     
     > [!NOTE]
     > As there are no availability zones for Azure Public MEC (preview), it is disabled. 
@@ -106,3 +110,7 @@ The **VM setting** now includes target region information and a **Summary** sect
 :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text="Screenshot of Review replication tab."::: 
             
 The VMs you enable appear on the vault > **Replicated items** page. 
+
+## Next steps
+
+See [Set up disaster recovery when creating a VM](disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md).
