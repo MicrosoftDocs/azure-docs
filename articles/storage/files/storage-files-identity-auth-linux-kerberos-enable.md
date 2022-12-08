@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 12/08/2022
 ms.author: kendownie
 ms.subservice: files
 ---
