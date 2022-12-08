@@ -36,7 +36,7 @@ Add the branded Access app to your back-end application for passwordless authent
 
 - **Azure AD B2C tenant** with a combined sign-in and sign-up policy for your back-end
 - **Nevis instance** and its REST API to enhance Azure AD B2C
-- Your branded access app
+- Your branded **Access** app
 
 The diagram shows the implementation.
 
