@@ -33,7 +33,7 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
-* **Ambari** user auto UI logout due to inactivity. For more information, see [here](/azure/hdinsight/ambari-web-ui-auto-logout.md)
+* **Ambari** user auto UI logout due to inactivity. 
 * **Spark** - A new and optimized version of Spark 3.1 is included in this release.
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
