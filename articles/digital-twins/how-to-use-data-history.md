@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/17/2022
+ms.date: 12/08/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -18,14 +18,14 @@ ms.custom: event-tier1-build-2022
 
 # Use Azure Digital Twins data history
 
-[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing graph lifecycle and property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
 * an [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
 * an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database
 
-It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
+It also contains a sample twin graph that you can use to see the historized graph updates in Azure Data Explorer. 
 
 >[!TIP]
 >Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the rest APIs.
@@ -80,7 +80,7 @@ Then, make sure you have *Azure Digital Twins Data Owner* role on the instance. 
 
 ## Create an Event Hubs namespace and event hub
 
-The next step is to create an Event Hubs namespace and an event hub. This hub will receive digital twin property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. 
+The next step is to create an Event Hubs namespace and an event hub. This hub will receive graph lifecycle and property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. 
 
 As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the *Azure Event Hubs Data Owner* role on the event hub resource.
 
@@ -148,15 +148,18 @@ Remember the names you give to these resources so you can use them later.
 
 ## Set up data history connection
 
-Now that you've created the required resources, use the command below to create a data history connection between the Azure Digital Twins instance, the event hub, and the Azure Data Explorer cluster. 
+Now that you've created the required resources, use the command in this section to create a data history connection between the Azure Digital Twins instance, the event hub, and the Azure Data Explorer cluster. 
+
+This command will also create three tables in your Azure Data Explorer database to store twin property updates, twin lifecycle events, and relationship lifecycle events, respectively. For more information about these types of historized data and their corresponding Azure Data Explorer tables, see [Data types and schemas](concepts-data-history.md#data-types-and-schemas).
 
 # [CLI](#tab/cli) 
 
-Use the command in this section to create a data history connection. 
+Use the command in this section to create a data history connection and the tables in Azure Data Explorer.
 
-By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`. You can also see the full list of optional parameters, including how to specify a table name and more, in its reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
+>[!NOTE]
+>By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be seen by running `az dt data-history connection create adx -h` or viewing the reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
 
-The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session). It contains required parameters to create the new Azure Data Explorer tables, and an optional parameter to turn on historization for twin property deletions. 
 
 ```azurecli-interactive
 az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
@@ -194,7 +197,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Next**.
 
-4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier and choose a name for your database table.
+4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose custom names for the tables that will store the event data in Azure Data Explorer, or leave them blank to use the default table names. You can also choose here whether twin property deletions should be included with the historized data.
     :::image type="content"  source="media/how-to-use-data-history/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-use-data-history/store.png":::
 
     Select **Next**.
@@ -222,11 +225,11 @@ After setting up the data history connection, you can optionally remove the role
 
 Now that your data history connection is set up, you can test it with data from your digital twins.
 
-If you already have twins in your Azure Digital Twins instance that are receiving property updates, you can skip this section and visualize the results using your own resources. 
+If you already have twins in your Azure Digital Twins instance that are receiving property updates and undergoing lifecycle events, you can skip this section and visualize the results using your own resources. 
 
-Otherwise, continue through this section to set up a sample graph containing twins that receives twin property updates. 
+Otherwise, continue through this section to set up a sample graph that will undergo twin and relationship lifecycle events and generate twin property updates. 
 
-You can set up a sample graph for this scenario using the **Azure Digital Twins Data Simulator**. The Azure Digital Twins Data Simulator continuously pushes property updates to several twins in an Azure Digital Twins instance.
+You can set up a sample graph for this scenario using the **Azure Digital Twins Data Simulator**. The Azure Digital Twins Data Simulator creates twins and relationships in your Azure Digital Twins instance, and continuously pushes property updates to the twins.
 
 ### Create a sample graph
 
@@ -236,13 +239,13 @@ Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digit
 * **Instance URL**: Enter the host name of your Azure Digital Twins instance. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. 
 * **Simulation Type**: Select *Dairy facility* from the dropdown menu.
 
-Select **Generate Environment**. 
+Select **Generate Environment**.
 
 :::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator.":::
 
-You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. 
+You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. This will also generate twin and relationship creation events, which will be historized to Azure Data Explorer as twin and relationship lifecycle events, respectively.
 
-When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
+When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). This will generate twin property updates events that will be historized to Azure Data Explorer.
 
 To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 
@@ -250,37 +253,58 @@ To verify that data is flowing through the data history pipeline, navigate to th
 
 ### View the historized twin updates in Azure Data Explorer
 
-In this section, you'll view the historized twin updates being stored in Azure Data Explorer.
+In this section, you'll view all three types of historized updates that were generated by the simulator and stored in Azure Data Explorer tables.
 
 Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure Data Explorer cluster you created earlier. Choose the **Databases** pane from the left menu to open the database view. Find the database you created for this article and select the checkbox next to it, then select **Query**.
 
 :::image type="content"  source="media/how-to-use-data-history/azure-data-explorer-database.png" alt-text="Screenshot of the Azure portal showing a database in an Azure Data Explorer cluster.":::
 
-Next, expand the cluster and database in the left pane to see the name of the table. You'll use this name to run queries on the table.
+Next, expand the cluster and database in the left pane to see the name of the data history tables. There should be three: one for relationship lifecycle events, one for twin lifecycle events, and one for twin property update events. You'll use these table names to run queries on the table to verify and view the historized data.
 
 :::image type="content"  source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the data history table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
 
-Copy the command below. The command will change the ingestion to [batched mode](concepts-data-history.md#batch-ingestion-default) and ingest every 10 seconds.
+#### Verify twin and relationship lifecycle updates
 
-```kusto
-.alter table <table-name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
-```
-
-Paste the command into the query window, replacing the `<table-name>` placeholder with the name of your table. Select the **Run** button.
-
-:::image type="content"  source="media/how-to-use-data-history/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query-1.png":::
-
-Next, add the following command to the query window, and run it again to verify that Azure Data Explorer has ingested twin updates into the table.
+To verify that twin and relationship lifecycle events are being historized to the database, add the following commands to the query window and run them. Each command contains a placeholder for the name of either the twin lifecycle events table or the relationship lifecycle events table, and the commands will output the number of items in the tables.
 
 >[!NOTE]
 > It may take up to 5 minutes for the first batch of ingested data to appear.
 
 ```kusto
-<table_name>
+<twin-lifecycle-events-table_name>
+| count
+
+<relationship-lifecycle-events-table_name>
 | count
 ```
 
-You should see in the results that the count of items in the table is something greater than 0.
+You should see in the results that the count of items in each table is something greater than 0, indicating that twin lifecycle and relationship lifecycle events are being historized to their respective tables.
+
+#### Verify and explore twin property updates table
+
+In this section you'll verify that twin property updates are being historized to the corresponding table, and do some more exploration with the data that's coming through.
+
+Start by copying the command below, which has one placeholder for the name of the twin property updates table. The command will change the ingestion for that table to [batched mode](concepts-data-history.md#batch-ingestion-default) so it ingests data from the live simulation every 10 seconds.
+
+```kusto
+.alter table <twin-property-updates-table-name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
+```
+
+Paste the command into the query window and replace the placeholder with the name of your twin property updates table. Select the **Run** button.
+
+:::image type="content"  source="media/how-to-use-data-history/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query-1.png":::
+
+Next, add the following command to the query window, and run it to verify that Azure Data Explorer has ingested twin updates into the table.
+
+>[!NOTE]
+> It may take up to 5 minutes for the first batch of ingested data to appear.
+
+```kusto
+<twin-property-updates-table_name>
+| count
+```
+
+You should see in the results that the count of items in the table is something greater than 0, indicating that twin property update events are being historized to the table.
 
 You can also add and run the following command to view 100 records in the table:
 
@@ -291,7 +315,7 @@ You can also add and run the following command to view 100 records in the table:
 
 Next, run a query based on the data of your twins to see the contextualized time series data. 
 
-Use the query below to chart the outflow of all salt machine twins in the Oslo dairy. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the data history time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance, in the format `https://<instance-host-name>`.
+Use the query below to chart the outflow of all salt machine twins in the sample Oslo dairy factory. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the data history time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance, in the format `https://<instance-host-name>`.
 
 ```kusto
 let ADTendpoint = "<ADT-instance>";

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/02/2022
+ms.date: 12/08/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 **Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph lifecycle and property updates are automatically historized to Azure Data Explorer.
 
-Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
+Once graph updates are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
@@ -37,20 +37,20 @@ These resources are connected into the following flow:
 :::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
 
 Data moves through these resources in this order:
-1. A property of a digital twin in Azure Digital Twins is updated.
-1. Data history forwards a message containing the twin's updated property value and metadata to the event hub. 
-1. The event hub forwards the message to the target Azure Data Explorer cluster. 
-1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
+1. A data event occurs in Azure Digital Twins. The [event types](#data-types-and-schemas) included in data history are relationship lifecycle events, twin lifecycle events, and twin property update events.
+1. Data history forwards a message containing the event's information and metadata to the event hub. 
+1. The event hub forwards the message to the target Azure Data Explorer cluster, where it's sorted into the appropriate table based on which [type of event](#data-types-and-schemas) it is.
+1. The Azure Data Explorer cluster maps the message fields to the [data history schema](#data-types-and-schemas) for that table, and stores the data as a timestamped record in the table.
 
 When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
 
 ### History from multiple Azure Digital Twins instances
 
-If you'd like, you can have multiple Azure Digital Twins instances historize twin property updates to the same Azure Data Explorer cluster.
+If you'd like, you can have multiple Azure Digital Twins instances historize updates to the same Azure Data Explorer cluster.
 
 Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
-* **different tables** in the Azure Data Explorer cluster.
-* **the same table** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table name while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schemas](#data-schemas), the `ServiceId` column will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record.
+* **a separate set of tables** in the Azure Data Explorer cluster.
+* **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
 
 ## Required permissions
 
@@ -69,11 +69,41 @@ Once all the [resources](#resources-and-data-flow) and [permissions](#required-p
 
 For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
-## Data schemas
+## Data types and schemas
+
+Data history historizes three types of events from your Azure Digital Twins instance into Azure Data Explorer: relationship lifecycle events, twin lifecycle events, and twin property updates (which can optionally include twin property deletions). Each of these event types is stored in its own table inside the Azure Data Explorer database, meaning data history keeps three tables total. You can specify custom names for the tables when you set up the data history connection, or you can use the default names.
+
+The rest of this section describes the three Azure Data Explorer tables in detail, including default table names and the data schema for each table.
+
+### Relationship lifecycle events
+
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_relationshipevents*. The time series data for relationship lifecycle events is stored with the following schema:
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `RelationshipId` | String | The relationship ID. This field is set by the system and isn't writable by users. |
+| `Name` | String | The name of the realtionship |
+| `TimeStamp` | DateTime | The date/time the relationship lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
+| `ServiceId` | The service instance ID of the Azure IoT service logging the record |
+| `Action` | The type of relationship lifecycle event (create or delete) |
+| `Source` | The source twin ID. This is the ID of the twin where the relationship originates. |
+| `Target` | The target twin ID. This is the ID of the twin where the relationship arrives. |
+
+### Twin lifecycle events
+
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_twinevents*. The time series data for twin lifecycle events is stored with the following schema:
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `TwinId` | String | The twin ID |
+| `TimeStamp` | DateTime | The date/time the twin lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
+| `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
+| `Action` | String | The type of twin lifecycle event (create or delete) |
+| `ModelId` | String | The DTDL model ID (DTMI) |
 
 ### Twin property updates
 
-Time series data for twin property updates is stored in Azure Data Explorer with the following schema:
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>*. The time series data for twin property updates is stored with the following schema:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
@@ -108,7 +138,7 @@ Messages emitted by data history are metered under the [Message pricing dimensio
 
 ## End-to-end ingestion latency
 
-Azure Digital Twins data history builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
+Azure Digital Twins data history builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that graph update events are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
 
 There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). You can configure these ingestion methods for individual tables according to your needs and the specific data ingestion scenario.
 
