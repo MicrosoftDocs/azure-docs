@@ -47,6 +47,9 @@ items:
 - name: Azure Monitor for SAP solutions
   href: ./monitor/toc.yml
 
+- name: Azure VMs for SAP workloads
+  href: ../virtual-machines/workloads/sap/toc.yml
+
 - name: Reference
   items:
   - name: REST API
