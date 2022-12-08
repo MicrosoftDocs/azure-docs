@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 12/06/2022
 ---
 
 # Browse the Microsoft Purview Data Catalog
