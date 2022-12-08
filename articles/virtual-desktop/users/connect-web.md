@@ -59,7 +59,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 
 ## Preview features
 
-If you want to help us test new features, you should enable the preview. A new user interface is available in preview; to learn how to try the new user interface, see [Preview user interface](client-features-web.md#preview-user-interface-preview), and for more information about what's new, see [What's new in the Remote Desktop Web client for Azure Virtual Desktop](../whats-new-client-web.md).
+If you want to help us test new features, you should enable the preview. A new user interface is available in preview; to learn how to try the new user interface, see [Preview user interface](client-features-web.md#preview-user-interface-preview), and for more information about what's new, see [What's new in the Remote Desktop Web client for Azure Virtual Desktop](../whats-new-client-web.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json).
 
 ## Next steps
 
