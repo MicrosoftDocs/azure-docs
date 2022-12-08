@@ -62,6 +62,8 @@ landingContent:
             url: create-a-site.md
           - text: Create a site - ARM template
             url: create-site-arm-template.md
+          - text: Delete a site
+            url: delete-a-site.md
           - text: Modify a packet core instance
             url: modify-packet-core.md
           - text: Upgrade a packet core instance - Azure portal
