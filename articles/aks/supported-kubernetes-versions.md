@@ -192,8 +192,6 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 > [!NOTE]
 > The asterisk (*) states that a date has not been finalized; because of this, the timeline below is subject to change. Please continue to check the release calendar for updates.
-//patch every 2 months
-//minor every 3 months
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | Patch release | End of life |
 |--------------|-------------------|--------------|---------|-------------|--------|
