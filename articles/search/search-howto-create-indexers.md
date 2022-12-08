@@ -19,9 +19,9 @@ An indexer is a named object on a search service that automates an indexing work
 
 Indexers support two workflows:
 
-+ Text-based indexing, extracting strings and metadata for full text search scenarios.
++ Text-based indexing, extracting strings and metadata from textual content for full text search scenarios.
 
-+ Skills-based indexing, using built-in or custom skills to apply integrated machine learning and AI models that analyze content for text and structure. Skill-based indexing enables search over content that isn't otherwise easily searchable, such as images and large undifferentiated text. To learn about skills-based indexing, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
++ Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
 
@@ -71,9 +71,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for skills-based indexing and AI enrichment
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following extra properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. 
-
-A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters for apply, but the following extra properties are specific to AI enrichment: "skillSetName", "cache", "outputFieldMappings". 
 
 ```json
 {
@@ -91,7 +89,7 @@ A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveService
 }
 ```
 
-AI enrichment is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
+AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
 
 ## Prerequisites
 
@@ -133,6 +131,8 @@ Indexers require a data source that specifies the type, container, and connectio
    + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
    + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
    + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
+1. If the data source is a database, such as Azure SQL or Cosmos DB, enable change tracking. The above links for the various data sources explain which change tracking methods are supported by indexers.
 
 ## Prepare an index
 
@@ -230,9 +230,15 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index.
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure Cognitive Search](search-howto-index-changed-deleted-blobs.md).
 
-+ Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You'll need to specify in the data source definition which change detection policy is used.
++ Cloud database technologies provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You'll need to specify in the data source definition which change detection policy is used:
+
+  + [Azure SQL (change detection)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#indexing-new-changed-and-deleted-rows)
+  + [Azure DB for MySQL (change detection)](search-howto-index-mysql.md#indexing-new-and-changed-rows)
+  + [Azure Cosmos DB for NoSQL (change detection)](search-howto-index-cosmosdb.md#indexing-new-and-changed-documents)
+  + [Azure Cosmos DB for MongoDB (change detection)](search-howto-index-cosmosdb-mongodb.md#indexing-new-and-changed-documents)
+  + [Azure CosmosDB for Apache Gremlin (change detection)](search-howto-index-cosmosdb-gremlin.md#indexing-new-and-changed-documents)
 
 Indexers keep track of the last document it processed from the data source through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
 

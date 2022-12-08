@@ -164,13 +164,13 @@
       - name: Control plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/digitaltwins
         - name: Java SDK
           href: /java/api/com.azure.resourcemanager.digitaltwins
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/digitaltwins.core-readme
         - name: Java SDK
           href: /java/api/overview/azure/digital-twins
         - name: JavaScript SDK
@@ -224,9 +224,9 @@
       - name: Control plane Swagger
         href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable
       - name: .NET (C#) SDK - NuGet
-        href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/
+        href: https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins
       - name: .NET (C#) SDK - Source code
-        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins
       - name: Java SDK - Maven
         href: https://search.maven.org/search?q=a:azure-mgmt-digitaltwins
       - name: Java SDK - Source code

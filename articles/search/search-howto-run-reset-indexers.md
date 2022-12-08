@@ -23,14 +23,14 @@ This article explains how to run indexers on demand, with and without a reset.
 
 ## Run without reset
 
-[Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
+A [Run Indexer](/rest/api/searchservice/run-indexer) operation will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
-Change detection is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
+[Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
 
-+ Azure Storage has built-in change detection through its LastModified property
++ Azure Storage has built-in change detection through its LastModified property.
 + Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
-If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
+If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed. You'll need to reset the index if want to reprocess in full.
 
 ## Indexer execution
 

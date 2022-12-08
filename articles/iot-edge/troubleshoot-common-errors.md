@@ -541,11 +541,11 @@ The IoT Edge runtime is active with a valid configuration file, but it can't sta
 
 #### Cause
 
-IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the downstream device isn't able to reach its parent device via HTTP.
 
 #### Solution
 
-Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
+Make sure the parent IoT Edge device can receive incoming requests from the downstream IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the downstream device.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
@@ -561,11 +561,11 @@ The IoT Edge daemon is active with a valid configuration file, but it can't star
 
 #### Cause
 
-IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the downstream device isn't able to reach its parent device via HTTP.
 
 #### Solution
 
-Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
+Make sure the parent IoT Edge device can receive incoming requests from the downstream IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the downstream device.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
