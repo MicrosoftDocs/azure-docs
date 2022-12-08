@@ -67,9 +67,9 @@ Use the following instructions to run the script, depending on the Operating Sys
 >[!NOTE]
 >Before running the script, install the latest version of Azure CLI (2.36.0 or later).
 
-**Known issues**
+**Known issue**
 
-We are observing extension installation issues with Azure CLI 2.42.0 version. We recommend using Azure CLI 2.36.0 to 2.41.0 versions. 
+We are observing intermittent extension installation issues with Azure CLI 2.42.0 version. To avoid failures, install Azure CLI 2.41.0 versions. [Download the specific version of Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli#specific-version).
 
 ### Windows
 

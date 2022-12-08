@@ -71,7 +71,7 @@ The following firewall URL exceptions are needed for the Azure Arc resource brid
 | Azure Arc for K8s container image download | 443 | `https://azurearcfork8sdev.azurecr.io` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
 | ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`  | Appliance VM IP and control plane endpoint need outbound connection. Runs inside the appliance/mariner OS. | Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any K8s control plane. |
 | Microsoft events data service | 443 | `v20.events.data.microsoft.com`  | Appliance VM IP and control plane endpoint need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
-| SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the SCVMM server to communicate with the Appliance VM and the control plane. |
+| SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 
 ## Next steps
 
