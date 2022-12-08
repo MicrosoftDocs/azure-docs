@@ -134,7 +134,7 @@ To enable the certificate-based authentication in the Azure portal, complete the
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Basics**, select **Yes** to enable CBA.
+1.	Under **Enable and Target** tab, click **Enable** toogle, to enable CBA.
 1. CBA can be enabled for a targeted set of users.
    1. Click **All users** to enable all users.
    1. Click **Select users** to enable selected users or groups. 
