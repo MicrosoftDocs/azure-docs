@@ -11,9 +11,11 @@ ms.author: v-pgaddala
 # Tutorial: Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow
 
 > [!IMPORTANT]
-> ASR functionality for Public MEC is in preview state.
+> The Azure Site Recovery (ASR) functionality for Public MEC is in preview state.
 
-This tutorial shows you how to set up disaster recovery for VMs on Azure Public MEC (preview) using Azure Site Recovery (via the Portal). In this article, you learn how to:
+This tutorial shows you how to set up disaster recovery for VMs using Azure Site Recovery on Azure Public MEC (preview). You will do this using the Azure Site Recovery portal.
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Enable VM replication
