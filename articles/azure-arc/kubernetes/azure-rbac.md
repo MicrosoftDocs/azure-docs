@@ -34,7 +34,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, please refer to [this](/azure/aks/hybrid/azure-rbac-aks-hybrid) to set up Azure RBAC.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
 
 ## Set up Azure AD applications
 
