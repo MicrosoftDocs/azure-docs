@@ -33,7 +33,7 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
-* **Ambari** user auto UI logout due to inactivity. 
+* **Ambari** user auto UI logout due to inactivity. For more information, see [here](/azure/hdinsight/ambari-web-ui-auto-logout.md)
 * **Spark** - A new and optimized version of Spark 3.1 is included in this release.
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
@@ -92,12 +92,12 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 |Bug Fixes|Apache JIRA|
 |---|---|
-|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)|INSERT OVERWRITE error - File Not Found|
-|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)|Wrong results when subquery has COALESCE in correlation predicate|
+|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
+|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
 |[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
-|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| In case of direct insert, the attempt ID has to be checked when reading the manifest files
+|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there is direct insert, the attempt ID has to be checked when reading the manifest files|
 |[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
-|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default 
+|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
 |[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
 |[HIVE-25920](https://issues.apache.org/jira/browse/HIVE-25920)| Bump Xerce2 to 2.12.2.|
-|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson databind version to 2.12.6.1+ to avoid CVE-2020-36518|
+|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson data bind version to 2.12.6.1+ to avoid CVE-2020-36518|
