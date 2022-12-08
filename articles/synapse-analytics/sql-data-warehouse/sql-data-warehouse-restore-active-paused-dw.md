@@ -152,7 +152,7 @@ $RestoredDatabase.status
 
 ## Restore an existing dedicated SQL pool (formerly SQL DW) to a different tenant through PowerShell
 
-This is similar guidance to restoring an existing dedicated SQL pool, however the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating tenant while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination tenant. 
+This is similar guidance to cross subscription restore. However the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating tenant while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination tenant. 
 
 Note that the user performing the restore must have proper permissions in both the source and target tenants. At the destination tenant, the user must have a '(Guest)' account with either the 'Owner' or 'Contributor' access permissions to which the dedicated SQL pool (formerly SQL DW) will be restored to.
 
