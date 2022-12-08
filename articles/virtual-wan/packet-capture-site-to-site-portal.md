@@ -75,11 +75,8 @@ To simplify your packet captures, you may specify filters on your packet capture
 |SourcePort|	Packets with source in the specified ranges are captured. Specified as an array.|	[ ] (all ports)|	A port|
 |DestinationPort|	Packets with destination in the specified ranges are captured. Specified as an array.	|[ ] (all ports)|	A port|
 |CaptureSingleDirectionTrafficOnly |	If true, only one direction of a bidirectional flow will show up in the packet capture. This will capture all possible combo of IP and ports.|	True|	True, False|
-<<<<<<< HEAD
 |Protocol|	An array of integers that correspond to IANA protocols.|	[ ] (all protocols)|	Any protocols listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
-=======
-|Protocol|	An array of integers that correspond IANA protocols.|	[ ] (all protocols)|	A protocol listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
->>>>>>> 8b3dd6eb031cc79aa2c68e4db81becd483e97159
+
 
 > [!NOTE]
 > For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
