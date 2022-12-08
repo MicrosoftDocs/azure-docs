@@ -15,7 +15,13 @@ ms.collection: M365-identity-device-management
 
 # Create a new configuration for Azure AD Connect cloud sync
 
-The following document will guide you through configuring Azure AD Connect cloud sync.  For additional information and an example of how to configure cloud sync, see the video below.
+The following document will guide you through configuring Azure AD Connect cloud sync.  
+
+The following documentation demonstrates the new guided user experience for Azure AD Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
+
+ :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features" lightbox="media/how-to-configure/new-ux-configure-19.png":::
+
+For additional information and an example of how to configure cloud sync, see the video below.
 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
