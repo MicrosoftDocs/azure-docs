@@ -229,6 +229,11 @@
         "source_path_from_root": "/articles/purview/how-to-create-import-export-glossary.md",
         "redirect_url": "/azure/purview/how-to-create-manage-glossary-term",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/enable-disable-data-estate-insights.md",
+        "redirect_url": "/azure/purview/disable-data-estate-insights",
+        "redirect_document_id": true
       }
 ]
 }
