@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2022
+ms.date: 11/29/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -21,14 +21,7 @@ ms.devlang: csharp, golang, java, javascript, python
 
 # Quickstart: Azure Cognitive Services Translator
 
-In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
-
-> [!NOTE]
->
-> * For this quickstart it is recommended that you use a Translator text single-service global resource.
-> * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
-> * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
-> * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
+Try the latest version of Azure Translator. In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
@@ -42,7 +35,13 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
+    > [!NOTE]
+    >
+    > * For this quickstart it is recommended that you use a Translator text single-service global resource.
+    > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+    > * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+    > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
+
 <!-- checked -->
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
@@ -443,7 +442,7 @@ import okhttp3.Response;
 
 public class TranslatorText {
     private static String key = "<your-translator-key";
-    
+
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
@@ -461,8 +460,8 @@ public class TranslatorText {
                 .url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&to=zu")
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
-                // location required if you're using a multi-service or regional (not global) resource. 
-                .addHeader("Ocp-Apim-Subscription-Region", location) 
+                // location required if you're using a multi-service or regional (not global) resource.
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();

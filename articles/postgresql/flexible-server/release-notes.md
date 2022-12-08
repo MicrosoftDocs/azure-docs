@@ -16,6 +16,12 @@ ms.date: 11/05/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: November 2022
+
+* Support for [minor versions](./concepts-supported-versions.md) 14.5, 13.8, 12.12, 11.17. <sup>$</sup>
+* General availability of Azure Database for PostgreSQL - Flexible Server in China North 3 & China East 3 Regions. 
+
+
 ## Release: October 2022
 
 * Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.

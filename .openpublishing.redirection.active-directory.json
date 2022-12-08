@@ -46,6 +46,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -10919,6 +10924,11 @@
     {
       "source_path": "articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
       "redirect_url": "/azure/azure-percept/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-install-use-log-analytics-views.md",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
       "redirect_document_id": false
     },
     {
