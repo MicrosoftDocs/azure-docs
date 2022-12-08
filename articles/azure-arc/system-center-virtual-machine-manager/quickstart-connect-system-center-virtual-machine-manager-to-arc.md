@@ -140,8 +140,8 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
 > - Intermittently appliance might become unreachable when you shut down and restart the VM.
-> - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
 >- After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
+> - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
 
 
 ## Next steps
