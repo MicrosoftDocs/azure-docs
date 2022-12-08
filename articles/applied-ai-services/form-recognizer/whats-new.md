@@ -33,21 +33,21 @@ December 2022
 
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
 
-  Form Recognizer Studio December release includes the latest updates to the Form Recognizer Studio. There are significant improvements to user experience, primarily in custom model labeling support.
+  The December Form Recognizer Studio release includes the latest updates to Form Recognizer Studio. There are significant improvements to user experience, primarily with custom model labeling support.
 
-  * **Page range**. The Studio now supports analyzing specified pages from the document.
+  * **Page range**. The Studio now supports analyzing specified pages from a document.
 
   * **Custom model labeling**:
 
-    * **Batch OCR**. You can opt to run batch OCR in the setup wizard for custom model on all documents in blob storage.
+    * **Batch OCR**. You can opt to run batch OCR in the setup wizard for custom model on all documents in your blob storage.
 
     * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
 
-    * **Navigate to target page using labels**. You can select labels to move to labeled words within a document.
+    * **Navigation**.  You can select labels to target labeled words within a document.
 
     * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
 
-    * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns and rows and second-level subtypes for types such as dates and numbers.
+    * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
 
 ---
 
