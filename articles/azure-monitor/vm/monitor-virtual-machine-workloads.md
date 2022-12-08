@@ -21,6 +21,11 @@ VM insights collects only performance data from the guest operating system of en
 
 For a list of the data sources available and details on how to configure them, see [Agent data sources in Azure Monitor](../agents/agent-data-sources.md).
 
+> [!NOTE]
+> You can't selectively configure data collection for different machines. All machines connected to the workspace use the configuration for that workspace.
+
+> [!IMPORTANT]
+> Be careful to collect only the data that you require. Costs are associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios.
 
 ## Controlling costs
 Be careful to collect only the data that you require. Costs are associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios.
@@ -63,20 +68,12 @@ order by 'Total Alerts' DESC
 
 Evaluate the output to identify specific alerts for migration. Ignore any alerts that were tuned out or are known to be problematic. Review your management packs to identify any critical alerts of interest that never fired.
 
-## Windows and Syslog events
-The operating system and applications in virtual machines will often write to the Windows Event Log or Syslog. You may create an alert as soon as a single event is found or wait for a series of matching events within a particular time window. You may also collect events for later analysis such as identifying particular trends over time, or for performing troubleshooting after a problem occurs.
+## Windows or Syslog event
+In this common monitoring scenario, the operating system and applications write to the Windows events or Syslog. Create an alert as soon as a single event is found. Or you can wait for a series of matching events within a particular time window.
 
 To collect these events, configure a Log Analytics workspace to collect [Windows events](../agents/data-sources-windows-events.md) or [Syslog events](../agents/data-sources-windows-events.md). There's a cost for the ingestion and retention of this data in the workspace.
 
 Windows events are stored in the [Event](/azure/azure-monitor/reference/tables/event) table and Syslog events are stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in the Log Analytics workspace.
-
-The following table lists the most common data collected from virtual machines and strategies for limiting them for each of the Azure Monitor agents.
-
-| Source | Strategy | Log Analytics agent | Azure Monitor agent |
-|:---|:---|:---|:---|
-| Event logs | Collect only required event logs and levels. For example, *Information*-level events are rarely used and should typically not be collected. For the Azure Monitor agent, filter particular event IDs that are frequent but not valuable. | Change the [event log configuration for the workspace](../agents/data-sources-windows-events.md). | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md). Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific event IDs. |
-| Syslog | Reduce the number of facilities collected and only collect required event levels. For example, *Info* and *Debug* level events are rarely used and should typically not be collected. | Change the [Syslog configuration for the workspace](../agents/data-sources-syslog.md). | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md). Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific events. |
-| Performance counters | Collect only the performance counters required and reduce the frequency of collection. For the Azure Monitor agent, consider sending performance data only to Metrics and not Logs. | Change the [performance counter configuration for the workspace](../agents/data-sources-performance-counters.md). | Change the [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md). Use [custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific counters. |
 
 ### Sample log queries
 
@@ -120,7 +117,6 @@ The following sample creates an alert when a specific Windows event is created. 
     | where SeverityLevel == "err"
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
-
 
 ## Custom performance counters
 You might need performance counters created by applications or the guest operating system that aren't collected by VM insights. Configure the Log Analytics workspace to collect this [performance data](../agents/data-sources-windows-events.md). There's a cost for the ingestion and retention of this data in the workspace. Be careful to not collect performance data that's already being collected by VM insights.
