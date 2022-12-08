@@ -19,7 +19,7 @@ In Azure Cognitive Search, there are several ways to run an indexer:
 + [Run on a schedule](search-howto-schedule-indexers.md) to invoke execution at regular intervals.
 + Run on demand, with or without a "reset".
 
-This article explains how to run indexers on demand, with and without a reset.
+This article explains how to run indexers on demand, with and without a reset. It also describes indexer execution, duration, and concurrency.
 
 ## Indexer execution
 
