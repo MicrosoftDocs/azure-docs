@@ -216,19 +216,6 @@ az postgres flexible-server create -g <resource_group> -n <postgres_server_name>
 ```
 ## Update Customer Managed Key on the CMK enabled Flexible Server
 
-
-
-Prerequisites:
-- You must have an Azure subscription and be an administrator on that subscription.
-
-Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
-1. Change key/identity for data encryption for existing server
-```azurecli-interactive
- az postgres flexible-server update --resource-group <resource_group> --name <server_name> \
-          --key '<key identifier of new AKV key>' --identity <identity_name>
-```
-
-
 ### From Portal
 
 Prerequisites:
@@ -250,7 +237,16 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 
 ### From CLI
 
+Prerequisites:
+- You must have an Azure subscription and be an administrator on that subscription.
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
 
+Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
+1. Change key/identity for data encryption for existing server
+```azurecli-interactive
+ az postgres flexible-server update --resource-group <resource_group> --name <server_name> \
+          --key '<key identifier of new AKV key>' --identity <identity_name>
+```
 ## Limitations
 
 The following are current limitations for configuring the customer-managed key in Flexible Server:
