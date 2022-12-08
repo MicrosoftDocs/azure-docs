@@ -86,13 +86,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     console=ttyS0 earlyprintk=ttyS0 
     ```
 
-Next, apply this change by running the following command:
+    Next, apply this change by running the following command:
 
     ```console
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
+    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
 
 9. Ensure the "/etc/fstab" file references the disk using its UUID (by-uuid)
 
