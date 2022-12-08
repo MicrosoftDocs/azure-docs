@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/9/2022
+ms.date: 12/8/2022
 ---
 
 # Stream Analytics job diagram (preview) in Azure portal
@@ -100,7 +100,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
         To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md)
 
     * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
-    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types][./stream-analytics-define-inputs.md]. It's only available in input processor and output processor.
+    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types](./stream-analytics-define-inputs.md). It's only available in input processor and output processor.
 
 
 ## Logical job diagram
