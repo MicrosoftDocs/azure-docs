@@ -21,7 +21,7 @@ This article shows you how to create a managed identity for Azure SignalR Servic
 
 ## Prerequisites
 
-To use a managed identity, you must have the following:
+To use a managed identity, you must have the following items:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure SignalR resource. 
@@ -61,8 +61,6 @@ To add a user-assigned identity to your SignalR instance, you need to create the
 ## Use a managed identity in serverless scenarios
 
 Azure SignalR Service is a fully managed service.  It uses a managed identity to obtain an access token. In serverless scenarios, the service adds the access token into the `Authorization` header in an upstream request.
-> [!NOTE]
-> QUESTION: Is this a specific type of upstream request?  If so, we should say so.
 
 ### Enable managed identity authentication in upstream settings
 
@@ -71,9 +69,7 @@ Once you've added a [system-assigned identity](#add-a-system-assigned-identity) 
 1. Browse to your SignalR instance.
 1. Select **Settings** from the menu.
 1. Select the **Serverless** service mode.
-1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.
-    > [!NOTE]
-    > QUESTION: Where do I get the upstream URL pattern?
+1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.  See [URL template settings](concept-upstream#url-template-settings)
 1. Select Add one Upstream Setting and select any asterisk to get into a detailed page as shown below.
     :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
 
@@ -112,10 +108,7 @@ You can easily set access validation for a Function App without code changes usi
 1. Navigate to SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. go to **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 
-> [!NOTE]
-> QUESTION: What application was created previously?  The Function App?
-
-After configuring these settings, the Function App will reject requests without an access token in the header.
+After you configure these settings, the Function App will reject requests without an access token in the header.
 
 > [!IMPORTANT]
 > To pass the authentication, the *Issuer Url* must match the *iss* claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md)).  
