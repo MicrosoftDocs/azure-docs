@@ -24,19 +24,19 @@ In this quickstart, you'll learn about these deployment methods:
 
 Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal.
 
-For more information about using an ARM template and the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
+To learn more about using an ARM template and the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
 
 ## Azure PowerShell or the Azure CLI
 
 Using Azure PowerShell or the Azure CLI to deploy an ARM template is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments.
 
-For more information about using an ARM template with Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md).
+To learn more about using an ARM template with Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md).
 
 ## Azure portal manual deployment
 
 Using the Azure portal manual deployment will allow you to see the details of each deployment step. The manual deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
 
-For more information about using a manual deployment with the Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md).
+To learn more about using a manual deployment with the Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md).
 
 ## Deployment architecture overview
 
