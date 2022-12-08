@@ -4,6 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create an AKS cluster with managed NAT integration
 author: asudbring
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 10/26/2021
 ms.author: juda

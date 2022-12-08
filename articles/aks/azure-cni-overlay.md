@@ -4,6 +4,7 @@ description: Learn how to configure Azure CNI Overlay networking in Azure Kubern
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 11/08/2022

@@ -5,6 +5,7 @@ description: Learn how to utilize Azure Kubernetes Service with your own Contain
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 8/12/2022
 ---

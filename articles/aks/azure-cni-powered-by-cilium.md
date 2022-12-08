@@ -4,6 +4,7 @@ description: Learn how to create an Azure Kubernetes Service (AKS) cluster with 
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions
 ms.date: 10/24/2022

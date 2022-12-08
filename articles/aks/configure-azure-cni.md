@@ -5,6 +5,7 @@ description: Learn how to configure Azure CNI (advanced) networking in Azure Kub
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: references_regions, devx-track-azurecli

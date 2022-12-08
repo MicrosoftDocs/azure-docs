@@ -5,6 +5,7 @@ description: Learn how to configure dual-stack kubenet networking in Azure Kuber
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 12/15/2021
 ---

@@ -5,6 +5,7 @@ description: Learn how to create and use a static IP address with the Azure Kube
 author: asudbring
 ms.author: allensu
 ms.service: container-service
+ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 11/14/2020
 
