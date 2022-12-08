@@ -326,7 +326,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page:
+        **Step 1.** Back in the App Service page:
         1. In the left menu, select **SSH**. 
         1. Select **Go**.
     :::column-end:::
@@ -350,7 +350,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page:
+        **Step 1.** Back in the App Service page:
         1. In the left menu, select **SSH**. 
         1. Select **Go**.
     :::column-end:::
