@@ -232,6 +232,6 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 * [Tutorial: Train and deploy a model](tutorial-1st-experiment-sdk-train.md) uses a managed compute target to  train a model.
 * See how to train models with specific ML frameworks, such as [Scikit-learn](../how-to-train-scikit-learn.md), [TensorFlow](../how-to-train-tensorflow.md), and [PyTorch](../how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
 * View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)
