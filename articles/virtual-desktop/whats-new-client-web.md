@@ -27,3 +27,8 @@ A new user interface is available in preview, which has the following new functi
 - [Reset user settings](users/client-features-web.md#reset-user-settings-preview).
 
 For more information and how to try the new user interface, see [Preview user interface](users/client-features-web.md#preview-user-interface-preview).
+
+## Next steps
+
+- [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md)
+- [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](users/client-features-web.md)
