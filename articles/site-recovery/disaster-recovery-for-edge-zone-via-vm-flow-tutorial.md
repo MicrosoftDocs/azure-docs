@@ -10,12 +10,17 @@ ms.author: v-pgaddala
 
 # Tutorial: Set up disaster recovery for Azure Public MEC (preview) using VM Flow
 
-This tutorial shows you how to set up disaster recovery for Azure Public MEC (preview) using VM Flow (via the Portal). In this article, you learn how to:
+> [!IMPORTANT]
+> The Azure Site Recovery (ASR) functionality for Public MEC is in preview state.
+
+This tutorial shows you how to set up disaster recovery for ASR Azure Public MEC (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Enable replication for the Azure VMs
 
-When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. Learn more about the architecture.
+When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. [Learn more](azure-to-azure-architecture.md) about the architecture.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,14 +35,14 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Basics**, select the **Target region** or an Azure Public MEC (preview).
     - Option1: **Public MEC to Region**
     
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region-expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option 1 Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region-expanded.png":::
 
     - Option2: **Public MEC to Public MEC**
     
         :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone-expanded.png":::
     
     >[!Note]
-    >This flow proceeds with option1: Public MEC (preview) to Region replication.
+    >This flow proceeds with Option 1: Public MEC (preview) to Region replication.
 
 1. Select **Next : Advanced settings**.
 
@@ -57,4 +62,4 @@ To enable replication to a secondary location, follow the below steps:
 
 ## Next steps
 
-See [Set up disaster recovery using the Recovery Services vault](disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md)
+See [Set up disaster recovery for VMs on Azure Public MEC (preview) using Vault flow](disaster-recovery-for-edge-zone-vm-tutorial.md).

@@ -10,6 +10,9 @@ ms.author: v-pgaddala
 
 # Replicate virtual machines running in an Azure Public MEC (preview) to another Azure Public MEC in the same region 
 
+> [!IMPORTANT]
+> The Azure Site Recovery functionality for Public MEC is in preview state.
+
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC (preview) connected to the same parent region. 
 
 Azure Public MECs (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. 
@@ -22,7 +25,7 @@ Site Recovery ensures business continuity by keeping workloads running during ou
 
 ### Prerequisites
 
-- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-9.2.0)
 - The minimum Azure Az PowerShell version must be 9.1.0+. Use the following command to see the current version:
 
     ```

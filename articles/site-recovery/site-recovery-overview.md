@@ -22,9 +22,12 @@ Azure Recovery Services contributes to your BCDR strategy:
 Site Recovery can manage replication for:
 
 - Azure VMs replicating between Azure regions
-- Replication from Azure Public Multi-Access Edge Compute (MEC)(preview) to the region
-- Replication between two Azure Public MECs (preview).
-- On-premises VMs, Azure Stack VMs, and physical servers.
+- Replication from Azure Public Multi-Access Edge Compute (MEC) to the region (preview)
+- Replication between two Azure Public MECs (preview)
+- On-premises VMs, Azure Stack VMs, and physical servers
+
+> [!NOTE]
+> The Azure Site Recovery functionality for Public MEC is in preview state.
 
 ## What does Site Recovery provide?
 
