@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 12/07/2022
+ms.date: 12/08/2022
 ---
 
 # Deploy a Dapr application to Azure Container Apps using Azure Developer CLI (preview) 
@@ -210,9 +210,13 @@ Some preparation was required for [the above Dapr application](https://github.co
 - Infra-as-code (in this case, Bicep) needed to provision Azure resources, including monitoring and CI/CD
 - An `azure.yaml` file that describes your application
 
-Let's unpack the Bicep files and the `azure.yaml` file that helped deploy the Dapr application.
+The following diagram gives a quick overview of the creation process of an `azd` template:
 
-### Bicep files
+:::image type="content" source="media/microservices-dapr-azd/azd-workflow.png" alt-text="Diagram of the Azure Developer CLI template workflow.":::
+
+Let's unpack the key parts of the `azd` template that helped deploy the Dapr application.
+
+### Infra-as-code
 
 Locate the Bicep files for the Dapr application in the `./infra` directory:
 
@@ -327,6 +331,23 @@ output AZURE_CONTAINER_REGISTRY_NAME string = application.outputs.CONTAINER_REGI
 output APP_CHECKOUT_BASE_URL string = batchContainerApp.outputs.CONTAINERAPP_URI
 output APP_APPINSIGHTS_INSTRUMENTATIONKEY string = application.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
 output POSTGRES_USER string = binding.outputs.POSTGRES_USER
+```
+
+
+### `azure.yaml`
+
+The `azure.yaml` file included in the `azd` template lives in the root of the project directory and ties together all of the services.
+
+```yaml
+name: bindings-dapr-node-postgres-aca
+metadata:
+  template: bindings-dapr-node-postgres-aca@0.0.1-beta
+services:
+  batch:
+    project: batch
+    language: js
+    host: containerapp
+    module: app/batch-service
 ```
 
 ## Clean up resources
