@@ -160,7 +160,7 @@ Some of the reasons why server state can become *Inaccessible* are:
 
 ## Setup Customer Managed Key during Server Creation
 
-### From Portal
+### From portal
 
 Prerequisites:
 
@@ -216,7 +216,7 @@ az postgres flexible-server create -g <resource_group> -n <postgres_server_name>
 ```
 ## Update Customer Managed Key on the CMK enabled Flexible Server
 
-### From Portal
+### From portal
 
 Prerequisites:
 
