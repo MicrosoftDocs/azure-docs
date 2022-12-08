@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 12/08/2022
 ---
 
 # Disable Data Estate Insights or report refresh
