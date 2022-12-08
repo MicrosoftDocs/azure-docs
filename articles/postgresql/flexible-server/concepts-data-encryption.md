@@ -160,7 +160,7 @@ Some of the reasons why server state can become *Inaccessible* are:
 
 ## Setup Customer Managed Key during Server Creation
 
-### From portal
+### Portal
 
 Prerequisites:
 
@@ -181,7 +181,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 1. Once it's finished, you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
 
 
-### From CLI:
+### CLI:
 
 Prerequisites:
 
@@ -216,7 +216,7 @@ az postgres flexible-server create -g <resource_group> -n <postgres_server_name>
 ```
 ## Update Customer Managed Key on the CMK enabled Flexible Server
 
-### From portal
+### Portal
 
 Prerequisites:
 
@@ -235,7 +235,7 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 1. Select different key by choosing subscription, Key Vault and key from dropdowns provided.
 
 
-### From CLI
+### CLI
 
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
