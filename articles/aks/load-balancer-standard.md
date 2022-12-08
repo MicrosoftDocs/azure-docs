@@ -2,11 +2,12 @@
 title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
+ms.service: container-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 11/14/2020
-ms.author: jpalma
-author: palma21
+ms.author: allensu
+author: asudbring
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---

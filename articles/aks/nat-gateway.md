@@ -1,8 +1,10 @@
 ---
 title: Managed NAT Gateway
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create an AKS cluster with managed NAT integration
-services: container-service
-ms.topic: article
+author: asudbring
+ms.service: container-service
+ms.topic: how-to
 ms.date: 10/26/2021
 ms.author: juda
 ---

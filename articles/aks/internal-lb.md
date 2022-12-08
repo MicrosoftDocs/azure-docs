@@ -2,8 +2,11 @@
 title: Create an internal load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: container-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 03/04/2019
 
 
