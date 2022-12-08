@@ -10,20 +10,24 @@ manager: femila
 ---
 # Create a file share for MSIX app attach
 
-When a user in a host pool accesses MSIX images, they must be stored in a network share with read-only permissions. In this how-to, you'll learn the steps needed to setup a file share for MSIX app attach.
+When a user in a host pool accesses MSIX images, they must be stored in a network share with read-only permissions. In the how-to, you'll learn the steps needed to set up a file share for MSIX app attach.
 
-MSIX app attach doesn't have dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as those for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
+MSIX app attach doesn't have dependencies on the type of storage fabric the file share uses. The considerations for the MSIX app attach share are same as the considerations for an FSLogix share. To learn more about storage requirements, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
 
 ## Performance requirements
 
-MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDX files, as well as the size limitations of the VHD, VHDX or CIM files and the file system.
+MSIX app attach image size limits for your system depend on:
 
-The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
+- The storage type you're using to store the VHD or VHDX files.
+
+- The size limitations of the VHD, VHDX or CIM files and the file system.
+
+The following table gives an example of how many resources a single 1-GB MSIX image with one MSIX app inside of it requires for each VM:
 
 | Resource             | Requirements |
 |----------------------|--------------|
-| Steady state IOPs    | 1 IOPs       |
-| Machine boot sign in | 10 IOPs      |
+| Steady state IOPs    | One IOP      |
+| Machine boot sign-in | 10 IOPs      |
 | Latency              | 400 ms       |
 
 Requirements can vary widely depending how many MSIX-packaged applications are stored in the MSIX image. For larger MSIX images, you'll need to allocate more bandwidth.
@@ -46,7 +50,7 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
     - `<MSIXAppAttachFileShare>.CIM`
     - `\\storageaccount.file.core.windows.net\share**.CIM`
 
-- Separate the storage fabric for MSIX app attach from FSLogix profile containers.
+- Separate the storage fabrics for MSIX app attach from FSLogix profile containers.
 - All VM system accounts and user accounts must have read-only permissions to access the file share.
 - Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md). You'll also need to ensure your file share path is accessible in the secondary location. You can use [Distributed File System (DFS) Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview) to provide a single share name across different file shares. 
 
@@ -54,7 +58,7 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 
 The setup process for MSIX app attach file share is largely the same as [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). However, you'll need to assign users different permissions. MSIX app attach requires read-only permissions to access the file share.
 
-If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session hosts VMs both storage account role-based access control (RBAC) and file share New Technology File System (NTFS) permissions on the share.
+If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session hosts VMs both storage account role-based access permissions and file share New Technology File System (NTFS) permissions on the share.
 
 | Azure object                      | Required role                                     | Role function                                  |
 |-----------------------------------|--------------------------------------------------|-----------------------------------------------|
