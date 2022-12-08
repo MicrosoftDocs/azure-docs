@@ -512,7 +512,7 @@ Now that you've configured the Terminal with Rosetta to run x86 emulation for Py
     ```
 1. Open a new Terminal and choose **rosetta**.
 
-    ![Screenshot of starting a new Rosetta terminal in Visual Studio Code](./media/functions-develop-vs-code/vs-code-rosetta.png)
+    ![Screenshot of starting a new Rosetta terminal in Visual Studio Code.](./media/functions-develop-vs-code/vs-code-rosetta.png)
 
 ## C\# script projects
 
