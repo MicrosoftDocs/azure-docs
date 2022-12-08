@@ -44,4 +44,4 @@ Use the following steps to set up the enterprise application:
 
 ## Next steps
 
-To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
+To create an instance of Datadog, see [QuickStart: Get started with Datadog - An Azure Native ISV Service](create.md).
