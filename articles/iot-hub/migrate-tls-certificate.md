@@ -7,12 +7,12 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 12/08/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
 
-Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023 and completing by September 2023, all IoT hubs in the global Azure cloud will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
+Azure IoT Hub and Device Provisioning Service (DPS) use TLS certificates issued by the Baltimore CyberTrust Root, which expires in 2025. Starting in February 2023, all IoT hubs in the global Azure cloud will migrate to a new TLS certificate issued by the DigiCert Global Root G2.
 
 You should start planning now for the effects of migrating your IoT hubs to the new TLS certificate:
 
@@ -21,7 +21,7 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023**. After all IoT hubs have migrated, then DPS will perform its migration. Both the IoT Hub and DPS migrations will be finished no later than September 2023.
+The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023**. After all IoT hubs have migrated, then DPS will perform its migration.
 
 ### Request an extension
 
@@ -33,7 +33,7 @@ To prepare for the migration, take the following steps before February 2023:
 
 1. Keep the Baltimore CyberTrust Root in your devices' trusted root store and add the DigiCert Global Root G2. You can download both certificates from the [DigiCert trusted root authority](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
-   It's important to have both certificates on your devices until the IoT Hub and DPS migrations are complete in late 2023. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration.
+   It's important to have both certificates on your devices until the IoT Hub and DPS migrations are complete. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration.
 
 2. Make sure that you aren't pinning any intermediate or leaf certificates, and are using the public roots to perform TLS server validation.
 
@@ -43,9 +43,7 @@ For more information about how to test whether your devices are ready for the TL
 
 ## Optional manual IoT hub migration
 
-If you've prepared your devices and are ready for the TLS certificate migration before February 2023, you can manually migrate your certificates yourself.
-
-This manual migration process, and the ability to revert to the previous TLS certificate, is available only until February 15, 2023. After that, migration will be exclusively handled by Microsoft.
+If you've prepared your devices and are ready for the TLS certificate migration before February 2023, you can manually migrate your IoT hub root certificates yourself.
 
 After you migrate to the new root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
 
