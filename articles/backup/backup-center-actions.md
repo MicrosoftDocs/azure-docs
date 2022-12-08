@@ -4,7 +4,7 @@ description: This article explains how to perform actions using Backup center
 ms.topic: how-to
 ms.date: 12/08/2022
 author: v-amallick
-ms.service: backup; site-recovery
+ms.service: backup
 ms.author: v-amallick
 ---
 # Perform actions using Backup center
