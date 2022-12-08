@@ -27,8 +27,9 @@ To get started, you'll need:
 - An Azure AD subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
-- To integrate Nevis into your sign-up policy flow, configure Azure AD B2C environment to use custom policies
-  - See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+
+>[!NOTE]
+>To integrate Nevis into your sign-up policy flow, configure the Azure AD B2C environment to use custom policies. </br>See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ## Scenario description
 
@@ -40,7 +41,7 @@ Add the branded Access app to your back-end application for passwordless authent
 
 The diagram shows the implementation.
 
-![High-level password sign-in flow with Azure AD B2C and Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
+  ![High-level password sign-in flow with Azure AD B2C and Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
 
 1. A user attempts sign-in or sign-up to an application with Azure AD B2C policy.
 2. During sign-up, the Access is registered to the user device using a QR code. A private key is generated on the user device and is used to sign user requests.
@@ -71,13 +72,12 @@ The diagram shows the implementation.
 6. In the side navigation, select **Custom Integrations**.
 7. Select **Add custom integration**.
 8. For **Integration Name**, enter your Azure AD B2C tenant name.
-9. For **URL/Domain**, enter `https://yourtenant.onmicrosoft.com`
+9. For **URL/Domain**, enter `https://yourtenant.onmicrosoft.com`.
 10. Select **Next**
+11. Select **Done**.
 
 >[!NOTE]
 >You'll need the Nevis access token later.
-
-11. Select **Done**.
 
 ### Install Nevis Access on your phone
 
@@ -88,22 +88,22 @@ The diagram shows the implementation.
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 2. Switch to your Azure AD B2C tenant. Note: the Azure AD B2C tenant usually is in a separate tenant.
-3. In the menu, select **Identity Experience Framework (IEF)**
-4. Select **Policy Keys**
+3. In the menu, select **Identity Experience Framework (IEF)**.
+4. Select **Policy Keys**.
 5. Select **Add**.
 6. Create a new key.
 7. For **Options**, select **Manual**.
 8. For **Name**, select **AuthCloudAccessToken**.
 9. For **Secret**, paste the stored **Nevis Access Token**.
 10. For **Key Usage**, select **Encryption**.
-11. Select **Create**
+11. Select **Create**.
 
 ### Configure and upload the nevis.html to Azure blob storage
 
 1. In your Identity Environment (IDE), go to the [/master/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
 2. In [/samples/Nevis/policy/nevis.html](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) open the nevis.html file.
 3. Replace the  **authentication_cloud_url** with the Nevis Admin console URL `https://<instance_id>.mauth.nevis.cloud`.
-4. 4. Select **Save**.
+4. Select **Save**.
 5. [Create an Azure Blob storage account](/customize-ui-with-html.md#2-create-an-azure-blob-storage-account).
 6. Upload the nevis.html file to your Azure blob storage.
 7. [Configure CORS](/customize-ui-with-html.md#3-configure-cors).
