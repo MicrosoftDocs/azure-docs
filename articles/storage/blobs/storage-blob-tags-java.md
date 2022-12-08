@@ -29,7 +29,7 @@ You can set and get index tags if your code has authorized access by using an ac
 
 You can set tags by using the following method:
 
-- [BlobClient.setTags](/java/api/com.azure.storage.blob.specialized.blobclientbase.settags#com-azure-storage-blob-specialized-blobclientbase-settags(java-util-map(java-lang-string-java-lang-string)))
+- [setTags](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The specified tags in this method will replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
@@ -43,7 +43,7 @@ You can delete all tags by passing an empty `Map` object into the `setTags` meth
 
 You can get tags by using the following method: 
 
-- [BlobClient.getTags](/java/api/com.azure.storage.blob.specialized.BlobClientBase#com-azure-storage-blob-specialized-blobclientbase-gettags())
+- [getTags](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The following example shows how to retrieve and iterate over the blob's tags:
 
@@ -58,7 +58,7 @@ You can use index tags to find and filter data if your code has authorized acces
 
 You can find data by using the following method: 
 
-- [BlobServiceClient.findBlobsByTags](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-findblobsbytags(java-lang-string))
+- [findBlobsByTags](/java/api/com.azure.storage.blob.blobcontainerclient)
 
 The following example finds all blobs tagged as an image:
 

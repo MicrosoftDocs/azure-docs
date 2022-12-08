@@ -41,7 +41,7 @@ A copy operation can take any of the following forms:
 
 To copy a blob, use the following method:
 
-[BlobClient.copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-copyfromurl(java-lang-string))
+- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 This method copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger and 256 MB, and must be a public blob or have a SAS token attached.
 
@@ -62,7 +62,7 @@ Source blob lease state: broken
 
 You can also copy a blob using the following method:
 
-- [BlobClient.beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-begincopy(java-lang-string-java-time-duration)).
+- [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token.
 
@@ -78,7 +78,7 @@ Aborting a copy operation results in a destination blob of zero length. However,
 
 To abort a copy operation, use the following method:
 
-- [BlobClient.abortCopyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-abortcopyfromurl(java-lang-string))
+- [BlobClient.abortCopyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The following example stops a pending copy and leaves a destination blob with zero length and metadata:
 

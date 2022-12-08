@@ -23,8 +23,8 @@ When you list blobs from your code, you can specify many options to manage how r
 
 To list the blobs in a storage account, call one of these methods:
 
-- [BlobContainerClient.listBlobs](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobs())
-- [BlobContainerClient.listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobsbyhierarchy(java-lang-string))
+- [listBlobs](/java/api/com.azure.storage.blob.BlobContainerClient)
+- [listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient)
 
 ### Flat listing versus hierarchical listing
 
@@ -78,7 +78,7 @@ When you call a listing operation hierarchically, Azure Storage returns the virt
 
 To list blobs hierarchically, use the following method:
 
-- [BlobContainerClient.listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobsbyhierarchy(java-lang-string-com-azure-storage-blob-models-listblobsoptions-java-time-duration))
+- [listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient)
 
 The following example lists the blobs in the specified container using a hierarchical listing:
 

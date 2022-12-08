@@ -32,7 +32,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 To set properties on a blob, use the following method:
 
-- [BlobClient.setHTTPHeaders](/java/api/com.azure.storage.blob.specialized.blobclientbase.sethttpheaders#com-azure-storage-blob-specialized-blobclientbase-sethttpheaders(com-azure-storage-blob-models-blobhttpheaders))
+- [setHTTPHeaders](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
 
@@ -42,7 +42,7 @@ Any properties not explicitly set are cleared. The following code example first 
 
 To retrieve properties on a blob, use the following method:
 
-- [BlobClient.getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties())
+- [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The following code example gets a blob's system properties and displays some of the values:
 
@@ -52,7 +52,7 @@ The following code example gets a blob's system properties and displays some of 
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs using the following method:
 
-- [BlobClient.setMetadata](/java/api/com.azure.storage.blob.specialized.BlobClientBase#com-azure-storage-blob-specialized-blobclientbase-setmetadata(java-util-map(java-lang-string-java-lang-string))).
+- [setMetadata](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
@@ -62,7 +62,7 @@ The following code example sets metadata on a blob:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java" id="Snippet_AddBlobMetadata":::
 
-To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties()) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata in a single call. This functionality is different from the REST APIs, which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
+To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata in a single call. This functionality is different from the REST APIs, which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 

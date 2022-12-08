@@ -21,8 +21,8 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 To delete a blob, call one of these methods:
 
-- [BlobClient.delete](/java/api/com.azure.storage.blob.specialized.blobclient#com-azure-storage-blob-specialized-blobclientbase-delete())
-- [BlobClient.deleteWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-deletewithresponse(com-azure-storage-blob-models-deletesnapshotsoptiontype-com-azure-storage-blob-models-blobrequestconditions-java-time-duration-com-azure-core-util-context))
+- [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 The following example deletes a blob:
 
@@ -42,7 +42,7 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 To restore deleted blobs, call the following method:
 
-- [BlobClient.undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-undelete())
+- [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
 
