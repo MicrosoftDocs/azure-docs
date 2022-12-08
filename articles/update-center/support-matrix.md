@@ -65,6 +65,7 @@ Europe | North Europe </br> West Europe
 Japan | Japan East
 United Kingdom | UK South
 United States | East US </br> South Central-US </br> West Central-US </br> West US 2 </br> East US 2 </br> North Central-US </br> West US
+
 ---
 
 ## Supported operating systems
