@@ -86,4 +86,4 @@ Stay up to date on Azure Maps:
 
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
-[StyleOptions]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions
+[StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
