@@ -25,7 +25,7 @@ ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps 
 
 ### BGP with ExpressRoute in Virtual WAN
 
-Dynamic routing (BGP) is supported. For more information, please see [Dynamic Route Exchange with ExpressRoute](../expressroute/expressroute-routing.md#dynamic-routing-exchange).The ASN of the ExpressRoute gateway in the hub and ExpressRoute circuit are fixed and can't be edited at this time.
+Dynamic routing (BGP) is supported. For more information, please see [Dynamic Route Exchange with ExpressRoute](../expressroute/expressroute-routing.md#dynamic-route-exchange). The ASN of the ExpressRoute gateway in the hub and ExpressRoute circuit are fixed and can't be edited at this time.
 
 ### ExpressRoute Connection Concepts 
 | Concept | Description |Notes |
