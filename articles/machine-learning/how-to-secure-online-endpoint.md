@@ -211,7 +211,7 @@ To start cretae a resource group, use the following Azure CLI commands. Replace 
 
 ```azurecli
 # create resource group
-az group create --name <Your-resource-group-name> --location <Your-location>
+az group create --name <my-resource-group> --location <Your-location>
 ```
 
 Clone the example files for the deployment, use the following command:
@@ -224,7 +224,7 @@ git clone https://github.com/Azure/azureml-examples
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
 ```azurecli
-az deployment group create --template-file endpoints/online/managed/vnet/setup_ws/main.bicep --parameters suffix=$SUFFIX --resource-group <Your-resource-group-name>
+az deployment group create --template-file endpoints/online/managed/vnet/setup_ws/main.bicep --parameters suffix=$SUFFIX --resource-group <my-resource-group>
 ```
 ### Create the virtual machine jump box
 
