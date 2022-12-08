@@ -2,6 +2,8 @@
 title: Select a Defender for Servers plan
 description: Select a Defender for Servers plan to protect Azure, AWS, GCP servers, and on-premises machines.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/06/2022
 ---
 # Select a Defender for Servers plan
