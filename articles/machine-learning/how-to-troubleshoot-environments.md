@@ -26,16 +26,16 @@ Environments are managed and versioned assets within your Machine Learning works
 
 Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace provisioned. ```
+Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace provisioned.
 
 Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
 These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes, BYOC (bring your own container) – a Docker image user brings to AzureML and Docker build context based environment where AzureML materializes the image from the user provided content.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), the user brings a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the user provided content.
 
-You use system-managed environments when you want conda to manage the Python environment for you.
+System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
 Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
 
@@ -47,13 +47,13 @@ You can create and manage environments from clients like AzureML Python SDK, Azu
 They won't be listed but may be retrieved by version or label.
 
 AzureML builds environment definitions into Docker images.
-It also caches the environments in Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
+It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
 Multiple environments with the same definition may result the same image, so the cached image will be reused.
 Running a training script remotely requires the creation of a Docker image.
 
 ## Reproducibility and vulnerabilities
 
-Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by the scanning tools.
+Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by scanning tools.
 Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
 It's your responsibility to evaluate the threat and address vulnerabilities in environments.
 Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
