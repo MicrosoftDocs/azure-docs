@@ -57,7 +57,7 @@ As shown in the example, the partitions (0 and 1) that have a high watermark del
 
 Streaming nodes that process partitions with higher data skew will exhibit higher CPU and/or streaming unit (SU) utilization. This utilization will affect the job's performance and increase watermark delay. To mitigate this, you need to repartition your input data more evenly.
 
-You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the uneven distributed input events (data-skew)](stream-analytics-job-physical-diagram-with-metrics#identify-the-uneven-distributed-input-events-data-skew).
+You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the uneven distributed input events (data-skew)](./stream-analytics-job-physical-diagram-with-metrics.md#identify-the-uneven-distributed-input-events-data-skew).
 
 ## Overloaded CPU or memory increases watermark delay
 
@@ -86,7 +86,7 @@ You might want to reduce the partition count for each streaming node to reduce t
 
 What should you do if the watermark delay is still increasing when one streaming node is handling data from one partition? Repartition your input with more partitions to reduce the amount of data in each partition. For details, see [Use repartitioning to optimize Azure Stream Analytics jobs](./repartition.md).
 
-You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the cause of overloaded CPU or memory](stream-analytics-job-physical-diagram-with-metrics#identify-the-cause-of-overloaded-cpu-or-memory).
+You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the cause of overloaded CPU or memory](./stream-analytics-job-physical-diagram-with-metrics.md#identify-the-cause-of-overloaded-cpu-or-memory).
 
 ## Next steps
 
