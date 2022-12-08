@@ -57,7 +57,7 @@ To enable File Integrity Monitoring (FIM), use the FIM recommendation to select 
    
 You can update the DCR and Log Analytics workspace settings later.
    
- 4. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
+ 1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
     :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
 
