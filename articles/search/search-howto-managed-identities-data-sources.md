@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -189,7 +189,7 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
 1. Select **Add role assignment**.
 
-1. On the **Role** page, choose a role:
+1. On the **Role** page, select the roles needed for your search service. Recall that roles are cumulative. Choose only what you need, but you can select all of them for full access to integrated features:
 
    | Role | Usage |
    |------|-------|

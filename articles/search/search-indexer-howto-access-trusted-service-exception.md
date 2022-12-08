@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 12/08/2022
 ---
 
 # Make indexer connections to Azure Storage as a trusted service
@@ -23,9 +23,9 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 + Content in Azure Blob Storage or Azure Data Lake Storage Gen2 (ADLS Gen2) that you want to index or enrich.
 
-+ Optionally, containers or tables in Azure Storage for AI enrichment write-back operations, such as creating a knowledge store, debug session, or enrichment cache.
++ An Azure role assignment in Azure Storage that grants permissions to the search service system-assigned managed identity. A system managed identity is an Azure AD login. The assignment needs **Storage Blob Data Reader** at a minimum.
 
-+ An Azure role assignment. A system managed identity is an Azure AD login. It needs either a **Storage Blob Data Reader** or **Storage Blob Data Contributor** role assignment, depending on whether write access is needed. 
+  The role assignment also needs **Storage Blob Data Contributor** if write access is required. Features that require write access include [enrichment caching](cognitive-search-incremental-indexing-conceptual.md), [debug sessions](cognitive-search-debug-session.md), and [knowledge store](knowledge-store-concept-intro.md).
 
 > [!NOTE]
 > In Cognitive Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
