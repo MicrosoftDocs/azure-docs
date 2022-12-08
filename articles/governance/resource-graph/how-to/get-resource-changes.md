@@ -118,9 +118,9 @@ or `-Subscription` parameters respectively.
    about the query, including the count of results and duration of the query. Any errors are
    displayed under this tab.
 
-2. Update the query to specify a more user-friendly column name for the **timestamp** property:
-
 ---
+
+2. Update the query to specify a more user-friendly column name for the **timestamp** property:
 
 # [Azure CLI](#tab/azure-cli)
    ```azurecli
