@@ -3,7 +3,7 @@ title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Ser
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/30/2022
+ms.date: 12/07/2022
 author: mgoedtel
 
 ---
@@ -42,18 +42,18 @@ The following are the high-level steps that need to be performed to successfully
 
 3. Gets all the PVs using the in-tree storage class.
 
-4. Creates a new PersistentVolume with name `Existing PersistentVolume-csi` for all PV in namespaces for given storage class in step 3.
+4. Creates a new PersistentVolume with name `Existing PV-csi` for all PV in namespaces for the storage class in step 3.
 
     * Configure new PVC name as `Existing PVC-csi`.
 
 5. Creates a new PVC with PV name specified in step 4.
 
-    * `volumeName: pvName`
+    * `volumeName: Existing PV-csi`
     * `storageClassName: storageClassName`
 
 6. Updates the application (deployment/StatefulSet) to refer to new PVC.
 
-7. Verify the application and deletes the PVC and PV based on the in-tree storage class.
+7. Verifies the application and deletes the PVC and PV based on the in-tree storage class.
 
 The benefits of this approach are:
 
@@ -69,7 +69,13 @@ The following are important considerations to evaluate:
 
 ### Migration steps
 
-1. Patch the existing PV `ReclaimPolicy` from **Delete** to **Retain**.
+1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
+
+   ```bash
+   kubectl patch pv pvName -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+   ```
+
+    Replace **pvName** with the name of your selected PersistentVolume.
 
 2. Create new PV. First get a list of all of the PVCs in namespace sorted by **creationTimestamp**.  
 
