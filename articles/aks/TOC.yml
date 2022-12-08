@@ -366,16 +366,16 @@
               href: configure-kubenet.md
             - name: Use kubenet with dual-stack networking
               href: configure-kubenet-dual-stack.md
-            - name: Use Azure-CNI
-              href: configure-azure-cni.md
-            - name: Use Azure-CNI Overlay (Preview)
-              href: azure-cni-overlay.md
         - name: CNI
           items:
             - name: Bring your own CNI
               href: use-byo-cni.md
             - name: Use Azure CNI Powered by Cilium (Preview)
               href: azure-cni-powered-by-cilium.md
+            - name: Use Azure-CNI
+              href: configure-azure-cni.md
+            - name: Use Azure-CNI Overlay (Preview)
+              href: azure-cni-overlay.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label

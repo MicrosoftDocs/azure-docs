@@ -42,7 +42,7 @@ Some conditions are associated with the migration process. Familiarize yourself 
 
 To migrate your Service Bus standard namespace to premium by using the Azure CLI or PowerShell tool, follow these steps.
 
-1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select **premium** for the **serviceBusSku** parameter.
+1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal). Be sure to select **premium** for the **serviceBusSku** parameter.
 
 1. Set the following environment variables to simplify the migration commands.
 

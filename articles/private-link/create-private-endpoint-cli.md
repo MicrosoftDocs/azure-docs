@@ -48,6 +48,16 @@ az group create \
     --location eastus
 ```
 
+## Create a DDoS protection plan
+
+Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+
+```azurecli-interactive
+az network ddos-protection create \
+    --resource-group CreatePrivateEndpointQS-rg  \
+    --name myDDoSPlan
+```
+
 ## Create a virtual network and bastion host
 
 A virtual network and subnet is required for to host the private IP address for the private endpoint. You'll create a bastion host to connect securely to the virtual machine to test the private endpoint. You'll create the virtual machine in a later section.
@@ -61,7 +71,9 @@ az network vnet create \
     --name myVNet \
     --address-prefixes 10.0.0.0/16 \
     --subnet-name myBackendSubnet \
-    --subnet-prefixes 10.0.0.0/24
+    --subnet-prefixes 10.0.0.0/24 \
+    --ddos-protection-plan myDDoSPlan \
+    --ddos-protection true
 ```
 
 Create a bastion subnet with **[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)**.
@@ -102,6 +114,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
 A private endpoint can have a static or dynamically assigned IP address.
+
 > [!IMPORTANT]
 > You must have a previously deployed Azure WebApp to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites) .
 
@@ -236,6 +249,15 @@ Use the VM you created in the previous step to connect to the webapp across the 
    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
+
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivateEndpointQS-rg
+```
 
 ## Next steps
 
