@@ -38,12 +38,15 @@ As a Python developer, you might also be interested in one of the following arti
 
 Both Python Functions programming models support local development in one of the following enviroments:
 
-| Environment | Programming model | Get started |
-| --- | --- | --- |
-| Visual Studio Code | v2 | [Create your first Python function](./create-first-function-vs-code-python.md?pivots=python-mode-decorators) |
-| Visual Studio Code | v1 | [Create your first Python function](./create-first-function-vs-code-python.md?pivots=python-mode-configuration) |
-| Command prompt | v2 | [Create your first Python function](./create-first-function-cli-python.md?pivots=python-mode-decorators)|
-| Command prompt | v1 | [Create your first Python function](./create-first-function-cli-python.md?pivots=python-mode-configuration)|
+Python v2 programming model:
+
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
+
+Python v1 programming model:
+
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
 You can also create Python v1 functions in the Azure portal.
 
