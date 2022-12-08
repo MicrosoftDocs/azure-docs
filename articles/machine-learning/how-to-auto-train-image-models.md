@@ -270,90 +270,6 @@ For computer vision tasks, you can launch either [individual runs](#individual-r
 
 Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
-## Automatically sweeping model hyperparameters (AutoMode)
-
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of runs and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
-
-### Triggering AutoMode
-
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an example below.
-
-# [Azure CLI](#tab/cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-```yaml
-limits:
-  max_trials: 10
-  max_concurrent_trials: 2
-```
-
-# [Python SDK](#tab/python)
-
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-```python
-image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2)
-```
----
-
-A number of runs between 10 and 20 will likely work well on many datasets. The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
-
-> [!Warning]
-> Launching automatic sweeps via the UI is not supported at this time.
-
-
-## Individual runs
-
-In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is passed via the `model_name` parameter.
-
-### Supported model algorithms
-
-The following table summarizes the supported models for each computer vision task.
-
-Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
----|----------|----------
-Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
-Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
-Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
-
-
-In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
-
-# [Azure CLI](#tab/cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name key in the training_parameters section. For example,
-
-```yaml
-training_parameters:
-    model_name: yolov5
-```
-# [Python SDK](#tab/python)
-
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name parameter in the set_training_parameters method of the task specific `automl` job. For example,
-
-```python
-image_object_detection_job.set_training_parameters(model_name="yolov5")
-```
----
-
-### Data augmentation 
-
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
-
-|Task | Impacted dataset | Data augmentation technique(s) applied |
-|-------|----------|---------|
-|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
-|Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
-|Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
-
 ### Primary metric
 
 The primary metric used for model optimization and hyperparameter tuning depends on the task type. Using other primary metric values is currently not supported. 
@@ -392,7 +308,81 @@ limits:
 
 ---
 
-## Manually sweeping model hyperparameters
+### Automatically sweeping model hyperparameters (AutoMode)
+
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of runs and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
+
+#### Triggering AutoMode
+
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an example below.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+limits:
+  max_trials: 10
+  max_concurrent_trials: 2
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2)
+```
+---
+
+A number of runs between 10 and 20 will likely work well on many datasets. The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
+
+> [!Warning]
+> Launching automatic sweeps via the UI is not supported at this time.
+
+
+### Individual runs
+
+In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is passed via the `model_name` parameter.
+
+#### Supported model algorithms
+
+The following table summarizes the supported models for each computer vision task.
+
+Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
+---|----------|----------
+Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
+Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
+Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
+
+
+In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name key in the training_parameters section. For example,
+
+```yaml
+training_parameters:
+    model_name: yolov5
+```
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name parameter in the set_training_parameters method of the task specific `automl` job. For example,
+
+```python
+image_object_detection_job.set_training_parameters(model_name="yolov5")
+```
+---
+
+### Manually sweeping model hyperparameters
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance. For computer vision tasks, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
 
@@ -436,7 +426,7 @@ search_space:
 
 ---
 
-### Define the parameter search space
+#### Define the parameter search space
 
 You can define the model algorithms and hyperparameters to sweep in the parameter space. You can either specify a single model algorithm or multiple ones. 
 
@@ -444,7 +434,7 @@ You can define the model algorithms and hyperparameters to sweep in the paramete
 * See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
 * See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
-### Sampling methods for the sweep
+#### Sampling methods for the sweep
 
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `sampling_algorithm` parameter:
 
@@ -457,7 +447,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 > [!NOTE]
 > Currently only random and grid sampling support conditional hyperparameter spaces.
 
-### Early termination policies
+#### Early termination policies
 
 You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the `early_termination` parameter. If no termination policy is specified, all configurations are run to completion.
 
@@ -498,8 +488,7 @@ sweep:
 
 ---
 
-
-### Fixed settings
+#### Fixed settings
 
 You can pass fixed settings or parameters that don't change during the parameter space sweep as shown below.
 
@@ -522,6 +511,16 @@ training_parameters:
 
 
 ---
+
+## Data augmentation 
+
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
+
+|Task | Impacted dataset | Data augmentation technique(s) applied |
+|-------|----------|---------|
+|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
+|Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
+|Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
 ##  Incremental training (optional)
 
