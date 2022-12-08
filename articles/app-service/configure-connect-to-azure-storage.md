@@ -104,19 +104,16 @@ The following features are supported for Linux containers:
 - Azure blobs are not supported when configuring Azure storage mounts for Windows code apps deployed to App Service.
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `/mounts`, `mounts/foo/bar`, `/`, and `/mounts/foo.bar/` to custom-mounted storage is not supported (you can only use /mounts/pathname for mounting custom storage to your web app.)
-- Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
 ::: zone-end
 
 ::: zone pivot="container-windows"
 
-- Storage mounts are not supported for native Windows (non-containerized) apps.
 - Azure blobs are not supported.
 - [Storage firewall](../storage/common/storage-network-security.md) is supported only through [private endpoints](../storage/common/storage-private-endpoints.md) and [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) (when [VNET integration](./overview-vnet-integration.md) is used).
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage is not supported.
-- Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 
 > [!NOTE]
@@ -126,13 +123,12 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-linux"
 
-- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
+- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](./overview-vnet-integration.md) is used).
 - FTP/FTPS access to custom-mounted storage is not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
 - Mapping `/` or `/home` to custom-mounted storage is not supported.
 - Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
 - Azure Storage is not supported with [Docker Compose Scenarios](configure-custom-container.md?pivots=container-linux#docker-compose-options)
-- Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 - Only Azure Files [SMB](../storage/files/files-smb-protocol.md) are supported.  Azure Files [NFS](../storage/files/files-nfs-protocol.md) is not currently supported for Linux App Services.
 
@@ -245,7 +241,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 ::: zone pivot="code-windows"
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
 
-- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
 
     1. Regenerate **key2**. 
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
