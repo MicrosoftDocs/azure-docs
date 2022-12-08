@@ -22,8 +22,8 @@ You have access to diagnostic data in these categories:
 
 | Category | Description | Examples |
 |--|--|--|
-| Availability and performance | Health and performance data | Service down, platform health |
-| Configuration and Management | Application configuration data | Configuration, management, authentication |
+| Availability and performance | Health and performance data | Service uptime, site hits, platform health |
+| Configuration and Management | Application configuration data | Configuration of Static Web App features, custom authentication information |
 | Content Deployment | Content deployment data | Deployments |
 
 ## View diagnostics
@@ -36,8 +36,8 @@ From the diagnostics window you can filter diagnostic categories, or select one 
 
 ## Reports
 
-Selecting an issue reveals a series of visualization for the diagnostic data.
-
+Selecting a detector reveals a series of visualization for the diagnostic data.
+The following is an example of the Availability and Performance report.
 :::image type="content" source="media/diagnotics-overview/azure-static-web-apps-diagnostics-chart.png" alt-text="Screenshot of Azure Static Web Apps diagnostics chart.":::
 
 ## Next steps
