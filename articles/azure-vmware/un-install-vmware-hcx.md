@@ -32,3 +32,5 @@ After uninstalling HCX, it no longer has the vCenter Server plugin. If required,
 >[Configure VMware HCX in Azure VMware Solution](configure-vmware-hcx.md) 
 
 >[VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
+
+> [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md)
