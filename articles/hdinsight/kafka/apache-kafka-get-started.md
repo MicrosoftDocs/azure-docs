@@ -46,8 +46,8 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
     |Region    | From the drop-down list, select a region where the cluster is created.  Choose a region closer to you for better performance. |
     |Cluster type| Select **Select cluster type** to open a list. From the list, select **Kafka** as the cluster type.|
     |Version|The default version for the cluster type will be specified. Select from the drop-down list if you wish to specify a different version.|
-    |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
-    |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
+    |Cluster login username and password    | The default login name is `admin`. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lowercase letter, one non-alphanumeric character (except characters ```' ` "```). Make sure you **do not provide** common passwords such as `Pass@word1`.|
+    |Secure Shell (SSH) username | The default username is `sshuser`.  You can provide another name for the SSH username. |
     |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-basics.png" alt-text="Azure portal create cluster basics" border="true":::

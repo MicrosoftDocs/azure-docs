@@ -145,7 +145,7 @@
 
 - name: Recommendations
   items:
-    - name: Convert to conditional access MFA
+    - name: Convert to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md

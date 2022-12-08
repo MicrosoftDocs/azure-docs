@@ -23,12 +23,6 @@ Once you have a model you like, you register it with the workspace. You then use
 
 ## Taxonomy 
 
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
-
-The diagram shows the following components of a workspace:
-
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
@@ -139,6 +133,7 @@ To get started with Azure Machine Learning, see:
 
 + [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
++ [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

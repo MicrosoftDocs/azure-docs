@@ -2,7 +2,9 @@
 title: Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 03/08/2022
+author: bmansheim
+ms.author: benmansheim
+ms.date: 10/23/2022
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -108,10 +110,13 @@ For information about when recommendations are generated for each of these solut
 | McAfee v10+                                                         | Windows Server (all)         | No                              |
 | McAfee v10+                                                         | Linux (GA)                   | No                              |
 | Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA)                   | Via extension                   |
+| Microsoft Defender for Endpoint Unified Solution<sup>[2](#footnote2)</sup>                    | Windows Server 2012 R2 and Windows 2016 | Via extension                   |
 | Sophos V9+                                                          | Linux (GA)                   | No                              |
 
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
+
+<sup><a name="footnote2"></a>2</sup> With the MDE unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
 
 
 
@@ -129,7 +134,7 @@ For information about when recommendations are generated for each of these solut
 | - [Deployment of agents and extensions](monitoring-components.md)                                                                                  | GA             | GA                             | GA                             |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
-| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | Not Available                  | Not Available                  |
+| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | GA                  | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
@@ -151,7 +156,7 @@ For information about when recommendations are generated for each of these solut
 | - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [File Integrity Monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
 | - [Adaptive application controls](./adaptive-application-controls.md)                                                                                         | GA             | GA                             | GA                             |
-| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | Not Available                  | Not Available                  |
+| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | GA                 | Not Available                  |
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                           | GA             | GA                             | GA                             |
 | - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                                          | GA             | Not Available                  | Not Available                  |
 | - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                                | GA             | GA                             | GA                             |

@@ -130,7 +130,7 @@ Using single device provisioning, you'll need to manually enter provisioning inf
 
 Provisioning devices at-scale refers to provisioning one or more IoT Edge devices with the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). You'll see provisioning at-scale also referred to as **autoprovisioning**.
 
-If your IoT Edge solution requires more than one device, autoprovisioning using DPS saves you the effort of manually entering provisioning information into the configuration files of each device. This automated model can be scaled to millions of IoT Edge devices. You can see the automated provisioning flow in the [Behind the scenes section of IoT Hub DPS overview page](../iot-dps/about-iot-dps.md#behind-the-scenes).
+If your IoT Edge solution requires more than one device, autoprovisioning using DPS saves you the effort of manually entering provisioning information into the configuration files of each device. This automated model can be scaled to millions of IoT Edge devices.
 
 You can secure your IoT Edge solution with the authentication method of your choice. **Symmetric key**, **X.509 certificates**, and **trusted platform module (TPM) attestation** authentication methods are available for provisioning devices at-scale. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
 
@@ -140,7 +140,7 @@ To see more of the features of DPS, see the [Features section of the overview pa
 
 ### X.509 certificate attestation
 
-Using X.509 certificates as an attestation mechanism is the recommended way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final "leaf" certificate installed on a device. 
+Using X.509 certificates as an attestation mechanism is the recommended way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final downstream device certificate installed on a device. 
 
 You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint. The X.509 keys on the device should be stored in a Hardware Security Module (HSM). For example, PKCS#11 modules, ATECC, dTPM, etc.
 

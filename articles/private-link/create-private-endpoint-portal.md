@@ -1,11 +1,12 @@
 ---
 title: 'Quickstart: Create a private endpoint by using the Azure portal'
+titleSuffix: Azure Private Link
 description: In this quickstart, you'll learn how to create a private endpoint by using the Azure portal.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 12/06/2022
 ms.author: allensu
 ms.custom: mode-ui
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -29,9 +30,28 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
+## Create a DDoS protection plan
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
+
+3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
+
+    | Setting | Value |
+    |--|--|
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myDDoSPlan**. |
+    | Region | Select **West Europe**. |
+
+4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
+
 ## Create a virtual network and bastion host
 
-Start by creating a virtual network, subnet, and bastion host. 
+Create a virtual network, subnet, and bastion host. 
 
 You use the bastion host to connect securely to the VM for testing the private endpoint.
 
@@ -51,7 +71,6 @@ You use the bastion host to connect securely to the VM for testing the private e
     | **Instance details** |  |
     | Name | Enter **myVNet**. |
     | Region | Select **West Europe**. |
-
 
 5. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
@@ -81,12 +100,14 @@ You use the bastion host to connect securely to the VM for testing the private e
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-13. Select the **Review + create** tab or select the **Review + create** button.
+13. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
 
-14. Select **Create**.
+14. Select the **Review + create** tab or select the **Review + create** button.
+
+15. Select **Create**.
     
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
@@ -111,7 +132,7 @@ Next, create a VM that you can use to test the private endpoint.
     | Region                         | Select **West Europe**.                           |
     | Availability options           | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image                          | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Image                          | Select **Windows Server 2022 Datacenter - Gen2**. |
     | Size                           | Select the VM size or use the default setting.    |
     | **Administrator account** |                                                   |
     | Username                       | Enter a username.                                 |
@@ -184,7 +205,7 @@ Next, you create a private endpoint for the web app that you created in the "Pre
     | **Networking** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **myVNet/mySubnet (10.1.0.0/24)**. |
-    | Enable network policies for all private endpoints in this subnet. | Select the checkbox if you plan to apply Application Security Groups or Network Security groups to the subnet that contains the private endpoint. </br> For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
+    | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
 # [**Dynamic IP**](#tab/dynamic-ip)
 
@@ -214,7 +235,7 @@ Next, you create a private endpoint for the web app that you created in the "Pre
 
 ## Test connectivity to the private endpoint
 
-Use the VM that you created earlier to connect to the web app across the private endpoint.
+Use the virtual machine that you created earlier to connect to the web app across the private endpoint.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
@@ -271,7 +292,9 @@ If you're not going to continue to use this web app, delete the virtual network,
 In this quickstart, you created:
 
 * A virtual network and bastion host
+
 * A virtual machine
+
 * A private endpoint for an Azure web app
 
 You used the VM to test connectivity to the web app across the private endpoint.

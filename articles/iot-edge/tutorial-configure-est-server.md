@@ -130,17 +130,17 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 
 Each device requires the Certificate Authority (CA) certificate that is associated to a device identity certificate.
 
-1. On the IoT Edge device, create the `/var/secrets` directory if it doesn't exist then change directory to it.
+1. On the IoT Edge device, create the `/var/aziot` directory if it doesn't exist then change directory to it.
 
     ```bash
-    # Create the /var/secrets directory if it doesn't exist
-    sudo mkdir /var/secrets
+    # Create the /var/aziot/certs directory if it doesn't exist
+    sudo mkdir -p /var/aziot/certs
 
-    # Change directory to /var/secrets
-    cd /var/secrets
+    # Change directory to /var/aziot/certs
+    cd /var/aziot/certs
     ```
 
-1. Retrieve the CA certificate from the EST server into the `/var/secrets` directory and name it `cacert.crt.pem`.
+1. Retrieve the CA certificate from the EST server into the `/var/aziot/certs` directory and name it `cacert.crt.pem`.
 
     ```bash
     openssl s_client -showcerts -verify 5 -connect localhost:8085 < /dev/null | sudo awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".pem"; print >out}' && sudo cp cert2.pem cacert.crt.pem
@@ -149,7 +149,7 @@ Each device requires the Certificate Authority (CA) certificate that is associat
 1. Certificates should be owned by the key service user **aziotks**. Set the ownership to **aziotks** for all the certificate files.
 
     ```bash
-    sudo chown aziotks:aziotks /var/secrets/*.pem
+    sudo chown aziotks:aziotks /var/aziot/certs/*.pem
     ```
 
 ## Provision IoT Edge device using DPS
@@ -159,7 +159,7 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 ### Upload CA certificate to DPS
 
 1. If you don't have a Device Provisioning Service linked to IoT Hub, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
-1. Transfer the `cacert.crt.pem` file from your device to a computer with access to the Azure portal such as your development computer. An easy way to transfer the certificate is to remotely connect to your device, display the certificate using the command `cat /var/secrets/cacert.crt.pem`, copy the entire output, and paste the contents to a new file on your development computer.
+1. Transfer the `cacert.crt.pem` file from your device to a computer with access to the Azure portal such as your development computer. An easy way to transfer the certificate is to remotely connect to your device, display the certificate using the command `cat /var/aziot/certs/cacert.crt.pem`, copy the entire output, and paste the contents to a new file on your development computer.
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 1. Under **Settings**, select **Certificates**, then **+Add**.
 
@@ -233,7 +233,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     # Optional if the EST server's TLS certificate is already trusted by the system's CA certificates.
     [cert_issuance.est]
         trusted_certs = [
-            "file:///var/secrets/cacert.crt.pem",
+            "file:///var/aziot/certs/cacert.crt.pem",
         ]
 
     # The default username and password for libest

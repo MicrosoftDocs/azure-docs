@@ -47,7 +47,7 @@ sections:
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
       - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support). It's a free 12-month trial in Azure VMware Solution.
+        answer: VMware HCX Enterprise is availble on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
@@ -116,7 +116,7 @@ sections:
         answer: Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter Server [vMotion requirements](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) are met.
           
       - question: Is a specific version of vSphere required in on-premises environments?
-        answer: The on-premises environment must be running vSphere 6.0 or later if VMware HCX will be used to migrate VMs.
+        answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
 
       - question: Is VMware HCX supported on VPNs?
         answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
@@ -207,7 +207,7 @@ sections:
         answer: No. 
 
       - question: Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
-        answer: No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
+        answer: No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or Virtual Machine Scale Set objects in which Azure VMware Solution VMs aren't Azure objects.
 
       - question: Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
         answer: Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
@@ -232,9 +232,6 @@ sections:
           - With a VM or application gateway deployed on an Azure virtual network that is peered through ExpressRoute to the private cloud.
           - Through ExpressRoute Global Reach from your on-premises data center to an Azure ExpressRoute circuit.
           
-      - question: Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
-        answer: Currently, the only supported method for VMware HCX is through ExpressRoute.
-
       - question: How do I connect a workload VM to the internet or an Azure service endpoint?
         answer: |
           In the Azure portal, enable internet connectivity for a private cloud. With NSX-T Manager, create an NSX-T Data Center T1 gateway and a logical switch. You then use vCenter Server to deploy a VM on the network segment defined by the logical switch. That VM has network access to the internet and Azure services.
@@ -244,7 +241,7 @@ sections:
           > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
-        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-internet-access.md) option in your Azure portal for your Azure VMware Solution private cloud.
+        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-ip-nsx-edge.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: Yes. You'll need to use NSX-T Manager to create a firewall to restrict VM access to the internet.
@@ -283,7 +280,7 @@ sections:
         answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
-        answer: No, you can't change the name of datastores or clusters. The cluster name is configurable through non-portal deployment mechanisms for non-primary clusters.
+        answer: No, you can't change the name of datastores or clusters.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: RAID-1, FTT-1, with Object Space reservation set to Thin Provisioning is the Default Storage policy for the software-defined datacenters (SDDCs).

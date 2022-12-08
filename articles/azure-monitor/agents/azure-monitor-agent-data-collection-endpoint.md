@@ -4,7 +4,7 @@ description: Define network settings and enable network isolation for Azure Moni
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 10/14/2022
+ms.date: 11/01/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -23,7 +23,7 @@ Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-
 |------|------|------|---------|--------|--------|------|
 | Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes | - |
 | Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes | westus2.handler.control.monitor.azure.com |
-| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opsinsights.azure.com
+| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
 | Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
 | Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
@@ -54,37 +54,35 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 ---

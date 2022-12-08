@@ -40,7 +40,7 @@ In this step, we'll create a service that filters packets based on their protoco
 
 To create the service:
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
@@ -353,7 +353,7 @@ Let's create the SIM policies.
     |Field  |Value  |
     |---------|---------|
     |**Slice**     | Select **(Default) slice-1**         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
@@ -414,7 +414,7 @@ Let's create the SIM policies.
     |Field  |Value  |
     |---------|---------|
     |**Slice**     | Select **slice-1 (Default)**         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_blocking_udp_from_specific_sources** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |

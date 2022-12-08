@@ -4,7 +4,7 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
-  - name: Platform updates
+  - name: What's new
     href: azure-vmware-solution-platform-updates.md
 - name: Get started
   items:
@@ -14,10 +14,12 @@
     href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install the VMware HCX Connector
+  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -180,6 +182,8 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Send logs to log analytics
+    href: send-logs-to-log-analytics.md
   - name: Partner solution ecosystem
     items:
     - name: Operating system support for VMs
@@ -196,6 +200,8 @@
       href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
+    - name: Send logs to Log Analytics
+      href: send-logs-to-log-analytics.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
@@ -214,8 +220,8 @@
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade the VMware HCX appliance
-      href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
+    - name: Upgrade HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
 - name: Resources
   items:
   - name: Learning paths
