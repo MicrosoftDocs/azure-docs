@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.date: 12/08/2022
 ms.author: jasteppe
 ---
 
