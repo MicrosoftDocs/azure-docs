@@ -142,6 +142,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
         ```console
+        sudo -i
         echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
         #cloud-config
@@ -160,6 +161,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
           - ["ephemeral0.1", "/mnt"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
+        exit
         ```
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
@@ -263,18 +265,18 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
     ```
 
-11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+11. Ensure the Azure Linux Agent runs at startup:
+
+    ```console
+    sudo systemctl enable waagent.service
+    ```
+
+12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
     sudo waagent -force -deprovision
     export HISTSIZE=0
     logout
-    ```
-
-12. Ensure the Azure Linux Agent runs at startup:
-
-    ```console
-    sudo systemctl enable waagent.service
     ```
 
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
