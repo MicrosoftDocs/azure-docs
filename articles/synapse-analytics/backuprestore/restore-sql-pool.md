@@ -216,17 +216,17 @@ The following PowerShell script for cross-tenant restore works in the same way a
  
 Steps:
 
-1.    Open a PowerShell terminal.
-1.    Update Az.Sql Module to 3.8.0 (or greater) using `Update-Module`.
-1.    Connect to your Azure account using `Connect-AzAccount`. 
-1.    List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the dedicated SQL pool to be restored.
-1.    List the restore points for the dedicated SQL pool using `Get-AzSynapseSqlPoolRestorePoint`.
-1.    Pick the desired restore point, setting the variable `$PointInTime`.
-1.    In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
-1.    Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
-1.    Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
-1.    Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
-1.    If the desired destination is a Synapse workspace, uncomment the code to perform the additional restore step.
+1. Open a PowerShell terminal.
+1. Update Az.Sql Module to 3.8.0 (or greater) using `Update-Module`.
+1. Connect to your Azure account using `Connect-AzAccount`. 
+1. List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the dedicated SQL pool to be restored.
+1. List the restore points for the dedicated SQL pool using `Get-AzSynapseSqlPoolRestorePoint`.
+1. Pick the desired restore point, setting the variable `$PointInTime`.
+1. In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
+1. Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
+1. Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
+1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
+1. If the desired destination is a Synapse workspace, uncomment the code to perform the additional restore step.
     1. Create a restore point for the newly created data warehouse.
     1. Retrieve the last restore point created by using the `Select -Last 1` syntax.
     1. Perform the restore to the desired Azure Synapse workspace.
