@@ -20,7 +20,7 @@ See below for information about new features and other changes to the Map Contro
 
 - Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
-- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221-december-9-2022).
+- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221-december-9-2022).
 
 ### Bug Fixes
 
@@ -32,7 +32,20 @@ See below for information about new features and other changes to the Map Contro
 
 ### New Features
 
-- This update is the first preview of the upcoming 3.0.0 release. There's no breaking change except that the underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, which offers improvements in stability and performance.
+- This update is the first preview of the upcoming 3.0.0 release. There's no breaking change except that the underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, which offers improvements in stability and performance. The preview is available on npm and CDN.
+
+  - Install [azure-maps-control@next][azure-maps-control] to your dependencies:
+    ```shell
+    npm i azure-maps-control@next
+    ```
+
+  - Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0/atlas.min.js"></script>
+    ```
+
+
 
 ### Bug Fixes
 
@@ -47,7 +60,7 @@ See below for information about new features and other changes to the Map Contro
 
 ### New Features
 
-- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to StyleOptions to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map.
+- Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map.
   - `progressiveLoading`
     - Enables progressive loading of map layers.
     - Defaults to false.
@@ -71,4 +84,6 @@ Stay up to date on Azure Maps:
 
 [Azure Maps Blog](https://techcommunity.microsoft.com/t5/azure-maps-blog/bg-p/AzureMapsBlog)
 
+[azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
+[StyleOptions]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions
