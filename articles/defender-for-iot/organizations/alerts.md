@@ -96,6 +96,40 @@ Alert management across all interfaces functions as follows:
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
+<!--
+You can suppress alerts by either muting them or creating alert exclusion rules. This section describes potential use cases for both features.
+
+- **Exclusion rule**. Write an exclusion rule when:
+
+  - You know ahead of time that you want to exclude the event from the database. For example, you know that the scenario detected at a certain sensor will trigger irrelevant alerts. For example, you'll be carrying out maintenance work on organizational PLCs on a specific site and want to suppress alerts related to PLCs for this site.
+
+  - You want Defender for IoT to ignore events for a specific range of time (for system maintenance tasks).
+
+  - You want to ignore events in a specific subnet.
+
+  - You want to control alert events generated from several sensors with one rule.
+
+  - You don't want to track the alert exclusion as an event in the event log.
+
+- **Mute**. Mute an alert when:
+
+  - Items that need to be muted are not planned. You don't know ahead of time which events will be irrelevant.
+
+  - You want to suppress the alert from the **Alerts** window, but you still want to track it in the event log.
+
+  - You want to ignore events on a specific channel.
+
+- Time zones and time periods
+
+- Device address (IP, MAC, subnet)
+
+- Alert names
+
+- A specific sensor
+
+Create alert exclusion rules when you want Defender for IoT to ignore activity that will trigger an alert.
+-->
+
 ## Accelerating OT alert workflows
 
 **Admin** users on an OT network sensor can use the following options to help their SOC and OT management teams triage and remediate alerts faster:
