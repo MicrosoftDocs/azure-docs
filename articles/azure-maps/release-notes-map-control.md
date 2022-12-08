@@ -14,11 +14,11 @@ services: azure-maps
 
 See below for information about new features and other changes to the Map Control.
 
-## 3.0.0-preview.2 (December 9, 2022)
+## [3.0.0-preview.2](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2) (December 9, 2022)
 
 ### New Features
 
-- Add `trafficSpeedAnimation` to TrafficOptions to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
+- Add `trafficSpeedAnimation` to [TrafficOptions][TrafficOptions] to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
 - Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221-december-9-2022).
 
@@ -28,7 +28,7 @@ See below for information about new features and other changes to the Map Contro
 
 - Add `.atlas-map` to all css selectors to scope the styles within the map container. The fix prevents the css from accidentally adding unwanted styles to other elements on the page.
 
-## 3.0.0-preview.1 (November 18, 2022)
+## [3.0.0-preview.1](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1) (November 18, 2022)
 
 ### New Features
 
@@ -56,7 +56,7 @@ See below for information about new features and other changes to the Map Contro
     })
     ```
 
-## 2.2.1 (December 9, 2022)
+## [2.2.1](https://www.npmjs.com/package/azure-maps-control/v/2.2.1) (December 9, 2022)
 
 ### New Features
 
@@ -87,3 +87,4 @@ Stay up to date on Azure Maps:
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
+[TrafficOptions]: /javascript/api/azure-maps-control/atlas.trafficoptions
