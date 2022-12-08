@@ -14,7 +14,7 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 |---------|---------|
 |**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000<br>Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
-|**Physical Specifications** | Mounting: 1U<br>Dimensions ( H x W x D) 1.70 in x 17.09 in x 22.18 in<br>Dimensions ( H x W x D) 4.28 cm x 43.4 cm x 56.3 cm|
+|**Physical Specifications** | Mounting: 1U<br>Dimensions (H x W x D) 1.70 in x 17.09 in x 22.18 in<br>Dimensions (H x W x D) 4.28 cm x 43.4 cm x 56.3 cm|
 |**Status** | Supported, available as a pre-configured appliance|
 
 The following image shows a view of the Dell PowerEdge R350 front panel:
@@ -29,12 +29,12 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |Component| Technical specifications|
 |:----|:----|
 |Chassis| 1U rack server|
-|Dimensions| ( H x W x D) 1.70 in x 17.09 in x 22.18 in, 4.28 cm x 43.4 cm x 56.3 cm|
+|Dimensions| (H x W x D) 1.70 in x 17.09 in x 22.18 in, 4.28 cm x 43.4 cm x 56.3 cm|
 |Weight| Max 28.96 lb/13.14 Kg|
-|Processor| Intel Xeon E-2334 3.4GHz <br>8M Cache<br> 4C/8T, Turbo (65W), 3200 MT/s, XE Only|
+|Processor| Intel Xeon E-2334 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo (65W), 3200 MT/s, XE Only|
 |Memory|32 GB = 2x 16 GB 3200MT/s DDR4 ECC UDIMM|
-|Storage| 4x 1TB Hard Drive SATA 6Gbps 7.2K 512n 3.5in Hot-Plug with PERC H755 Controller Card - RAID 10|
-|Network controller|On-board: Broadcom 5720 Dual Port 1Gb On-Board LOM <br>On-board LOM: iDRAC9, Enterprise 15G<br>External: Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile|
+|Storage| 4x 1 TB Hard Drive SATA 6 Gbps 7.2K 512n 3.5in Hot-Plug with PERC H755 Controller Card - RAID 10|
+|Network controller|On-board: Broadcom 5720 Dual Port 1 Gb On-Board LOM <br>On-board LOM: iDRAC9, Enterprise 15G<br>External: Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile|
 |Management|iDRAC9 Enterprise|
 |Device access| Two rear USB 3.0|
 |One front| USB 3.0|
@@ -50,24 +50,24 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |1|	412-AAPW	|	Heatsink for 80W or less CPU	|
 |1|	370-AAIP	|	Performance Optimized	|
 |1|	370-AGNY	|	3200MT/s UDIMM	|
-|2|	370-AGQU	|	16GB UDIMM, 3200MT/s, ECC	|
+|2|	370-AGQU	|	16 GB UDIMM, 3200MT/s, ECC	|
 |1|	384-BBBH	|	Power Saving BIOS Settings	|
 |1|	800-BBDM	|	UEFI BIOS Boot Mode with GPT Partition	|
 |2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
 |1|	450-AADY	|	C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2m), Power Cord	|
 |1|	330-BBWS	|	Riser Config 0, 1 x8, 1 x16 slots	|
-|1|	384-BCYX	|	OEM R350 Motherboard with Broadcom 5720 Dual Port 1Gb On-Board LOM	|
+|1|	384-BCYX	|	OEM R350 Motherboard with Broadcom 5720 Dual Port 1 Gb On-Board LOM	|
 |1|	385-BBQV	|	iDRAC9, Enterprise 15G	|
 |1|	542-BBBP	|	On-Board LOM	|
 |1|	470-AFBU	|	BOSS Blank	|
-|1|	379-BCRF	|	iDRAC,Legacy Password	|
+|1|	379-BCRF	|	iDRAC, Legacy Password	|
 |1|	379-BCQV	|	iDRAC Group Manager, Enabled	|
 |1|	611-BBBF	|	No Operating System	|
 |1|	605-BBFN	|	No Media Required	|
 |1|	770-BDEL	|	ReadyRails Sliding Rails With Cable Management Arm	|
 |1|	709-BBIJ	|	Parts Only Warranty 15 Months	|
 |1|	865-BBPG	|	ProSupport and Next Business Day Onsite Service Initial, 15 Month(s)	|
-|1|	338-CCOZ	|	Intel Xeon E-2334 3.4GHz, 8M Cache, 4C/8T, Turbo (65W), 3200 MT/s, XE Only	|
+|1|	338-CCOZ	|	Intel Xeon E-2334 3.4 GHz, 8M Cache, 4C/8T, Turbo (65W), 3200 MT/s, XE Only	|
 |1|	325-BEIF	|	Brand/Bezel, Dell Branded, PowerEdge R350XE	|
 |1|	389-ECFF	|	PowerEdge R350 CE and CCC Marking	|
 |1|	321-BGVQ	|	3.5" Chassis with up to 4 Hot Plug Hard Drives	|
@@ -77,8 +77,8 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |1|	461-AADZ	|	No Trusted Platform Module	|
 |1|	683-11870	|	No Installation Service Selected (Contact Sales Rep for more details)	|
 |1|	865-BBPF	|	ProSupport and Next Business Day Onsite Service Extension, 24 Month(s)	|
-|4|	400-BLLH	|	1TB Hard Drive SATA 6Gbps 7.2K 512n 3.5in Hot-Plug	|
-|1|	540-BBDF	|	Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile	|
+|4|	400-BLLH	|	1 TB Hard Drive SATA 6 Gbps 7.2K 512n 3.5in Hot-Plug	|
+|1|	540-BBDF	|	Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile	|
 |1|	780-BCDQ	|	RAID 10	|
 
 
