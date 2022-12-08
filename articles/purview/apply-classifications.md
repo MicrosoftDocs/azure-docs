@@ -1,8 +1,8 @@
 ---
 title: Apply classifications on assets
 description: This document describes how to apply classifications on assets.
-author: SunetraVirdi
-ms.author: suvirdi
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
