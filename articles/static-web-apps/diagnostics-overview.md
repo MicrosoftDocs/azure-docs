@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Azure Static Web Apps diagnostics overview
 
-If your static web app encounters issues, the Static Web Apps diagnose and solve features can guide you through steps to troubleshoot problems.
+If you encounter issues with you Azure Static Web Apps instance,  the diagnose and solve feature can guide you through steps to troubleshoot problems.
 
 Diagnostics for your static web app are accessible directly from the Azure portal, with no configuration required.
 
