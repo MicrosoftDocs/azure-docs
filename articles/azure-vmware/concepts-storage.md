@@ -25,7 +25,7 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 - Datastore.UpdateVirtualMachineMetadata
 
 >[!IMPORTANT]
->You can't change the name of datastores or clusters. AzureCLI and PowerShell support changing the name of the resource clusters (Cluster-2 to Cluster-12), however this should not be used, because it creates a meta-data mismatch between the Azure portal resource cluster name and the vSphere cluster name.
+>You can't change the name of datastores or clusters. Azure CLI and PowerShell support changing the name of the resource clusters (Cluster-2 to Cluster-12), however this should not be used, because it creates a meta-data mismatch between the Azure portal resource cluster name and the vSphere cluster name.
 
 ## Storage policies and fault tolerance
 
