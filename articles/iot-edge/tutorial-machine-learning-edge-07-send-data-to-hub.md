@@ -26,7 +26,7 @@ In this section of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Build and run a leaf device.
+> * Build and run a downstream device.
 > * Verify that generated data is being stored in your Azure Blob storage.
 > * Validate that the machine learning model classified the device data.
 
@@ -36,7 +36,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 ## Review device harness
 
-Reuse the [DeviceHarness project](tutorial-machine-learning-edge-03-generate-data.md) to simulate the downstream (or leaf) device. Connecting to the transparent gateway requires two additional things:
+Reuse the [DeviceHarness project](tutorial-machine-learning-edge-03-generate-data.md) to simulate the downstream device. Connecting to the transparent gateway requires two additional things:
 
 * Register the certificate to make the downstream IoT device trust the certificate authority being used by the IoT Edge runtime. In our case, downstream device is the development VM.
 * Add the edge gateway fully qualified domain name (FQDN) to the device connection string.
@@ -59,7 +59,7 @@ Look at the code to see how these two items are implemented.
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
    ```
 
-## Build and run leaf device
+## Build and run downstream device
 
 1. With the DeviceHarness project still open in Visual Studio Code, build the project. From the **Terminal** menu, select **Run Build Task** and select **Build**.
 
@@ -119,7 +119,7 @@ The output from the avroFileWriter module can be readily observed by looking at 
 
 ### Azure Storage
 
-We can observe the results of our leaf device sending data by looking at the storage accounts where we expect data to be routed.
+We can observe the results of our downstream device sending data by looking at the storage accounts where we expect data to be routed.
 
 1. On the development machine open Visual Studio Code.
 
@@ -241,7 +241,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 ## Next steps
 
-In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
+In this article, we used our development VM to simulate a downstream device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
 
 To continue learning about IoT Edge capabilities, try this tutorial next:
 
