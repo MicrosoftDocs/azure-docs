@@ -47,7 +47,7 @@ sections:
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
       - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: VMware HCX Enterprise is availble on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
+        answer: VMware HCX Enterprise is available on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
@@ -238,7 +238,7 @@ sections:
           
           > [!NOTE]
           > A T0 gateway is created and configured as part of a private cloud deployment.
-          > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided..
+          > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
         answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-ip-nsx-edge.md) option in your Azure portal for your Azure VMware Solution private cloud.
