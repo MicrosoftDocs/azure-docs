@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Use Python to manage ACLs in Azure Data Lake Storage Gen2

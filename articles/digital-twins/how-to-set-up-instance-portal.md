@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q2, subject-rbac-steps
+ms.custom: contperf-fy21q2, subject-rbac-steps, engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -141,7 +141,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
-You can copy the **Object ID** from here if needed, and use the **Permissions** button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
+You can copy the **Object ID** from here if needed, and use the **Permissions** button to view the Azure roles that are assigned to the identity.
 
 ### Considerations for disabling system-managed identities
 
