@@ -78,7 +78,7 @@ You can't configure groups and organizational units within a configuration.
  4. Once your scoping filters are configured, click **Save**.
  5. After saving, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
  :::image type="content" source="media/how-to-configure/new-ux-configure-16.png" alt-text="Screenshot of the nudge for scoping filters" lightbox="media/how-to-configure/new-ux-configure-16.png":::
- 7. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
+ 7. Once you've changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
@@ -131,7 +131,7 @@ Click the **pencil** next to **Basics** to change the defaults in a configuratio
 :::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of basics" lightbox="media/how-to-configure/new-ux-configure-11.png":::
 
 ## Enable your configuration
-Once you have finalized and tested your configuration, you can enable it.
+Once you've finalized and tested your configuration, you can enable it.
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-12.png" alt-text="Screenshot of review and enable icon" lightbox="media/how-to-configure/new-ux-configure-12.png":::
 
