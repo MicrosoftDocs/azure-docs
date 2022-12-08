@@ -1,5 +1,5 @@
 ---
-title: SMART on FHIR - Azure API for FHIR
+title: SMART on FHIR Proxy- Azure API for FHIR
 description: This tutorial describes how to use a proxy to enable SMART on FHIR applications with the Azure API for FHIR.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ author: expekesheth
 ms.date: 06/03/2022
 ---
 
-# SMART on FHIR overview
+# SMART on FHIR :Overview
 
 Substitutable Medical Applications and Reusable Technologies ([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository.

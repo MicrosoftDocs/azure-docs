@@ -40,18 +40,32 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 
+### Create a DDoS Protection plan
+
+Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
+
+```azurepowershell-interactive
+$plan = @{
+    Name = 'myDDoSPlan'
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+}
+$ddosplan = New-AzDdosProtectionPlan @plan
+```
+
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location with the DDoS Protection Standard enabled:
 
 ```azurepowershell-interactive
 $vnet = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreateVNetQS-rg'
     Location = 'EastUS'
-    AddressPrefix = '10.0.0.0/16'    
+    AddressPrefix = '10.0.0.0/16'
+    DDoSProtectionPlan = $ddosplan.Id
 }
-$virtualNetwork = New-AzVirtualNetwork @vnet
+$virtualNetwork = New-AzVirtualNetwork @vnet -EnableDdosProtection
 ```
 
 ### Add a subnet
