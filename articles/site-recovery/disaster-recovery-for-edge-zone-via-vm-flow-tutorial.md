@@ -40,7 +40,7 @@ To enable replication to a secondary location, follow the below steps:
         :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone-expanded.png":::
     
     >[!Note]
-    >This flow proceeds with option1: Public MEC (preview) to Region replication.
+    >This flow proceeds with Option 1: Public MEC (preview) to Region replication.
 
 1. Select **Next : Advanced settings**.
 
