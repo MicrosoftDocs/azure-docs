@@ -45,6 +45,9 @@ For outbound traffic, Azure processes the rules in a network security group asso
 - **VM3**: If *NSG2* has a security rule that denies port 80, the traffic is denied. If not, the traffic is allowed by the [AllowInternetOutbound](./network-security-groups-overview.md#allowinternetoutbound) default security rule in NSG2, since a network security group isn't associated to Subnet2.
 - **VM4**: All network traffic is allowed from *VM4,* because a network security group isn't associated to the network interface attached to the virtual machine, or to *Subnet3*.
 
+> [!NOTE]
+> In the above case VM4 will be reachable only if Basic IP SKU is associated to the VM's NIC as described in the following article https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses. With a Standard IP SKU and no NSG - All traffic will be blocked by default.
+
 
 ## Intra-Subnet traffic
 
