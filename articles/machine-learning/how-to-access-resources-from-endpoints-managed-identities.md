@@ -5,9 +5,9 @@ description: Securely access Azure resources for your machine learning model dep
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: shohei1029
+ms.author: shnagata
+ms.reviewer: mopeakande
 ms.date: 04/07/2022
 ms.topic: how-to
 ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
@@ -96,7 +96,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 
@@ -110,9 +110,6 @@ This guide assumes you don't have a managed identity, a storage account or an on
     pip install --pre azure-mgmt-storage
     pip install --pre azure-mgmt-authorization
     ```
-
-
-Install them with the following code:
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
@@ -134,7 +131,7 @@ Install them with the following code:
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 
@@ -341,9 +338,7 @@ The following Python endpoint object:
 * Assigns the name by which you want to refer to the endpoint to the variable `endpoint_name. 
 * Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
 
-```python
-endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=2-define-endpoint-configuration)]
 
 This deployment object: 
 
@@ -354,27 +349,7 @@ This deployment object:
 * Includes environment variables needed for the system-assigned managed identity to access storage.  
 
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../../model-1/model/"),
-    code_configuration=CodeConfiguration(
-        code="../../model-1/onlinescoring/", scoring_script="score_managedidentity.py"
-    ),
-    environment=Environment(
-        conda_file="../../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-    environment_variables={
-        "STORAGE_ACCOUNT_NAME": storage_account_name,
-        "STORAGE_CONTAINER_NAME": storage_container_name,
-        "FILE_NAME": file_name,
-    },
-)
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=2-define-deployment-configuration)]
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
@@ -392,29 +367,7 @@ This deployment object:
 * Adds a placeholder environment variable for `UAI_CLIENT_ID`, which will be added after creating one and before actually deploying this configuration. 
 
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../../model-1/model/"),
-    code_configuration=CodeConfiguration(
-        code="../../model-1/onlinescoring/", scoring_script="score_managedidentity.py"
-    ),
-    environment=Environment(
-        conda_file="../../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-    environment_variables={
-        "STORAGE_ACCOUNT_NAME": storage_account_name,
-        "STORAGE_CONTAINER_NAME": storage_container_name,
-        "FILE_NAME": file_name,
-        # We will update this after creating an identity
-        "UAI_CLIENT_ID": "uai_client_id_place_holder",
-    },
-)
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=2-define-deployment-configuration)]
 
 ---
 
@@ -945,7 +898,7 @@ Refer to the following script to understand how to use your identity token to ac
 
 ## Create a deployment with your configuration
 
-Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
+Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-online-endpoints.md).
 
 >[!WARNING]
 > This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
@@ -1163,8 +1116,8 @@ msi_client.user_assigned_identities.delete(
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using a online endpoint](how-to-deploy-managed-online-endpoints.md).
-* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
+* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).

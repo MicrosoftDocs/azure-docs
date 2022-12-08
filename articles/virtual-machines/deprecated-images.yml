@@ -190,7 +190,7 @@ sections:
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
           
-          Scale sets, in general, support [image reference replacement](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#os-updates) but VMs do not.
+          Scale sets, in general, support [image reference replacement](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) but VMs do not.
           
           
           
@@ -200,7 +200,7 @@ sections:
           - To avoid downtime, ensure the upgrade policy is set to manual or rolling. 
                - If set to manual, existing instances won’t be reimaged until it’s manually upgraded.
                - If set to rolling, existing instances will be automatically upgraded and reimaged by batch. 	
-          - Update image reference using the steps in [Modify an Azure virtual machine scale set](/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
+          - Update image reference using the steps in [Modify an Azure virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
           - Ensure that all existing instances are upgraded and on the latest model. You can also scale out and migrate workload to the new instances then delete the old instances, instead of upgrading the existing instances. 
           - Once the existing instances are all upgraded to the new image, change the upgrade policy back to what it was if needed. 
            
@@ -228,5 +228,4 @@ sections:
             }
           }
           ```
-          
           

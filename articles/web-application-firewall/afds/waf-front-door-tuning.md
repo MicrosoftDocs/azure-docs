@@ -18,7 +18,7 @@ The Microsoft-managed Default Rule Set is based on the  [OWASP Core Rule Set (CR
 
 > [!Note]
 > 
-> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different tier SKUs, refer to [Feature comparison between tiers](/azure/frontdoor/standard-premium/tier-comparison#feature-comparison-between-tiers)
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different tier SKUs, refer to [Feature comparison between tiers](../../frontdoor/standard-premium/tier-comparison.md#feature-comparison-between-tiers)
 
 First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and the [WAF Policy for Front Door](waf-front-door-create-portal.md) documents. Also, make sure you’ve enabled [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
  

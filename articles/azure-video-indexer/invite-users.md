@@ -26,7 +26,7 @@ Only the account’s admin can add or remove users. When using paid accounts, yo
 1. After you press **Invite**, the person will be added to the list of pending invites. <br/>You can choose from two options for each invitee who didn't yet join the account: **remove invitation** or **copy invitation URL**.
 
     :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Pending invites":::  
-1. Once the invitee joins the account, you will see three options to choose from. Two options for roles: **contributor** (default) or **owner**. Of, you can choose to remove the invitee by pressing **Remove**.
+1. Once the invitee joins the account, you will see two role options to choose from: **contributor** (default) or **owner**. You are also able to remove the user from your account.
 
     :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Joined invitee":::  
 
@@ -49,7 +49,7 @@ In addition to bringing up the **Share this account with others** dialog by clic
 
 ## Next steps
 
-You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
+You can now use the [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video.
 
 ## See also
 

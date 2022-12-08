@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 07/28/2019
+ms.date: 10/26/2022
 ---
 
 # Nodes and tables in Azure Cosmos DB for PostgreSQL
@@ -141,3 +141,4 @@ WHERE shardid = 102027;
 ## Next steps
 
 - [Determine your application's type](howto-app-type.md) to prepare for data modeling
+- Inspect shards and placements with [useful diagnostic queries](howto-useful-diagnostic-queries.md).

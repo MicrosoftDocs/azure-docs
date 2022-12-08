@@ -43,7 +43,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 |---------|---------|
 | Great user experience |- Users who need certificate-based authentication can now directly authenticate against Azure AD and not have to invest in federated AD FS.<br>- Portal UI enables users to easily configure how to map certificate fields to a user object attribute to look up the user in the tenant ([certificate username bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy))<br>- Portal UI to [configure authentication policies](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-authentication-binding-policy) to help determine which certificates are single-factor versus multifactor. |
 | Easy to deploy and administer |- Azure AD CBA is a free feature, and you don't need any paid editions of Azure AD to use it. <br>- No need for complex on-premises deployments or network configuration.<br>- Directly authenticate against Azure AD. |
-| Secure |- On-premises passwords don't need to be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including unphishable [multifactor authentication](concept-mfa-howitworks.md) (MFA which requires [licensed edition](concept-mfa-licensing.md)) and blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields, such as issuer or policy OID (object identifiers), to determine which certificates qualify as single-factor versus multifactor.<br>- The feature works seamlessly with [Conditional Access features](../conditional-access/overview.md) and authentication strength capability to enforce MFA to help secure your users. |
+| Secure |- On-premises passwords don't need to be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including Phishing-Resistant [multifactor authentication](concept-mfa-howitworks.md) (MFA requires [licensed edition](concept-mfa-licensing.md)) and blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields, such as issuer or policy OID (object identifiers), to determine which certificates qualify as single-factor versus multifactor.<br>- The feature works seamlessly with [Conditional Access features](../conditional-access/overview.md) and authentication strength capability to enforce MFA to help secure your users. |
 
 
 ## Supported scenarios
@@ -70,7 +70,7 @@ The following scenarios aren't supported:
 - Only one CRL Distribution Point (CDP) for a trusted CA is supported.
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **Subject**, **Subject + Issuer** or **Issuer + Serial Number**, aren’t available in this release.
-- Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AB CBA method available to the user.
+- Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AD CBA method available to the user.
 
 ## Out of Scope
 

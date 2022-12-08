@@ -15,19 +15,23 @@
         href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Azure RTOS — Embedded device development
+    - name: Azure RTOS Embedded device development
       items:
-      - name: MXCHIP AZ3166
-        href: quickstart-devkit-mxchip-az3166.md
+      - name: Microchip ATSAME54-XPro—IoT Hub
+        href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
+      - name: STMicroelectronics L475E-IOT01A—IoT Hub
+        href: quickstart-devkit-stm-b-l475e-iot-hub.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
-    - name: FreeRTOS — Embedded device development
+      - name: MXCHIP AZ3166
+        href: quickstart-devkit-mxchip-az3166.md
+    - name: FreeRTOS—Embedded device development
       items:
       - name: ESPRESSIF ESP32
         href: quickstart-devkit-espressif-esp32-freertos.md
@@ -43,8 +47,6 @@
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Securely connect IoT devices to the cloud
-      href: /training/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
@@ -103,7 +105,7 @@
     href: howto-convert-to-pnp.md
   - name: Azure RTOS Samples
     items:
-    - name: MXCHIP AZ3166 — IoT Hub
+    - name: MXCHIP AZ3166—IoT Hub
       href: quickstart-devkit-mxchip-az3166-iot-hub.md
     - name: STMicroelectronics B-L475-IOT01A
       href: quickstart-devkit-stm-b-l475e.md
@@ -174,11 +176,11 @@
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
       - name: iOS Platform

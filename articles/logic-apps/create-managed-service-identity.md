@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-In logic app workflows, some triggers and actions support using a managed identity for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](/active-directory/managed-identities-azure-resources/overview.md).
+In logic app workflows, some triggers and actions support using a managed identity for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Azure Logic Apps supports the [*system-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md) and the [*user-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md). The following list describes some differences between these identity types:
 

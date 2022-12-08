@@ -19,7 +19,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
-| VM series| [B-series](/azure/virtual-machines/sizes-b-series-burstable) | [Dadsv5-series](/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series)[Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | [Edsv4](/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)*/[Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)|
+| VM series| [B-series](../../virtual-machines/sizes-b-series-burstable.md) | [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)*/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)|
 | vCores | 1, 2, 4, 8, 12, 16, 20 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64, 80, 96 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB ** |
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
@@ -97,7 +97,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_E64ds_v5	|	64	|	512	|	48000	|	87383
 |Standard_E96ds_v5	|	96	|	672	|	48000	|	100000
 
-To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), General Purpose [Dadsv5-series](/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series)[Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series), and Business Critical [Edsv4](/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)/[Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
+To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), General Purpose [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), and Business Critical [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)
 
 
 >[!NOTE]

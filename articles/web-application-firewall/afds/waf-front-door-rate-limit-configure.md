@@ -13,7 +13,7 @@ zone_pivot_groups: web-application-firewall-configuration
 
 # Configure a Web Application Firewall rate limit rule
 
-The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular client IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
+The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular socket IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
 This article shows how to configure a WAF rate limit rule on Azure Front Door Standard and Premium tiers.
 
@@ -23,7 +23,7 @@ This article shows how to configure a WAF rate limit rule on Azure Front Door St
 
 Suppose you're responsible for a public website. You've just added a page with information about a promotion your organization is running. You're concerned that, if clients visit that page too often, some of your backend services might not scale quickly and the application might have performance issues.
 
-You decide to create a rate limiting rule that restricts each client IP address to a maximum of 1000 requests per minute. You'll only apply this rule to requests that contain `*/promo*` in the request URL.
+You decide to create a rate limiting rule that restricts each socket IP address to a maximum of 1000 requests per minute. You'll only apply this rule to requests that contain `*/promo*` in the request URL.
 
 > [!TIP]
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -230,7 +230,7 @@ $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
   -Priority 1
 ```
 
-When any client IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
+When any socket IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
 ## Create a WAF policy
 
@@ -372,7 +372,7 @@ az network front-door waf-policy rule create \
   --defer
 ```
 
-When any client IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
+When any socket IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
 ## Add a match condition
 

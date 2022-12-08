@@ -21,7 +21,7 @@ The following is a list of the settings that will be roamed or backed up in Wind
 
 ## Windows Settings details
 
-List of settings that can be configured to sync in recent Windows versions. These can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or **Settings** > **Accounts** > **Windows backup** > **Remember my preferences** on Windows 11.
+List of settings that can be configured to sync in recent Windows versions. These can be found in Windows 11 under **Settings** > **Accounts** > **Sync your settings** or **Settings** > **Accounts** > **Windows backup** > **Remember my preferences**.
 
 | Settings | Windows 10 (21H1 or newer) |
 | --- | --- |

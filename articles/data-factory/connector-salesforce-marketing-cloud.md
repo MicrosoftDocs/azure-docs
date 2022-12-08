@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/02/2022
+ms.date: 11/01/2022
 ---
 
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory or Synapse Analytics
@@ -33,7 +33,7 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 The Salesforce Marketing Cloud connector supports OAuth 2 authentication, and it supports both legacy and enhanced package types. The connector is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
->This connector doesn't support retrieving custom objects or custom data extensions.
+>This connector doesn't support retrieving views, custom objects or custom data extensions.
 
 ## Getting started
 

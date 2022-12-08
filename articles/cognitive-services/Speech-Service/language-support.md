@@ -53,7 +53,7 @@ Please note that the following neural voices are retired.
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
 Use the following table to determine supported styles and roles for each neural voice.
 
@@ -89,7 +89,9 @@ To set the translation target language, with few exceptions you only specify the
 
 # [Language identification](#tab/language-identification)
 
-The table in this section summarizes the locales supported for Language identification. With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` English (India) and `en-US` English (United States), we'll only compare `en` (English) with the other candidate languages.
+The table in this section summarizes the locales supported for [Language identification](language-identification.md).
+> [!NOTE]
+> Language Identification compares speech at the language level, such as English and German. Do not include multiple locales of the same language in your candidate list.
 
 [!INCLUDE [Language support include](includes/language-support/language-identification.md)]
 

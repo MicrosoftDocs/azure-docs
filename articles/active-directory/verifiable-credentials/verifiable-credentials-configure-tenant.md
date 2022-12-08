@@ -65,19 +65,6 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. To save the changes, select **Save**.
 
-### Set access policies for the Verifiable credentials service request service principal
-
-The Verifiable credentials service request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
-
-1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124f**.
-
-1. For **Key permissions**, select permissions **Get** and **Sign**. 
-
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png" alt-text="screenshot of key vault granting access to a security principal":::
-
-1. To save the changes, select **Add**.
-
-
 ## Set up Verified ID
 
 To set up Verified ID, follow these steps:
@@ -102,10 +89,21 @@ To set up Verified ID, follow these steps:
         >[!IMPORTANT]
         > The only way to change the trust system is to opt-out of the Verified ID service and redo the onboarding.
 
-
 1. Select **Save and get started**.  
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+
+### Set access policies for the Verified ID service principals
+
+When you set up Verified ID in the previous step, the access policies in Azure Key Vault are automatically updated to give service principals for Verified ID the required permissions.  
+If you ever are in need of manually resetting the permissions, the access policy should look like below.
+
+| Service Principal | AppId | Key Permissions |
+| -------- | -------- | -------- |
+| Verifiable Credentials Service | bb2a64ee-5d29-4b07-a491-25806dc854d3 | Get, Sign |
+| Verifiable Credentials Service Request | 3db474b9-6a0c-4840-96ac-1fceb342124f | Sign |
+
+:::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals.":::
 
 ## Register an application in Azure AD
 
@@ -139,7 +137,7 @@ To add the required permissions, follow these steps:
 
 1. Select **APIs my organization uses**.
 
-1. Search for the **Verifiable Credentials Service Request** and **Verifiable Credentials Service** service principals, and select them.
+1. Search for the **Verifiable Credentials Service Request** service principal and select it.
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png" alt-text="Screenshot that shows how to select the service principal.":::
 
@@ -161,14 +159,15 @@ You can choose to grant issuance and presentation permissions separately if you 
 1. Navigate to the Verified ID service in the Azure portal.  
 1. Select **Registration**.
 1. Notice that there are two sections:
-    1. Website ID registration
-    1. Domain verification.
+    1. DID registration
+    1. Domain ownership verification.
 1. Select on each section and download the JSON file under each.
 1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
     - `https://contoso.com/.well-known/did.json`
     - `https://contoso.com/.well-known/did-configuration.json`
 
 Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
+If you have selected ION as the trust system, you will not see the DID registration section as it is not applicable for ION and you only have to distribute the did-configuration.json file. 
 
 ## Next steps
 

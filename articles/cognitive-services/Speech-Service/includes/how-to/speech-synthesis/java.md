@@ -288,13 +288,13 @@ public class SpeechSynthesis {
             // Synthesize the SSML
             System.out.println("SSML to synthesize:");
             System.out.println(ssml);
-            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakSsmlAsync(ssml).get();
+            SpeechSynthesisResult speechSynthesisResult = speechSynthesizer.SpeakSsmlAsync(ssml).get();
 
-            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+            if (speechSynthesisResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
                 System.out.println("SynthesizingAudioCompleted result");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+            else if (speechSynthesisResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechSynthesisResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
 
                 if (cancellation.getReason() == CancellationReason.Error) {

@@ -108,7 +108,7 @@ The following steps describe how to create a dataset in [Azure Machine Learning 
 1. Give your data asset a name and optional description. Then, under **Type**, select one of the Dataset types, either **File** or **Tabular**.
 :::image type="content" source="media\how-to-connect-data-ui\create-data-asset-name-type.png" alt-text="This screenshot shows set the name, description, and type of the data asset.":::
 
-1. You have a few options for your data source. If your data is already stored in Azure, choose "From Azure storage". If you want to upload data from your local drive, choose "From local files". If your data is stored at a public web location, choose "From web files". You can also create a data asset from a SQL database, or from [Azure Open Datasets](/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset).
+1. You have a few options for your data source. If your data is already stored in Azure, choose "From Azure storage". If you want to upload data from your local drive, choose "From local files". If your data is stored at a public web location, choose "From web files". You can also create a data asset from a SQL database, or from [Azure Open Datasets](../../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
 1. For the file selection step, select where you want your data to be stored in Azure, and what data files you want to use.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](../how-to-enable-studio-virtual-network.md).
@@ -183,16 +183,16 @@ You can find account key, SAS token, and service principal information on your [
       1. For account keys, go to **Access keys** on the **Settings** pane.
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
-* If you plan to use a [service principal](/azure/active-directory/develop/howto-create-service-principal-portal) for authentication, go to your **App registrations** and select which app you want to use.
+* If you plan to use a [service principal](../../active-directory/develop/howto-create-service-principal-portal.md) for authentication, go to your **App registrations** and select which app you want to use.
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
 > * If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](../how-to-change-storage-access-key.md). <br> <br>
-> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
+> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to no permissions. 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader). An account SAS token defaults to no permissions. 
 * For data **read access**, your authentication credentials must have a minimum of list and read permissions for containers and objects. 
 
 * For data **write access**, write and add permissions also are required.

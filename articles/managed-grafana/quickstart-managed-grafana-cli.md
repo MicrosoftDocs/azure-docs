@@ -71,7 +71,7 @@ Now let's check if you can access your new Managed Grafana instance.
    > [!NOTE]
    > Azure Managed Grafana doesn't support connecting with personal Microsoft accounts currently.
 
-You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
 ## Clean up resources
 

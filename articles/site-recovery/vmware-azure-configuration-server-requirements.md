@@ -4,6 +4,8 @@ description: This article describes support and requirements when deploying the 
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Configuration server requirements for VMware disaster recovery to Azure

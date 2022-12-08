@@ -1,8 +1,8 @@
 ---
 title: Azure Percept security
 description: Learn more about Azure Percept security
-author: yvonne-dq
-ms.author: ngt
+author: Yvonne-dQ
+ms.author: v-mdequadros
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 10/06/2022
