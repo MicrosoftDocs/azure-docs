@@ -60,6 +60,8 @@ You can click the **run ID** to check more about the scan run details:
         | Queued      | The scan run is waiting for available integration runtime resource.<br>If you use self-hosted integration runtime, note each node can run a number of concurrent scans at the same time depending on your machine specification (CPU and memory). More scans will be in Queued status. |
         | Throttled   | The scan run is being throttled. It means this Microsoft Purview account at the moment has more ongoing scan runs than the allowed max concurrent count. Learn more about the limit [here](how-to-manage-quotas.md). This particular scan run will be waiting and be executed once your other ongoing scan(s) finishes. |
 
+        The scan run is not charged during "Throttled" or "Queued" status.
+
     - **Scan type**: Manual or scheduled scan.
     - **Assets discovered**: The number of assets enumerated from the source. For both full and incremental scans, it includes all assets in the configured scope, regardless of whether they're existing assets or newly created/updated assets since the last scan run. While for incremental scan, detailed metadata is extracted only for newly created or updated assets additionally.
     - **Assets classified**: The number of assets sampled to classify the data, regardless of whether the assets have any matching classification or not. It's a subset of the discovered assets based on the [sampling mechanism](microsoft-purview-connector-overview.md#sampling-data-for-classification). For incremental scan, only newly created or updated assets may be selected for classification.
@@ -78,7 +80,7 @@ You can click the **run ID** to check more about the scan run details:
         | In Progress         | The ingestion is running in progress.                        |
         | Queued              | The ingestion is waiting for available service resource or waiting for scan to discover metadata. |
 
-    - **Assets ingested**: The number of assets ingested into the data map. For full scan, the number is equal to the "assets discovered" count; for incremental scan, it only includes the newly created or updated assets, in which case less than the "assets discovered" count. When scanning file-based source, it's the raw assets count before resource set aggregation.
+    - **Assets ingested**: The number of assets ingested into the data map. For full scan, the number is equal to the "assets discovered" count; for incremental scan, it only includes the newly created or updated assets, in which case may be less than the "assets discovered" count. When scanning file-based source, it's the raw assets count before resource set aggregation.
 
     - **Relationships ingested**: The number of relationships ingested into the data map. It includes lineage and other relationships like foreign key relationships.
 
