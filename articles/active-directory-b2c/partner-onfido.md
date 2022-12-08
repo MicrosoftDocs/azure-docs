@@ -16,9 +16,9 @@ ms.subservice: B2C
 
 # Tutorial for configuring Onfido with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses AI-based identity verification, which verifies a photo ID, then matches it with facial biometrics. The solution connects a digital identity to a person and provides a reliable onboarding experience, while reducing fraud.
+In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses artificial intelligence (AI) technology that verifies identity by matching a photo ID with facial biometrics. The solution connects a digital identity to a person, provides a reliable onboarding experience, and helps reduce fraud.
 
-In this tutorial, you'll enable the Onfido service to verify identity in the sign-up, or sign-in, flow. Onfido results inform decisions about which product or service the user accesses.
+In this tutorial, you'll enable the Onfido service to verify identity in the sign-up, or sign-in, flow. Onfido results inform decisions about which products or services the user accesses.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following architecture diagram shows the implementation.
 
   ![Onfido architecture diagram](media/partner-onfido/onfido-architecture-diagram.png)
 
-1. User signs-up to create a new account and enters attributes. Azure AD B2C collects the attributes. Onfido client app hosted in Azure AD B2C checks for the user information.
+1. User signs up to create a new account and enters attributes. Azure AD B2C collects the attributes. Onfido client app hosted in Azure AD B2C checks for the user information.
 2. Azure AD B2C calls the middle layer API and passes the attributes.
 3. Middle layer API collects attributes and converts them to an Onfido API format.
 4. Onfido processes attributes to validate user identification and sends result to the middle layer API.
@@ -58,7 +58,9 @@ The following architecture diagram shows the implementation.
 >[!NOTE]
 > You'll need the key later.
 
-Live keys are billable, however, you can use the sandbox keys for testing. Go to [Sandbox and live differences](https://documentation.onfido.com/?javascript#sandbox-and-live-differences). The sandbox keys produce the same result structure as live keys, however, results are predetermined. Documents aren't processed or saved.
+### Onfido documentation
+
+Live keys are billable, however, you can use the sandbox keys for testing. Go to onfido.com for, [Sandbox and live differences](https://documentation.onfido.com/?javascript#sandbox-and-live-differences). The sandbox keys produce the same result structure as live keys, however, results are predetermined. Documents aren't processed or saved.
 
 For more Onfido documentation, see:
 
@@ -129,7 +131,7 @@ In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-i
 
 *App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps, if they're not needed.
 
-### Configure the Azure AD B2C policy
+### Configure Azure AD B2C policy
 
 See, [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) for instructions to set up your Azure AD B2C tenant and configure policies. Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys.
 
