@@ -2,17 +2,24 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/08/2022
+ms.date: 12/08/2022
 ms.author: eur
 ---
-### 2022-Oct release
 
-#### New Speech-to-text-locale
+### December 2022 release
+
+#### Speech-to-text REST API
+
+The speech-to-text REST API version 3.1 is generally available. Version 3.0 of the [speech-to-text REST API](../../rest-speech-to-text.md) will be retired. For more information about how to migrate, see the [guide](../../migrate-v3-0-to-v3-1.md).
+
+### October 2022 release
+
+#### New speech-to-text locale
 
 Added support for Malayalam (India) with the `ml-IN` locale. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 
-### 2022-July release
+### July 2022 release
 
 #### New Speech-to-text-locales:
 
@@ -29,7 +36,7 @@ Added 7 new locales as shown in the following table. See the complete language l
 | `cy-GB`         | Welsh (United Kingdom)    |
 
 
-### 2022-Jun release
+### June 2022 release
 
 #### New Speech-to-text-locales:
 
@@ -49,7 +56,7 @@ Added 10 new locales as shown in the following table. See the complete language 
 |  `ne-NP`         | Nepali (Nepal)                    |
 
 
-### 2022-April release
+### April 2022 release
 
 #### New Speech-to-text-locales:
 
@@ -60,7 +67,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 | `bn-IN` | Bengali (India)                   |
 
 
-### 2022-January release
+### January 2022 release
 
 #### New Speech-to-text-locales:
 
@@ -88,7 +95,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 | `zu-ZA` | Zulu (South Africa)            |
 
 
-### 2021-July release
+### July 2021 release
 
 #### New Speech-to-text-locales:
 
@@ -116,7 +123,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 | `sw-KE` | Swahili  (Kenya)            |
 
 
-### 2021-January release
+### January 2021 release
 
 #### New Speech-to-text-locales:
 
@@ -142,7 +149,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 | `ms-MY` | Malay  (Malaysia)            |
 | `vi-VN` | Vietnamese  (Vietnam)            |
 
-### 2020-August Release
+### August 2020 Release
 
 #### New speech-to-text locales:
 Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
