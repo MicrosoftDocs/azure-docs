@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: mbender
+ROBOTS: NOINDEX
 ---
 # Update or delete a load balancer used by virtual machine scale sets
 
