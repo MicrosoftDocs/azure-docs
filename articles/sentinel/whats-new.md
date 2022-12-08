@@ -29,8 +29,8 @@ Similarly, SOC engineers can now encapsulate a series of automated actions in wo
 
 These improvements for SOC efficiency and productivity are thanks to the **new entity trigger for playbooks**.
 
-Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
-Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
+- Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
+- Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Customize more alert properties (Preview)
 
