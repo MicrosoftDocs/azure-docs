@@ -26,7 +26,7 @@ Environments are managed and versioned assets within your Machine Learning works
 
 Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace provisioned.
+Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
 
 Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
 These pre-created environments also allow for faster deployment time.
