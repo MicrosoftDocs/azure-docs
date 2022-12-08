@@ -24,15 +24,15 @@ This article assumes that you have already installed a SUSE or openSUSE Leap Lin
 
 ## SLES / openSUSE Leap installation notes
 
-* Please see [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux images for Azure.
-* The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
-* When installing the Linux operating system it is recommended that you use standard partitions rather than logical volume manager (LVM) managed partitions, which is often the default for many installations. This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
-* Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
-* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
+* For more tips on preparing Linux images for Azure, see [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes)
+* The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+* When installing the Linux operating system, use standard partitions rather than logical volume manager (LVM) managed partitions, which is often the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
+* Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about configuring swap space can be found in the steps below.
+* All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Use SUSE Studio
 
-[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE Leap images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE Leap images.
+[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE Leap images for Azure and Hyper-V. SUSE Studio is the recommended approach for customizing your own SLES and openSUSE Leap images.
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -94,7 +94,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
+    This configuration will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
 
 9. Ensure the "/etc/fstab" file references the disk using its UUID (by-uuid)
 
@@ -107,7 +107,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     exit
     ```
 
-11. It is recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
+11. It's recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
 
     ```config
     DHCLIENT_SET_HOSTNAME="no"
@@ -117,16 +117,16 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     ```text
     Defaults targetpw   # ask for the password of the target user i.e. root
-    ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+    ALL    ALL=(ALL) ALL   # WARNING! Only use this setting together with 'Defaults targetpw'!
     ```
 
-13. Ensure that the SSH server is installed and configured to start at boot time. This is usually the default.
+13. Ensure that the SSH server is installed and configured to start at boot time.
 
 14. Swap configuration
 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
 
-    Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
+    Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
     ```console
     sudo -i    
@@ -135,11 +135,11 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     exit
     ```
 
-    Please see the [Linux agent configuration](/azure/virtual-machines/extensions/agent-linux#configuration) documentation for more information on the waagent.conf configuration options.
+    For more information on the waagent.conf configuration options, see the [Linux agent configuration](/azure/virtual-machines/extensions/agent-linux#configuration) documentation.
 
     If you want to mount, format and create a swap partition you can either:
-    * Pass this in as a cloud-init config every time you create a VM.
-    * Use a cloud-init directive baked into the image that will do this every time the VM is created:
+    * Pass this configuration in as a cloud-init config every time you create a VM.
+    * Use a cloud-init directive baked into the image that configures swap space every time the VM is created:
 
         ```console
         sudo -i
@@ -203,7 +203,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
-    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories is not enabled, enable it with following command:
+    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories isn't enabled, enable it with following command:
 
     ```console
     sudo zypper mr -e [NUMBER OF REPOSITORY]
@@ -233,13 +233,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      console=ttyS0 earlyprintk=ttyS0 
     ```
 
-   This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
+   This option will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
 
     ```config-grub
      libata.atapi_enabled=0 reserve=0x1f0,0x8
     ```
 
-7. It is recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
+7. It's recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following setting:
 
     ```config
      DHCLIENT_SET_HOSTNAME="no"
@@ -252,8 +252,8 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-9. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
-10. Do not create swap space on the OS disk.
+9. Ensure that the SSH server is installed and configured to start at boot time.
+10. Don't create swap space on the OS disk.
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in the "/etc/waagent.conf" as follows:
 
@@ -262,7 +262,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set the size to whatever you need it to be.
     ```
 
 11. Ensure the Azure Linux Agent runs at startup:
