@@ -171,8 +171,6 @@
   items:
   - name: Develop
     items:
-    - name: Create a namespace
-      href: service-bus-create-namespace-portal.md
     - name: Send and receive messages using PHP
       href: service-bus-php-how-to-use-queues.md
     - name: Publish and subscribe for messages using PHP
