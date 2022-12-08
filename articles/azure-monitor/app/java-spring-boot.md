@@ -2,7 +2,7 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 12/05/2022
+ms.date: 12/07/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ---
@@ -13,24 +13,24 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.5.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.6.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.4.5.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.4.6.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.5.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.6.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
 ```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.5.jar", "-jar", "<myapp.jar>"]
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.6.jar", "-jar", "<myapp.jar>"]
 ```
 
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.5.jar"` somewhere before `-jar`, for example:
+If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.6.jar"` somewhere before `-jar`, for example:
 
 ```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.5.jar" -jar <myapp.jar>
+ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.6.jar" -jar <myapp.jar>
 ```
 
 ### Configuration
