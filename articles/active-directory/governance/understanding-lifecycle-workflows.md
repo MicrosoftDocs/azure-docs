@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 # Understanding lifecycle workflows 
 
-The following reference document provides an overview of a workflow created using Lifecycle Workflows. Lifecycle Workflows allow you to create workflows that automate common tasks associated with user lifecycle in organizations. Lifecycle Workflows automate tasks based on the joiner-mover-leaver cycle of lifecycle management, and splits tasks for users up into categories of where they are in the lifecycle of an organization. These categories extend into templates where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
+The following reference document provides an overview of a workflow created using Lifecycle Workflows. Lifecycle Workflows allow you to automate common tasks associated with user lifecycle in organizations. Workflows automate tasks based on the joiner-mover-leaver(JML) cycle of lifecycle management, and splits tasks for users into categories of where they fall in the lifecycle of an organization. These categories extend into templates, where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
@@ -38,9 +38,9 @@ A workflow can be broken down in to the following three main parts.
 
 |Workflow part|Description|
 |-----|-----|
-|General information|This portion of a workflow covers basic information such as display name and a description of what the workflow does.|
+|General information|This portion of a workflow covers basic information such as display name, and a description of what the workflow does.|
 |Tasks|Tasks are the actions that will be taken when a workflow is executed.|
-|Execution conditions| The execution condition section of a workflow sets up<br><br>- Who(scope) the workflow runs against  <br><br>- When(trigger) the workflow runs|
+|Execution conditions| The execution condition section of a workflow sets up<br><br> Who(scope)- The workflow runs against  <br><br> When(trigger)- the workflow runs|
 
 ## Templates
 
@@ -51,7 +51,7 @@ Creating a workflow via the portal requires the use of a template. A Lifecycle W
 The template will define the task that is to be used and then guide you through the creation of the workflow.   The template provides input for description information and execution condition information.  
 
 >[!NOTE]
->Depending on the template you select, the options that will be available may vary.  This document uses the **Onboarding pre-hire employee** template to illustrate the parts of a workflow.
+>Depending on the template you select, the options that will be available may vary.  This document uses the [**Onboarding pre-hire employee**](lifecycle-workflow-templates.md#onboard-pre-hire-employee) template to illustrate the parts of a workflow.
 
 For more information, see [Lifecycle workflow templates.](lifecycle-workflow-templates.md)
 
@@ -72,6 +72,7 @@ Under the workflow details section, you can provide the following information:
  |Description|A brief description that describes the workflow.|
 
 ### Trigger details
+
 Under the trigger details section, you can provide the following information.
 
  |Name|Description|
@@ -84,6 +85,7 @@ This section defines **when** the workflow will run.  Currently, there are two s
 - On-demand - can be run immediately.  Typically used for real-time employee terminations.
 
 ## Configure scope
+
 After you define the basics tab, on the configure scope screen:
  - Provide the information that will be used in the execution condition, to determine who the workflow will run against.  
  - Add more expressions to create more complex filtering.
@@ -99,7 +101,7 @@ You can add extra expressions using **And/Or** to create complex conditionals, a
 > [!NOTE]
 > For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
 
-For more information, see [Create a lifecycle workflow.](create-lifecycle-workflow.md)
+For detailed information on creating a workflow, see: [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
 
 ## Review tasks
@@ -130,16 +132,13 @@ After reviewing the tasks on the review and create screen, you:
 
 ## Scheduling
 
-A workflow isn't scheduled to run by default. To enable the workflow, it needs to be scheduled.
+While newly created workflows are enabled by default, scheduling is an option that must be enabled manually. To verify whether the workflow is scheduled, you can view the **Scheduled** column. 
 
-To verify whether the workflow is scheduled, you can view the **Scheduled** column.  
-
-To enable the workflow, select the **Enable schedule** option for the workflow.
-
-Once scheduled, the workflow will be evaluated every 3 hours to determine whether or not it should run based on the execution conditions.
+Once scheduling is enabled, the workflow will be evaluated every 3 hours to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
 
+To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 
 ### On-demand scheduling
 
@@ -150,7 +149,7 @@ Use the **Run on demand** feature to execute the workflow immediately. The workf
 >[!NOTE]
 > A workflow that is run on demand for any user does not take into account whether or not a user meets the workflow's execution. It will apply the task regardless of whether the execution conditions are met or not.
 
-For more information, see [Run a workflow on-demand](on-demand-workflow.md)
+For more information, see: [Run a workflow on-demand](on-demand-workflow.md)
 
 ## Managing the workflow
 
@@ -160,22 +159,25 @@ You can select which portion of the workflow you wish to update or change using 
 
 [![Update manage workflow section review.](media/understanding-lifecycle-workflows/workflow-11.png)](media/understanding-lifecycle-workflows/workflow-11.png#lightbox)
 
-For more information, see [Manage lifecycle workflow properties](manage-workflow-properties.md)
+For more information, see: [Manage lifecycle workflow properties](manage-workflow-properties.md)
+
+##  History
+
+When you have selected a workflow, you can view it's historical information through the lens of its users, runs, and tasks. Being able to view information specifically from these viewpoints allows you to quickly narrow down specific information about how a workflow was processed. 
+
+For more information, see: [Lifecycle Workflows history](lifecycle-workflow-history.md)
+
 
 ## Versioning
 
-Workflow versions are separate workflows built using the same information of an original workflow, but with updated parameters so that they're reported differently within logs. Workflow versions can change the actions or even scope of an existing workflow.
+Workflow versions are separate workflows built using the same information of an original workflow, but with either the tasks or scope updated, so that they're reported differently within logs. Workflow versions can change the actions or even scope of an existing workflow.
 
 You can view versioning information by selecting **Versions** under **Manage** from the left.
 
 [![Manage workflow versioning selection.](media/understanding-lifecycle-workflows/workflow-12.png)](media/understanding-lifecycle-workflows/workflow-12.png#lightbox)
 
-For more information, see [Lifecycle Workflow versioning](lifecycle-workflow-versioning.md)
+For more information, see: [Lifecycle Workflow versioning](lifecycle-workflow-versioning.md)
 
-## Developer information
-This document covers the parts of a lifecycle workflow 
-
-For more information, see the [Workflow API Reference](lifecycle-workflows-developer-reference.md)
 
 ## Next steps
 - [Create a custom workflow using the Azure portal](tutorial-onboard-custom-workflow-portal.md)
