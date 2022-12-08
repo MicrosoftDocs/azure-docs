@@ -231,8 +231,10 @@ items:
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
+              displayName: pronounce, learn language, assess pron
             - name: How to use Pronunciation Assessment
               href: how-to-pronunciation-assessment.md
+              displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -432,7 +434,7 @@ items:
   items:
     - name: Release notes
       href: releasenotes.md
-      displayName: reference 
+      displayName: reference, new, change, update
     - name: SDK reference
       items:
         - name: C++
