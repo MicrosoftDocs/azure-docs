@@ -41,7 +41,7 @@ You can navigate to scan run history for a given scan from different places:
 
 You can click the **run ID** to check more about the scan run details:
 
-:::image type="content" source="./media/how-to-monitor-scan-runs/monitor-scan-run-details.png" alt-text="View scan run execution details"  lightbox="./media/how-to-monitor-scan-runs/monitor-scan-run-details.png":::
+:::image type="content" source="./media/how-to-monitor-scan-runs/monitor-scan-run-details.png" alt-text="Screenshot of view scan run execution details."  lightbox="./media/how-to-monitor-scan-runs/monitor-scan-run-details.png":::
 
 - **Run ID**: The GUID used to identify the given scan run.
 
