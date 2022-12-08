@@ -191,4 +191,17 @@ Rules that you create by using the API appear in the **Exclusion Rule** window a
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot of the Edit Exclusion Rule view.":::
 ## Next steps
 
-For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).
+> [!div class="nextstepaction"]
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
+
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)

@@ -15,12 +15,13 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
 ## Prerequisites
 
-
 - **To have alerts on your OT sensor**, you must have a SPAN port configured for your sensor and Defender for IoT monitoring software installed. For more information, see [Install OT agentless monitoring software](how-to-install-software.md).
 
 - **To view alerts on the OT sensor**, sign into your sensor as an **Admin**, **Security Analyst**, or **Viewer** user.
 
 - **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *Learning* or *Muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View alerts on an OT sensor
 
@@ -163,9 +164,17 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 
 ## Next steps
 
-For more information, see:
+> [!div class="nextstepaction"]
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 
-- [Microsoft Defender for IoT alerts](alerts.md)
-- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
-- [OT monitoring alert types and descriptions](alert-engine-messages.md)
+> [!div class="nextstepaction"]
+> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+> [!div class="nextstepaction"]
+> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [OT monitoring alert types and descriptions](alert-engine-messages.md)

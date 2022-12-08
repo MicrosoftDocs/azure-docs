@@ -145,4 +145,11 @@ The file is generated, and you're prompted to save it locally.
 
 ## Next steps
 
-For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)

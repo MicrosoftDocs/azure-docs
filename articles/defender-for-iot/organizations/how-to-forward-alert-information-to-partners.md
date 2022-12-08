@@ -17,6 +17,10 @@ Syslog and other default forwarding actions are delivered with your system. More
 
 Defender for IoT administrators have permission to use forwarding rules.
 
+## Prerequisites
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
 ## About forwarded alert information
 
 Alerts provide information about an extensive range of security and operational events. For example:
@@ -263,7 +267,20 @@ This means that the forwarding rules you define might be ignored based on exclus
 
 ## Next steps
 
-For more information, see [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md).
+> [!div class="nextstepaction"]
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
+
+> [!div class="nextstepaction"]
+> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+
+> [!div class="nextstepaction"]
+> [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
 
 
 
@@ -325,3 +342,48 @@ The following alert groups are automatically defined:
 - Programming
 
 Alert groups are predefined. For details about alerts associated with alert groups, and about creating custom alert groups, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
+
+
+## Create forwarding rules
+
+**To create a forwarding rule on the management console**:
+
+1. Sign in to the sensor.
+
+1. Select **Forwarding** on the side menu.
+
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
+
+1. In the Create Forwarding Rule window, enter a name for the rule
+
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
+
+   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
+
+1. Select the severity level from the drop-down menu.
+
+    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+
+1. Select any protocols to apply.
+
+    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+
+1. Select which engines the rule should apply to.
+ 
+   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
+
+1. Select which notifications you want to forward:
+ 
+    -	**Report system notifications:** disconnected sensors, remote backup failures.
+
+    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
+
+1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
+
+    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
+
+1. Add another action if desired.
+
+1. Select **Save**.
+
+You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about [Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
