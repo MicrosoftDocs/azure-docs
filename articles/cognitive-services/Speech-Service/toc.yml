@@ -434,7 +434,7 @@ items:
   items:
     - name: Release notes
       href: releasenotes.md
-      displayName: reference 
+      displayName: reference, new, change, update
     - name: SDK reference
       items:
         - name: C++
