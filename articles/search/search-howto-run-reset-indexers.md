@@ -21,34 +21,17 @@ In Azure Cognitive Search, there are several ways to run an indexer:
 
 This article explains how to run indexers on demand, with and without a reset.
 
-## Run without reset
-
-A [Run Indexer](/rest/api/searchservice/run-indexer) operation will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
-
-[Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
-
-+ Azure Storage has built-in change detection through its LastModified property.
-
-+ Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
-
-If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
-
-You'll need to [reset the indexer](#resetting-indexers) if want to reprocess in full.
-
 ## Indexer execution
 
 You can run multiple indexers at one time, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
 
-An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure Cognitive Search determines the environment based on job complexity, duration, and the ability of the service to move an indexer job onto a content processor (some security features block the multi-tenant environment).
+An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure Cognitive Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multi-tenant environment).
 
 Indexer execution environments include:
 
 + A private execution environment that runs on search nodes, specific to your search service.
 
-+ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multi-tenant environment. 
-
-  > [!NOTE]
-  > The multi-tenant environment was initially a way to offload skillset processing. Over time, as the efficiency and benefits of offloading became clear, the use of content processors expanded to include text-based indexing as well. 
++ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multi-tenant environment.
 
 Indexer limits vary for each environment:
 
@@ -62,6 +45,20 @@ Indexer limits vary for each environment:
 <sup>2</sup> If more than two hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at two hour intervals. See [Indexing a large data set](search-howto-large-index.md) for more strategies.
 
 <sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
+
+## Run without reset
+
+A [Run Indexer](/rest/api/searchservice/run-indexer) operation will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
+
+[Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
+
++ Azure Storage has built-in change detection through its LastModified property.
+
++ Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+
+If the underlying content is unchanged, a run operation has no effect. In this case, indexer execution history will indicate `0\0` documents processed.
+
+You'll need to reset the indexer, as explained in the next section, to reprocess in full.
 
 ## Resetting indexers
 
