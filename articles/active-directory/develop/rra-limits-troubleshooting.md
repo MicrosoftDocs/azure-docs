@@ -1,28 +1,28 @@
 ---
-title:
-description:
-author:
-ms.author:
+title: Troubleshooting the configured permissions limits
+description: Learn why some apps may exceed the limits on configured permissions and how to address this issue.
+author: Jackson-Woods
+ms.author: jawoods
 manager: CelesteDG
-ms.date: 12/07/2022
+ms.date: 12/08/2022
 ms.topic: reference
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer:
+ms.reviewer: phsignor
 ---
 
-# Revised limits of the `RequiredResourceAccess` collection (RRA)
+# Troubleshooting the configured permissions limits
 
 The `RequiredResourceAccess` collection (RRA) on an application object contains all the configured API permissions that an app requires for its default consent request. This collection has various limits depending on which types of identities the app supports, For more information on the limits for supported account types, see [Validation differences by supported account types](supported-accounts-validation.md).
 
-The limit on maximum permissions was updated in May 2022, so some apps may have more permissions in their RRA than are now allowed. For such apps, no new permissions may be added until the number of permissions in the `RequiredResourceAccess` collection is brought under the limits.
+The limits on maximum permissions were updated in May 2022, so some apps may have more permissions in their RRA than are now allowed. In addition, apps that change their supported account types after configuring permissions may exceed the limits of the new setting. When apps exceed the configured permissions limit, no new permissions may be added until the number of permissions in the `RequiredResourceAccess` collection is brought back under the limits.
 
 This document offers additional information and troubleshooting steps to resolve this issue.
 
 ## Identifying when an app has exceeded the `RequiredResourceAccess` limits
 
-In general, applications with more than 400 permissions have exceeded the configuration limits. An app that has exceeded the permission limits will receive the following error when trying to add more permissions in the Azure portal: 
+In general, all applications with more than 400 permissions have exceeded the configuration limits. Apps may also be subject to lower limits if they support sign-in for personal Microsoft accounts (MSA). An app that has exceeded the permission limits will receive the following error when trying to add more permissions in the Azure portal: 
 
 > `Failed to save permissions for <AppName>. This configuration exceeds the global application object limit. Remove some items and retry your request.`
 
@@ -32,14 +32,14 @@ If the application isn't needed anymore, the first option you should consider is
 
 If you still need the application or are unsure, the following steps will help you resolve this issue:
 
-1. **Remove duplicate permissions.** In some cases, the same permission is listed multiple times. Review the required permissions and remove permissions that are listed two or more times. Learn more
-2. **Remove unused permissions.** Review the permissions required by the application and compare them to what the application or service does. Remove permissions that are configured in the app registration, but which the application or services doesn’t require. Learn more
-3. **Remove redundant permissions.** In many APIs, including Microsoft Graph, some permissions aren't necessary when other more privileged permissions are included. For example, the Microsoft Graph permission User.Read.All (read all users) isn't needed when an application also has User.ReadWrite.All (read, create and update all users). Learn more about Microsoft Graph permissions. 
-4. **Use multiple app registrations.** If a single app or service requires more than 400 permissions in the required permissions list, the app will need to be configured to use two (or more) different app registrations, each one with 400 or fewer permissions configured on the app registration. Learn more
+1. **Remove duplicate permissions.** In some cases, the same permission is listed multiple times. Review the required permissions and remove permissions that are listed two or more times. 
+2. **Remove unused permissions.** Review the permissions required by the application and compare them to what the application or service does. Remove permissions that are configured in the app registration, but which the application or service doesn’t require. For more information on how to review permissions, see [Review application permissions](../manage-apps/manage-application-permissions.md)
+3. **Remove redundant permissions.** In many APIs, including Microsoft Graph, some permissions aren't necessary when other more privileged permissions are included. For example, the Microsoft Graph permission User.Read.All (read all users) isn't needed when an application also has User.ReadWrite.All (read, create and update all users). To learn more about Microsoft Graph permissions, see [Microsoft Graph permissions reference](/graph/permissions-reference). 
+4. **Use multiple app registrations.** If a single app or service requires more than 400 permissions in the required permissions list, the app will need to be configured to use two (or more) different app registrations, each one with 400 or fewer permissions configured on the app registration. 
 
 ## Frequently asked questions (FAQ)
 
-### *Why did Microsoft revise the limit on total permissions?*
+### *Why has Microsoft revised the limit on total permissions?*
 
 This limit is important for two reasons:
 
@@ -52,13 +52,13 @@ If your app exceeds the total permissions limit, you'll no longer be able to inc
 
 ### *Does the limit change how many permissions my application can be granted?*
 
-No. This limit affects only the list of requested API permissions configured on the app registration. This is different from the list of permissions that have been granted to your application. [Learn more]()
+No. This limit affects only the list of requested API permissions configured on the app registration. This is different from the list of permissions that have been granted to your application.
 
 Even if it isn't listed in the required API permissions list, a delegated permission can still be requested dynamically by an application. Both delegated permissions and app roles (application permissions) can also be granted directly, using Microsoft Graph API or Microsoft Graph PowerShell.  
 
 ### *Can the limit be raised for my application?*
 
-No, the limit can't be raised. 
+No, the limit can't be raised for individual applications or organizations. 
 
 ### *Are there other limits on the list of required API permissions?*
 
@@ -142,3 +142,9 @@ process {
     }
 }
 ```
+
+## Learn more
+
+- Learn about API permissions and the Microsoft identity platform: [Overview of permissions and consent in the Microsoft identity platform](permissions-consent-overview.md)
+- Understand the permissions available for Microsoft Graph: [Microsoft Graph permissions reference](/graph/permissions-reference)
+- Review the limitations to application configurations: [Validation differences by supported account types](supported-accounts-validation.md)
