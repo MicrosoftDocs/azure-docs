@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
-In this article, you'll learn how to use the Application Insights Java 2.x. This article shows you how to: 
+In this article, you'll learn how to use Application Insights Java 2.x. This article shows you how to: 
 
 - Get started, including instrumenting requests, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
 - Send trace logs to Application Insights and explore them using the Application Insights portal.
