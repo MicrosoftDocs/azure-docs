@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-custom-model.md",
+        "redirect_url": "/azure/machine-learning/v1/tutorial-power-bi-custom-model",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-link-synapse-ml-workspaces.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-link-synapse-ml-workspaces",
         "redirect_document_id": true
