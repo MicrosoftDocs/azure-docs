@@ -143,7 +143,7 @@ See, [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custo
 3. Select your previously created **SignUpSignIn**.
 4. Select **Run user flow**.
 5. For **Application**, select the registered app (example is JWT).
-6. For **Reply URL**, select the **redirect URL**
+6. For **Reply URL**, select the **redirect URL**.
 7. Select **Run user flow**.
 8. Complete the sign-up flow.
 9. Create an account.
