@@ -232,7 +232,7 @@ To create an Azure Virtual Machine that can be used to connect to the VNet, use 
 
 ```azurecli
 # create vm
-az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password> --resource-group <Your-resource-group-name>
+az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password> --resource-group <my-resource-group>
 ```
 
 > [!IMPORTANT]
