@@ -41,7 +41,7 @@ The Onfido integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-  ![screenshot for onfido-architecture-diagram](media/partner-onfido/onfido-architecture-diagram.png)
+  ![Onfido architecture diagram](media/partner-onfido/onfido-architecture-diagram.png)
 
 1. User signs-up to create a new account and enters attributes. Azure AD B2C collects the attributes. Onfido client app hosted in Azure AD B2C checks for the user information.
 2. Azure AD B2C calls the middle layer API and passes the attributes.
@@ -56,11 +56,11 @@ The following architecture diagram shows the implementation.
 2. Create an API key: go to [Get started (API v3.5)](https://documentation.onfido.com/). 
 
 >[!NOTE]
-> You will need the key later.
+> You'll need the key later.
 
 Live keys are billable, however, you can use the sandbox keys for testing. Go to [Sandbox and live differences](https://documentation.onfido.com/?javascript#sandbox-and-live-differences). The sandbox keys produce the same result structure as live keys, however, results are predetermined. Documents aren't processed or saved.
 
-For more Onfido documentation, see 
+For more Onfido documentation, see:
 
 * [Onfido API documentation](https://documentation.onfido.com)
 * [Onfido Developer Hub](https://developers.onfido.com)
@@ -78,7 +78,9 @@ For more Onfido documentation, see
 
 #### Adding sensitive configuration settings
 
-[Configure app settings](../app-service/configure-common.md#configure-app-settings) in the Azure App service without checking them into a repository. The REST API needs the following settings:
+[Configure app settings](../app-service/configure-common.md#configure-app-settings) in the Azure App service without checking them into a repository. 
+
+REST API settings:
 
 * **Application setting name**: OnfidoSettings:AuthToken
 * **Source**: Onfido Account
@@ -87,10 +89,8 @@ For more Onfido documentation, see
 
 #### Configure your storage location
 
-Create a container
-
 1. In the Azure portal, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-2. Store the UI files in [/samples/OnFido-Combined/UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) in your blob container.
+2. Store the UI files in [/samples/OnFido-Combined/UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI), in your blob container.
 3. Allow CORS access to the storage container you created: Go to **Settings** >**Allowed Origin**.
 4. Enter `https://{your_tenant_name}.b2clogin.com`. 
 5. Replace your tenant name with your Azure AD B2C tenant name, using lower-case letters. For example, `https://fabrikam.b2clogin.com`. 
@@ -115,17 +115,17 @@ Create a container
 
 In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies), find the following placeholders and replace them with the corresponding values from your instance.
 
-| Placeholder| Replace with value|Example|
+|Placeholder|Replace with value|Example|
 |---|---|---|
 |{your_tenant_name}|Your tenant short name|"your tenant" from yourtenant.onmicrosoft.com|
 |{your_tenantID}|Your Azure AD B2C TenantID| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|01234567-89ab-cdef-0123-456789abcdef|
 |{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_appid}| Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_app_objectid}| Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_extensions_appid}|Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_app_insights_instrumentation_key}|Your app insights instance* instrumention key|01234567-89ab-cdef-0123-456789abcdef|
-|{your_ui_file_base_url}| URL of the location where your UI **ocean_blue**, **dist**, and **assets** folders are located | https://yourstorage.blob.core.windows.net/UI/|
-|{your_app_service_URL}| URL of the app service you've set up| `https://yourapp.azurewebsites.net`|
+|{your_ui_file_base_url}|Location URL of your UI folders **ocean_blue**, **dist**, and **assets**| https://yourstorage.blob.core.windows.net/UI/|
+|{your_app_service_URL}|The app service URL you set up|`https://yourapp.azurewebsites.net`|
 
 *App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps, if they're not needed.
 
