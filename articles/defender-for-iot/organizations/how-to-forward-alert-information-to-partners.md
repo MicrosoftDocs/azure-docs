@@ -7,41 +7,37 @@ ms.topic: how-to
 
 # Forward alert information
 
-You can send alert information to partners who are integrating with Microsoft Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
-Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
+This article describes how to configure your OT sensor or on-premises management console to forward alerts to partner services, syslog servers, email addresses, and more. Forwarded alert information includes details like:
 
-Syslog and other default forwarding actions are delivered with your system. More forwarding actions might become available when you integrate with partner vendors, such as Microsoft Sentinel, ServiceNow, or Splunk.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
-
-Defender for IoT administrators have permission to use forwarding rules.
+:::row:::
+    :::column:::
+    - Date and time of the alert
+    - Engine that detected the event
+    - Alert title and descriptive message
+    - Alert severity
+    :::column-end:::
+    :::column:::
+    - Source and destination name and IP address
+    - Suspicious traffic detected
+    - Disconnected sensors
+    - Remote backup failures
+    :::column-end:::
+:::row-end:::
 
 ## Prerequisites
 
-For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+Depending on where you want to create your forwarding alert rules, you'll need to have either an OT network sensor or on-premises management console installed, with access as an **Admin** user.
+
+For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## About forwarded alert information
 
 Alerts provide information about an extensive range of security and operational events. For example:
 
-- Date and time of the alert
 
-- Engine that detected the event
 
-- Alert title and descriptive message
-
-- Alert severity
-
-- Source and destination name and IP address
-
-- Suspicious traffic detected
-
-- Disconnected sensors
-
-- Remote backup failures
-
-Relevant information is sent to partner systems when forwarding rules are created in the sensor console or the [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md#create-forwarding-rules).
 
 ## About Forwarding rules and certificates
 
@@ -87,7 +83,7 @@ Before you can configure a forwarding rule, you'll need to define SMTP settings 
 
 1. Select **Save**.
 
-## Forwarding rule actions
+## Supported forwarding rule actions
 
 You can send alert information to the servers described in this section.
 
