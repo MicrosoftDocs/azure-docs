@@ -1,11 +1,9 @@
 ---
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
-author: flang-msft
 
 ms.topic: conceptual
 ms.date: 09/24/2022
-ms.author: franlanglois
 
 ---
 
