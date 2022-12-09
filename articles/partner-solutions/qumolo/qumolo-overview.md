@@ -1,9 +1,11 @@
 ---
 title: Azure Native Qumolo Service overview
-description: Learn about what Azure Native Qumolo Service offers.
+description: Learn about what Azure Native Qumolo Service offers you.
 ms.topic: overview
-ms.date: 12/31/2022
 ms.custom: template-overview #Required; leave this attribute/value as-is.
+
+ms.date: 12/31/2022
+
 ---
 
 
