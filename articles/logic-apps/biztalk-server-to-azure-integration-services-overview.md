@@ -707,7 +707,7 @@ Azure Logic Apps provides rich run history so that developers and support analys
 
 Beyond data obfuscation, you can use [Azure RBAC](/azure/role-based-access-control/overview) rules to protect data access. Azure RBAC includes two built-in roles specifically for Azure Logic Apps, which are [Logic App Contributor and Logic App Operator](/azure/logic-apps/logic-apps-securing-a-logic-app#secure-operations).
 
-Beyond Azure RBAC, you can also [restrict access to run history in Azure Logic Apps by IP address range](azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#restrict-ip).
+Beyond Azure RBAC, you can also [restrict access to run history in Azure Logic Apps by IP address range](/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#restrict-ip).
 
 ### Large file processing
 
@@ -905,7 +905,7 @@ This table provides a summary mapping between the resources, artifacts, features
 | Feature or functionality | BizTalk Server | Azure |
 |--------------------------|----------------|-------|
 | Orchestrations | - BizTalk Server orchestration <br>- C# code (Helper class or web service) | - Azure Logic Apps workflow <br>- Azure function <br>- Azure API app |
-| Pipelines | - BizTalk Server pipelines <br>- Pipeline components | Azure Logic Apps workflows (as a pipeline) <br>- Azure API Management (as a pipeline) | Azure Functions or Azure API app |
+| Pipelines | - BizTalk Server pipelines <br>- Pipeline components | - Azure Logic Apps workflows (as a pipeline) <br>- Azure API Management (as a pipeline) <br>- Azure Functions or Azure API app |
 | Message routing | - MessageBox <br>- Property Promotions <br>- Filters | - Azure Service Bus queues and topics (message headers, message properties, and subscriptions) <br>- Azure Event Grid or Azure API Management <br>- SQL Server or Azure Cache for Redis |
 | Application connectivity | - BizTalk Server out-of-the-box and custom adapters <br>- Internet Information Services (IIS) and Azure API Management (hybrid capabilities) | - Azure Logic Apps connectors <br>- Azure API Management (as a connector) <br>- Azure Functions or Azure API app |
 | Cross-references | xref_ * tables on BizTalk Management database (BizTalkMgmtDb) | - Azure Functions <br>- SQL Server <br>- Custom |
@@ -913,7 +913,7 @@ This table provides a summary mapping between the resources, artifacts, features
 | Maps | - BizTalk Mapper <br>- XSLT maps <br>- Azure API Management (hybrid capabilities) | - Azure Logic Apps (Consumption) and Azure Integration Account (XSLT maps, Liquid) <br>- Azure Functions and Azure Storage Account <br>- Azure Logic Apps and Azure API app <br>- Azure Logic Apps (Standard)
 | Business rules | BizTalk Server Business Rules Engine | - Azure Functions <br>- SQL Server <br>- Custom database |
 | Business activity monitoring | BizTalk Server Business Activity Monitoring | - SQL Server <br>- Azure Monitor (Application Insights) <br>- Power BI |
-| EDI | - BizTalk Server out-of-the-box capabilities <br>- Parties, partners, agreements, AS2, X12, EDIFACT | - Azure Logic Apps and Azure Integration Account (partners, agreements, AS2, X12, EDIFACT) |
+| EDI | - BizTalk Server out-of-the-box capabilities <br>- Parties, partners, agreements, AS2, X12, EDIFACT | Azure Logic Apps and Azure Integration Account (partners, agreements, AS2, X12, EDIFACT) |
 | HL7, RosettaNet, and SWIFT | BizTalk Server accelerators for HL7, RosettaNet, and SWIFT | - Azure Logic Apps, RosettaNet and SWIFT connectors, and Azure Integration Account <br>- Azure API Management for FHIR (HL7) <br>- Azure Blueprint, which enables SWIFT CSP compliance on Azure |
 | Secrets | Enterprise Single Sign-On (SSO) | - Azure Key Vault <br>- SQL Server <br>- Application configuration |
 | Security and governance | - Enterprise Single Sign-On (SSO) <br>SSO affiliate applications <br>- Active Directory <br>- Signing certificates <br>- IIS Security Authentication <br>- Network security | - Azure Active Directory <br>- Azure Network Security <br>- Azure role-based access control (Azure RBAC) <br>- Claims, tokens <br>- Shared Access Policies |
