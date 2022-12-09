@@ -52,20 +52,10 @@
   callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
   callKitOptions.configureAudioSession = self.configureAudioSession
 
-  public func createProviderConfig() -> CXProviderConfiguration {
-      let providerConfig : CXProviderConfiguration = CXProviderConfiguration(localizedName: "NAME_OF_APP")
-
-      // Assign call capabilities with providerConfig
-
-      return providerConfig
-  }
-
   func provideCallKitRemoteInfo(callerInfo: CallerInfo) -> CallKitRemoteInfo
   {
       let callKitRemoteInfo = CallKitRemoteInfo()
-
-      // Assign values for cxHandle and displayNameForCallKit
-      
+      options.callKitRemoteInfo!.displayName = "CALL_TO_PHONENUMBER_BY_APP"      
       return callKitRemoteInfo;
   }
 
@@ -122,43 +112,35 @@
   }
   ```
 
-  We can use `reportIncomingCallToCallKit` to handle push notifications when the app is closed. 
-  `reportIncomingCallToCallKit` API should not be called if `CallAgent` instance is already available when push is recieved.
+  We can use `reportIncomingCallFromKillState` to handle push notifications when the app is closed. 
+  `reportIncomingCallFromKillState` API should not be called if `CallAgent` instance is already available when push is recieved.
 
   ```Swift
+  let callKitOptions = CallKitOptions(with: createProviderConfig())
+  callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
+  callKitOptions.configureAudioSession = self.configureAudioSession
   CallClient.reportIncomingCallFromKillState(with: callNotification, callKitOptions: callKitOptions) { (error) in
       if (error == nil) {
-          self.callClient = CallClient()
-
-          let callKitOptions = CallKitOptions(with: createProviderConfig())
-          callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
-          callKitOptions.configureAudioSession = self.configureAudioSession
-          options.callKitOptions = callKitOptions 
-          self.callClient!.createCallAgent(userCredential: userCredential,
-                                           options: options,
-                                           completionHandler: { (callAgent, error) in
-              if error != nil {
-                  os_log("==> createCallAgent FAILED", log:self.log)
-              } else {
-                  os_log("==> createCallAgent SUCCEEDED", log:self.log)
-                  if registerForPush {
-                      self.registerPushNotification(nil)
+          DispatchQueue.global().async {
+              os_log("==> Report to callkit completed", log:self.log)
+              // We have already reported call to CallKit. Init SDK in background
+              self.initialize("", "", false) { (msg, success) in
+                  if success == true {
                       os_log("==> SDK initialize completed, calling handlePush", log:self.log)
-                  }
-                 
-                  self.callAgent!.handlePush(notification: callNotification) { (error) in
-                      if error == nil {
-                          os_log("==> SDK handle push notification KILL state FULL: PASSED", log:self.log)
-                      } else {
-                          os_log("==> SDK handle push notification KILL state FULL: FAILED", log:self.log)
+                      self.callAgent!.handlePush(notification: callNotification) { (error) in
+                          if error == nil {
+                              os_log("==> SDK handle push notification KILL mode FULL: PASSED", log:self.log)
+                          } else {
+                              os_log("==> SDK handle push notification KILL mode FULL: FAILED", log:self.log)
+                          }
+                          assert(error == nil, "SDK couldn't handle push notification")
                       }
-                      assert(error == nil, "SDK couldn't handle push notification")
                   }
               }
-          })
+          }
       } else {
-          os_log("==>SDK couldn't handle push notification KILL mode reportIncomingCallToCallKit FAILED", log:self.log)
-      }        
+          os_log("==>SDK couldn't handle push notification KILL mode reportToCallKit FAILED", log:self.log)
+      }
   }
   ```
 
