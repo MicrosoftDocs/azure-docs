@@ -1,6 +1,6 @@
 ---
-title: Supported operating systems, container engines - Azure IoT Edge
-description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
+title: IoT Edge supported platforms
+description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
 ms.date: 02/08/2022
@@ -9,21 +9,21 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Azure IoT Edge supported systems
+# Azure IoT Edge supported platforms
 
 [!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
-This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview.
+This article explains what operating system platforms, IoT Edge runtimes, container engines, and components are supported by IoT Edge whether generally available or in preview.
 
 ## Get support
 
 If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** – Most development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** - Most development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
 
-**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0).
+**Feature requests** - The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0).
 
 ## Container engines
 
@@ -170,29 +170,16 @@ The systems listed in the following table are considered compatible with Azure I
 
 ## Releases
 
-IoT Edge release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
+The following table lists the currently supported releases. IoT Edge release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page.
 
-The following table lists the components included in each release starting with 1.2.0. The components listed in this table can be installed or updated individually, and are backwards compatible with older versions.
+| Release notes and assets | Type | Release Date | End of Support Date |
+| ------------------------ | ---- | ------------ | ------------------- |
+| [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
+| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Long-term support (LTS) | February 2021 | December 13, 2022 |
 
-| Release | aziot-edge | edgeHub<br>edgeAgent | aziot-identity-service |
-| ------- | ---------- | -------------------- | ---------------------- |
-| **1.4** | 1.4.0      | 1.4.0                | 1.4.0                  |
-| **1.3** | 1.3.0      | 1.3.0                | 1.3.0                  |
-| **1.2** | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br><br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br>1.2.6<br>1.2.7 | 1.2.0<br>1.2.1<br>1.2.3<br>1.2.4<br>1.2.5<br> |
-
-The following table lists the components included in each release up to the 1.1 LTS release. The components listed in this table can be installed or updated individually, and are backwards compatible with older versions.
+For more information on IoT Edge version history see, [Version history](version-history.md#version-history).
 
 IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive security updates and fixes to regressions. IoT Edge 1.1 LTS uses .NET Core 3.1, and will be supported until December 13, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
-
-| Release | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
-|--|--|--|--|--|
-| **1.1 LTS** | 1.1.0<br>1.1.1<br><br>1.1.3<br>1.1.4<br>1.1.5<br>1.1.6 | 1.1.0<br>1.1.1<br>1.1.2<br>1.1.3<br>1.1.4<br>1.1.5<br><br> | 1.1.0<br>1.1.1<br><br>1.1.3<br>1.1.4<br>1.1.5<br>1.1.6 |   |
-| **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
-| **1.0.9** | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 |  |
-| **1.0.8** | 1.0.8 | 1.0.8<br>1.0.8.1<br>1.0.8.2<br>1.0.8.3<br>1.0.8.4<br>1.0.8.5 | 1.0.8 | 3.0.6 |
-| **1.0.7** | 1.0.7<br>1.0.7.1 | 1.0.7<br>1.0.7.1 | 1.0.7<br>1.0.7.1 | 3.0.4 (ARMv7hl, CentOS)<br>3.0.5 |
-| **1.0.6** | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 |  |
-| **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
 > [!IMPORTANT]
 > * Every Microsoft product has a lifecycle. The lifecycle begins when a product is released and ends when it's no longer supported. Knowing key dates in this lifecycle helps you make informed decisions about when to upgrade or make other changes to your software. IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/policies/modern).
@@ -202,7 +189,9 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.2.0            | 1.33.4-NestedEdge
+| 1.4              | 1.36.6                                     |
+| 1.3              | 1.36.6                                     |
+| 1.2.0            | 1.33.4-NestedEdge                          |
 | 1.1 (LTS)        | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
