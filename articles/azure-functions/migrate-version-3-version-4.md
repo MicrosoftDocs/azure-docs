@@ -73,31 +73,11 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#upgrade-your-local-project) or by [using a staging slot](#upgrade-using-slots). 
 
 
-## Identify Function Apps using Azure Powershell
+## Identify function apps to upgrade
 
-To identify the list of v2&v3 Function Apps in your current Azure Subscription by using the Azure PowerShell script below:
+Use the following PowerShell script to generate a list of function apps in your subscription that currently target versions 2.x or 3.x:
 
-```powershell
-$Subscription = '<YOUR SUBSCRIPTION ID>' 
- 
-Set-AzContext -Subscription $Subscription | Out-Null 
- 
-$FunctionApps = Get-AzFunctionApp  
- 
-$AppInfo = @{} 
-foreach ($App in $FunctionApps) 
-{ 
-    $AppSettings = Get-AzFunctionAppSetting -ResourceGroupName $App.ResourceGroupName -Name $App.Name 
-    if ($AppSettings['FUNCTIONS_EXTENSION_VERSION'] -eq '~3' -or $AppSettings['FUNCTIONS_EXTENSION_VERSION'] -like '3.*') 
-    { 
-        $AppInfo.Add($App.Name,$AppSettings['FUNCTIONS_EXTENSION_VERSION']) 
-    } 
-} 
- 
-$AppInfo 
-
-```
-
+:::code language="powershell" source="~/functions-azure-product/EOLHostMigration/CheckEOLAppsPerAzSub.ps1" range="4-20":::
 
 ## Upgrade your local project
 
