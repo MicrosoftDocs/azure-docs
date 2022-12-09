@@ -8,7 +8,6 @@ ms.service: api-management
 ms.topic: reference
 ms.date: 12/05/2022
 ms.author: danlep
----
 
 # Validate content
 The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
@@ -109,7 +108,7 @@ To add a schema to your API Management instance using the Azure portal:
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the **APIs** section of the left-hand menu, select **Schemas** > **+ Add**.
 1. In the **Create schema** window, do the following:
-    1. Enter a **Name** (Id) for the schema.
+    1. Enter a **Name** (ID) for the schema.
     1. In **Schema type**, select **JSON** or **XML**.
     1. Enter a **Description**.
     1. In **Create method**, do one of the following:
