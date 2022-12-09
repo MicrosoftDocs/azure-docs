@@ -2,10 +2,10 @@
 ms.author: enricohuang
 title: Azure Communication Calling Web SDK in Android WebView environment
 titleSuffix: An Azure Communication Services document
-description: In this quickstart, you'll learn how to use Azure Communication Calling Web SDK in Android WebView environment
-author: enricohuang
+description: In this quickstart, you'll learn how to integrate Azure Communication Calling WebJS SDK in an Android WebView environment
+author: sloanster
 services: azure-communication-services
-ms.date: 11/15/2022
+ms.date: 12/9/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -14,8 +14,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-If you want to develop a calling application on Android, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView.
-In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
+Webview technology is an enbedable browser that can be integrated directly into a native mobile application. If you want to develop an ACS calling application directly a native Android application, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
 
 ## Prerequisites
 
@@ -44,7 +43,6 @@ Make sure you have the following permissions added to the application manifest:
 ```
 
 ## Request permissions at run time
-
 Adding permissions to the application manifest isn't enough. You must also [request the dangerous permissions at runtime](https://developer.android.com/training/permissions/requesting) to access camera and microphone.
 
 You have to call `requestPermissions()` and override `onRequestPermissionsResult`.
@@ -54,7 +52,6 @@ The [WebViewQuickstart sample app](https://github.com/Azure-Samples/communicatio
 also shows how to handle permission requests from browser and request app permissions at runtime.
 
 ## WebView configuration
-
 Azure Communication Calling Web SDK requires JavaScript enabled.
 In some cases, we saw `play() can only be initiated by a user gesture` error message in Android WebView environment, and users aren't able to hear incoming audio.
 Therefore, we recommend setting  `MediaPlaybackRequiresUserGesture` to false.
