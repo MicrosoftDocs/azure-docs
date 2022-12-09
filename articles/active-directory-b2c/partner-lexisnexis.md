@@ -42,7 +42,7 @@ The ThreatMetrix integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-  ![Diagram of lexisnexis solution architecture](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
+   ![Diagram of lexisnexis solution architecture](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
 1. User selects sign-up to create a new account and enters attributes. Azure AD B2C collects the attributes.
 2. Azure AD B2C calls the middle layer API and passes the user attributes.
