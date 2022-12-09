@@ -69,6 +69,8 @@
       href: entitlement-management-process.md
   - name: Access reviews
     items:
+    - name: Enable multi-stage reviews
+      href: using-multi-stage-reviews.md
     - name: Manage access with reviews
       href: manage-access-review.md
     - name: Manage users excluded from Conditional Access
