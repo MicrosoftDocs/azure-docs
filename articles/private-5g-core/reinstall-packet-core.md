@@ -34,6 +34,8 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
+1. Under the **Essentials** heading, check the **Packet core installation state** field. If the status under this field indicates the packet core instance is running a process (such as installing, upgrading or rolling back), wait for it to finish before attempting a reinstall.
+
 ## Back up deployment information
 
 The following list contains data that will get lost over a packet core reinstall. Back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
@@ -58,7 +60,7 @@ To reinstall your packet core instance:
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-confirmation.png" alt-text="Screenshot of the Azure portal showing the Reinstall packet core screen.":::
 
 1. Select **Reinstall**.
-1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. This process will take approximately 45 minutes. You can check the progress of the reinstall by selecting the notifications icon.
+1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. This process will take approximately 45 minutes. You can check the progress of the reinstall by selecting the notifications icon and then **More events in the activity log**.
 
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-status.png" alt-text="Screenshot of the Azure portal showing the reinstall packet core status in the Notifications screen.":::
 
