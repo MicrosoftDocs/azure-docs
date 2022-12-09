@@ -186,7 +186,7 @@ These parameters are used to create a configuration object in *authConfig.js* fi
 
 In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/auth/redirect`).
 
-For simplicity in this article, the client secret is stored in the configuration file. In the production app, consider using a key vault or an environment variable
+For simplicity in this article, the client secret is stored in the configuration file. In the production app, consider using a key vault or an environment variable. An even better option is to use a certificate.
 
 # [Python](#tab/python)
 
