@@ -618,6 +618,8 @@ items:
               href: storage-blob-append.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download.md
         - name: JavaScript
           items:
           - name: Get started
