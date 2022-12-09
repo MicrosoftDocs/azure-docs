@@ -923,6 +923,18 @@ This table provides a summary mapping between the resources, artifacts, features
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | Azure Monitor (Application Insights, Log Analytics) |
 | Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
 
+### Road map
+
+To help address BizTalk customers' needs in migrating their workloads and interfaces to Azure Integration Services, Microsoft currently prioritizes the following investments:
+
+| Timeframe | Functionality investments |
+|-----------|---------------------------|
+| Short term | - [XSLT + .NET Framework support (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120) <br>- [SWIFT MT encoder and decoder (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014) <br>- Call custom .NET Framework code from Azure Logic Apps (Standard) |
+| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- BizTalk Rules Engine support |
+| Long term | Business event tracking |
+
+To stay updated about the latest investments, subscribe to the [Integrations on Azure Blog - Tech Community](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/bg-p/IntegrationsonAzureBlog).
+
 ## Next steps
 
 You've learned more about how Azure Integration Services compares to BizTalk Server. Next, learn how to choose the best capabilities for your scenarios. Or, skip ahead to review suggested migration approaches.
