@@ -90,7 +90,7 @@ Select resources you want to move.
 
 10. Click **Proceed**, to begin adding the resources.
 11. After the add process finishes successfully, click **Adding resources for move** in the notification icon.
-12. After clicking the notification, review the resources on the **Across regions** page.
+12. After you select the notification, review the resources on the **Across regions** page.
 
 
 > [!NOTE]

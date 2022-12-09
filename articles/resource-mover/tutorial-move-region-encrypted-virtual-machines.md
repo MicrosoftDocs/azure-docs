@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Move encrypted Azure VMs across regions
 
-This article discusses how to move encrypted Azure virtual machines (VMs) to a different Azure region by using [Azure Resource Mover](overview.md). 
+Azure Resource Mover helps you move Azure resources between Azure regions. This article discusses how to move encrypted Azure virtual machines (VMs) to a different Azure region by using [Azure Resource Mover](overview.md). 
 
 Encrypted VMS can be described as either:
 
@@ -38,9 +38,13 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > This tutorial shows the quickest path for trying out a scenario. It uses only the default options. 
 
+## Sign in to Azure
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
+
+Before you begin, verify the following prerequisites:
 
 | Requirement |Details |
 |------------ | -------|
@@ -75,7 +79,7 @@ Keys <br></br> If you're using a KEK, you need these permissions in addition to 
 
 ### Destination region key vault
 
-In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled. 
+In **Access policies**, ensure that **Azure Disk Encryption for volume encryption** is enabled. 
 
 For users who execute the script, set permissions for the following components: 
 
@@ -86,7 +90,9 @@ Keys <br></br> If you're using a KEK, you need these permissions in addition to 
 
 <br>
 
-In addition to the preceding permissions, in the destination key vault, you need to add permissions for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses to access the Azure resources on your behalf. 
+In addition to the preceding permissions, in the destination key vault, you must add permissions for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses to access the Azure resources on your behalf. 
+
+To add permissions for the Managed System Identity (MSI), follow these steps:
 
 1. Under **Settings**, select **Add Access policies**. 
 1. In **Select principal**, search for the MSI. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
@@ -97,11 +103,12 @@ In addition to the preceding permissions, in the destination key vault, you need
     Secrets|  *Get* and *List* <br></br> Select **Secret permissions** > **Secret Management Operations**, and then select **Get** and **List**. 
     Keys <br></br> If you're using a KEK, you need these permissions in addition to the permissions for secrets. | *Get* and *List* <br></br> Select **Key Permissions** > **Key Management Operations**, and then select **Get** and **List**.
 
-<br>
 
 ### Copy the keys to the destination key vault
 
-Copy the encryption secrets and keys from the source key vault to the destination key vault by using a [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) that we provide.
+Copy the encryption secrets and keys from the source key vault to the destination key vault by using a [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) that we provide. 
+
+To copy the keys from the source key vault to the destination key vault, follow these steps:
 
 - Run the script in PowerShell. We recommend that you use the latest PowerShell version.
 - Specifically, the script requires these modules:
@@ -125,7 +132,9 @@ To run the script, do the following:
 
 ## Prepare VMs
 
-1. After you've checked to ensure that the VMs satisfy the [prerequisites](#prerequisites), make sure that the VMs you want to move are turned on. All VM disks that you want to be available in the destination region must be attached and initialized in the VM.
+To prepare VMs for the move, follow these steps:
+
+1. After you've checked to ensure that the VMs satisfy the [prerequisites](#prerequisites), ensure that the VMs you want to move are turned on. All VM disks that you want to be available in the destination region must be attached and initialized in the VM.
 1. To ensure that the VMs have the latest trusted root certificates and an updated certificate revocation list (CRL), do the following:
     - On Windows VMs, install the latest Windows updates.
     - On Linux VMs, follow distributor guidance so that the machines have the latest certificates and CRL. 
@@ -135,12 +144,11 @@ To run the script, do the following:
 
 ## Select the resources to move
 
-- You can select any supported resource type in any of the resource groups in the source region you select.  
-- You can move resources to a target region that's in the same subscription as the source region. If you want to change the subscription, you can do so after the resources are moved.
+You can select any supported resource type in any of the resource groups in the source region you select. You can move resources to a target region that's in the same subscription as the source region. If you want to change the subscription, you can do so after the resources are moved.
 
 To select the resources, do the following:
 
-1. In the Azure portal, search for **resource mover**. Then, under **Services**, select **Azure Resource Mover**.
+1. In the Azure portal, search for *resource mover*. Under **Services**, select **Azure Resource Mover**.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Screenshot of search results for Azure Resource Mover in the Azure portal." :::
 
@@ -148,11 +156,12 @@ To select the resources, do the following:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Screenshot of the 'Move across regions' button for adding resources to move to another region." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
-1. On the **Move resources** pane, select the **Source + destination** tab. Then, in the drop-down lists, select the source subscription and region.
+1. On **Move resources** > **Source + destination**: 
+    1. Select the source subscription and region.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Page to select source and destination region.." :::
 
-1. Under **Destination**, select the region where you want to move the VMs, and then select **Next**.
+    1. Under **Destination**, select the region where you want to move the VMs, then select **Next**.
 
 1. Select the **Resources to move** tab, and then select **Select resources**.
 
@@ -188,6 +197,8 @@ To select the resources, do the following:
 
 
 ## Resolve dependencies
+
+To resolve dependencies before the move, follow these steps:
 
 1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button.
 
@@ -324,7 +335,7 @@ Now that you've prepared the resources prepared, you can initiate the move.
 :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
-## Discard or commit?
+## Manage the move
 
 After the initial move, you can decide whether to commit the move or discard it. 
 
@@ -332,7 +343,7 @@ After the initial move, you can decide whether to commit the move or discard it.
 - **Commit**: Commit completes the move to the target region. After you've committed a source resource, its status changes to *Delete source pending*, and you can decide whether you want to delete it.
 
 
-## Discard the move 
+### Discard the move 
 
 To discard the move, do the following:
 
@@ -344,7 +355,7 @@ To discard the move, do the following:
 > [!NOTE]
 > After you've discarded the resources, The VM statuses change to *Initiate move pending*.
 
-## Commit the move
+### Commit the move
 
 To complete the move process, you commit the move by doing the following: 
 
@@ -363,6 +374,8 @@ To complete the move process, you commit the move by doing the following:
 
 
 ## Configure settings after the move
+
+You can configure the following settings after the move process:
 
 - The mobility service isn't uninstalled automatically from VMs. Uninstall it manually, or leave it if you plan to move the server again.
 - Modify Azure role-based access control (RBAC) rules after the move.
@@ -394,6 +407,7 @@ To delete your resources, do the following:
     - Move collection name: ```movecollection-<sourceregion>-<target-region>```
     - Cache storage account name: ```resmovecache<guid>```
     - Vault name: ```ResourceMove-<sourceregion>-<target-region>-GUID```
+
 ## Next steps
 
 In this tutorial, you:
@@ -401,8 +415,5 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Moved encrypted Azure VMs and their dependent resources to another Azure region.
 
+As a next step, try [moving Azure SQL databases and elastic pools to another region](./tutorial-move-region-sql.md).
 
-As a next step, try moving Azure SQL databases and elastic pools to another region.
-
-> [!div class="nextstepaction"]
-> [Move Azure SQL resources](./tutorial-move-region-sql.md)
