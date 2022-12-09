@@ -17,6 +17,7 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 > Azure CNI Overlay is currently available only in the following regions:
 > - North Central US
 > - West Central US
+> - East US
 
 ## Overview of overlay networking
 
