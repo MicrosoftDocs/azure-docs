@@ -26,11 +26,11 @@ In this how-to guide, we will extend the [Id token hint attestation](how-to-use-
 
 In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of the Issue credentials quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
 On the **Create a new credential** page, enter the JSON code for the display and the rules definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
-![Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
+![Screenshot of the Create a new credential page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
 ## Sample JSON display definitions
 
