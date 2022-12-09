@@ -185,7 +185,7 @@ This section contains properties to manually configure a new BIG-IP SAML applica
 
 For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
-    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
+   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
 #### Azure Configuration
 
