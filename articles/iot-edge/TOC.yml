@@ -5,10 +5,10 @@
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
-  - name: Supported platforms
-    href: support.md
   - name: Version / release notes
     href: version-history.md
+  - name: Supported platforms
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
@@ -288,7 +288,7 @@
       href: iot-edge-for-linux-on-windows-security.md
     - name: Networking
       href: iot-edge-for-linux-on-windows-networking.md
-    - name: Platform support
+    - name: Supported platforms
       href: iot-edge-for-linux-on-windows-support.md
   - name: Install and provision
     items:
