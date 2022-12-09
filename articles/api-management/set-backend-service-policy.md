@@ -76,7 +76,7 @@ When the [<choose\>](choose-policy.md) policy statement is applied the backend s
 
 If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
 
-### Route requests to a Service Fabric backend
+### Route requests to a service fabric backend
 
 In this example the policy routes the request to a service fabric backend, using the userId query string as the partition key and using the primary replica of the partition.
 
