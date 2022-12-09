@@ -36,9 +36,7 @@ From the diagnostics window you can filter diagnostic categories, or select one 
 
 ## Reports
 
-Selecting a detector reveals a series of visualization for the diagnostic data.
-
-The following screenshot is an example of the availability and performance report.
+Selecting a detector reveals a series of visualization for the diagnostic data. The following screenshot is an example of the availability and performance report.
 
 :::image type="content" source="media/diagnotics-overview/azure-static-web-apps-diagnostics-chart.png" alt-text="Screenshot of Azure Static Web Apps diagnostics chart.":::
 
