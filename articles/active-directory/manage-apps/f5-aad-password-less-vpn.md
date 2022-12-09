@@ -16,7 +16,7 @@ ms.reviewer: v-nisba
 
 # Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO
 
-In this tutorial, learn how to integrate F5 BIG-IP based secure socket layer virtual private network (SSL-VPN) with Azure Active Directory (AD) for secure hybrid access (SHA).
+In this tutorial, learn how to integrate F5 BIG-IP based secure socket layer virtual private network (SSL-VPN) with Azure Active Directory (Azure AD) for secure hybrid access (SHA).
 
 Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefits, including:
 
