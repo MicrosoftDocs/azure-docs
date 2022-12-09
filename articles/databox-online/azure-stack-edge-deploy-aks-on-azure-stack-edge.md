@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 12/09/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -25,7 +25,7 @@ On your Azure Stack Edge device, you can configure compute. With compute configu
 
 ## Scenarios covered in this article
 
-The following scenarios are described in this article:
+This article covers the following scenarios:
 
 1. **Deploy AKS on your device.** This can be done with or without configuring the Azure Arc for Kubernetes clusters as an addon. 
    - If you enable Azure Arc on Kubernetes cluster, use Azure Arc to manage your cluster. 
@@ -47,14 +47,14 @@ Before you begin, ensure that:
 - You have access to an Azure Stack Edge Pro GPU device. This device will be configured and activated as per the detailed instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
 - You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device as per the instructions in [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches-and-compute-ips).
 - You have a client to access your device. The client system is running a supported operating system. If using a Windows client, make sure that it is running PowerShell 5.0 or later.
-- Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription as per the detailed instructions in [Register resource providers via Azure CLI](../../azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
+- Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription as per the detailed instructions in [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to this resource group.
 - To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
 
     ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed: 
-- If you intend to deploy [custom locations](../../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You would also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
+- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You would also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
 
    Here is a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
@@ -63,7 +63,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
    ```
 
-  For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md).
+  For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
 - If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added as per the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
 - If using a high performance network VM as your Kubernetes VM, you would need to reserve the vCPUs as described in the steps to [reserve vCPUs on HPN VMs](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md?tabs=2210#prerequisites) with the following differences:
@@ -85,6 +85,8 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
      [10.126.77.42]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39" -AssignAllCpusToRoot $false
     ```
+
+Tabs for 1-node and 2-node
 
 ## Step 1. Enable Azure Kubernetes Service (AKS) and custom locations
 
@@ -217,16 +219,95 @@ Follow these steps to deploy the AKS cluster.
 
 1. If you select **Change**, then you’ll need to provide a subscription, resource group, cluster name, and region.
 
+   ![Screenshot that shows the Configure Arc enabled Kubernetes options part of creating the Kubernetes service on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png)
 
+   1. The subscription name should be automatically populated.
+
+   1. Specify a unique resource group name. You can also choose to use the same resource group in which you deployed your Azure Stack Edge resource. **You must have owner level access to this resource group.** To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
+
+      ![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-my-iam-assignments.png)
+
+   1. Specify a name for your Arc enabled Kubernetes cluster or accept the provided default.
+
+   1. Select a region where you will create a resource for your Arc enabled Kubernetes cluster. A filtered list of supported regions is displayed in the dropdown list. For more information, see [supported regions for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md#supported-regions).  
+   1. Select **Configure**. You can also reset the Arc settings in this blade to default by selecting the **Reset to default** option.
+
+1. Select **Create** to create the Kubernetes service.
+
+   ![Screenshot that shows the Create Kubernetes service page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png)
+
+1. You are notified when the cluster creation starts.
+
+   ![Screenshot that shows Azure Stack Edge Azure Arc Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png)
+
+   > [!IMPORTANT]
+   > The creation of Kubernetes cluster takes about 20 minutes. During the creation, a critical alert is displayed in the Azure portal for your Azure Stack Edge resource. This alert will resolve itself in a few minutes.
+
+   ![Screenshot that shows the critical alert during Kubernestes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png)
+
+   Once the Kubernetes cluster is created, you’ll see that the Azure Kubernetes Service is Running.
+
+   ![Screenshot that shows the Azure Kubernetes Service running as expected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png)
+
+   The **Arc-enabled Kubernetes** will also show up as **Running**.
+
+   ![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-running.png)
+
+   If you are planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
 
 ## Add a persistent volume
 
+**PersistentVolume (PV)** refers to a piece of storage in the Kubernetes cluster. Kubernetes storage can be statically provisioned as `PersistentVolume`. It can also be dynamically provisioned as `StorageClass`. For more information, see [Storage requirements for Kubernetes pods](azure-stack-edge-gpu-kubernetes-storage.md#storage-requirements-for-kubernetes-pods). 
 
-## Manage via Azure Arc enabled Kubernetes
+There are two different workflows for creating PVs depending on whether the compute is enabled inline when the share is created. Each of these workflows is discussed in the following sections.
+
+### Create PV with compute enabled inline during share creation
+
+On your Azure Stack Edge Pro device, statically provisioned `PersistentVolumes` are created using the device's storage capabilities. When you provision a share and the **Use the share with Edge compute** option is enabled, this action creates a PV resource automatically in the Kubernetes cluster.
+
+![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge compute option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png)
+
+To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. Any application data that you write to the Edge share is tiered to the cloud.
+
+![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)
+
+
+### Create PV with compute not enabled inline during share creation
+
+For the shares that were created with the **Use the share with Edge compute** option unchecked, you can add a persistent volume using the following steps.
+
+1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Cloud storage gateway** > **Shares**. You can see the that the device currently has shares with the **Used for compute** status enabled.
+
+   ![Screenshot that shows the Cloud storage gateway shares with Edge compute enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png)
+
+1. Select **+ Add share**. For this share, make sure that the **Use the share with Edge compute** option is unchecked.
+
+   ![Screenshot that shows the Add share dialog for Persistent volume with compute not enabled inline during share creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-with-compute-not-enabled.png)
+
+1. You can see the newly created share in the list of shares and the **Used for compute** status is **Disabled**.
+
+   ![Screenshot that shows the newly created share in the list of shares and the Used for compute status is Disabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-new-share-with-edge-compute-option-disabled.png)
+
+1. Go back to the **Azure Stack Edge resource** > **Overview**. In the right-pane, select the **Azure Kubernetes Service** tile. 
+
+   ![Screenshot that shows the Azure Stack Edge resource Overview page with the Azure Kubernetes Service tile selected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-overview-page-showing-azure-kubernetes-service-tile-selected.png)
+
+1. In the **Azure Kubernetes Service** > **Overview** page, the **Persistent volumes** tile shows the persistent volumes that exist. These volumes were created automatically when the shares were created with the **Use the share with Edge compute** option enabled. To create a new persistent volume, select **+ Add persistent volume**.
+
+1. In the **Add persistent volumes** blade, select the share for which you want to create the persistent volume.
+
+   ![Screenshot that shows the Azure Stack Edge dialog for Add Persistent volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png)
+
+![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+
+![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
 
 
 ## Remove the Kubernetes Service
 
+![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+
+![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
 
 ## Next steps
 
