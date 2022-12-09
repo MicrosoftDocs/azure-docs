@@ -30,7 +30,8 @@ items:
 - name: Tutorials
   expanded: true
   items: 
-    - name: App Service
+    - name: Azure App Service
+      expanded: true
       items:
       - name: ASP.NET core app to App Configuration
         href: tutorial-connect-web-app-app-configuration.md
@@ -42,14 +43,16 @@ items:
         href: ../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
       - name: Python (Django) app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
-    - name: Container Apps
+    - name: Azure Container Apps
+      expanded: true
       items:
       - name: Java Quarkus to PostgreSQL
         href: ../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Azure Spring Apps
+      expanded: true
       items:
       - name: Java app to PostgreSQL Flexible Server
-        href: ../azure/spring-apps/how-to-bind-postgres.md?tabs=Passwordlessflex
+        href: ../spring-apps/how-to-bind-postgres.md?tabs=Passwordlessflex
       - name: Spring Boot app to Kafka on Confluent Cloud
         href: tutorial-java-spring-confluent-kafka.md
       - name: Spring app to MySQL Flexible Server
@@ -61,7 +64,7 @@ items:
       href: concept-service-connector-internals.md
     - name: High availability
       href: concept-availability.md
-    - name: Region Support
+    - name: Region support
       href: concept-region-support.md
 - name: How-to guides
   expanded: true
