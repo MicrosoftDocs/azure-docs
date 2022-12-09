@@ -16,7 +16,7 @@ ms.custom: GGAL-freshness822
 
 This article shows how to move files from your workstation up to an Azure VM, or from an Azure VM down to your workstation, using Secure Copy (SCP). Moving files between your workstation and a VM, quickly and securely, is critical for managing your Azure infrastructure. 
 
-For this article, you need a VM deployed in Azure with SSH enabled. You also need an SCP client for your local computer. It is built on top of SSH and included in the default shell of most Linux and Windows (10 and newer) installations.
+For this article, you need a VM deployed in Azure with SSH enabled. You also need an SCP client for your local computer. It's built on top of SSH and included in the default shell of most Linux and Windows (10 and newer) installations.
 
 
 ## Quick commands
@@ -39,7 +39,7 @@ As examples, we move an Azure configuration file up to a VM and pull down a log 
 
 ## SSH key pair authentication
 
-SCP uses SSH for the transport layer. SSH handles the authentication on the destination host, and it moves the file in an encrypted tunnel provided by default with SSH. For SSH authentication, usernames and passwords can be used. However, SSH public and private key authentication are recommended as a security best practice. Once SSH has authenticated the connection, SCP then begins copying the file. Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established by just using a server name (or IP address). If you only have one SSH key, SCP looks for it in the `~/.ssh/` directory, and uses it by default to log in to the VM.
+SCP uses SSH for the transport layer. SSH handles the authentication on the destination host, and it moves the file in an encrypted tunnel provided by default with SSH. For SSH authentication, usernames and passwords can be used. However, SSH public and private key authentication are recommended as a security best practice. Once SSH has authenticated the connection, SCP then begins copying the file. When you use a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established by just using a server name (or IP address). If you only have one SSH key, SCP looks for it in the `~/.ssh/` directory, and uses it by default to log in to the VM.
 
 For more information on configuring your `~/.ssh/config` and SSH public and private keys, see [Create SSH keys](/linux/mac-create-ssh-keys.md).
 
@@ -67,4 +67,4 @@ The `-r` flag instructs SCP to recursively copy the files and directories from t
 
 ## Next steps
 
-* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](/extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the 'VMAccess' Extension](/extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)
