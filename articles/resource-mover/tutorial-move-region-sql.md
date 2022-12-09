@@ -73,19 +73,19 @@ To select the resources you want to move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-sql/search.png" alt-text="Screenshot displays search results for resource mover in the Azure portal." lightbox="./media/tutorial-move-region-sql/search.png":::
 
-2. In **Overview**, select **Get Started**.
+2. On the Azure Resource Mover **Overview** pane, select **Move across regions**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/get-started.png" alt-text="Screenshot displays button to add resources to move to another region." lightbox="./media/tutorial-move-region-sql/get-started.png":::
 
-3. In **Move resources** > **Source + destination**:
+3. On **Move resources** > **Source + destination**:
     1. Select the source **Subscription** and **Region**.
-    2. In **Destination**, select the region to which you want to move the resources. Then select **Next**.
+    2. Under **Destination**, select the region to which you want to move the resources. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/source-target.png" alt-text="Screenshot displays page to select source and destination region." lightbox="./media/tutorial-move-region-sql/source-target.png":::
 
-6. In **Move resources** > **Resources to move**:
+6. On **Move resources** > **Resources to move**:
     1. Go to **Select resources**.
-    1. In **Select resources**, select the resources. You can only add resources that are supported for move. Then select **Done**.
+    1. On **Select resources** pane, select the resources. You can only add resources that are supported for move. Then select **Done**.
 
         :::image type="content" source="./media/tutorial-move-region-sql/select-resources.png" alt-text="Screenshot displays page to select SQL resources to move." lightbox="./media/tutorial-move-region-sql/select-resources.png":::
 
@@ -126,6 +126,8 @@ To resolve the resources you want to move, follow these steps:
 
 Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, you must first assign a target SQL server in the target region.
 
+To assign the destination resources manually, follow these steps:
+
 1. **Assign a target SQL server**- To assign a target SQL server, follow these steps:
 
     1. In **Across regions**, for the SQL server resource, in the **Destination configuration** column, select **Resource not assigned**.
@@ -136,7 +138,7 @@ Azure Resource Mover currently doesn't move SQL server across regions. To commit
     > [!NOTE]
     > The source SQL Server state changes to *Commit move pending*. 
 
-1. **Commit the SQL Server move**- To commit a target SQL server, follow these steps:
+1. **Commit the SQL Server move**- To commit a target SQL server and finish the move process, follow these steps:
 
     1. In **Across regions**, select the SQL Server, and then select **Commit move**.
     2. In **Commit resources**, select **Commit**.
@@ -215,6 +217,8 @@ During the prepare stage, the target database is created in the target region an
 
 ## Move databases
 
+Now that you've prepared the resources prepared, you can initiate the move. 
+
 To move the databases, follow these steps:
 
 1. In **Across regions**, select resources with state **Initiate move pending**. Then select **Initiate move**.
@@ -231,12 +235,12 @@ To move the databases, follow these steps:
 
 After the initial move, you can decide whether you want to commit the move, or to discard it. 
 
-- **Discard**: You might want to discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of **Initiate move pending**.
+- **Discard**: You might want to discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of *Initiate move pending*.
 - **Commit**: Commit completes the move to the target region. After committing, a source resource will be in a state of **Delete source pending** and you can decide if you want to delete it.
 
 ### Discard the move 
 
-You can discard the move as follows:
+To discard the move, follow these steps:
 
 1. In **Across regions**, select resources with state **Commit move pending**, and select **Discard move**.
 2. In **Discard move**, select **Discard**.
@@ -252,7 +256,7 @@ If you want to start the move again after discarding, select the SQL database, o
 
 ### Commit the move
 
-Finish moving databases and elastic pools as follows:
+Finish moving databases and elastic pools by following these steps:
 
 1. Check that the SQL Server is a *Delete source pending* state.
 2. Update database connection strings to the target region, before you commit.
@@ -275,7 +279,7 @@ After the move, you can optionally delete resources in the source region.
 > [!NOTE]
 > SQL Server servers can't be deleted from the portal and must be deleted from the resource property page.
 
-1. In **Across Regions**, select the name of the source resource that you want to delete.
+1. On the **Across regions** pane, select the name of the source resource that you want to delete.
 2. Select **Delete source**.
 
 ## Next steps
