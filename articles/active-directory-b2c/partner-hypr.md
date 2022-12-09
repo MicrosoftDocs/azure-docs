@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial for configuring HYPR with Azure Active Directory B2C
 
-In this tutorial, learn to configure Azure Active Directory (Azure AD) business-to-consumer (B2C)) with [HYPR](https://get.hypr.com). When Azure AD B2C is the identity provider (IdP), you can integrate HYPR with customer applications for passwordless authentication. HYPR replaces passwords with public key encryptions that help prevent fraud, phishing, and credential reuse.
+In this tutorial, learn to configure Azure Active Directory B2C (Azure AD B2C) with [HYPR](https://get.hypr.com). When Azure AD B2C is the identity provider (IdP), you can integrate HYPR with customer applications for passwordless authentication. HYPR replaces passwords with public key encryptions that help prevent fraud, phishing, and credential reuse.
 
 ## Prerequisites
 
