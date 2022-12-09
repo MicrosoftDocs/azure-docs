@@ -63,10 +63,10 @@ productDirectory:
           text: Delivers secure and high performance applications using familiar and trusted load balancing solutions.
   # Card 7
     - title: Qumolo
-      imageSrc: /qumulo/index/qumolo.svg
+      imageSrc: ./media/index/qumolo.svg
       links:
         - url: ./qumulo/qumolo-overview.md
-         text: Enterprise ready highly scalable, highly performant, and simple to use cloud native file system.
+          text: Enterprise ready highly scalable, highly performant, and simple to use cloud native file system.
   # Card 
     # - title: New Relic
     #   imageSrc: ./media/index/new-relic.svg
