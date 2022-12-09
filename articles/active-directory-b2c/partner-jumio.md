@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial for configuring Jumio with Azure Active Directory B2C
 
-In this tutorial, learn to integrate Azure Active Directory (Azure AD) business-to-consumer (B2C) with [Jumio](https://www.jumio.com/), an ID verification service that enables real-time automated ID verification to help protect customer data.
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) with [Jumio](https://www.jumio.com/), an ID verification service that enables real-time automated ID verification to help protect customer data.
 
 ## Prerequisites
 
