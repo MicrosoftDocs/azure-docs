@@ -76,26 +76,28 @@ For this quickstart, don't change any other values in the *appsettings.json* fil
 
 1. Open a terminal and change directory to the project folder.
 
-    ```console
+    ```powershell
     cd webapi
     ```
 
 1. Run the following command to build the solution:
 
-   ```console
+   ```powershell
    dotnet run
    ```
 
 If the build has been successful, the following output is displayed:
 
-    ```console
-    info: Microsoft.Hosting.Lifetime[14]
-        Now listening on: https://localhost:5001
-    info: Microsoft.Hosting.Lifetime[14]
-        Now listening on: http://localhost:5000
-    info: Microsoft.Hosting.Lifetime[0]
-        Application started. Press Ctrl+C to shut down. 
-    ```  
+```powershell
+Building...
+info: Microsoft.Hosting.Lifetime[0]
+    Now listening on: https://localhost:{port}
+info: Microsoft.Hosting.Lifetime[0]
+    Now listening on: http://localhost:{port}
+info: Microsoft.Hosting.Lifetime[0]
+    Application started. Press Ctrl+C to shut down.
+...
+```
 
 ## How the sample works
 
