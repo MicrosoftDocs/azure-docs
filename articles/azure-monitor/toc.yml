@@ -642,17 +642,6 @@ items:
           - name: .NET Console
             displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
             href: app/console.md
-      - name: Java
-        items:
-          - name: Web apps
-            displayName: java
-            href: app/java-2x-get-started.md
-          - name: Log traces
-            href: app/java-2x-trace-logs.md
-          - name: Dependencies
-            href: app/java-2x-agent.md
-          - name: Filter telemetry
-            href: app/java-2x-filter-telemetry.md
       - name: Node.js
         href: app/nodejs.md
       - name: Python
@@ -1687,17 +1676,14 @@ items:
             href: logs/oms-portal-transition.md
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
+    - name: Application Insights Java 2.x
+      href: ./app/deprecated-java-2x.md    
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Disk metrics deprecation
       href: essentials/portal-disk-metrics-deprecation.md
-    - name: Unix metrics
-      href: app/java-2x-collectd.md
-    - name: Micrometer Metrics
-      displayName: java
-      href: app/java-2x-micrometer.md
     - name: Change to blob storage format
       displayName: Diagnostic settings
       href: essentials/resource-logs-blob-format.md
