@@ -2,16 +2,20 @@
 title: Migrate applications to use passwordless authentication with Azure Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
-services: storage
 author: alexwolfmsft
-
-ms.service: storage
-ms.topic: how-to
-ms.date: 07/28/2022
 ms.author: alexwolf
+ms.reviewer: randolphwest
+ms.date: 12/07/2022
+ms.service: storage
 ms.subservice: common
+ms.topic: how-to
+ms.custom:
+  - devx-track-csharp
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
 ms.devlang: csharp
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 ---
 
 # Migrate an application to use passwordless connections with Azure services
@@ -20,7 +24,7 @@ Application requests to Azure Storage must be authenticated using either account
 
 ## Security risks associated with Shared Key authorization
 
-The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account.  Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
+The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -30,7 +34,7 @@ var blobServiceClient = new BlobServiceClient(
 
 Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
-## Migrating to passwordless connections
+## Migrate to passwordless connections
 
 Many Azure services support passwordless connections through Azure AD and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
@@ -135,11 +139,11 @@ For this migration guide you will use App Service, but the steps are similar on 
 
    Select **Next: Authentication**.
 
-   :::image type="content" source="media/migration-create-identity-small.png" alt-text="Screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
+   :::image type="content" source="media/migration-create-identity-small.png" alt-text="Screenshot showing how to create a system assigned managed identity." lightbox="media/migration-create-identity.png":::
 
 1. Make sure **System assigned managed identity (Recommended)** is selected, and then choose **Next: Networking**.
 1. Leave the default values selected, and then choose **Next: Review + Create**.
-1. After Azure validates your settings, click **Create**.
+1. After Azure validates your settings, select **Create**.
 
 The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Storage Blob Data Contributor** role for the storage account you selected.
 
@@ -289,7 +293,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. Choose **Add role assignment**
 
-   :::image type="content" source="media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity."  lightbox="media/migration-add-role.png":::
+   :::image type="content" source="media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="media/migration-add-role.png":::
 
 1. In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
@@ -297,7 +301,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity."  lightbox="media/migration-select-identity.png":::
+   :::image type="content" source="media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
