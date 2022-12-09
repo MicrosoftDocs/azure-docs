@@ -22,17 +22,17 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior |  In-process<sup>3</sup> | Isolated worker process  |
 | ---- | ---- | ---- |
-| [Supported .NET versions](./dotnet-isolated-process-guide.md#supported-versions) | Long Term Support (LTS) versions | All supported versions + .NET Framework |
+| [Supported .NET versions](./dotnet-isolated-process-guide.md#supported-versions) | Long Term Support (LTS) versions | [All supported versions](azure/azure-functions/dotnet-isolated-process-guide.md#supported-versions) + .NET Framework |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
-| Model types exposed by bindings | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>Service SDK types such as [BlobClient]<br/>`IAsyncCollector` (for output bindings) | Simple types<br/>JSON serializable types<br/>Arrays/enumerations |
-| HTTP trigger model types| [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
+| Model types exposed by bindings | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>Service SDK types such as [BlobClient](dotnet/api/azure.storage.blobs.blobclient.md)<br/>`IAsyncCollector` (for output bindings) | Simple types<br/>JSON serializable types<br/>Arrays/enumerations |
+| HTTP trigger model types| [HttpRequest](dotnet/api/system.net.http.httpclient.md) / [ObjectResult](dotnet/api/microsoft.aspnetcore.mvc.objectresult.md) | [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata.md) / [HttpResponseData](dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata.md) |
 | Output binding interaction | Return values (single output only)<br/>`out` parameters<br/>`IAsyncCollector` | Return values (expanded model with single or [multiple outputs](dotnet-isolated-process-guide.md#multiple-output-bindings)) |
 | Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) |
 | Middleware | Not supported | [Supported](dotnet-isolated-process-guide.md#middleware) |
-| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
+| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via [dependency injection](functions-dotnet-class-library.md#dependency-injection) | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
 | Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
