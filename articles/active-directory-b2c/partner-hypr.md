@@ -73,7 +73,7 @@ The following architecture diagram shows the implementation.
 9. After the user attribute is created, HYPR is called. 
 
 >[!TIP]
->If the flow is incomplete, confirm the user is, or isn't, saved in the directory.
+>If the flow is incomplete, confirm the user is saved in the directory.
 
 ## Next steps
 
