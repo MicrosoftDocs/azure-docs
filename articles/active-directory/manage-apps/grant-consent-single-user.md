@@ -45,6 +45,9 @@ Before you start, record the following details from the Azure portal:
 
 For this example, we'll use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started) to grant consent on behalf of a single user. The client application is [Microsoft Graph Explorer](https://aka.ms/ge), and we grant access to the Microsoft Graph API.
 
+> [!CAUTION] 
+> Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
+
 ```powershell
 # The app for which consent is being granted. In this example, we're granting access
 # to Microsoft Graph Explorer, an application published by Microsoft.
