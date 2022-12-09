@@ -8,7 +8,7 @@ ms.date: 12/03/2022
 ms.reviewer: Xema Pathak
 ---
 
-# Tutorial Enable monitoring with VM insights for Azure virtual machine
+# Tutorial: Enable monitoring with VM insights for Azure virtual machine
 VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. VM insights installs the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) which is required to collect the guest operating system and prepares you to configure additional monitoring from your VMs according to your particular requirements. 
 
 In this tutorial, you learn how to:
