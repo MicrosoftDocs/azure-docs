@@ -35,7 +35,7 @@ HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolatio
 > [!Note]
 > ACID/transactional support only works for managed tables and not external tables. Hive external tables are designed so that external parties can read and write table data, without Hive perfoming any alteration of the underlying data. For ACID tables, Hive may alter the underlying data with compactions and transactions.
 
-Some benefits of ACID tables are the following:
+Some benefits of ACID tables are
 
 * ACID v2 has performance improvements in both storage format and the execution engine.
 
@@ -83,8 +83,8 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 * HDInsight 4.0 doesn't support Apache Storm.
 * HDInsight 4.0 doesn't support the ML Services cluster type.
-* Shell interpretr in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
-* Apache Pig runs on Tez by default. However, you can change it to Mapreduce.
+* Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
+* Apache Pig runs on Tez by default. However, you can change it to MapReduce.
 * Spark SQL Ranger integration for row and column security is deprecated.
 
 ## Next steps
