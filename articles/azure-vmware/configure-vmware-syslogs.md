@@ -31,7 +31,7 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
 
 1. From your Azure VMware Solution private cloud, select **Diagnostic settings**, then **Add diagnostic settings**.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to configure VMware syslogs." lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png":::
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to configure VMware syslogs.":::
 
 
 1. Select the **vmwaresyslog**, **All metrics**, and select one of the following options presented.
