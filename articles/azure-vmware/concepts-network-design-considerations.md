@@ -91,7 +91,7 @@ The following diagram demonstrates how the NVA needs to advertise more generic (
 
 In this topology, instead of propagating less specific routes to attract traffic to the ExpressRoute gateway, two different NVAs in separate Virtual Networks can exchange routes between each other. The Virtual Networks can propagate these routes to their respective ExpressRoute circuits via BGP and Azure Route Server, as the following diagram shows. Each NVA has full control on which prefixes are propagated to each ExpressRoute circuit.
 
-The following diagram demonstrates how a single 0.0.0.0/0 is advertised to Azure VMware Solution and how the individual Azure VMware Solution prefixes are propagated to the on-premises network.
+The following diagram demonstrates how a single 0.0.0.0/0 is advertised to Azure VMware Solution. It also shows how the individual Azure VMware Solution prefixes are propagated to the on-premises network.
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in two regions." lightbox="media/concepts-network-design/vmware-solution-to-on-premises.png":::
 
