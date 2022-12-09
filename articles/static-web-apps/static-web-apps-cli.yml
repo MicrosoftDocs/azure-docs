@@ -86,7 +86,7 @@ directCommands:
   description: >-
     ### Serve from a folder
 
-    By default, the CLI starts and serves any the static content from the current working directory `./`:
+    By default, the CLI starts and serves any static content from the current working directory `./`:
 
       ```bash
       swa start
