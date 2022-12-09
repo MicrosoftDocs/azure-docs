@@ -38,7 +38,7 @@ The [Activity log](../azure-monitor/essentials/activity-log.md) displays recent 
 :::image type="content" source="media/monitor-vm/activity-log.png" lightbox="media/monitor-vm/activity-log.png" alt-text="Screenshot of the 'Activity log' pane.":::
 
 ## Azure Monitor agent
-Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. To collect logs and performance data from the guest operating system of the virtual machine, though, you must install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md). You can install the agent and configure collection using either [Vm insights](#vminsights) or by [creating a data collection rule](#create-data-collection-rule) as described below.
+Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. To collect logs and performance data from the guest operating system of the virtual machine, though, you must install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md). You can install the agent and configure collection using either [VM insights](#vm-insights) or by [creating a data collection rule](#create-data-collection-rule) as described below.
 
 ## VM insights
 Some services in Azure display customized monitoring experiences in Azure Monitor. These experiences are called *insights*, and they include pre-built workbooks and other specialized features for that particular service.  
@@ -54,14 +54,14 @@ VM insights is designed to monitor your Azure and hybrid virtual machines in a s
 
 :::image type="content" source="media/monitor-vm/vminsights-02.png" lightbox="media/monitor-vm/vminsights-02.png" alt-text="Screenshot of the VM insights 'Map' view.":::
 
-For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-enable.md). For general information about enabling insights and a variety of methods for onboarding virtual machines, see [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).
+For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-enable-insights.md). For general information about enabling insights and a variety of methods for onboarding virtual machines, see [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).
 
 ## Create data collection rule
 If you enable [VM insights](#vm-insights), the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create additional data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-guest.md).
 
 
 ## Analyze metrics
-Metrics are numerical values that describe some aspect of a system at a particular point in time. Although platform metrics for the virtual machine host are collected automatically, you must [install the Azure Monitor agent](#collect-guest-metrics-and-logs) to collect guest metrics. 
+Metrics are numerical values that describe some aspect of a system at a particular point in time. Although platform metrics for the virtual machine host are collected automatically, you must install the Azure Monitor agent and [create a data collection rule](#collect-guest-metrics-and-logs) to collect guest metrics.
 
 The **Overview** pane includes the most common host metrics, and you can access others by using the **Metrics** pane. With this tool, you can create charts from metric values and visually correlate trends. You can also create a metric alert rule or pin a chart to an Azure dashboard. For a tutorial on using this tool, see [Analyze metrics for an Azure resource](../azure-monitor/essentials/tutorial-metrics.md).
 

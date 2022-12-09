@@ -45,7 +45,7 @@ items:
     - name: Create availability alert
       href: vm/tutorial-monitor-vm-alert-availability.md
     - name: Enable VM insights
-      href: vm/tutorial-monitor-vm-enable.md
+      href: vm/tutorial-monitor-vm-enable-insights.md
     - name: Collect guest logs and metrics
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
