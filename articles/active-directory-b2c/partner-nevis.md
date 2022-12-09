@@ -41,7 +41,7 @@ Add the branded Access app to your back-end application for passwordless authent
 
 The diagram shows the implementation.
 
-  ![High-level password sign-in flow with Azure AD B2C and Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
+   ![High-level password sign-in flow with Azure AD B2C and Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
 
 1. A user attempts sign-in or sign-up to an application with Azure AD B2C policy.
 2. During sign-up, the Access is registered to the user device using a QR code. A private key is generated on the user device and is used to sign user requests.
