@@ -147,7 +147,7 @@ Add more deny rules by repeating the command with a different IP address range i
 To remove an access restriction, run the following Azure CLI command.
 
 ```azurecli
-az containerapp ingress access-restriction remove
+az containerapp ingress access-restriction remove \
   --name MyContainerapp \
   --resource-group MyResourceGroup \
   --rule-name my-restriction
