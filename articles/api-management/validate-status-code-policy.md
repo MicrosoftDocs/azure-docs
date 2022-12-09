@@ -3,7 +3,6 @@ title: Azure API Management policy reference - validate-status-code | Microsoft 
 description: Reference for the validate-status-code policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
-
 ms.service: api-management
 ms.topic: reference
 ms.date: 12/05/2022
@@ -37,7 +36,7 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| status-code | Add one or more elements for HTTP status codes to override the default validation action for status codes in responses. | No |
+| status-code | Add one or more elements for HTTP status codes to override the default validation [action](#actions) for status codes in responses. | No |
 
 ### status-code attributes
 
@@ -46,13 +45,13 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 | code | HTTP status code to override validation action for. | Yes | N/A |
 | action | [Action](#actions) to perform for the matching status code, which isn’t specified in the API schema. If the status code is specified in the API schema, this override doesn’t take effect. | Yes | N/A | 
 
+[!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
+
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 
@@ -63,7 +62,6 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 ```
 
 [!INCLUDE [api-management-validation-policy-error-reference](../../includes/api-management-validation-policy-error-reference.md)]
-
 
 ## Related policies
 

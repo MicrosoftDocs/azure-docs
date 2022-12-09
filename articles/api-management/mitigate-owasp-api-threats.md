@@ -298,7 +298,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Set alerts in Azure Monitor and Application Insights - for example, for the [capacity metric](api-management-howto-autoscale.md) or for excessive requests or bandwidth transfer. 
 
-* Use the [emit metrics](emit-metrics-policy.md) policy for custom metrics. 
+* Use the [emit-metric](emit-metric-policy.md) policy for custom metrics. 
 
 * Use the Azure Activity log for tracking activity in the service. 
 

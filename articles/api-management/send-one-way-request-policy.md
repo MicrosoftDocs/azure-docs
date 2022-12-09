@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/18/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -21,10 +21,10 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 ```xml
 <send-one-way-request mode="new | copy">
-  <set-url>...</set-url>
-  <method>...</method>
-  <header name="" exists-action="override | skip | append | delete">...</header>
-  <body>...</body>
+  <set-url>request URL</set-url>
+  <set-method>...</set-method>
+  <set-header>...</set-header>
+  <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
 </send-one-way-request>
 ```
@@ -33,38 +33,27 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | new      |
+| mode | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | `new`      |
 
 
 ## Elements
 
 | Element                    | Description                                                                                                 | Required                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| set-url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
-| method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
-| header                     | Request header. Use multiple header elements for multiple request headers.                                  | No                              |
-| body                       | The request body.                                                                                           | No                              |
+| set-url                        | The URL of the request.                                                                                     | No if `mode=copy`; otherwise yes. |
+| set-method                     | A [set-method](set-method-policy.md) policy statement.                                                                              | No if `mode=copy`; otherwise yes. |
+| set-header                     | A [set-header](set-header-policy.md) policy statement. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
+| set-body                       |                    A [set-body](set-body-policy.md) policy statement.                                                                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                              |
-
-### header attributes
-
-| Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| name          | Specifies the name of the header to be set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/A      |
-| exists-action | Specifies what action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> - override - replaces the value of the existing header.<br />- skip - does not replace the existing header value.<br />- append - appends the value to the existing header value.<br />- delete - removes the header from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result. | No       | override |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Send one-way request to an external service
+## Example
 
 This example uses the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 

@@ -424,8 +424,8 @@
               href: cors-policy.md
             - name: cross-domain
               href: cross-domain-policy.md
-            - name: emit-metrics
-              href: emit-metrics-policy.md
+            - name: emit-metric
+              href: emit-metric-policy.md
             - name: find-and-replace
               href: find-and-replace-policy.md
             - name: forward-request

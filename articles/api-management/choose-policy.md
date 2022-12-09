@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -46,21 +46,17 @@ The `choose` policy must contain at least one `<when/>` element. The `<otherwise
 
 | Attribute                                              | Description                                                                                               | Required |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| condition | The Boolean expression or constant to be evaluated when the containing `when` policy statement is evaluated. | Yes      |
-
-
+| condition | The Boolean expression or Boolean constant to be evaluated when the containing `when` policy statement is evaluated. | Yes      |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
-### 1. Modify request and response based on user agent
+### Modify request and response based on user agent
 
 The following example demonstrates a [set-variable](set-variable-policy.md) policy and two control flow policies.
 
@@ -99,7 +95,7 @@ The second control flow policy is in the outbound section and conditionally appl
 </policies>
 ```
 
-### 2. Modify response based on product name
+### Modify response based on product name
 
 This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api).
 

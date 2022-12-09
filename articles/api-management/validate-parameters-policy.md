@@ -44,17 +44,19 @@ The `validate-parameters` policy validates the header, query, or path parameters
 | specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
 | unspecified-parameter-action | [Action](#actions) to perform for request parameters that aren’t specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| `name` | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
-| `action` | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
+| name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
+| action | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| `headers` | Add this element to override default validation actions for header parameters in requests.   | No |
-| `query` | Add this element to override default validation actions for query parameters in requests.  | No |
-| `path` | Add this element to override default validation actions for URL path parameters in requests.  | No |
-| `parameter` | Add one or more elements for named parameters to override higher-level configuration of the validation actions. | No |
+| headers | Add this element to override default validation [actions](#actions) for header parameters in requests.   | No |
+| query | Add this element to override default validation [actions](#actions) for query parameters in requests.  | No |
+| path | Add this element to override default validation [actions](#actions) for URL path parameters in requests.  | No |
+| parameter | Add one or more elements for named parameters to override higher-level configuration of the validation [actions](#actions). | No |
+
+[!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 
 ## Usage
 
