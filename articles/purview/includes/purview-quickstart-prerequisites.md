@@ -7,7 +7,7 @@ ms.author: whhender
 ms.service: purview
 ms.topic: include
 ms.custom: include file
-ms.date: 04/05/2022
+ms.date: 12/09/2022
 ---
 
 ## Prerequisites

@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 12/09/2022
 ms.custom: ignite-fall-2021
 ---
 

@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/09/2022
 ---
 
 # Microsoft Purview security best practices

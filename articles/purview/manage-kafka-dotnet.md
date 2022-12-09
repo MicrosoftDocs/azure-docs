@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
-ms.date: 09/29/2022
+ms.date: 12/09/2022
 ms.custom: mode-other
 ---
 

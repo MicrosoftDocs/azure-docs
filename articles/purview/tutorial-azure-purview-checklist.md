@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 04/22/2022
+ms.date: 12/09/2022
 # Customer Intent: As a Data and Data Security administrator, I want to deploy Microsoft Purview as a unified data governance solution.
 ---
 

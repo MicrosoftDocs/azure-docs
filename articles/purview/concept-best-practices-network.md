@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 12/09/2022
 ms.custom: fasttrack-edit
 ---
 

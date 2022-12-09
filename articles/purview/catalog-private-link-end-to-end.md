@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 12/09/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account to access purview account and scan data sources from restricted network.
 ---
 

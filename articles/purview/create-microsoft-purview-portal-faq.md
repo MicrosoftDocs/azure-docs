@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 12/09/2022
 ---
 
 # Create an exception to deploy Microsoft Purview

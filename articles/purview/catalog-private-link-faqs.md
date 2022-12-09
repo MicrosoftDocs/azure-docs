@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 12/09/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
