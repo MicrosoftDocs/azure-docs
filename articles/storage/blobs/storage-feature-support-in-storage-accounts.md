@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 12/08/2022
 ms.author: normesta
 ---
 
@@ -17,7 +17,7 @@ Feature support is impacted by the type of account that you create and the setti
 
 Each table uses the following icons to indicate support level:
 
-| Icon | Description | 
+| Icon | Description |
 |---------------|-------------------|
 | &#x2705; | Fully supported |
 | &#x1F7E6; | Supported at the preview level |
@@ -46,6 +46,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
+| [Azure DNS Zone endpoints (preview)](/common/storage-account-overview.md#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
@@ -95,6 +96,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
+| [Azure DNS Zone endpoints (preview)](/common/storage-account-overview.md#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |

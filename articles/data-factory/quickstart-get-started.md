@@ -20,6 +20,12 @@ Welcome to Azure Data Factory!  This getting started article will let you create
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+## Video summary
+
+The following video provides a walkthrough of the sample:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
+
 ## Try your first demo with one click
 In your first demo scenario you will use the [Copy activity](copy-activity-overview.md) in a data factory to copy an Azure blob named moviesDB2.csv from an input folder on an Azure Blob Storage to an output folder. In a real world scenario this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
 
@@ -89,12 +95,6 @@ All of the resources referenced above will be created in the new resource group,
 ## Clean up resources
 
 You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.  For example, if you are using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
-
-## Video walkthrough
-
-The following video provides a walkthrough of the sample:
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
 
 ## Next steps
 
