@@ -35,7 +35,7 @@ This tutorial creates a _call readiness checker_ application that guides the use
 
 The tutorial will be split into three parts:
 
-1. Checking for [browser support](../../concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser)
+1. Checking for [browser support](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser)
 1. Requesting access to the camera and microphone
 1. Letting the user choose their camera, microphone and speaker
 
@@ -70,7 +70,7 @@ flowchart TD
 
 ## Setting up the React App
 
-To set up the [React](https://reactjs.org/) App. We'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
+To set up the [React](https://reactjs.org/) App we'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
 
 ```bash
 npx create-react-app ui-library-quickstart-composites --template typescript
@@ -163,7 +163,7 @@ You should see a green checkmark with a `Test Complete` message.
 
 ## Checking for Browser Support
 
-To ensure the user gets the best experience we want to first make sure they are on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser).
+To ensure the user gets the best experience we want to first make sure they are on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
 In this section we will create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
 
 ![Gif showing browser check being performed](../media/call-readiness/checking-browser-support.gif)
@@ -378,8 +378,6 @@ const App = (): JSX.Element => {
 ```
 
 You can now run the app, if you are in an unsupported browser you will see the prompt:
-
-Gif:
 
 ![Gif showing browser check failing](../media/call-readiness/browser-support-check-failed.gif)
 
