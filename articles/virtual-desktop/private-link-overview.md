@@ -32,6 +32,10 @@ The following diagram shows how Private Link securely connects a local client to
 
 :::image type="content" source="media/private-link-diagram.png" alt-text="A diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
+## Network requirements
+
+If the connectivity to the Private EndPoints are filtered by a firewall, you should make sure but Clients and Session Hosts can connect to each Private Endpoints IPs using port 443 and only for the IP dedicated for the Gateway using TCP Dynamic Ports 1 - 65535.
+
 ## Supported scenarios
 
 When adding Private Link, you can connect to Azure Virtual Desktop in the following ways:
