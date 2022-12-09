@@ -213,12 +213,12 @@ In this section, you create resources to use for your DCR, in one of these scena
 To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal.md)):  
 
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
-1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application).
-1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint).
-1. [Add custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-custom-log-table). 
+1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-the-application).
+1. [Create a data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-a-data-collection-endpoint).
+1. [Add a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-a-custom-log-table). 
 1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
-1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
-1. [Assign permissions to DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-dcr).
+1. [Collect information from the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
+1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-the-dcr).
 
     Skip the Send sample data step.
 

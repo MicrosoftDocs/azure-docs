@@ -9,13 +9,13 @@ ms.date: 08/24/2021
 
 Azure Monitor can [collect data in Azure Monitor Logs from multiple sources](data-platform-logs.md#data-collection). These sources include agents on virtual machines, Application Insights, diagnostic settings for Azure resources, and the Data Collector API.
 
-Log Analytics agents use a workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor. To learn more, see [send data from agents](data-security.md#2-send-data-from-agents). The Data Collector API uses the same workspace key to [authorize access](data-collector-api.md#authorization).
+Log Analytics agents use a workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor. To learn more, see [Send data from agents](data-security.md#2-send-data-from-agents). The Data Collector API uses the same workspace key to [authorize access](data-collector-api.md#authorization).
 
 These options might be cumbersome and pose a risk because it's difficult to manage credentials, specifically workspace keys, at a large scale. You can opt out of local authentication and ensure that only telemetry that's exclusively authenticated by using Managed Identities and Azure Active Directory (Azure AD) is ingested into Azure Monitor. This feature enhances the security and reliability of the telemetry used to make critical operational and business decisions.
 
 To enable Azure AD integration for Azure Monitor Logs and remove reliance on these shared secrets:
 
-1. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security). [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents.
+1. [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
 1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics).
 1. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Azure AD authentication for Application Insights (preview)](../app/azure-ad-authentication.md).
 
@@ -35,7 +35,7 @@ You can disable local authentication by using Azure Policy. Or you can disable i
 
 Azure Policy for `DisableLocalAuth` won't allow you to create a new Log Analytics workspace unless this property is set to `true`. The policy name is `Log Analytics Workspaces should block non-Azure Active Directory based ingestion`. To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
 
-Here's the policy template definition:
+The policy template definition:
 
 ```json
 {

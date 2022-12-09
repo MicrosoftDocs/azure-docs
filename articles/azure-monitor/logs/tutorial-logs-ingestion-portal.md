@@ -185,7 +185,7 @@ The following PowerShell script generates sample data to configure the custom ta
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
     ```
 
-## Add custom log table
+## Add a custom log table
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables (preview)**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.

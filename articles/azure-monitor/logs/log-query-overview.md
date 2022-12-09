@@ -18,10 +18,10 @@ Areas in Azure Monitor where you'll use queries include:
 - [Log alert rules](../alerts/alerts-overview.md): Proactively identify issues from data in your workspace. Each alert rule is based on a log query that's automatically run at regular intervals. The results are inspected to determine if an alert should be created.
 - [Workbooks](../visualize/workbooks-overview.md): Include the results of log queries by using different visualizations in interactive visual reports in the Azure portal.
 - [Azure dashboards](../visualize/tutorial-logs-dashboards.md): Pin the results of any query into an Azure dashboard, which allows you to visualize log and metric data together and optionally share with other Azure users.
-- [Logic Apps](../logs/logicapp-flow-connector.md): Use the results of a log query in an automated workflow by using Logic Apps.
+- [Azure Logic Apps](../logs/logicapp-flow-connector.md): Use the results of a log query in an automated workflow by using Logic Apps.
 - [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery): Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses `Invoke-AzOperationalInsightsQuery`.
 - [Azure Monitor Logs API](https://dev.loganalytics.io): Retrieve log data from the workspace from any REST API client. The API request includes a query that's run against Azure Monitor to determine the data to retrieve.
-- Azure Monitor Query SDK: Retrieve log data from the workspace via an idiomatic client library for the following ecosystems:
+- **Azure Monitor Query SDK**: Retrieve log data from the workspace via an idiomatic client library for the following ecosystems:
   - [.NET](/dotnet/api/overview/azure/Monitor.Query-readme)
   - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)
   - [Java](/java/api/overview/azure/monitor-query-readme)
@@ -37,7 +37,7 @@ The best way to get started learning to write log queries by using KQL is to use
 - [Query samples](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor): Sample queries that illustrate different concepts.
 
 ## Reference documentation
-[Documentation for KQL](/azure/data-explorer/kusto/query/), including the reference for all commands and operators, is available in the Azure Data Explorer documentation. Even as you get proficient using KQL, you'll still regularly use the reference to investigate new commands and scenarios that you haven't used before.
+[Documentation for KQL](/azure/data-explorer/kusto/query/), including the reference for all commands and operators, is available in the Azure Data Explorer documentation. Even as you get proficient at using KQL, you'll still regularly use the reference to investigate new commands and scenarios that you haven't used before.
 
 ## Language differences
 Although Azure Monitor uses the same KQL as Azure Data Explorer, there are some differences. The KQL documentation will specify those operators that aren't supported by Azure Monitor or that have different functionality. Operators specific to Azure Monitor are documented in the Azure Monitor content. The following sections list the differences between versions of the language for quick reference.
