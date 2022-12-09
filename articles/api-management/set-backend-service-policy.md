@@ -13,30 +13,23 @@ ms.author: danlep
 # Set backend service
 Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
 
+> [!NOTE]
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ## Policy statement
 
 ```xml
-<set-backend-service base-url="base URL of the backend service" />
+<set-backend-service base-url="base URL of the backend service"  backend-id="name of the backend entity specifying base URL of the backend service" sf-resolve-condition="condition" sf-service-instance-name="Service Fabric service name" sf-listener-name="Service Fabric listener name" />
 ```
-
-or
-
-```xml
-<set-backend-service backend-id="name of the backend entity specifying base URL of the backend service" />
-```
-
-> [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can only be overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
-
 
 ## Attributes
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier (name) of the backend to route primary or secondary replica of a partition. |No|N/A|
+|backend-id|Identifier (name) of the backend to route primary or secondary replica of a partition. |One of `base-url` or `backend-id` must be present.|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
 |sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. |No|N/A|
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using `backend-id`. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute isn't specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
@@ -45,13 +38,15 @@ or
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
+
+### Usage notes
+
+Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can only be overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
 
 ## Examples
 
-### Example 1: Route request based on value in query string
+### Route request based on value in query string
 
 In this example the `set-backend-service` policy routes requests based on the version value passed in the query string to a different backend service than the one specified in the API.
 
@@ -81,7 +76,7 @@ When the [<choose\>](choose-policy.md) policy statement is applied the backend s
 
 If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
 
-### Example 2: Route requests to a Service Fabric backend
+### Route requests to a Service Fabric backend
 
 In this example the policy routes the request to a service fabric backend, using the userId query string as the partition key and using the primary replica of the partition.
 

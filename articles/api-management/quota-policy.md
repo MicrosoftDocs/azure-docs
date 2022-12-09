@@ -30,19 +30,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 </quota>
 ```
 
-### Example
-
-```xml
-<policies>
-    <inbound>
-        <base />
-        <quota calls="10000" bandwidth="40000" renewal-period="3600" />
-    </inbound>
-    <outbound>
-        <base />
-    </outbound>
-</policies>
-```
 ## Attributes
 
 | Attribute           | Description                                                                                               | Required                                                         | Default |
@@ -83,14 +70,15 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product
-- [**Policy expressions:**](api-management-policy-expressions.md) not supported in policy attributes
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** not supported
+
+### Usage notes
+
+* This policy can be used only once per policy definition.
+* [Policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
 
 
-## Examples
-
-### Subscription quota of 10,000 calls per hour
+## Example
 
 ```xml
 <policies>

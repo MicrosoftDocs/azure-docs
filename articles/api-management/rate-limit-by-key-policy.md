@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/27/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 # Limit call rate by key
@@ -14,8 +14,6 @@ ms.author: danlep
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
-
-For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 [!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
@@ -43,7 +41,7 @@ For more information and examples of this policy, see [Advanced request throttli
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
-| increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
+| increment-condition | The Boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
@@ -56,13 +54,9 @@ For more information and examples of this policy, see [Advanced request throttli
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Rate limit keyed by caller IP
+## Example
 
 In the following example, the rate limit of 10 calls per 60 seconds is keyed by the caller IP address. After each policy execution, the remaining calls allowed in the time period are stored in the variable `remainingCallsPerIP`.
 
@@ -82,6 +76,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 </policies>
 ```
 
+For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 ## Related policies
 

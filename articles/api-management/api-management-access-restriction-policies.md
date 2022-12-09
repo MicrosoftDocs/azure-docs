@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/28/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 

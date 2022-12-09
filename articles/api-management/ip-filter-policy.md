@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/27/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 # Restrict caller IPs
@@ -44,16 +44,13 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-> [!NOTE]
-> If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
+### Usage notes
 
-## Examples
+If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
 
-### Filter requests from specified address and IP address range
+## Example
 
 In the following example, the policy only allows requests coming either from the single IP address or range of IP addresses specified.
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/27/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -29,11 +29,11 @@ For more information about custom CA certificates and certificate authorities, s
 
 ```xml
 <validate-client-certificate 
-    validate-revocation="true|false"
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false">
+    validate-revocation="true | false"
+    validate-trust="true | false" 
+    validate-not-before="true | false" 
+    validate-not-after="true | false" 
+    ignore-error="true | false">
     <identities>
         <identity 
             thumbprint="certificate thumbprint"
@@ -82,14 +82,9 @@ For more information about custom CA certificates and certificate authorities, s
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-
-## Examples
-
-### Check the certificate subject and issuer name 
+## Example
 
 The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
 
@@ -107,9 +102,6 @@ The following example validates a client certificate to match the policy's defau
     </identities>
 </validate-client-certificate> 
 ```
-
-
-
 
 ## Related policies
 
