@@ -113,6 +113,9 @@ To create a sample JMeter test script:
 
 1. Save and close the file.
 
+    > [!IMPORTANT]
+    > Don't include any Personal Identifiable Information (PII) in the sampler name. The sampler names used in the JMeter script appear in the test run results dashboard. 
+
 ## Create a load test
 
 When you create a load test in Azure Load Testing, you specify a JMeter script to define the [load test plan](./how-to-create-manage-test.md#test-plan). An Azure Load Testing resource can contain multiple load tests.
