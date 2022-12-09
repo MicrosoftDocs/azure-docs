@@ -22,7 +22,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
-## New Feature
+### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
@@ -48,7 +48,7 @@ For more information, [see here](./selective-logging-analysis.md)
 
 
 ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
-## Fixed
+### Fixed
 
 #### **Log analytics**
 
@@ -118,7 +118,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 
 HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.
 
-## Release date: 08/10/2022
+### Release date: 08/10/2022
 
 This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
@@ -126,7 +126,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
-## New Feature
+### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
@@ -152,7 +152,8 @@ For more information, [see here](./selective-logging-analysis.md)
 
 
 ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
-## Fixed
+
+### Fixed
 
 #### **Log analytics**
 
