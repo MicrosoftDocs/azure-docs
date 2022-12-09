@@ -139,7 +139,7 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 Instead of setting the sampling parameter in the `.config` file, you can programmatically set these values.
 
 1. Remove all the `AdaptiveSamplingTelemetryProcessor` node(s) from the `.config` file.
-2. Use the following snippet to configure adaptive sampling:
+1. Use the following snippet to configure adaptive sampling:
 
     ```csharp
     using Microsoft.ApplicationInsights;
@@ -289,7 +289,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         -->
     ```
 
-2. **Enable the fixed-rate sampling module.** Add this snippet to [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
+1. **Enable the fixed-rate sampling module.** Add this snippet to [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
    
     ```xml
     <TelemetryProcessors>
@@ -356,7 +356,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     
     ---
 
-2. **Enable the fixed-rate sampling module**
+1. **Enable the fixed-rate sampling module**
 
     ### [ASP.NET Core 6 and later](#tab/net-core-new)
     
