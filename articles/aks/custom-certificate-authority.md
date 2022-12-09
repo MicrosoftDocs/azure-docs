@@ -12,7 +12,7 @@ ms.date: 4/12/2022
 
 Custom certificate authorities (CAs) allow you to establish trust between your Azure Kubernetes Service (AKS) cluster and your workloads, such as private registries, proxies, and firewalls. A Kubernetes secret is used to store the certificate authority's information, then it's passed to all nodes in the cluster.
 
-This feature is applied per nodepool, so new and existing nodepools must be configured to enable this feature.
+This feature is applied per nodepool, so new and existing node pools must be configured to enable this feature.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -24,7 +24,7 @@ This feature is applied per nodepool, so new and existing nodepools must be conf
 
 ### Limitations
 
-This feature isn't currently supported for Windows nodepools.
+This feature isn't currently supported for Windows node pools.
 
 ### Install the `aks-preview` extension
 
@@ -58,11 +58,11 @@ Refresh the registration of the *Microsoft.ContainerService* resource provider b
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Two ways for custom CA installation on AKS nodepools
+## Two ways for custom CA installation on AKS node pools
 
-Two ways of installing custom CAs on your AKS cluster are available. They are intended for different use cases, which are outlined below.
+Two ways of installing custom CAs on your AKS cluster are available. They're intended for different use cases, which are outlined below.
 
-### Install CAs during nodepool boot up
+### Install CAs during node pool boot up
 If your environment requires your custom CAs to be added to node trust store for correct provisioning,
 text file containing up to 10 blank line separated certificates needs to be passed during
 [az aks create][az-aks-create] or [az aks update][az-aks-update] operations.
@@ -88,9 +88,9 @@ cert2
 -----END CERTIFICATE-----
 ```
 
-CAs will be added to node's trust store during node boot up process, allowing the node to e.g. access a private registry.
+CAs will be added to node's trust store during node boot up process, allowing the node to, for example access a private registry.
 
-#### CA rotation for availability during nodepool boot up
+#### CA rotation for availability during node pool boot up
 To update CAs passed to cluster during boot up [az aks update][az-aks-update] operation has to be used.
 ```azurecli
 az aks update \
@@ -100,11 +100,11 @@ az aks update \
 ```
 
 > [!NOTE]
-> Running this operation will trigger a model update, to ensure that new nodes added during e.g. scale up operation have the newest CAs required for correct provisioning.
+> Running this operation will trigger a model update, to ensure that new nodes added during for example scale up operation have the newest CAs required for correct provisioning.
 > This means that AKS will create additional nodes, drain currently existing ones, delete them and then replace them with nodes that have the new set of CAs installed.
 
 
-### Install CAs once nodepool is up and running
+### Install CAs once node pool is up and running
 If your environment can be successfully provisioned without your custom CAs, you can provide the CAs using a secret deployed in the kube-system namespace.
 This approach allows for certificate rotation without the need for node recreation.
 
@@ -130,7 +130,7 @@ data:
 
 To update or remove a CA, edit and apply the secret's YAML manifest. The cluster will poll for changes and update the nodes accordingly. This process may take a couple of minutes before changes are applied.
 
-Sometimes containerd restart on the node might be required for the CAs to be picked up properly. If it appears like CAs were not added correctly to your node's trust store, you can trigger such restart using the following command from node's shell:
+Sometimes containerd restart on the node might be required for the CAs to be picked up properly. If it appears like CAs aren't added correctly to your node's trust store, you can trigger such restart using the following command from node's shell:
 
 ```systemctl restart containerd```
 
@@ -171,9 +171,9 @@ az aks update \
     --custom-ca-trust-certificates pathToFileWithCAs
 ```
 
-## Configure a new nodepool to use a custom CA
+## Configure a new node pool to use a custom CA
 
-To configure a new nodepool to use a custom CA, run the [az aks nodepool add][az-aks-nodepool-add] command with the `--enable-custom-ca-trust` parameter.
+To configure a new node pool to use a custom CA, run the [az aks nodepool add][az-aks-nodepool-add] command with the `--enable-custom-ca-trust` parameter.
 
 ```azurecli
 az aks nodepool add \
@@ -184,8 +184,8 @@ az aks nodepool add \
     --os-type Linux
 ```
 
-If there are currently no other nodepools with the feature enabled, cluster will have to reconcile its settings for
-the changes to take effect. Before that happens, daemonset and pods which install CAs will not appear on the cluster.
+If there are currently no other node pools with the feature enabled, cluster will have to reconcile its settings for
+the changes to take effect. Before that happens, daemonset and pods, which install CAs won't appear on the cluster.
 This operation will happen automatically as a part of AKS's reconcile loop.
 You can trigger reconcile operation immediately by running the [az aks update][az-aks-update] command:
 
@@ -197,9 +197,9 @@ az aks update \
 
 Once completed, the daemonset and pods will appear in the cluster.
 
-## Configure an existing nodepool to use a custom CA
+## Configure an existing node pool to use a custom CA
 
-To configure an existing nodepool to use a custom CA, run the [az aks nodepool update][az-aks-nodepool-update] command with the `--enable-custom-trust-ca` parameter.
+To configure an existing node pool to use a custom CA, run the [az aks nodepool update][az-aks-nodepool-update] command with the `--enable-custom-trust-ca` parameter.
 
 ```azurecli
 az aks nodepool update \
@@ -209,8 +209,8 @@ az aks nodepool update \
     --enable-custom-ca-trust
 ```
 
-If there are currently no other nodepools with the feature enabled, cluster will have to reconcile its settings for
-the changes to take effect. Before that happens, daemonset and pods which install CAs will not appear on the cluster.
+If there are currently no other node pools with the feature enabled, cluster will have to reconcile its settings for
+the changes to take effect. Before that happens, daemon set and pods, which install CAs won't appear on the cluster.
 This operation will happen automatically as a part of AKS's reconcile loop.
 You can trigger reconcile operation by running the following command:
 
@@ -225,7 +225,7 @@ Once complete, the daemonset and pods will appear in the cluster.
 ### Feature is enabled and secret with CAs is added, but operations are failing with X.509 Certificate Signed by Unknown Authority error
 #### Incorrectly formatted certs passed in the secret
 AKS requires certs passed in the user-created secret to be properly formatted and base64 encoded. Make sure the CAs you passed are properly base64 encoded and that files with CAs don't have CRLF line breaks.
-Note that secret's passed to ```--custom-ca-trust-certificates``` option should not be base64 encoded.
+Certificates passed to ```--custom-ca-trust-certificates``` option shouldn't be base64 encoded.
 #### Containerd hasn't picked up new certs
 From node's shell, run ```systemctl restart containerd```, once containerd is restarted, new certs will be properly picked up by the container runtime.
 
