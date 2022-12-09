@@ -1,8 +1,8 @@
 ---
 title: Request camera and microphone access using Azure Communication Services UI Library
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call.
-author: jaburnsi
+description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call - Part 2.
+author: jamesburnside
 manager: alkwa
 services: azure-communication-services
 
@@ -67,7 +67,7 @@ const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" |
 ### Checking for camera and microphone access
 
 Here we will add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
-`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API). However, querying for camera and microphone is not supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we will ensure we handle the `unknown` case when prompting the user for permissions.
+`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone is not supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we will ensure we handle the `unknown` case when prompting the user for permissions.
 
 `devicePermissionUtils.ts`
 

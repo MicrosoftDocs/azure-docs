@@ -1,8 +1,8 @@
 ---
 title: Ensuring a user is on a supported browser using Azure Communication Services UI Library
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call.
-author: jaburnsi
+description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call - Part 1.
+author: jamesburnside
 manager: alkwa
 services: azure-communication-services
 
@@ -15,7 +15,7 @@ ms.subservice: calling
 
 # Creating a Call Readiness Experience using Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this tutorial, we'll be leveraging Azure Communication Services with the UI Library to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be leveraged to produce a Call Readiness experience, whilst the Azure Communication Calling JavaScript SDK provides a rich set of APIs to understand the user state.
 
@@ -35,7 +35,7 @@ This tutorial creates a _call readiness checker_ application that guides the use
 
 The tutorial will be split into three parts:
 
-1. Checking for [browser support](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser)
+1. Checking for [browser support](../../concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser)
 1. Requesting access to the camera and microphone
 1. Letting the user choose their camera, microphone and speaker
 
@@ -159,7 +159,7 @@ npm start
 
 ## Checking for Browser Support
 
-To ensure the user gets the best experience we want to first make sure they are on a [supported browser](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser).
+To ensure the user gets the best experience we want to first make sure they are on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser).
 In this section we will create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
 
 ![Gif showing browser check being performed](../media/call-readiness/checking-browser-support.gif)
@@ -265,7 +265,7 @@ export const checkBrowserSupport = async (callClient: StatefulCallClient): Promi
 
 ### Informing the user they are on an unsupported browser
 
-Next, we will create a prompt to tell the user they are using an unsupported browser. For this we will host the UI Library's `UnsupportedBrowser` component inside a [FluentUI Modal](https://developer.microsoft.com/en-us/fluentui#/controls/web/modal):
+Next, we will create a prompt to tell the user they are using an unsupported browser. For this we will host the UI Library's `UnsupportedBrowser` component inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
 Create a new file called `UnsupportedBrowserPrompt.tsx` where we will create a unsupported browser prompt:
 
 `UnsupportedBrowserPrompt.tsx`

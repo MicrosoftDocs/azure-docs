@@ -1,8 +1,8 @@
 ---
 title: Microphone and camera setup before a call using Azure Communication Services UI Library
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call.
-author: jaburnsi
+description: Learn how to use Azure Communication Services with the UI Library to create an experience that gets users ready to join a call - Part 3.
+author: jamesburnside
 manager: alkwa
 services: azure-communication-services
 
