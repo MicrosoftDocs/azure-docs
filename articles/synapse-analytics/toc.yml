@@ -894,14 +894,16 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
       - name: Monitor Synapse Link
         href: ./synapse-link/how-to-monitor-synapse-link-sql-database.md
-      - name: Known limitations and issues
-        href: ./synapse-link/synapse-link-for-sql-known-issues.md
       - name: Troubleshoot
         items:
+        - name: Known limitations and issues
+          href: ./synapse-link/synapse-link-for-sql-known-issues.md
         - name: Failover of an Azure SQL Database
           href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
         - name: Azure AD user impersonation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
+        - name: Troubleshoot initial snapshot
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
@@ -910,8 +912,12 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
       - name: Monitor Synapse Link
         href: ./synapse-link/how-to-monitor-synapse-link-sql-server-2022.md
-      - name: Known limitations and issues
-        href: ./synapse-link/synapse-link-for-sql-known-issues.md
+      - name: Troubleshoot
+        items:
+        - name: Known limitations and issues
+          href: ./synapse-link/synapse-link-for-sql-known-issues.md
+        - name: Troubleshoot initial snapshot
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse
