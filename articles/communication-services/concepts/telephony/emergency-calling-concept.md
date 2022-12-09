@@ -71,5 +71,5 @@ There is also an option to use purchased number as a caller ID for direct routin
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
 - [Add Emergency Calling to your app](../../quickstarts/telephony/pstn-call.md)
