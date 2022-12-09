@@ -270,14 +270,52 @@ For computer vision tasks, you can launch either [individual runs](#individual-r
 
 Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
-## Automatically sweeping model hyperparameters (AutoMode)
+### Primary metric
+
+An AutoML training job uses a primary metric for model optimization and hyperparameter tuning. The primary metric depends on the task type as shown below; other primary metric values are currently not supported. 
+
+* `accuracy` for IMAGE_CLASSIFICATION
+* `iou` for IMAGE_CLASSIFICATION_MULTILABEL
+* `mean_average_precision` for IMAGE_OBJECT_DETECTION
+* `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
+    
+### Job limits
+
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.
+
+Parameter | Detail
+-----|----
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. The default value is 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If specified, must be an integer between 1 and 100.  The default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> `max_concurrent_trials` is capped at `max_trials` internally. For example, if user sets `max_concurrent_trials=4`, `max_trials=2`, values would be internally updated as `max_concurrent_trials=2`, `max_trials=2`.
+`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+limits:
+  timeout_minutes: 60
+  max_trials: 10
+  max_concurrent_trials: 2
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+
+---
+
+### Automatically sweeping model hyperparameters (AutoMode)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of runs and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
 
-### Triggering AutoMode
+#### Triggering AutoMode
 
 You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. We call this functionality AutoMode; please see an example below.
 
@@ -306,11 +344,11 @@ A number of runs between 10 and 20 will likely work well on many datasets. The [
 > Launching automatic sweeps via the UI is not supported at this time.
 
 
-## Individual runs
+### Individual runs
 
 In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is passed via the `model_name` parameter.
 
-### Supported model algorithms
+#### Supported model algorithms
 
 The following table summarizes the supported models for each computer vision task.
 
@@ -344,55 +382,7 @@ image_object_detection_job.set_training_parameters(model_name="yolov5")
 ```
 ---
 
-### Data augmentation 
-
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
-
-|Task | Impacted dataset | Data augmentation technique(s) applied |
-|-------|----------|---------|
-|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
-|Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
-|Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
-
-### Primary metric
-
-The primary metric used for model optimization and hyperparameter tuning depends on the task type. Using other primary metric values is currently not supported. 
-
-* `accuracy` for IMAGE_CLASSIFICATION
-* `iou` for IMAGE_CLASSIFICATION_MULTILABEL
-* `mean_average_precision` for IMAGE_OBJECT_DETECTION
-* `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
-    
-### Job Limits
-
-You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.
-
-Parameter | Detail
------|----
-`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. The default value is 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If specified, must be an integer between 1 and 100.  The default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> `max_concurrent_trials` is capped at `max_trials` internally. For example, if user sets `max_concurrent_trials=4`, `max_trials=2`, values would be internally updated as `max_concurrent_trials=2`, `max_trials=2`.
-`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
-
-# [Azure CLI](#tab/cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-```yaml
-limits:
-  timeout_minutes: 60
-  max_trials: 10
-  max_concurrent_trials: 2
-```
-
-# [Python SDK](#tab/python)
-
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
-
----
-
-## Manually sweeping model hyperparameters
+### Manually sweeping model hyperparameters
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance. For computer vision tasks, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
 
@@ -436,7 +426,7 @@ search_space:
 
 ---
 
-### Define the parameter search space
+#### Define the parameter search space
 
 You can define the model algorithms and hyperparameters to sweep in the parameter space. You can either specify a single model algorithm or multiple ones. 
 
@@ -444,7 +434,7 @@ You can define the model algorithms and hyperparameters to sweep in the paramete
 * See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
 * See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
-### Sampling methods for the sweep
+#### Sampling methods for the sweep
 
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `sampling_algorithm` parameter:
 
@@ -457,7 +447,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 > [!NOTE]
 > Currently only random and grid sampling support conditional hyperparameter spaces.
 
-### Early termination policies
+#### Early termination policies
 
 You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the `early_termination` parameter. If no termination policy is specified, all configurations are run to completion.
 
@@ -498,8 +488,7 @@ sweep:
 
 ---
 
-
-### Fixed settings
+#### Fixed settings
 
 You can pass fixed settings or parameters that don't change during the parameter space sweep as shown below.
 
@@ -522,6 +511,16 @@ training_parameters:
 
 
 ---
+
+## Data augmentation 
+
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
+
+|Task | Impacted dataset | Data augmentation technique(s) applied |
+|-------|----------|---------|
+|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
+|Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
+|Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
 ##  Incremental training (optional)
 
