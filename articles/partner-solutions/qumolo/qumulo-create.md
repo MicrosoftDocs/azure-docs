@@ -39,24 +39,21 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
 > [!NOTE]
 >Subnet address range selected should have at lease 256 IP addresses (251 free + 5 Azure reserved addresses /24). Your Qumulo subnet should be in the same region as that of the Qumulo service.
 
-![Graphical user interface, text, application, email Description automatically generated](qumolo/media/image1.png)
+![](media/qumolo-create/image1.png)
 
 ## Find Offer
 
-1. Go to the [Azure portal](/azure/partner-solutions/dynatrace/dynatrace-create) and sign in.
- 
-    
-
+1. Go to the Azure portal and sign in.
 1. If you've visited the Marketplace in a recent session, select the icon from the available options. Otherwise, search for Marketplace.
 1. In the Marketplace, search for *Azure Native Qumulo Scalable File Service.*
 1. Select Subscribe.
-1. 
-  ![Graphical user interface, text, application, email, website Description automatically generated](qumolo/media/image2.png)
+
+  ![](media/qumolo-create/image2.png)
 
 ## Create a Qumulo resource in Azure
 
 1. You are presented a form to create an Azure Native Qumulo Scalable File Service resource in the working pane.
-    ![](qumolo/media/image3.png)
+    ![](media/qumolo-create/image3.png)
     Screenshot
 
 1. Provide the following values
@@ -75,7 +72,7 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
 
 1. Configure networking
 
-    ![Graphical user interface, text, application, email Description automatically generated](qumolo/media/image4.png)
+    ![](media/qumolo-create/image4.png)
     SCREENSHOT
 
 |**Property** |**Description** |
