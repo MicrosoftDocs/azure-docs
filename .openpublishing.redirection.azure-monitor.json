@@ -5571,6 +5571,16 @@
             "source_path_from_root": "/articles/azure-monitor/app/java-2x-micrometer.md",
             "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-alert.md",
+            "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-enable.md",
+            "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights",
+            "redirect_document_id": false
         }
     ]
 }
