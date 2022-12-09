@@ -45,7 +45,7 @@ The secure hybrid access solution for this scenario has:
 
 SHA for this scenario supports SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
- ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
+   ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
 
 ## User flow
 
