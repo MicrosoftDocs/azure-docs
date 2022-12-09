@@ -222,21 +222,32 @@ Use extension methods of `TelemetryProcessorChainBuilder` as shown below to cust
 ### [ASP.NET Core 6 and later](#tab/net-core-new)
 
 ```csharp
-using Microsoft.ApplicationInsights.Extensibility
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
+using Microsoft.ApplicationInsights.Extensibility;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Using adaptive sampling
-configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5); 
+builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
+{
+    var builder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-// Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
-// configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+    // Using adaptive sampling
+    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5);
 
-// If you have other telemetry processors:
-Use((next) => new AnotherProcessor(next));
+    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
+    // configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+
+    // If you have other telemetry processors:
+    builder.Use(next => new AnotherProcessor(next));
+
+});
+
+builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
+{
+    EnableAdaptiveSampling = false,
+});
 
 var app = builder.Build();
-```
 
 ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
 
