@@ -18,6 +18,7 @@ Currently, Elastic SAN (preview) is only available in the following regions with
 - West Europe
 - UK South
 - East US
+- South Central US
 - East US 2
 - West US 2 - LRS & ZRS
 - West US 3
