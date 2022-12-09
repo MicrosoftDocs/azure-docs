@@ -189,7 +189,7 @@ The error `Invalid object name 'table name'` indicates that you're using an obje
 
 This error happens if the length of your string or binary column type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the column type:
 - If your string column is defined as the `VARCHAR(32)` type and the text is 60 characters, use the `VARCHAR(60)` type (or longer) in your column schema.
-- If you are using the schema inference (withtout the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
+- If you are using the schema inference (without the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
 - If your table is in the Lake database, try to increase the string column size in the Spark pool.
 - Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this will not impact your functionalities.
 
@@ -922,7 +922,7 @@ If you are exporting your [Dataverse table to Azure Data Lake storage](/power-ap
 
 Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
 
-Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
+Try to set up a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
