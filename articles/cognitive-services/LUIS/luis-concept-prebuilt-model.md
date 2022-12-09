@@ -15,6 +15,9 @@ ms.date: 10/10/2019
 
 # Prebuilt models
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt model or add a relevant model to your app later. 
 
 ## Types of prebuilt models

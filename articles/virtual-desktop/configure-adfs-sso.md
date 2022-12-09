@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Virtual Desktop AD FS single sign-on - Azure
-description: How to configure AD FS single sign-on for a Azure Virtual Desktop environment.
+title: Configure single sign-on for Azure Virtual Desktop using AD FS - Azure
+description: How to configure single sign-on for an Azure Virtual Desktop environment using Active Directory Federation Services.
 services: virtual-desktop
 author: Heidilohr
 manager: lizross
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: helohr
 ---
-# Configure AD FS single sign-on for Azure Virtual Desktop
+# Configure single sign-on for Azure Virtual Desktop using AD FS
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
 
@@ -35,8 +35,8 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 
 The following Azure Virtual Desktop clients support this feature:
 
-* [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Web client](./user-documentation/connect-web.md)
+* [Windows Desktop client](./users/connect-windows.md)
+* [Web client](./users/connect-web.md)
 
 ## Configure the certificate authority to issue certificates
 
@@ -275,5 +275,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Now that you've configured single sign-on, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using your new credentials, check out these articles:
 
-* [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-* [Connect with the web client](./user-documentation/connect-web.md)
+* [Connect with the Windows Desktop client](./users/connect-windows.md)
+* [Connect with the web client](./users/connect-web.md)

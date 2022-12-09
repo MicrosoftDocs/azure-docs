@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
-author: MaggiePucciEvans
-ms.author: evansma
-ms.manager: deseelam
+author: deseelam
+ms.author: v-ksreedevan
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/03/2021
-
+ms.date: 06/27/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot network connectivity
@@ -58,7 +57,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter ```nslookup_<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 

@@ -12,6 +12,9 @@ ms.date: 01/05/2022
 
 # Add entities to extract data
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by your client application to fulfill customer requests.
 
 The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task.

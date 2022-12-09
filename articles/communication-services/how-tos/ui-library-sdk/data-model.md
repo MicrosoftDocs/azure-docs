@@ -1,7 +1,7 @@
 ---
 title: Custom Data Model Injection over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to set up Custom Data Model Injection
+description: Use Azure Communication Services UI library for Mobile native to set up Custom Data Model Injection
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -27,17 +27,17 @@ The UI Library makes it simple for developers to inject that user data model int
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Localization over the Web UI library](./includes/data-model/web.md)]
+[!INCLUDE [Data model over the Web UI library](./includes/data-model/web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Localization over the Android UI library](./includes/data-model/android.md)]
+[!INCLUDE [Data model over the Android UI library](./includes/data-model/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Localization over the iOS UI library](./includes/data-model/ios.md)]
+[!INCLUDE [Data model over the iOS UI library](./includes/data-model/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)

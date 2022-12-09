@@ -1,18 +1,20 @@
 ---
 title: Tutorial - Use a custom VM image in a scale set with Azure CLI
-description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a virtual machine scale set
+description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a Virtual Machine Scale Set
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.reviewer: mimckitt
 ---
-# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+# Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI
+
+> [!NOTE]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
@@ -143,7 +145,7 @@ az sig image-version create \
 ## Create a scale set from the image
 Create a scale set from the specialized image using [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
 
-Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
 

@@ -5,17 +5,31 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 04/18/2022
+ms.date: 07/28/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
 
-# Visualizations for Change Analysis in Azure Monitor (preview)
+# Visualizations for Change Analysis in Azure Monitor
 
-## Standalone UI
+Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. You can view the Change Analysis data through several channels: 
 
-Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+## Change Analysis overview portal
+
+You can access the Change Analysis overview portal under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+
+### Monitor home page
+
+From the Azure portal home page, select **Monitor** from the menu.
+
+:::image type="content" source="./media/change-analysis/monitor-menu-2.png" alt-text="Screenshot of finding the Monitor home page from the main portal menu.":::
+
+In the Monitor overview page, select the **Change Analysis** card.
+
+:::image type="content" source="./media/change-analysis/change-analysis-monitor-overview.png" alt-text="Screenshot of selecting the Change Analysis card on the Monitor overview page.":::
+
+### Search
 
 In the Azure portal, search for Change Analysis to launch the experience.
 
@@ -25,16 +39,15 @@ Select one or more subscriptions to view:
 - All of its resources' changes from the past 24 hours. 
 - Old and new values to provide insights at one glance.
   
-:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis pane in Azure portal":::
   
 Click into a change to view full Resource Manager snippet and other properties.
   
 :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
-Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
+Send feedback from the Change Analysis pane:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
-
 
 ### Multiple subscription support
 
@@ -44,11 +57,19 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 ## Diagnose and solve problems tool
 
+From your resource's overview page in Azure portal, you can view change data by selecting **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
+
+### Diagnose and solve problems tool for Web App
+
 Azure Monitor's Change Analysis is:
 - A standalone detector in the Web App **Diagnose and solve problems** tool. 
 - Aggregated in **Application Crashes** and **Web App Down detectors**. 
 
-From your resource's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
+You can view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
+- The change types over time.
+- Details on those changes. 
+
+By default, the graph displays changes from within the past 24 hours help with immediate problems.   
 
 ### Diagnose and solve problems tool for Virtual Machines
 
@@ -74,14 +95,15 @@ You can view Change Analysis data for [multiple Azure resources](./change-analys
 ## Activity Log change history
 
 Use the [View change history](../essentials/activity-log.md#view-change-history) feature to call the Azure Monitor Change Analysis service backend to view changes associated with an operation. Changes returned include:
+
 - Resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md).
 - Resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - In-guest changes from PaaS services, such as App Services web app.
 
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.
-1. Select the **Change history (Preview)** tab. 
-1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history (Preview)** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
+1. Select the **Change history** tab. 
+1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 

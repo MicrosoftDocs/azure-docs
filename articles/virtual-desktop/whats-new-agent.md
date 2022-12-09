@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 12/08/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -18,6 +18,65 @@ The Azure Virtual Desktop Agent updates regularly. This article is where you'll 
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## Latest agent versions
+
+New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they are rolled out progressively to all session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout. The following table lists the version that is in-flight and the version that is generally available.
+
+| Release | Latest version |
+|---|---|
+| Generally available | 1.0.5555.1008 |
+| In-flight | 1.0.5555.1010 |
+
+## Version 1.0.5555.1010 (in-flight)
+
+This update was released in December 2022. There are no changes to the agent in this version.
+
+## Version 1.0.5555.1008
+
+This update was released in November 2022 and includes the following changes:
+
+- Increased sensitivity of AppAttachRegister monitor for improved results.
+- Fixed an error that slowed down Geneva Agent installation.
+- Version updates for Include Stack.
+- General improvements and bug fixes.
+
+## Version 1.0.5388.1701
+
+This update was released in August 2022 and includes the following changes:
+
+- Fixed a bug that prevented the Agent MSI from downloading on the first try.
+- Modified app attach on-demand registration.
+- Enhanced the AgentUpdateTelemetry parameter to help with StackFlighting data.
+- Removed unnecessary WebRTC health check.
+- Fixed an issue with the RDAgentMetadata parameter.
+
+## Version 1.0.5100.1100
+
+This update was released in August 2022 and includes the following changes:
+
+- Agent first-party extensions architecture completed.
+- Fixed Teams error related to Azure Virtual Desktop telemetry.
+- RDAgentBootloader - revision update to 1.0.4.0.
+- SessionHostHealthCheckReport is now centralized in a NuGet package to be shared with first-party Teams.
+- Fixes to AppAttach.
+
+## Version 1.0.4739.1000
+
+This update was released in July 2022 and includes the following changes:
+
+- Report session load to Log Analytics for admins to get information on when MaxSessionLimit is reached.
+- Adding AADTenant ID claim to the registration token.
+- Report closing errors to diagnostics explicitly.
+
+## Version 1.0.4574.1600
+
+This update was released in June 2022 and includes the following changes:
+
+- Fixed broker URL cache to address Agent Telemetry calls.
+- Fixed some network-related issues. 
+- Created two new mechanisms to trigger health checks.
+- Additional general bug fixes and agent upgrades.
 
 ## Version 1.0.4230.1600
 

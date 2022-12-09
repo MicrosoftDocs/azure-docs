@@ -123,16 +123,15 @@ Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials
 Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
 > [!NOTE]
-> Queries sent through the Azure Resource Management (ARM) API can't use Azure Monitor Private Links. These queries can only go through if the target resource allows queries from public networks (set through the Network Isolation blade, or [using the CLI](./private-link-configure.md#set-resource-access-flags)).
+> Queries sent through the Azure Resource Management (ARM) API can't use Azure Monitor Private Links. These queries can only go through if the target resource allows queries from public networks (set through the Network Isolation pane, or [using the CLI](./private-link-configure.md#set-resource-access-flags)).
 >
 > The following experiences are known to run queries through the ARM API:
-> * Sentinel
 > * LogicApp connector
 > * Update Management solution
 > * Change Tracking solution
 > * VM Insights
 > * Container Insights
-> * Log Analytics' Workspace Summary blade (showing the solutions dashboard)
+> * Log Analytics' Workspace Summary pane (showing the solutions dashboard)
 
 ## Application Insights considerations
 * You’ll need to add resources hosting the monitored workloads to a private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
@@ -160,7 +159,7 @@ If your Private Link setup was created before April 19, 2021, it won't reach the
 ### Collecting custom logs and IIS log over Private Link
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However, to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s).
 
-For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Using Private Links](private-storage.md#using-private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
+For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Use Private Links](private-storage.md#use-private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### Automation
 If you use Log Analytics solutions that require an Automation account (such as Update Management, Change Tracking, or Inventory) you should also create a Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
@@ -171,7 +170,7 @@ We've identified the following products and experiences query workspaces through
 > * LogicApp connector
 > * Update Management solution
 > * Change Tracking solution
-> * The Workspace Summary blade in the portal (showing the solutions dashboard)
+> * The Workspace Summary pane in the portal (showing the solutions dashboard)
 > * VM Insights
 > * Container Insights
 

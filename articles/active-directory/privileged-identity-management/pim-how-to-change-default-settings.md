@@ -3,8 +3,8 @@ title: Configure Azure AD role settings in PIM - Azure AD | Microsoft Docs
 description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/12/2021
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -103,6 +103,8 @@ If setting multiple approvers, approval completes as soon as one of them approve
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, Privileged Role Administrators and Global Administrators become the default approvers.
+   > [!Note]
+   > An approver does not have to have an Azure AD administrative role themselves. They can be a regular user, such as an IT executive.
 
 1. Select **Update** to save your changes.
 
@@ -149,7 +151,7 @@ You can retrieve the collection of rules that are applied to all Azure AD roles 
 GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicyAssignments?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole' and roleDefinitionId eq '62e90394-69f5-4237-9190-012177145e10'&$expand=policy($expand=rules)
 ```
 
-For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim).
+For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Use PIM APIs in Microsoft Graph to update Azure AD rules](/graph/how-to-pim-update-rules).
 
 ## Next steps
 

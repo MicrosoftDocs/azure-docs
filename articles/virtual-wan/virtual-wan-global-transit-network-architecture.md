@@ -2,12 +2,11 @@
 title: 'Architecture: Global transit network architecture'
 titleSuffix: Azure Virtual WAN
 description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between globally distributed sets of cloud workloads in VNets, branch sites, SaaS and PaaS applications, and users.
-services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 06/14/2022
 ms.author: cherylmc
 
 ---
@@ -46,7 +45,7 @@ You can establish a virtual WAN by creating a single virtual WAN hub in the regi
   
 ## <a name="hubtohub"></a>Hub-to-hub connectivity
 
-An Enterprise cloud footprint can span multiple cloud regions and it is optimal (latency-wise) to access the cloud from a region closest to their physical site and users. One of the key principles of global transit network architecture is to enable cross-region connectivity between all cloud and on-premises network endpoints. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity enabled by [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
+An Enterprise cloud footprint can span multiple cloud regions and it's optimal (latency-wise) to access the cloud from a region closest to their physical site and users. One of the key principles of global transit network architecture is to enable cross-region connectivity between all cloud and on-premises network endpoints. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity enabled by [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
 ![cross-region](./media/virtual-wan-global-transit-network-architecture/figure3.png)
 
@@ -58,7 +57,7 @@ Additionally, hubs that are all part of the same virtual WAN, can be associated 
 
 ## <a name="anytoany"></a>Any-to-any connectivity
 
-Global transit network architecture enables any-to-any connectivity via virtual WAN hubs. This architecture eliminates or reduces the need for full mesh or partial mesh connectivity between spokes, that are more complex to build and maintain. In addition, routing control in hub-and-spoke vs. mesh networks is easier to configure and maintain.
+Global transit network architecture enables any-to-any connectivity via virtual WAN hubs. This architecture eliminates or reduces the need for full mesh or partial mesh connectivity between spokes that are more complex to build and maintain. In addition, routing control in hub-and-spoke vs. mesh networks is easier to configure and maintain.
 
 Any-to-any connectivity (in the context of a global architecture) allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the “transit” hub(s). Azure Virtual WAN acts as the global transit system.
 
@@ -80,7 +79,7 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 
 ### Branch-to-VNet (a) and Branch-to-VNet Cross-region (g)
 
-Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path allows you to connect branches to Azure IAAS enterprise workloads that are deployed in Azure VNets. Branches can be connected to the virtual WAN via ExpressRoute or site-to-site VPN. The traffic transits to VNets that are connected to the virtual WAN hubs via VNet Connections. Explicit [gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) is not required for Virtual WAN because Virtual WAN automatically enables gateway transit to branch site. See [Virtual WAN Partners](virtual-wan-configure-automation-providers.md) article on how to connect an SD-WAN CPE to Virtual WAN.
+Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path allows you to connect branches to Azure IAAS enterprise workloads that are deployed in Azure VNets. Branches can be connected to the virtual WAN via ExpressRoute or site-to-site VPN. The traffic transits to VNets that are connected to the virtual WAN hubs via VNet Connections. Explicit [gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) isn't required for Virtual WAN because Virtual WAN automatically enables gateway transit to branch site. See [Virtual WAN Partners](virtual-wan-configure-automation-providers.md) article on how to connect an SD-WAN CPE to Virtual WAN.
 
 ### ExpressRoute Global Reach and Virtual WAN
 
@@ -98,7 +97,7 @@ This option lets enterprises leverage the Azure backbone to connect branches. Ho
 
 > [!NOTE]
 > Disabling Branch-to-Branch Connectivity in Virtual WAN -
-> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuation will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propogation and connectivity. To configure this setting using Azure Portal: Under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch - Disabled. 
+> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuration will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propagation and connectivity. To configure this setting using Azure Portal: Under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch - Disabled. 
 
 ### Remote User-to-VNet (c)
 
@@ -110,7 +109,7 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 
 ### VNet-to-VNet transit (e) and VNet-to-VNet cross-region (h)
 
-The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub is not necessary.
+The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub isn't necessary.
 
 
 ## <a name="DefaultRoute"></a>Force tunneling and default route
@@ -119,7 +118,7 @@ Force Tunneling can be enabled by configuring the enable default route on a VPN,
 
 A virtual hub propagates a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if enable default flag is 'Enabled' on the connection. 
 
-This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route doesn't originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
 
 ## <a name="security"></a>Security and policy control
 
@@ -143,10 +142,10 @@ The VNet-to-VNet secured transit enables VNets to connect to each other via the 
 
 ### VNet-to-Internet or third-party Security Service (i)
 
-The VNet-to-Internet enables VNets to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services does not flow through the Azure Firewall. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
+The VNet-to-Internet enables VNets to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
-The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services does not flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
+The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
 
 ### Branch-to-branch secured transit cross-region (f)
 

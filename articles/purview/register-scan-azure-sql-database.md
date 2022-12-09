@@ -1,22 +1,22 @@
 ---
-title: 'Register and scan Azure SQL DB'
+title: 'Discover and govern Azure SQL DB'
 description: This article outlines the process to register an Azure SQL database in Microsoft Purview including instructions to authenticate and interact with the Azure SQL DB source
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 04/26/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 12/05/2022
+ms.custom: template-how-to
 ---
-# Connect to Azure SQL Database in Microsoft Purview
+# Discover and govern Azure SQL Database in Microsoft Purview
 
 This article outlines the process to register an Azure SQL data source in Microsoft Purview including instructions to authenticate and interact with the Azure SQL database source
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (Preview)](#access-policy) | [Yes](#lineagepreview)(Preview)** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (Preview)](#access-policy) | [Yes](#lineagepreview)(Preview)** | No |
 
 \** Lineage is also supported if Azure SQL tables/views used as source/sink in [Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md) 
 
@@ -38,13 +38,12 @@ When setting up scan, you can further scope the scan after providing the databas
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 800 columns.
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
-* Stored procedures running remotely from data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
 * Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed.
-* If sql views are referenced in stored procedures, they're captured as sql tables currently.
-* Lineage extraction is currently not supported, if Azure SQL Server is configured behind a private endpoint.
+* If SQL views are referenced in stored procedures, they're captured as SQL tables currently.
+* Lineage extraction is currently not supported if your Azure SQL Server disables public access or doesn't allow Azure services to access it.
 
 ## Prerequisites
 
@@ -360,9 +359,34 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
-To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
-* [Single SQL account](./how-to-data-owner-policies-azure-sql-db.md) - This guide will allow you to enable access policies on a single Azure SQL Database account in your subscription.
-* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [DevOps policies](concept-policies-devops.md)
+- [Data owner policies](concept-policies-data-owner.md)
+- [self-service policies](concept-self-service-data-access-policy.md)
+
+### Access policy pre-requisites on Azure SQL Database
+[!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
+
+### Configure the Microsoft Purview account for policies
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source and enable Data use management
+The Azure SQL Database resource needs to be registered first with Microsoft Purview before you can create access policies. 
+To register your resources, follow the **Prerequisites** and **Register** sections of this guide:
+[Register Azure SQL Database in Microsoft Purview](./register-scan-azure-sql-database.md#prerequisites)
+
+After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
+
+Once your data source has the **Data Use Management** option *Enabled*, it will look like this screenshot.
+![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
+
+### Create a policy
+To create an access policy for Azure SQL Database, follow these guides:
+* [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
+* [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
+* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+* [self-service policy for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md) - This guide will allow data consumers to request access to data assets using self-service workflow.
 
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>
@@ -424,8 +448,8 @@ You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog]
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
+Follow the below guides to learn more about Microsoft Purview and your data.
+- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

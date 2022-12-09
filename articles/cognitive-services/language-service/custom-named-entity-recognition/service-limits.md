@@ -37,17 +37,35 @@ Use this article to learn about the data and service limits when using custom NE
 
 ## Regional availability 
 
-Custom named entity recognition is only available in some Azure regions. To use custom named entity recognition, you must choose a Language resource in one of following regions:
+Custom named entity recognition is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
 
-* West US 2
-* East US 
-* East US 2
-* West US 3
-* South Central US
-* West Europe
-* North Europe
-* UK south
-* Australia East
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
+| West Europe        | ✓         | ✓           |
 
 
 ## API limits
@@ -89,18 +107,19 @@ The following limits are observed for the custom named entity recognition.
 |Document length in characters | 1 | 128,000 characters; approximately 28,000 words or 56 pages. |
 |Count of entity types | 1 | 200 |
 |Entity length in characters | 1 | 500 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
 
 | Item | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum length allowed is 50 characters. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Entity name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum length allowed is 50 characters. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` ,symbols  `_ . -`,with no spaces. Maximum allowed length is 50 characters. |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Entity name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and all symbols except ":", `$ & %  * (  ) + ~ # / ?`. Maximum allowed length is 50 characters.|
 | Document name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+
 
 ## Next steps
 

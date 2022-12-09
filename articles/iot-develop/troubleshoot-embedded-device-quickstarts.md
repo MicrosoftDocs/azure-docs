@@ -5,8 +5,8 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: troubleshooting
-ms.date: 06/10/2021
-ms.custom: contperf-fy22q4
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshooting the Azure RTOS embedded device quickstarts
@@ -163,7 +163,7 @@ Failed to publish temperature
 
 ### Description
 
-Because [Defender for IoT module](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) is enabled by default from the device end, you might observe extra messages in the output.
+Because [Defender for IoT module](../defender-for-iot/device-builders/iot-security-azure-rtos.md) is enabled by default from the device end, you might observe extra messages in the output.
 
 ### Resolution
 

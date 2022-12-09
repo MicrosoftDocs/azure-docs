@@ -1,17 +1,19 @@
 ---
 title: Connect with redirection - Azure Database for MySQL
 description: This article describes how you can configure you application to connect to Azure Database for MySQL with redirection.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 6/8/2020
+ms.date: 06/20/2022
 ---
 
 # Connect to Azure Database for MySQL with redirection
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 

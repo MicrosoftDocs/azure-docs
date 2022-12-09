@@ -23,43 +23,34 @@ Use Azure IoT Hub to schedule and track jobs that update millions of devices. Us
 
 * Invoke direct methods
 
-A job wraps one of these actions and tracks the execution against a set of devices that is defined by a device twin query. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job tracks progress as each of the devices receive and execute the reboot direct method.
+A job wraps one of these actions and tracks the execution against a set of devices that is defined by a device twin query. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job tracks progress as each of the devices receives and executes the reboot direct method.
 
 To learn more about each of these capabilities, see:
 
-* Device twin and properties: [Get started with device twins](iot-hub-csharp-csharp-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
+* Device twin and properties: [Get started with device twins](iot-hub-csharp-csharp-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-csharp)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial shows you how to:
+This article shows you how to create two .NET (C#) console apps:
 
-* Create a device app that implements a direct method called **LockDoor**, which can be called by the back-end app.
+* A device app, **SimulateDeviceMethods**, that implements a direct method called **LockDoor**, which can be called by the back-end app.
 
-* Create a back-end app that creates a job to call the **LockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
+* A back-end app, **ScheduleJob**, that creates two jobs. One job calls the **lockDoor** direct method and another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have two .NET (C#) console apps:
-
-* **SimulateDeviceMethods**. This app connects to your IoT hub and implements the **LockDoor** direct method.
-
-* **ScheduleJob**. This app uses jobs to call the **LockDoor** direct method and update the device twin desired properties on multiple devices.
+> [!NOTE]
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
 * Visual Studio.
 
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Create a simulated device app
 
@@ -67,15 +58,17 @@ In this section, you create a .NET console app that responds to a direct method 
 
 1. In Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next** to continue.
 
-1. In **Configure your new project**, name the project *SimulateDeviceMethods*, and then select **Create**.
+1. In **Configure your new project**, name the project *SimulateDeviceMethods* then select **Next**.
 
-    ![Configure your SimulateDeviceMethods project](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png" alt-text="Screenshot of the 'Configure your new project' popup in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png":::
 
-1. In Solution Explorer, right-click the **SimulateDeviceMethods** project, and then select **Manage NuGet Packages**.
+1. Accept the default version of the .NET Framework then select **Create** to create the project.
+
+1. In Solution Explorer, right-click the **SimulateDeviceMethods** project then select **Manage NuGet Packages**.
 
 1. In **NuGet Package Manager**, select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
-    ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png" alt-text="Screenshot of the NuGet Package Manager in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png":::
 
     This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
@@ -85,6 +78,8 @@ In this section, you create a .NET console app that responds to a direct method 
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     using Newtonsoft.Json;
+    using System.Threading.Tasks;
+    using System.Text;
     ```
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
@@ -149,8 +144,7 @@ In this section, you create a .NET console app that responds to a direct method 
 1. Save your work and build your solution.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policies. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
->
+> To keep things simple, this article does not implement a retry policies. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 ## Get the IoT hub connection string
 
@@ -164,9 +158,13 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 
 1. In Visual Studio, select **File** > **New** > **Project**. In **Create a new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Configure your new project**, name the project *ScheduleJob*. For **Solution**, choose **Add to solution**, and then select **Create**.
+1. In **Configure your new project**, name the project *ScheduleJob* then select **Create**.
 
-    ![Name and configure you ScheduleJob project](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
+    ![Name and configure you ScheduleJob project]()
+
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png" alt-text="Screenshot of the 'Configure your new project' popup in Visual Studio, where you add a name." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png":::
+
+1. Accept the default version of the .NET Framework then select **Create** to create the project.
 
 1. In Solution Explorer, right-click the **ScheduleJob** project, and then select **Manage NuGet Packages**.
 
@@ -302,8 +300,6 @@ You are now ready to run the apps.
 
 ## Next steps
 
-In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you scheduled jobs to run a direct method and update the device twin's properties.
 
-* To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
-
-* To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge](../iot-edge/quickstart-linux.md).
+To continue exploring IoT Hub and device management patterns, update an image in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

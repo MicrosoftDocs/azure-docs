@@ -59,7 +59,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 
    For example:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
@@ -123,8 +123,8 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite rule - left](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL Rewrite rule - right](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png" alt-text="Screenshot of CDN URL Rewrite rule - left.":::
+    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png" alt-text="Screenshot of CDN URL Rewrite rule - right.":::
 
 3. If you renew the SAS, ensure that you update the Url Rewrite rule with the new SAS token. 
 

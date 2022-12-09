@@ -2,14 +2,14 @@
 title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 3/1/2021
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -61,7 +61,7 @@ We recommend the following practices for service account privileges.
 * [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource.
 * Service principals and managed identities can use OAuth 2.0 scopes in either a delegated context that is impersonating a signed-on user, or as service account in the application context. In the application context no is signed-on.
 
-* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](/graph/permissions-reference).
+* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see the [Overview of Microsoft Graph permissions](/graph/permissions-overview).
 
 * Ensure you trust the developer of the application or API with the access requested to your resources.
 

@@ -23,12 +23,22 @@
   items:
     - name: APIs
       items:
-        - name: API support with Azure Functions
-          href: apis.md
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Overview
+          href: apis-overview.md
+        - name: Azure Functions
+          items:
+            - name: Integration options
+              href: apis-functions.md
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
     - name: Configuration
       items:
         - name: Configuration overview
@@ -79,6 +89,8 @@
           href: apex-domain-external.md
       - name: Manage the default domain
         href: custom-domain-default.md
+    - name: Supported languages and runtimes
+      href: languages-runtimes.md
 - name: How-to guides
   items:
     - name: APIs
@@ -129,10 +141,15 @@
         - name: Blazor
           href: deploy-blazor.md
         - name: Next.js
-          href: deploy-nextjs.md
+          href: nextjs.md
+          items:
+          - name: Statically generated Next.js
+            href: deploy-nextjs-static-export.md
+          - name: Hybrid Next.js application (preview)
+            href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
-    - name: Add a database with Mongoose.js and Cosmos DB
+    - name: Add a database with Mongoose.js and Azure Cosmos DB
       href: add-mongoose.md
     - name: Publish with an ARM template
       href: publish-azure-resource-manager.md
@@ -158,16 +175,16 @@
       href: /rest/api/appservice/static-sites
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
+    - name: Build your skills with Microsoft Learn training
       items:
         - name: Publish an Angular, React, Svelte, or Vue JavaScript app
-          href: /learn/modules/publish-app-service-static-web-app-api
+          href: /training/modules/publish-app-service-static-web-app-api
         - name: Publish an API
-          href: /learn/modules/publish-static-web-app-api-preview-url
+          href: /training/modules/publish-static-web-app-api-preview-url
         - name: Create and publish a static web app with Gatsby
-          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+          href: /training/modules/create-deploy-static-webapp-gatsby-app-service
         - name: Create and publish a static web app with Blazor
-          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
+          href: /training/modules/publish-app-service-static-web-app-api-dotnet
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas

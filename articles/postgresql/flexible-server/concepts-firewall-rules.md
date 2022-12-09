@@ -10,9 +10,12 @@ ms.date: 11/30/2021
 ---
 
 # Firewall rules in Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 When you're running Azure Database for PostgreSQL - Flexible Server, you have two main networking options. The options are private access (virtual network integration) and public access (allowed IP addresses). 
 
-With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level *firewall rules*. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request.
+With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level *firewall rules*. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With [private access](concepts-networking.md#private-access-vnet-integration) no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL - Flexible Server. 
 
 You can create firewall rules by using the Azure portal or by using Azure CLI commands. You must be the subscription owner or a subscription contributor.
 
@@ -29,6 +32,9 @@ For example, if your application connects with a Java Database Connectivity (JDB
 
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
+
+> [!NOTE]
+> To access Azure Database for PostgreSQL from your local computer, ensure that the firewall on your network and local computer allow outgoing communication on TCP port 5432.
 
 ## Connect from Azure
 We recommend that you find the outgoing IP address of any application or service and explicitly allow access to those individual IP addresses or ranges. For example, you can find the outgoing IP address of an Azure App Service app, or use a public IP address that's tied to a virtual machine. 

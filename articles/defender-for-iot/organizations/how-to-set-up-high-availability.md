@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 11/09/2021
+ms.date: 06/12/2022 
 ms.topic: how-to
 ---
 # About high availability
@@ -29,9 +29,9 @@ When a primary and secondary on-premises management console is paired:
 
 ## About failover and failback
 
-If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
+If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Failover from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
 
-During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
+During failover, sensors continue attempts to communicate with the primary appliance. When more than half the managed sensors succeed in communicating with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
 
 :::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
 
@@ -47,7 +47,9 @@ The installation and configuration procedures are performed in four main stages:
 
 1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
-1. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
+1. Pair the primary and secondary on-premises management console appliances. The primary on-premises management console must manage at least two sensors in order to carry out the setup. 
+
+    For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
 ## High availability requirements
 
@@ -67,7 +69,7 @@ Verify that you've met the following high availability requirements:
 
 ### Network access requirements
 
-Verify if your organizational security policy allows you to have access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
+Verify if your organizational security policy allows you to have access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
 |Port|Service|Description|
 |----|-------|-----------|
@@ -138,7 +140,7 @@ The core application logs can be exported to the Defender for IoT support team t
 
 ## Update the on-premises management console with high availability
 
-To update an on-premises management console that has high availability configured, you will need to:
+To update an on-premises management console that has high availability configured, you'll need to:
 
 1. Disconnect the high availability from both the primary and secondary appliances. 
 1. Update the appliances to the new version. 
@@ -184,7 +186,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the primary appliance and copy it to your clipboard.
 
-    1. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the list of trusted hosts. Run:
+    1. Remove the primary domain from the list of trusted hosts. Run:
     
         ```bash
         sudo cyberx-management-trusted-hosts-remove -d [Primary domain]
@@ -196,7 +198,7 @@ Perform the update in the following order. Make sure each step is complete befor
         sudo cyberx-management-trusted-hosts-apply
         ```
 
-1. Update both the primary and secondary appliances to the new version. For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
+1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](update-ot-software.md#update-an-on-premises-management-console).
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 

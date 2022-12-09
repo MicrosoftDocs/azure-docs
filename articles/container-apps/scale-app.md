@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 09/27/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
 # Set scaling rules in Azure Container Apps
 
-Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No charges are incurred when an application scales to zero.
+Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
 Scaling rules are defined in `resources.properties.template.scale` section of the JSON configuration file. When you add or edit existing scaling rules, a new revision of your container is automatically created with the new configuration. A revision is an immutable snapshot of your container app and it gets created automatically when certain aspects of your application are updated (scaling rules, Dapr settings, template configuration etc.). See the [Change types](./revisions.md#change-types) section to learn about the type of changes that do or don't trigger a new revision.
 
@@ -23,13 +23,13 @@ There are two scale properties that apply to all rules in your container app:
 | `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 30 |
 | `maxReplicas` | Maximum number of replicas running for your container app. | 10 | 1 | 30 |
 
-- If your container app scales to zero, then you aren't billed.
+- If your container app scales to zero, then you aren't billed usage charges.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
 - Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
 - It's recommended to set the  `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
-- Container Apps implements the KEDA ScaledObject with the following default settings.
+- Container Apps implements the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) and HTTP scaler with the following default settings.
   - pollingInterval: 30 seconds
   - cooldownPeriod: 300 seconds
 
@@ -38,6 +38,7 @@ There are two scale properties that apply to all rules in your container app:
 Azure Container Apps supports the following scale triggers:
 
 - [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your revision.
+- [TCP traffic](#tcp): Scaling based on the number of concurrent TCP requests to your revision.
 - [Event-driven](#event-driven): Event-based triggers such as messages in an Azure Service Bus.
 - [CPU](#cpu) or [Memory](#memory) usage: Scaling based on the amount of CPU or memory consumed by a replica.
 
@@ -102,6 +103,43 @@ In the following example, the container app scales out up to five replicas and c
 1. Select **Create** when you're done.
 
     :::image type="content" source="media/scalers/create-http-scale-rule.png" alt-text="A screenshot showing the newly created http scale rule.":::
+
+## TCP
+
+With a TCP scaling rule, you have control over the threshold that determines when to scale out.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+
+In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": 0,
+          "maxReplicas": 5,
+          "rules": [{
+            "name": "tcp-rule",
+            "tcp": {
+              "metadata": {
+                  "concurrentRequests": "100"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+```
 
 ## Event-driven
 
@@ -300,7 +338,7 @@ The following example shows how to create a CPU scaling rule.
           "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
-            "name": "cpuScalingRule",
+            "name": "cpu-scaling-rule",
             "custom": {
               "type": "cpu",
               "metadata": {
@@ -338,7 +376,7 @@ The following example shows how to create a memory scaling rule.
           "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
-            "name": "memoryScalingRule",
+            "name": "memory-scaling-rule",
             "custom": {
               "type": "memory",
               "metadata": {

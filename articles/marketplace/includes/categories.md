@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 07/30/2020
 ms.custom: include file
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ---
 
@@ -17,7 +17,7 @@ ms.author: mingshen
 | AI + Machine Learning<ul><li>Bot Service<li>Cognitive Services<li>ML Service<li>Automated ML<li>Business/Robotic Process Automation<li>Data Labeling<li>Data Preparation<li>Knowledge Mining<li>ML Operations | AI + Machine Learning<ul><li>AI for Business<li>Bot Apps |
 | Blockchain<ul><li>App Accelerators<li>Single-node Ledger<li>Multi-node Ledger<li>Tools | Collaboration<ul><li>Contact and People<li>Meeting Management<li>Site Design and Management<li>Task and Project Management<li>Voice and Video Conferencing |
 | Compute<ul><li>Application Infrastructure<li>Operating Systems<li>Cache | Compliance and Legal<ul><li>Tax and Audit<li>Legal<li>Data, Governance, and Privacy<li>Health and Safety |
-| Containers<ul><li>Get Started with Containers<li>Container Apps<li>Container Images | Customer Service<ul><li>Contact Center<li>Face to Face Service<li>Back Office and Employee Service<li>Knowledge and Case Management<li>Social Media and Omnichannel Engagement |
+| Containers<ul><li>Kubernetes Apps| Customer Service<ul><li>Contact Center<li>Face to Face Service<li>Back Office and Employee Service<li>Knowledge and Case Management<li>Social Media and Omnichannel Engagement |
 | Databases<ul><li>NoSQL Databases<li>Relational Databases<li>Ledger/Blockchain Databases<li>Data Lakes<li>Data Warehouse | Finance<ul><li>Accounting<li>Asset Management<li>Analytics, Consolidation, and Reporting<li>Credit and Collections<li>Compliance and Risk Management |
 | Developer Tools<ul><li>Tools<li>Scripts<li>Developer Service | Geolocation<ul><li>Maps<li>News and Weather |
 | DevOps | Human Resources<ul><li>Talent Acquisition<li>Talent Management<li>HR Operations<li>Workforce Planning and Analytics |

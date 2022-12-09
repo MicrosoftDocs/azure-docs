@@ -396,9 +396,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/iot-pnp/tutorial-configure-tsi.md",
-      "redirect_url": "/azure/iot-develop/tutorial-configure-tsi",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/iot-develop/tutorial-configure-tsi.md",
+      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-migrate-device-to-module.md",

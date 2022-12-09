@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/29/2022
+ ms.date: 09/14/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
 1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type **local network gateway**. Locate **local network gateway** under **Marketplace** in the search results and select it. This opens the **Create local network gateway** page.
-1. On the **Create local network gateway page**, specify the values for your local network gateway.
+1. On the **Create local network gateway page**, on the **Basics** tab, specifiy the values for your local network gateway.
 
    :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/basics.png" alt-text="Create a local network gateway with IP address." lightbox ="./media/vpn-gateway-add-local-network-gateway-portal-include/basics.png" :::
 
@@ -29,5 +29,6 @@
    > * Azure VPN Gateway maintains a DNS cache refreshed every 5 minutes. The gateway tries to resolve the FQDNs for disconnected tunnels only. Resetting the gateway will also trigger FQDN resolution.
    >
 
+1. On the **Advanced** tab, you can configure BGP settings if needed.
 1. When you have finished specifying the values, select **Review + create** at the bottom of the page to validate the page.
 1. Select **Create** to create the local network gateway object.

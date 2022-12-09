@@ -6,7 +6,7 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, ignite-2022
 ---
 
 # Using OpenFaaS on AKS
@@ -87,7 +87,6 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-```console
 kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
@@ -105,7 +104,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. To fetch your password, enter `echo $PASSWORD`.
+To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. The default user is `admin` and your password can be retrieved by using `echo $PASSWORD`.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -151,23 +150,23 @@ Output:
 
 ## Create second function
 
-Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from a Cosmos DB. Several items need to be configured before creating the function.
+Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from an Azure Cosmos DB instance. Several items need to be configured before creating the function.
 
-First, create a new resource group for the Cosmos DB.
+First, create a new resource group for the Azure Cosmos DB instance.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
 ```
 
-Deploy a CosmosDB instance of kind `MongoDB`. The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment.
+Deploy an Azure Cosmos DB instance of kind `MongoDB`. The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Get the Cosmos database connection string and store it in a variable.
+Get the Azure Cosmos DB database connection string and store it in a variable.
 
-Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Cosmos DB.
+Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Azure Cosmos DB instance.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -177,7 +176,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Now populate the Cosmos DB with test data. Create a file named `plans.json` and copy in the following json.
+Now populate the Azure Cosmos DB with test data. Create a file named `plans.json` and copy in the following json.
 
 ```json
 {
@@ -191,7 +190,7 @@ Now populate the Cosmos DB with test data. Create a file named `plans.json` and 
 }
 ```
 
-Use the *mongoimport* tool to load the CosmosDB instance with data.
+Use the *mongoimport* tool to load the Azure Cosmos DB instance with data.
 
 If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 

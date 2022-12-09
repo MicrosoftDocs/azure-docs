@@ -7,15 +7,15 @@ ms.date: 08/19/2021
 ms.author: helohr
 manager: femila
 ---
-# Troubleshoot Azure Files authorization
+# Troubleshoot Azure Files authentication with Active Directory
 
-This article describes common issues related to Azure Files authentication with Azure Active Directory (AD), and suggestions for how to fix them.
+This article describes common issues related to Azure Files authentication with an Active Directory Domain Services (AD DS) domain or Azure Active Directory Domain Services (Azure AD DS) managed domain, and suggestions for how to fix them.
 
 ## My group membership isn't working
 
-When you add a virtual machine (VM) to an Active Directory Domain Services (AD DS) group, you must restart that VM to activate its membership within the service.
+When you add a virtual machine (VM) to an AD DS group, you must restart that VM to activate its membership within the service.
 
-## I can't add my storage account to my AD DS
+## I can't add my storage account to my AD DS domain
 
 First, check [Unable to mount Azure Files with AD credentials](../storage/files/storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) to see if your problem is listed there.
 
@@ -43,7 +43,7 @@ If your storage account doesn't automatically sync with Azure AD after 30 minute
 
 ## My storage account says it needs additional permissions
 
-If your storage account needs additional permissions, you may not have permission to access MSIX app attach and FSLogix. To fix this issue, make sure you've assigned one of these permissions to your account:
+If your storage account needs additional permissions, you may not have assigned the required Azure role-based access control (RBAC) role to users or NTFS permissions. To fix this issue, make sure you've assigned one of these permissions to users who need to access the share:
 
 - The **Storage File Data SMB Share Contributor** RBAC permission.
 
@@ -51,4 +51,4 @@ If your storage account needs additional permissions, you may not have permissio
 
 ## Next steps
 
-If you need to refresh your memory about the Azure Files setup process, see [Authorize an account for Azure Files](azure-files-authorization.md).
+If you need to refresh your memory about the Azure Files setup process, see [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).

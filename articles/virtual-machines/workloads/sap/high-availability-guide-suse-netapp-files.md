@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/02/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 
 ---
@@ -52,10 +52,11 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
-In the example configurations, installation commands etc., the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
+This article explains how to configure high availability for SAP NetWeaver application with [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. The database layer isn't covered in detail in this article.
+For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
+
+In the example configurations, installation commands etc., the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. The database layer isn't covered in detail in this article.
 
 Read the following SAP Notes and papers first:
 
@@ -73,7 +74,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
 * SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
@@ -81,6 +82,7 @@ Read the following SAP Notes and papers first:
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
+* [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
 ## Overview
 
@@ -218,18 +220,19 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **backend.QAS**)
-      1. Click Add a virtual machine.
-      1. Select Virtual machine
-      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-      1. Click Add
+   1. Create a single back-end pool: 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. Enter the name of the new back-end pool (for example, **backend.QAS**).
+      2. Select **NIC** for Backend Pool Configuration. 
+      1. Select **Add a virtual machine**.
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.      
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
          1. Enter the name of the new health probe (for example **health.QAS.ASCS**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Select TCP as protocol, port 620**00**, keep Interval 5  
          1. Click OK
       1. Port 621**01** for ASCS ERS
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
@@ -239,47 +242,10 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
-1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
-   1. Create the frontend IP addresses
-      1. IP address 10.1.1.20 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **frontend.QAS.ASCS**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.1.1.20**)
-         1. Click OK
-      1. IP address 10.1.1.21 for the ASCS ERS
-         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **backend.QAS**)
-      1. Click Add a virtual machine.
-      1. Select the Availability Set you created earlier for ASCS 
-      1. Select the virtual machines of the (A)SCS cluster
-      1. Click OK
-   1. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **health.QAS.ASCS**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
-         1. Click OK
-      1. Port 621**01** for ASCS ERS
-            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
-   1. Load-balancing rules
-      1. 32**00** TCP for ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS.3200**)
-         1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**)
-         1. Keep protocol **TCP**, enter port **3200**
-         1. Increase idle timeout to 30 minutes
-         1. **Make sure to enable Floating IP**
-         1. Click OK
-      1. Additional ports for the ASCS
-         * Repeat the steps above under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
-      1. Additional ports for the ASCS ERS
-         * Repeat the steps above under "d" for ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
-
       
       > [!IMPORTANT]
       > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -490,13 +456,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
-     op monitor interval=20s timeout=40s
+     op monitor interval=20s timeout=105s
    
    sudo crm configure primitive vip_<b>QAS</b>_ASCS IPaddr2 \
      params ip=<b>10.1.1.20</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
+   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
       meta resource-stickiness=3000
@@ -549,13 +516,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
-     op monitor interval=20s timeout=40s
+     op monitor interval=20s timeout=105s
    
    sudo crm configure primitive vip_<b>QAS</b>_ERS IPaddr2 \
      params ip=<b>10.1.1.21</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>
+   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
    </code></pre>
@@ -668,20 +636,36 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
-   
+   # If using NFSv3
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
     op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
-   
+
+   # If using NFSv4.1
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=105 on-fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 failure-timeout=105 migration-threshold=1 priority=10
+
+   # If using NFSv3   
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
     op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
-   
+
+   # If using NFSv4.1
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=105 on-fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+    meta priority=1000
+
    sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
    sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
    
@@ -698,6 +682,7 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
+   # If using NFSv3
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
     op monitor interval=11 timeout=60 on-fail=restart \
@@ -705,9 +690,24 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000
    
+   # If using NFSv4.1
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=105 on-fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   # If using NFSv3
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
     op monitor interval=11 timeout=60 on-fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   # If using NFSv4.1
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=105 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
    
    sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
@@ -721,6 +721,11 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    </code></pre>
 
    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
+   > [!NOTE]
+   > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals. 
+   > For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
+   > The timeouts in the above configuration may need to be adapted to the specific SAP setup. 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 

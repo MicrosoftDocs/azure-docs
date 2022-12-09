@@ -1,15 +1,17 @@
 ---
 title: Advanced development with Azure Percept
 description: Learn more about advanced development tools on Azure Percept
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 10/04/2022
 ms.custom: template-concept
 ---
 
 # Advanced development with Azure Percept
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 With Azure Percept, software developers and data scientists can use advanced code workflows for AI lifecycle management. Through a growing open source library, they can use samples to get started with their AI development journey and build production-ready solutions.
 

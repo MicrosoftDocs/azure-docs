@@ -15,27 +15,24 @@ ms.custom:  [amqp, mqtt]
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
+[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, it allows for isolated configuration and conditions for each component.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+At the end of this article, you have two C apps:
+
+* **CreateIdentities**: creates a device identity, a module identity and associated security key to connect your device and module clients.
+
+* **UpdateModuleTwinReportedProperties**: sends updated module twin, reported properties to your IoT Hub.
+
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
-
-At the end of this tutorial, you have two C apps:
-
-* **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
-
-* **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
-
-> [!NOTE]
-> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution backend, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
-* An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Get the IoT hub connection string
 
@@ -45,7 +42,7 @@ At the end of this tutorial, you have two C apps:
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a C app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity registry** section of the [IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a C app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 Add the following code to your C file:
 
@@ -182,7 +179,7 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 In this section, you create a C app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+1. **Get your module connection string** -- now if you sign in to [Azure portal](https://portal.azure.com). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
     ![Azure portal module detail](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 

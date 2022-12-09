@@ -1,27 +1,28 @@
 ---
-title: Azure Monitor Workbooks- Transform JSON data with JSONPath
-description: How to use JSONPath in Azure Monitor workbooks to transform the results of JSON data returned by a queried endpoint to the format you desire. 
+title: Azure Monitor workbooks - Transform JSON data with JSONPath
+description: Learn how to use JSONPath in Azure Monitor workbooks to transform the results of JSON data returned by a queried endpoint to the format that you want. 
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/05/2022
 ---
 
-# How to use JSONPath to transform JSON data in workbooks
+# Use JSONPath to transform JSON data in workbooks
 
-Workbooks is able to query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint is not configured in a format that you desire, JSONPath can be used to transform the results.
+Workbooks can query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint isn't configured in a format that you want, JSONPath can be used to transform the results.
 
-JSONPath is a query language for JSON that is similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of JSON structure.
+JSONPath is a query language for JSON that's similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of JSON structure.
 
-By using JSONPath transformation, workbook authors are able to convert JSON into a table structure. The table can then be used to plot [workbook visualizations](./workbooks-overview.md#visualizations).
+By using JSONPath transformation, workbook authors can convert JSON into a table structure. The table can then be used to plot [workbook visualizations](./workbooks-overview.md#visualizations).
 
-## Using JSONPath
+## Use JSONPath
 
-1. Switch the workbook to edit mode by clicking on the *Edit* toolbar item.
-2. Use the *Add* > *Add query* link to add a query control to the workbook.
-3. Select the data source as *JSON*.
-4. Use the JSON editor to enter the following JSON snippet
+1. Switch the workbook to edit mode by selecting **Edit**.
+1. Use the **Add** > **Add query** link to add a query control to the workbook.
+1. Select the data source as **JSON**.
+1. Use the JSON editor to enter the following JSON snippet:
+
     ```json
     { "store": {
         "books": [ 
@@ -56,25 +57,26 @@ By using JSONPath transformation, workbook authors are able to convert JSON into
     }
     ```  
 
-Let's assume we are given the above JSON object as a representation of a store's inventory. Our task is to create a table of the store's available books by listing their titles, authors, and prices.
+Let's assume we're given the preceding JSON object as a representation of a store's inventory. Our task is to create a table of the store's available books by listing their titles, authors, and prices.
 
-1. Select the *Result Settings* tab and switch the result format to *JSON Path*.
-2. Apply the following JSON Path Settings:
+1. Select the **Result Settings** tab and switch the result format to **JSON Path**.
+1. Apply the following JSON path settings:
 
-    JSON Path Table: `$.store.books`. This field represents the path of the root of the table. In this case, we care about the store's book inventory. The table path filters the JSON to the book information.
+    - **JSON Path Table**: `$.store.books`. This field represents the path of the root of the table. In this case, we care about the store's book inventory. The table path filters the JSON to the book information.
 
-   | Column IDs | Column JSON Path |
-   |:-----------|:-----------------|
-   | Title      | `$.title`        |
-   | Author     | `$.author`       |
-   | Price      | `$.price`        |
+       | Column IDs | Column JSON paths |
+       |:-----------|:-----------------|
+       | Title      | `$.title`        |
+       | Author     | `$.author`       |
+       | Price      | `$.price`        |
 
     Column IDs will be the column headers. Column JSON paths fields represent the path from the root of the table to the column value.
 
-1. Apply the above settings by clicking *Run Query*
+1. Apply the preceding settings by selecting **Run Query**.
 
-![ Editing query item with JSON data source and JSON Path result format](./media/workbooks-jsonpath/query-jsonpath.png)
+   ![Screenshot that shows editing a query item with JSON data source and JSON path result format.](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## Next steps
-- [Workbooks Overview](./workbooks-overview.md)
+
+- [Workbooks overview](./workbooks-overview.md)
 - [Groups in Azure Monitor Workbooks](workbooks-groups.md)

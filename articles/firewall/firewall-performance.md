@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 11/29/2022
 ms.author: victorh
 ---
 
@@ -26,37 +26,46 @@ For more information about Azure Firewall, see [What is Azure Firewall?](overvie
 
 ## Performance testing
 
-Before deploying Azure Firewall, the performance needs to be tested and evaluated to ensure it meets your expectations. Not only should Azure Firewall handle the current traffic on a network, but it should also be ready for potential traffic growth. It is recommended to evaluate on a test network and not in a production environment. The testing should attempt to replicate the production environment as close as possible. This includes the network topology, and emulating the actual characteristics of the expected traffic through the firewall.
+Before you deploy Azure Firewall, the performance needs to be tested and evaluated to ensure it meets your expectations. Not only should Azure Firewall handle the current traffic on a network, but it should also be ready for potential traffic growth. It is recommended to evaluate on a test network and not in a production environment. The testing should attempt to replicate the production environment as close as possible. This includes the network topology, and emulating the actual characteristics of the expected traffic through the firewall.
 
 ## Performance data
 
-The following set of performance results demonstrates the maximal Azure Firewall throughput in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny.
+The following set of performance results demonstrates the maximal Azure Firewall throughput in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny. Azure Firewall Premium performance boost feature is enabled on all Azure Firewall premium deployments by default.  This feature includes enabling Accelerated Networking on the underlying firewall virtual machines.
 
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
 |---------|---------|---------|
 |Standard     |30|30|
-|Premium (no TLS/IDPS)     |30|30|
-|Premium with TLS     |-|30|
-|Premium with IDS     |30|30|
-|Premium with IPS      |10|10|
+|Premium (no TLS/IDPS)     |100|100|
+|Premium with TLS (no IDS/IPS)     |-|100|
+|Premium with TLS and IDS     |100|100|
+|Premium with TLS and IPS      |10|10|
 
 > [!NOTE]
 > IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
 
-Azure Firewall Premium’s new performance boost functionality is now in public preview and provides you with the following enhancements to the overall firewall performance:
+### Throughput for single connections
+
+|Firewall use case  |Throughput (Gbps)|
+|---------|---------|
+|Standard<br>Max bandwidth for single TCP connection     |up to 1.5|
+|Premium<br>Max bandwidth for single TCP connection     |up to 9|
+|Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
+
+### Total throughput  for initial firewall deployment
+
+The following throughput numbers are for an Azure Firewall deployment before auto-scale (out of the box deployment). Azure Firewall gradually scales when the average throughput or CPU consumption is at 60%. It starts to scale out when it reaches 60% of its maximum throughput. Scale out takes five to seven minutes.
+
+When performance testing, ensure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created firewall nodes.
 
 
-|Firewall use case  |Without performance boost (Gbps)  |With performance boost (Gbps)  |
-|---------|---------|---------|
-|Standard<br>Max bandwidth for single TCP connection     |1.3|-|
-|Premium<br>Max bandwidth for single TCP connection     |2.6|9.5|
-|Premium max bandwidth with TLS/IDS|30|100|
+|Firewall use case  |Throughput (Gbps)|
+|---------|---------|
+|Standard<br>Max bandwidth      |up to 3 |
+|Premium<br>Max bandwidth      |up to 18|
 
-Performance values are calculated with Azure Firewall at full scale and with Premium performance boost enabled. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
-To enable the Azure Firewall Premium performance boost, see [Azure Firewall preview features](firewall-preview.md#azure-firewall-premium-performance-boost-preview).
-
+Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
 ## Next steps
 

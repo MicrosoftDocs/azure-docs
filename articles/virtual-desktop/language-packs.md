@@ -55,7 +55,8 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004 or later 01C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2201C.iso)
           - [Windows 10, version 2004 or later 02C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/sg/download/888969d5-f34g-4e03-ac9d-1f9786c66749/LanguageExperiencePack.2202C.iso)
           - [Windows 10, version 2004 or later 04C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/LanguageExperiencePack.2204C.iso)
-          
+          - [Windows 10, version 2004 or later 06C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/LanguageExperiencePack.2206C.iso)
+
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
 >[!NOTE]
@@ -94,7 +95,7 @@ To create a custom Windows 10 Enterprise multi-session image manually:
 1. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
 
    > [!IMPORTANT]
-   > After you install a language pack, you have to reinstall the latest cumulative update that is installed on your image. If you do not reinstall the latest cumulative update, you may encounter errors. If the latest cumulative update is already installed, Windows Update does not offer it again; you have to manually reinstall it. For more information, see [Languages overview](/windows-hardware/manufacture/desktop/languages-overview.md?view=windows-10&preserve-view=true#considerations).
+   > After you install a language pack, you have to reinstall the latest cumulative update that is installed on your image. If you do not reinstall the latest cumulative update, you may encounter errors. If the latest cumulative update is already installed, Windows Update does not offer it again; you have to manually reinstall it. For more information, see [Languages overview](/windows-hardware/manufacture/desktop/languages-overview?view=windows-10&preserve-view=true#considerations).
 
 1. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 

@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM template'
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
-author: mksuni
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal
+ms.author: shaithal
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: sumuth
-ms.date: 10/23/2020
+ms.date: 07/07/2022
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server
@@ -20,101 +20,140 @@ ms.date: 10/23/2020
 
 ## Prerequisites
 
-An Azure account with an active subscription. 
+- An Azure account with an active subscription.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## Review the template
+## Create server with public access
 
-An Azure Database for MySQL Flexible Server is the parent resource for one or more databases  within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations.
-
-Create a _mysql-flexible-server-template.json_ file and copy this JSON script into it.
+Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using public access connectivity method and also create a database on the server.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "administratorLogin": {
-      "type": "String"
+      "type": "string"
     },
     "administratorLoginPassword": {
-      "type": "SecureString"
+      "type": "securestring"
     },
     "location": {
-      "type": "String"
+      "type": "string"
     },
     "serverName": {
-      "type": "String"
+      "type": "string"
     },
     "serverEdition": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "Burstable",
+      "metadata": {
+        "description": "The tier of the particular SKU, e.g. Burstable, GeneralPurpose, MemoryOptimized. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+      }
     },
-    "storageSizeMB": {
-      "type": "Int"
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard_B1ms",
+      "metadata": {
+        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+      }
+    },
+    "storageSizeGB": {
+      "type": "int"
+    },
+    "storageIops": {
+      "type": "int"
+    },
+    "storageAutogrow": {
+      "type": "string",
+      "defaultValue": "Enabled"
+    },
+    "availabilityZone": {
+      "type": "string",
+      "metadata": {
+        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
+      }
+    },
+    "version": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {}
     },
     "haEnabled": {
       "type": "string",
-      "defaultValue": "Disabled"
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
+      }
     },
-    "availabilityZone": {
-      "type": "String"
-    },
-    "version": {
-      "type": "String"
-    },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
+    "standbyAvailabilityZone": {
+      "type": "string",
+      "metadata": {
+        "description": "Availability zone of the standby server."
+      }
     },
     "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
+      "type": "object",
+      "defaultValue": {}
     },
     "backupRetentionDays": {
-      "type": "Int"
+      "type": "int"
+    },
+    "geoRedundantBackup": {
+      "type": "string"
+    },
+    "databaseName": {
+      "type": "string"
     }
   },
   "variables": {
     "api": "2021-05-01",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
+    "firewallRules": "[parameters('firewallRules').rules]"
   },
   "resources": [
     {
       "type": "Microsoft.DBforMySQL/flexibleServers",
       "apiVersion": "[variables('api')]",
-      "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
+      "name": "[parameters('serverName')]",
       "sku": {
-        "name": "Standard_D4ds_v4",
+        "name": "[parameters('skuName')]",
         "tier": "[parameters('serverEdition')]"
       },
-      "tags": "[parameters('tags')]",
       "properties": {
         "version": "[parameters('version')]",
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
+        "availabilityZone": "[parameters('availabilityZone')]",
+        "highAvailability": {
+          "mode": "[parameters('haEnabled')]",
+          "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
         },
-        "availabilityZone": "[parameters('availabilityZone')]"
-      }
+        "Storage": {
+          "storageSizeGB": "[parameters('storageSizeGB')]",
+          "iops": "[parameters('storageIops')]",
+          "autogrow": "[parameters('storageAutogrow')]"
+        },
+        "Backup": {
+          "backupRetentionDays": "[parameters('backupRetentionDays')]",
+          "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+        }
+      },
+      "tags": "[parameters('tags')]"
     },
     {
+      "condition": "[greater(length(variables('firewallRules')), 0)]",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('firewallRules-', copyIndex())]",
+      "copy": {
+        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
+        "mode": "Serial",
+        "name": "firewallRulesIterator"
+      },
       "dependsOn": [
         "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
       ],
@@ -135,21 +174,213 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
             }
           ]
         }
-      },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
+      }
+    },
+    {
+      "type": "Microsoft.DBforMySQL/flexibleServers/databases",
+      "apiVersion": "[variables('api')]",
+      "name": "[concat(parameters('serverName'),'/',parameters('databaseName'))]",
+      "dependsOn": [
+        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "charset": "utf8",
+        "collation": "utf8_general_ci"
+      }
     }
   ]
 }
 ```
 
-These resources are defined in the template:
+## Create a server with private access
 
-- Microsoft.DBforMySQL/flexibleServers
+Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using private access connectivity method inside a virtual network.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "administratorLogin": {
+      "type": "string"
+    },
+    "administratorLoginPassword": {
+      "type": "securestring"
+    },
+    "location": {
+      "type": "string"
+    },
+    "serverName": {
+      "type": "string"
+    },
+    "serverEdition": {
+      "type": "string",
+      "defaultValue": "Burstable",
+      "metadata": {
+        "description": "The tier of the particular SKU, e.g. Burstable, GeneralPurpose, MemoryOptimized. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard_B1ms",
+      "metadata": {
+        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+      }
+    },
+    "storageSizeGB": {
+      "type": "int"
+    },
+    "storageIops": {
+      "type": "int"
+    },
+    "storageAutogrow": {
+      "type": "string",
+      "defaultValue": "Enabled"
+    },
+    "availabilityZone": {
+      "type": "string",
+      "metadata": {
+        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
+      }
+    },
+    "version": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "haEnabled": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
+      }
+    },
+    "standbyAvailabilityZone": {
+      "type": "string",
+      "metadata": {
+        "description": "Availability zone of the standby server."
+      }
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "azure_mysql_vnet",
+      "metadata": { "description": "Virtual Network Name" }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "azure_mysql_subnet",
+      "metadata": { "description": "Subnet Name" }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": { "description": "Virtual Network Address Prefix" }
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/24",
+      "metadata": { "description": "Subnet Address Prefix" }
+    },
+    "backupRetentionDays": {
+      "type": "int"
+    },
+    "geoRedundantBackup": {
+      "type": "string"
+    },
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "api": "2021-05-01"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2021-05-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2021-05-01",
+      "name": "[concat(parameters('vnetName'),'/',parameters('subnetName'))]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[parameters('subnetPrefix')]",
+        "delegations": [
+          {
+            "name": "MySQLflexibleServers",
+            "properties": {
+              "serviceName": "Microsoft.DBforMySQL/flexibleServers"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.DBforMySQL/flexibleServers",
+      "apiVersion": "[variables('api')]",
+      "location": "[parameters('location')]",
+      "name": "[parameters('serverName')]",
+      "dependsOn": [
+        "[resourceID('Microsoft.Network/virtualNetworks/subnets/', parameters('vnetName'), parameters('subnetName'))]"
+      ],
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "tier": "[parameters('serverEdition')]"
+      },
+      "properties": {
+        "version": "[parameters('version')]",
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "availabilityZone": "[parameters('availabilityZone')]",
+        "highAvailability": {
+          "mode": "[parameters('haEnabled')]",
+          "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
+        },
+        "Storage": {
+          "storageSizeGB": "[parameters('storageSizeGB')]",
+          "iops": "[parameters('storageIops')]",
+          "autogrow": "[parameters('storageAutogrow')]"
+        },
+        "network": {
+          "delegatedSubnetResourceId": "[resourceID('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+        },
+        "Backup": {
+          "backupRetentionDays": "[parameters('backupRetentionDays')]",
+          "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+        }
+      },
+      "tags": "[parameters('tags')]"
+    },
+    {
+      "type": "Microsoft.DBforMySQL/flexibleServers/databases",
+      "apiVersion": "[variables('api')]",
+      "name": "[concat(parameters('serverName'),'/',parameters('databaseName'))]",
+      "dependsOn": [
+        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "charset": "utf8",
+        "collation": "utf8_general_ci"
+      }
+    }
+
+  ]
+}
+```
 
 ## Deploy the template
 
@@ -232,6 +463,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
+
 ---
 
 ## Next steps
@@ -244,4 +476,4 @@ For a step-by-step tutorial that guides you through the process of creating an A
 For a step-by-step tutorial to build an app with App Service using MySQL, see:
 
 > [!div class="nextstepaction"]
->[Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
+> [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)

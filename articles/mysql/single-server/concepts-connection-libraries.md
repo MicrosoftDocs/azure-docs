@@ -1,17 +1,19 @@
 ---
 title: Connection libraries - Azure Database for MySQL
 description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 8/3/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Connection libraries for Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
 
