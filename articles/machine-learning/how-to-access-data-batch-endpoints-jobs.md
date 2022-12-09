@@ -1,5 +1,5 @@
 ---
-title: "Accessing data from batch endpoints jobs"
+title: "Input data for batch endpoints jobs"
 titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Accessing data from batch endpoints jobs
+# Input data for batch endpoints jobs
 
 Batch endpoints can be used to perform batch scoring on large amounts of data. Such data can be placed in different places. In this tutorial we'll cover the different places where batch endpoints can read data from and how to reference it.
 
@@ -51,7 +51,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
 1. Let's get access to the default data store in the Azure Machine Learning workspace. If your data is in a different store, you can use that store instead. There's no requirement of using the default data store. 
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     DATASTORE_ID=$(az ml datastore show -n workspaceblobstore | jq -r '.id')
@@ -60,7 +60,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > [!NOTE]
     > Data stores ID would look like `azureml:/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
 
     ```python
     default_ds = ml_client.datastores.get_default()
@@ -79,7 +79,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
 1. Create a data input:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
     
     Let's place the file path in the following variable:
 
@@ -88,7 +88,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     INPUT_PATH="$DATASTORE_ID/paths/$DATA_PATH"
     ```
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
 
     ```python
     data_path = "heart-classifier/data"
@@ -97,38 +97,9 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     # [REST](#tab/rest)
 
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subscription ID, resource group, workspace, and name of the data store. You will need them later.
-   
-    ---
-    
-    > [!NOTE]
-    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
+    __Body__
 
-    > [!TIP]
-    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
-
-1. Run the deployment:
-
-    # [Azure ML CLI](#tab/cli)
-   
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH)
-    ```
-   
-    # [Azure ML SDK for Python](#tab/sdk)
-   
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-       endpoint_name=endpoint.name,
-       input=input,
-    )
-    ```
-
-    # [REST](#tab/rest)
-
-    __POST__ 
-
-    ```http
+    ```json
     {
         "properties": {
             "InputData": {
@@ -140,6 +111,41 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         }
     }
     ```
+    ---
+    
+    > [!NOTE]
+    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
+
+    > [!TIP]
+    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
+
+1. Run the deployment:
+
+    # [Azure CLI](#tab/cli)
+   
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH)
+    ```
+   
+    # [Python](#tab/sdk)
+   
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+       endpoint_name=endpoint.name,
+       input=input,
+    )
+    ```
+
+    # [REST](#tab/rest)
+
+    __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
 
 ## Reading data from a data asset
 
@@ -150,7 +156,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset.
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
    
     Create a data asset definition in `YAML`:
    
@@ -169,7 +175,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     az ml data create -f heart-dataset-unlabeled.yml
     ```
    
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
    
     ```python
     data_path = "heart-classifier-mlflow/data"
@@ -181,7 +187,18 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
         description="An unlabeled dataset for heart classification",
         name=dataset_name,
     )
+    ```
+    
+    Then, create the data asset:
+    
+    ```python
     ml_client.data.create_or_update(heart_dataset_unlabeled)
+    ```
+    
+    To get the newly created data asset, use:
+    
+    ```python
+    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
     ```
 
     # [REST](#tab/rest)
@@ -191,13 +208,13 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
 1. Create a data input:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
     
     ```azurecli
     DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest --query id)
     ```
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
 
     ```python
     input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
@@ -205,8 +222,20 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [REST](#tab/rest)
 
-    This step isn't required.
+    __Body__
 
+    ```json
+    {
+        "properties": {
+            "InputData": {
+                "mnistinput": {
+                    "JobInputType" : "UriFolder",
+                    "Uri": "azureml://locations/<location>/workspaces/<workspace>/data/<dataset_name>/versions/labels/latest"
+                }
+            }
+        }
+    }
+    ```
     ---
 
     > [!NOTE]
@@ -215,7 +244,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
 1. Run the deployment:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
    
     ```bash
     INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID)
@@ -224,7 +253,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     > [!TIP]
     > You can also use `--input azureml:/<dataasset_name>@latest` as a way to indicate the input.
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
    
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -235,20 +264,14 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
    # [REST](#tab/rest)
 
-   __POST__
-
-   ```json
-   {
-       "properties": {
-           "InputData": {
-               "mnistinput": {
-                   "JobInputType" : "UriFolder",
-                   "Uri": "azureml://locations/<location>/workspaces/<workspace>/data/<dataset_name>/versions/labels/latest"
-               }
-           }
-       }
-   }
-   ```
+   __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
 
 ## Reading data from Azure Storage Accounts
 
@@ -259,53 +282,39 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
 1. Create a data input:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
-    This step isn't required.
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    ```
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    If your data is a file:
+
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
+    ```
+
+    # [Python](#tab/sdk)
 
     ```python
-    input = Input(type=AssetTypes.URI_FOLDER, path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    input = Input(
+        type=AssetTypes.URI_FOLDER, 
+        path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    )
     ```
 
     If your data is a file, change `type=AssetTypes.URI_FILE`:
 
     ```python
-    input = Input(type=AssetTypes.URI_FILE, path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv")
+    input = Input(
+        type=AssetTypes.URI_FILE,
+        path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
+    )
     ```
 
     # [REST](#tab/rest)
 
-    This step isn't required.
-
-
-1. Run the deployment:
-
-    # [Azure ML CLI](#tab/cli)
-   
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data)
-    ```
-
-    If your data is a file, change `--input-type uri_file`:
-
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv)
-    ```
-
-    # [Azure ML SDK for Python](#tab/sdk)
-   
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-       endpoint_name=endpoint.name,
-       input=input,
-    )
-    ```
-
-   # [REST](#tab/rest)
-
-   __POST__
+    __Body__
 
    ```json
    {
@@ -322,7 +331,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
    If your data is a file, change `JobInputType`:
 
-   __POST__
+   __Body__
 
    ```json
    {
@@ -336,7 +345,43 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
        }
    }
    ```
-   ---
+
+1. Run the deployment:
+
+    # [Azure CLI](#tab/cli)
+    
+    If your data is a folder, use `--input-type uri_folder`:
+    
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input $INPUT_DATA)
+    ```
+
+    If your data is a file, use `--input-type uri_file`:
+
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input $INPUT_DATA)
+    ```
+
+    # [Python](#tab/sdk)
+   
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+       endpoint_name=endpoint.name,
+       input=input,
+    )
+    ```
+
+    # [REST](#tab/rest)
+
+    __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+    
 
 ## Security considerations when reading data
 

@@ -5,20 +5,22 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 11/01/2022
+ ms.date: 12/07/2022
  ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-## Assign share-level permissions to an Azure AD identity
+## Assign share-level permissions
 
 To access Azure Files resources with identity-based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. **We highly recommend assigning permissions by declaring actions and data actions explicitly as opposed to using the wildcard (\*) character.**
 
-We have introduced three Azure built-in roles for granting share-level permissions to users:
+Most users should assign share-level permissions to specific Azure AD users or groups, and then [configure Windows ACLs](#configure-windows-acls) for granular access control at the directory and file level. However, alternatively you can set a [default share-level permission](../articles/storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow contributor, elevated contributor, or reader access to **all authenticated identities**.
+
+We have introduced three Azure built-in roles for granting share-level permissions to users and groups:
 
 - **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB.
 - **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB.
-- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete and modify Windows access control lists (ACLs) in Azure file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control isn't supported with Azure AD credentials.
@@ -139,3 +141,9 @@ if ($connectTestResult.TcpTestSucceeded) {
     Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
 ```
+
+## Mount the file share from a non-domain-joined VM
+
+Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (an Azure AD identity synced from Azure AD to Azure AD DS) in the Azure AD DS managed domain.
+
+When mounting the file share, the user must provide explicit credentials such as **DOMAINNAME\username** where DOMAINNAME is the Azure AD DS domain and username is the identity’s user name in Azure AD DS. This will help route Kerberos ticket requests from the client to the correct domain controller in the Azure AD DS domain.

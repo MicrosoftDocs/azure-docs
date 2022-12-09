@@ -121,10 +121,18 @@ items:
     - name: Batch synthesis API
       href: batch-synthesis.md
     - name: Improve synthesis with SSML
-      href: speech-synthesis-markup.md
-    - name: SSML phonetic sets
-      href: speech-ssml-phonetic-sets.md
-      displayName: ipa, phoneme, phonetic, prosody
+      items:
+      - name: SSML overview
+        href: speech-synthesis-markup.md
+      - name: SSML document structure and events
+        href: speech-synthesis-markup-structure.md
+      - name: Voice and sound with SSML
+        href: speech-synthesis-markup-voice.md
+      - name: Pronunciation with SSML
+        href: speech-synthesis-markup-pronunciation.md
+      - name: SSML phonetic sets
+        href: speech-ssml-phonetic-sets.md
+        displayName: ipa, phoneme, phonetic, prosody
     - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
     - name: Get facial position with viseme
@@ -223,8 +231,10 @@ items:
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
+              displayName: pronounce, learn language, assess pron
             - name: How to use Pronunciation Assessment
               href: how-to-pronunciation-assessment.md
+              displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -424,7 +434,7 @@ items:
   items:
     - name: Release notes
       href: releasenotes.md
-      displayName: reference 
+      displayName: reference, new, change, update
     - name: SDK reference
       items:
         - name: C++

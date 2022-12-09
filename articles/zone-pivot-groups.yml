@@ -1516,13 +1516,13 @@ groups:
     title: Workbooks
 # Owner: patricka
 - id: iotedge-dev
-  title: IoT Edge development tool
-  prompt: Choose an Azure IoT Edge development tool
+  title: IoT Edge development option
+  prompt: Choose an Azure IoT Edge development option
   pivots:
   - id: iotedge-dev-cli
-    title: Command line interface
-  - id: iotedge-dev-vscode
-    title: Azure IoT Edge VS Code extension
+    title: IoT Edge Dev Tool CLI
+  - id: iotedge-dev-ext
+    title: IoT Edge VS extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
@@ -1844,6 +1844,15 @@ groups:
     title: Azure CLI
   - id: admin-consent-url
     title: Admin consent URL
+## Create service principal with appId
+- id: enterprise-apps-ms-graph-ms-powershell
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph  
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
