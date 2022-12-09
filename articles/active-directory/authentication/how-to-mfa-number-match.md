@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 12/08/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -47,15 +47,15 @@ When a user responds to an MFA push notification using the Authenticator app, th
 
 ### SSPR
 
-During self-service password reset, the Authenticator app notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
+Self-service password reset (SSPR) with Microsoft Authenticator will require number matching when using Microsoft Authenticator. During self-service password reset, the sign-in page will show a number that the user will need to type into the Microsoft Authenticator notification. This number will only be seen by users who are enabled for number matching.
 
 ### Combined registration
 
-When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+Combined registration with Microsoft Authenticator will require number matching. When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
 
 ### AD FS adapter
 
-The AD FS adapter supports number matching after installing an update. Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
+AD FS adapter will require number matching on supported versions of Windows Server. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. The AD FS adapter supports number matching only after installing one of the updates in the following table. Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
 
 | Version | Update |
 |---------|--------|
@@ -79,6 +79,10 @@ To create the registry key that overrides push notifications:
    Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP
    Value = TRUE
 1. Restart the NPS Service. 
+
+### Apple Watch unsupported for number matching
+
+Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone.
 
 ## Enable number matching in the portal
 
