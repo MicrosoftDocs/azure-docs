@@ -33,7 +33,7 @@ When building ASP.NET Core web apps or web APIs that use Azure Active Directory 
 
 ## Install from NuGet
 
-Microsoft Identity Web is available on NuGet as a set of packages that provide modular functionality based on application requirements. Use the .NET CLI's `dotnet add` command or Visual Studio's **NuGet Package Manager** to install the packages appropriate for the project:
+Microsoft Identity Web is available on NuGet as a set of packages that provide modular functionality based on application requirements. Use the .NET CLI's `dotnet add` command or Visual Studio's **NuGet Package Manager** to install the appropriate packages:
 
 - [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) - The main package. Required by all apps that use Microsoft Identity Web.
 - [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) - Optional. Adds UI for user sign-in and sign-out and an associated controller for web apps.
