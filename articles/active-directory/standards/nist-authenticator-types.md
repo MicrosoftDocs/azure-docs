@@ -31,7 +31,6 @@ The authentication process begins when a claimant asserts its control of one of 
 |Multi-factor crypto software <br> (something you have, know, or are) | Microsoft Authenticator app for iOS (passwordless) <br> Windows Hello for Business with software TPM |
 |Multi-factor crypto hardware <br> (something you have, you know, or are) |Microsoft Authenticator app for Android (passwordless) <br> Windows Hello for Business with hardware TPM <br> Smartcard (Federated identity provider) <br> FIDO 2 security key|
 
-
 <sup data-htmlnode="">1</sup> 30-second or 60-second OATH-TOTP SHA-1 token
 
 <sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity](../devices/index.yml)
