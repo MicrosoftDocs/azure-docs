@@ -38,7 +38,7 @@ Before each pipeline run, you can assign a new value to your parameter in the ri
 
 ## Pipeline variables
 
-Pipeline variables are values that can be set and modified during a pipeline run. Unlike pipeline parameters, which are defined at the pipeline level and cannot be changed during a pipeline run, pipeline variables can be set and modified within a pipeline using a [Set Variable](https://learn.microsoft.com/en-us/azure/data-factory/control-flow-set-variable-activity) activity.
+Pipeline variables are values that can be set and modified during a pipeline run. Unlike pipeline parameters, which are defined at the pipeline level and cannot be changed during a pipeline run, pipeline variables can be set and modified within a pipeline using a [Set Variable](control-flow-set-variable-activity.md) activity.
 
 Pipeline variables can be used to store and manipulate data during a pipeline run, such as by storing the results of a computation or the current state of a process. 
 
