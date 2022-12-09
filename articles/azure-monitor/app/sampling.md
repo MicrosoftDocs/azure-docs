@@ -248,6 +248,7 @@ builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceO
 });
 
 var app = builder.Build();
+```
 
 ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
 
