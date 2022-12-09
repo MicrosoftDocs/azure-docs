@@ -508,7 +508,7 @@ Use the following commands to create these item.
     # [JavaScript](#tab/javascript)
 
     ```azurecli
-    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME> --resource-group
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
     > [!NOTE]
     > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
@@ -559,5 +559,4 @@ In this quickstart, you learned how to run a serverless chat application. Now, y
 > [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Explore more Azure Web PubSub samples](
-//github.com/Azure/azure-webpubsub/tree/main/samples)
+> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
