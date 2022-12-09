@@ -37,16 +37,21 @@ Azure Communications Gateway enables Microsoft Teams calling through the Operato
 > [!IMPORTANT]
 > You must sign an Operator Connect or Teams Phone Mobile agreement with Microsoft to use this service.
 
-@@network level architecture diagram (needs to include functional components)
+:::image type="content" source="media/azure-communications-gateway-overview.png" alt-text="Azure Communications Gateway connects to the Microsoft Phone System and to your fixed and mobile networks. Microsoft Teams clients connect to the Microsoft Phone system. Your networks connect to P S T N endpoints and to Teams Phone Mobile users.":::
 
 Azure Communications Gateway provides advanced SIP, RTP and HTTP interoperability functions (including Teams Certified SBC function) so that you can integrate with Operator Connect and Teams Phone Mobile quickly, reliably and in a secure manner. As part of Microsoft Azure, the network elements in Azure Communications Gateway are fully managed and include an availability SLA. This full management simplifies network operations integration and accelerates the timeline for adding new network functions into production.
 
 ## Architecture 
-@@@ insert architecture diagram describing geo-redundancy here
 
-Azure Communications Gateway acts as the edge of your network, ensuring compliance with the requirements of the Operator Connect and Teams Phone Mobile programs. To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
+Azure Communications Gateway acts as the edge of your network, ensuring compliance with the requirements of the Operator Connect and Teams Phone Mobile programs.
 
-Connectivity between your network and Azure Communications Gateway must meet the Teams Network Connectivity Specification. Azure Communications Gateway supports Microsoft Azure Peering Service (MAPS) for connectivity to on-premises environments, in line with this specification.
+:::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Azure Communications Gateway deployment diagram showing Azure resources in two regions connecting to the Microsoft Phone System and operator networks. The details are described after the diagram.":::
+
+To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
+
+Connectivity between your network and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_. Azure Communications Gateway supports Microsoft Azure Peering Service (MAPS) for connectivity to on-premises environments, in line with this specification.
+
+The sites in your network must have cross-connects between them. You must also set up your routing so that each site in your deployment can route to both Azure Regions.
 
 Traffic from all enterprises shares a single SIP trunk, using a multi-tenant format. This multi-tenant format ensures the solution is suitable for both the SMB and Enterprise markets.
 
@@ -70,8 +75,6 @@ Azure Communications Gateway includes optional API integration features. These f
 * Adapt your existing systems to meet the requirements of the Operator Connect and Teams Phone Mobile programs with minimal disruption.
 * Provide a consistent look and feel across your Operator Connect and Teams Phone Mobile offerings and the rest of your portfolio.
 * Speed up your rollout and monetization of Teams Calling support.
-
-@@@API integration diagram here. 
 
 ### CallDuration upload 
 
