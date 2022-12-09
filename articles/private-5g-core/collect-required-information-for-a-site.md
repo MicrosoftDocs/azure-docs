@@ -70,11 +70,11 @@ For each data network that you want to configure, collect all the values in the 
 
 ## Collect local monitoring values
 
-You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a well-known certificate authority (CA) as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
+You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a globally known and trusted certificate authority (CA), as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
 
 If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
-If you want to provide a custom HTTPS certificate at site creation, follow the steps below. You'll need a certificate signed by a CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
+If you want to provide a custom HTTPS certificate at site creation, follow the steps below. You'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
 
    1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate. Ensure the Azure Key Vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. [Add the certificate to your Key Vault](/azure/key-vault/certificates/quick-create-portal). If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) for information on enabling auto-rotation.

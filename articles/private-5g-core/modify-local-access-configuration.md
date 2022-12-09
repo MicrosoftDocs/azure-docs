@@ -12,13 +12,13 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). You can use a self-signed certificate or provide your own to authenticate access to your local diagnostics tools. We recommend providing a certificate signed by a well-known certificate authority (CA) for additional security in your deployment.
+Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by HTTPS. You can use a self-signed certificate or provide your own to authenticate access to your local diagnostics tools. We recommend providing a certificate signed by a globally known and trusted certificate authority (CA) for additional security in your deployment.
 
 In this how-to guide, you'll learn how to use the Azure portal to change the certificate used for securing access to a site's local monitoring tools.
 
 ## Prerequisites
 
-- If you want to use a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
+- If you want to add or update a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
 - Refer to [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 

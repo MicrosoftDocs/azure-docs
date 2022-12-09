@@ -25,7 +25,7 @@ To sign in to the packet core dashboards:
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
 
     > [!TIP]
-    > If you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a trusted certificate authority.
+    > If you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
 1. Sign in using your credentials. 
 
