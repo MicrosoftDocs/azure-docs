@@ -4,7 +4,7 @@ description: Enable set of recommended metric alert rules for an Azure virtual m
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 11/04/2021
+ms.date: 12/03/2022
 ms.reviewer: Xema Pathak
 ---
 

@@ -35,13 +35,13 @@ Select **Insights** from your virtual machine's menu in the Azure portal. If VM 
 
 In order to reduce cost for data collection, VM insights creates a default [data collection rule](../essentials/data-collection-rule-overview.md) that doesn't include collection of processes and dependencies. To enable this collection, click **Create new** to create a new data collection rule.
 
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Enable VM insights with workspace":::
+:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Screenshot for enabling VM insights with workspace":::
 
 Provide a **Data collection rule name** and then select **Enable processes and dependencies (Map)**. You can't disable collection of guest performance since this is required for VM insights.
 
 Keep the default Log Analytics workspace for the subscription unless you have another workspace that you want to use. Click **Create** to create the new data collection rule. and then **Configure** to start VM insights configuration.
 
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" alt-text="Enable VM insights with workspace":::
+:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" alt-text="Screenshot for configuring new data collection rule":::
 
 
 You'll see a message saying that monitoring is being enabled. It may take several minutes for the agent to be installed and for data collection to begin. 
@@ -65,7 +65,7 @@ The **Maps** view provides different tabs with information collected about the v
 :::image type="content" source="media/tutorial-monitor-vm/map-details.png" lightbox="media/tutorial-monitor-vm/map-details.png" alt-text="VM insights map view with machine details":::
 
 ## Next steps
-VM insights collects performance data from the VM guest operating system, but it doesn't collect log data such as Windows event log or syslog. Now that you have the machine monitored with the Azure Monitor agent, You can create an additional data collection rule to perform this collection.
+VM insights collects performance data from the VM guest operating system, but it doesn't collect log data such as Windows event log or syslog. Now that you have the machine monitored with the Azure Monitor agent, you can create an additional data collection rule to perform this collection.
 
 > [!div class="nextstepaction"]
 > [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)

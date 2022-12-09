@@ -4,7 +4,7 @@ description: Create data collection rule to collect guest logs and metrics from 
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 11/08/2021
+ms.date: 12/03/2022
 ms.reviewer: Xema Pathak
 ---
 
@@ -110,7 +110,7 @@ You can get a complete tutorial on viewing and analyzing metric data using metri
 
 
 ## Next steps
-[Recommneded alerts](tutorial-monitor-vm-alert-recommended.md) and the [VM Availability metric](tutorial-monitor-vm-alert-availability.md) alert from the virtual machine host but don't have any visibility into the guest operating system and its workloads. Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as logical disk space.
+[Recommended alerts](tutorial-monitor-vm-alert-recommended.md) and the [VM Availability metric](tutorial-monitor-vm-alert-availability.md) alert from the virtual machine host but don't have any visibility into the guest operating system and its workloads. Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as logical disk space.
 
 > [!div class="nextstepaction"]
 > [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alert.md)

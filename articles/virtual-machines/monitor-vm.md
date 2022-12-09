@@ -4,7 +4,7 @@ description: This article discusses how to monitor Azure virtual machines.
 ms.service: virtual-machines
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 12/02/2022
+ms.date: 12/03/2022
 ---
 
 # Monitor Azure virtual machines
@@ -61,7 +61,7 @@ If you enable [VM insights](#vm-insights), the Azure Monitor agent is installed 
 
 
 ## Analyze metrics
-Metrics are numerical values that describe some aspect of a system at a particular point in time. Although platform metrics for the virtual machine host are collected automatically, you must install the Azure Monitor agent and [create a data collection rule](#collect-guest-metrics-and-logs) to collect guest metrics.
+Metrics are numerical values that describe some aspect of a system at a particular point in time. Although platform metrics for the virtual machine host are collected automatically, you must install the Azure Monitor agent and [create a data collection rule](#create-data-collection-rule) to collect guest metrics.
 
 The **Overview** pane includes the most common host metrics, and you can access others by using the **Metrics** pane. With this tool, you can create charts from metric values and visually correlate trends. You can also create a metric alert rule or pin a chart to an Azure dashboard. For a tutorial on using this tool, see [Analyze metrics for an Azure resource](../azure-monitor/essentials/tutorial-metrics.md).
 
