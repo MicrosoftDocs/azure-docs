@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/25/2021
+ms.date: 12/09/2022
 ms.author: phsignor
 zone_pivot_groups: enterprise-apps-ms-graph-ms-powershell
 
@@ -111,27 +111,19 @@ if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
 }
 ```
 
-## Next steps
-
-- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-- [Configure how users consent to applications](configure-user-consent.md)
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
-
 :::zone-end
 
 :::zone pivot="ms-graph"
-1. To grant consent to an application on behalf of one user, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+
+To grant consent to an application on behalf of one user, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
     You'll need to consent to the following permissions: 
 
     `Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`.
 
-## Grant admin consent for delegated permissions
-
 In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of a single user.
 
-In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `Principal`, indicating that you're consenting on behalf of a single user in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`. The principalId of the user is
- `3fbd929d-8c56-4462-851e-0eb9a7b3a2a5`
+In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `Principal`, indicating that you're consenting on behalf of a single user in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`. The principalId of the user is `3fbd929d-8c56-4462-851e-0eb9a7b3a2a5`.
 
 > [!CAUTION] 
 > Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
@@ -162,3 +154,9 @@ In the example, the resource enterprise application is Microsoft Graph of object
    GET https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'principal'
    ```
 :::zone-end
+
+## Next steps
+
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+- [Configure how users consent to applications](configure-user-consent.md)
+- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
