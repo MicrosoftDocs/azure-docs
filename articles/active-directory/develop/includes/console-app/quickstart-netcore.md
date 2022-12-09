@@ -75,7 +75,7 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 
 
 1. Open the solution in Visual Studio: *1-Call-MSGraph\daemon-console.sln* (optional).
-1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`:
+1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
 
    ```json
    "Tenant": "Enter_the_Tenant_Id_Here",
