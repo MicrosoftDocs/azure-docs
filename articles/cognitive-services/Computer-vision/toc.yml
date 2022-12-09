@@ -200,30 +200,32 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Detect and analyze faces
-      href: how-to/identity-detect-faces.md
-    - name: Find similar faces
-      href: how-to/find-similar-faces.md
-    - name: Specify a face detection model version
-      href: how-to/specify-detection-model.md
-    - name: Specify a face recognition model version
-      href: how-to/specify-recognition-model.md
-    - name: Add faces to a group
-      href: how-to/add-faces.md
-    - name: Use the large-scale feature
-      href: how-to/use-large-scale.md
-    - name: Use the PersonDirectory structure (preview)
-      href: how-to/use-persondirectory.md
-    - name: Use the HeadPose attribute
-      href: how-to/use-headpose.md
-    - name: Mitigate latency when using the Face service
-      href: how-to/mitigate-latency.md
-    - name: Analyze videos in real time
-      href: how-to/identity-analyze-video.md
-    - name: Migrate face data
-      href: how-to/migrate-face-data.md
-    - name: Use customer-managed keys
-      href: identity-encrypt-data-at-rest.md
+    - name: Face detection (open to all)
+      items:
+      - name: Detect and analyze faces
+        href: how-to/identity-detect-faces.md
+      - name: Specify a face detection model version
+        href: how-to/specify-detection-model.md
+      - name: Use the HeadPose attribute
+        href: how-to/use-headpose.md
+    - name: Face recognition (limited access)
+      items:
+      - name: Find similar faces
+        href: how-to/find-similar-faces.md
+      - name: Specify a face recognition model version
+        href: how-to/specify-recognition-model.md
+      - name: Add faces to a group
+        href: how-to/add-faces.md
+      - name: Use the large-scale feature
+        href: how-to/use-large-scale.md
+      - name: Use the PersonDirectory structure (preview)
+        href: how-to/use-persondirectory.md
+      - name: Mitigate latency when using the Face service
+        href: how-to/mitigate-latency.md
+      - name: Migrate face data
+        href: how-to/migrate-face-data.md
+      - name: Use customer-managed keys
+        href: identity-encrypt-data-at-rest.md
   - name: Concepts
     items:
     - name: Face detection and analysis
