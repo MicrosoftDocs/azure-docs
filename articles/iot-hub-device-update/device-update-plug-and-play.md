@@ -1,7 +1,7 @@
 ---
 title: Understand how Device Update for IoT Hub uses IoT Plug and Play | Microsoft Docs
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
-author: EshaShah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 1/26/2022
 ms.topic: conceptual

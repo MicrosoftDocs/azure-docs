@@ -82,7 +82,7 @@ The $edgeAgent properties follow this structure:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": {
           "settings":{
             "registryCredentials":{
@@ -115,7 +115,7 @@ The $edgeAgent properties follow this structure:
 }
 ```
 
-The IoT Edge agent schema version 1.1 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge agent schema version 1.4 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 ### Module configuration and management
 
@@ -130,7 +130,7 @@ For example:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": { ... },
         "systemModules": {
           "edgeAgent": { ... },
@@ -195,7 +195,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
     "$edgeAgent": { ... },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "routes": {
           "route1": "FROM <source> WHERE <condition> INTO <sink>",
           "route2": {
@@ -215,7 +215,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-The IoT Edge hub schema version 1.1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge hub schema version 1.4 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 Every route needs a *source* where the messages come from and a *sink* where the messages go. The *condition* is an optional piece that you can use to filter messages.
 
@@ -284,7 +284,7 @@ Option 1:
    "route1": "FROM <source> WHERE <condition> INTO <sink>",
    ```
 
-Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.1:
+Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.4:
 
    ```json
    "route2": {
@@ -317,7 +317,7 @@ The following example shows what a valid deployment manifest document may look l
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": {
           "type": "docker",
           "settings": {
@@ -336,7 +336,7 @@ The following example shows what a valid deployment manifest document may look l
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
               "createOptions": "{}"
             }
           },
@@ -346,7 +346,7 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
@@ -382,7 +382,7 @@ The following example shows what a valid deployment manifest document may look l
     },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "routes": {
           "sensorToFilter": {
             "route": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
