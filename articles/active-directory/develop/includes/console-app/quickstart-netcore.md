@@ -63,7 +63,7 @@ To register the application and add the registration information to the solution
 
 [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-The project provided can be run in either Visual Studio or Visual Studio for Mac.
+This project can be run in either Visual Studio or Visual Studio for Mac and can be downloaded from the [code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip). 
 
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
