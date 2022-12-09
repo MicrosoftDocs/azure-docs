@@ -4,106 +4,98 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Ping Identity
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 12/9/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access
 
-In this sample tutorial, learn how to extend Azure Active Directory (AD) B2C with  [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) to enable secure hybrid access.
+In this tutorial, learn how to extend the capabilities of Azure AD business-to-consumer (B2C) with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
-Many existing web properties such as eCommerce sites and web applications that are exposed to the internet are deployed behind a proxy system, sometimes referred as a reverse proxy system. These proxy systems provide various functions including pre-authentication, policy enforcement, and traffic routing. Example use cases include protecting the web application from inbound web traffic and providing a uniform session management across distributed server deployments.
+Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
-In most cases, this configuration includes an authentication translation layer that externalizes the authentication from the web application. Reverse proxies in turn provide the authenticated users’ context to the web applications, in a simpler form such as a header value in clear or digest form. In such a configuration, the applications aren't using any industry standard tokens such as Security Assertion Markup Language (SAML), OAuth or Open ID Connect (OIDC), rather depend on the proxy to provide the authentication context and maintain the session with the end-user agent such as browser or the native application. As a service running in a "man-in-the-middle", proxies can provide the ultimate session control. This also means the proxy service should be highly efficient and scalable, not to become a bottleneck or a single point of failure for the applications behind the proxy service. The diagram is a depiction of a typical reverse proxy implementation and flow of the communications.
+Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide the significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
-![image shows the reverse proxy implementation](./media/partner-ping/reverse-proxy.png)
+  ![Reverse proxy implementation](./media/partner-ping/reverse-proxy.png)
 
-If you are in a situation where you want to modernize the identity platform in such configurations, following concerns are raised.
+## Modernization
 
-- How can the effort for application modernization be decoupled from the identity platform modernization?
+If you want to modernize an identity platform in such configurations, there are customer concerns:
 
-- How can a coexistence environment be established with modern and legacy authentication, consuming from the modernized identity service provider?
+- Decouple the effort to modernize applications from modernizing an identity platform
+- Environments with modern and legacy authentication, consuming from the modernized identity service provider
+  - Drive the end-user experience consistency
+  - Provide a single sign-in experience across applications
 
-  a. How to drive the end-user experience consistency?
+The approach in this tutorial is Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
 
-  b. How to provide a single sign-in experience across the coexisting applications?
+## Shared environment
 
-We discuss an approach to solve such concerns by integrating Azure AD B2C with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) technologies.
+A technically viable, and cost-effective, solution is to configure the reverse proxy system to use the modernized identity system, delegating authentication.  
+Proxies support the modern authentication protocols and use the redirect based (passive) authentication that sends users to the new identity provider (IdP).
 
-## Coexistence environment
+### Azure AD B2C as an identity provider
 
-A technically viable simple solution that is also cost effective is to configure the reverse proxy system to use the modernized identity system, delegating the authentication.  
-Proxies in this case will support the modern authentication protocols and use the redirect based (passive) authentication that will send user to the new Identity provider (IdP).
+In Azure AD B2C, you define policies that drive user experiences and behaviors, also called user journeys. Each such policy exposes a protocol endpoint that can perform the authentication as an IdP. On the application side, there is no special handling required for certain policies. An application makes a standard authentication request to the protocol-specific authentication endpoint exposed by a policy.  
+You can configure Azure AD B2C to share the same issuer across policies or unique issuer for each policy. Each application can point to policies by making a protocol-native authentication request, which drives user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows.
 
-### Azure AD B2C as an Identity provider
+  ![O I D C and S A M L implementation](./media/partner-ping/azure-ad-identity-provider.png)
 
-Azure AD B2C has the ability to define **policies** that drives different user experiences and behaviors that are also called **user journeys** as orchestrated from the server end. Each such policy exposes a protocol endpoint that can perform the authentication as if it were an IdP. There is no special handling needed on the application side for specific policies. Application simply makes an industry standard authentication request to the protocol-specific authentication endpoint exposed by the policy of interest.  
-Azure AD B2C can be configured to share the same issuer across multiple policies or unique issuer for each policy. Each application can point to one or many of these policies by making a protocol native authentication request and drive desired user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows.
+The scenario can be challenging for the legacy applications to redirect the user accurately. The access request to the applications might not include the user experience context. In most cases, the proxy layer, or an integrated agent on the web application, intercepts the access request.
 
-![image shows the OIDC and SAML implementation](./media/partner-ping/azure-ad-identity-provider.png)
+### PingAccess reverse proxy
 
-While the scenario mentioned works well for modernized applications, it can be challenging for the legacy applications to appropriately redirect the user as the access request to the applications may not include the context for user experience. In most cases the proxy layer or an integrated agent on the web application intercepts the access request.
+You can deploy PingAccess as the reverse proxy. PingAccess intercepts a direct request by being the man-in-the-middle, or as a redirect from an agent running on the web application server.
 
-### PingAccess as a reverse proxy
+Configure PingAccess with OIDC, OAuth2, or SAML for authentication with an upstream authentication provider. You can configure an upstream IdP for this purpose on the PingAccess server. See the following diagram.
 
-Many customers have deployed PingAccess as the reverse proxy to play one or many roles as noted earlier in this article. PingAccess can intercept a direct request by way of being the man-in-the-middle or as a redirect that comes from an agent running on the web application server.
+  ![PingAccess with O I D C implementation](./media/partner-ping/authorization-flow.png)
 
-PingAccess can be configured with OIDC, OAuth2, or SAML to perform authentication against an upstream authentication provider. A single upstream IdP can be configured for this purpose on the PingAccess server. The following diagram shows this configuration.
+In a typical Azure AD B2C deployment with policies exposing IdPs, there is a challenge. Because, PingAccess can be configured with one upstream IdP.  
 
-![image shows the PingAccess with OIDC implementation](./media/partner-ping/authorization-flow.png)
+### PingFederate federation proxy
 
-In a typical Azure AD B2C deployment where multiple policies are exposing multiple **IdPs**, it poses a challenge. Since PingAccess can only be configured with a single upstream IdP.  
+You can configure PingFederate as an authentication provider, or a proxy. for upstream IdPs. See the following diagram.
 
-### PingFederate as a federation proxy
+  ![PingFederate implementation](./media/partner-ping/pingfederate.png)
 
-PingFederate is an enterprise identity bridge that can be fully configured as an authentication provider or a proxy for other multiple upstream IdPs if needed. The following diagram shows this capability.
+Use this function to contextually, dynamically, or declaratively switch an inbound request to an Azure AD B2C policy. See the following diagram of protocol sequence flow.
 
-![image shows the PingFederate implementation](./media/partner-ping/pingfederate.png)
-
-This capability can be used to contextually/dynamically or declaratively switch an inbound request to a specific Azure AD B2C policy. The following is a depiction of protocol sequence flow for this configuration.
-
-![image shows the PingAccess and PingFederate workflow](./media/partner-ping/pingaccess-pingfederate-workflow.png)
+  ![image shows the PingAccess and PingFederate workflow](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
 ## Prerequisites
 
 To get started, you'll need:
 
-- An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription
+  - If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
+- PingAccess and PingFederate deployed in Docker containers or on Azure virtual machines (VMs)
 
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
+## Connectivity and communication
 
-- PingAccess and PingFederate deployed in Docker containers or directly on Azure VMs.
+Confirm the following connectivity and communication.
 
-## Connectivity
-
-Check that the following is connected.
-
-- **PingAccess server** – Able to communicate with the PingFederate server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service and PingFederate server.
-
-- **PingFederate server** – Able to communicate with the PingAccess server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service.
-
-- **Legacy or header-based AuthN application** – Able to communicate to and from PingAccess server.
-
-- **SAML relying party application** – Able to reach the browser traffic from the client. Able to access the SAML federation metadata published by the Azure AD B2C service.
-
-- **Modern application** – Able to reach the browser traffic from the client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
-
-- **REST API** – Able to reach the traffic from a native or web client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
+- **PingAccess server** – Communicates with the PingFederate server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service and PingFederate server
+- **PingFederate server** – Communicates with the PingAccess server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service
+- **Legacy or header-based AuthN application** – Communicates to and from PingAccess server
+- **SAML relying party application** – Reaches the browser traffic from the client. Accesses the SAML federation metadata published by the Azure AD B2C service.
+- **Modern application** – Reaches the browser traffic from the client. Accesses the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
+- **REST API** – Reaches the traffic from a native or web client. Accesses the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service
 
 ## Configure Azure AD B2C
 
-You can use the basic user flows or advanced Identity enterprise framework (IEF) policies for this purpose. PingAccess generates the metadata endpoint based on the **Issuer** value using the [WebFinger](https://tools.ietf.org/html/rfc7033) based discovery convention.
-To follow this convention, update the Azure AD B2C issuer update using the policy properties in user flows.
+You can use basic user flows or advanced Identity Enterprise Framework (IEF) policies. PingAccess generates the metadata endpoint, based on the issuer value, by using the [WebFinger](https://tools.ietf.org/html/rfc7033) protocol for discovery convention. To follow this convention, update the Azure AD B2C issuer using user-flow policy properties.
 
-![image shows the token settings](./media/partner-ping/token-setting.png)
+  ![image shows the token settings](./media/partner-ping/token-setting.png)
 
-In the advanced policies, this can be configured using the **IssuanceClaimPattern** metadata element to **AuthorityWithTfp** value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
+In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
 
 ## Configure PingAccess/PingFederate
 
