@@ -231,8 +231,10 @@ items:
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
+              displayName: pronounce, learn language, assess pron
             - name: How to use Pronunciation Assessment
               href: how-to-pronunciation-assessment.md
+              displayName: pronounce, learn language, assess pron
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -362,6 +364,7 @@ items:
           href: how-to-use-logging.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
+          displayName: help, faq, tsg, error
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
@@ -371,7 +374,7 @@ items:
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
-      displayName: rest
+      displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
     - name: Speech containers
@@ -432,7 +435,7 @@ items:
   items:
     - name: Release notes
       href: releasenotes.md
-      displayName: reference 
+      displayName: reference, new, change, update
     - name: SDK reference
       items:
         - name: C++

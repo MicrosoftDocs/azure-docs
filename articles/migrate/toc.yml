@@ -14,6 +14,8 @@
       href: common-questions-appliance.md
     - name: Server Assessment tool/dependency analysis
       href: common-questions-discovery-assessment.md
+    - name: Business case
+      href: common-questions-business-case.md
     - name: Server Migration tool
       href: common-questions-server-migration.md
 - name: Quickstarts
@@ -122,6 +124,10 @@
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
+  - name: Plan
+    items:
+    - name: Business case overview
+      href: concepts-business-case-calculation.md
   - name: Assess
     items:
     - name: Assessments overview (migrate to Azure VMs)
@@ -199,6 +205,12 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
+  - name: Plan
+    items:
+    - name: Build business case
+      href: how-to-build-a-business-case.md
+    - name: View business case
+      href: how-to-view-a-business-case.md
   - name: Assess
     items:
     - name: Add assessment tools
