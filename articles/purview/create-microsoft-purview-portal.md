@@ -12,7 +12,7 @@ ms.custom: mode-ui
 
 This quickstart describes the steps to Create a Microsoft Purview (formerly Azure Purview) account through the Azure portal. Then we'll get started on the process of classifying, securing, and discovering your data in the Microsoft Purview Data Map!
 
-The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your data estate. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multicloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your data estate. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview governance services across your organization, [see our deployment best practices](deployment-best-practices.md).
 
@@ -54,7 +54,7 @@ For more information about the governance capabilities of Microsoft Purview, for
 
 1. You can choose a name for your managed resource group. Microsoft Purview will create a managed storage account in this group that it will use during its processes.
 
-1. On  the **Networking** tab you can choose to connect to all networks, or to use a private endpoints. For more information and configuration options, see our [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
+1. On  the **Networking** tab you can choose to connect to all networks, or to use private endpoints. For more information and configuration options, see our [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
 
 1. On **Configuration** tab you can choose to configure Event Hubs namespaces to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka.
     - [Steps to configure Event Hubs namespaces](manage-kafka-dotnet.md#configure-event-hubs)
