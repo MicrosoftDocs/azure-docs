@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure TheAccessHub Admin Tool with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure Active Directory (Azure AD) business-to-consumer (B2C) with [TheAccessHub Admin Tool](https://n8id.com/products/theaccesshub-admintool/) from N8 Identity [N8ID](https://n8id.com/). The solution addresses customer account migration and customer service request (CSR) administration.  
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [TheAccessHub Admin Tool](https://n8id.com/products/theaccesshub-admintool/) from N8 Identity [N8ID](https://n8id.com/). The solution addresses customer account migration and customer service request (CSR) administration.  
 
 Use this solution for the following scenarios:
 
