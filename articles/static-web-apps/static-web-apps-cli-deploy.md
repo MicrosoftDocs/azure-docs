@@ -15,9 +15,9 @@ The `deploy` command deploys the current project to Azure Static Web Apps.
 
 Some common use cases include:
 
-1. Deploy a front-end app without an API
-2. Deploy a front-end app with an API
-3. Deploy a Blazor app
+- Deploy a front-end app without an API
+- Deploy a front-end app with an API
+- Deploy a Blazor app
 
 ## Deployment token
 
@@ -87,7 +87,7 @@ To deploy both the front-end app and an API to Azure Static Web Apps, use the fo
 > [!NOTE]
 > If your project doesn't have the *staticwebapp.config.json* file, add one under your `outputLocation` folder.
 
-1. Deploy your app:
+3. Deploy your app:
 
 ```bash
 swa deploy ./my-dist --api-location ./api
