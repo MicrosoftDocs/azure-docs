@@ -162,6 +162,7 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 ## Download and install the plug-in
 
+xxxx
 Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
 
 - **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.4.20/azure-vnet-cni-linux-amd64-v1.4.20.tgz)
