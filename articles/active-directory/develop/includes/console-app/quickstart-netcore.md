@@ -92,7 +92,7 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 
 #### Step 4: Admin consent
 
-If the application is run at this point, an *HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation." will be displayed. This error occurs because any app-only permission requires a global administrator of the directory to give consent to the application. Select one of the following options, depending on the role.
+Running the application now results in the output `HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation`. This error occurs because any app-only permission requires a global administrator of the directory to give consent to the application. Select one of the following options, depending on the role.
 
 ##### Global tenant administrator
 
