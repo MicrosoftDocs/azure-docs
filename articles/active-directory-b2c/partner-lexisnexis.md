@@ -14,7 +14,7 @@ ms.subservice: B2C
 ---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure AD business-to-consumer (B2C) with [LexisNexis ThreatMetrix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). Learn more about LexisNexis contact methods and [ThreatMetix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd), the profiling and identity-validation service that also provides comprehensive risk assessments based on user devices.
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [LexisNexis ThreatMetrix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). Learn more about LexisNexis contact methods and [ThreatMetix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd), the profiling and identity-validation service that also provides comprehensive risk assessments based on user devices.
 
 This integration's profiling is based on user information provided during the sign-up flow. ThreatMetrix permits the user to sign in, or not. 
 
