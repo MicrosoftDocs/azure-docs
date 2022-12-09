@@ -103,7 +103,7 @@ A workload identity is an identity that allows an application or service princip
 
 Organizations can target specific workload identities to be included or excluded from policy.
 
-For more information, see the article [Conditional Access for workload identities preview](workload-identity.md).
+For more information, see the article [Conditional Access for workload identities](workload-identity.md).
 
 ## Next steps
 
