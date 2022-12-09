@@ -32,7 +32,7 @@ Automatic upgrades can be performed through [auto upgrade channels][auto-upgrade
 
 ## Next steps
 
-Learn about [auto upgrade]]auto-upgrade] and [planned maintenance][planned-maintenance].
+Learn about [auto upgrade][auto-upgrade] and [planned maintenance][planned-maintenance].
 
 For more information what cluster operations may trigger specific upgrade events, see the [AKS operator's guide on patching][operator-guide-patching].
 
