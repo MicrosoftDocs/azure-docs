@@ -208,7 +208,7 @@ Once you have the agreed requirements and participated business units to onboard
 |[Scan Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Start to onboard your database sources and scan them to populate key assets|Two Days|
 |[Create custom classifications and rules](create-a-custom-classification-and-classification-rule.md)|Once your assets are scanned, your users may realize that there are other use cases for more classification beside the default classifications from Microsoft Purview.|2-4 Weeks|
 |[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts that have requirements to include lineage from the storage layer.|1-2 Weeks|
-|[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
+|[Import glossary terms](how-to-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|One Week|
 |[Add sensitive labels and scan](how-to-automatically-label-your-content.md)|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |[Get classification and sensitive insights](concept-insights.md)|For reporting and insight in Microsoft Purview, you can access this functionality to get various reports and provide presentation to management.|One Day|
@@ -295,7 +295,7 @@ More hardening steps can be taken:
 * Fine-tune scope scan to improve scan performance
 * [Use REST APIs](tutorial-atlas-2-2-apis.md) to export critical metadata and properties for backup and recovery
 * [Use workflow](how-to-workflow-business-terms-approval.md) to automate ticketing and eventing to avoid human errors
-* [Use policies](concept-data-owner-policies.md) to manage access to data assets through the Microsoft Purview governance portal.
+* [Use policies](concept-policies-data-owner.md) to manage access to data assets through the Microsoft Purview governance portal.
 
 ## Lifecycle considerations
 

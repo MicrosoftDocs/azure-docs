@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 06/16/2022
-ms.custom: template-concept
+ms.date: 08/19/2022
+ms.custom: template-concept, ignite-2022
 ms.author: davidmu
 ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
-
 #Customer intent: As a developer, I want to learn about custom RBAC and why I need to use it in my application.
 ---
 
@@ -43,7 +42,9 @@ Developers have the flexibility to provide their own implementation for how role
 
 ### App roles
 
-Azure AD supports declaring app roles for an application. When a user signs into an application, Azure AD includes a [roles claim](./access-tokens.md#payload-claims) for each role that the user has been granted for that application. Applications receive the tokens that contain the role claims and then can use the information for permission assignments. The roles assigned to the user determine the level of access to resources and functionality.
+Azure AD allows you to [define app roles](./howto-add-app-roles-in-azure-ad-apps.md) for your application and assign those roles to users and other applications. The roles you assign to a user or application define their level of access to the resources and operations in your application.
+
+When Azure AD issues an access token for an authenticated user or application, it includes the names of the roles you've assigned the entity (the user or application) in the access token's [`roles`](./access-tokens.md#payload-claims) claim. An application like a web API that receives that access token in a request can then make authorization decisions based on the values in the `roles` claim.
 
 ### Groups
 
@@ -54,7 +55,7 @@ Developers can also use [Azure AD groups](../fundamentals/active-directory-manag
 
 ### Custom data store
 
-App roles and groups both store information about user assignments in the Azure AD directory. Another option for managing user role information that is available to developers is to maintain the information outside of the directory in a custom data store. For example, in a SQL Database, Azure Table storage or Azure Cosmos DB Table API.
+App roles and groups both store information about user assignments in the Azure AD directory. Another option for managing user role information that is available to developers is to maintain the information outside of the directory in a custom data store. For example, in a SQL database, Azure Table storage, or Azure Cosmos DB for Table.
 
 Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, the extra flexibility also introduces more responsibility. For example, there's no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom data store, they'll need to have the applications retrieve the roles. Retrieving the roles is typically done using extensibility points defined in the middleware available to the platform that's being used to develop the application. Developers are responsible for properly securing the custom data store.
 
@@ -79,5 +80,5 @@ Although either app roles or groups can be used for authorization, key differenc
 
 ## Next steps
 
-- [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md).
-- [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md).
+- [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md)
+- [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)

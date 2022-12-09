@@ -22,7 +22,7 @@ Speaker verification is the act of confirming that a speaker matches a known, or
 Start by [creating a voice profile](/rest/api/speakerrecognition/verification/textdependent/createprofile). You'll need to insert your Speech service subscription key and region into each of the curl commands in this article.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 ```curl
 # Note Change locale if needed.

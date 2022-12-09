@@ -7,7 +7,7 @@
   - name: About Durable Functions
     href: durable-functions-overview.md
   - name: Serverless comparison
-    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
     href: durable-functions-versions.md
 - name: Quickstarts
@@ -102,6 +102,8 @@
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Azure storage provider
+    href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
   - name: Develop
@@ -109,7 +111,7 @@
     - name: Create in Azure portal
       href: durable-functions-create-portal.md
     - name: Manage connections
-      href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../manage-connections.md?toc=/azure/azure-functions/durable/toc.json
     - name: Unit testing
       href: durable-functions-unit-testing.md
     - name: Create as WebJobs
@@ -119,11 +121,11 @@
   - name: Deploy
     items:
     - name: Continuous deployment
-      href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../functions-continuous-deployment.md?toc=/azure/azure-functions/durable/toc.json
     - name: Zip deployment
-      href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../deployment-zip-push.md?toc=/azure/azure-functions/durable/toc.json
     - name: Run from package
-      href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../run-functions-from-deployment-package.md?toc=/azure/azure-functions/durable/toc.json
     - name: Zero downtime deployment
       href: durable-functions-zero-downtime-deployment.md
   - name: Monitor
@@ -131,13 +133,13 @@
     - name: Diagnostics
       href: durable-functions-diagnostics.md
     - name: Monitoring
-      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+      href: ../functions-monitoring.md?toc=/azure/azure-functions/durable/toc.json
     - name: Pricing
       href: durable-functions-billing.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-functions
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

@@ -1,6 +1,6 @@
 ---
-title: "How to self-diagnose Azure Spring Apps VNET"
-description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in VNET.
+title: "How to self-diagnose Azure Spring Apps with virtual networks"
+description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in virtual networks.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -9,14 +9,14 @@ ms.date: 01/25/2021
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Self-diagnose running Azure Spring Apps in VNET
+# Self-diagnose running Azure Spring Apps in virtual networks
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Azure Spring Apps diagnostics to diagnose and solve problems in Azure Spring Apps running in VNET.
+This article shows you how to use Azure Spring Apps diagnostics to diagnose and solve problems in Azure Spring Apps running in virtual networks.
 
 Azure Spring Apps diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Apps diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
 
@@ -33,7 +33,7 @@ The following procedure starts diagnostics for networked applications.
 
 ## View a diagnostic report
 
-After you select the **Networking** category, you can view two issues related to Networking specific to your VNet injected Azure Spring Apps: **DNS Resolution** and **Required Outbound Traffic**.
+After you select the **Networking** category, you can view two issues related to Networking specific to your virtual-network injected Azure Spring Apps instances: **DNS Resolution** and **Required Outbound Traffic**.
 
    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 

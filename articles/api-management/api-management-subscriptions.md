@@ -7,7 +7,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 09/27/2022
 ms.author: danlep
 ---
 # Subscriptions in Azure API Management
@@ -20,14 +20,11 @@ By publishing APIs through API Management, you can easily secure API access usin
 * Rejected immediately by the API Management gateway. 
 * Not forwarded to the back-end services.
 
-To access APIs, you'll need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
-
-> [!NOTE]
-> Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management  generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa. 
+To access APIs, developers need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
 
 In addition,
 
-* Developers can get subscriptions without approval from API publishers. 
+* Developers can get subscriptions without needing approval from API publishers. 
 * API publishers can create subscriptions directly for API consumers.
 
 > [!TIP]
@@ -35,6 +32,13 @@ In addition,
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Client certificates](api-management-howto-mutual-certificates-for-clients.md)
 > - [Restrict caller IPs](./api-management-access-restriction-policies.md#RestrictCallerIPs)
+
+## Manage subscription keys
+
+Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
+> [!NOTE]
+> * API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
+> * To enforce time-limited access to APIs, API publishers may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
 
 ## Scope of subscriptions
 

@@ -2,7 +2,7 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 12/02/2021 
+ms.date: 11/24/2022
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -15,24 +15,26 @@ Azure Backup allows you to encrypt your backup data using customer-managed keys 
 
 The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256 based data encryption key (DEK), which in turn, is protected using your key encryption keys (KEK). This provides you with full control over the data and the keys. To allow encryption, you must grant Recovery Services vault the permissions to access the encryption key in the Azure Key Vault. You can change the key when required.
 
-This article discusses about how to:
+In this article, you'll learn how to:
 
-- Create a Recovery Services vault
-- Configure your Recovery Services vault to encrypt the backup data using customer-managed keys (CMK)
-- Back up to vaults encrypted using customer-managed keys
-- Restore data from backups
+> [!div class="checklist"]
+>
+> - Create a Recovery Services vault
+> - Configure the Recovery Services vault to encrypt the backup data using customer-managed keys (CMK)
+> - Back up to vaults encrypted using customer-managed keys
+> - Restore data from backups
 
 ## Before you start
 
 - This feature allows you to encrypt **new Recovery Services vaults only**. Any vaults containing existing items registered or attempted to be registered to it aren't supported.
 
-- Once enabled for a Recovery Services vault, encryption using customer-managed keys can't be reverted to use platform-managed keys (default). You can change the encryption keys as per the requirements.
+- After you enable it for a Recovery Services vault, encryption using customer-managed keys can't be reverted to use platform-managed keys (default). You can change the encryption keys as per the requirements.
 
 - This feature currently **doesn't support backup using MARS agent**, and you may not be able to use a CMK-encrypted vault for the same. The MARS agent uses a user passphrase-based encryption. This feature also doesn't support backup of classic VMs.
 
-- This feature isn't related to [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), which uses guest-based encryption of a VM's disk using BitLocker (for Windows) and DM-Crypt (for Linux).
+- This feature isn't related to [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md), which uses guest-based encryption of a VM's disk using BitLocker (for Windows) and DM-Crypt (for Linux).
 
-- The Recovery Services vault can be encrypted only with keys stored in Azure Key Vault, located in the **same region**. Also, keys must be **RSA keys** only and should be in **enabled** state.
+- The Recovery Services vault can be encrypted only with keys stored in Azure Key Vault, located in the **same region**. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) **RSA keys** only and should be in **enabled** state.
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
 - Recovery Services vaults encrypted with customer-managed keys currently don't support cross-region restore of backed-up instances.
@@ -351,7 +353,9 @@ To assign the key and follow the steps, choose a client:
 
 2. Select **Update** under **Encryption Settings**.
 
-3. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. **Ensure that the key you want to use is an RSA 2048 key, which is in an enabled state.**
+3. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. 
+ 
+   *Ensure that you use an RSA key, which is in enabled state.*
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Recovery Services vault. You  also need to specify the subscription in which the Azure Key Vault (that contains this key) is present. This key URI can be obtained from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
@@ -460,7 +464,7 @@ Data stored in the Recovery Services vault can be restored according to the step
 
 #### Restore VM/disk
 
-1. When recovering disk / VM from a "Snapshot" recovery point, the restored data will be encrypted with the DES used for encrypting the source VM's disks.
+1. When you recover disk / VM from a *Snapshot* recovery point, the restored data will be encrypted with the DES used for encrypting the source VM's disks.
 
 1. When restoring disk / VM from a recovery point with Recovery Type as "Vault", you can choose to have the restored data encrypted using a DES, specified at the time of restore. Alternatively, you can choose to continue with the restore the data without specifying a DES, in which case it will be encrypted using Microsoft-managed keys.
 
@@ -517,11 +521,11 @@ az backup restore restore-disks --container-name MyContainer --disk-encryption-s
 
 #### Restore files
 
-When performing a file restore, the restored data will be encrypted with the key used for encrypting the target location.
+When you perform a file restore, the restored data will be encrypted with the key used for encrypting the target location.
 
 ### Restore SAP HANA/SQL databases in Azure VMs
 
-When restoring from a backed-up SAP HANA/SQL database running in an Azure VM, the restored data will be encrypted using the encryption key used at the target storage location. It may be a customer-managed key or a platform-managed key used for encrypting the disks of the VM.
+When you restore from a backed-up SAP HANA/SQL database running in an Azure VM, the restored data will be encrypted using the encryption key used at the target storage location. It may be a customer-managed key or a platform-managed key used for encrypting the disks of the VM.
 
 ## Additional topics
 
@@ -548,7 +552,7 @@ When your subscription is allow-listed, the **Backup Encryption** tab will displ
 
 1. Specify the user assigned managed identity to manage encryption with customer-managed keys. Click **Select** to browse and select the required identity.
 
-1. Once done, proceed to add Tags (optional) and continue creating the vault.
+1. Proceed to add Tags (optional) and continue creating the vault.
 
 ### Enable auto-rotation of encryption keys
 

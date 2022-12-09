@@ -1,16 +1,16 @@
 ---
-title: Manage properties and metadata for a blob with .NET - Azure Storage
+title: Manage properties and metadata for a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the .NET client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Manage blob properties and metadata with .NET

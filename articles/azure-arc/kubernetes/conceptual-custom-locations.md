@@ -1,7 +1,5 @@
 ---
 title: "Custom Locations - Azure Arc-enabled Kubernetes"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 07/21/2022
 ms.topic: conceptual
 description: "This article provides a conceptual overview of the custom locations capability of Azure Arc-enabled Kubernetes"
@@ -9,7 +7,7 @@ description: "This article provides a conceptual overview of the custom location
 
 # Custom locations on top of Azure Arc-enabled Kubernetes
 
-As an extension of the Azure location construct, the *custom locations* feature provides a way for tenant administrators to use their Azure Arc-enabled Kubernetes clusters as target locations for deploying Azure services instances. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale.
+As an extension of the Azure location construct, the *custom locations* feature provides a way for tenant administrators to use their Azure Arc-enabled Kubernetes clusters as target locations for deploying Azure services instances. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL server.
 
 Similar to Azure locations, end users within the tenant who have access to Custom Locations can deploy resources there using their company's private compute.
 

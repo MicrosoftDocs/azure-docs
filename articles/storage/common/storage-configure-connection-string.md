@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 10/26/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common

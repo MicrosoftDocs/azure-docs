@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier 
 
 Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 
@@ -113,9 +113,9 @@ You need to grant Azure Spring Apps access to your key vault before you import c
 1. On the upper menu, select **Add Access Policy**.
 1. Fill in the info, and select **Add** button, then **Save** access police.
 
-| Secret permission | Certificate permission | Select principal |
-|--|--|--|
-| Get, List | Get, List | Azure Spring Apps Domain-Management |
+| Secret permission | Certificate permission | Select principal                     |
+|-------------------|------------------------|--------------------------------------|
+| Get, List         | Get, List              | Azure Spring Cloud Domain-Management |
 
 ![Import certificate 2](./media/custom-dns-tutorial/import-certificate-b.png)
 

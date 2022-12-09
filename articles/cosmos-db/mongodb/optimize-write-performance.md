@@ -1,19 +1,19 @@
 ---
-title: Optimize write performance in the Azure Cosmos DB API for MongoDB
-description: This article describes how to optimize write performance in the Azure Cosmos DB API for MongoDB to get the most throughput possible for the lowest cost. 
+title: Optimize write performance in the Azure Cosmos DB for MongoDB
+description: This article describes how to optimize write performance in the Azure Cosmos DB for MongoDB to get the most throughput possible for the lowest cost. 
 author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: gahllevy
-
 ---
 
-# Optimize write performance in Azure Cosmos DB API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Optimize write performance in Azure Cosmos DB for MongoDB
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Optimizing write performance helps you get the most out of Azure Cosmos DB API for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
+Optimizing write performance helps you get the most out of Azure Cosmos DB for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
 
 The way you write data needs to be mindful of this by parallelizing and spreading data across shards to get the most writes out of your databases and collections. This article explains best practices to optimize write performance.
 
@@ -25,7 +25,7 @@ If your application writes a massive amount of data to a single shard, this won'
 One example of doing this would be a product catalog application that is sharded on the category field. Instead of writing to one category (shard) at a time, it's better write to all categories simultaneously to achieve the maximum write throughput. 
 
 ## Reduce the number of indexes
-[Indexing](../mongodb-indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the most flexible query experience, the API for MongoDB enables a wildcard index on your data by default to make queries against all fields blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
+[Indexing](../mongodb/indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the most flexible query experience, the API for MongoDB enables a wildcard index on your data by default to make queries against all fields blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
 
 Reducing the number of indexes to only the indexes you need to support your queries will make your writes faster and cheaper. As a general rule, we recommend the following:
 
@@ -53,7 +53,7 @@ If you are writing more than 1,000 documents at a time per process/thread, clien
 
 ## Next steps
 
-* Learn more about [indexing in the API for MongoDB](../mongodb-indexing.md).
+* Learn more about [indexing in the API for MongoDB](../mongodb/indexing.md).
 * Learn more about [Azure Cosmos DB's sharding/partitioning](../partitioning-overview.md).
 * Learn more about [troubleshooting common issues](error-codes-solutions.md).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.

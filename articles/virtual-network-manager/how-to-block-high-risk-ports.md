@@ -13,6 +13,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 In this article, you'll learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You'll deploy a general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This allows you to manage access to the application VNets using network security groups.
 
+While this article focuses on a single port, SSH, you can use protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
+
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -37,7 +39,7 @@ For this how-to, you'll need a virtual network environment that includes virtual
 
 * Place all virtual networks in the same subscription, region, and resource group
 
-Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
+Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 ## Create a Virtual Network Manager
 
@@ -162,7 +164,7 @@ With traffic blocked across all of your VNets, you need an exception to allow tr
 
 In this section, you create a new rule collection that will allow high-risk traffic to a subset of virtual networks you've defined in a network group, and create security admin rule to add to our existing security admin configuration.
 
-> [!Important]
+> [!IMPORTANT]
 > In order for your security admin rule to allow traffic to your application virtual networks, the priority needs to be set to a **lower number** than existing rules blocking traffic. 
 >
 >For example, an all network rule blocking **SSH** has a priority of **10** so your allow rule should have a priority from **1 to 9**.
@@ -187,4 +189,3 @@ To apply the new rule collection, you'll redeploy your security admin configurat
 - Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
 
 - Check out the [Azure Virtual Network Manager FAQ](faq.md)
-

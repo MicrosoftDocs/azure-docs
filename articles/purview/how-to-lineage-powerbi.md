@@ -1,12 +1,12 @@
 ---
 title: Metadata and Lineage from Power BI
 description: This article describes the data lineage extraction from Power BI source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 08/11/2022
 ---
 # How to get lineage from Power BI into Microsoft Purview
 

@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
+ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.topic: how-to
 ms.custom: designer, event-tier1-build-2022
@@ -178,4 +179,4 @@ If you make some modifications in your training pipeline, you may want to update
 ## Next steps
 
 * Follow the [designer tutorial to train and deploy a regression model](tutorial-designer-automobile-price-train-score.md).
-* For how to publish and run a published pipeline using SDK, see the [How to deploy pipelines](how-to-deploy-pipelines.md) article.
+* For how to publish and run a published pipeline using the SDK v1, see the [How to deploy pipelines](v1/how-to-deploy-pipelines.md) article.

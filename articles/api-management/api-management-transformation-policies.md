@@ -50,6 +50,7 @@ This article provides a reference for API Management policies used to transform 
     consider-accept-header="true | false" 
     parse-date="true | false" 
     namespace-separator="separator character"
+    namespace-prefix="namepsace prefix"
     attribute-block-name="name" />
 ```
 
@@ -64,7 +65,7 @@ Consider the following policy:
     </inbound>
     <outbound>
         <base />
-        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" attribute-block-name="#attrs" />
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" namespace-prefix="xmlns" attribute-block-name="#attrs" />
     </outbound>
 </policies>
 ```
@@ -118,6 +119,7 @@ The XML response to the client will be:
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 |namespace-separator|The character to use as a namespace separator|No|Underscore|
+|namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations.|No|N/A|
 |attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
 ### Usage
@@ -262,7 +264,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can be only overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
 
 ### Example
 

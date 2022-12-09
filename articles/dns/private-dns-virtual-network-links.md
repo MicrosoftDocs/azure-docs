@@ -2,11 +2,11 @@
 title: What is a virtual network link subresource of Azure DNS private zones
 description: Overview of virtual network link sub resource an Azure DNS private zone
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/26/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # What is a virtual network link?

@@ -25,16 +25,9 @@ Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
-- [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> The add-ons for AKS Engine and Arc enabled Kubernetes are in **preview**. Azure Policy for
-> Kubernetes only supports Linux node pools and built-in policy definitions (custom policy
-> definitions is a _public preview_ feature). Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** and
-> **EnforceRegoPolicy** effect and the related **Kubernetes Service** category are _deprecated_.
-> Instead, use the effects _audit_ and _deny_ with Resource Provider mode
-> `Microsoft.Kubernetes.Data`.
+> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). 
 
 ## Overview
 
@@ -204,7 +197,7 @@ similar to the following output:
         "identity": null
 }
 ```
-## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes (preview)
+## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
 [Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 
@@ -370,9 +363,6 @@ role-based access control (Azure RBAC) policy assignment operations. The Azure b
 **Resource Policy Contributor** and **Owner** have these operations. To learn more, see
 [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
-> [!NOTE]
-> Custom policy definitions is a _public preview_ feature.
-
 Find the built-in policy definitions for managing your cluster using the Azure portal with the
 following steps. If using a custom policy definition, search for it by name or the category that
 you created it with.
@@ -392,8 +382,7 @@ you created it with.
 
    > [!NOTE]
    > When assigning the Azure Policy for Kubernetes definition, the **Scope** must include the
-   > cluster resource. For an AKS Engine cluster, the **Scope** must be the resource group of the
-   > cluster.
+   > cluster resource.
 
 1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
@@ -662,10 +651,10 @@ To remove the Azure Policy Add-on from your AKS cluster, use either the Azure po
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
+### Remove the add-on from Azure Arc enabled Kubernetes
+
 > [!NOTE]
 > Azure Policy Add-on Helm model is now deprecated. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
-
-### Remove the add-on from Azure Arc enabled Kubernetes
 
 To remove the Azure Policy Add-on and Gatekeeper from your Azure Arc enabled Kubernetes cluster, run
 the following Helm command:
@@ -674,10 +663,10 @@ the following Helm command:
 helm uninstall azure-policy-addon
 ```
 
+### Remove the add-on from AKS Engine
+
 > [!NOTE]
 >  The AKS Engine product is now deprecated for Azure public cloud customers. Please consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) for managed Kubernetes or [Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) for self-managed Kubernetes. There are no new features planned; this project will only be updated for CVEs & similar, with Kubernetes 1.24 as the final version to receive updates.
-
-### Remove the add-on from AKS Engine
 
 To remove the Azure Policy Add-on and Gatekeeper from your AKS Engine cluster, use the method that
 aligns with how the add-on was installed:

@@ -1,36 +1,36 @@
 ---
-title: Create Dynatrace for Azure (preview) resource - Azure partner solutions
+title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
 ms.author: franlanglois
-ms.date: 06/07/2022
+ms.date: 10/12/2022
 
 ---
 
 # QuickStart: Get started with Dynatrace
 
-In this quickstart, you create a new instance of Dynatrace for Azure (preview). You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
+In this quickstart, you create a new instance of Azure Native Dynatrace Service. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
 
 When you use the integrated Dynatrace experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
 
 :::image type="content" source="media/dynatrace-create/dynatrace-entities.png" alt-text="Flowchart showing three entities: Marketplace S A A S connecting to Dynatrace resource, connecting to Dynatrace environment.":::
 
-- **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create or linking process.
-- **Dynatrace environment** - This is the Dynatrace environment on Dynatrace SaaS. When you choose to create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure. The resource is created in the Azure subscription and resource group that you selected when you created the environment or linked to an existing environment.
+- **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create process or linking process.
+- **Dynatrace environment** - This is the Dynatrace environment on Dynatrace _Software as a Service_ (SaaS). When you create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure.
 - **Marketplace SaaS resource** - The SaaS resource is created automatically, based on the plan you select from the Dynatrace Marketplace offer. This resource is used for billing purposes.
 
 ## Prerequisites
 
-Before creating your first instance of Dynatrace in Azure, configure your environment. These steps must be completed before continuing with the next steps in this quickstart.
+Before you link the subscription to a Dynatrace environment,[complete the pre-deployment configuration.](dynatrace-link-to-existing.md).
 
 ### Find Offer
 
-Use the Azure portal to find Dynatrace for Azure application.
+Use the Azure portal to find Azure Native Dynatrace Service application.
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in.
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for *Marketplace*.
+1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
     :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
 
@@ -60,7 +60,7 @@ Use the Azure portal to find Dynatrace for Azure application.
     | Subscription | Select the Azure subscription you want to use for creating the Dynatrace resource. You must have owner or contributor access.|
     | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution. |
     | Resource name   | Specify a name for the Dynatrace resource. This name will be the friendly name of the new Dynatrace environment.|
-    | Location        | Select the region. Both the Dynatrace resource in Azure and Dynatrace environment will be created in the selected region.|
+    | Location        | Select the region. Select the region where the Dynatrace resource in Azure and the Dynatrace environment is created.|
     | Pricing plan    | Select from the list of available plans. |
 
 ### Configure metrics and logs
@@ -75,19 +75,18 @@ Use the Azure portal to find Dynatrace for Azure application.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
-   To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md). To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags.
+1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
 
-    Rules for sending resource logs:
-  
-    - When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources.
-    - Azure resources with Include tags send logs to Dynatrace.
-    - Azure resources with Exclude tags don't send logs to Dynatrace.
-    - If there's a conflict between inclusion and exclusion rules, exclusion rule applies.
-  
-    The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+   When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources. To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags:
 
-    > [!NOTE]
-    > Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created.
+    - All Azure resources with tags defined in include Rules send logs to Dynatrace.
+    - All Azure resources with tags defined in exclude rules don't send logs to Dynatrace.
+    - If there's a conflict between an inclusion and exclusion rule, the exclusion rule applies.
+
+   The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+
+   > [!NOTE]
+   > Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created.
 
 1. Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 

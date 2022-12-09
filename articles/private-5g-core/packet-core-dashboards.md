@@ -26,7 +26,7 @@ To sign in to the packet core dashboards:
 
 1. Sign in using your credentials. 
 
-    If you're accessing the packet core dashboards for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+    If you're accessing the packet core dashboards for the first time after installing or upgrading the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
 
       - **Email or username**: *admin*
       - **Password**: *admin*
@@ -41,6 +41,9 @@ We'll go through the common concepts and operations you'll need to understand be
 
 You can access the following packet core dashboards:
 
+> [!TIP]
+> Some packet core dashboards display different panels depending on whether the packet core instance supports 5G or 4G user equipment (UEs).
+
 - The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
@@ -54,9 +57,6 @@ You can access the following packet core dashboards:
     :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core Alerts dashboard. Panels related to currently active alerts are shown." lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
 - The **Device and Session Statistics dashboard** provides information about the device and session procedures being processed by the packet core instance.
-
-    > [!IMPORTANT] 
-    > The **Device and Session Statistics dashboard** only displays metrics for packet core instances that support 5G UEs. It does not currently display any metrics related to 4G activity. 
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png" alt-text="Screenshot of the Device and Session Statistics dashboard. It shows panels for device authentication, device registration, device context, and P D U session procedures." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 

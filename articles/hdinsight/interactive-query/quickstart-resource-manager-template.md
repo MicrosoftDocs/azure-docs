@@ -47,8 +47,8 @@ Two Azure resources are defined in the template:
     |Resource group|From the drop-down list, select your existing resource group, or select **Create new**.|
     |Location|The value will autopopulate with the location used for the resource group.|
     |Cluster Name|Enter a globally unique name. For this template, use only lowercase letters, and numbers.|
-    |Cluster Login User Name|Provide the username, default is **admin**.|
-    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` ). |
+    |Cluster Login User Name|Provide the username, default is `admin`.|
+    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "``` ). |
     |Ssh User Name|Provide the username, default is sshuser|
     |Ssh Password|Provide the password.|
 

@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 ---
 # Manage data assets in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
