@@ -12,7 +12,7 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-premises and Azure, and the following listed connection conditions are true; you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution.  The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses ECMP to send traffic towards your environment over both ExR circuits, resulting in issues with stateful firewall inspection.
+Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are true; you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses ECMP to send traffic towards your environment over both ExR circuits, resulting in issues with stateful firewall inspection.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Based on the following checklist, verify that all connections are true:
 - Stateful firewalls are in the network path.
 - You're using AS-Path Prepend to force Azure to prefer one path over others.
 
-Two or four byte Public ASN numbers should be used and be compatible with Azure VMware Solution. If you don't own a Public ASN to use for prepending, open a [Microsoft Customer Support Ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to view options.
+Either 2 or 4 byte Public ASN numbers should be used and be compatible with Azure VMware Solution. If you don't own a Public ASN to use for prepending, open a [Microsoft Customer Support Ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to view options.
 
 ## Management VMs and default routes from on-premises
 
@@ -91,7 +91,7 @@ The following diagram demonstrates how the NVA needs to advertise more generic (
 
 In this topology, instead of propagating less specific routes to attract traffic to the ExpressRoute gateway, two different NVAs in separate Virtual Networks can exchange routes between each other. The Virtual Networks can propagate these routes to their respective ExpressRoute circuits via BGP and Azure Route Server, as the following diagram shows. Each NVA has full control on which prefixes are propagated to each ExpressRoute circuit.
 
-The following diagram example shows how a single 0.0.0.0/0 is advertised to Azure VMware Solution and how the individual Azure VMware Solution prefixes are propagated to the on-premises network.
+The following diagram demonstrates how a single 0.0.0.0/0 is advertised to Azure VMware Solution and how the individual Azure VMware Solution prefixes are propagated to the on-premises network.
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in two regions." lightbox="media/concepts-network-design/vmware-solution-to-on-premises.png":::
 
@@ -102,7 +102,7 @@ An alternative to using an overlay is by applying secondary NICs in the NVA that
 
 **This topology requires a complex initial set-up. Once the set-up is complete, the topology works as expected with minimal management overhead. See the following list of specific set-up complexities.**
 
-- There's an extra cost due to an additional transit Virtual Network that includes an Azure Route Server, ExpressRoute Gateway, and another NVA. The NVAs may also need to use large VM sizes to meet throughput requirements.
+- There's an extra cost for an additional transit Virtual Network that includes an Azure Route Server, ExpressRoute Gateway, and another NVA. The NVAs may also need to use large VM sizes to meet throughput requirements.
 - There's IPSec or VxLAN tunneling between the two NVAs required which means that the NVAs are also in the datapath. Depending on the type of NVA you're using, it can result in custom and complex configuration on those NVAs.
 
 ## Next steps
