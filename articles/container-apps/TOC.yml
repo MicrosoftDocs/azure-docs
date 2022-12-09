@@ -16,7 +16,7 @@
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
-  - name: Build a backend service from code
+  - name: Deploy an app from code
     expanded: true
     items:
     - name: Command line
@@ -135,8 +135,6 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Deploy an app from an existing container image - CLI
-      href: tutorial-deploy-first-app-cli.md
     - name: Build a multiple service app 
       expanded: true
       items:
@@ -153,6 +151,8 @@
         href: microservices-dapr-azure-resource-manager.md
       - name: Deploy a Dapr application using GitHub Actions
         href: dapr-github-actions.md
+    - name: Deploy an app from an existing container image - CLI
+      href: tutorial-deploy-first-app-cli.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount
