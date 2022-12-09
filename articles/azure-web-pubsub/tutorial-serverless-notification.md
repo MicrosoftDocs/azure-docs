@@ -474,7 +474,7 @@ In this tutorial, you learn how to:
     func start
     ```
 
-    And checking the running logs, you can visit your local host static page by visiting: `https://localhost:7071/api/index`.
+    And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
 
 ## Deploy Function App to Azure
 
