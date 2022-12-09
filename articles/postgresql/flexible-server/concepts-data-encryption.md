@@ -159,7 +159,7 @@ Some of the reasons why server state can become *Inaccessible* are:
 
 
 > [!NOTE]  
-> CLI examples below are based on [2.43.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries](cli/azure/postgres/flexible-server?view=azure-cli-latest), which are in preview and may be subject to changes.  
+> CLI examples below are based on [2.43.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries](https://learn.microsoft.com/cli/azure/postgres/flexible-server?view=azure-cli-latest), which are in preview and may be subject to changes.  
 
 ## Setup Customer Managed Key during Server Creation
 
