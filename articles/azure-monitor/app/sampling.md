@@ -365,11 +365,19 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-
-    // Using fixed rate sampling
-    double fixedSamplingPercentage = 10;
-    configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseSampling(fixedSamplingPercentage);
+    builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
+    {
+        var builder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+    
+        // Using fixed rate sampling
+        double fixedSamplingPercentage = 10;
+        builder.UseSampling(fixedSamplingPercentage);
+    });
+    
+    builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
+    {
+        EnableAdaptiveSampling = false,
+    });
 
     var app = builder.Build(); 
     ```
