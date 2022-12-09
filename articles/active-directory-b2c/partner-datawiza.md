@@ -14,9 +14,9 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access
+# Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access
 
-In this tutorial, learn how to integrate Azure Active Directory (AD) business-to-consumer (B2C) with [Datawiza Access Broker (DAB)](https://www.datawiza.com/access-broker). DAB enables single sign-on (SSO) and granular access control, helping Azure AD B2C protect on-premises legacy applications. With this solution, enterprises can transition from legacy to Azure AD B2C without rewriting applications.
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [Datawiza Access Broker (DAB)](https://www.datawiza.com/access-broker). DAB enables single sign-on (SSO) and granular access control, helping Azure AD B2C protect on-premises legacy applications. With this solution, enterprises can transition from legacy to Azure AD B2C without rewriting applications.
 
 ## Prerequisites
 
