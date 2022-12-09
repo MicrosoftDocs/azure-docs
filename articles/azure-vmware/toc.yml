@@ -182,8 +182,6 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: Send logs to log analytics
-    href: send-logs-to-log-analytics.md
   - name: Partner solution ecosystem
     items:
     - name: Operating system support for VMs
@@ -200,8 +198,6 @@
       href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
-    - name: Send logs to Log Analytics
-      href: send-logs-to-log-analytics.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
