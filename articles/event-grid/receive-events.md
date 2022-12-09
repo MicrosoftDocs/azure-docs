@@ -69,11 +69,11 @@ namespace Function1
                     {
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
-
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
+
                         return new OkObjectResult(responseData);
                     }
                 }
