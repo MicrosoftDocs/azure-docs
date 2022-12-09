@@ -7,10 +7,6 @@
     topicHref: /azure/center-sap-solutions/index
     items:
     - name: Azure VMs for SAP workloads
-      tocHref: /azure/virtual-machines/workloads/sap/
-      topicHref: /azure/virtual-machines/workloads/sap/index
-      
-    - name: Azure VMs for SAP workloads
       tocHref: /azure/backup/index 
       topicHref: /azure/virtual-machines/workloads/sap/index
     - name: Azure VMs for SAP workloads
