@@ -193,7 +193,7 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/use-smart-on-fhir-proxy.md",
+        "source_path_from_root": "/articles/healthcare-apis/use-smart-on-fhir-proxy.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/smart-on-fhir",
         "redirect_document_id": false
     },
