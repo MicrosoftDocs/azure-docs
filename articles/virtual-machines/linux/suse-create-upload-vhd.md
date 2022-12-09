@@ -167,14 +167,15 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
+    rm -f ~/.bash_history # Remove current user history    
+
     sudo -i
     rm -rf /var/lib/waagent/
     rm -f /var/log/waagent.log
 
     waagent -force -deprovision+user
-    rm -f ~/.bash_history
+    rm -f ~/.bash_history # Remove root user history
     
-
     export HISTSIZE=0
 
     logout
@@ -274,8 +275,17 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
-    sudo waagent -force -deprovision
+    rm -f ~/.bash_history # Remove current user history
+    
+    sudo -i
+    rm -rf /var/lib/waagent/
+    rm -f /var/log/waagent.log
+    
+    waagent -force -deprovision+user
+    rm -f ~/.bash_history # Remove root user history
+    
     export HISTSIZE=0
+    
     logout
     ```
 
