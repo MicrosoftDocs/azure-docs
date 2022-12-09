@@ -34,7 +34,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 | Known Issue | Description |
 | :------------------------ | :------------------------------- |
-| Using [token type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hl7.org%2Ffhir%2Fsearch.html%23token&data=05%7C01%7CKetki.Sheth%40microsoft.com%7C7ec4c7dad9b940b74a8508da60395511%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637928096596122743%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VmAG2iHUyxtNZI88HqKeSSwFV28zFSs2qgkAQRPnZ%2Bw%3D&reserved=0) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | No workaround. |
+| Using [token type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hl7.org%2Ffhir%2Fsearch.html%23token&data=05%7C01%7CKetki.Sheth%40microsoft.com%7C7ec4c7dad9b940b74a8508da60395511%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637928096596122743%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VmAG2iHUyxtNZI88HqKeSSwFV28zFSs2qgkAQRPnZ%2Bw%3D&reserved=0) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | No workaround.|
 
 ### FHIR Service 
 
