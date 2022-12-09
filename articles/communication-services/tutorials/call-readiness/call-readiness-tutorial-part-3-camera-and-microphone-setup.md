@@ -26,9 +26,8 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 
 ## Letting the user choose their camera, microphone and speaker
 
-Now the user is on a supported browser, and they have given us permission to access their camera and microphone,
-we can make sure they have chosen which device they want to use for their call.
-We want to present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
+From the previous two parts of the tutorial, the user is on a supported browser, and they have given us permission to access their camera and microphone. We can now make sure the user can choose the correct microphone, camera and speaker they want to use for their call.
+We will present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
 
 ![Image of the device setup page](../media/call-readiness/device-setup-page.png)
 
@@ -112,7 +111,7 @@ To present a list of selectable cameras, microphones and speakers to the user we
 Here we'll create a series of React hooks. These React hooks will use the call client to query for available devices.
 The hooks will also ensure our application re-renders anytime the list changes, for example, if a new camera is plugged into the user's machine.
 For these hooks, we'll create a file called `deviceSetupHooks.tsx` and we'll create three hooks: `useMicrophones`, `useSpeakers` and `useCameras`.
-Each of these will use `useCallClientStateChange` to update their lists anytime the user plugs/unplugs a device:
+Each of these hooks will use `useCallClientStateChange` to update their lists anytime the user plugs/unplugs a device:
 
 `deviceSetupHooks.tsx`
 
@@ -207,7 +206,7 @@ const useCallClientStateChange = (): CallClientState => {
 #### Creating dropdowns to choose devices
 
 To allow the user to choose their camera, microphone and speaker, we'll use the `Dropdown` component from Fluent UI React.
-We'll create new components that will use the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown, as well as update
+We'll create new components that will use the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
 the chosen device when the user selects a different device from the dropdown.
 To house these new components, we'll create a file called `DeviceSelectionComponent.tsx` that will export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
 

@@ -27,8 +27,8 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 
 For calling applications, it's often vital a user has given permission to use the microphone and camera.
 In this section, we'll create a series of components that will encourage the user to grant access to the camera and microphone.
-We'll display prompts to the user to guide them through granting access,
-We'll also informa the user with a prompt if access isn't granted.
+We'll display prompts to the user to guide them through granting access.
+We'll also inform the user with a prompt if access isn't granted.
 
 ### Creating prompts for camera and microphone access
 
@@ -107,7 +107,7 @@ Now we have the prompts and check and request logic, we'll update the `PreCallCh
 In this component we'll display different prompts to the user based on the device permission state:
 
 - If the device permission state is unknown, we'll display a prompt to the user informing them we're checking for device permissions.
-- If we are requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
+- If we're requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
 - If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
 
 `CallReadinessCheckComponent`
