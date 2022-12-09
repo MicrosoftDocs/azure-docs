@@ -182,8 +182,8 @@
       href: /cli/azure/
     - name: Azure PowerShell
       href: /powershell/
-  - name: Billing
-    href: ../../cost-management-billing/manage/consumption-api-overview.md
+  - name: Cost Management + Billing
+    href: ../../cost-management-billing/automate/automation-overview.md
 - name: Resources
   items:
   - name: Azure limits and quotas

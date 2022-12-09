@@ -34,7 +34,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. This feature isn't supported on AKS on Azure Stack HCI.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
 
 ## Set up Azure AD applications
 
@@ -44,32 +44,32 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
-   ```azurecli
-   CLUSTER_NAME="<clusterName>"
-   TENANT_ID="<tenant>"
-   SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
-   SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
-   echo $SERVER_APP_ID
-   ```
+    ```azurecli
+    CLUSTER_NAME="<name-of-arc-connected-cluster>"
+    TENANT_ID="<tenant>"
+    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
+    echo $SERVER_APP_ID
+    ```
 
 1. To grant "Sign in and read user profile" API permissions to the server application. Copy this JSON and save it in a file called oauth2-permissions.json:
 
-   ```json
-   {
-       "oauth2PermissionScopes": [
-           {
-               "adminConsentDescription": "Sign in and read user profile",
-               "adminConsentDisplayName": "Sign in and read user profile",
-               "id": "<unique_guid>",
-               "isEnabled": true,
-               "type": "User",
-               "userConsentDescription": "Sign in and read user profile",
-               "userConsentDisplayName": "Sign in and read user profile",
-               "value": "User.Read"
-           }
-       ]
-   }
-   ```
+    ```json
+    {
+        "oauth2PermissionScopes": [
+            {
+                "adminConsentDescription": "Sign in and read user profile",
+                "adminConsentDisplayName": "Sign in and read user profile",
+                "id": "<paste_the_SERVER_APP_ID>",
+                "isEnabled": true,
+                "type": "User",
+                "userConsentDescription": "Sign in and read user profile",
+                "userConsentDisplayName": "Sign in and read user profile",
+                "value": "User.Read"
+            }
+        ]
+    }
+    ```
 
 1. Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](../../active-directory/develop/supported-accounts-validation.md):
 
@@ -95,10 +95,10 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
    az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --scope User.Read
    ```
 
-   > [!NOTE]
-   > An Azure tenant administrator has to run this step.
-   >
-   > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
+    > [!NOTE]
+    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
+    > 
+    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
 
 #### Create a client application
 
@@ -139,13 +139,13 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
-   ```azurecli
-   CLUSTER_NAME="<clusterName>"
-   TENANT_ID="<tenant>"
-   SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
-   SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
-   echo $SERVER_APP_ID
-   ```
+    ```azurecli
+    CLUSTER_NAME="<name-of-arc-connected-cluster>"
+    TENANT_ID="<tenant>"
+    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
+    echo $SERVER_APP_ID
+    ```
 
 1. Update the application's group membership claims:
 
@@ -168,8 +168,8 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```
 
     > [!NOTE]
-    > An Azure tenant administrator has to run this step.
-    >
+    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
+    > 
     > For usage of this feature in production, we recommend that you  create a different server application for every cluster.
 
 #### Create a client application

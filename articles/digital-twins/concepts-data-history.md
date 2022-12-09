@@ -52,7 +52,13 @@ Each Azure Digital Twins instance will have its own data history connection targ
 * **a separate set of tables** in the Azure Data Explorer cluster.
 * **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
 
-## Required permissions
+## Creating a data history connection
+
+Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
+
+For step-by-step instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+
+### Required permissions
 
 In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
 * Event Hubs resource: **Azure Event Hubs Data Owner**
@@ -62,12 +68,6 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
 These permissions can be assigned using the Azure CLI or Azure portal.
-
-## Creating a data history connection
-
-Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
-
-For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
 ## Data types and schemas
 

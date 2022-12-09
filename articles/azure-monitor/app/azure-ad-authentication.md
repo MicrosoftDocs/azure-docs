@@ -28,7 +28,7 @@ The following are prerequisites to enable Azure AD authenticated ingestion.
 
 The following SDK's and features are unsupported for use with Azure AD authenticated ingestion.
 
-- [Application Insights Java 2.x SDK](java-2x-agent.md)<br>
+- [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)<br>
  Azure AD authentication is only available for Application Insights Java Agent >=3.2.0.
 - [ApplicationInsights JavaScript Web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
