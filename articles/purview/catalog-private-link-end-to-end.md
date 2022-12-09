@@ -18,11 +18,11 @@ The Microsoft Purview _account_ private endpoint is used to add another layer of
 
 The Microsoft Purview _portal_ private endpoint is required to enable connectivity to [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) using a private network.
 
-Microsoft Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Microsoft Purview managed resources when ingestion private endpoint is deployed:
+Microsoft Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Microsoft Purview managed or configured resources when ingestion private endpoint is deployed:
 
  - Blob private endpoint is linked to a Microsoft Purview managed storage account.
  - Queue private endpoint is linked to a Microsoft Purview managed storage account.
- - namespace private endpoint is linked to a Microsoft Purview managed Event Hub namespace.
+ - namespace private endpoint is linked to a Microsoft Purview configured Event Hub namespace.
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Microsoft Purview and Private Link architecture.":::
 
