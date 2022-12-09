@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -17,13 +17,6 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
-## JWTs supported by the policy  
-
-* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-* The policy supports HS256 and RS256 signing algorithms: 
-    * **HS256** - the key must be provided inline within the policy in the Base64-encoded form. 
-    * **RS256** - the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
-* The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ## Policy statement
 
@@ -41,11 +34,11 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
   <openid-config url="full URL of the configuration endpoint, for example, https://login.constoso.com/openid-configuration" />
   <issuer-signing-keys>
-    <key>Base64 encoded signing key</key>
+    <key>Base64 encoded signing key | certificate-id="mycertificate" | n="modulus" e="exponent"</key>
     <!-- if there are multiple keys, then add additional key elements -->
   </issuer-signing-keys>
   <decryption-keys>
-    <key>Base64 encoded signing key</key>
+    <key>Base64 encoded signing key | certificate-id="mycertificate" | n="modulus" e="exponent" </key>
     <!-- if there are multiple keys, then add additional key elements -->
   </decryption-keys>
   <audiences>
@@ -87,7 +80,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| openid-config       | A list of compliant OpenID configuration endpoint URLs, in `url` subelements, from which signing keys and issuer can be obtained.<br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, for example, `contoso.onmicrosoft.com`.                                                                                                                                                                                                                        | No       |
+| openid-config       |Add one or more of these elements to specify a compliant OpenID configuration endpoint URL from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                              <br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Azure Active Directory use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- (v2) `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/> - (v2 multitenant) ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- (v1) `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/><br/> substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`.                                                                                                                                                                                            | No       |
 | issuer-signing-keys | A list of Base64-encoded security keys, in [`key`](#key-attributes) subelements, used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). <br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To validate an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management, or the RSA modulus `n` and exponent `e` pair of the RS256 signing key-in Base64url-encoded format.               | No       |
 | decryption-keys     | A list of Base64-encoded keys, in [`key`](#key-attributes) subelements, used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To decrypt an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management.         | No       |
 | audiences           | A list of acceptable audience claims, in `audience` subelements, that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
@@ -120,11 +113,17 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 ### Usage notes
 
-You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
+* The policy supports HS256 and RS256 signing algorithms: 
+    * **HS256** - the key must be provided inline within the policy in the Base64-encoded form. 
+    * **RS256** - the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
+* The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+* You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+
 
 ## Examples
 
-### 1. Simple token validation
+### Simple token validation
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
@@ -140,7 +139,7 @@ You can use access restriction policies in different scopes for different purpos
 </validate-jwt>
 ```
 
-### 2. Token validation with RSA certificate
+### Token validation with RSA certificate
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
@@ -156,7 +155,7 @@ You can use access restriction policies in different scopes for different purpos
 </validate-jwt>
 ```
 
-### 3. Azure Active Directory token validation
+### Azure Active Directory token validation
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -172,7 +171,7 @@ You can use access restriction policies in different scopes for different purpos
 </validate-jwt>
 ```
 
-### 4. Azure Active Directory B2C token validation
+### Azure Active Directory B2C token validation
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -188,7 +187,7 @@ You can use access restriction policies in different scopes for different purpos
 </validate-jwt>
 ```
 
-### 5. Authorize access to operations based on token claims
+### Authorize access to operations based on token claims
 
 This example shows how to use the `validate-jwt` policy to authorize access to operations based on token claims value.
 
@@ -218,6 +217,7 @@ This example shows how to use the `validate-jwt` policy to authorize access to o
     </when>
 </choose>
 ```
+
 ## Related policies 
 * [API Management access restriction policies](api-management-access-restriction-policies.md)
 
