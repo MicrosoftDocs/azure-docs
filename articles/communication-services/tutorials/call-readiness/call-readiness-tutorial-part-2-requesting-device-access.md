@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-This tutorial is a continuation of a 3-part series of Call Readiness tutorials and follows on from the previous: [Ensure user is on a supported browser](./call-readiness-tutorial-part-1-browser-support.md).
+This tutorial is a continuation of a three part series of Call Readiness tutorials and follows on from the previous: [Ensure user is on a supported browser](./call-readiness-tutorial-part-1-browser-support.md).
 
 ## Download code
 
@@ -25,15 +25,15 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 
 ## Requesting access to the camera and microphone
 
-For calling applications it is often vital a user has given permission to use the microphone and camera.
-This is especially true for applications that require the user to be seen by others.
-In this section we will create a series of components that will encourage the user to grant access to the camera and microphone
-and display a prompt to the user if access is not granted.
+For calling applications, it's often vital a user has given permission to use the microphone and camera.
+In this section, we'll create a series of components that will encourage the user to grant access to the camera and microphone.
+We'll display prompts to the user to guide them through granting access,
+We'll also informa the user with a prompt if access isn't granted.
 
 ### Creating prompts for camera and microphone access
 
-we will first create a series of device permissions prompts to get users into a state where they have accepted the microphone and camera permissions. These will use the `CameraAndMicrophoneDomainPermissions` component
-from the UI Library. Like the Unsupported Browser prompt, we will also host these inside a FluentUI `modal`.
+We'll first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneDomainPermissions` component
+from the UI Library. Like the Unsupported Browser prompt, we'll also host these prompts inside a FluentUI `modal`.
 
 `DevicePermissionPrompts.tsx`
 
@@ -66,8 +66,8 @@ const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" |
 
 ### Checking for camera and microphone access
 
-Here we will add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
-`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone is not supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we will ensure we handle the `unknown` case when prompting the user for permissions.
+Here we'll add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
+`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we'll ensure we handle the `unknown` case when prompting the user for permissions.
 
 `devicePermissionUtils.ts`
 
@@ -79,7 +79,7 @@ import { StatefulCallClient } from "@azure/communication-react";
  * Check if the user needs to be prompted for camera and microphone permissions.
  *
  * @remarks
- * The Permissions API we are using is not supported in Firefox, Android WebView or Safari < 16.
+ * The Permissions API we are using isn't supported in Firefox, Android WebView or Safari < 16.
  * In those cases this will return 'unknown'.
  */
 export const checkDevicePermissionsState = async (): Promise<{camera: PermissionState, microphone: PermissionState} | 'unknown'> => {
@@ -103,12 +103,12 @@ export const requestCameraAndMicrophonePermissions = async (callClient: Stateful
 
 ### Prompting the user to grant access to the camera and microphone
 
-Now we have the prompts and check and request logic, we will update the `PreCallChecksComponent` to prompt the user regarding device permissions.
-In this component we will display different prompts to the user based on the device permission state:
+Now we have the prompts and check and request logic, we'll update the `PreCallChecksComponent` to prompt the user regarding device permissions.
+In this component we'll display different prompts to the user based on the device permission state:
 
-- If the device permission state is unknown we will display a prompt to the user informing them we are checking for device permissions.
-- If we are requesting permissions we will display a prompt to the user encouraging them to accept the permissions request.
-- If the permissions are denied we will display a prompt to the user informing them that they have denied permissions and that they will need to grant permissions to continue.
+- If the device permission state is unknown, we'll display a prompt to the user informing them we're checking for device permissions.
+- If we are requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
+- If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
 
 `CallReadinessCheckComponent`
 
@@ -153,9 +153,9 @@ export const PreCallChecksComponent = (props: {
         return;
       }
 
-      // Next we will check if we need to prompt the user for camera and microphone permissions.
+      // Next we'll check if we need to prompt the user for camera and microphone permissions.
       // The prompt check only works if the browser supports the PermissionAPI for querying camera and microphone.
-      // In the event that is not supported, we show a more generic prompt to the user.
+      // In the event that isn't supported, we show a more generic prompt to the user.
       const devicePermissionState = await checkDevicePermissionsState();
       if (devicePermissionState === 'unknown') {
         // We don't know if we need to request camera and microphone permissions, so we'll show a generic prompt.
@@ -190,7 +190,7 @@ export const PreCallChecksComponent = (props: {
       {/* We show this when we are prompting the user to accept device permissions */}
       <AcceptDevicePermissionRequestPrompt isOpen={currentCheckState === 'promptingForDeviceAccess'} />
 
-      {/* We show this when the PermissionsAPI is not supported and we are checking what permissions the user has granted or denied */}
+      {/* We show this when the PermissionsAPI isn't supported and we're checking what permissions the user has granted or denied */}
       <CheckingDeviceAccessPrompt isOpen={currentCheckState === 'checkingDeviceAccess'} />
 
       {/* We show this when the user has failed to grant camera and microphone access */}

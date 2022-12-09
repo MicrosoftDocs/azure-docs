@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-In this tutorial, we'll be leveraging Azure Communication Services with the UI Library to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be leveraged to produce a Call Readiness experience, whilst the Azure Communication Calling JavaScript SDK provides a rich set of APIs to understand the user state.
+In this tutorial, we'll be using Azure Communication Services with the UI Library to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, whilst the Azure Communication Calling JavaScript SDK provides a rich set of APIs to understand the user state.
 
 ## Download code
 
@@ -39,7 +39,7 @@ The tutorial will be split into three parts:
 1. Requesting access to the camera and microphone
 1. Letting the user choose their camera, microphone and speaker
 
-The diagram below shows the flow the call readiness checker performs across the three parts:
+The following diagram shows the flow the call readiness checker performs across the three parts:
 
 ![flow diagram showing user flow through the call readiness sample](../media/call-readiness/call-readiness-flow-diagram.png)
 
@@ -70,7 +70,7 @@ flowchart TD
 
 ## Setting up the React App
 
-To set up the [React](https://reactjs.org/) App we'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
+To set up the [React](https://reactjs.org/) App, we'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
 
 ```bash
 npx create-react-app ui-library-quickstart-composites --template typescript
@@ -89,7 +89,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 npm install @azure/communication-calling@dev @azure/communication-react@dev
 ```
 
-For this tutorial we will also use FluentUI for creating UI controls:
+For this tutorial, we'll also use FluentUI for creating UI controls:
 
 ```bash
 npm install @fluentui/react @fluentui/react-icons
@@ -97,9 +97,9 @@ npm install @fluentui/react @fluentui/react-icons
 
 ### Setup App
 
-Here we will replace the create-react-app default `App.tsx` content with a basic setup that:
+Here we'll replace the create-react-app default `App.tsx` content with a basic setup that:
 
-- Registers the necessary icons we will use in this tutorial
+- Registers the necessary icons we'll use in this tutorial
 - Sets a theme provider that can be used to set a custom theme
 - Create a [`StatefulCallClient`](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) with a provider that gives child components access to the call client
 
@@ -163,14 +163,14 @@ You should see a green checkmark with a `Test Complete` message.
 
 ## Checking for Browser Support
 
-To ensure the user gets the best experience we want to first make sure they are on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
-In this section we will create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
+To ensure the user gets the best experience, we want to first make sure they're on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
+In this section, we'll create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
 
 ![Gif showing browser check being performed](../media/call-readiness/checking-browser-support.gif)
 
 ### Preparing Your Session Page
 
-Create a new file called `PreparingYourScreen.tsx` and use the code below to create a spinner to show to the user while we perform asynchronous checks in the background:
+Create a new file called `PreparingYourScreen.tsx` where we'll create a spinner to show to the user while we perform asynchronous checks in the background:
 
 `PreparingYourScreen.tsx`
 
@@ -224,7 +224,7 @@ const spinnerContainerStyles = (theme: ITheme): IStackStyles => ({
 ```
 
 We can then Hook up this Preparing your session screen into our App.
-In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningPreCallChecks` state we will show the Preparing Your Session Screen:
+In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningPreCallChecks` state we'll show the Preparing Your Session Screen:
 
 `App.tsx`
 
@@ -244,7 +244,7 @@ const App = (): JSX.Element => {
           </>
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we'll just show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
@@ -254,7 +254,7 @@ const App = (): JSX.Element => {
 
 ### Performing a background check
 
-First create a utility file call `browserSupportUtils.tsx`. Inside this call we will add a method `checkBrowserSupport`. This will use the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a browser support check.
+First create a utility file call `browserSupportUtils.tsx`. Inside this call, we'll add a method `checkBrowserSupport`. This method will use the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a browser support check.
 
 `browserSupportUtils.tsx`
 
@@ -269,8 +269,8 @@ export const checkBrowserSupport = async (callClient: StatefulCallClient): Promi
 
 ### Informing the user they are on an unsupported browser
 
-Next, we will create a prompt to tell the user they are using an unsupported browser. For this we will host the UI Library's `UnsupportedBrowser` component inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
-Create a new file called `UnsupportedBrowserPrompt.tsx` where we will create a unsupported browser prompt:
+Next, we'll create a prompt to tell the user they're using an unsupported browser. For this prompt, we'll host the UI Library's `UnsupportedBrowser` component inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
+Create a new file called `UnsupportedBrowserPrompt.tsx` where we'll create an unsupported browser prompt:
 
 `UnsupportedBrowserPrompt.tsx`
 
@@ -341,7 +341,7 @@ export const PreCallChecksComponent = (props: {
 }
 ```
 
-We can then add this to the `App.tsx` and move the user to the _Test Complete_ stage once the test is successful using the `onTestsSuccessful` callback:
+We can then add the `PreCallChecksComponent` to the `App.tsx`. The App will then move the user to the _Test Complete_ stage once the test is successful using the `onTestsSuccessful` callback:
 
 `App.tsx`
 
@@ -369,7 +369,7 @@ const App = (): JSX.Element => {
           </>
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we'll just show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
@@ -377,7 +377,7 @@ const App = (): JSX.Element => {
 }
 ```
 
-You can now run the app, if you are in an unsupported browser you will see the prompt:
+You can now run the app, if you are in an unsupported browser you'll see the unsupported browser prompt:
 
 ![Gif showing browser check failing](../media/call-readiness/browser-support-check-failed.gif)
 
