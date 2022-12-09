@@ -44,7 +44,7 @@ To manually configure your application and code sample, use the following proced
 
 #### Step 1: Register your application
 
-To register the application and add the app's registration information to the solution manually, follow these steps:
+To register the application and add the registration information to the solution manually, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
