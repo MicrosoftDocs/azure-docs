@@ -15,9 +15,6 @@ ms.author: danlep
 
 The following API Management policies are used for access restriction. 
 
-[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
-
 -   [Check HTTP header](check-header-policy.md) - Enforces existence and/or value of an HTTP header.
 - [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
 -   [Limit call rate by subscription](rate-limit-policy.md) - Prevents API usage spikes by limiting call rate, on a per subscription basis.

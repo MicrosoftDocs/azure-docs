@@ -40,13 +40,11 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
-### Example 1: Transform request body
+### Transform request body
 
 ```xml
 <inbound>
@@ -71,7 +69,7 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 </inbound>
 ```
 
-### Example 2: Transform response body
+### Transform response body
 
 ```xml
 <policies>

@@ -15,6 +15,9 @@ ms.author: danlep
 
 The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
+> [!NOTE]
+>  To validate a JWT that was provided by the Azure Active Directory service, API Management also provides the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy. 
+
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 
@@ -107,9 +110,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ### Usage notes
 
