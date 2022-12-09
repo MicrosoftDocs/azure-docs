@@ -46,7 +46,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 
 -   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
--   To use the Staged Rollout feature, you need to be a global administrator on your tenant.
+-   To use the Staged Rollout feature, you need to be a Hybrid Identity Administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
@@ -86,7 +86,7 @@ The following scenarios are not supported for Staged Rollout:
 
 - When you first add a security group for Staged Rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programatically updating PasswordPolicies attribute is not supported while users are in Staged Rollout. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
 
@@ -145,7 +145,7 @@ Enable *seamless SSO* by doing the following:
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's global administrator credentials.
+4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's Hybrid Identity Administratoristrator credentials.
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
@@ -182,7 +182,7 @@ To configure Staged Rollout, follow these steps:
 
 1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
-1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication (Preview)](../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
+1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
 1. Add groups to the features you selected. For example, *pass-through authentication* and *seamless SSO*. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 

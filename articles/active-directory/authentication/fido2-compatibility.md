@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/02/2021
 
-ms.author: nichola
-author: knicholasa
+author: janicericketts
+ms.author: jricketts
 manager: martinco
 ms.reviewer: 
 

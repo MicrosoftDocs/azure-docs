@@ -128,7 +128,7 @@ New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppS
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, frontend IP config, backend pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 Replace your two web app FQDNs (for example: `mywebapp.azurewebsites.net`) in the $pool variable definition.
 

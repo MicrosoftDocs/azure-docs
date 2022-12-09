@@ -1,12 +1,12 @@
 ---
 title: Metadata and lineage from Azure Synapse Analytics 
 description: This article describes how to connect Azure Synapse Analytics and Microsoft Purview to track data lineage.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/05/2022
 ---
 # How to get lineage from Azure Synapse Analytics into Microsoft Purview
 
@@ -36,7 +36,7 @@ You can connect an Azure Synapse workspace to Microsoft Purview, and the connect
 
 ### Step 2: Run pipeline in Azure Synapse workspace
 
-You can create pipelines with Copy activity in Azure Synapse workspace. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
+You can create pipelines with Copy activity in Azure Synapse workspace. You don't need any other configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
 
 ### Step 3: Monitor lineage reporting status
 

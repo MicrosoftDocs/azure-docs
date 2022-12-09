@@ -17,8 +17,8 @@ ms.date: 08/16/2022
 Before getting started, you will need the following:
 
 - A virtual machine
-- A [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
-- Your [storage account key](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
+- A [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
+- Your [storage account key](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys)
 
 ## Extract VHD from a VM
 
@@ -55,7 +55,7 @@ resourceGroupName=myResourceGroupName
 snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://learn.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
 sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file.

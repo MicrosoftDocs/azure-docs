@@ -9,7 +9,7 @@ metadata:
   ms.date: 02/23/2022
 title: Azure Data Catalog frequently asked questions
 summary: |
-  [!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+  [!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
   
   This article provides answers to frequently asked questions related to the Azure Data Catalog service.
   

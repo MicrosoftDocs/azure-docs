@@ -5,9 +5,10 @@ description: Learn how to work around, solve, and troubleshoot some common Docke
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 08/15/2022
-author: blackmist
-ms.author: larryfr
+ms.date: 11/16/2022
+author: dem108
+ms.author: sehan
+ms.reviewer: larryfr
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
@@ -20,8 +21,8 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 > [!NOTE]
 > If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](/azure/azure-monitor/containers/container-insights-enable-existing-clusters) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
 >
-> * [Check for Resource Health events impacting your AKS cluster](/azure/aks/aks-resource-health)
-> * [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics)
+> * [Check for Resource Health events impacting your AKS cluster](../../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service Diagnostics](../../aks/concepts-diagnostics.md)
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
@@ -30,7 +31,9 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension v1 for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Steps for Docker deployment of machine learning models
 
@@ -61,7 +64,7 @@ To get the logs from a deployed webservice, do:
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

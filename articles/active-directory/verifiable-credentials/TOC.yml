@@ -38,12 +38,16 @@
     items:
     - name: Directory based - Employee
       href: how-to-use-quickstart-verifiedemployee.md
-    - name: ID Token Hint credentials
+    - name: Id token hint attestation
       href: how-to-use-quickstart.md
-    - name: ID Token credentials
+    - name: Id token attestation
       href: how-to-use-quickstart-idtoken.md      
-    - name: Self Issued credentials
+    - name: Presentation attestation
+      href: how-to-use-quickstart-presentation.md
+    - name: Self issued attestation
       href: how-to-use-quickstart-selfissued.md
+    - name: Multiple attestations
+      href: how-to-use-quickstart-multiple.md
   - name: Use the Verified ID Network
     href: how-use-vcnetwork.md
   - name: Using the Request Service REST API
@@ -64,6 +68,8 @@
       href: howto-verifiable-credentials-partner-au10tix.md
     - name: LexisNexis
       href: howto-verifiable-credentials-partner-lexisnexis.md
+    - name: Vu
+      href: partner-vu.md
 - name: Samples
   expanded: true
   items:

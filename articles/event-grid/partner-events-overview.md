@@ -36,17 +36,6 @@ You receive events from a partner in a [partner topic](concepts.md#partner-topic
 > [!NOTE]
 > You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
 
-## Send events to a partner
-
-The process to send events to a partner is similar to that of receiving events from a partner. You send events to a partner using a [partner destination](concepts.md#partner-destination) that's created by the partner upon your request. A partner destination is a kind of resource that contains information such as the partner's endpoint URL to which Event Grid sends events. Here are the steps to send events to a partner.
-
-1. [Authorize partner](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner destination in a resource group you designate. Authorizations are stored in partner configurations.
-2. **Request partner to create a partner destination** resource in the specified Azure resource group in your Azure subscription. Prior to creating a partner destination, the partner should configure its system to be able to receive and, if supported, route your Microsoft events within its platform.
-1. After the partner creates a partner destination in your Azure subscription and resource group, [activate](deliver-events-to-partner-destinations.md#activate-a-partner-destination) your partner destination. 
-1. [Subscribe to events](deliver-events-to-partner-destinations.md#create-an-event-subscription-using-partner-destination) using an event subscriptions on any kind of topic available to you: system topic (Azure services), custom topic or domain (your custom solutions) or a partner topic from another partner. When configuring your event subscription, select partner destination as the endpoint type and select the partner destination to which your events are going to start flowing.
-
-
-:::image type="content" source="./media/partner-events-overview/send-events-to-partner.png" alt-text="Steps to send events to a partner":::
 
 ## Why should I use Partner Events?
 You may want to use the Partner Events feature if you've one or more of the following requirements.
@@ -89,15 +78,14 @@ A verified partner is a partner organization whose identity has been validated b
 You manage the following types of resources.
 
 - **Partner topic** is the resource where you receive your events from the partner. 
-- **Partner destination** is a resource that represents the partner system to which you can send events.
-- **[Event subscriptions](subscribe-through-portal.md)** is where you select what events to forward to an Azure service, a partner destination or to a public webhook on Azure or elsewhere. 
+- **[Event subscriptions](subscribe-through-portal.md)** is where you select what events to forward to an Azure service or to a public webhook on Azure or elsewhere. 
 - **Partner configurations** is the resource the holds your authorizations to partners to create partner resources.
  
 ## Grant authorization to create partner topics and destinations
 
-You must authorize partners to create partner topics or partner destinations before they attempt to create those resources. If you don't grant your authorization, the partners' attempt to create the partner resource will fail. 
+You must authorize partners to create partner topics before they attempt to create those resources. If you don't grant your authorization, the partners' attempt to create the partner resource will fail. 
 
-You consent the partner to create partner topics or partner destinations by creating a **partner configuration** resource. You add a partner authorization to a partner configuration identifying the partner and providing an authorization expiration time by which a partner topic/destination must be created. The only types of resources that partners can create with your permission are partner topics and partner destinations.
+You consent the partner to create partner topics by creating a **partner configuration** resource. You add a partner authorization to a partner configuration identifying the partner and providing an authorization expiration time by which a partner topic/destination must be created. The only types of resources that partners can create with your permission are partner topics.
 
 >[!IMPORTANT]
 > A verified partner isn't an authorized partner. Even if a partner has been vetted by Microsoft, you still need to authorize it before the partner can create resources on your behalf. 

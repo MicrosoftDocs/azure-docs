@@ -11,14 +11,14 @@ ms.author: patricka
 
 # Create and provision an IoT Edge for Linux on Windows device using symmetric keys
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 
 <!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
+:::moniker range="=iotedge-2020-11"
 >[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.3, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use if a general availability (GA) release is available. For more information, see [EFLOW versions](./version-history.md).
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 
@@ -149,6 +149,15 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        sudo iotedge check
        ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
@@ -195,6 +204,16 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```bash
        sudo iotedge check
        ```
+
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->

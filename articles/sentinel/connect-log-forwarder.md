@@ -1,10 +1,10 @@
 ---
 title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel | Microsoft Docs
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: how-to
 ms.date: 12/23/2021
-ms.author: bagol
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
@@ -40,7 +40,7 @@ Your machine must meet the following requirements:
     - Your Linux machine must have a minimum of **4 CPU cores and 8 GB RAM**.
 
         > [!NOTE]
-        > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+        > - A single log forwarder machine with the above hardware configuration and using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
 
 - **Operating system**
 

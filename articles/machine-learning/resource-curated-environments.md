@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about Azure Machine Learning curated environments, a set of pre-configured environments that help reduce experiment and deployment preparation times.
 services: machine-learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: osiotugo
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
@@ -30,6 +30,26 @@ This article lists the curated environments with latest framework versions in Az
 > To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md). 
 
 ## Curated environments
+
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### Azure Container for PyTorch (ACPT) (preview)
+
+**Name**: AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu  
+**Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc. 
+
+The following configurations are supported: 
+
+| Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
+| AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.12.0 | 0.7.3 | 1.12.0 |
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
 
 ### PyTorch
 

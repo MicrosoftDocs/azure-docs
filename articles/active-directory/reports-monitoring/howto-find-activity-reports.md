@@ -3,17 +3,14 @@
 title: Find user activity reports in Azure portal | Microsoft Docs
 description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management
@@ -28,8 +25,7 @@ In this article, you learn how to find Azure Active Directory (Azure AD) user ac
 The audit logs report combines several reports around application activities into a single view for context-based reporting. To access the audit logs report:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Select your directory from the top-right corner, then select the **Azure Active Directory** blade from the left navigation pane.
-3. Select **Audit logs** from the **Activity** section of the Azure Active Directory blade. 
+1. Select **Audit logs** from the **Activity** section of Azure Active Directory. 
 
     ![Audit logs](./media/howto-find-activity-reports/482.png "Audit logs")
 
@@ -94,7 +90,7 @@ The **Sign-ins** view includes all user sign-ins, as well as the **Application U
 To access the sign-ins report:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Select your directory from the top-right corner, then select the **Azure Active Directory** blade from the left navigation pane.
+2. Select your directory from the top-right corner, then select **Azure Active Directory** from the left navigation pane.
 3. Select **Signins** from the **Activity** section of the Azure Active Directory blade. 
 
     ![Sign-ins view](./media/howto-find-activity-reports/483.png "Sign-ins view")

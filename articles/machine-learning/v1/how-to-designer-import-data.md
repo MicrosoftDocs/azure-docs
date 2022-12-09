@@ -7,9 +7,10 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2021
+ms.reviewer: lagayhar
+ms.date: 09/22/2022
 ms.topic: how-to
-ms.custom: designer, event-tier1-build-2022
+ms.custom: designer, event-tier1-build-2022, ignite-2022
 ---
 
 # Import data into Azure Machine Learning designer
@@ -27,7 +28,7 @@ We recommend that you use [datasets](concept-data.md) to import data into the de
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#create-datasets-from-datastores) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#create-datasets-from-datastores) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-data-assets).
 
 You can also register the output for any designer component as a dataset.
 
@@ -73,7 +74,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data component, see the [Import Data reference page](../algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-datasets).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-data-assets).
 
 ## Supported sources
 

@@ -331,10 +331,10 @@ If you get an error message in your main app window, use this table to identify 
 
 | Message | What should you do? |
 |-------|----------------------|
-|Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name| On the **Settings** page of the app, make sure that you entered the subscription key and its region correctly. |
+|Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct resource key (or authorization token) and region name| On the **Settings** page of the app, make sure that you entered the key and its region correctly. |
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1002. Error details: The server returned status code '503' when status code '101' was expected | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) box and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
-|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key doesn't support neural voices. See [neural voices](./regions.md#speech-service) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
+|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your resource key doesn't support neural voices. See [neural voices](./regions.md#speech-service) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
 
 If the actions in the table don't address your problem, see [Voice assistants: Frequently asked questions](faq-voice-assistants.yml). If you still can't resolve your problem after following all the steps in this tutorial, please enter a new issue on the [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -377,7 +377,7 @@ Here's sample JSON of an activity that the client received:
     },
     "replyToId":"67c823b4-4c7a-4828-9d6e-0b84fd052869",
     "serviceUrl":"urn:botframework:websocket:directlinespeech",
-    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)'>Echo: Hello and welcome.</voice></speak>",
+    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-JennyNeural'>Echo: Hello and welcome.</voice></speak>",
     "text":"Echo: Hello and welcome.",
     "timestamp":"2019-07-19T20:03:51.1939097Z",
     "type":"message"
@@ -389,7 +389,7 @@ To learn more about what's returned in the JSON output, see the [fields in the a
 ### View client source code for calls to the Speech SDK
 
 The Windows Voice Assistant Client uses the NuGet package [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/), which contains the Speech SDK. A good place to start reviewing the sample code is the method `InitSpeechConnector()` in the file [VoiceAssistantClient\MainWindow.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs), which creates these two Speech SDK objects:
-- [DialogServiceConfig](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig): For configuration settings like subscription key and its region.
+- [DialogServiceConfig](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig): For configuration settings like resource key and its region.
 - [DialogServiceConnector](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor): To manage the channel connection and client subscription events for handling recognized speech and bot responses.
 
 ## Add custom keyword activation
@@ -444,7 +444,7 @@ You can choose from any of the languages mentioned in the [speech-to-text](langu
 
 You can select the text-to-speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
 
-The following example adds SSML to the echo bot reply so that the German voice Stefan Apollo (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=stt-tts) that are supported for your language.
+The following example adds SSML to the echo bot reply so that the German voice `de-DE-RalfNeural` (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=stt-tts) that are supported for your language.
 
 1. Open **samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs**.
 1. Find these lines:
@@ -459,7 +459,7 @@ The following example adds SSML to the echo bot reply so that the German voice S
     ```csharp
     var replyText = $"Echo: {turnContext.Activity.Text}";
     var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
-                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    <voice name='de-DE-RalfNeural'>" +
                     $"{replyText}" + "</voice></speak>";
     await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
     ```

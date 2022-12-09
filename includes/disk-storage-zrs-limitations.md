@@ -12,6 +12,6 @@
 
 ZRS for managed disks have the following restrictions:
 
-- Only supported with premium solid-state drives (SSD) and standard SSDs.
+- Only supported with premium solid-state drives (SSD) managed disks and standard SSDs.
 - Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
 

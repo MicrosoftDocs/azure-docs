@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 08/29/2022
 tags: connectors
 ---
 
 # Handle incoming or inbound HTTPS requests sent to workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To run your logic app workflow after receiving an HTTPS request from another service, you can start your workflow with the Request built-in trigger. Your workflow can then respond to the HTTPS request by using Response built-in action.
 
@@ -418,6 +420,10 @@ When you use the Request trigger to receive inbound requests, you can model the 
 > * If you have one or more Response actions in a complex workflow with branches, make sure that the workflow 
 > processes at least one Response action during runtime. Otherwise, if all Response actions are skipped, 
 > the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
+>
+> * In a Standard logic app *stateless* workflow, the Response action must appear last in your workflow. If the action appears 
+> anywhere else, Azure Logic Apps still won't run the action until all other actions finish running.
+
 
 ## [Consumption](#tab/consumption)
 

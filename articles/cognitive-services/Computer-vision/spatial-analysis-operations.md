@@ -238,7 +238,6 @@ The following is an example of a JSON input for the SPACEANALYTICS_CONFIG parame
           "type": "count",
           "config": {
             "trigger": "event",
-            "threshold": 13.00,
             "focus": "footprint"
           }
         }
@@ -253,7 +252,7 @@ The following is an example of a JSON input for the SPACEANALYTICS_CONFIG parame
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of a polygon. The polygon represents the areas in which people are tracked or counted. Polygon points are based on normalized coordinates (0-1), where the top left corner is (0.0, 0.0) and the bottom right corner is (1.0, 1.0).   
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. This is an optional field and value is in ratio (0-1). For example, value 0.0253 will be 13 pixels on a video with image width = 512 (0.0253 X 512 = ~13).|
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcount**, this should be `count`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
 | `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`. |
@@ -283,7 +282,6 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
                    "type": "linecrossing",
                    "config": {
                        "trigger": "event",
-                       "threshold": 13.00,
                        "focus": "footprint"
                    }
                }
@@ -300,7 +298,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
 | `line` | list| The definition of the line. This is a directional line allowing you to understand "entry" vs. "exit".|
 | `start` | value pair| x, y coordinates for line's starting point. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
 | `end` | value pair| x, y coordinates for line's ending point. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 13. This is the recommended value to achieve maximum accuracy. |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. This is an optional field and value is in ratio (0-1). For example, value 0.0253 will be 13 pixels on a video with image width = 512 (0.0253 X 512 = ~13).|
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingline**, this should be `linecrossing`.|
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
@@ -319,7 +317,6 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "type": "zonecrossing",
            "config":{
                "trigger": "event",
-               "threshold": 38.00,
                "focus": "footprint"
                }
            }]
@@ -331,7 +328,6 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "type": "zonedwelltime",
            "config":{
                "trigger": "event",
-               "threshold": 13.00,
                "focus": "footprint"
                }
            }]
@@ -345,7 +341,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `target_side` | int| Specifies a side of the zone defined by `polygon` to measure how long people face that side while in the zone. 'dwellTimeForTargetSide' will output that estimated time. Each side is a numbered edge between the two vertices of the polygon that represents your zone. For example, the edge between the first two vertices of the polygon represents the first side, 'side'=1. The value of `target_side` is between `[0,N-1]` where `N` is the number of sides of the `polygon`. This is an optional field.  |
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 38 when the type is `zonecrossing` and 13 when time is `DwellTime`. These are the recommended values to achieve maximum accuracy.  |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. This is an optional field and value is in ratio (0-1). For example, value 0.074 will be 38 pixels on a video with image width = 512 (0.074 X 512 = ~38).|
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
@@ -366,8 +362,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "output_frequency":1,
            "minimum_distance_threshold":6.0,
            "maximum_distance_threshold":35.0,
-           "aggregation_method": "average"
-           "threshold": 13.00,
+           "aggregation_method": "average",
            "focus": "footprint"
           }
           }]
@@ -380,7 +375,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are counted and the distance between people is measured. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. This is an optional field and value is in ratio (0-1). For example, value 0.0253 will be 13 pixels on a video with image width = 512 (0.0253 X 512 = ~13).|
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-persondistance**, this should be `persondistance`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
 | `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`.|
@@ -412,7 +407,6 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
           "type": "linecrossing",
           "config": {
             "trigger": "event",
-            "threshold": 13.00,
             "focus": "footprint"
           }
         }
@@ -431,7 +425,6 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
             "output_frequency": 1,
             "minimum_distance_threshold": 6.0,
             "maximum_distance_threshold": 35.0,
-            "threshold": 13.00,
             "focus": "footprint"
           }
         },
@@ -440,21 +433,18 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
           "config": {
             "trigger": "event",
             "output_frequency": 1,
-            "threshold": 13.00,
             "focus": "footprint"
           }
         },
         {
           "type": "zonecrossing",
           "config": {
-            "threshold": 38.00,
             "focus": "footprint"
           }
         },
         {
           "type": "zonedwelltime",
           "config": {
-            "threshold": 13.00,
             "focus": "footprint"
           }
         }

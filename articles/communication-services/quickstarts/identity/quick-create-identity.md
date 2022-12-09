@@ -2,10 +2,10 @@
 title: Quickstart - Quickly create Azure Communication Services identities for testing
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to use the Identities & Access Tokens tool in the Azure portal to use with samples and for troubleshooting.
-author: GrantMeStrength
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-ms.author: jken
+ms.author: chpalm
 ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

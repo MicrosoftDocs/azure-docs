@@ -12,6 +12,9 @@ ms.date: 01/10/2022
 
 # Train and test your LUIS app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Training is the process of teaching your Language Understanding (LUIS) app to extract intent and entities from user utterances. Training comes after you make updates to the model, such as: adding, editing, labeling, or deleting entities, intents, or utterances.
 
 Training and testing an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, you should make updates to the LUIS app, then train and test again.

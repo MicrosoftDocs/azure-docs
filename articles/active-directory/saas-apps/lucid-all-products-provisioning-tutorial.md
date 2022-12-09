@@ -12,13 +12,13 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
 # Tutorial: Configure Lucid (All Products) for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Lucid (All Products) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Lucid (All Products)](https://www.lucid.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Lucid (All Products) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Lucid (All Products)](https://lucid.co/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported

@@ -8,6 +8,8 @@ ms.date: 06/10/2022
  
 # Tutorial: create an ARM-based account with Azure portal
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 To start using unlimited features and robust capabilities of Azure Video Indexer, you need to create an Azure Video Indexer unlimited account. 
@@ -59,6 +61,9 @@ You can use the Azure portal to validate the Azure Video Indexer account and oth
 ## The Overview tab of the account
 
 This tab enables you to view details about your account.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/create-account-portal/avi-overview.png" alt-text="Screenshot showing the Overview tab.":::
 
 Select **Explore Azure Video Indexer's portal** to view your new account on the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 

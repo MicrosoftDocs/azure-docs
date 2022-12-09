@@ -33,6 +33,8 @@ items:
       href: start-stop-sap-systems.md
     - name: Get quality checks and insights
       href: get-quality-checks-insights.md
+    - name: View cost analysis for SAP system
+      href: view-cost-analysis.md
 
   - name: Monitoring
     items:
@@ -43,10 +45,13 @@ items:
   items:
   - name: REST API
     href: /rest/api/workloads/
+  - name: Azure CLI guide
+    href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+   
 
 - name: Resources
   items:
-  - name: SAP deployment automation framework
+  - name: SAP on Azure Deployment Automation Framework
     href: ../virtual-machines/workloads/sap/automation-deployment-framework.md
   - name: Azure Monitor for SAP solutions
     href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md

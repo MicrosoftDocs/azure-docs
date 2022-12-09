@@ -5,7 +5,7 @@ description: Get started creating a NAT gateway using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
-ms.subservice: nat
+ms.subservice: nat 
 ms.topic: quickstart 
 ms.date: 02/04/2022
 ms.custom: template-quickstart, devx-track-azurecli
@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurecli
 
 # Quickstart: Create a NAT gateway using the Azure CLI
 
-This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure.
+This quickstart shows you how to use the Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -59,7 +59,7 @@ Create a virtual network with a subnet with [az network vnet create](/cli/azure/
 
 Create an Azure Bastion host to access the virtual machine.
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Azure Bastion subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create an Azure Bastion subnet.
 
 :::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="subnet":::
 
@@ -103,7 +103,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 1. Make note of the public IP address:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM** that is located in the **myResourceGroupNAT** resource group.
 
@@ -119,7 +119,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 1. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
 
 ## Clean up resources
 

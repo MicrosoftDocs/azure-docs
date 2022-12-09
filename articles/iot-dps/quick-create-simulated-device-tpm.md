@@ -121,10 +121,10 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
     ```cmd
-    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
 ::: zone-end
@@ -133,7 +133,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [azure-utpm-c](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+2. Clone the [azure-utpm-c](https://github.com/Azure/azure-utpm-c) GitHub repository using the following command:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
@@ -157,7 +157,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ## Build and run the TPM device simulator
 
-In this section, you'll build and run the TPM simulator. This simulator listens over a socket on ports 2321 and 2322. Do not close the command window. You'll need to keep this simulator running until the end of this quickstart.
+In this section, you'll build and run the TPM simulator. This simulator listens over a socket on ports 2321 and 2322. Don't close the command window. You'll need to keep this simulator running until the end of this quickstart.
 
 ::: zone-end
 
@@ -299,7 +299,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
 1. Run the [TPM](/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device.
 
-2. Select  **Allow Access**. The simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart guide.
+2. Select  **Allow Access**. The simulator listens over a socket on ports 2321 and 2322. Don't close this command window; you need to keep this simulator running until the end of this quickstart guide.
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -387,7 +387,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 1. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
     ```cmd
-    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
     ```
 
 2. Type the following command to build and run the TPM device provisioning sample. Copy the endorsement key returned from your TPM 2.0 hardware security module to use later when enrolling your device.
@@ -449,7 +449,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
    * Select **TPM** as the identity attestation *Mechanism*.
    * Enter the *Endorsement key* you retrieved earlier from your HSM.
-   * Enter a unique *Registration ID* for your device. You will also use this registration ID when registering your device, so make a note of it for later.
+   * Enter a unique *Registration ID* for your device. You'll also use this registration ID when registering your device, so make a note of it for later.
    * Select an IoT hub linked with your provisioning service.
    * Optionally, you may provide the following information:
        * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
@@ -481,7 +481,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 4. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
 
-    Currently, the [MQTT protocol is not supported for TPM Individual Enrollment](https://github.com/Azure/azure-iot-sdk-c#provisioning-client-sdk).
+    Currently, the [MQTT protocol isn't supported for TPM Individual Enrollment](https://github.com/Azure/azure-iot-sdk-c#provisioning-client-sdk).
 
     ```c
     //
@@ -541,10 +541,10 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
    ```cmd
-   cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
    ```
 
-4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you just copied and `<RegistrationId>` with the value you used when creating the device enrollment.
+4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you copied and `<RegistrationId>` with the value you used when creating the device enrollment.
 
     ```cmd
     dotnet run -- -s <IdScope> -r <RegistrationId>
@@ -749,7 +749,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device.
+In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. Next, learn how to enroll your TPM device programmatically.
 
 ::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-csharp"

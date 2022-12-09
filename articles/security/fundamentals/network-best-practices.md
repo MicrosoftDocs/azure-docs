@@ -1,14 +1,12 @@
 ---
 title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
-services: security
 author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
-ms.service: virtual-machines
-ms.subservice: security
+ms.service: security
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -185,7 +183,7 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 **Option**: A [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) connects an entire network to another network over the internet. You can use a site-to-site VPN to connect your on-premises network to an Azure virtual network. Users on your on-premises network connect by using the RDP or SSH protocol over the site-to-site VPN connection. You don't have to allow direct RDP or SSH access over the internet.
 
 **Scenario**: Use a dedicated WAN link to provide functionality similar to the site-to-site VPN.   
-**Option**: Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). It provides functionality similar to the site-to-site VPN. The main differences are:
+**Option**: Use [ExpressRoute](../../expressroute/index.yml). It provides functionality similar to the site-to-site VPN. The main differences are:
 
 - The dedicated WAN link doesn't traverse the internet.
 - Dedicated WAN links are typically more stable and perform better.
