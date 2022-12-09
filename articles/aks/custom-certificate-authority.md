@@ -20,7 +20,7 @@ This feature is applied per nodepool, so new and existing nodepools must be conf
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli-install].
-* A base64 encoded certificate string.
+* A base64 encoded certificate string or a text file with certificate.
 
 ### Limitations
 
@@ -28,7 +28,7 @@ This feature isn't currently supported for Windows nodepools.
 
 ### Install the `aks-preview` extension
 
-You also need the *aks-preview* Azure CLI extensions version 0.5.72 or later. Install the *aks-preview* extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extensions version 0.5.119 or later. Install the *aks-preview* extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli
 # Install the aks-preview extension
@@ -64,7 +64,7 @@ Two ways of installing custom CAs on your AKS cluster are available. They are in
 
 ### Install CAs during nodepool boot up
 If your environment requires your custom CAs to be added to node trust store for correct provisioning,
-text file containing up to 10 comma-separated, base64 encoded CAs needs to be passed during
+text file containing up to 10 blank line separated certificates needs to be passed during
 [az aks create][az-aks-create] or [az aks update][az-aks-update] operations.
 
 Example command:
@@ -79,7 +79,13 @@ az aks create \
 
 Example file:
 ```
-base64EncodedCA1,base64EncodedCA2
+-----BEGIN CERTIFICATE-----
+cert1
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+cert2
+-----END CERTIFICATE-----
 ```
 
 CAs will be added to node's trust store during node boot up process, allowing the node to e.g. access a private registry.
@@ -122,9 +128,9 @@ data:
       {anotherBase64EncodedCertStringHere}
 ```
 
-To update or remove a CA, edit and apply the YAML manifest. The cluster will poll for changes and update the nodes accordingly. This process may take a couple of minutes before changes are applied.
+To update or remove a CA, edit and apply the secret's YAML manifest. The cluster will poll for changes and update the nodes accordingly. This process may take a couple of minutes before changes are applied.
 
-Sometimes containerd restart on the node might be required for the CAs to be picked up properly, you can trigger such restart using the following command from node's shell:
+Sometimes containerd restart on the node might be required for the CAs to be picked up properly. If it appears like CAs were not added correctly to your node's trust store, you can trigger such restart using the following command from node's shell:
 
 ```systemctl restart containerd```
 
@@ -180,7 +186,8 @@ az aks nodepool add \
 
 If there are currently no other nodepools with the feature enabled, cluster will have to reconcile its settings for
 the changes to take effect. Before that happens, daemonset and pods which install CAs will not appear on the cluster.
-You can trigger reconcile operation by running the [az aks update][az-aks-update] command:
+This operation will happen automatically as a part of AKS's reconcile loop.
+You can trigger reconcile operation immediately by running the [az aks update][az-aks-update] command:
 
 ```azurecli
 az aks update \
@@ -204,6 +211,7 @@ az aks nodepool update \
 
 If there are currently no other nodepools with the feature enabled, cluster will have to reconcile its settings for
 the changes to take effect. Before that happens, daemonset and pods which install CAs will not appear on the cluster.
+This operation will happen automatically as a part of AKS's reconcile loop.
 You can trigger reconcile operation by running the following command:
 
 ```azurecli
@@ -217,6 +225,7 @@ Once complete, the daemonset and pods will appear in the cluster.
 ### Feature is enabled and secret with CAs is added, but operations are failing with X.509 Certificate Signed by Unknown Authority error
 #### Incorrectly formatted certs passed in the secret
 AKS requires certs passed in the user-created secret to be properly formatted and base64 encoded. Make sure the CAs you passed are properly base64 encoded and that files with CAs don't have CRLF line breaks.
+Note that secret's passed to ```--custom-ca-trust-certificates``` option should not be base64 encoded.
 #### Containerd hasn't picked up new certs
 From node's shell, run ```systemctl restart containerd```, once containerd is restarted, new certs will be properly picked up by the container runtime.
 
