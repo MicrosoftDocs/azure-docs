@@ -153,7 +153,7 @@ To create identity mapping:
 4. Select the identity-mapping **Type of Header Identity Mapping**.
 5. In the **Attribute-Mapping** table, specify the required mappings. For example,
 
-   Attribute name | Header name |
+  | Attribute name | Header name |
    |---|---|
    | 'upn' | x-userprincipalname |
    | 'email' | x-email |
@@ -166,27 +166,21 @@ To create identity mapping:
 #### Create a site
 
 >[!NOTE]
->In some configurations, it is possible that a site may contain more than one application. A site can be used with more than one application, where appropriate.
+>In some configurations, a site can contain multiple applications. You can use a site with more than one application, when appropriate.
 
-Follow these steps to create a site:
+To create a site:
 
-1. Go to **Main** > **Sites**
-
-2. Select **Add Site**
-
-3. Specify a **Name** for the site
-
-4. Enter the site **Target**. The target is the hostname:port pair for the server hosting the application. Don't enter the path for the application in this field. For example, an application at https://mysite:9999/AppName will have a target value of mysite: 9999
-
-5. Indicate whether or not the target is expecting secure connections.
-
-6. If the target is expecting secure connections, set the Trusted Certificate Group to **Trust Any**.
-
-7. Select **Save**
+1. Go to **Main** > **Sites**.
+2. Select **Add Site**.
+3. Enter the site **Name**.
+4. Enter the site **Target**. The target is the hostname:port pair for the server hosting the application. Don't enter the application path in this field. For example, an application at https://mysite:9999/AppName has a target value of mysite:9999.
+5. Indicate if the target expects secure connections.
+6. If the target expects secure connections, set the Trusted Certificate Group to **Trust Any**.
+7. Select **Save**.
 
 #### Create an application
 
-Follow these steps to create an application in PingAccess for each application in Azure that you want to protect.
+To create an application in PingAccess for each application in Azure that you want to protect.
 
 1. Go to **Main** > **Applications**
 
