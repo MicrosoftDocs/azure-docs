@@ -89,7 +89,7 @@ FIDO 2 security keys, smart cards, and Windows Hello for Business can help you m
 
 * Smart cards are a proven technology. Multiple vendor products meet FIPS requirements.
 
-  * Learn more on [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/validated-modules/Search).
+  * Learn more on [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/validated-modules/Search)
 
 **Windows Hello for Business**
 
