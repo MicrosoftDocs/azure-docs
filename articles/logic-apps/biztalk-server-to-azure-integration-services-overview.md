@@ -187,7 +187,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - Custom pipelines and pipeline components
 
-  When receiving and sending messages, BizTalk Server might need to prepare and transform messages for entry and exit, due to business reasons. In BizTalk Server, pipelines provide an implementation of the [Pipes and Filters integration pattern](https://www.enterpriseintegrationpatterns.com/PipesAndFilters.html) and include many features such as a JSON encoder and decoder, MIME or SMIME decoder, and so on.
+  When BizTalk Server receives and sends messages, the server might need to prepare and transform messages for entry and exit, due to business reasons. In BizTalk Server, pipelines provide an implementation of the [Pipes and Filters integration pattern](https://www.enterpriseintegrationpatterns.com/PipesAndFilters.html) and include many features such as a JSON encoder and decoder, MIME or SMIME decoder, and so on.
 
   When you need to add information to the context of a message that requires customization in the pipeline, BizTalk Server provides the capability to customize these pipelines by creating custom pipeline components.
 
@@ -225,7 +225,7 @@ To exchange messages with external systems, applications, and entities, BizTalk 
 - Adapters for EDI, FTP, HTTP, MSMQ, SMTP, POP3, and SOAP protocols
 - An adapter for Windows SharePoint Services
 
-The [BizTalk Adapter Framework](/biztalk/core/developing-custom-adapters) offers a stable, open mechanism for all adapters to implement or access work from the BizTalk Server Messaging Engine. The interfaces described in the Microsoft.BizTalk.Adapter.Framework namespace enables adapters to provide ways to modify configuration property pages. The Framework also provides the capability to import services and schemas into a BizTalk project. Partner adapters are also available from various vendors and community members. For a list of known adapters, see [BizTalk Server: List of Third-Party Adapters](https://technet2.github.io/Wiki/articles/12956.biztalk-server-list-of-third-party-adapters.html).
+The [BizTalk Adapter Framework](/biztalk/core/developing-custom-adapters) offers a stable, open mechanism for all adapters to implement or access work from the BizTalk Server Messaging Engine. The interfaces described in the Microsoft.BizTalk.Adapter.Framework namespace enable adapters to provide ways to modify configuration property pages. The Framework also provides the capability to import services and schemas into a BizTalk project. Partner adapters are also available from various vendors and community members. For a list of known adapters, see [BizTalk Server: List of Third-Party Adapters](https://technet2.github.io/Wiki/articles/12956.biztalk-server-list-of-third-party-adapters.html).
 
 #### Azure Integration Services
 
@@ -358,11 +358,11 @@ The following section describes options to implement the publish-subscribe patte
 
 #### BizTalk Server
 
-Publish-subscribe (pub-sub) capabilities exist through the [MessageBox database](/biztalk/core/the-messagebox-database), which is described earlier in the section, [How does BizTalk Server work](#how-does-biztalk-server-work). A popular way to create subscriptions is by using Promoted Properties, which allow you to identify specific elements or attributes in a defined message schema as a Promoted Property. You can then establish subscriptions to filter messages based upon specific criteria against a Promoted Property. For example, if you promoted a schema element named City, you can then create a subscription that filters on the City element for specific cities. If your criteria is met, your subscription, a Send port, or an orchestration receives a copy of the message.
+Publish-subscribe (pub-sub) capabilities exist through the [MessageBox database](/biztalk/core/the-messagebox-database), which is described earlier in the section, [How does BizTalk Server work](#how-does-biztalk-server-work). A popular way to create subscriptions is by using Promoted Properties, which allow you to identify specific elements or attributes in a defined message schema as a Promoted Property. You can then establish subscriptions to filter messages based upon specific criteria against a Promoted Property. For example, if you promoted a schema element named City, you can then create a subscription that filters on the City element for specific cities. If your criteria are met, your subscription, a Send port, or an orchestration receives a copy of the message.
 
 #### Azure Integration Services
 
-With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. If you need to implement a publish-subscribe solution, you can use [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). This service is a fully-managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, providing the following benefits:
+With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. If you need to implement a publish-subscribe solution, you can use [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). This service is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, providing the following benefits:
 
 - Load balance work across competing workers.
 - Safely route and transfer data with control across service and application boundaries.
@@ -378,7 +378,7 @@ The following section describes options for setting up business rules in BizTalk
 
 #### BizTalk Server
 
-BizTalk Server includes a forward-chaining rules engine that lets you construct "if-then-else" rules by using a visual editor. You can bundle these rules within a policy that's transportable to other environments in your IT landscape. These policies can also access XSD schemas, .NET Fx code, and SQL Server database tables to lookup data and enrich outputs.
+BizTalk Server includes a forward-chaining rules engine that lets you construct "if-then-else" rules by using a visual editor. You can bundle these rules within a policy that's transportable to other environments in your IT landscape. These policies can also access XSD schemas, .NET Fx code, and SQL Server database tables to look up data and enrich outputs.
 
 #### Azure Integration Services
 
@@ -443,7 +443,7 @@ To achieve these scenarios, multiple approaches exist, for example:
 
 - Implement BizTalk Server in a perimeter network and only allow its own services, or host instances, to access your organization's network
 - Set up two BizTalk Servers with one in a perimeter network and the other in your organization's network. The server in the perimeter network then publishes the messages that the server in the organizational network consumes.
-- Develop custom applications or appliance software, such as Netscaler and F5, that act as reverse proxies, receive messages on behalf of BizTalk within the perimeter network, and redirect those calls to BizTalk Server.
+- Develop custom applications or appliance software, such as NetScaler and F5, which can act as reverse proxies, receive messages on behalf of BizTalk within the perimeter network, and redirect those calls to BizTalk Server.
 
 #### Azure Integration Services
 
@@ -499,7 +499,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 
 #### Azure Integration Services
 
-Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The Functions platform supports various programming languages and runtimes that offer a lot of flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
+Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The Functions platform supports various programming languages and runtimes, which offer lots of flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
 
 In Azure Logic Apps, the **Inline Code** connector provides the action named **Execute JavaScript Code**. You can use this action to write small code snippets in JavaScript. These code snippets are also expected to have short execution times and support dynamic content inputs and outputs. After the code runs, the output is available for downstream actions in the workflow. Although no direct debugging support currently exists for this action, you can view the inputs and outputs in the workflow instance's run history.
 
@@ -567,7 +567,7 @@ The separation between configuration and code becomes important when you want to
 
   - Configuration changes require that you restart host instances to pick up the latest values in this configuration file.
 
-  - Any syntax errors introduced to this configuration file prevents host instances from starting and result in downtime.
+  - Any syntax errors introduced to this configuration file prevent host instances from starting and result in downtime.
 
 - Enterprise SSO tool
 
@@ -703,7 +703,7 @@ The following section describes options for tracking artifacts for performance a
 
 #### Azure Integration Services
 
-Azure Logic Apps provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates the data in logs and run history to avoid leaks.
+Azure Logic Apps provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates or hides the data in logs and workflow run histories to avoid leaks.
 
 Beyond data obfuscation, you can use [Azure RBAC](/azure/role-based-access-control/overview) rules to protect data access. Azure RBAC includes two built-in roles specifically for Azure Logic Apps, which are [Logic App Contributor and Logic App Operator](/azure/logic-apps/logic-apps-securing-a-logic-app#secure-operations).
 
@@ -810,7 +810,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
 - Availability and redundancy
 
-  In Azure, [availability zones](/azure/reliability/availability-zones-overview#availability-zones) provide resiliency, distributed availability, and active-active-active zone scale out. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zone), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+  In Azure, [availability zones](/azure/reliability/availability-zones-overview#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zone), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 - Isolated and dedicated environment
 
