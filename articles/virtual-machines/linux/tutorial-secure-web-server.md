@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.date: 08/29/2021
+ms.date: 12/9/2022
 ms.author: mattmcinnes
 ms.custom: mvc, devx-track-azurecli, GGAL-freshness822
 
