@@ -111,7 +111,7 @@ In the URL:
 * Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
 * `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
 
-The error "AADSTS50011: No reply address is registered for the application" may be displayed after you grant consent to the app by using the preceding URL. This error occurs because the application and the URL don't have a redirect URI. This can be ignored.
+The error `AADSTS50011: No reply address is registered for the application` may be displayed after you grant consent to the app by using the preceding URL. This error occurs because the application and the URL don't have a redirect URI. This can be ignored.
 
 #### Step 5: Run the application
 
