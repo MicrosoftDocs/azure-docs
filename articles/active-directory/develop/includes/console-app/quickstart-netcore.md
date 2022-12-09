@@ -28,7 +28,7 @@ This quickstart requires [.NET Core 6.0 SDK](https://dotnet.microsoft.com/downlo
 ## Register and download the app
 
 
-The two options to build the application are with an automatic or manual configuration.
+The application can be built using either an automatic or manual configuration.
 
 ### Automatic configuration
 
