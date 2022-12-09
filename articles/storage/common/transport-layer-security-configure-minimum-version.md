@@ -3,12 +3,12 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -31,7 +31,7 @@ For information about how to specify a particular version of TLS when sending a 
 
 When you enforce a minimum TLS version for your storage account, you risk rejecting requests from clients that are sending data with an older version of TLS. To understand how configuring the minimum TLS version may affect client applications, Microsoft recommends that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
 
-To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
+To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -357,7 +357,7 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
 
 After you create the policy with the Deny effect and assign it to a scope, a user cannot create a storage account with a minimum TLS version that is older than 1.2. Nor can a user make any configuration changes to an existing storage account that currently requires a minimum TLS version that is older than 1.2. Attempting to do so results in an error. The required minimum TLS version for the storage account must be set to 1.2 to proceed with account creation or configuration.
 
-The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version be set to TLS 1.2.
+The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version is set to TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 

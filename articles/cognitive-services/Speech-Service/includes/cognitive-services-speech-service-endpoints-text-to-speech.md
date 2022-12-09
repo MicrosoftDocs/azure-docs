@@ -16,8 +16,6 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/v1` |
-| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/v1` |
 | East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -47,7 +45,7 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
-> [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [Voices in preview](../language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Custom neural voices
 

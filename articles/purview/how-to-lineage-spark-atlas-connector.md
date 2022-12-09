@@ -1,12 +1,12 @@
 ---
 title: Metadata and Lineage from Apache Atlas Spark connector
 description: This article describes the data lineage extraction from Spark using Atlas Spark connector.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 12/05/2022
 ---
 # How to use Apache Atlas connector to collect Spark lineage
 
@@ -24,7 +24,7 @@ Since Microsoft Purview supports Atlas API and Atlas native hook, the connector 
 
 ## Configuration requirement
 
-The connectors require a version of Spark 2.4.0+. But Spark version 3 is not supported. The Spark supports three types of listener required to be set:  
+The connectors require a version of Spark 2.4.0+. But Spark version 3 isn't supported. The Spark supports three types of listener required to be set:  
 
 | Listener | 	Since Spark Version|
 | ------------------- | ------------------- | 
@@ -42,7 +42,7 @@ The following steps are documented based on DataBricks as an example:
 
 1.  Generate package
     1. Pull code from GitHub: https://github.com/hortonworks-spark/spark-atlas-connector
-    2. [For Windows] Comment out the **maven-enforcer-plugin** in spark-atlas-connector\pom.xml to remove the dependency on Unix.
+    2. [For Windows], Comment out the **maven-enforcer-plugin** in spark-atlas-connector\pom.xml to remove the dependency on Unix.
 
     ```web
     <requireOS>
@@ -161,14 +161,14 @@ Kick off The Spark job and check the lineage info in your Microsoft Purview acco
 :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png" alt-text="Screenshot showing purview with spark lineage" lightbox="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png":::
 
 ## Known limitations with the connector for Spark lineage
-1. Supports SQL/DataFrame API (in other words, it does not support RDD). This connector relies on query listener to retrieve query and examine the impacts.
+1. Supports SQL/DataFrame API (in other words, it doesn't support RDD). This connector relies on query listener to retrieve query and examine the impacts.
     
 2. All "inputs" and "outputs" from multiple queries are combined into single "spark_process" entity.
     
     "spark_process" maps to an "applicationId" in Spark. It allows admin to track all changes that occurred as part of an application. But also causes lineage/relationship graph in "spark_process" to be complicated and less meaningful.
 3. Only part of inputs is tracked in Streaming query.
 
-* Kafka source supports subscribing with "pattern" and this connector does not enumerate all existing matching topics, or even all possible topics 
+* Kafka source supports subscribing with "pattern" and this connector doesn't enumerate all existing matching topics, or even all possible topics 
  
 * The "executed plan" provides actual topics with (micro) batch reads and processes. As a result, only inputs that participate in (micro) batch are included as "inputs" of "spark_process" entity.
     
@@ -178,7 +178,7 @@ Kick off The Spark job and check the lineage info in your Microsoft Purview acco
 
     The "drop table" event from Spark only provides db and table name, which is NOT sufficient to create the unique key to recognize the table.
 
-    The connector depends on reading the Spark Catalog to get table information. Spark have already dropped the table when this connector notices the table is dropped, so drop table will not work.
+    The connector depends on reading the Spark Catalog to get table information. Spark have already dropped the table when this connector notices the table is dropped, so drop table won't work.
 
 
 ## Next steps

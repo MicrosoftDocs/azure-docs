@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -45,8 +45,7 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
-Create a resource group using the [New-AzResourceGroup][new-azresourcegroup]
-cmdlet.
+Create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -64,16 +63,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with the *--WorkspaceResourceId* parameter to enable [Azure Monitor container insights][azure-monitor-containers].
-
-1. Generate an SSH key pair using the `ssh-keygen` command-line utility. For more details, see:
-    * [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md)
-    * [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md)
+Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with the *-WorkspaceResourceId* parameter to enable [Azure Monitor container insights][azure-monitor-containers].
 
 1. Create an AKS cluster named **myAKSCluster** with one node.
 
     ```azurepowershell-interactive
-    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
+    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -GenerateSshKey -WorkspaceResourceId <WORKSPACE_RESOURCE_ID>
     ```
 
 After a few minutes, the command completes and returns information about the cluster.
@@ -125,7 +120,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical system
+    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
 1. Copy in the following YAML definition:
 
     ```yaml
@@ -215,6 +210,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
       selector:
         app: azure-vote-front
     ```
+
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 

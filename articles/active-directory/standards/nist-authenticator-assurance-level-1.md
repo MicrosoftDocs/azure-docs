@@ -6,11 +6,11 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
-ms.date: 4/26/2021
+ms.date: 09/13/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ Before you attempt to achieve authenticator assurance level 1 (AAL1), you might 
 
 ## Permitted authenticator types
 
- To achieve AAL1, you can use any NIST single-factor or multifactor [permitted authenticator](nist-authenticator-types.md). The following table contains those not covered in [AAL2](nist-authenticator-assurance-level-2.md) and [AAL3](nist-authenticator-assurance-level-2.md).
+ To achieve AAL1, you can use any NIST single-factor or multifactor [permitted authenticator](nist-authenticator-types.md). Note that Password and Phone (SMS) are not covered in [AAL2](nist-authenticator-assurance-level-2.md) or [AAL3](nist-authenticator-assurance-level-2.md).
 
 | Azure AD authentication method| NIST authenticator type |
 | - | - |

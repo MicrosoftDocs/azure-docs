@@ -3,14 +3,14 @@ title: Batch process messages as a group
 description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/21/2022
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To send and process messages together in a specific way as groups, you can create a batching solution. This solution collects messages into a *batch* and waits until your specified criteria are met before releasing and processing the batched messages. Batching can reduce how often your logic app processes messages.
 

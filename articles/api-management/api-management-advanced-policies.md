@@ -287,7 +287,7 @@ In the following example, the policy fragment named *myFragment* is added in the
 [...]
 ```
 
-## Elements
+### Elements
 
 | Element           | Description   | Required |
 | ----------------- | ------------- | -------- |
@@ -360,7 +360,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="log-to-eventhub"></a> Log to event hub
 
-The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
+The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
+The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
 > [!NOTE]
 > For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
@@ -563,7 +564,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ### Example
 
-In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.
+In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
 
 ```xml
 
@@ -619,10 +620,13 @@ In the following example, sending a request to a URL other than the defined back
 | delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
 | first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
 
-> [!NOTE]
-> When only the `interval` is specified, **fixed** interval retries are performed.
-> When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used, where wait time between retries is calculated according the following formula - `interval + (count - 1)*delta`.
-> When the `interval`, `max-interval` and `delta` are specified, **exponential** interval retry algorithm is applied, where the wait time between the retries is growing exponentially from the value of `interval` to the value `max-interval` according to the following formula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+#### Retry wait times
+
+* When only the `interval` is specified, **fixed** interval retries are performed.
+* When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+
+    For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 
 ### Usage
 
@@ -643,9 +647,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 
 ```xml
 <return-response response-variable-name="existing context variable">
+  <set-status/>
   <set-header/>
   <set-body/>
-  <set-status/>
 </return-response>
 
 ```
@@ -667,9 +671,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Root element.                                                                             | Yes      |
+| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 | set-header      | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. | No       |
 | set-body        | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.         | No       |
-| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 
 ### Attributes
 
@@ -854,7 +858,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetHttpProxy"></a> Set HTTP proxy
 
-The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
+The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. To route the send-request via HTTP proxy, you must place the set HTTP proxy policy inside the send-request policy block.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -1091,6 +1095,7 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
 -   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
+-   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

@@ -2,10 +2,10 @@
 title: Detach a data disk from a Linux VM - Azure
 description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 07/18/2018
+ms.date: 06/08/2022
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurecli
@@ -100,6 +100,12 @@ az vm disk detach \
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
+
+### Lower latency
+
+In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `az vm disk detach`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `az vm update`.  You don't need to take any action other than calling the explicit detach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 
 ## Detach a data disk using the portal

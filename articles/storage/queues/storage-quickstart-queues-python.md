@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, py-fresh-zinc
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for Python
@@ -30,7 +30,7 @@ Additional resources:
 - [API reference documentation](/python/api/azure-storage-queue/index)
 - [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 - [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
-- [Samples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+- [Samples](../common/storage-samples-python.md?toc=/azure/storage/queues/toc.json#queue-samples)
 
 ## Prerequisites
 

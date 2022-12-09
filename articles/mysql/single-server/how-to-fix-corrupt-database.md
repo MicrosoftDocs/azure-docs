@@ -1,17 +1,19 @@
 ---
 title: Resolve database corruption - Azure Database for MySQL
 description: In this article, you'll learn about how to fix database corruption problems in Azure Database for MySQL.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: troubleshooting
-ms.date: 09/21/2020
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot database corruption in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Database corruption can cause downtime for your application. It's also critical to resolve corruption problems in time to avoid data loss. When database corruption occurs, you'll see this error in your server logs: `InnoDB: Database page corruption on disk or a failed.`
 

@@ -1,8 +1,8 @@
 ---
 title: Understand business glossary features in Microsoft Purview
 description: This article explains what business glossary is in Microsoft Purview.
-author: nayenama
-ms.author: nayenama
+author: evangelinew
+ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
@@ -26,17 +26,21 @@ The same term can also imply multiple business objects. It is important that eac
 
 ## Custom attributes
 
-Microsoft Purview supports eight out-of-the-box attributes for any business glossary term:
+Microsoft Purview supports these out-of-the-box attributes for any business glossary term:
 - Name (mandatory)
+- Nickname
+- Status
 - Definition
-- Data stewards
-- Data experts
+- Stewards
+- Experts
 - Acronym
 - Synonyms
 - Related terms
 - Resources
+- Parent term
 
-These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
+These attributes cannot be edited or deleted, but only the Name is mandatory to create a glossary term. 
+However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
 
 ## Term templates
 

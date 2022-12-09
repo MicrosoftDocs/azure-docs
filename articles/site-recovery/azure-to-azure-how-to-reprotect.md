@@ -2,12 +2,12 @@
 title: Reprotect Azure VMs to the primary region with Azure Site Recovery | Microsoft Docs
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: gaggupta
+author: v-pgaddala
+manager: jsuri
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 12/07/2022
+ms.author: v-pgaddala
 ---
 
 # Reprotect failed over Azure VMs to the primary region
@@ -46,7 +46,7 @@ You can customize the following properties of the target VM during reprotection.
 |Capacity reservation | Configure a capacity reservation for the VM. You can create a new capacity reservation group to reserve capacity or select an existing capacity reservation group. [Learn more](azure-to-azure-how-to-enable-replication.md#enable-replication) about capacity reservation. |
 |Target storage (Secondary VM doesn't use managed disks) | You can change the storage account that the VM uses after failover. |
 |Replica managed disks (Secondary VM uses managed disks) | Site Recovery creates replica managed disks in the primary region to mirror the secondary VM's managed disks. |
-|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. |
+|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. </br>By default, type of storage account (Standard storage account or Premium Block Blob storage account) that you have selected for the source VM in original primary location is used. For example, during replication from original source to target, if you have selected *High Churn*, during re-protection back from target to original source, Premium Block blob will be used by default. You can configure and change it for re-protection. For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).|
 |Availability set | If the VM in the secondary region is part of an availability set, you can choose an availability set for the target VM in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set. |
 
 ### What happens during reprotection?

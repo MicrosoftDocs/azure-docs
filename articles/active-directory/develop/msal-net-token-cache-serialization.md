@@ -38,7 +38,10 @@ The recommendation is:
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
-The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library.
+The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library. 
+
+If you're using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see the [Non-ASP.NET Core web apps and web APIs](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
+
 
 | Extension method | Description  |
 | ---------------- | ------------ |
@@ -98,11 +101,11 @@ Here are examples of possible distributed caches:
 services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
   {
     // Optional: Disable the L1 cache in apps that don't use session affinity
-    //                 by setting DisableL1Cache to 'false'.
+    //                 by setting DisableL1Cache to 'true'.
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024; // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -110,7 +113,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     // And you can set eviction policies for the distributed
     // cache.
     options.SlidingExpiration = TimeSpan.FromHours(1);
-  }
+  });
 
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
@@ -277,7 +280,7 @@ You can also specify options to limit the size of the in-memory token cache:
 
 #### Distributed caches
 
-If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a SQL Server cache, a Redis cache, an Azure Cosmos DB cache, or any other cache implementing the [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=dotnet-plat-ext-6.0) interface. 
+If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a SQL Server cache, a Redis cache, an Azure Cosmos DB cache, or any other cache implementing the [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=dotnet-plat-ext-6.0&preserve-view=true) interface. 
 
 For testing purposes only, you may want to use `services.AddDistributedMemoryCache()`, an in-memory implementation of `IDistributedCache`. 
 
@@ -545,146 +548,7 @@ A product-quality, file-based token cache serializer for public client applicati
 
 #### Dual token cache serialization (MSAL unified cache and ADAL v3)
 
-If you want to implement token cache serialization with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following code:
-
-```csharp
-string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
-string cacheFolder = Path.GetFullPath(appLocation) + @"..\..\..\..");
-string adalV3cacheFileName = Path.Combine(cacheFolder, "cacheAdalV3.bin");
-string unifiedCacheFileName = Path.Combine(cacheFolder, "unifiedCache.bin");
-
-IPublicClientApplication app;
-app = PublicClientApplicationBuilder.Create(clientId)
-                                    .Build();
-FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
-                                               unifiedCacheFileName,
-                                               adalV3cacheFileName);
-
-```
-
-This time, the helper class is defined as:
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography;
-using Microsoft.Identity.Client;
-
-namespace CommonCacheMsalV3
-{
- /// <summary>
- /// Simple persistent cache implementation of the dual cache serialization (ADAL v3 legacy
- /// and unified cache format) for a desktop applications (from MSAL 2.x)
- /// </summary>
- static class FilesBasedTokenCacheHelper
- {
-  /// <summary>
-  /// Enables the serialization of the token cache
-  /// </summary>
-  /// <param name="adalV3CacheFileName">File name where the cache is serialized with the
-  /// ADAL v3 token cache format. Can
-  /// be <c>null</c> if you don't want to implement the legacy ADAL v3 token cache
-  /// serialization in your MSAL 2.x+ application</param>
-  /// <param name="unifiedCacheFileName">File name where the cache is serialized
-  /// with the unified cache format, common to
-  /// ADAL v4 and MSAL v2 and later, and also across ADAL/MSAL on the same platform.
-  ///  Should not be <c>null</c></param>
-  /// <returns></returns>
-  public static void EnableSerialization(ITokenCache tokenCache, string unifiedCacheFileName, string adalV3CacheFileName)
-  {
-   UnifiedCacheFileName = unifiedCacheFileName;
-   AdalV3CacheFileName = adalV3CacheFileName;
-
-   tokenCache.SetBeforeAccess(BeforeAccessNotification);
-   tokenCache.SetAfterAccess(AfterAccessNotification);
-  }
-
-  /// <summary>
-  /// File path where the token cache is serialized with the unified cache format
-  /// (ADAL.NET v4, MSAL.NET v3)
-  /// </summary>
-  public static string UnifiedCacheFileName { get; private set; }
-
-  /// <summary>
-  /// File path where the token cache is serialized with the legacy ADAL v3 format
-  /// </summary>
-  public static string AdalV3CacheFileName { get; private set; }
-
-  private static readonly object FileLock = new object();
-
-  public static void BeforeAccessNotification(TokenCacheNotificationArgs args)
-  {
-   lock (FileLock)
-   {
-    args.TokenCache.DeserializeAdalV3(ReadFromFileIfExists(AdalV3CacheFileName));
-    try
-    {
-     args.TokenCache.DeserializeMsalV3(ReadFromFileIfExists(UnifiedCacheFileName));
-    }
-    catch(Exception ex)
-    {
-     // Compatibility with the MSAL v2 cache if you used one
-     args.TokenCache.DeserializeMsalV2(ReadFromFileIfExists(UnifiedCacheFileName));
-    }
-   }
-  }
-
-  public static void AfterAccessNotification(TokenCacheNotificationArgs args)
-  {
-   // if the access operation resulted in a cache update
-   if (args.HasStateChanged)
-   {
-    lock (FileLock)
-    {
-     WriteToFileIfNotNull(UnifiedCacheFileName, args.TokenCache.SerializeMsalV3());
-     if (!string.IsNullOrWhiteSpace(AdalV3CacheFileName))
-     {
-      WriteToFileIfNotNull(AdalV3CacheFileName, args.TokenCache.SerializeAdalV3());
-     }
-    }
-   }
-  }
-
-  /// <summary>
-  /// Read the content of a file if it exists
-  /// </summary>
-  /// <param name="path">File path</param>
-  /// <returns>Content of the file (in bytes)</returns>
-  private static byte[] ReadFromFileIfExists(string path)
-  {
-   byte[] protectedBytes = (!string.IsNullOrEmpty(path) && File.Exists(path))
-       ? File.ReadAllBytes(path) : null;
-   byte[] unprotectedBytes = encrypt ?
-       ((protectedBytes != null) ? ProtectedData.Unprotect(protectedBytes, null, DataProtectionScope.CurrentUser) : null)
-       : protectedBytes;
-   return unprotectedBytes;
-  }
-
-  /// <summary>
-  /// Writes a blob of bytes to a file. If the blob is <c>null</c>, deletes the file
-  /// </summary>
-  /// <param name="path">path to the file to write</param>
-  /// <param name="blob">Blob of bytes to write</param>
-  private static void WriteToFileIfNotNull(string path, byte[] blob)
-  {
-   if (blob != null)
-   {
-    byte[] protectedBytes = encrypt
-      ? ProtectedData.Protect(blob, null, DataProtectionScope.CurrentUser)
-      : blob;
-    File.WriteAllBytes(path, protectedBytes);
-   }
-   else
-   {
-    File.Delete(path);
-   }
-  }
-
-  // Change if you want to test with an unencrypted blob (this is a JSON format)
-  private static bool encrypt = true;
- }
-}
-```
+If you want to implement token cache serialization with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL.
 
 ---
 

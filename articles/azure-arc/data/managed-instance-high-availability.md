@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
 ---
 
@@ -129,7 +129,7 @@ az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –s
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
 
-## View and monitor availability group status
+## View and monitor high availability status
 
 Once the deployment is complete, connect to the primary endpoint from SQL Server Management Studio.  
 
@@ -147,7 +147,7 @@ kubectl get sqlmi -A
 
 ### Get the primary and secondary endpoints and AG status
 
-Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and availability group status.
+Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and high availability status.
 
 Example:
 
@@ -157,22 +157,26 @@ kubectl describe sqlmi sqldemo -n my-namespace
 or 
 
 ```azurecli
-az sql mi-arc show sqldemo --k8s-namespace my-namespace --use-k8s
+az sql mi-arc show --name sqldemo --k8s-namespace my-namespace --use-k8s
 ```
 
 Example output:
 
 ```console
  "status": {
-    "AGStatus": "Healthy",
-    "logSearchDashboard": "https://10.120.230.404:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqldemo'))",
-    "metricsDashboard": "https://10.120.230.46:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi1-0",
-    "mirroringEndpoint": "10.15.100.150:5022",
+    "endpoints": {
+      "logSearchDashboard": "https://10.120.230.404:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqldemo'))",
+      "metricsDashboard": "https://10.120.230.46:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqldemo-0",
+      "mirroring": "10.15.100.150:5022",
+      "primary": "10.15.100.150,1433",
+      "secondary": "10.15.100.156,1433"
+    },
+    "highAvailability": {
+      "healthState": "OK",
+      "mirroringCertificate": "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"
+    },
     "observedGeneration": 1,
-    "primaryEndpoint": "10.15.100.150,1433",
     "readyReplicas": "2/2",
-    "runningVersion": "v1.2.0_2021-12-15",
-    "secondaryEndpoint": "10.15.100.156,1433",
     "state": "Ready"
   }
 ```

@@ -4,7 +4,7 @@ description: This document shows the catalog of all alerts in Azure AD Connect H
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: maheshu
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid

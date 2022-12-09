@@ -2,8 +2,8 @@
 title: Prerequisites for Azure Database Migration Service
 description: Learn about an overview of the prerequisites for using the Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -108,7 +108,7 @@ In addition to Azure Database Migration Service prerequisites that are common to
 
 When using the Azure Database Migration Service to perform SQL Server to Azure SQL Database migrations, in addition to the prerequisites that are common to all migration scenarios, be sure to address the following additional prerequisites:
 
-* Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
+* Create an instance of Azure SQL Database, which you do by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 * Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.

@@ -13,7 +13,7 @@ The Azure Machine Learning workspace can be configured for `v1_legacy_mode`, whi
 > [!IMPORTANT]
 > Check with your network security team before disabling `v1_legacy_mode`. It may have been enabled by your network security team for a reason.
 
-For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](/azure/machine-learning/how-to-configure-network-isolation-with-v2).
+For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](../articles/machine-learning/how-to-configure-network-isolation-with-v2.md).
 
 ### Online endpoint creation with key-based authentication fails
 
@@ -68,7 +68,18 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     ```
 
     The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
-1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](/machine-learning/how-to-configure-private-link). 
+1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
+1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS. 
+    ```bash
+    dig endpointname.westcentralus.inference.ml.azure.com
+    ```
+    
+    If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
+    ```bash
+    dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
+    ```
+
+    if this succeeds then troubleshoot conditional forwarder for private link on custom DNS.
 
 ### Online deployments can't be scored
 

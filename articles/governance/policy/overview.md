@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 05/13/2022
+ms.date: 12/02/2022
 ms.topic: overview
 ms.author: timwarner
 author: timwarner-msft
@@ -22,12 +22,21 @@ Common use cases for Azure Policy include implementing governance for resource c
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
 are already available in your Azure environment as built-ins to help you get started.
 
+Specifically, some useful governance actions you can enforce with Azure Policy include:
+
+- Ensuring your team deploys Azure resources only to allowed regions
+- Enforcing the consistent application of taxonomic tags
+- Requiring resources to send diagnostic logs to a Log Analytics workspace
+
+It's important to recognize that with the introduction of [Azure Arc](../../azure-arc/overview.md), you can extend your
+policy-based governance across different cloud providers and even to your local datacenters.
+
 All Azure Policy data and objects are encrypted at rest. For more information, see
 [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md).
 
 ## Overview
 
-Azure Policy evaluates resources in Azure by comparing the properties of those resources to business
+Azure Policy evaluates resources and actions in Azure by comparing the properties of those resources to business
 rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are
 known as [policy definitions](#policy-definition). To simplify management, several business rules
 can be grouped together to form a [policy initiative](#initiative-definition) (sometimes called a
@@ -70,6 +79,7 @@ how an organization wants the platform to respond to a non-compliant resource in
 - Alter the resource before the change
 - Alter the resource after the change
 - Deploy related compliant resources
+- Block actions on resources
 
 Azure Policy makes each of these business responses possible through the application of
 [effects](./concepts/effects.md). Effects are set in the **policy rule** portion of the
@@ -95,19 +105,12 @@ on Channel 9.
 ### Azure Policy and Azure RBAC
 
 There are a few key differences between Azure Policy and Azure role-based access control (Azure
-RBAC). Azure Policy evaluates state by examining properties on resources that are represented in
-Resource Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions
-(also called _operations_). Azure Policy ensures that resource state is compliant to your business
-rules without concern for who made the change or who has permission to make a change. Some Azure
-Policy resources, such as [policy definitions](#policy-definition),
-[initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to
-all users. This design enables transparency to all users and services for what policy rules are set
+RBAC). Azure Policy evaluates state by examining properties on resources that are represented in Resource Manager and properties of some Resource Providers. Azure Policy ensures that resource state is compliant to your business rules without concern for who made the change or who has permission to make a change. Azure Policy through DenyAction effect can also block certain actions on resources. Some Azure Policy resources, such as [policy definitions](#policy-definition), [initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to all users. This design enables transparency to all users and services for what policy rules are set
 in their environment.
 
 Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
-control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual
-has access to perform an action, if the result is a non-compliant resource, Azure Policy still
+control of an action is required based on user information, then Azure RBAC is the correct tool to use. Even if an individual has access to perform an action, if the result is a non-compliant resource, Azure Policy still
 blocks the create or update.
 
 The combination of Azure RBAC and Azure Policy provides full scope control in Azure.
@@ -142,14 +145,31 @@ to users who do not need them.
 
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
-> permissions to create or update targetted resources. For more information, see
-> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
+> permissions to create or update targeted resources. For more information, see
+> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
+
+### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
+
+[Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager (AVNM) dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
+
+To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need:
+
+- Read and write Azure RBAC permissions to the underlying policy
+- Azure RBAC permissions to join the network group (Note: Classic Admin authorization is not supported)
+
+Specifically, the required resource provider permission is `Microsoft.Network/networkManagers/networkGroups/join/action`.
+
+> [!IMPORTANT]
+> To modify AVNM dynamic groups, you must be granted access via Azure RBAC role assignment only.
+> Classic Admin/legacy authorization is not supported; this means if your account were
+> assigned only the co-administrator subscription role, you'd have no permissions on AVNM
+> dynamic groups.
 
 ### Resources covered by Azure Policy
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[guest configuration](./concepts/guest-configuration.md),
+[Machine configuration](../machine-configuration/overview.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
@@ -159,9 +179,7 @@ settings and objects. To find out more, see
 
 Here are a few pointers and tips to keep in mind:
 
-- Start with an audit effect instead of a deny effect to track impact of your policy definition on
-  the resources in your environment. If you have scripts already in place to autoscale your
-  applications, setting a deny effect may hinder such automation tasks already in place.
+-  Start with an `audit` or `auditIfNotExist` effect instead of an enforcement (`deny`, `modify`, `deployIfNotExist`)  effect to track impact of your policy definition on the resources in your environment. If you have scripts already in place to autoscale your applications, setting an enforcement effect may hinder such automation tasks already in place.
 
 - Consider organizational hierarchies when creating definitions and assignments. We recommend
   creating definitions at higher levels such as the management group or subscription level. Then,

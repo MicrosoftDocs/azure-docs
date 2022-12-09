@@ -121,7 +121,7 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
     * Limit the number of parallel backend connections with the [limit concurrency](api-management-advanced-policies.md#LimitConcurrency) policy. 
 
-* While API Management can protect backend services from DDoS attacks, it may be vulnerable to those attacks itself. Deploy a bot protection service in front of API Management (for example, [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md), [Azure Front Door](../frontdoor/front-door-overview.md), or [Azure DDoS Protection Service](../ddos-protection/ddos-protection-overview.md)) to better protect against DDoS attacks. When using a WAF with Azure Application Gateway or Azure Front Door, consider using [Microsoft_BotManagerRuleSet_1.0](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set). 
+* While API Management can protect backend services from DDoS attacks, it may be vulnerable to those attacks itself. Deploy a bot protection service in front of API Management (for example, [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md), [Azure Front Door](front-door-api-management.md), or [Azure DDoS Protection](protect-with-ddos-protection.md)) to better protect against DDoS attacks. When using a WAF with Azure Application Gateway or Azure Front Door, consider using [Microsoft_BotManagerRuleSet_1.0](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set). 
 
 ## Broken function level authorization
 
@@ -149,7 +149,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 ### Recommendations 
 
-* External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](/api-management-versions.md) in API Management. 
+* External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](api-management-versions.md) in API Management. 
 
 * Precisely define XML and JSON contracts in the API schema and use [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 
@@ -237,7 +237,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
 
 ### Recommendations
 
-* [Modern Web Application Firewall (WAF) policies](https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](../frontdoor/front-door-overview.md). 
+* [Modern Web Application Firewall (WAF) policies](https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](front-door-api-management.md). 
 
     > [!IMPORTANT]
     > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
@@ -308,6 +308,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 ## Next steps
 
+* [Authentication and authorization in API Management](authentication-authorization-overview.md)
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 * [Security controls by Azure policy](security-controls-policy.md)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)

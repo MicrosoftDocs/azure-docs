@@ -1,16 +1,16 @@
----
+--- 
 title: Azure service tags overview
 titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2021
-ms.author: mbender
+ms.author: allensu
 ms.reviewer: kumud
 ---
 
@@ -46,8 +46,9 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>**Note**: This tag represents the Azure API Management service endpoint for control plane per region. The tag enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service.  | Inbound | Yes | Yes |
 | **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppConfiguration** | App Configuration. | Outbound | No | No |
-| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.  | Outbound | Yes | Yes |
+| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
+| **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | No |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
@@ -55,9 +56,10 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Both | Yes | Yes |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>This tag or the IP addresses covered by this tag can be used to grant indexers secure access to data sources. For more information about indexers, see [indexer connection documentation](../search/search-indexer-troubleshooting.md#connection-errors). <br/><br/> **Note**: The IP of the search service isn't included in the list of IP ranges for this service tag and **also needs to be added** to the IP firewall of data sources. | Inbound | No | No |
-| **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Inbound / Outbound | Yes | Yes |
+| **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
+| **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
 | **AzureDatabricks** | Azure Databricks. | Both | No | No |
@@ -65,7 +67,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureDeviceUpdate** | Device Update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
-| **AzureDevOps** | Azure Dev Ops. | Inbound | No | Yes |
+| **AzureDevOps** | Azure DevOps. | Inbound | Yes | Yes |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>**Note**: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. | Inbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. | Both | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | No | No |
@@ -74,6 +76,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | Yes | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This only includes probe traffic, not real traffic to your backend resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
+| **AzureLoadTestingInstanceManagement** | This service tag is used for inbound connectivity from Azure Load Testing service to the load generation instances injected into your virtual network in the private load testing scenario. <br/><br/>**Note:** This tag is intended to be used in Azure Firewall, NSG, UDR and all other gateways for inbound connectivity. | No | Yes |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>**Note**: For Log Analytics, the **Storage** tag is also required. If Linux agents are used, **GuestAndHybridManagement** tag is also required. | Outbound | No | Yes |
 | **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** and **Storage** tag. | Outbound | No | No |
@@ -81,13 +84,16 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | No |
+| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | Yes |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
 | **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
 | **AzureStack** | Azure Stack Bridge services. </br> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
 | **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>**Note**: This tag provides access to Windows Update metadata services. To successfully download updates, you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul> | Outbound | No | No |  
-| **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
+| **AzureWebPubSub** | AzureWebPubSub | Both | Yes | No |
+| **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
+| **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | Yes | No |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | No |
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
@@ -97,7 +103,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
-| **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
+| **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
 | **LogicApps** | Logic Apps. | Both | No | No |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | No |
 | **M365ManagementActivityApi** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Azure Active Directory activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | No |
@@ -105,11 +111,13 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
+|**MicrosoftDefenderForEndpoint** | Microsoft Defender for Endpoint | Both | No | Yes |
 | **PowerBI** | Power BI. | Both | No | No|
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Outbound | Yes | Yes |
+| **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Inbound | Yes | Yes |
 | **PowerQueryOnline** | Power Query Online. | Both | No | No |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
-| **ServiceFabric** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET (endpoint eg. https:// westus.servicefabric.azure.com). | Both | No | No |
+| **ServiceFabric** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET endpoint. (For example, https:// westus.servicefabric.azure.com). | Both | No | No |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag doesn't apply to SQL managed instance. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
@@ -156,10 +164,10 @@ $storage.Properties.AddressPrefixes
 ```
 
 > [!NOTE]
-> 
-> - It takes up to 4 weeks for new Service Tag data to propagate in the API results across all Azure regions. 
+>
+> - The API data represents those tags that can be used with NSG rules in your region. Use the API data as the source of truth for available Service Tags as it may be different than the JSON downloadable file.
+> - It takes up to 4 weeks for new Service Tag data to propagate in the API results across all Azure regions. Because of this process, your API data results may be out of sync with the downloadable JSON file as the API data represents a subset of the tags currently in the downloadable JSON file.
 > - You must be authenticated and have a role with read permissions for your current subscription. 
-> - The API data represents those tags that can be used with NSG rules, which represents a subset of the tags currently in the downloadable JSON file. 
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:

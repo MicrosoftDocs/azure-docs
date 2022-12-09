@@ -17,7 +17,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](../articles/azure-functions/dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -57,7 +57,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Version 1.x of the Functions runtime doesn't support running in an isolated process. 
+Version 1.x of the Functions runtime doesn't support running in an isolated worker process. 
 
 # [Extension v5.x+](#tab/extensionv5/csharp-script)
 
@@ -135,8 +135,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
                 "mode" : "exponential",
                 "tryTimeout" : "00:01:00",
                 "delay" : "00:00:00.80",
-                "maxDelay" : "00:01:00",
-                "maxRetries" : 3
+                "maximumDelay" : "00:01:00",
+                "maximumRetries" : 3
             }
         }
     }
@@ -156,8 +156,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/mode | exponential | The approach to use for calculating retry delays. Exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The fixed mode will retry attempts at fixed intervals with each delay having a consistent duration. Available options: `exponential`, `fixed`|
 | clientRetryOptions/tryTimeout | 00:01:00 | The maximum duration to wait for an Event Hubs operation to complete, per attempt.|
 | clientRetryOptions/delay | 00:00:00.80 | The delay or back-off factor to apply between retry attempts.|
-| clientRetryOptions/maxDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
-| clientRetryOptions/maxRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
+| clientRetryOptions/maximumDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
+| clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
 For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
 

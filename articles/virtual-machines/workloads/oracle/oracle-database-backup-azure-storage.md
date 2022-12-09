@@ -332,10 +332,10 @@ In this section, we will be using Oracle Recovery Manager (RMAN) to take a full 
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
     ```
 
-2. Because Azure standard file shares have a maximum file size of 1 TiB, we will limit the size of RMAN backup pieces to 1 TiB. (Note that Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
+2. In this example, we are limiting the size of RMAN backup pieces to 1 TiB. Please note the RMAN backup MAXPIECESIZE can go upto 4TiB as Azure standard file shares and Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
 
     ```bash
-    RMAN> configure channel device type disk maxpiecesize 1000G;
+    RMAN> configure channel device type disk maxpiecesize 4000G;
     ```
 
 3. Confirm the configuration change details:

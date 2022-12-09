@@ -1,12 +1,12 @@
 ---
-title: "Cognitive Services for Big Data Scala Samples"
+title: "Cognitive Services for big data Scala Samples"
 description: Use Cognitive Services for Azure Databricks to run your MMLSpark pipeline for big data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 10/28/2021
+ms.date: 11/01/2022
 ms.author: marhamil
 ms.devlang: scala
 ---
@@ -19,7 +19,6 @@ The samples use these Cognitive Services:
 
 - Language service - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
-- Bing Image Search - search the web for images related to a natural language query.
 - Speech-to-text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
 
@@ -111,51 +110,6 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg | ['skating' 'person' 'man' 'outdoor' 'riding' 'sport' 'skateboard' 'young' 'board' 'shirt' 'air' 'black' 'park' 'boy' 'side' 'jumping' 'trick' 'ramp' 'doing' 'flying']
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/dog.jpg | ['dog' 'outdoor' 'fence' 'wooden' 'small' 'brown' 'building' 'sitting' 'front' 'bench' 'standing' 'table' 'walking' 'board' 'beach' 'white' 'holding' 'bridge' 'track']                
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group'] 
-
-## Bing Image Search
-
-[Bing Image Search](../bing-image-search/overview.md) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
-
-
-```scala
-import org.apache.spark.ml.Pipeline
-
-// Number of images Bing will return per query
-val imgsPerBatch = 10
-
-// A list of offsets, used to page into the search results
-val df = (0 until 100).map(o => Tuple1(o*imgsPerBatch)).toSeq.toDF("offset")
-
-// Run the Bing Image Search service with our text query
-val bingSearch = new BingImageSearch()
-    .setSubscriptionKey(bingSearchKey)
-    .setOffsetCol("offset")
-    .setQuery("Martin Luther King Jr. quotes")
-    .setCount(imgsPerBatch)
-    .setOutputCol("images")
-
-// Transformer that extracts and flattens the richly structured output of Bing Image Search into a simple URL column
-val getUrls = BingImageSearch.getUrlTransformer("images", "url")
-
-// This displays the full results returned, uncomment to use
-// display(bingSearch.transform(bingParameters))
-
-// Since we have two services, they are put into a pipeline
-val pipeline = new Pipeline().setStages(Array(bingSearch, getUrls))
-
-// Show the results of your search: image URLs
-display(pipeline.fit(df).transform(df))
-```
-
-### Expected result
-
-| url |
-|:-------------------------------------------------------------------------------------------------------------------|
-| https://iheartintelligence.com/wp-content/uploads/2019/01/powerful-quotes-martin-luther-king-jr.jpg      |
-| http://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes-16.jpg             |
-| http://www.sofreshandsogreen.com/wp-content/uploads/2012/01/martin-luther-king-jr-quote-sofreshandsogreendotcom.jpg |
-| https://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes-18.jpg            |
-| https://tsal-eszuskq0bptlfh8awbb.stackpathdns.com/wp-content/uploads/2018/01/MartinLutherKingQuotes.jpg  |
 
 ## Speech-to-Text
 

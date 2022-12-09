@@ -21,7 +21,7 @@ After you [set up an Azure Digital Twins instance and authentication](how-to-set
 
 Azure Digital Twins authenticates using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
 
-This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
+This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Three common credential-obtaining methods in `Azure.Identity` are:
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md), and is a good candidate for working with Azure Functions and deploying to Azure services.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client.
 
-The rest of this article shows how to use these methods with the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+The rest of this article shows how to use these methods with the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme).
 
 ### Add Azure.Identity to your .NET project
 
@@ -125,7 +125,7 @@ When writing the Azure function, consider adding these variables and code to you
 
     Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do so, skip ahead to [Assign an access role](#assign-an-access-role).    
 
-* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. *Don't* make this variable static inside your class.
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. _Don't_ make this variable static inside your class.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
 * **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.

@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/29/2022
+ms.date: 06/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -54,6 +54,10 @@ The cache won't accept requests from clients for files on this storage target un
 You could use this option to make sure that the back-end storage is populated before doing a backup, or for any situation where you want to make sure the back-end storage has recent updates.
 
 This option mainly applies to usage models that include write caching. Read [Understand cache usage models](cache-usage-models.md) to learn more about read and write caching.
+
+> [!TIP]
+> If you need to write specific individual files back to a storage target without writing its entire cache contents, consider the flush_file.py script contained in the HPC Cache NFSv3 client library distribution. Learn more in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
+
 
 ### Suspend a storage target
 

@@ -26,11 +26,15 @@ landingContent:
         links:
           - text: What is Content Moderator?
             url: overview.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn training
+            url: /training/modules/intro-to-content-moderator/
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
             url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
-
+      
   - title: Analyze image content
     linkLists:
       - linkListType: concept

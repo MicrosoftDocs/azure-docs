@@ -3,13 +3,13 @@ title: Azure Active Directory Authentication management operations reference gui
 description: This operations reference guide describes the checks and actions you should take to secure authentication management
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: travisgr
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 
@@ -315,6 +315,7 @@ To avoid this scenario, you should refer to [detect and remediate illicit consen
 
 #### Consent grants recommended reading
 
+- [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 - [Microsoft Graph API permissions](/graph/permissions-reference)
 
 ### User and group settings

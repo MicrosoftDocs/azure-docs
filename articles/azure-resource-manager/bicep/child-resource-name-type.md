@@ -15,9 +15,9 @@ Each parent resource accepts only certain resource types as child resources. The
 
 This article show different ways you can declare a child resource.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Name and type pattern
 

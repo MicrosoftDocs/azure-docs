@@ -3,15 +3,15 @@ title: Azure CLI script sample - Route traffic through a network virtual applian
 description: Azure CLI script sample - Route traffic through a firewall network virtual appliance.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
-manager: mtillman
+author: mbender-ms
+manager: kumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud 
+ms.author: mbender 
 ms.custom: devx-track-azurecli
 
 ---

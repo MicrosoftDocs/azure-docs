@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/29/2021 
+ms.date: 08/23/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -56,9 +56,21 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   **Git integration**. Configure only your development data factory with Git integration. Changes to test and production are deployed via CI/CD and don't need Git integration.
 
--   **Pre- and post-deployment script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after the deployment task. For more information, see [Update active triggers](continuous-integration-delivery-automate-azure-pipelines.md#updating-active-triggers). The data factory team has [provided a script](continuous-integration-delivery-sample-script.md) to use located at the bottom of this page.
+- **Pre- and post-deployment script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after the deployment task. For more information, see [Update active triggers](continuous-integration-delivery-automate-azure-pipelines.md#updating-active-triggers). The data factory team has [provided a script](continuous-integration-delivery-sample-script.md) to use located at the bottom of this page.
+
+    > [!NOTE]
+    > Use the [PrePostDeploymentScript.Ver2.ps1](https://github.com/Azure/Azure-DataFactory/blob/main/SamplesV2/ContinuousIntegrationAndDelivery/PrePostDeploymentScript.Ver2.ps1) if you would like to turn off/ on only the triggers that have been modified instead of turning all triggers off/ on during CI/CD.
+
+    >[!WARNING]
+    >Make sure to use **PowerShell Core** in ADO task to run the script.
+
+    >[!WARNING]
+    >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
 -   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+
+    >[!Note]
+    >The integration runtime sharing is only available for self-hosted integration runtimes. Azure-SSIS integration runtimes don't support sharing.
 
 -   **Managed private endpoint deployment**. If a private endpoint already exists in a factory and you try to deploy an ARM template that contains a private endpoint with the same name but with modified properties, the deployment will fail. In other words, you can successfully deploy a private endpoint as long as it has the same properties as the one that already exists in the factory. If any property is different between environments, you can override it by parameterizing that property and providing the respective value during deployment.
 
@@ -66,7 +78,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -  **Resource naming**. Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
-- **Exposure control and feature flags**.  When working on a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
+- **Exposure control and feature flags**.  When working in a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
 
     To learn how to set up a feature flag, see the below video tutorial:
 

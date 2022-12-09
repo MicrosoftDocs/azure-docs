@@ -13,6 +13,11 @@ ms.custom: devx-track-azurepowershell
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any other questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
 
+## Why can't I create new Automation job in West Europe region?
+
+You might experience a delay or failure of job creation because of scalability issues in West Europe region. For more information, see [creation of new Automation job in West Europe region](./troubleshoot/runbooks.md#scenario-unable-to-create-new-automation-job-in-west-europe-region).
+
+
 ## Can Update Management prevent unexpected OS-level upgrades?
 
 Yes. For more information, see [Exclude updates](./update-management/manage-updates-for-vm.md#exclude-updates).

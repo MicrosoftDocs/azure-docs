@@ -36,7 +36,7 @@ This document provides guidance on planning and implementation consideration for
 SAP BusinessObjects BI Platform is a self-contained system that can exist on a single Azure virtual machine or can be scaled into a cluster of many Azure Virtual Machines that run different components. SAP BOBI Platform consists of six conceptual tiers: Client Tier, Web Tier, Management Tier, Storage Tier, Processing Tier, and Data Tier. (For more details on each tier, refer Administrator Guide in [SAP BusinessObjects Business Intelligence Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/4.3/en-US) help portal). Following is the high-level details on each tier:
 
 - **Client Tier:** It contains all desktop client applications that interact with the BI platform to provide different kind of reporting, analytic, and administrative capabilities.
-- **Web Tier:** It contains web applications deployed to JAVA web application servers. Web applications provide BI Platform functionality to end users through a web browser.
+- **Web Tier:** It contains web applications deployed to Java web application servers. Web applications provide BI Platform functionality to end users through a web browser.
 - **Management Tier:** It coordinates and controls all the components that makes the BI Platform. It includes Central Management Server (CMS) and the Event Server and associated services
 - **Storage Tier:** It is responsible for handling files, such as documents and reports. It also handles report caching to save system resources when user access reports.
 - **Processing Tier:** It analyzes data, and produces reports and other output types. It's the only tier that accesses the databases that contain report data.
@@ -79,7 +79,7 @@ In below figure, architecture of large-scale deployment of SAP BOBI Platform on 
   > SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
 
 - CMS & audit database
-  
+
   SAP BOBI Platform requires a database to store its system data, which is referred as CMS database. It's used to store BI platform information such as user, server, folder, document, configuration, and authentication details.
 
   Azure offers [MySQL Database](https://azure.microsoft.com/services/mysql/) and [Azure SQL database](https://azure.microsoft.com/services/sql-database/) Database-as-a-Service (DBaaS) offering that can be used for CMS database and Audit database. As this being a PaaS offering, customers don't have to worry about operation, availability, and maintenance of the databases. Customer can also choose their own database for CMS and Audit repository based on their business need.
@@ -169,7 +169,7 @@ Azure SQL Database offers the following three purchasing models:
 - Serverless
 
   The serverless model automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns. For more information, refer [Resource options and limits](/azure/azure-sql/database/resource-limits-vcore-single-databases#general-purpose---serverless-compute---gen5).
-  
+
   It's more suitable for intermittent, unpredictable usage with low average compute utilization over time. So this model can be used for non-production SAP BOBI deployment.
 
 > [!Note]
@@ -253,7 +253,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 ### Networking
 
-SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premise system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
+SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premises system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 
 For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../../mysql/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](/azure/azure-sql/database/network-access-controls-overview) section for Azure SQL database.
 

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 10/31/2022
 
-ms.author: markvi
-author: MarkusVi
-manager: karenhoran
+ms.author: sarahlipsey
+author: shlipsey3
+manager: amycolannino
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 
 - An Azure subscription with at least one P1 licensed admin. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- An Azure AD tenant.
+- An Azure Active Directory (Azure AD) tenant.
 
-- A user who's a global administrator or security administrator for the Azure AD tenant.
+- A user who's a Global Administrator or Security Administrator for the Azure AD tenant.
 
 
 Familiarize yourself with these articles:

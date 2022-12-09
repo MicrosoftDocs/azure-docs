@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 11/17/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -144,7 +144,8 @@ The **UserJourneyBehaviors** element contains the following elements:
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
-
+When you use the above elements, you need add them to your **UserJourneyBehaviors** element in the order specified in the table. For example, the **JourneyInsights** element must be added before (above) the **ScriptExecution** element. 
+ 
 ### SingleSignOn
 
 The **SingleSignOn** element contains the following attributes:
@@ -286,7 +287,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
+| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection with a **PartnerClaimType**. For example, `<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />`, or `<OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="signInName" />`. |
 | Format | No | Used for SAML Relying parties to set the **NameId format** returned in the SAML Assertion. |
 
 The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:

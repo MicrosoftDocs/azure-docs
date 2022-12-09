@@ -2,15 +2,15 @@
 title: Scopes for v1.0 apps (MSAL)
 description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/25/2019
-ms.author: marsma
+ms.date: 12/05/2022
+ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn scopes for a v1.0 application so I can decide if this platform meets my application development needs and requirements.
@@ -18,7 +18,7 @@ ms.custom: aaddev, has-adal-ref
 
 # Scopes for a web API accepting v1.0 tokens
 
-OAuth2 permissions are permission scopes that a Azure Active Directory (Azure AD) for developers (v1.0) web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. See the section about `oauth2Permissions` in the [Azure Active Directory application manifest reference](reference-app-manifest.md#manifest-reference).
+OAuth2 permissions are permission scopes that an Azure Active Directory (Azure AD) for developers (v1.0) web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. See the section about `oauth2Permissions` in the [Azure Active Directory application manifest reference](reference-app-manifest.md#manifest-reference).
 
 ## Scopes to request access to specific OAuth2 permissions of a v1.0 application
 

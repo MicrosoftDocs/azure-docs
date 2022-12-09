@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door | Microsoft Docs
-description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door configuration for a custom domain.
+title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door (classic) | Microsoft Docs
+description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door (classic) configuration for a custom domain.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-#Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
+#Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
 ---
 
-# Tutorial: Configure HTTPS on a Front Door custom domain
+# Tutorial: Configure HTTPS on a Front Door (classic) custom domain
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door (classic) under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
 Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as `https://contoso.azurefd.net`), HTTPS is automatically enabled for requests made to `https://contoso.azurefd.net`. However, once you onboard the custom domain 'www.contoso.com' you'll need to additionally enable HTTPS for this frontend host.
 
@@ -93,7 +93,8 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * Azure Front Door (classic) has a different *Application Id* than Azure Front Door Standard/Premium tier.
 
 ##### Azure PowerShell
 
@@ -102,7 +103,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 2. In PowerShell, run the following command:
 
      ```azurepowershell-interactive
-     New-AzADServicePrincipal -ApplicationId 'ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037' -Role Contributor
+     New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"
      ```
 
 ##### Azure CLI
@@ -112,8 +113,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 2. In CLI, run the following command:
 
      ```azurecli-interactive
-     SP_ID=$(az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037 --query objectId -o tsv)
-     az role assignment create --assignee $SP_ID --role Contributor
+     az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
      ```     
 
 #### Grant Azure Front Door access to your key vault
@@ -157,7 +157,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
     - The available secret versions.
 
     > [!NOTE]
-    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 48 hours for the new version of the certificate/secret to be deployed.
+    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
     >
     > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
 

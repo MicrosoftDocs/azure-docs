@@ -1,10 +1,10 @@
 ---
-title: Planning for an Azure Files deployment | Microsoft Docs
+title: Planning for an Azure Files deployment
 description: Understand planning for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 11/15/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -30,6 +30,7 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Recommended OS | <ul><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
 | [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
 | Billing model | <ul><li>[Provisioned capacity for premium file shares](./understanding-billing.md#provisioned-model)</li><li>[Pay-as-you-go for standard file shares](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Provisioned capacity](./understanding-billing.md#provisioned-model) |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | Supported | Supported |
 | [Redundancy](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
 | File system semantics | Win32 | POSIX |
 | Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
@@ -41,6 +42,21 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Symbolic link support | Not supported | Supported |
 | Optionally internet accessible | Yes (SMB 3.0+ only) | No |
 | Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
+| Mandatory byte range locks | Supported | Not supported |
+| Advisory byte range locks | Not supported | Supported |
+| Extended/named attributes | Not supported | Not supported |
+| Alternate data streams | Not supported | N/A |
+| Object identifiers | Not supported | N/A |
+| Reparse points | Not supported | N/A |
+| Sparse files | Not supported | N/A |
+| Compression | Not supported | N/A |
+| Named pipes | Not supported | N/A |
+| SMB Direct | Not supported | N/A |
+| SMB Directory Leasing | Not supported | N/A |
+| Volume Shadow Copy | Not supported | N/A |
+| Short file names (8.3 alias ) | Not supported | N/A |
+| Server service | Not supported | N/A |
+| File system transactions (TxF) | Not supported | N/A |
 
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,14 +70,15 @@ When deploying Azure file shares into storage accounts, we recommend:
 - Only deploying GPv2 and FileStorage accounts and upgrading GPv1 and classic storage accounts when you find them in your environment. 
 
 ## Identity
-To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files integrates with three main identity providers:
+To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files integrates with four main identity providers:
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
 - **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Azure AD DS provides similar benefits to domain joining it to a customer-owned Active Directory. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Azure AD DS provides AD-based authentication, this option also uses the Kerberos authentication protocol.
+- **Azure Active Directory (Azure AD) Kerberos for hybrid identities**: Azure AD Kerberos allows you to use Azure AD to authenticate [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD identities that are synced to the cloud. This configuration uses Azure AD to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs.
 - **Azure storage account key**: Azure file shares may also be mounted with an Azure storage account key. To mount a file share this way, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share will have full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used.
 
 For customers migrating from on-premises file servers, or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned Active Directory** is the recommended option. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](storage-files-active-directory-overview.md).
 
-If you intend to use the storage account key to access your Azure file shares, we recommend using service endpoints as described in the [Networking](#networking) section.
+If you intend to use the storage account key to access your Azure file shares, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
 ## Networking
 Directly mounting your Azure file share often requires some thought about networking configuration because:
@@ -95,7 +112,7 @@ You can disable encryption in transit for an Azure storage account. When encrypt
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
-For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
 
 ### Encryption at rest
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
@@ -104,20 +121,20 @@ For more information about encryption in transit, see [requiring secure transfer
 Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
 
 ### Soft delete
-Soft delete for file shares is a storage-account level setting that allows you to recover your file share when it is accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
+Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
 
-We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all.
+We recommend turning on soft delete for most SMB file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
 ### Backup
-You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
 
-[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
+[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
 You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
 
-For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json).
 
 ### Protect Azure Files with Microsoft Defender for Storage
 Microsoft Defender for Storage provides an additional layer of security intelligence that generates alerts when it detects anomalous activity on your storage account, for example unusual access attempts. It also runs malware hash reputation analysis and will alert on known malware. You can configure Microsoft Defender for Storage at the subscription or storage account level via Microsoft Defender for Cloud.

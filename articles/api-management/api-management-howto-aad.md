@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 05/20/2022
+ms.date: 07/12/2022
 ms.author: danlep
 ---
 
@@ -16,6 +16,13 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
+
+For an overview of options to secure the developer portal, see [Authentication and authorization in API Management](authentication-authorization-overview.md#developer-portal-user-plane).
+
+> [!IMPORTANT]
+> * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
+> * If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
+ 
 
 ## Prerequisites
 
@@ -55,10 +62,9 @@ After the Azure AD provider is enabled:
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **+Add** from the top to open the **Add identity provider** pane to the right.
-1. Under **Type**, select **Azure Active Directory** from the drop-down menu.
-    * Once selected, you'll be able to enter other necessary information. 
-    * Information includes **Client ID** and **Client secret**. 
-    * See more information about these controls later in the article.
+1. Under **Type**, select **Azure Active Directory** from the drop-down menu. Once selected, you'll be able to enter other necessary information. 
+    * In the **Client library** dropdown, select **MSAL**.
+    * To add **Client ID** and **Client secret**, see steps later in the article.
 1. Save the **Redirect URL** for later.
     
     :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Screenshot of adding identity provider in Azure portal.":::
@@ -75,14 +81,14 @@ After the Azure AD provider is enabled:
 1. Select **New registration**. On the **Register an application** page, set the values as follows:
     
     * Set **Name** to a meaningful name such as *developer-portal*
-    * Set **Supported account types** to **Accounts in this organizational directory only**. 
-    * In **Redirect URI**, select **Web** and paste the redirect URL you saved from a previous step. 
+    * Set **Supported account types** to **Accounts in any organizational directory**. 
+    * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
 1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
 1. Switch to the browser tab with your API Management instance. 
 1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
-1. Switch to the browser tab with the App Registration.
+1. Switch to the browser tab with the App registration.
 1. Select the appropriate app registration.
 1. Under the **Manage** section of the side menu, select **Certificates & secrets**. 
 1. From the **Certificates & secrets** page, select the **New client secret** button under **Client secrets**. 
@@ -122,6 +128,23 @@ After the Azure AD provider is enabled:
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
 
+## Migrate to MSAL
+
+If you previously configured an Azure AD app for user sign-in using the ADAL, you can use the portal to migrate the app to MSAL and update the identity provider in API Management.
+
+### Update Azure AD app for MSAL compatibility
+
+For steps, see [Switch redirect URIs to the single-page application type](../active-directory/develop/migrate-spa-implicit-to-auth-code.md#switch-redirect-uris-to-spa-platform).
+
+### Update identity provider configuration
+
+1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
+1. Select **Azure Active Directory** from the list.
+1. In the **Client library** dropdown, select **MSAL**.
+1. Select **Update**.
+1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+
+
 ## Add an external Azure AD group
 
 Now that you've enabled access for users in an Azure AD tenant, you can:
@@ -129,19 +152,18 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Control product visibility using Azure AD groups.
 
 Follow these steps to grant:
-* `Directory.Read.All` **application** permission for Microsoft Graph API.
 * `User.Read` **delegated** permission for Microsoft Graph API. 
-
+* `Directory.ReadAll` **application** permission for Microsoft Graph API. 
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
-   $subId = "Your Azure subscription ID" #e.g. "1fb8fadf-03a3-4253-8993-65391f432d3a"
-   $tenantId = "Your Azure AD Tenant or Organization ID" #e.g. 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
-   $appObjectID = "Application Object ID that has been registered in AAD" #e.g. "2215b54a-df84-453f-b4db-ae079c0d2619"
+   $subId = "Your Azure subscription ID" # Example: "1fb8fadf-03a3-4253-8993-65391f432d3a"
+   $tenantId = "Your Azure AD Tenant or Organization ID" # Example: 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
+   $appObjectID = "Application Object ID that has been registered in AAD" # Example: "2215b54a-df84-453f-b4db-ae079c0d2619"
    #Login and Set the Subscription
    az login
    az account set --subscription $subId
-   #Assign the following permissions: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
+   #Assign the following permission: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
    az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
    ```
 
@@ -210,10 +232,8 @@ Your user is now signed in to the developer portal for your API Management servi
 
 ## Next Steps
 
-- Learn how to [Protect your web API backend in API Management by using OAuth 2.0 authorization with Azure AD](./api-management-howto-protect-backend-with-aad.md)
 - Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
-- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+- Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL](../active-directory/develop/msal-migration.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).
 - [Manage your first API](./import-and-publish.md).
 

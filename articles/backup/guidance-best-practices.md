@@ -212,8 +212,7 @@ To help you protect your backup data and meet the security needs of your busines
   - In terms of the scope of the access,
 
     - _User2_ can access only the Resources of Subscription1, and User3 can access only the Resources of Subscription2. 
-    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger 
-    - Restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
+    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
     - _User1_ is a Backup Contributor. It has the permission to create vaults, create/modify/delete backup policies, and stop backups, along with the capabilities of a Backup Operator. However, in this scenario, its scope is limited only to _Subscription1_.
 
 - Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore.
@@ -240,7 +239,7 @@ With soft-delete, if a user deletes the backup (of a VM, SQL Server database, Az
 
 Any administrator that has the privileged access to your backup data has the potential to cause irreparable damage to the system. A rogue admin can delete all your business-critical data or even turn off all the security measures that may leave your system vulnerable to cyber-attacks.
 
-Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user-authorization.md) feature to protect you from such rouge administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator. 
+Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user-authorization.md) feature to protect you from such rogue administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator. 
 
 ### Ransomware Protection
 

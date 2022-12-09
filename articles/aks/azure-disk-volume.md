@@ -24,6 +24,12 @@ This article assumes that you have an existing AKS cluster with 1.21 or later ve
 
 If you want to interact with Azure disks on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure disks][kubernetes-disks].
 
+The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count will change based on the size of the node/node pool. Run the following command to determine the number of volumes that can be allocated per node:
+
+```console
+kubectl get CSINode <nodename> -o yaml
+```
+
 ## Storage class static provisioning
 
 The following table describes the Storage Class parameters for the Azure disk CSI driver static provisioning:
@@ -132,6 +138,8 @@ following command:
     metadata:
       name: mypod
     spec:
+      nodeSelector:
+        kubernetes.io/os: linux
       containers:
       - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
         name: mypod

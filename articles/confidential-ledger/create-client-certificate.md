@@ -5,15 +5,15 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 04/15/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---
 # Creating a Client Certificate
 
-The Azure confidential ledger APIs require client certificate-based authentication. Only those certificates added to an allowlist during Ledger Creation or Ledger Update can be used to call the confidential ledger Functional APIs.
+The Azure confidential ledger APIs require client certificate-based authentication. Only those certificates added to an allowlist during ledger creation or a ledger update can be used to call the confidential ledger Functional APIs.
 
-You will need a certificate in PEM format. You can create more than one certificate and add or delete them using Ledger Update API.
+You will need a certificate in PEM format. You can create more than one certificate and add or delete them using ledger Update API.
 
 ## OpenSSL
 

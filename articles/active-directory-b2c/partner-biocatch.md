@@ -341,7 +341,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     </TechnicalProfile> 
 
-  </RelyingParty>
+    </RelyingParty>
     ```
 
 ## Integrate with Azure AD B2C

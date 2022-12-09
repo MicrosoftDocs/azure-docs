@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 03/22/2022
+ms.date: 10/27/2022
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -25,7 +25,7 @@ To use a Data Flow activity in a pipeline, complete the following steps:
 1. Select the new Data Flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details. 
 
    :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
-1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Data flow activities use a guid value as checkpoint key instead of “pipelinename + activityname” so that it can always keep tracking customer’s change data capture  state even there’s any renaming actions. All existing data flow activity will use the old pattern key for backward compatibility. Checkpoint key option after publishing a new data flow activity with change data capture enabled data flow resource is shown as below. 
+1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Data flow activities use a guid value as checkpoint key instead of “pipeline name + activity name” so that it can always keep tracking customer’s change data capture  state even there’s any renaming actions. All existing data flow activity will use the old pattern key for backward compatibility. Checkpoint key option after publishing a new data flow activity with change data capture enabled data flow resource is shown as below. 
 
    :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity-checkpoint.png" alt-text="Shows the UI for a Data Flow activity with checkpoint key.":::
 3. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration. 
@@ -79,10 +79,7 @@ traceLevel | Set logging level of your data flow activity execution | Fine, Coar
 
 ### Dynamically size data flow compute at runtime
 
-The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
-
-> [!NOTE]
-> When choosing driver and worker node cores in Azure Synapse Data Flows, a minimum of 3 nodes will always be utilized.
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties. You can choose small, medium, or large compute sizes. Optionally, pick "Custom" and configure the compute types and number of cores manually.
 
 :::image type="content" source="media/data-flow/dyna1.png" alt-text="Dynamic Data Flow":::
 

@@ -1,7 +1,7 @@
 ---
 title: Upgrade to .NET SDK version 11
 titleSuffix: Azure Cognitive Search
-description: Migrate code to the Azure Cognitive Search .NET SDK version 11 from older versions. 
+description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11 . 
 
 manager: nitinme
 author: HeidiSteen
@@ -267,6 +267,8 @@ In terms of service version updates, where code changes in version 11 relate to 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
 + [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, you should review and potentially remove that code if it's no longer necessary.
+
+Due to these behavior changes, it's likely that you'll see slight variations in ranked results.
 
 ## Next steps
 

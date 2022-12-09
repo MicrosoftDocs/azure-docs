@@ -1,11 +1,11 @@
 ---
 title: Prerequisites and requirements for Azure Network Function Manager
 description: Learn about the requirements and prerequisites for Network Function Manager.
-author: prmitt
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
-ms.author: prmitt
+ms.author: tobiaw
 ms.custom: ignite-fall-2021
 ---
 
@@ -42,7 +42,12 @@ The Azure Network Function Manager service consists of Network Function Manager 
 
 ## <a name="port-firewall"></a>Port requirements and firewall rules
 
-Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for the [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements) device.  
+Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for the [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements) device.
+
+Your firewall rules must allow outbound HTTPS connections to
+
+* *.blob.storage.azure.net
+* *.mecdevice.azure.com
 
 Network Function partners will have different requirements for firewall and port configuration rules to manage traffic to the partner management portal. Check with your network function partner for specific requirements.
 

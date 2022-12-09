@@ -5,12 +5,14 @@ author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Modify a Capacity Reservation (preview)
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 After creating a Capacity Reservation group and Capacity Reservation, you may want to modify your reservations. This article explains how to do the following actions using API, Azure portal, and PowerShell. 
 

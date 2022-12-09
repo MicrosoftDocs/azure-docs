@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
+ms.reviewer: shijain
 
 ---
 
@@ -127,7 +128,9 @@ You can remove the Office 365 management solution using the process in [Remove a
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
         [Parameter(Mandatory=$True)][string]$SubscriptionId,
-        [Parameter(Mandatory=$True)][string]$OfficeTennantId
+        [Parameter(Mandatory=$True)][string]$OfficeTennantId,
+        [Parameter(Mandatory=$True)][string]$clientId,
+        [Parameter(Mandatory=$True)][string]$xms_client_tenant_Id
     )
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     
@@ -142,14 +145,12 @@ You can remove the Office 365 management solution using the process in [Remove a
     $WorkspaceLocation= $Workspace.Location
     
     # Client ID for Azure PowerShell
-    $clientId = "1950a258-227b-4e31-a9cf-717495945fc2"
     # Set redirect URI for Azure PowerShell
     $redirectUri = "urn:ietf:wg:oauth:2.0:oob"
     $domain='login.microsoftonline.com'
     $adTenant =  $Subscription[0].Tenant.Id
     $authority = "https://login.windows.net/$adTenant";
-    $ARMResource ="https://management.azure.com/";
-    $xms_client_tenant_Id ='55b65fb5-b825-43b5-8972-c8b6875867c1'
+    $ARMResource ="https://management.azure.com/";'
     
     switch ($WorkspaceLocation) {
            "USGov Virginia" { 

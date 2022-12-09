@@ -33,13 +33,13 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 | --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
-| `x5t` | Base64url-encoded SHA-1 thumbprint of the X.509 certificate thumbprint. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
+| `x5t` | Base64url-encoded SHA-1 thumbprint of the X.509 certificate's DER encoding. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ` (Base64url). |
 
 ### Claims (payload)
 
 Claim type | Value | Description
 ---------- | ---------- | ----------
-`aud` | `https://login.microsoftonline.com/{tenantId}/V2.0/token` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Azure AD) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
+`aud` | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Azure AD) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
 `exp` | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Azure AD does not place restrictions on the `exp` time currently. 
 `iss` | {ClientID} | The "iss" (issuer) claim identifies the principal that issued the JWT, in this case your client application.  Use the GUID application ID.
 `jti` | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
@@ -61,7 +61,7 @@ The signature is computed by applying the certificate as described in the [JSON 
 }
 .
 {
-  "aud": "https: //login.microsoftonline.com/contoso.onmicrosoft.com/oauth2/V2.0/token",
+  "aud": "https: //login.microsoftonline.com/contoso.onmicrosoft.com/oauth2/v2.0/token",
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
