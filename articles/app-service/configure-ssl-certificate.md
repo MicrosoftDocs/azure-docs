@@ -83,7 +83,7 @@ The free certificate comes with the following limitations:
 - Must meet all the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
-- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net`. Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+- Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
 - Must meet all the above for successful certificate issuance and renewals.
 
 ---
