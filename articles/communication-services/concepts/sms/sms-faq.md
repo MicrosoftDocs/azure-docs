@@ -19,7 +19,7 @@ This article answers commonly asked questions about the SMS serv
 ## Sending and receiving messages
 ### How can I receive messages using Azure Communication Services?
 
-Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to setup your event-grid to receive messages.
+Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to set up your event-grid to receive messages.
 
 ### How are messages sent to landline numbers treated?
 
@@ -29,7 +29,7 @@ In the United States, Azure Communication Services does not check for landline n
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
 
-### I received a HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
+### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
 
@@ -53,7 +53,7 @@ Below is a list with examples of common URL shorteners you should avoid to maxim
 ### How does Azure Communication Services handle opt-outs for toll-free numbers?
 
 Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
+- **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
 - **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
 - Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
@@ -62,7 +62,7 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
-- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
+- **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
@@ -142,7 +142,7 @@ Pointers to ensure you are submitting a high quality application:
 |---------------------------------|-----------------------------------|----------------------------------|------------------------------|--------------------------|
 | Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     | Phishing                 |
 | Short-term, high-interest loans | Debt reduction                    | Risk investment opportunities    | Alcohol                      | Fraud or scams           |
-| Auto loans                      | Credit repair programs            | Debt collection or consolidation | Tabacco or vape              | Deceptive marketing      |
+| Auto loans                      | Credit repair programs            | Debt collection or consolidation | Tobacco or vape              | Deceptive marketing      |
 | Mortgage loans                  | Deceptive work from home programs |                                  |                              | Pornography              |
 | Student loans                   | Multi-level marketing             |                                  |                              | Sex-related content      |
 | Gambling                        |                                   |                                  |                              | Profanity or hate speech |
