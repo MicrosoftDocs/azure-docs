@@ -395,6 +395,9 @@ When you are done and if you want to, you can delete the resource group. The act
 > [!IMPORTANT]
 > All resources within the resource groups will be permanently deleted and cannot be undone.
 
+>[!IMPORTANT]
+>If you intend to delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md). If you delete the resource group without disabling backups, backups will continue to impact your billing. 
+
 1. In the Azure portal's search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
 2. In the list of subscriptions, click the resource group (myRG1) you want to delete.

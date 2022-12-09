@@ -49,7 +49,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
-* Disabling backups for a volume will delete all the backups stored in the Azure storage for that volume. If you delete a volume without disabling backups, the backups will remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
+* Disabling backups for a volume will delete all the backups stored in the Azure storage for that volume. If you delete a volume (or resource group or subscription) without disabling backups, the backups will remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
 ## Next steps
 
