@@ -11,7 +11,7 @@ ms.date: 12/15/2022
 
 # Why move from BizTalk Server to Azure Integration Services?
 
-This guide provides an overview about the reasons and benefits, product comparisons, capabilities, and other information to help start your journey to migrate from on-premises BizTalk Server to cloud-based Azure Integration Services. Following this guide, you'll find other guides that cover choosing the offerings that best fit your scenario and migration approaches, including planning considerations and best practices to help you ensure a successful migration project.
+This guide provides an overview about the reasons and benefits, product comparisons, capabilities, and other information to help you start migrating from on-premises BizTalk Server to cloud-based Azure Integration Services. Following this guide, you'll find more guides that cover how to choose the services that best fit your scenario and approaches to migration, including planning considerations and best practices to help you ensure a successful migration project.
 
 ## Reasons and benefits
 
@@ -57,71 +57,71 @@ Beyond the previously described services, Microsoft also offers the following co
 | Azure Monitor | Application Insights, which is part of Azure Monitor, provides application performance management and monitoring for live apps. Store application telemetry and monitor the overall health of your integration platform. You also have the capability to set thresholds and get alerts when performance exceeds configured thresholds. For more information, see [Application Insights](/azure/azure-monitor/app/app-insights-overview). |
 | Azure Automation | Automate your Azure management tasks and orchestrate actions across external systems within Azure. Built on PowerShell workflow so you can use this language's many capabilities. For more information, see [Azure Automation](/azure/automation/overview). |
 
-### Supported developer experiences
+## Supported developer experiences
 
-This section describes the developer tools and versions supported by the following respective offerings:
+This section describes the developer tools that BizTalk server and Azure Integration Services support:
 
 | Offering | Product or service with supported tools |
 |----------|-----------------------------------------|
 | BizTalk Server | Each BizTalk Server version supports a specific version of Visual Studio. <br><br>For example, BizTalk Server 2020 supports Visual Studio 2019 Enterprise or Professional. However, Visual Studio Community Edition isn't supported. |
-| Azure Integration Services | - Azure Logic Apps (Standard): Azure portal and Visual Studio Code <br><br>- Azure Logic Apps (Consumption): Azure portal and Visual Studio 2019, 2017, or 2015 <br><br>- Azure Functions: Azure portal, Visual Studio Code, and Visual Studio 2022 <br><br>- Azure API Management: Azure portal and Visual Studio Code <br><br>- Azure Service Bus: Azure portal and Service Bus Explorer <br><br>- Azure Data Factory: Azure portal and Visual Studio 2015 or 2013 |
+| Azure Integration Services | - Azure Logic Apps (Standard): Azure portal and Visual Studio Code <br><br>- Azure Logic Apps (Consumption): Azure portal, Visual Studio Code, and Visual Studio 2019, 2017, or 2015 <br><br>- Azure Functions: Azure portal, Visual Studio Code, and Visual Studio 2022 <br><br>- Azure API Management: Azure portal and Visual Studio Code <br><br>- Azure Service Bus: Azure portal and Service Bus Explorer <br><br>- Azure Data Factory: Azure portal and Visual Studio 2015 or 2013 |
 
 ## BizTalk Server versus Azure Integration Services
 
-To compare BizTalk Server with Azure Integration Services and discuss how to migrate, let's first briefly summarize what BizTalk Server does. Originally released in 2000, BizTalk Server is an on-premises, stable, middleware platform that connects various systems by using adapters. This platform works as a broker between businesses, systems, or applications and is now a well-established integration platform. To simplify the challenge in combining different systems that are developed in different languages and can be connected using different protocols and formats, BizTalk Server has the following main components:
-
-- Messaging
-
-  Provides the capability to communicate with a wide range of software applications. Adapters allow BizTalk Server's messaging component to interact with various protocols and data formats.
+To compare BizTalk Server with Azure Integration Services and discuss how to migrate, let's first briefly summarize what BizTalk Server does. Originally available in 2000, BizTalk Server is an on-premises, stable, middleware platform that connects various systems by using adapters. This platform works as a broker between businesses, systems, or applications and is now a well-established integration platform. To simplify the challenge in combining different systems that are developed in different languages and can be connected using different protocols and formats, BizTalk Server offers the following main capabilities:
 
 - Orchestration (business flow)
 
   Provides the capability to create and run orchestrations or graphically defined business processes.
 
+- Messaging
+
+  Provides the capability to communicate with a wide range of software applications. Adapters allow BizTalk Server's messaging component to interact with various protocols and data formats.
+
 The BizTalk Server engine includes the following components:
 
 | Component | Description |
 |-----------|-------------|
-| Business Activity Monitoring (BAM) | Enables information workers to monitor a running business process. |
 | Business Rule Engine (BRE) | Evaluates complex sets of rules. |
 | Enterprise Single Sign-On (SSO) | Provides the capability to map authentication information between Windows and non-Windows systems. |
+| Business Activity Monitoring (BAM) | Enables information workers to monitor a running business process. |
 | Group Hub | Enables support personnel to manage the engine and the orchestrations that run. |
 
 <a name="how-does-biztalk-server-work"></a>
 
 ### How does BizTalk Server work?
 
-BizTalk Server uses a publish-subscribe messaging engine architecture. The heart of this architecture is the [MessageBox database](/biztalk/core/the-messagebox-database). MessageBox is responsible for storing the messages, message properties, subscriptions, orchestration states, tracking data, and other information.
+BizTalk Server uses a publish-subscribe messaging engine architecture with the [MessageBox database](/biztalk/core/the-messagebox-database) at the heart. MessageBox is responsible for storing messages, message properties, subscriptions, orchestration states, tracking data, and other information.
 
-When BizTalk Server receives a message, the server passes and processes the message through a pipeline. This step normalizes and publishes the message to the MessageBox database. BizTalk Server then evaluates the existing subscriptions and determines the message's intended recipient, based on the message context properties. Finally, BizTalk Server routes the message to the intended recipient, based on subscriptions or filters. This recipient is either an orchestration or a Send port, which is a location to where BizTalk Server sends messages or from where BizTalk Server can receive messages. Similarly, BizTalk Server transmits messages through a Send port by passing them through a Send pipeline. The Send pipeline serializes the messages into the native format expected by the receiver before sending the messages through an adapter.
+When BizTalk Server receives a message, the server passes and processes the message through a pipeline. This step normalizes and publishes the message to MessageBox. BizTalk Server then evaluates any existing subscriptions and determines the message's intended recipient, based on the message context properties. Finally, BizTalk Server routes the message to the intended recipient, based on subscriptions or filters. This recipient is either an orchestration or a Send port, which is a destination to where BizTalk Server sends messages or source from where BizTalk Server can receive messages. BizTalk Server transmits messages through a Send port by passing them through a Send pipeline. The Send pipeline serializes the messages into the native format expected by the receiver before sending the messages through an adapter.
 
-MessageBox has the following components:
-
-- One or more SQL Server databases
-
-  Provides the persistence store for messages, message parts, message properties, subscriptions, orchestration state, tracking data, host queues for routing, and more.
+The MessageBox database has the following components:
 
 - Messaging agent
 
-  Used by BizTalk Server to interact with MessageBox, this agent provides interfaces for publishing messages, subscribing to messages, retrieving messages, and more.
+  BizTalk Server interacts with MessageBox using this agent, which provides interfaces for publishing messages, subscribing to messages, retrieving messages, and more.
+
+- One or more SQL Server databases
+
+  These databases provide the persistence store for messages, message parts, message properties, subscriptions, orchestration state, tracking data, host queues for routing, and more.
 
 The following image shows how BizTalk Server Messaging Engine works:
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-server-messaging-engine.png" alt-text="Diagram showing BizTalk Server Messaging Engine.":::
 
-Messages are stored in MessageBox after they're received by a Receive port and can be processed to business processes or to a Send port that subscribes to specific messages.
+After a Receive port receives a message, MessageBox stores that message for processing by business processes or for routing to any Send ports that have subscriptions to specific messages.
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-messagebox-receive-store-messages.png" alt-text="Diagram showing process for receiving and storing messages in the MessageBox database for BizTalk Server.":::
 
-For more information, see [Publish-subscribe architecture](#publish-subscribe-architecture) later in this guide.
+ For more information, see [Publish-subscribe architecture](#publish-subscribe-architecture) later in this guide.
 
 ### Business processes
 
-This section describes ways that you design and build executable business processes that run using BizTalk Server and Azure Integration Services.
+This section describes options for designing and building executable business processes that run in BizTalk Server and Azure Integration Services.
 
 #### BizTalk Server
 
-In BizTalk Server, orchestrations are executable business processes that can subscribe to (receive) and publish (send) messages through the MessageBox database. Orchestrations can construct new messages and can receive messages using the subscription and routing infrastructure. When subscriptions are filled for orchestrations, a new instance is activated, and the message is delivered. In the case of instance subscriptions, the instance is rehydrated if necessary and then the message is delivered. When messages are sent from an orchestration, they're published to MessageBox in the same way as a message arriving at a Receive location with the appropriate properties added to the database to use for routing.
+In BizTalk Server, orchestrations are executable business processes that can subscribe to (receive) and publish (send) messages through the MessageBox database. Orchestrations can construct new messages and can receive messages using the subscription and routing infrastructure. When subscriptions are filled for orchestrations, a new subscription instance is activated, and the message is delivered. For instance subscriptions, the instance is rehydrated if necessary, and the message is then delivered. When messages are sent from an orchestration, they're published to MessageBox in the same way as a message arriving at a receive location with the appropriate properties added to the database for routing.
 
 To enable publish-subscribe messaging, orchestrations use bindings that help create subscriptions. Orchestration ports are logical ports that describe an interaction. To deliver messages, you must bind these logical ports to a physical port, but this binding process is nothing more than configuring subscriptions for message routing.
 
