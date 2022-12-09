@@ -615,7 +615,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    /dev/sdb1       3.9G   16M  3.7G   1% /mnt/resource
    tmpfs            93M     0   93M   0% /run/user/1000
    ```
-
+```
 ## Expanding without downtime classic VM SKU support
 
 If you're using a classic VM SKU, it might not support expanding disks without downtime.
@@ -638,4 +638,3 @@ foreach($vmSize in $vmSizes){
        }
    }
 }
-```
