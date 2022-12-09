@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -29,9 +29,8 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Specifies what action to take when the query parameter is already specified. This attribute must have one of the following values.<br /><br /> -   override - replaces the value of the existing parameter.<br />-   skip - does not replace the existing query parameter value.<br />-   append - appends the value to the existing query parameter value.<br />-   delete - removes the query parameter from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the query parameter being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|override|
+|exists-action|Specifies what action to take when the query parameter is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing parameter.<br />-   `skip` - does not replace the existing query parameter value.<br />-   `append` - appends the value to the existing query parameter value.<br />-   `delete` - removes the query parameter from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the query parameter being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|`override`|
 |name|Specifies name of the query parameter to be set.|Yes|N/A|
-
 
 ## Elements
 
@@ -43,13 +42,11 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Examples
 
-### Example 1: Set value of query parameter
+### Set value of query parameter
 
 ```xml
 
@@ -59,7 +56,7 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 
 ```
 
-### Example 2: Set query parameter to forward context to the backend 
+### Set query parameter to forward context to the backend 
 
  This example shows how to apply policy at the API level to supply context information to the backend service.
 

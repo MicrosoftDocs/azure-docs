@@ -17,14 +17,6 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 > [!IMPORTANT]
 >  By default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
 >
->  Please note the following considerations when using the `set-body` policy.
->
-> - If you are using the `set-body` policy to return a new or updated body, you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
->   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
->   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
->   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
-
- For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -40,8 +32,8 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- liquid - the `set-body` policy will use the liquid templating engine |No| N/A|
-|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values.<br /><br />- blank - `nil` is represented with an empty string.<br />- null - `nil` is represented with a null value.|No | blank |
+|template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.|No | `blank` |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
@@ -86,70 +78,16 @@ OriginalUrl.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
+### Usage notes
 
-### Example 1: Literal text
+ - If you are using the `set-body` policy to return a new or updated body, you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
+ -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
+ -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
+ -   If this policy is used when there is no message body, for example in an inbound `GET`, an exception is thrown.
 
-```xml
-<set-body>Hello world!</set-body>
-```
-
-### Example 2: Accessing the body as a string
-
-We are preserving the original request body so that we can access it later in the pipeline.
-
-```xml
-<set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
-}
-</set-body>
-```
-
-### Example 3: Accessing the body as a JObject
-
-Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
-
-```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
-</set-body>
-
-```
-
-### Example 4: Filter response based on product
-
-This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
-
-```xml
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
-<choose>
-  <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
-    <set-body>@{
-        var response = context.Response.Body.As<JObject>();
-        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
-          response.Property (key).Remove ();
-        }
-        return response.ToString();
-      }
-    </set-body>
-  </when>
-</choose>
-```
+For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessageBody` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
 ## Using Liquid templates with set-body
 The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be effective if you need to completely reshape the format of your message.
@@ -212,6 +150,68 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 * Upcase
 * UrlDecode
 * UrlEncode
+
+
+## Examples
+
+### Literal text
+
+```xml
+<set-body>Hello world!</set-body>
+```
+
+### Accessing the body as a string
+
+We are preserving the original request body so that we can access it later in the pipeline.
+
+```xml
+<set-body>
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
+}
+</set-body>
+```
+
+### Accessing the body as a JObject
+
+Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+
+```xml
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
+</set-body>
+
+```
+
+### Filter response based on product
+
+This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
+
+```xml
+<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
+<choose>
+  <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
+    <set-body>@{
+        var response = context.Response.Body.As<JObject>();
+        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
+          response.Property (key).Remove ();
+        }
+        return response.ToString();
+      }
+    </set-body>
+  </when>
+</choose>
+```
 
 ### Convert JSON to SOAP using a Liquid template
 ```xml

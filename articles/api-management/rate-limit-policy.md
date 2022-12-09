@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/27/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -79,13 +79,14 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) only supported in `retry-after-variable-name` and `remaining-calls-variable-name` attributes
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** not supported
 
-## Examples
+### Usage notes
 
-### Subscription rate limit of 20 calls per 90 seconds
+* This policy can be used only once per policy definition.
+* Except where noted, [policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
+
+## Example
 
 In the following example, the per subscription rate limit is 20 calls per 90 seconds. After each policy execution, the remaining calls allowed in the time period are stored in the variable `remainingCallsPerSubscription`.
 

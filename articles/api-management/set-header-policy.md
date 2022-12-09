@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -44,9 +44,26 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
+
+### Usage notes
+
+ Multiple values of a header are concatenated to a CSV string, for example: 
+
+`headerName: value1,value2,value3`
+
+Exceptions include standardized headers whose values:
+- may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`)
+- may contain date (`Cookie`, `Set-Cookie`, `Warning`),
+- contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
+
+In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+
+```
+User-Agent: value1
+User-Agent: value2
+User-Agent: value3
+```
 
 ## Examples
 
@@ -63,9 +80,9 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
  <set-header name="some header name" exists-action="delete" />
 ```
 
-
 ### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service.
+
+This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -76,20 +93,6 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 ```
 
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
-
-> [!NOTE]
-> Multiple values of a header are concatenated to a CSV string, for example:
-> `headerName: value1,value2,value3`
->
-> Exceptions include standardized headers whose values:
-> - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
-> - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
-> - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
->
-> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
->`User-Agent: value1`
->`User-Agent: value2`
->`User-Agent: value3`
 
 ## Related policies
 

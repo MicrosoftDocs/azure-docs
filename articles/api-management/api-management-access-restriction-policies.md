@@ -7,16 +7,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/28/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
 # API Management access restriction policies
 
 The following API Management policies are used for access restriction. 
-
-[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
-
 
 -   [Check HTTP header](check-header-policy.md) - Enforces existence and/or value of an HTTP header.
 - [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.

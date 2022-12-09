@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/02/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -31,10 +31,10 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
-|parse-date|When set to `false` date values are simply copied during transformation|No|true|
-|namespace-separator|The character to use as a namespace separator|No|Underscore|
+|apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - always apply conversion.<br />-   `content-type-json` - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if XML is requested in request Accept header.<br />-   `false` - always apply conversion.|No|`true`|
+|parse-date|When set to `false` date values are simply copied during transformation.|No|`true`|
+|namespace-separator|The character to use as a namespace separator.|No|Underscore|
 |namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations.|No|N/A|
 |attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
@@ -42,9 +42,7 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 ## Example
 

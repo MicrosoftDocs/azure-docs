@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/27/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -38,12 +38,12 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 
 | Attribute | Description | Required | Default |
 |---|---|---|---|
-| provider-id | The authorization provider resource identifier. | Yes |   |
-| authorization-id | The authorization resource identifier. | Yes |   |
-| context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
-| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |   |
-| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
+| provider-id | The authorization provider resource identifier. | Yes | N/A  |
+| authorization-id | The authorization resource identifier. | Yes | N/A  |
+| context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes | N/A  |
+| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | `false` |
 
 ### Authorization object
 
@@ -66,13 +66,11 @@ class Authorization
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated
-- **Multiple statements per policy document:** supported
 
 ### Examples
 
-### 1. Get token back
+### Get token back
 
 ```xml
 <!-- Add to inbound policy. -->
@@ -90,7 +88,7 @@ class Authorization
 </return-response>
 ```
 
-### 2. Get token back with dynamically set attributes
+### Get token back with dynamically set attributes
 
 ```xml
 <!-- Add to inbound policy. -->
@@ -106,7 +104,7 @@ class Authorization
 </return-response>
 ```
 
-### 3. Attach the token to the backend call
+### Attach the token to the backend call
 
 ```xml
 <!-- Add to inbound policy. -->
@@ -122,7 +120,7 @@ class Authorization
 </set-header>
 ```
 
-### 4. Get token from incoming request and return token
+### Get token from incoming request and return token
 
 ```xml
 <!-- Add to inbound policy. -->
@@ -139,7 +137,6 @@ class Authorization
     <set-body template="none">@(((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</set-body>
 </return-response>
 ```
-
 
 ## Related policies
 

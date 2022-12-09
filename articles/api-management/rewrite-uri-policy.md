@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -19,9 +19,6 @@ The `rewrite-uri` policy converts a request URL from its public form to the form
 - Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
 This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
-
-> [!NOTE]
->  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -37,15 +34,17 @@ This policy can be used when a human and/or browser-friendly URL should be trans
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |template|The actual web service URL with any query string parameters. When using expressions, the whole value must be an expression.|Yes|N/A|
-|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|
+|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the rewrite template.|No|`true`|
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
+
+### Usage notes
+
+You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
 
 ## Example
 
