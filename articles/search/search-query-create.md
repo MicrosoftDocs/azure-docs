@@ -53,12 +53,9 @@ You can select any index and REST API version, including preview. A query string
 
 ### Use a REST client
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a query client. Using either tool, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
+The [Postman desktop app](https://www.postman.com/downloads/) can function as a query client. Using the app, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
 
-Start with either of these articles to learn about each client (both include instructions for queries):
-
-+ [Create a search index using REST and Postman](search-get-started-rest.md)
-+ [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
+Start with [Create a search index using REST and Postman](search-get-started-rest.md) for step-by-step instructions for setting up requests.
 
 Each request is standalone, so you must provide the endpoint, index name, and API version on every request. Other properties, Content-Type and API key, are passed on the request header. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents) for help with formulating query requests.
 

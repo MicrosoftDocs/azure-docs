@@ -119,17 +119,22 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. **Sign in to the newly created machine** with a user with sudo privileges.
 
-1. **Create and configure a data disk** to be mounted at the Docker root directory.
-
-1. Run the following command to **download and run the deployment Kickstart script**:
-
+1. **download and run the deployment Kickstart script**:
+    For public cloud, the command is:
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
-
+    For Azure China 21Vianet, the command is:
+    ```bash
+    wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud mooncake
+    ```
+    For Azure Government - US, the command is:
+    ```bash
+    wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud fairfax
+    ```
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-1. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
+2. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
     ```bash
     The process has been successfully completed, thank you!
@@ -137,7 +142,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
    Note the Docker container name in the script output. You'll use it in the next step.
 
-1. Run the following command to **configure the Docker container to start automatically**.
+3. Run the following command to **configure the Docker container to start automatically**.
 
     ```bash
     docker update --restart unless-stopped <container-name>

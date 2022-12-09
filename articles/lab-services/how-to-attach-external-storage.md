@@ -4,7 +4,7 @@ description: Learn how to set up a lab that uses external file storage in Lab Se
 author: emaher
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Use external file storage in Lab Services

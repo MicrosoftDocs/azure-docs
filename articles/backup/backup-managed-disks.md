@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 11/03/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -73,7 +73,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
    ![Retention settings](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >Azure Backup for Managed Disks uses incremental snapshots which are limited to 200 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 180. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
+   >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
 
 1. Complete the backup policy creation by selecting **Review + create**.
 

@@ -1,6 +1,6 @@
 ---
 title: Control access to IoT Hub by using Azure Active Directory 
-description: Developer guide. How to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
+description: This article describes how to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
 author: kgremban
 manager: briz
 ms.author: kgremban

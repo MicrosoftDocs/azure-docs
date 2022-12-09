@@ -2,11 +2,10 @@
 title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
 author: cherylmc
+ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.author: cherylmc
-
+ms.date: 08/15/2022
 ---
 
 # About Bastion configuration settings
@@ -108,6 +107,16 @@ You can configure this setting using the following methods:
 You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, specify that value when you connect to the VM.
 
 Custom port values are supported for the Standard SKU only.
+
+## Shareable link (Preview)
+
+The Bastion **Shareable Link** feature lets users connect to a target resource using Azure Bastion without accessing the Azure portal.
+
+When a user without Azure credentials clicks a shareable link, a webpage will open that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
+
+| Method | Value | Links | Requires Standard SKU |
+| --- | --- | --- | --- |
+| Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
 ## Next steps
 

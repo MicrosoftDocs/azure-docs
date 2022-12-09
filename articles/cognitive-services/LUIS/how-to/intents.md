@@ -13,6 +13,9 @@ ms.date: 01/07/2022
 
 # Add intents to determine user intention of utterances
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Add [intents](../concepts/intents.md) to your LUIS app to identify groups of questions or commands that have the same intention.
 
 ## Add an intent to your app

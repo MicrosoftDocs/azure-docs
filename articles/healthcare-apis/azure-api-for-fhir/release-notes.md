@@ -2,13 +2,13 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: mcevoy-building7
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: v-smcevoy
+ms.author: kesheth
 ---
 
 # Release notes: Azure API for FHIR
@@ -159,7 +159,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Resolved retry 503 error |Related information |
 | :----------------------------------- | :--------------- |
-|Retry 503 error from Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
+|Retry 503 error from Azure Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
 |Fixes processing 429s from StoreProcedures. |[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
 |GitHub issues closed |Related information |

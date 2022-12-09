@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -19,7 +20,7 @@ ms.service: digital-twins
 
 This article describes the concept of industry ontologies and how they can be used within the context of Azure Digital Twins.
 
-The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models for a given domain, like building structures, IoT systems, smart cities, energy grids, web content, and more.
+The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models for a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. This article explains more about using pre-existing industry ontologies for your Azure Digital Twins scenarios, including strategies for using the ontologies that are available today.
 
@@ -60,7 +61,7 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 Reading this series of articles will guide you in how to use your models in your Azure Digital Twins instance. 
 
 >[!TIP]
-> You can visualize the models in your ontology using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer).
+> You can visualize the models in your ontology using the [model graph](how-to-use-azure-digital-twins-explorer.md#explore-models-and-the-model-graph) in Azure Digital Twins Explorer.
 
 ## Next steps
 

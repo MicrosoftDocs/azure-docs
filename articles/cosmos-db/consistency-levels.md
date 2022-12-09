@@ -6,11 +6,11 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/17/2022
-ms.custom: cosmos-db-video
+ms.date: 09/26/2022
+ms.custom: cosmos-db-video, ignite-2022
 ---
 # Consistency levels in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Distributed databases that rely on replication for high availability, low latency, or both, must make a fundamental tradeoff between the read consistency, availability, latency, and throughput as defined by the [PACELC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a steep price from higher write latencies due to data having to replicate and commit across large distances. Strong consistency may also suffer from reduced availability (during failures) because data cannot replicate and commit in every region. Eventual consistency offers higher availability and better performance, but it's more difficult to program applications because data may not be completely consistent across all regions.
 
@@ -31,11 +31,9 @@ Each level provides availability and performance tradeoffs. The following image 
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistency as a spectrum" border="false" :::
 
-The consistency levels are region-agnostic and are guaranteed for all operations regardless of the region from which the reads and writes are served, the number of regions associated with your Azure Cosmos account, or whether your account is configured with a single or multiple write regions.
-
 ## Consistency levels and Azure Cosmos DB APIs
 
-Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra/apache-cassandra-consistency-mapping.md) and [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
+Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Apache Gremlin, and Azure Table Storage. When using API for Gremlin or Table, the default consistency level configured on the Azure Cosmos DB account is used. For details on consistency level mapping between Apache Cassandra and Azure Cosmos DB, see [API for Cassandra consistency mapping](cassandra/consistency-mapping.md). For details on consistency level mapping between MongoDB and Azure Cosmos DB, see [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
 
 ## Scope of the read consistency
 
@@ -43,7 +41,7 @@ Read consistency applies to a single read operation scoped within a logical part
 
 ## Configure the default consistency level
 
-You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
+You can configure the default consistency level on your Azure Cosmos DB account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
 
 > [!TIP]
 > Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. For more information, see [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput).
@@ -105,11 +103,11 @@ Clients outside of the session performing writes will see the following guarante
 
 ### Consistent prefix consistency
 
-In consistent prefix option, updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
+In consistent prefix, updates made as single document writes see eventual consistency. Updates made as a batch within a transaction, are returned consistent to the transaction in which they were committed. Write operations within a transaction of multiple documents are always visible together.
 
-If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out-of-order permutations like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important.
+Assume two write operations are performed on documents Doc1 and Doc2, within transactions T1 and T2. When client does a read in any replica, the user will see either “Doc1 v1 and Doc2 v1” or “ Doc1 v2 and Doc2 v2”, but never “Doc1 v1 and Doc2 v2” or “Doc1 v2 and Doc2 v1” for the same read or query operation.
 
-Below are the consistency guarantees for Consistent Prefix:
+Below are the consistency guarantees for Consistent Prefix within a transaction context (single document writes see eventual consistency):
 
 - Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
 - Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
@@ -134,21 +132,21 @@ In practice, you may often get stronger consistency guarantees. Consistency guar
 
 If there are no write operations on the database, a read operation with **eventual**, **session**, or **consistent prefix** consistency levels is likely to yield the same results as a read operation with strong consistency level.
 
-If your Azure Cosmos account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the *Probabilistically Bounded Staleness* (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+If your Azure Cosmos DB account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the *Probabilistically Bounded Staleness* (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you have currently configured on your Azure Cosmos account. In other words, you can see the probability (measured in milliseconds) of getting strongly consistent reads for a combination of write and read regions.
+Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you have currently configured on your Azure Cosmos DB account. In other words, you can see the probability (measured in milliseconds) of getting strongly consistent reads for a combination of write and read regions.
 
 ## Consistency levels and latency
 
 The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. The average read latency, at the 50th percentile, is typically 4 milliseconds or less.
 
-The write latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. The average write latency, at the 50th percentile, is usually 5 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
+The write latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. The average write latency, at the 50th percentile, is usually 5 milliseconds or less. Azure Cosmos DB accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
 
 ### Write latency and Strong consistency
 
-For Azure Cosmos accounts configured with strong consistency with more than one region, the write latency is equal to two times round-trip time (RTT) between any of the two farthest regions, plus 10 milliseconds at the 99th percentile. High network RTT between the regions will translate to higher latency for Cosmos DB requests since strong consistency completes an operation only after ensuring that it has been committed to all regions within an account.
+For Azure Cosmos DB accounts configured with strong consistency with more than one region, the write latency is equal to two times round-trip time (RTT) between any of the two farthest regions, plus 10 milliseconds at the 99th percentile. High network RTT between the regions will translate to higher latency for Azure Cosmos DB requests since strong consistency completes an operation only after ensuring that it has been committed to all regions within an account.
 
-The exact RTT latency is a function of speed-of-light distance and the Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions, however it does publish [Azure network round-trip latency statistics](../networking/azure-network-latency.md). For your Azure Cosmos account, replication latencies are displayed in the Azure portal. You can use the Azure portal (go to the Metrics blade, select Consistency tab) to monitor the replication latencies between various regions that are associated with your Azure Cosmos account.
+The exact RTT latency is a function of speed-of-light distance and the Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions, however it does publish [Azure network round-trip latency statistics](../networking/azure-network-latency.md). For your Azure Cosmos DB account, replication latencies are displayed in the Azure portal. You can use the Azure portal (go to the Metrics blade, select Consistency tab) to monitor the replication latencies between various regions that are associated with your Azure Cosmos DB account.
 
 > [!IMPORTANT]
 > Strong consistency for accounts with regions spanning more than 5000 miles (8000 kilometers) is blocked by default due to high write latency. To enable this capability please contact support.
@@ -193,13 +191,13 @@ For a single region account, the minimum value of *K* and *T* is 10 write operat
 
 ## Strong consistency and multiple write regions
 
-Cosmos accounts configured with multiple write regions cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits on using strong consistency with multiple write regions because a write to any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single write region account.
+Azure Cosmos DB accounts configured with multiple write regions cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits on using strong consistency with multiple write regions because a write to any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single write region account.
 
 ## Additional reading
 
 To learn more about consistency concepts, read the following articles:
 
-- [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla)
+- [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/tlaplus/azure-cosmos-tla)
 - [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replicated Data Consistency Explained Through Baseball (whitepaper) by Doug Terry](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
 - [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631)

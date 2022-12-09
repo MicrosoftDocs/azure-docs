@@ -2,6 +2,7 @@
 title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
 ms.topic: tutorial
+ms.custom: ignite-2022
 ms.date: 12/14/2021
 ---
 # Planning and operations guide
@@ -107,7 +108,7 @@ When planning access control using Azure RBAC for Defender for Cloud, be sure to
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
 
 Defender for Cloud policies contain the following components:
-- [Data collection](enable-data-collection.md): agent provisioning and data collection settings.
+- [Data collection](monitoring-components.md): agent provisioning and data collection settings.
 - [Security policy](tutorial-security-policy.md): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Defender for Cloud, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](configure-email-notifications.md): security contacts and notification settings.
 - [Pricing tier](enhanced-security-features-overview.md): with or without Microsoft Defender for Cloud's enhanced security features, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
@@ -121,7 +122,7 @@ Defender for Cloud automatically creates a default security policy for each of y
 Before configuring security policies, review each of the [security recommendations](review-security-recommendations.md), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action should be taken to address Security Recommendations and who in your organization will be responsible for monitoring for new recommendations and taking the needed steps.
 
 ## Data collection and storage
-Defender for Cloud uses the Log Analytics agent – this is the same agent used by the Azure Monitor service – to collect security data from your virtual machines. [Data collected](enable-data-collection.md) from this agent will be stored in your Log Analytics workspace(s).
+Defender for Cloud uses the Log Analytics agent – this is the same agent used by the Azure Monitor service – to collect security data from your virtual machines. [Data collected](monitoring-components.md) from this agent will be stored in your Log Analytics workspace(s).
 
 ### Agent
 

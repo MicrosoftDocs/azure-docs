@@ -3,11 +3,12 @@ title: Deploy MLflow models as web services
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to deploy your ML models as an Azure web service.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/25/2021
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1
 ---
@@ -164,5 +165,5 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 ## Next steps
 
 * [Manage your models](concept-model-management-and-deployment.md).
-* Monitor your production models for [data drift](../how-to-enable-data-collection.md).
+* Monitor your production models for [data drift](how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](../how-to-use-mlflow-azure-databricks.md).

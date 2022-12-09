@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
@@ -114,12 +114,30 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge](#tab/iotedge)
 
-If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario.
+1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Change the ownership and permissions of the certificates and keys.
+
+   ```bash
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/
+   ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
 
+1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
+
+   ```powershell
+   # Copy the IoT Edge device CA certificate and key
+   Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
+   Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile ~/iot-edge-device-ca-<cert name>.key.pem -pushFile
+
+   # Copy the root CA certificate
+   Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile ~/azure-iot-test-only.root.ca.cert.pem -pushFile
+   ```
 1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
    Connect to the EFLOW virtual machine.
@@ -128,38 +146,33 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    Connect-EflowVm
    ```
 
-1. Create the certificates directory. You can select any writeable directory. For this tutorial, we'll use the _iotedge-user_ home folder.
+1. Create the certificates directory. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash
-   cd ~
-   mkdir certs
-   cd certs
-   mkdir certs
-   mkdir private
+   sudo mkdir -p /var/aziot/certs
+   sudo mkdir -p /var/aziot/secrets
    ```
 
+1. Move the certificates and keys to the preferred `/var/aziot` directory.
+
+   ```bash
+   # Move the IoT Edge device CA certificate and key to preferred location
+   sudo mv ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem /var/aziot/certs
+   sudo mv ~/iot-edge-device-ca-<cert name>.key.pem /var/aziot/secrets
+   sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
+   ```
+
+1. Change the ownership and permissions of the certificates and keys.
+
+   ```bash
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
+   ```
+ 
 1. Exit the EFLOW VM connection.
 
    ```bash
    exit
-   ```
-
-1. Copy the certificates to the EFLOW virtual machine.
-
-   ```powershell
-   # Copy the IoT Edge device CA certificates
-   Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
-   Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile /home/iotedge-user/certs/private/iot-edge-device-ca-<cert name>.key.pem -pushFile
-
-   # Copy the root CA certificate
-   Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
-   ```
-
-1. Invoke the following commands on the EFLOW VM to grant iotedge permissions to the certificate files since `Copy-EflowVMFile` copies files with root only access permissions.
-
-   ```powershell
-   Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
-   Invoke-EflowVmCommand "sudo chmod 0644 /home/iotedge-user/certs/"  
    ```
 
 ----
@@ -236,7 +249,7 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
 
 1. In the Azure portal, navigate to your IoT hub.
 
-2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
+2. Go to **Devices** under the **Device management** menu and select your IoT Edge device that you want to use as a gateway.
 
 3. Select **Set Modules**.
 

@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 04/29/2021
+ms.date: 11/01/2022
 ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -25,25 +25,27 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
 
+## Prerequisites
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-### [Azure CLI](#tab/azure-cli) 
+### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-- If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. If using Azure Cloud Shell, the latest version is already installed.
+* If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. If using Azure Cloud Shell, the latest version is already installed.
 
 ---
 
-- To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
+* To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
-- To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+* To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair
 
@@ -61,7 +63,13 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/aks/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/azuredeploy.json":::
+
+The resource defined in the ARM template includes:
+
+* [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?pivots=deployment-language-arm-template)
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
@@ -71,7 +79,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
 
-2. Select or enter the following values.
+1. Select or enter the following values.
 
     For this quickstart, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, *OS Type*, and *Kubernetes Version*. Provide your own values for the following template parameters:
 
@@ -85,7 +93,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     :::image type="content" source="./media/quick-kubernetes-deploy-rm-template/create-aks-cluster-using-template-portal.png" alt-text="Screenshot of Resource Manager template to create an Azure Kubernetes Service cluster in the portal.":::
 
-3. Select **Review + Create**.
+1. Select **Review + Create**.
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
@@ -103,13 +111,13 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```console
     kubectl get nodes
@@ -119,7 +127,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
     aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
@@ -132,13 +140,13 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     Install-AzAksKubectl
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell-interactive
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurepowershell-interactive
     kubectl get nodes
@@ -148,7 +156,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
     ```plaintext
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
     aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
@@ -261,6 +269,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
         app: azure-vote-front
     ```
 
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```console
@@ -352,7 +362,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup

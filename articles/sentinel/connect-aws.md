@@ -240,22 +240,9 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 
 - Similarly, a single SQS queue can serve only one path in an S3 bucket, so if for any reason you are storing logs in multiple paths, each path requires its own dedicated SQS queue.
 
-### Troubleshooting steps
+### Troubleshooting
 
-1. **Verify that log data exists in your S3 bucket.**
-
-   View the S3 bucket dashboard and verify that data is flowing to it. If not, check that you have set up the AWS service correctly.
-
-1. **Verify that messages are arriving in the SQS queue.**
-
-   View the AWS SQS queue dashboard - under the Monitoring tab, you should see traffic in the "Number Of Messages Sent" graph widget. If you see no traffic, check that S3 PUT object notification is configured correctly. 
-
-1. **Verify that messages are being read from the SQS queue.**
-
-   Check the "Number of Messages Received" and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing. Check your IAM configurations. 
-
-For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
-
+Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troubleshoot.md).
 
 # [CloudTrail connector (legacy)](#tab/ct)
 
