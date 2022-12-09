@@ -45,7 +45,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | This status code usually occurs during failover between the primary and secondary HeadNode for the cluster |Wait two minutes, then retry the operation |
 
-## Bad request Content: Could'nt find job
+## Bad request Content: Couldn't find job
 
 **HTTP Status code**: 400
 
