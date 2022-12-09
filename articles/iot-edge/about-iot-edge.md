@@ -38,7 +38,7 @@ IoT Edge modules are units of execution, implemented as Docker compatible contai
 
 ### Artificial intelligence at the edge
 
-Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Stream Analytics, and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
+Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
 
 ### Bring your own code
 
