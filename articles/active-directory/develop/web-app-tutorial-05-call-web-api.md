@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
-#Customer intent:
+#Customer intent: As an application developer, I want to use my app to call a web API, in this case Microsoft Graph. I need to know how to modify my 
 ---
 
 # Tutorial: Call an API and display the results 
@@ -40,6 +40,7 @@ Open the *appsettings.json* file and add the following code to configure the API
   "Scopes": "user.read"
     },
 ```
+
 This previous configuration definition defines an endpoint for accessing Microsoft Graph. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different. The application URI is combined with the specified scope.
 
 ## Get the configuration settings and acquire a token
@@ -125,32 +126,33 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 1. In Visual Studio, start the application by selecting **Start without debugging**.
 1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
 
-    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 1. In Visual Studio Code, start the application by typing the following in the terminal;
 
-```powershell
-dotnet run
-```
-
+    ```powershell
+    dotnet run
+    ```
 1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
 
-    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
-<!-- Edit screenshot -->
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
-1. In Visual Studio, start the application by selecting **Start without debugging**.
-1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
-
-    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
+1. In Visual Studio, start the application by selecting the **Play the executing solution**.
+1. Accept, trust and allow requests and changes to be made if any pop-up windows appear. Information similar to the following example should be displayed:
 
 ---
 
+:::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
+
 ## See also
 
-The following articles are related to the concepts presented in this tutorial:
+Contgratulations for reaching the end of the tutorial set. You may be interested to register an API with the Microsoft identity platform
+
+> [!div class="nextstepaction"]
+> [Tutorial: Register a web API with the Microsoft identity platform](web-app-tutorial-01-register-application.md)
+<!-- Directed to start -->
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Create an API](scenario-protected-web-api-overview.md)
+> [How to add multi-factor authentication to your web app](web-app-tutorial-01-register-application.md)

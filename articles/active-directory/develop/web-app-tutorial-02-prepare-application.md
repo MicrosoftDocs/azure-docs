@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
-#Customer intent:
+#Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
 ---
 
 # Tutorial: Prepare an application for authentication
@@ -114,22 +114,20 @@ To make the certificate available to the application, it must be uploaded into y
 1. Under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
-    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant.":::
-<!-- New screenshot needed -->
+:::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
+
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
-1. Double-click the thumbprint, select the verticle ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
+1. Double-click the thumbprint, select the vertical ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
 
-    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot of copying the certificate thumbprint.":::
-<!-- New screenshot needed -->
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
 ## Configure the application for authentication
 
-The application created earlier needs to be configured for authentication with Azure AD.
+The application needs to be configured for authentication with Azure AD.
 
-1. Open the *appsettings.json* file in the project that was previously created.
-1. Add the following configuration settings for Azure AD:
+1. Open the *appsettings.json* file and add the following configuration settings for Azure AD:
   
     ``` json
     {
@@ -149,7 +147,7 @@ The application created earlier needs to be configured for authentication with A
     }
     ```
 
-    * `Instance` - The endpoint of the cloud provider. For this tutorial, accept the default endpoint for Azure AD.
+    * `Instance` - The endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
@@ -159,12 +157,7 @@ The application created earlier needs to be configured for authentication with A
 1. Under **Properties**, open the *launchSettings.json* file.
 1. Record the https URL listed in the value of `applicationURL`. This will also be used when defining the **Redirect URI**.
 
-## See also
-
-The following articles are related to the concepts presented in this tutorial:
-
-* For more information about the differences of authentication versus authorization, see [Authentication vs. authorization](authentication-vs-authorization.md)
-* For more information about the Microsoft Authentication Library (MSAL), see [Overview of the Microsoft Authentication Library (MSAL)](msal-overview.md)
+<!-- See also -->
 
 ## Next steps
 

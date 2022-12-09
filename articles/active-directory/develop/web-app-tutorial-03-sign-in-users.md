@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
-#Customer intent
+#Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
 ---
 
 # Tutorial: Add sign-in to an application in Azure Active Directory
@@ -34,13 +34,13 @@ In this tutorial, you learn how to:
 Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
 
 1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
-1. With the **Browse** tab selected, search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Install**.
+1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Click the **Project** checkbox, and then select **Install**.
 1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that you are in the correct directory (WebApp1), then enter the following into the terminal to install the relevant NuGet packages;
+1. Ensure that you are in the correct directory (*NewApp1*), then enter the following into the terminal to install the relevant NuGet packages;
 
 ```powershell
 dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
@@ -50,7 +50,12 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-The same steps can be implemented in Visual Studio for Windows.
+<!-- Needs testing for confirmation -->
+1. In the top menu, select **Tools** > **Manage NuGet Packages**.
+1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
+1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
+1. In the pop-up, ensure the correct project is selected, then click **Ok**.
+1. Click **Accept** if additional **License Acceptance** windows appear. 
 
 ---
 
@@ -108,7 +113,10 @@ The same steps can be implemented in Visual Studio for Windows.
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. Steps for Mac
+<!-- Confirmation and testing needed here -->
+1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
+1. Select **Razor Page - Empty**, and then select **Add**.
+1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 ---
 
 ## Display the sign-in and sign-out experience
@@ -145,10 +153,7 @@ The same steps can be implemented in Visual Studio for Windows.
     </div>
     ```
 
-## See also
-
-The following articles are related to the concepts presented in this tutorial:
-<!-- Suitable links required -->
+<!-- Suitable links required for See also-->
 
 ## Next steps
 
