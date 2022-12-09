@@ -923,6 +923,5 @@ This table provides a summary mapping between the resources, artifacts, features
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | - Azure Monitor (Application Insights, Log Analytics) |
 | Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
 
-
 > [!div class="nextstepaction"]
-> [Planning considerations]()
+> [When to use which services]()
