@@ -2001,6 +2001,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/computer-vision/how-to/identity-analyze-video.md",
+            "redirect_url": "/azure/cognitive-services/computer-vision/overview-identity",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
             "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
             "redirect_document_id": false
