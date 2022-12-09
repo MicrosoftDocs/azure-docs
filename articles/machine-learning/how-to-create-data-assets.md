@@ -250,18 +250,6 @@ The MLTable file is a file that provides the specification of the data's schema 
 > ```
 > Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You need **not** specify *absolute paths* in the MLTable file if you're co-locating the MLTable file with your data.
 
-Supported paths:
-
-You'll need to specify a `path` parameter in the MLTable file for the data location. Paths can be a file path, folder path or pattern for paths. Pattern specifies a search pattern to allow globbing(* and **) of files and folders containing data. Below is a table that shows the supported URI types for these paths:
-
-
-|Location  | Examples  |
-|---------|---------|
-|A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`<br> `https://<account_name>.blob.core.windows.net/<container_name>/path`  |
-
 An *example* MLTable file for delimited files is provided below:
 
 ```yml
