@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -30,24 +30,22 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. | No       | 300    |
-| follow-redirects="false \| true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
-| buffer-request-body="false \| true"       | When set to "true", request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | false   |
-| buffer-response="false \| true" | Affects processing of chunked responses. When set to "false", each chunk received from the backend is immediately returned to the caller. When set to "true", chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to "false" with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. | No | true |
-| fail-on-error-status-code="false \| true" | When set to true, triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
+| timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. | No       | 300    |
+| follow-redirects | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | `false`   |
+| buffer-request-body      | When set to `true`, request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | `false`   |
+| buffer-response | Affects processing of chunked responses. When set to `false`, each chunk received from the backend is immediately returned to the caller. When set to `true`, chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to `false` with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. | No | `true` |
+| fail-on-error-status-code | When set to `true`, triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | `false`   |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** not supported
 
 ## Examples
 
-### 1. Forward request with timeout interval
+### Forward request with timeout interval
 
 The following API level policy forwards all API requests to the backend service with a timeout interval of 60 seconds.
 
@@ -67,7 +65,7 @@ The following API level policy forwards all API requests to the backend service 
 
 ```
 
-### Example 2. Inherit policy from parent scope
+### Inherit policy from parent scope
 
 This operation level policy uses the `base` element to inherit the backend policy from the parent API level scope.
 
@@ -87,7 +85,7 @@ This operation level policy uses the `base` element to inherit the backend polic
 
 ```
 
-### Example 3. Do not inherit policy from parent scope
+### Do not inherit policy from parent scope
 
 This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with an error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
 
@@ -108,7 +106,7 @@ This operation level policy explicitly forwards all requests to the backend serv
 
 ```
 
-### Example 4. Do not forward requests to backend
+### Do not forward requests to backend
 
 This operation level policy does not forward requests to the backend service.
 

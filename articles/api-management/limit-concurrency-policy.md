@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -28,7 +28,7 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies. | Yes      | N/A     |
+| key       | A string. Policy expression allowed. Specifies the concurrency scope. Can be shared by multiple policies. | Yes      | N/A     |
 | max-count | An integer. Specifies a maximum number of requests that are allowed to enter the policy.           | Yes      | N/A     |
 
 
@@ -36,13 +36,9 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Limit requests forwarded to backend
+## Example
 
 The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
 

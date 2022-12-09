@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/21/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -20,29 +20,18 @@ The `set-method` policy allows you to change the HTTP request method for a reque
 ## Policy statement
 
 ```xml
-<set-method><HTTP METHOD></set-method>
+<set-method>HTTP method</set-method>
 ```
 
-
-## Attributes
-
-None
-
-## Elements
-
-None
+The value of the element specifies the HTTP method, such as `POST`, `GET`, and so on.
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Use `set-method` in `send-one-way-request`
+## Example
 
 This example uses the `set-method` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 

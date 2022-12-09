@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -28,19 +28,15 @@ The policy inserts the policy fragment as-is at the location you select in the p
 
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| fragment-id       | A string. Expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+| fragment-id       | A string. Policy expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
-## Examples
-
-### Insert fragment in inbound section
+## Example
 
 In the following example, the policy fragment named *myFragment* is added in the inbound section of a policy definition.
 

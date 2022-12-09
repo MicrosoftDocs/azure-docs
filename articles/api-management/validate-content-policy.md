@@ -40,13 +40,14 @@ The policy validates the following content in the request or response against th
 ## Policy statement
 
 ```xml
-<validate-content unspecified-content-type-action="ignore|prevent|detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
+<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
     <content-type-map any-content-type-value="content type string" missing-content-type-value="content type string">
         <type from | when="content type string" to="content type string" />
     </content-type-map>
     <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
 </validate-content>
 ```
+
 ## Attributes
 
 | Attribute         | Description                                            | Required | Default |
@@ -61,7 +62,7 @@ The policy validates the following content in the request or response against th
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | content-type-map |  Add this element to map the content type of the incoming request or response to another content type that is used to trigger validation. | No |
-| content | Add one or more of these elements to validate the content type in the request or response, or the mapped content type, and perform the specified action.  | No |
+| content | Add one or more of these elements to validate the content type in the request or response, or the mapped content type, and perform the specified [action](#actions).  | No |
 
 ### content-type-map attributes
 
@@ -87,17 +88,15 @@ The policy validates the following content in the request or response against th
 | schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`. The attribute should return a JSON object that API Management handles as a valid JSON schema.<br/><br/> For an XML schema, `schema-ref` isn't supported, and any top-level schema element can be used as the root of the XML request or response payload. The validation checks that all elements starting from the XML request or response payload root adhere to the provided XML schema. | No | N/A |
 | allow-additional-properties |  Boolean. For a JSON schema, specifies whether to implement a runtime override of the `additionalProperties` value configured in the schema: <br> - `true`: allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to not allow additional properties. <br> - `false`: do not allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to allow additional properties.<br/><br/>If the attribute isn't specified, the policy validates additional properties according to configuration of the `additionalProperties` field in the schema. | No |   N/A  |
 
+[!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Policy expressions:**](api-management-policy-expressions.md) supported
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
-- **Multiple statements per policy document:** supported
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
-
 
 ## Schemas for content validation
 
@@ -110,7 +109,7 @@ To add a schema to your API Management instance using the Azure portal:
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the **APIs** section of the left-hand menu, select **Schemas** > **+ Add**.
 1. In the **Create schema** window, do the following:
-    1. Enter a **Name** (Id) for the schema.
+    1. Enter a **Name** (ID) for the schema.
     1. In **Schema type**, select **JSON** or **XML**.
     1. Enter a **Description**.
     1. In **Create method**, do one of the following:
@@ -134,7 +133,7 @@ API Management adds the schema resource at the relative URI `/schemas/<schemaId>
 
 ## Examples
 
-### Example 1: JSON schema validation
+### JSON schema validation
 
 In the following example, API Management interprets requests with an empty content type header or requests with a content type header `application/hal+json` as requests with the content type `application/json`. Then, API Management performs the validation in the detection mode against a schema defined for the `application/json` content type in the API definition. Messages with payloads larger than 100 KB are blocked. Requests containing additional properties are blocked, even if the schema's `additionalProperties` field is configured to allow additional properties.
 
@@ -147,7 +146,7 @@ In the following example, API Management interprets requests with an empty conte
 </validate-content>
 ```
 
-### Example 2: SOAP schema validation
+### SOAP schema validation
 
 In the following example, API Management interprets any request as a request with the content type `application/soap+xml` (the content type that's used by SOAP 1.2 APIs), regardless of the incoming content type. The request could arrive with an empty content type header, content type header of `text/xml` (used by SOAP 1.1 APIs), or another content type header. Then, API Management extracts the XML payload from the SOAP envelope and performs the validation in prevention mode against the schema named "myschema". Messages with payloads larger than 100 KB are blocked. 
 
