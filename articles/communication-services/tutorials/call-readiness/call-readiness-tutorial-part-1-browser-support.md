@@ -41,28 +41,32 @@ The tutorial will be split into three parts:
 
 The diagram below shows the flow the call readiness checker performs across the three parts:
 
+![flow diagram showing user flow through the call readiness sample](../media/call-readiness/call-readiness-flow-diagram.png)
+
+<!--
 ```mermaid
 flowchart TD
-    Start --> BrowserCheck{Is browser supported}
+    Start -\-> BrowserCheck{Is browser supported}
     subgraph Part 1: Check Browser Support
-        BrowserCheck --> |yes| C1[Continue]
-        BrowserCheck --> |no|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
+        BrowserCheck -\-> |yes| C1[Continue]
+        BrowserCheck -\-> |no|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
     end
     subgraph Part 2: Get Device Permissions
-        C1 --> DeviceCheckStart{Check Device Permission State}
-        DeviceCheckStart --> |Device Permissions Unknown|DeviceCheckerGeneric[Show 'Checking for device permissions' Prompt]
-        DeviceCheckerGeneric -->|Permissions updated| DeviceCheckStart
-        DeviceCheckStart --> |User needs prompted|DeviceCheckerPrompt[Show 'Please Accept Permissions' Prompt]
-        DeviceCheckerPrompt -->|Permissions updated| DeviceCheckStart
-        DeviceCheckStart --> |Permissions Denied|DeviceCheckerDenied[Show 'Permissions Denied' Prompt]
-        DeviceCheckStart ---> |Permissions Accepted|C2[Continue]
+        C1 -\-> DeviceCheckStart{Check Device Permission State}
+        DeviceCheckStart -\-> |Device Permissions Unknown|DeviceCheckerGeneric[Show 'Checking for device permissions' Prompt]
+        DeviceCheckerGeneric -\->|Permissions updated| DeviceCheckStart
+        DeviceCheckStart -\-> |User needs prompted|DeviceCheckerPrompt[Show 'Please Accept Permissions' Prompt]
+        DeviceCheckerPrompt -\->|Permissions updated| DeviceCheckStart
+        DeviceCheckStart -\-> |Permissions Denied|DeviceCheckerDenied[Show 'Permissions Denied' Prompt]
+        DeviceCheckStart --\-> |Permissions Accepted|C2[Continue]
     end
     subgraph Part 3: Device Setup
-        C2 --> DeviceSetup[Camera and Microphone Setup]
-        DeviceSetup --> |User updates Audio and Video| DeviceSetup
+        C2 -\-> DeviceSetup[Camera and Microphone Setup]
+        DeviceSetup -\-> |User updates Audio and Video| DeviceSetup
     end
-    DeviceSetup --> TestComplete[Test Complete]
+    DeviceSetup -\-> TestComplete[Test Complete]
 ```
+-->
 
 ## Setting up the React App
 
@@ -147,8 +151,6 @@ const TestComplete = (): JSX.Element => {
 };
 ```
 
-You should see a green checkmark with a `Test Complete` message.
-
 ### Run Create React App
 
 Let's test our setup by running:
@@ -156,6 +158,8 @@ Let's test our setup by running:
 ```bash
 npm start
 ```
+
+You should see a green checkmark with a `Test Complete` message.
 
 ## Checking for Browser Support
 
