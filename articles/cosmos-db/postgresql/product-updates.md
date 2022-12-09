@@ -18,9 +18,9 @@ ms.date: 12/06/2022
 
 Azure Cosmos DB for PostgreSQL gets updated regularly.
 
-Updates that don’t require each cluster to be updated are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
+Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
-Updates that must apply uniformly to all nodes in a cluster, such as [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/) updates, are available immediately on newly created clusters. The updates are delivered to existing clusters as a part of the next [scheduled maintenance](concepts-maintenance.md) event.
+Updates that change cluster nodes' internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created nodes.
 
 ### November 2022
 
