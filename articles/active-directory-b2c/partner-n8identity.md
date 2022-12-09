@@ -43,7 +43,7 @@ To get started, you'll need:
 
 The TheAccessHub Admin Tool runs in the N8ID Azure subscription or the customer subscription. The following architecture diagram shows the implementation.
 
-  ![Diagram of the n8identity architecture.](./media/partner-n8identity/n8identity-architecture-diagram.png)
+   ![Diagram of the n8identity architecture.](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
 1. User arrives on a sign-in page, creates an account, and enters information. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the TheAccessHub Admin Tool and passes the user attributes.
