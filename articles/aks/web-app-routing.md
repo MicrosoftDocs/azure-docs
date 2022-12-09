@@ -329,6 +329,9 @@ spec:
     tls:
       skipClientCertValidation: false
   sources:
+  - kind: Service
+    name: nginx
+    namespace: app-routing-system
   - kind: AuthenticatedPrincipal
     name: ingress-nginx.ingress.cluster.local
 ```
