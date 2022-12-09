@@ -107,7 +107,7 @@ The terminology used in these steps includes:
 
 12. Copy the *WindowsImageBackup* directory to the root of a non-critical volume of the server (for example `D:\\WindowsImageBackup`). Usually the Windows OS volume is the critical volume.
 
-   The *WindowsImageBackup* folder is available on the path `<restore_path>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch\SSBV\WindowsImageBackup` where `>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch` is the scratch volume that was configured for the MARS agent.
+    The *WindowsImageBackup* folder is available on the path `<restore_path>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch\SSBV\WindowsImageBackup` where `>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch` is the scratch volume that was configured for the MARS agent.
 
 13. To complete the recovery process, use the following section to [apply the restored System State files on a Windows Server](#apply-restored-system-state-on-a-windows-server).
 
