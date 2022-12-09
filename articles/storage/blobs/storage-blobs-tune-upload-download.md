@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 12/09/2022
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
@@ -25,7 +25,7 @@ Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage
 The following properties of `StorageTransferOptions` can be tuned based on the needs of your app:
 
 - [InitialTransferSize](#initialtransfersize) - the size of the first request in bytes
-- [MaximumConcurrency](#maximumconcurrency) - the maximum number of workers, or subtransfers, that may be used in a parallel transfer
+- [MaximumConcurrency](#maximumconcurrency) - the maximum number of subtransfers that may be used in parallel
 - [MaximumTransferSize](#maximumtransfersize) - the maximum length of a transfer in bytes
 
 > [!NOTE]
@@ -43,7 +43,7 @@ If you're unsure of what value is best for your situation, a safe option is to s
 > When using a `BlobClient` object, uploading a blob smaller than the `InitialTransferSize` will be performed using [Put Blob](/rest/api/storageservices/put-blob), rather than [Put Block](/rest/api/storageservices/put-block).
 
 ### MaximumConcurrency
-[MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers, or subtransfers, that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations will ignore this value and work in sequence.
+[MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations will ignore this value and work in sequence.
 
 The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
 
@@ -80,7 +80,7 @@ BlobUploadOptions options = new BlobUploadOptions
 await blobClient.UploadAsync(stream, options);
 ```
 
-In this example, we set the number of parallel transfer workers to 2, using the `MaximumConcurrency` property. This configuration opens up to 2 connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request will attempt to upload 8 MiB of data, as defined by the `InitialTransferSize` property. Note that `InitialTransferSize` only applies for uploads when [using a seekable stream](#initialtransfersize-on-upload). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests will have a maximum size of 4 MiB, which we set with the `MaximumTransferSize` property.
+In this example, we set the number of parallel transfer workers to 2, using the `MaximumConcurrency` property. This configuration opens up to 2 connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request will attempt to upload up to 8 MiB of data, as defined by the `InitialTransferSize` property. Note that `InitialTransferSize` only applies for uploads when [using a seekable stream](#initialtransfersize-on-upload). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests will have a maximum size of 4 MiB, which we set with the `MaximumTransferSize` property.
 
 ## Performance considerations for uploads
 
