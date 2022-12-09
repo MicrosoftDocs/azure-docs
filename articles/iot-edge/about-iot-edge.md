@@ -17,9 +17,11 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, then you can deploy those containers to any of your devices and monitor it all from the cloud.
+Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads.
 
-Analytics drives business value in IoT solutions, but not all analytics needs to be in the cloud. If you want to respond to emergencies as quickly as possible, you can run anomaly detection workloads at the edge. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
+Analytics drives business value in IoT solutions, but not all analytics need to be in the cloud. Azure IoT Edge helps you bring the analytical power of the cloud closer to your devices to drive better business insights and enable offline decision making. For example, you can run anomaly detection workloads at the edge to respond as quickly as possible to emergencies happening on a production line. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
+
+Azure IoT Edge, in concert with [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md), enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and optionally leveraging pre-built [IoT Edge modules from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) you can easily compose, deploy, and maintain your solution.
 
 Azure IoT Edge is made up of three components:
 
@@ -36,7 +38,7 @@ IoT Edge modules are units of execution, implemented as Docker compatible contai
 
 ### Artificial intelligence at the edge
 
-Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Functions, Azure Stream Analytics, and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
+Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
 
 ### Bring your own code
 
@@ -46,7 +48,7 @@ When you want to deploy your own code to your devices, Azure IoT Edge supports t
 
 The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. The runtime sits on the IoT Edge device, and performs management and communication operations. The runtime performs several functions:
 
-* Installs and update workloads on the device.
+* Installs and updates workloads on the device.
 * Maintains Azure IoT Edge security standards on the device.
 * Ensures that IoT Edge modules are always running.
 * Reports module health to the cloud for remote monitoring.
