@@ -87,9 +87,9 @@ To create the registry key that overrides push notifications:
 
 If you are using Remote Desktop Gateway, the user account must be configured for phone verification or Microsoft Authenticator push notifications. If neither option is configured, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE. 
 
-### Apple Watch unsupported for number matching
+### Apple Watch supported for Microsoft Authenticator
 
-Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone.
+In the upcoming Microsoft Authenticator release in January 2023 for iOS, there will be no companion app for watchOS due to it being incompatible with Authenticator security features. This means you won't be able to install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Microsoft Authenticator on another device.
 
 ## Enable number matching in the portal
 
@@ -237,6 +237,7 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
  
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
 Inside the **includeTarget**, you'll need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+To remove an excluded group from number matching, change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
 
 You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
@@ -277,46 +278,6 @@ To verify, run GET again and verify the ObjectID:
 
 ```http
 GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
-```
-
-### Example of removing the excluded group from number matching
-
-In **featureSettings**, you'll need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
-
-You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
-
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will be excluded from the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see the feature.
-
-```json
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "featureSettings": {
-        "numberMatchingRequiredState": {
-            "state": "enabled",
-            "includeTarget": {
-                "targetType": "group",
-                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
-            },
-            "excludeTarget": {
-                "targetType": "group",
-                "id": " 00000000-0000-0000-0000-000000000000"
-            }
-        }
-    },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "isRegistrationRequired": false,
-            "authenticationMode": "any"
-        }
-    ]
-}
 ```
 
 ## FAQs
