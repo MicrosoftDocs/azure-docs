@@ -107,7 +107,7 @@ There's an alternative to using an overlay. Apply secondary NICs in the NVA that
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution network design considerations, you might consider learning more.
+Now that you've covered Azure VMware Solution network design considerations, you may want to learn more about:
 
 - [Network interconnectivity concepts - Azure VMware Solution](concepts-networking.md)
 - [Plan the Azure VMware Solution deployment](plan-private-cloud-deployment.md)
@@ -116,6 +116,4 @@ Now that you've covered Azure VMware Solution network design considerations, you
 ## Recommended content
 
 - [Tutorial - Configure networking for your VMware private cloud in Azure - Azure VMware Solution](tutorial-network-checklist.md)
-
-
 
