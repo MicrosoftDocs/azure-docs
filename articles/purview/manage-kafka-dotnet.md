@@ -472,7 +472,7 @@ To remove configured Event Hubs namespaces, you can follow these steps:
 1. Select **Kafka configuration** under settings on your Microsoft Purview account page in the Azure portal.
 1. Select the Event Hubs you want to disable. (Hook hubs send messages to Microsoft Purview. Notification hubs receive notifications.)
 1. Select **Remove** to save the choice and begin the disablement process. This can take several minutes to complete.
-    :::image type="content" source="media/manage-kafka-dotnet/select-remove.png" alt-text="Screenshot showing the Kafka configuration page of the Microsoft Purview account page in the Azure portal with the remove button highlighted.":::
+    :::image type="content" source="media/manage-eventhub-kafka-dotnet/select-remove.png" alt-text="Screenshot showing the Kafka configuration page of the Microsoft Purview account page in the Azure portal with the remove button highlighted.":::
 
 ## Next steps
 
