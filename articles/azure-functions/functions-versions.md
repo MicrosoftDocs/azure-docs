@@ -14,8 +14,8 @@ zone_pivot_groups: programming-languages-set-functions
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
-| 3.x | GA | Supports all languages. Check out [Supported language versions](#languages). Reached the end of life (EOL) of extended support on December 13, 2022. We highly recommend you [migrating your apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md). |
-| 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions. Reached the end of life (EOL) of extended support on December 13, 2022. We highly recommend you [migrating your apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md). |
+| 3.x | GA | Supported all languages (see [Supported language versions](#languages)). Reached the end of life (EOL) for extended support on December 13, 2022. We highly recommend you [migrating your apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md) for full support. |
+| 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions. Reached the end of life (EOL) for extended support on December 13, 2022. We highly recommend you [migrating your apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md) for full support. |
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
 This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
@@ -45,7 +45,7 @@ When your app has existing functions, you must take precautions before moving to
 
 ### Changing version of apps in Azure
 
-The following major runtime version values are supported:
+The following major runtime version values are used:
 
 | Value | Runtime target |
 | ------ | -------- |
