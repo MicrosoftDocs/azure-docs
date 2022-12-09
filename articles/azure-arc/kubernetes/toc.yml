@@ -112,7 +112,7 @@
     displayName: troubleshoot, problem, proxy
     href: diagnose-connection-issues.md
   - name: Troubleshooting
-    href: problem, issue, resolve
+    displayName: problem, issue, resolve
     href: troubleshooting.md
 - name: Reference
   items:
