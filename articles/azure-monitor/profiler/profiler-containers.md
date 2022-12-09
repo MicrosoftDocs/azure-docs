@@ -33,13 +33,13 @@ In this article, you'll learn the various ways you can:
       git clone https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore.git
       ```
 
-2. Navigate to the Container App example: 
+1. Navigate to the Container App example: 
 
    ```bash
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-3. This example is a bare bone project created by calling the following CLI command:
+1. This example is a bare bone project created by calling the following CLI command:
 
    ```powershell
    dotnet new mvc -n EnableServiceProfilerForContainerApp
@@ -62,13 +62,13 @@ In this article, you'll learn the various ways you can:
    }
    ```
 
-4. Add the NuGet package to collect the Profiler traces:
+1. Add the NuGet package to collect the Profiler traces:
 
    ```console
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-5. Enable Application Insights and Profiler:
+1. Enable Application Insights and Profiler:
    
    ### [ASP.NET Core 6 and later](#tab/net-core-new)
    
@@ -107,7 +107,7 @@ In this article, you'll learn the various ways you can:
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-2. Pull the latest ASP.NET Core images
+1. Pull the latest ASP.NET Core images
 
    ```shell
    docker pull mcr.microsoft.com/dotnet/sdk:6.0
@@ -123,7 +123,7 @@ In this article, you'll learn the various ways you can:
 
    :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot of finding instrumentation key in Azure portal.":::
 
-2. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
+1. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
 
    ```json
    {
@@ -138,13 +138,13 @@ In this article, you'll learn the various ways you can:
 
 1. Review the `Dockerfile`.
 
-2. Build the example image:
+1. Build the example image:
 
    ```bash
    docker build -t profilerapp .
    ```
 
-3. Run the container:
+1. Run the container:
 
    ```bash
    docker run -d -p 8080:80 --name testapp profilerapp
@@ -182,8 +182,8 @@ Service Profiler session finished.              # A profiling session is complet
 ## View the Service Profiler traces
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
-2. Open the **Performance** blade in your Application Insights resource. 
-3. Once the trace process is complete, you'll see the Profiler Traces button like it below:
+1. Open the **Performance** blade in your Application Insights resource. 
+1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
       :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance blade.":::
 
