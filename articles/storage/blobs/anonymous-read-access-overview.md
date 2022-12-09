@@ -11,7 +11,6 @@ ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.devlang: azurecli
 ---
 
 # Overview: Remediating anonymous public read access for blob data

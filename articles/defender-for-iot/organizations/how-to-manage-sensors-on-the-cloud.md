@@ -87,6 +87,8 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
+- **Change your plan commitment**: If you make changes to your plan, for example if you change your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
+
 In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).

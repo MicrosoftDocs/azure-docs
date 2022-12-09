@@ -22,6 +22,7 @@ searchScope:
     - Deployment   
     - CICD
     - Azure  
+tags: CICD, source control 1
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
