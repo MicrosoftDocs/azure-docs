@@ -35,7 +35,7 @@ If this is not the case, we suggest you start with one of the following articles
 - [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
 - [Create your first durable function - Java](quickstart-java.md)
 
-## Ensure the Extension is installed
+## Add the Durable Task MSSQL extension (.NET only)
 
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
