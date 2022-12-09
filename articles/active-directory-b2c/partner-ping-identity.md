@@ -22,7 +22,7 @@ Many e-commerce sites and web applications exposed to the internet are deployed 
 
 Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
-  ![Reverse proxy implementation](./media/partner-ping/reverse-proxy.png)
+   ![Reverse proxy implementation](./media/partner-ping/reverse-proxy.png)
 
 ## Modernization
 
@@ -55,7 +55,7 @@ You can deploy PingAccess as the reverse proxy. PingAccess intercepts a direct r
 
 Configure PingAccess with OIDC, OAuth2, or SAML for authentication with an upstream authentication provider. You can configure an upstream IdP for this purpose on the PingAccess server. See the following diagram.
 
-  ![PingAccess with O I D C implementation](./media/partner-ping/authorization-flow.png)
+   ![PingAccess with O I D C implementation](./media/partner-ping/authorization-flow.png)
 
 In a typical Azure AD B2C deployment with policies exposing IdPs, there is a challenge. Because, PingAccess is configured with one upstream IdP.  
 
@@ -63,11 +63,11 @@ In a typical Azure AD B2C deployment with policies exposing IdPs, there is a cha
 
 You can configure PingFederate as an authentication provider, or a proxy. for upstream IdPs. See the following diagram.
 
-  ![PingFederate implementation](./media/partner-ping/pingfederate.png)
+   ![PingFederate implementation](./media/partner-ping/pingfederate.png)
 
 Use this function to contextually, dynamically, or declaratively switch an inbound request to an Azure AD B2C policy. See the following diagram of protocol sequence flow.
 
-  ![image shows the PingAccess and PingFederate workflow](./media/partner-ping/pingaccess-pingfederate-workflow.png)
+   ![image shows the PingAccess and PingFederate workflow](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ Confirm the following connectivity and communication.
 
 You can use basic user flows or advanced Identity Enterprise Framework (IEF) policies. PingAccess generates the metadata endpoint, based on the issuer value, by using the [WebFinger](https://tools.ietf.org/html/rfc7033) protocol for discovery convention. To follow this convention, update the Azure AD B2C issuer using user-flow policy properties.
 
-  ![image shows the token settings](./media/partner-ping/token-setting.png)
+   ![image shows the token settings](./media/partner-ping/token-setting.png)
 
 In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
 
@@ -101,7 +101,7 @@ In the advanced policies, configuration includes the IssuanceClaimPattern metada
 
 Use the instrcutions in the following sections to configure PingAccess and PingFederate. See the following diagram of the overall integration user flow.
 
-  ![PingAccess and PingFederate integration](./media/partner-ping/pingaccess.png)
+   ![PingAccess and PingFederate integration](./media/partner-ping/pingaccess.png)
 
 ### Configure PingFederate as the token provider
 
@@ -184,7 +184,7 @@ Follow these steps to create a site:
 
 7. Select **Save**
 
-#### Step 5 – Create an application
+#### Create an application
 
 Follow these steps to create an application in PingAccess for each application in Azure that you want to protect.
 
