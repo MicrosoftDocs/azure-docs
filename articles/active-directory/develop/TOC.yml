@@ -810,7 +810,7 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
-        - name: Revised limits of the RRA collection
+        - name: Configured permissions limits troubleshooting
           href: rra-limits-troubleshooting.md
     - name: Microsoft auth libraries by app type
       displayName: MSAL, auth client library, SDK, token validation

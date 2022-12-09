@@ -32,7 +32,7 @@ If the application isn't needed anymore, the first option you should consider is
 
 If you still need the application or are unsure, the following steps will help you resolve this issue:
 
-1. **Remove duplicate permissions.** In some cases, the same permission is listed multiple times. Review the required permissions and remove permissions that are listed two or more times. 
+1. **Remove duplicate permissions.** In some cases, the same permission is listed multiple times. Review the required permissions and remove permissions that are listed two or more times. See the related PowerShell script on the [additional resources](#additional-resources) section of this article.
 2. **Remove unused permissions.** Review the permissions required by the application and compare them to what the application or service does. Remove permissions that are configured in the app registration, but which the application or service doesn’t require. For more information on how to review permissions, see [Review application permissions](../manage-apps/manage-application-permissions.md)
 3. **Remove redundant permissions.** In many APIs, including Microsoft Graph, some permissions aren't necessary when other more privileged permissions are included. For example, the Microsoft Graph permission User.Read.All (read all users) isn't needed when an application also has User.ReadWrite.All (read, create and update all users). To learn more about Microsoft Graph permissions, see [Microsoft Graph permissions reference](/graph/permissions-reference). 
 4. **Use multiple app registrations.** If a single app or service requires more than 400 permissions in the required permissions list, the app will need to be configured to use two (or more) different app registrations, each one with 400 or fewer permissions configured on the app registration. 
@@ -66,7 +66,7 @@ Yes. The limits can vary depending on the supported account types for the app. A
 
 ## Additional resources
 
-The PowerShell script below can be used to remove any duplicate permissions from your app registrations.
+Use the following PowerShell script to remove any duplicate permissions from your app registrations.
 
 ```PowerShell
 <#
