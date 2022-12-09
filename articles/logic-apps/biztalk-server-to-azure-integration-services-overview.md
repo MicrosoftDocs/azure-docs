@@ -923,5 +923,11 @@ This table provides a summary mapping between the resources, artifacts, features
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | Azure Monitor (Application Insights, Log Analytics) |
 | Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
 
+## Next steps
+
+You've learned more about how Azure Integration Services compares to BizTalk Server. Next, learn how to choose the best capabilities for your scenarios. Or, skip ahead to review suggested migration approaches.
+
 > [!div class="nextstepaction"]
-> [When to use which services]()
+> [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-how-to-choose.md)
+>
+> [Migration approaches for BizTalk Server to Azure Integration Services](biztalk-server-azure-integration-services-migration-approaches.md)
