@@ -22,7 +22,7 @@ NAT gateway provides outbound internet connectivity for one or more subnets of a
 
 ## How to deploy NAT
 
-Configuring and using NAT gateway is intentionally made simple:
+Deployments are intentionally made simple:
 
 NAT gateway:
 
@@ -138,13 +138,13 @@ NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 Source Network Address Translation (SNAT) rewrites the source of a flow to originate from a different IP address and/or port. Typically, SNAT is used when a private network needs to connect to a public host over the internet. SNAT allows multiple VM instances within the private VNet to use the same single Public IP address or set of IP addresses (prefix) to connect to the internet.
 
-NAT gateway SNATs the private IP address and port of a virtual machine to a static public IP address and SNAT port before going outbound to the internet from a virtual network. Each new connection to the same destination endpoint uses a different SNAT port so that connections can be distinguished from one another. SNAT port exhaustion occurs when a source endpoint has run out of available SNAT ports to differentiate between new connections.
+NAT gateway uses SNAT to translate the private IP address and port of a virtual machine to a static public IP address and port. Traffic is translated before leaving the virtual network for the Internet.  Each new connection to the same destination endpoint uses a different SNAT port so that connections can be distinguished from one another. SNAT port exhaustion occurs when a source endpoint has run out of available SNAT ports to differentiate between new connections.
 
 ### Example SNAT flows for NAT gateway
 
 The following example flows explain the basic concept of SNAT and how it works with NAT gateway. 
 
-In the table below the VM makes connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
+In the following table, the VM makes connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
@@ -152,7 +152,7 @@ In the table below the VM makes connections to destination IP 65.52.0.1 from the
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
 
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNAT'd into NAT gateway's public IP address and a SNAT port as shown below:
+When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are translated into NAT gateway's public IP address and a SNAT port:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -172,7 +172,7 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 Pre-allocation of SNAT ports to each virtual machine isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
-:::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT with an exhaustion threshold.":::
+:::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
 *Figure: Differences in exhaustion scenarios*
 
@@ -180,13 +180,13 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Source (SNAT) port reuse
 
-NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown below with this extra flow.
+NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown in the following table with this extra flow.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -228,15 +228,15 @@ Design recommendations for configuring timers:
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
-- Because UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
+- UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 
 ## Limitations
 
 - Basic load balancers and basic public IP addresses aren't compatible with NAT. Use standard SKU load balancers and public IPs instead.
   
-  - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  - To upgrade a load balancer from basic to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a public IP address from basic to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway doesn't support ICMP 
 
