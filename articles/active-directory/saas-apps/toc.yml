@@ -418,6 +418,8 @@
         href: cezannehrsoftware-tutorial.md
       - name: Change Process Management
         href: change-process-management-tutorial.md
+      - name: ChartDesk SSO
+        href: chartdesk-sso-tutorial.md
       - name: Chatwork
         href: chatwork-tutorial.md
       - name: Chargebee
@@ -1785,6 +1787,8 @@
         href: pingboard-tutorial.md
       - name: Pipedrive
         href: pipedrive-tutorial.md
+      - name: PKSHA Chatbot
+        href: pksha-chatbot-tutorial.md
       - name: PlanGrid
         href: plangrid-tutorial.md
       - name: PlanMyLeave
@@ -2567,6 +2571,8 @@
         href: webcargo-tutorial.md
       - name: Web Cargo Air
         href: web-cargo-air-tutorial.md    
+      - name: WebCE
+        href: webce-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2591,6 +2597,8 @@
         href: wirewheel-tutorial.md  
       - name: Wisdom by Invictus
         href: wisdom-by-invictus-tutorial.md
+      - name: Wistia
+        href: wistia-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
       - name: Wiz SSO
