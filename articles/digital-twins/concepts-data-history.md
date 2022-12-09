@@ -77,7 +77,9 @@ The rest of this section describes the three Azure Data Explorer tables in detai
 
 ### Relationship lifecycle events
 
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_relationshipevents*. The time series data for relationship lifecycle events is stored with the following schema:
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_relationshipevents*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
+
+The time series data for relationship lifecycle events is stored with the following schema:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
@@ -91,7 +93,9 @@ The Azure Data Explorer table for relationship lifecycle events has a default na
 
 ### Twin lifecycle events
 
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_twinevents*. The time series data for twin lifecycle events is stored with the following schema:
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_twinevents*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
+
+The time series data for twin lifecycle events is stored with the following schema:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
@@ -103,7 +107,9 @@ The Azure Data Explorer table for relationship lifecycle events has a default na
 
 ### Twin property updates
 
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>*. The time series data for twin property updates is stored with the following schema:
+The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
+
+The time series data for twin property updates is stored with the following schema:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
