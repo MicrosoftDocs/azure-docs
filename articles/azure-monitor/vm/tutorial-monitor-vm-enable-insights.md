@@ -8,41 +8,38 @@ ms.date: 12/03/2022
 ms.reviewer: Xema Pathak
 ---
 
-# Enable monitoring with VM insights for Azure virtual machine
-To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. One option is to use VM insights, which installs the agent and starts collecting a predefined set of performance counters. You can optionally enable the collection detailed process and telemetry to enable the Map feature of VM insights which gives you a visual representation of your VM environment.
-
-
-> [!NOTE]
-> If you're completely new to Azure Monitor, you should start with [Tutorial: Monitor Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md). Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics and Activity log. This tutorial describes how to enable additional monitoring unique to virtual machines.
+# Tutorial Enable monitoring with VM insights for Azure virtual machine
+VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. VM insights installs the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) which is required to collect the guest operating system and prepares you to configure additional monitoring from your VMs according to your particular requirements. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Log Analytics workspace to collect performance and log data from the virtual machine.
-> * Enable VM insights for the virtual machine which installs the required agents and begins data collection. 
+> * Enable VM insights for a virtual machine which installs the Azure Monitor agent and begins data collection.
+> * Enable optional collection of detailed process and telemetry to enable the Map feature of VM insights.
 > * Inspect graphs analyzing performance data collected from the virtual machine. 
 > * Inspect map showing processes running on the virtual machine and dependencies with other systems.
 
-
-> [!NOTE]
-> VM insights installs the Azure Monitor agent which collects performance data from the guest operating system of virtual machines. It doesn't collect logs from the guest operating system and doesn't send performance data to Azure Monitor Metrics. For this functionality, see [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md).
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
 - An Azure virtual machine to monitor.
 
-> [NOTE!]
+> [!NOTE]
 > If you selected the option to **Enable virtual machine insights** when you created your virtual machine, then VM insights will already be enabled. If the machine was previously enabled for VM insights using Log Analytics agent, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md) for upgrading to Azure Monitor agent.
 
 
 
 ## Enable VM insights
-Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't been enabled, you should see a short description of it and an option to enable it. Click **Enable** to open the **Monitoring configuration** pane. Leave the default option of **Azure Monitor agent**. VM insights will create a default data collection rule that doesn't include collection of processes and dependencies. Click **Create new** to create a new data collection rule.
+Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't been enabled, you should see a short description of it and an option to enable it. Click **Enable** to open the **Monitoring configuration** pane. Leave the default option of **Azure Monitor agent**. 
+
+In order to reduce cost for data collection, VM insights creates a default [data collection rule](../essentials/data-collection-rule-overview.md) that doesn't include collection of processes and dependencies. To enable this collection, click **Create new** to create a new data collection rule.
 
 :::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Enable VM insights with workspace":::
 
-Provide a **Data collection rule name** and then select **Enable processes and dependencies (Map)**. Keep the default Log Analytics workspace for the subscription unless you have another workspace that you want to use. Click **Create** to create the new data collection rule. and then **Configure** to start VM insights configuration.
+Provide a **Data collection rule name** and then select **Enable processes and dependencies (Map)**. You can't disable collection of guest performance since this is required for VM insights.
+
+Keep the default Log Analytics workspace for the subscription unless you have another workspace that you want to use. Click **Create** to create the new data collection rule. and then **Configure** to start VM insights configuration.
 
 :::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-create-new-rule.png" alt-text="Enable VM insights with workspace":::
 
@@ -68,8 +65,8 @@ The **Maps** view provides different tabs with information collected about the v
 :::image type="content" source="media/tutorial-monitor-vm/map-details.png" lightbox="media/tutorial-monitor-vm/map-details.png" alt-text="VM insights map view with machine details":::
 
 ## Next steps
-Now that you're collecting data from the virtual machine, you can use that data to create alerts to proactively notify you when issues are detected.
+VM insights collects performance data from the VM guest operating system, but it doesn't collect log data such as Windows event log or syslog. Now that you have the machine monitored with the Azure Monitor agent, You can create an additional data collection rule to perform this collection.
 
 > [!div class="nextstepaction"]
-> [Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md)
+> [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
 

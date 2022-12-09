@@ -102,16 +102,9 @@ To test the alert rule, stop the virtual machine. If you configured a notificati
 
 
 ## Next steps
-Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
+Now that you have alerting in place when the VM goes down, enable VM insights to install the Azure Monitor agent which collects 
 
 > [!div class="nextstepaction"]
 > [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
 
-
-
-## Next steps
-Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
-
-> [!div class="nextstepaction"]
-> [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
 

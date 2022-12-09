@@ -54,10 +54,7 @@ VM insights is designed to monitor your Azure and hybrid virtual machines in a s
 
 :::image type="content" source="media/monitor-vm/vminsights-02.png" lightbox="media/monitor-vm/vminsights-02.png" alt-text="Screenshot of the VM insights 'Map' view.":::
 
-For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring for Azure virtual machines](../azure-monitor/vm/tutorial-monitor-vm-enable.md).
-
-
-For general information about enabling insights and a variety of methods for onboarding virtual machines, see [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).
+For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-enable.md). For general information about enabling insights and a variety of methods for onboarding virtual machines, see [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).
 
 ## Create data collection rule
 If you enable [VM insights](#vm-insights), the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create additional data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-guest.md).
@@ -84,12 +81,11 @@ To analyze other log data that you collect from your virtual machines, use [log 
 ## Alerts
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. These alerts can help you identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts).
 
-### Availability alert
-Use the VM availability metric to alert when a VM isn't running. This metric is currently in public preview and not yet included in recommended alerts, so you must create the alert rule yourself. See [Tutorial: Create availability alert rule for Azure virtual machine (preview)](../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md).
-
 ### Recommended alerts
 Start by enabling recommended alerts. These are a predefined set of alert rules based on host metrics for the VM. You can quickly enable and customize each of these rules with a few clicks in the Azure portal. See [Tutorial: Create availability alert rule for Azure virtual machine (preview)](../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md).
 
+### Availability alert
+Use the VM availability metric to alert when a VM isn't running. This metric is currently in public preview and not yet included in recommended alerts, so you must create the alert rule yourself. See [Tutorial: Create availability alert rule for Azure virtual machine (preview)](../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md).
 
 ### Multi-resource metric alerts
 Using recommended alerts, a separate alert rule is created for each VM. You can choose to instead use a [multi-resource alert rule](../azure-monitor/alerts/alerts-types.md#monitor-multiple-resources) to use a single alert rule that applies to all VMs in a particular resource group or subscription (within the same region). Use the guidance at [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric) to create a metric alert rule using a subscription or resource group for the scope and the other details from alert rules created by recommended alerts.
@@ -98,7 +94,6 @@ Using recommended alerts, a separate alert rule is created for each VM. You can 
 ## Other alert rules
 For more information about the various alerts for Azure virtual machines, see the following resources:
 
-- See [Create an alert when an Azure virtual machine is unavailable](../azure-monitor/vm/tutorial-monitor-vm-alert.md) for a tutorial on creating a log query alert for when a virtual machine is unresponsive.
 - See [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md) for common alert rules for virtual machines. 
 - See [Monitor virtual machines with Azure Monitor: Workloads](../azure-monitor/vm/monitor-virtual-machine-workloads.md) for data you can collect from VM workloads that you can use to create alerts.
 - See [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md) for a tutorial on creating a log query alert rule.

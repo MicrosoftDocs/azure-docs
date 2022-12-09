@@ -44,12 +44,10 @@ items:
       href: vm/tutorial-monitor-vm-alert-recommended.md
     - name: Create availability alert
       href: vm/tutorial-monitor-vm-alert-availability.md
-    - name: Collect guest logs and metrics
-      href: vm/tutorial-monitor-vm-guest.md
     - name: Enable VM insights
       href: vm/tutorial-monitor-vm-enable.md
-    - name: Create heartbeat alert
-      href: vm/tutorial-monitor-vm-alert.md
+    - name: Collect guest logs and metrics
+      href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:
     - name: Application Insights SDK for ASP.NET Core applications

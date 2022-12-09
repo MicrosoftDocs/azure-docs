@@ -41,6 +41,12 @@ A list of recommended alert rules is displayed. You can select which ones to cre
 
 :::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure.png":::
 
+Expand each of the alert rules to inspect its details. By default, the severity for each is **Informational**. You may want to change to another severity such as **Error**.
+
+:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png":::
+
+Click **Enable** to create the alert rules.
+
 ## View created alert rules
 
 When the alert rule creation is complete, you'll see the alerts screen for the VM. 
@@ -52,18 +58,9 @@ Click **Alert rules** to view the rules you just created. You can click on any o
 :::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-rules.png" alt-text="Screenshot of list of created alert rules." lightbox="media/tutorial-monitor-vm/recommended-alerts-rules.png":::
 
 
-
 ## Next steps
-Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
+Now that you know have alerting for common VM metrics, create an alert rule to detect when the VM goes offline.
 
 > [!div class="nextstepaction"]
-> [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
-
-
-
-## Next steps
-Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
-
-> [!div class="nextstepaction"]
-> [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
+> [Create availability alert rule for Azure virtual machine (preview)](tutorial-monitor-vm-alert-availability.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Collect guest logs and metrics from Azure virtual machine
+title: Tutorial - Collect guest logs and metrics from Azure virtual machine
 description: Create data collection rule to collect guest logs and metrics from Azure virtual machine.
 ms.service: azure-monitor
 ms.topic: article
@@ -8,27 +8,23 @@ ms.date: 11/08/2021
 ms.reviewer: Xema Pathak
 ---
 
-# Collect guest logs and metrics from Azure virtual machine
-To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. 
-
-> [!NOTE]
-> If you're completely new to Azure Monitor, you should start with [Tutorial: Monitor Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md). Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics and Activity log. This tutorial describes how to enable additional monitoring unique to virtual machines.
+# Tutorial: Collect guest logs and metrics from Azure virtual machine
+To monitor the guest operating system and workloads on an Azure virtual machine, you need to install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that specifies which data to collect. VM insights will install the agent and collection performance data, but you need to create additional data collection rules to collect log data such as Windows event log and syslog. VM insights also doesn't send guest performance data to Azure Monitor Metrics where it can be analyzed with metrics explorer and used with metrics alerts.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a data collection rule that send guest performance data to Azure Monitor Metrics and log events to Azure Monitor Logs. 
-> * View guest metrics in metrics explorer.
+> * Create a data collection rule that sends guest performance data to Azure Monitor Metrics and log events to Azure Monitor Logs. 
 > * View guest logs in Log Analytics.
-
-> [!TIP]
-> An alternative to the method described in this tutorial is to enable VM insights for the VM as described in [Enable monitoring with VM insights for Azure virtual machine](tutorial-monitor-vm-enable.md). This will also install the Azure Monitor agent on the VM and enable a predefined set of performance data to be collected. 
+> * View guest metrics in metrics explorer.
 
 ## Prerequisites
 To complete this tutorial you need the following: 
 
 - An Azure virtual machine to monitor.
 
+> [!IMPORTANT]
+> This tutorial does not require VM insights to be enabled for the virtual machine. The Azure Monitor agent will be installed on the VM if it isn't already installed.
 
 ## Create data collection rule
 [Data collection rules](../essentials/data-collection-rule-overview.md) in Azure Monitor define data to collect and where it should be sent. When you define the data collection rule using the Azure portal, you specify the virtual machines it should be applied to. The Azure Monitor agent will automatically be installed on any virtual machines that don't already have it.
@@ -114,7 +110,7 @@ You can get a complete tutorial on viewing and analyzing metric data using metri
 
 
 ## Next steps
-Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as available memory and logical disk space.
+[Recommneded alerts](tutorial-monitor-vm-alert-recommended.md) and the [VM Availability metric](tutorial-monitor-vm-alert-availability.md) alert from the virtual machine host but don't have any visibility into the guest operating system and its workloads. Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as logical disk space.
 
 > [!div class="nextstepaction"]
 > [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alert.md)
