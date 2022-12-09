@@ -29,7 +29,7 @@ The following example will assign the **Storage Queue Data Contributor** role to
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="../articles/storage/common/media/assign-role-system-identity.png" lightbox="../articles/storage/common/media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a role.":::
+:::image type="content" source="../../../articles/storage/common/media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a role.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Storage Queue Data Contributor* and select the matching result and then choose **Next**.
 

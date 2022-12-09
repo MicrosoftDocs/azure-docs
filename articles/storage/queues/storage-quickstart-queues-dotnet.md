@@ -133,11 +133,11 @@ These example code snippets show you how to perform the following actions with t
 
 ## [Passwordless](#tab/passwordless)
 
-### Authenticate using DefaultAzureCredential
+### Add the Azure Identity client library
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+You can authenticate a `QueueClient` to Storage Queue using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -149,7 +149,7 @@ Inside the `Program.cs` file, add a using directive for the `Azure.Identity` nam
 using Azure.Identity
 ```
 
-### Create a queue using a QueueClient
+### Authenticate a QueueClient and create a queue
 
 Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
 
