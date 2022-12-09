@@ -1,8 +1,8 @@
 ---
 title: Secure access to Azure Red Hat OpenShift with Azure Front Door 
 description: This article explains how to use Azure Front Door to secure access to Azure Red Hat OpenShift applications.
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.date: 12/07/2021
@@ -90,7 +90,7 @@ This section explains how to register a domain in Azure DNS.
 
 3. Note the four nameservers that are present in Azure DNS for apps.example.com.
 
-4. Create a new **NS** record set in the example.com zone that points to **app** and specify the four nameservers that were present when the **apps** zone was created.
+4. Create a new **NS** record set in the example.com zone that points to **apps** and specify the four nameservers that were present when the **apps** zone was created.
 
 ## Create a new Azure Front Door Premium service
 

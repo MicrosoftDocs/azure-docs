@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 09/19/2022
 ms.author: helohr
 manager: femila
 ---
@@ -33,6 +33,12 @@ Signing users out won't deallocate their VMs. To learn how to deallocate VMs, se
 ## Can users turn off the VM from their clients?
 
 Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md) for personal host pools and [Autoscale](autoscale-scaling-plan.md) for pooled host pools.
+
+## How does load balancing affect Start VM on Connect?
+
+For pooled host pools, Start VM on Connect will wait until all virtual machines hit their maximum session limit before turning on additional VMs.
+
+For example, let's say your host pool has three VMs and has a maximum session limit of five users per machine. If you turn on two VMs, Start VM on Connect won't turn on the third machine until both VMs reach their maximum session limit of five users.
 
 ## Next steps
 

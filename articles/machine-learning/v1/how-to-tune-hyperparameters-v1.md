@@ -2,7 +2,7 @@
 title: Hyperparameter tuning a model (v1)
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.(v1)
-ms.author: ssalgado
+ms.author: joburges
 author: ssalgadodev
 services: machine-learning
 ms.service: machine-learning
@@ -487,4 +487,4 @@ Refer to train-hyperparameter-* notebooks in this folder:
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)
-* [Deploy a trained model](../how-to-deploy-and-where.md)
+* [Deploy a trained model](../v1/how-to-deploy-and-where.md)

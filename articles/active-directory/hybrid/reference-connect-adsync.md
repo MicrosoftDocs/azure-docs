@@ -24,15 +24,16 @@ The following documentation provides reference information for the ADSync.psm1 P
  This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
 
  ### SYNTAX
+
   #### byIdentifier
-   ```
+  ```powershell
      Add-ADSyncADDSConnectorAccount [-Identifier] <Guid> [-EACredential <PSCredential>] [<CommonParameters>]
-   ```
+  ```
 
  #### byName
-   ```
+ ```powershell
      Add-ADSyncADDSConnectorAccount [-Name] <String> [-EACredential <PSCredential>] [<CommonParameters>]
-   ```
+ ```
 
  ### DESCRIPTION
  This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
@@ -115,10 +116,10 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
    
-   ```
-     Disable-ADSyncExportDeletionThreshold [[-AADCredential] <PSCredential>] [-WhatIf] [-Confirm]
+ ```powershell
+    Disable-ADSyncExportDeletionThreshold [[-AADCredential] <PSCredential>] [-WhatIf] [-Confirm]
      [<CommonParameters>]
-   ```
+ ```
 
  ### DESCRIPTION
  Disables feature for deletion threshold at Export stage.
@@ -126,9 +127,9 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### EXAMPLES
 
  #### Example 1
-   ```powershell
+ ```powershell
      PS C:\> Disable-ADSyncExportDeletionThreshold -AADCredential $aadCreds
-   ```
+ ```
 
  Uses the provided AAD Credentials to disable the feature for export deletion threshold.
 
@@ -137,7 +138,7 @@ The following documentation provides reference information for the ADSync.psm1 P
   #### -AADCredential
   The AAD credential.
 
-   ```yaml
+  ```yaml
      Type: PSCredential
      Parameter Sets: (All)
      Aliases:
@@ -198,7 +199,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Enable-ADSyncExportDeletionThreshold [-DeletionThreshold] <UInt32> [[-AADCredential] <PSCredential>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
  ```
@@ -299,7 +300,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncAutoUpgrade [-Detail] [<CommonParameters>]
  ``` 
 
@@ -351,30 +352,30 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
  
  #### SearchByIdentifier
- ```
+ ```powershell
  Get-ADSyncCSObject [-Identifier] <Guid> [<CommonParameters>]
  ```
  
  #### SearchByConnectorIdentifierDistinguishedName
- ```
+ ```powershell
  Get-ADSyncCSObject [-ConnectorIdentifier] <Guid> [-DistinguishedName] <String> [-SkipDNValidation] [-Transient]
  [<CommonParameters>]
  ```
 
  #### SearchByConnectorIdentifier
- ```
+ ```powershell
  Get-ADSyncCSObject [-ConnectorIdentifier] <Guid> [-Transient] [-StartIndex <Int32>] [-MaxResultCount <Int32>]
  [<CommonParameters>]
  ```
 
  #### SearchByConnectorNameDistinguishedName
- ```
+ ```powershell
  Get-ADSyncCSObject [-ConnectorName] <String> [-DistinguishedName] <String> [-SkipDNValidation] [-Transient]
  [<CommonParameters>]
  ```
 
  #### SearchByConnectorName
- ```
+ ```powershell
  Get-ADSyncCSObject [-ConnectorName] <String> [-Transient] [-StartIndex <Int32>] [-MaxResultCount <Int32>]
  [<CommonParameters>]
  ```
@@ -531,7 +532,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncCSObjectLog [-Identifier] <Guid> [-Count] <UInt32> [<CommonParameters>]
  ```
  
@@ -597,7 +598,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncDatabaseConfiguration [<CommonParameters>]
  ```
  
@@ -634,7 +635,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncExportDeletionThreshold [[-AADCredential] <PSCredential>] [-WhatIf] [-Confirm] [<CommonParameters>]
  ```
 
@@ -717,7 +718,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncMVObject -Identifier <Guid> [<CommonParameters>]
  ```
 
@@ -768,7 +769,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncRunProfileResult [-RunHistoryId <Guid>] [-ConnectorId <Guid>] [-RunProfileId <Guid>]
  [-RunNumber <Int32>] [-NumberRequested <Int32>] [-RunStepDetails] [-StepNumber <Int32>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
@@ -943,7 +944,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncRunStepResult [-RunHistoryId <Guid>] [-StepHistoryId <Guid>] [-First] [-StepNumber <Int32>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
  ```
@@ -1073,7 +1074,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncScheduler [<CommonParameters>]
  ```
 
@@ -1109,7 +1110,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Get-ADSyncSchedulerConnectorOverride [-ConnectorIdentifier <Guid>] [-ConnectorName <String>]
  [<CommonParameters>]
  ```
@@ -1185,18 +1186,18 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### SearchByDistinguishedName
- ```
+ ```powershell
  Invoke-ADSyncCSObjectPasswordHashSync [-ConnectorName] <String> [-DistinguishedName] <String>
  [<CommonParameters>]
  ```
 
  #### SearchByIdentifier
- ```
+ ```powershell
  Invoke-ADSyncCSObjectPasswordHashSync [-Identifier] <Guid> [<CommonParameters>]
  ```
 
  #### CSObject
- ```
+ ```powershell
  Invoke-ADSyncCSObjectPasswordHashSync [-CsObject] <CsObject> [<CommonParameters>]
  ```
 
@@ -1294,12 +1295,12 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### ConnectorName
- ```
+ ```powershell
  Invoke-ADSyncRunProfile -ConnectorName <String> -RunProfileName <String> [-Resume] [<CommonParameters>]
  ```
 
  #### ConnectorIdentifier
- ```
+ ```powershell
  Invoke-ADSyncRunProfile -ConnectorIdentifier <Guid> -RunProfileName <String> [-Resume] [<CommonParameters>]
  ```
 
@@ -1399,13 +1400,13 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### ServiceAccount
- ```
+ ```powershell
  Remove-ADSyncAADServiceAccount [-AADCredential] <PSCredential> [-Name] <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
  ```
 
  #### ServicePrincipal
- ```
+ ```powershell
  Remove-ADSyncAADServiceAccount [-ServicePrincipal] [-WhatIf] [-Confirm] [<CommonParameters>]
  ```
 
@@ -1522,7 +1523,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Set-ADSyncAutoUpgrade [-AutoUpgradeState] <AutoUpgradeConfigurationState> [[-SuspensionReason] <String>]
  [<CommonParameters>]
  ```
@@ -1591,7 +1592,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Set-ADSyncScheduler [[-CustomizedSyncCycleInterval] <TimeSpan>] [[-SyncCycleEnabled] <Boolean>]
  [[-NextSyncCyclePolicyType] <SynchronizationPolicyType>] [[-PurgeRunHistoryInterval] <TimeSpan>]
  [[-MaintenanceEnabled] <Boolean>] [[-SchedulerSuspended] <Boolean>] [-Force] [<CommonParameters>]
@@ -1744,13 +1745,13 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### ConnectorIdentifier
- ```
+ ```powershell
  Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> [-FullImportRequired <Boolean>]
  [-FullSyncRequired <Boolean>] [<CommonParameters>]
  ```
 
  #### ConnectorName
- ```
+ ```powershell
  Set-ADSyncSchedulerConnectorOverride -ConnectorName <String> [-FullImportRequired <Boolean>]
  [-FullSyncRequired <Boolean>] [<CommonParameters>]
  ```
@@ -1854,12 +1855,12 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### online
- ```
+ ```powershell
  Start-ADSyncPurgeRunHistory [[-PurgeRunHistoryInterval]  <TimeSpan>] [<CommonParameters>]
  ```
 
  #### offline
- ```
+ ```powershell
  Start-ADSyncPurgeRunHistory [-Offline] [<CommonParameters>]
  ```
 
@@ -1925,7 +1926,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Start-ADSyncSyncCycle [[-PolicyType] <SynchronizationPolicyType>] [[-InteractiveMode] <Boolean>]
  [<CommonParameters>]
  ```
@@ -1996,7 +1997,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Stop-ADSyncRunProfile [[-ConnectorName] <String>] [<CommonParameters>]
  ```
 
@@ -2049,7 +2050,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Stop-ADSyncSyncCycle [<CommonParameters>]
  ```
 
@@ -2087,17 +2088,17 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### ConnectorName_ObjectDN
- ```
+ ```powershell
  Sync-ADSyncCSObject -ConnectorName <String> -DistinguishedName <String> [-Commit] [<CommonParameters>]
  ```
 
  #### ConnectorIdentifier_ObjectDN
- ```
+ ```powershell
  Sync-ADSyncCSObject -ConnectorIdentifier <Guid> -DistinguishedName <String> [-Commit] [<CommonParameters>]
  ```
 
  #### ObjectIdentifier
- ```
+ ```powershell
  Sync-ADSyncCSObject -Identifier <Guid> [-Commit] [<CommonParameters>]
  ```
 
@@ -2210,13 +2211,13 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### SYNTAX
 
  #### ByEnvironment
- ```
+ ```powershell
  Test-AdSyncAzureServiceConnectivity [-AzureEnvironment] <Identifier> [[-Service] <AzureService>] [-CurrentUser]
  [<CommonParameters>]
  ```
 
  #### ByTenantName
- ```
+ ```powershell
  Test-AdSyncAzureServiceConnectivity [-Domain] <String> [[-Service] <AzureService>] [-CurrentUser]
  [<CommonParameters>]
  ```
@@ -2322,7 +2323,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  ### SYNTAX
 
- ```
+ ```powershell
  Test-AdSyncUserHasPermissions [-ForestFqdn] <String> [-AdConnectorId] <Guid>
  [-AdConnectorCredential] <PSCredential> [-BaseDn] <String> [-PropertyType] <String> [-PropertyValue] <String>
  [-WhatIf] [-Confirm] [<CommonParameters>]

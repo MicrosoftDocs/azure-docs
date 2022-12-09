@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 09/09/2022
 ---
 
 # .NET (C#) code samples for Azure Cognitive Search
@@ -43,7 +43,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | Samples | Article  |
 |---------|-------------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index ](search-get-started-dotnet.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
-| [search-website](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-csharp-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
+| [search-website](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/search-website-functions-v4) | Source code for [Tutorial: Add search to web apps](tutorial-csharp-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search-howto-dotnet-sdk.md). Steps through the basic workflow, but in more detail and discussion of API usage.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Source code for [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md). Synonym lists are used for query expansion, providing matchable  terms that are external to an index. |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Source code for [Tutorial: Index Azure SQL data using the .NET SDK](search-indexer-tutorial.md). This article shows how to configure an Azure SQL indexer that has a schedule, field mappings, and parameters.  |
@@ -58,7 +58,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Description |
 |---------|-------------|

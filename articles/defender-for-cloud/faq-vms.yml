@@ -7,6 +7,7 @@ metadata:
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
+  ms.custom: ignite-2022
   ms.date: 11/09/2021
 title: FAQ - Questions about virtual machines
 summary: |
@@ -45,10 +46,8 @@ sections:
           
           Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly. 
           
-          > [!NOTE]
-          > Defender for Cloud uses the Log Analytics agent to collect and store data. To learn more, see [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md).
-          
-          
+          Defender for Cloud uses monitoring components to collect and store data. To learn more about [monitoring components](./monitoring-components.md).
+                    
       - question: |
           Why do I get the message "VM Agent is Missing?"
         answer: |

@@ -20,6 +20,28 @@ Host pools are a collection of one or more identical virtual machines (VMs), als
 
 This article will walk you through the setup process for creating a host pool for an Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory (AD) domain or Azure Active Directory (Azure AD) tenant, and register the VMs with Azure Virtual Desktop.
 
+You can create host pools in the following Azure regions:
+
+- Australia East
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+
+>[!IMPORTANT]
+>This list refers to the list of regions where the _metadata_ for the host pool will be stored.  Virtual machines (hosts) in a host pool can be located in any region, as well as [on-premises](azure-stack-hci-overview.md).
+
 ## Prerequisites
 
 Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).

@@ -567,7 +567,7 @@ By building up an Azure Virtual Network, you can define the address range of the
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](https://azure.microsoft.com/documentation/services/virtual-network/).
+More details can be found in [this article][resource-groups-networking] and on [this page](../../../virtual-network/index.yml).
 
 
 > [!NOTE]
@@ -640,7 +640,7 @@ Microsoft Azure ExpressRoute allows the creation of private connections between 
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* [ExpressRoute documentation](https://azure.microsoft.com/documentation/services/expressroute/)
+* [ExpressRoute documentation](../../../expressroute/index.yml)
 * [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
 * [ExpressRoute FAQ](../../../expressroute/expressroute-faqs.md)
 

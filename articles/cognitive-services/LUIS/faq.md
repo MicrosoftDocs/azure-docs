@@ -12,6 +12,9 @@ ms.date: 07/19/2022
 
 # Language Understanding Frequently Asked Questions (FAQ)
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 
 ## What are the maximum limits for LUIS application?
 

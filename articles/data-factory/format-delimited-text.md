@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 11/27/2022
 ms.author: jianleishen
 ---
 
@@ -154,6 +154,12 @@ Supported **delimited text write settings** under `formatSettings`:
 
 In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties), and you can read delimited text format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
+### Inline dataset
+
+Mapping data flows supports "inline datasets" as an option for defining your source and sink. An inline delimited dataset is defined directly inside your source and sink transformations and is not shared outside of the defined dataflow. It is useful for parameterizing dataset properties directly inside your data flow and can benefit from improved performance from shared ADF datasets.
+
+When you are reading large numbers of source folders and files, you can improve the performance of data flow file discovery by setting the option "User projected schema" inside the Projection | Schema options dialog. This option turns off ADF's default schema auto-discovery and will greatly improve the performance of file discovery. Before setting this option, make sure to import the projection so that ADF has an existing schema for projection. This option does not work with schema drift.
+
 ### Source properties
 
 The below table lists the properties supported by a delimited text source. You can edit these properties in the **Source options** tab.
@@ -168,6 +174,7 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+| Maximum columns | The default value is 20480. Customize this value when the column number is over 20480 | no | Integer | maxColumns |
 
 > [!NOTE]
 > Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
@@ -183,13 +190,14 @@ The associated data flow script is:
 ```
 source(
     allowSchemaDrift: true,
-    validateSchema: false,
-    multiLineRow: true,
-    wildcardPaths:['*.csv']) ~> CSVSource
+	validateSchema: false,
+	ignoreNoFilesFound: false,
+	multiLineRow: true,
+	wildcardPaths:['*.csv']) ~> CSVSource
 ```
 
 > [!NOTE]
-> Data flow sources support a limited set of Linux globbing that is support by Hadoop file systems
+> Data flow sources support a limited set of Linux globbing that is supported by Hadoop file systems
 
 ### Sink properties
 

@@ -40,6 +40,7 @@ Another consideration is the address pool size for translation. If the target ad
 > [!IMPORTANT]
 > * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 > * NAT is supported on IPsec cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
+> * Every Dynamic NAT rule can be assigned to a single connection.
 
 ## <a name="mode"></a>NAT mode: ingress & egress
 

@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template.
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 A device template includes the following sections:
 
@@ -45,7 +45,7 @@ IoT Central can automatically assign a device to a device template when the devi
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
-:::image type="content" source="media/concepts-device-templates/model-id.png" alt-text="Screenshot showing model I D in thermostat device template.":::
+:::image type="content" source="media/concepts-device-templates/model-id.png" alt-text="Screenshot showing model ID in thermostat device template." lightbox="media/concepts-device-templates/model-id.png":::
 
 You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) in the public model repository. The model ID definition looks like:
 

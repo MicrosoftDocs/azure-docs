@@ -8,15 +8,15 @@ manager: junwg
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 09/16/2022
 ms.author: jiajzhan
 ---
 
 # SSML phonetic alphabets
 
-Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
+Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup-pronunciation.md#phoneme-element).
 
-Speech service supports the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) suprasegmentals that are listed here. You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
+Speech service supports the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) suprasegmentals that are listed here. You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup-pronunciation.md#phoneme-element). 
 
 |`ipa` | Symbol         | Note|
 |-------|-------------------|-------------------|
@@ -29,7 +29,7 @@ Speech service supports the [International Phonetic Alphabet (IPA)](https://en.w
 > [!TIP]
 > You can use [the international phonetic alphabet keyboard](https://www.internationalphoneticalphabet.org/html-ipa-keyboard-v1/keyboard/) to create the correct `ipa` suprasegmentals.
 
-For some locales, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The eight locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, zh-HK, and zh-TW. For those eight locales, you set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
+For some locales, Speech service defines its own phonetic alphabets, which ordinarily map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The eight locales that support the Microsoft Speech API (SAPI, or `sapi`) are en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, zh-HK, and zh-TW. For those eight locales, you set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup-pronunciation.md#phoneme-element). 
 
 See the sections in this article for the phonemes that are specific to each locale.
 
@@ -60,7 +60,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## en-GB/en-IE/en-AU
 [!INCLUDE [en-GB](./includes/phonetic-sets/text-to-speech/en-gb.md)]
 
-## en-US/en-CA
+## :::no-loc text="en-US/en-CA":::
 [!INCLUDE [en-US](./includes/phonetic-sets/text-to-speech/en-us.md)]
 
 ## es-ES

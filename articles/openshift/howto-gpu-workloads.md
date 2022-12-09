@@ -43,9 +43,13 @@ All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure 
 ARO supports the following GPU workers:
 
 * NC4as T4 v3
+* NC6s v3
 * NC8as T4 v3
+* NC12s v3
 * NC16as T4 v3
-* NC464as T4 v3
+* NC24s v3
+* NC24rs v3
+* NC64as T4 v3
 
 > [!NOTE] 
 > When requesting quota, remember that Azure is per core. To request a single NC4as T4 v3 node, you will need to request quota in groups of 4. If you wish to request an NC16as T4 v3, you will need to request quota of 16.

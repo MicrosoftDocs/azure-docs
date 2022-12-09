@@ -40,8 +40,8 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a VM
 
-1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 17.10 VM**.
+1. Select **+ Create a resource** found on the upper-left corner of the Azure portal.
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 17.10 VM**.
 3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
 
     |Setting|Value|
@@ -76,7 +76,7 @@ If you already have a network watcher enabled in at least one region, skip to [U
 
 Azure automatically creates routes to default destinations. You may create custom routes that override the default routes. Sometimes, custom routes can cause communication to fail. Use the next hop capability of Network Watcher to determine which route Azure is using to route traffic.
 
-1. In the Azure portal, select **Next hop**, under **Network Watcher**.
+1. In the Azure portal, select **Next hop** under **Network Watcher**.
 2. Select your subscription, enter or select the following values, and then select **Next hop**, as shown in the picture that follows:
 
     |Setting                  |Value                                                   |
@@ -89,9 +89,9 @@ Azure automatically creates routes to default destinations. You may create custo
 
     ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
-    After a few seconds, the result informs you that the next hop type is **Internet**, and that the **Route table ID** is **System Route**. This result lets you know that there is a valid system route to the destination.
+    After a few seconds, the result informs you that the next hop type is **Internet** and that the **Route table ID** is **System Route**. This result lets you know that there is a valid system route to the destination.
 
-3. Change the **Destination IP address** to *172.31.0.100* and select **Next hop** again. The result returned informs you that **None** is the **Next hop type**, and that the **Route table ID** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
+3. Change the **Destination IP address** to *172.31.0.100* and select **Next hop** again. The result returned informs you that **None** is the **Next hop type** and that the **Route table ID** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
 
 ## View details of a route
 
@@ -100,9 +100,9 @@ Azure automatically creates routes to default destinations. You may create custo
 
     ![Effective routes](./media/diagnose-vm-network-routing-problem/effective-routes.png)
 
-    When you ran the test using 13.107.21.200 in [Use next hop](#use-next-hop), the route with the address prefix 0.0.0.0/0 was used to route traffic to the address, since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
+    When you ran the test using 13.107.21.200 in [Use next hop](#use-next-hop), the route with the address prefix 0.0.0.0/0 was used to route traffic to the address since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
-    When you ran the test using 172.31.0.100 however, the result informed you that there was no next hop type. As you can see in the previous picture, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **NEXT HOP TYPE** is **None**. Azure creates a default route to 172.16.0.0/12, but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **NEXT HOP TYPE** to **Virtual network** for the route. A check would then show **Virtual network** as the **NEXT HOP TYPE**.
+    However, when you ran the test using 172.31.0.100, the result informed you that there was no next hop type. As you can see in the previous picture, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **NEXT HOP TYPE** is **None**. Azure creates a default route to 172.16.0.0/12 but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **NEXT HOP TYPE** to **Virtual network** for the route. A check would then show **Virtual network** as the **NEXT HOP TYPE**.
 
 ## Clean up resources
 

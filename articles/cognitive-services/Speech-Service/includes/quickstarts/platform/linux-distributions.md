@@ -9,7 +9,7 @@ ms.author: eur
 > [!IMPORTANT]
 > Use the most recent LTS release of the Linux distribution. For example, if you are using Ubuntu 20.04 LTS, use the latest release of Ubuntu 20.04.X.
 
-For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
+The Speech SDK depends on the following Linux system libraries:
 
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
 - The OpenSSL library (`libssl`) version 1.x

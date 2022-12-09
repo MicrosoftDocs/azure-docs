@@ -7,7 +7,7 @@ manager: amycolonino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 09/1/2022
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---
@@ -28,7 +28,7 @@ You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster on
 
 ## Scenario description
 
-Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access.
+Verifiable Credentials can be used to onboard employees, students, citizens, or others to access services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a verifiable credential to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a VC to prove their identity and gain access. Learn more about [account onboarding](./plan-verification-solution.md#account-onboarding). 
 
 
 :::image type="content" source="media/verified-id-partner-au10tix/vc-solution-architecture-diagram.png" alt-text="Diagram of the verifiable credential solution.":::
@@ -48,7 +48,7 @@ As a developer you'll provide the steps below to your tenant administrator. The 
 1. Select on **Select Issuer**.
 1. Look for LexisNexis in the Search/select issuers drop-down. 
    
-   ![Screenshot of the select issuer section of the portal showing LexisNexis as the choice.](media/verified-id-partner-lexisnexis/select-issuer.png)
+   [ ![Screenshot of the select issuer section of the portal showing LexisNexis as the choice.](./media/verified-id-partner-lexisnexis/select-issuer.png)](./media/verified-id-partner-lexisnexis/select-issuer.png#lightbox)
    
 1. Check the credential type you've discussed with LexisNexis Customer success manager for your specific needs.
 1. Choose **Add** and then choose **Review**.
@@ -59,8 +59,8 @@ As a developer you'll provide the steps below to your tenant administrator. The 
 As a developer you now have the request URL and body from your tenant admin, follow these steps to update your application or website:
 
 1. Add the request URL and body to your application or website to request Verified IDs from your users.
-   >[!NOTE]
-   > If you are using [one of the sample apps](https://aka.ms/vcsample) you need to replace the contents of the presentation_request_config.json with the request body obtained.
+   >[!Note]
+   >If you are using [one of the sample apps](https://aka.ms/vcsample), you'll need to replace the contents of the `presentation_request_config.json` with the request body obtained in [Part 1](#part-1). The sample code overwrites the `trustedIssuers` values with `IssuerAuthority` value from `appsettings.json`. Copy the `trustedIssuers` value from the payload to `IssuerAuthority` in `appsettings.json` file.
 1. Replace the values for the "url", "state", and "api-key" with your respective values.
 1. Grant your app [permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to obtain an access token for the Verified ID service request service principal.
 

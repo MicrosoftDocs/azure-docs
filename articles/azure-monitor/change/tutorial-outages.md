@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 08/04/2022
+ms.date: 12/08/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ In this tutorial, you will:
 
 ## Pre-requisites
 
-- Install [.NET 5.0 or above](https://dotnet.microsoft.com/download). 
+- Install [.NET 7.0 or above](https://dotnet.microsoft.com/download). 
 - Install [the Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Set up the test application
@@ -117,7 +117,7 @@ Since the connection string is a secret value, we hide this on the overview page
 
 :::image type="content" source="./media/change-analysis/view-change-details.png" alt-text="Screenshot of viewing change details for troubleshooting.":::
 
-The change details blade also shows important information, including who made the change. 
+The change details pane also shows important information, including who made the change. 
 
 Now that you've discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
 

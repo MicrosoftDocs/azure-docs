@@ -60,6 +60,11 @@ The following quickstarts will help you get started:
 * [Launch your first app](quickstart.md)
 * [Introduction to the sample app](quickstart-sample-app-introduction.md)
 
+The following documents will help you migrate existing Spring Boot apps to Azure Spring Apps:
+
+* [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
+* [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
+
 The following quickstarts apply to Basic/Standard tier only. For Enterprise tier quickstarts, see the next section.
 
 * [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)

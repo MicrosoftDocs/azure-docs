@@ -298,7 +298,7 @@
       - name: Azure Custom Providers
         tocHref: /azure/azure-resource-manager/custom-providers/
         topicHref: /azure/azure-resource-manager/custom-providers/
-  - name: Partner Solutions
+  - name: Azure Native ISV Services
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
@@ -455,9 +455,9 @@
     - name: Speech Service
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
-    - name: Text Analytics
-      tocHref: /azure/cognitive-services/text-analytics/
-      topicHref: /azure/cognitive-services/text-analytics/
+    - name: Language Service
+      tocHref: /azure/cognitive-services/language-service/
+      topicHref: /azure/cognitive-services/language-service/
     - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
@@ -494,6 +494,9 @@
   - name: AKS
     tocHref: /azure/aks/
     topicHref: /azure/aks/
+  - name: Kubernetes Fleet Manager
+    tocHref: /azure/kubernetes-fleet/
+    topicHref: /azure/kubernetes-fleet/
   - name: OpenShift
     tocHref: /azure/openshift/
     topicHref: /azure/openshift/
@@ -507,25 +510,55 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Cosmos DB
+  - name: Azure Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
     items:
-    - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb
-      topicHref: /azure/cosmos-db/mongodb
-    - name: Table API
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/mongodb/cli-samples
+      topicHref: /azure/cosmos-db/mongodb/cli-samples
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/mongodb/powershell-samples
+      topicHref: /azure/cosmos-db/mongodb/powershell-samples
+    - name: Table
       tocHref: /azure/cosmos-db/table/
       topicHref: /azure/cosmos-db/table/
-    - name: Cassandra API
+    - name: Table
+      tocHref: /azure/cosmos-db/table/cli-samples
+      topicHref: /azure/cosmos-db/table/cli-samples
+    - name: Table
+      tocHref: /azure/cosmos-db/table/powershell-samples
+      topicHref: /azure/cosmos-db/table/powershell-samples
+    - name: Apache Cassandra
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
-    - name: Gremlin API
-      tocHref: /azure/cosmos-db/graph/
-      topicHref: /azure/cosmos-db/graph/
-    - name: SQL API
-      tocHref: /azure/cosmos-db/sql/
-      topicHref: /azure/cosmos-db/sql/
+    - name: Apache Cassandra
+      tocHref: /azure/cosmos-db/cassandra/cli-samples
+      topicHref: /azure/cosmos-db/cassandra/cli-samples
+    - name: Apache Cassandra
+      tocHref: /azure/cosmos-db/cassandra/powershell-samples
+      topicHref: /azure/cosmos-db/cassandra/powershell-samples
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/gremlin/
+      topicHref: /azure/cosmos-db/gremlin/
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/gremlin/cli-samples
+      topicHref: /azure/cosmos-db/gremlin/cli-samples
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/gremlin/powershell-samples
+      topicHref: /azure/cosmos-db/gremlin/powershell-samples
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/nosql/
+      topicHref: /azure/cosmos-db/nosql/
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/nosql/cli-samples
+      topicHref: /azure/cosmos-db/nosql/cli-samples
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/nosql/powershell-samples
+      topicHref: /azure/cosmos-db/nosql/powershell-samples
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -554,6 +587,9 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
+  - name: Microsoft Energy Data Services
+    tocHref: /azure/energy-data-services
+    topicHref: /azure/energy-data-services
   - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
@@ -767,7 +803,7 @@
       - name: Firewall Manager
         tocHref: /azure/firewall-manager/
         topicHref: /azure/firewall-manager/
-      - name: DDoS Protection Standard
+      - name: DDoS Protection
         tocHref: /azure/ddos-protection/
         topicHref: /azure/ddos-protection/
       - name: Front Door Service
@@ -977,6 +1013,9 @@
       - name: File Sync
         tocHref: /azure/storage/file-sync/
         topicHref: /azure/storage/file-sync/file-sync-introduction
+      - name: Elastic SAN
+        tocHref: /azure/storage/elastic-san/
+        topicHref: /azure/storage/elastic-san/elastic-san-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -1061,6 +1100,9 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
+    - name: Azure savings plans
+      tocHref: /azure/cost-management-billing/savings-plan
+      topicHref: /azure/cost-management-billing/savings-plan
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
@@ -1092,3 +1134,6 @@
   - name: Dev Box
     tocHref: /azure/dev-box/
     topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box
+  - name: Azure Deployment Environments
+    tocHref: /azure/deployment-environments/
+    topicHref: /azure/deployment-environments/index

@@ -40,8 +40,15 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 | Standard_M64ms_v2   | 64  | 1792 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
 | Standard_M128s_v2   | 128 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
 | Standard_M128ms_v2  | 128 | 3892 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192is_v2  | 192 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+| Standard_M192is_v2<sup>2</sup>  | 192 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
 | Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+
+<sup>1</sup> Msv2 and Mdsv2 medium memory VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
+
+<sup>2</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_M192is_v2** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/2000 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/4000
+
 
 ## Mdsv2 Medium Memory with Disk  
 
