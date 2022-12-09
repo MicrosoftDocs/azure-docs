@@ -8,6 +8,7 @@ ms.service: api-management
 ms.topic: reference
 ms.date: 12/05/2022
 ms.author: danlep
+---
 
 # Validate content
 The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
