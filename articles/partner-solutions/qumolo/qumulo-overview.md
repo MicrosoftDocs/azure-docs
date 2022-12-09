@@ -1,6 +1,6 @@
 ---
-title: Azure Native Qumolo Service overview
-description: Learn about what Azure Native Qumolo Service offers you.
+title: Azure Native Qumulo Service overview
+description: Learn about what Azure Native Qumulo Service offers you.
 ms.topic: overview
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 
@@ -31,4 +31,4 @@ Azure Native Qumulo Scalable File Service provides following capabilities:
 ## Next Steps
 
 - For more help using Azure Native Qumulo Scalable File Service, see the [Qumulo documentation](https://docs.qumulo.com/cloud-guide/azure/).
-- To create an instance of Qumulo, see [QuickStart](qumolo-create.md).
+- To create an instance of Qumulo, see [QuickStart](qumulo-create.md).

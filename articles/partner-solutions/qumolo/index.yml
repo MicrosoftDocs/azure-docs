@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Native Qumolo Service
-summary: Azure Native Qumolo Service provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
+title: Azure Native Qumulo Service
+summary: Azure Native Qumulo Service provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
 
 metadata:
-  title: Azure Native Qumolo Service documentation
-  description: Azure Native Qumolo Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
+  title: Azure Native Qumulo Service documentation
+  description: Azure Native Qumulo Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
   ms.topic: landing-page
   ms.date: 12/31/2022
 
@@ -13,32 +13,32 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Azure Native Qumolo Service
+  - title: About Azure Native Qumulo Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Native Qumolo Service ?
-            url: qumolo-overview.md
+          - text: What is Azure Native Qumulo Service ?
+            url: qumulo-overview.md
       - linkListType: how-to-guide
         links:
-          # - text: Complete the prerequisites for Qumolo
-            # url: qumolo-how-to-configure-prereqs.md
-          - text: Manage the Qumolo  resource with the portal
-            url: qumolo-how-to-manage.md
+          # - text: Complete the prerequisites for Qumulo
+            # url: qumulo-how-to-configure-prereqs.md
+          - text: Manage the Qumulo  resource with the portal
+            url: qumulo-how-to-manage.md
 
   # Card
-  - title: Create Qumolo resource
+  - title: Create Qumulo resource
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a new Qumolo resource
-            url: qumolo-create.md
-          # - text: Link to an existing Qumolo environment
-            # url: qumolo-link-to-existing.md
+          - text: Create a new Qumulo resource
+            url: qumulo-create.md
+          # - text: Link to an existing Qumulo environment
+            # url: qumulo-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Azure Native Qumolo Service
-            url: qumolo-troubleshoot.md
+          - text: Troubleshooting Azure Native Qumulo Service
+            url: qumulo-troubleshoot.md
 
   # Card
 #  - title: Explore reference content
@@ -46,15 +46,15 @@ landingContent:
 #      - linkListType: reference
 #        links:
 #          - text: Python
-#            url: /python/api/overview/azure/qumolo
+#            url: /python/api/overview/azure/qumulo
 #          - text: JavaScript
-#            url: /javascript/api/overview/azure/qumolo
+#            url: /javascript/api/overview/azure/qumulo
 #          - text: .NET
-#            url: /dotnet/api/overview/azure/qumolo
+#            url: /dotnet/api/overview/azure/qumulo
 #          - text: Java
-#            url: /java/api/overview/azure/qumolo
+#            url: /java/api/overview/azure/qumulo
 #          - text: REST API
-#            url: /rest/api/qumolo
+#            url: /rest/api/qumulo
 #          - text: Azure PowerShell
 #            url: 
           

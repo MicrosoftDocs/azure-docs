@@ -1,13 +1,13 @@
 ---
-title: Troubleshooting Azure Native Qumolo Service
-description: This article provides information about troubleshooting Azure Native Qumolo Service.
+title: Troubleshooting Azure Native Qumulo Service
+description: This article provides information about troubleshooting Azure Native Qumulo Service.
 
 ms.topic: conceptual
 ms.date: 12/31/2022
 
 ---
 
-# Troubleshoot Azure Native Qumolo Service
+# Troubleshoot Azure Native Qumulo Service
 
 This article describes how to contact support when working with Azure Native Qumulo Scalable File Service. Before contacting support, see Fix common errors.
 
@@ -16,7 +16,7 @@ This article describes how to contact support when working with Azure Native Qum
 To contact support about the Azure Native Qumulo Scalable File Service, select [**New Support request**](https://aka.ms/partners/Qumulo/Support) in the left pane. Select the link to the Qumulo support website.
 
   Screenshot
-![](media/qumolo-troubleshoot/image12.png)
+![](media/qumulo-troubleshoot/image12.png)
 
 
 ## Fix common errors

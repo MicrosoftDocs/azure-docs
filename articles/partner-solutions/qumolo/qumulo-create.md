@@ -25,7 +25,7 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
      1. Resource group where your delegated subnet is created
      1. Resource group where your Qumulo file system namespace is created.
 
- To [confirm that you have the appropriate access before starting the setup](/azure/role-based-access-control/check-access). For more details about exact permissions, see [Troubleshoot](qumolo-troubleshoot.md).
+ To [confirm that you have the appropriate access before starting the setup](/azure/role-based-access-control/check-access). For more details about exact permissions, see [Troubleshoot](qumulo-troubleshoot.md).
 
 1. Create a delegated subnet.
 
@@ -39,7 +39,7 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
 > [!NOTE]
 >Subnet address range selected should have at lease 256 IP addresses (251 free + 5 Azure reserved addresses /24). Your Qumulo subnet should be in the same region as that of the Qumulo service.
 
-![](media/qumolo-create/image1.png)
+![](media/qumulo-create/image1.png)
 
 ## Find Offer
 
@@ -48,12 +48,12 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
 1. In the Marketplace, search for *Azure Native Qumulo Scalable File Service.*
 1. Select Subscribe.
 
-  ![](media/qumolo-create/image2.png)
+  ![](media/qumulo-create/image2.png)
 
 ## Create a Qumulo resource in Azure
 
 1. You are presented a form to create an Azure Native Qumulo Scalable File Service resource in the working pane.
-    ![](media/qumolo-create/image3.png)
+    ![](media/qumulo-create/image3.png)
     Screenshot
 
 1. Provide the following values
@@ -72,7 +72,7 @@ In this quickstart, you create a new instance of Azure Native Qumulo Scalable Fi
 
 1. Configure networking
 
-    ![](media/qumolo-create/image4.png)
+    ![](media/qumulo-create/image4.png)
     SCREENSHOT
 
 |**Property** |**Description** |
