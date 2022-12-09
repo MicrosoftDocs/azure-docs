@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQs) about the MedTech service - Azure Health Data Services
-description: This document provides answers to the frequently asked questions (FAQs) about the MedTech service.
+description: This article provides answers to the frequently asked questions (FAQs) about the MedTech service.
 services: healthcare-apis
 author: msjasteppe
 ms.custom: references_regions
@@ -18,7 +18,7 @@ Here are some of the frequently asked questions (FAQs) about the MedTech service
 
 ### Where is the MedTech service available?
 
-The MedTech service is available in these regions: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services).
+The MedTech service is available in these Azure regions: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services).
 
 ### Can I use the MedTech service with a different FHIR service other than the Azure Health Data Services FHIR service?
 
