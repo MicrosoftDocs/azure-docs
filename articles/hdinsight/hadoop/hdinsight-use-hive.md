@@ -28,11 +28,11 @@ Use the following table to discover the different ways to use Hive with HDInsigh
 
 | **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, MacOS X, or Windows |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, macOS X, or Windows |
 | [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Any (browser based) |
-| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, MacOS X, or Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, MacOS X, or Windows |
+| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, macOS X, or Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, macOS X, or Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## HiveQL language reference
