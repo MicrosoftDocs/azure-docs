@@ -19,7 +19,7 @@ zone_pivot_groups: enterprise-apps-ms-graph-ms-powershell
 
 In this article, you'll learn how to grant consent on behalf of a single user by using PowerShell.
 
-When a user grants consent for themselves, the following events occur
+When a user grants consent for themselves, the following events more occur
 
 1. A service principal for the client application is created, if it doesn't already exist. A service principal is the instance of an application or a service in your Azure Active Directory (Azure AD) tenant. Access that's granted to the app or service is associated with this service principal object.
 
@@ -44,9 +44,6 @@ Before you start, record the following details from the Azure portal:
 :::zone pivot="msgraph-powershell"
 
 For this example, we'll use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started) to grant consent on behalf of a single user. The client application is [Microsoft Graph Explorer](https://aka.ms/ge), and we grant access to the Microsoft Graph API.
-
-> [!CAUTION] 
-> Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
 
 ```powershell
 # The app for which consent is being granted. In this example, we're granting access
@@ -120,9 +117,9 @@ if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
 
 To grant consent to an application on behalf of one user, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-    You'll need to consent to the following permissions: 
+You'll need to consent to the following permissions: 
 
-    `Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`.
+`Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`.
 
 In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of a single user.
 

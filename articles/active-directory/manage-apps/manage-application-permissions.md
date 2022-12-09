@@ -83,7 +83,7 @@ $spApplicationPermissions | ForEach-Object {
 Remove appRoleAssignments for users or groups to the application using the following scripts.
 
 ```powershell
-Connect-AzureAD -Scopes  "Application.ReadWrite.All", Directory.Read.All, Directory.ReadWrite.All
+Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -132,7 +132,7 @@ Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id  -AppRoleA
 Remove appRoleAssignments for users or groups to the application using the following scripts.
 
 ```powershell
-Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
