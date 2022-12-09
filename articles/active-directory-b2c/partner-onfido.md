@@ -41,7 +41,7 @@ The Onfido integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-  ![Onfido architecture diagram](media/partner-onfido/onfido-architecture-diagram.png)
+   ![Onfido architecture diagram](media/partner-onfido/onfido-architecture-diagram.png)
 
 1. User signs up to create a new account and enters attributes. Azure AD B2C collects the attributes. Onfido client app hosted in Azure AD B2C checks for the user information.
 2. Azure AD B2C calls the middle layer API and passes the attributes.
